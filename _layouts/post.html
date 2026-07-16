@@ -19,15 +19,14 @@ layout: default
   </header>
 
   <p class="affiliate-note">
-    🛒 Este post contém links de afiliados. Se você comprar algo através deles, 
-    podemos ganhar uma comissão sem custo adicional para você.
+    🛒 Este post contém links de afiliados. Se você comprar algo através deles, podemos ganhar uma comissão sem custo adicional para você.
   </p>
 
   <div class="post-content">
     {{ content }}
   </div>
 
-  <hr class="post-divider">
+  {% include related-posts.html %}
 
   <div class="post-footer">
     <a href="{{ site.baseurl }}/" class="btn">← Ver todos os artigos</a>

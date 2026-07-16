@@ -3,26 +3,35 @@ layout: default
 title: Início
 ---
 
-<section class="intro">
-  <h1>🚴 Pedal Data</h1>
-  <p>Reviews, comparativos e guias de compra de ciclismo de estrada</p>
-  <p style="margin-top:12px;font-size:0.85rem;color:#888;">
-    Comparações reais, preços no Brasil, dicas para escolher a bike certa
-  </p>
+<section class="featured-section">
+  {% assign featured = site.posts.first %}
+  <article class="featured-post">
+    <div class="featured-content">
+      <span class="featured-label">Destaque</span>
+      <h2><a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a></h2>
+      <p class="featured-excerpt">{{ featured.description }}</p>
+      <div class="featured-meta">
+        <time>{{ featured.date | date: "%d/%m/%Y" }}</time>
+        {% for tag in featured.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </article>
 </section>
 
-{% assign posts = site.posts %}
-{% if posts.size > 0 %}
-  <ul class="post-list">
-    {% for post in posts %}
-      <li>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          <h2>{{ post.title }}</h2>
+<section class="posts-section">
+  <h2 class="section-title">Últimos Artigos</h2>
+  <div class="post-list">
+    {% for post in paginator.posts %}
+      <article class="post-card">
+        <div class="post-card-body">
+          <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
           <div class="meta">
             <time>{{ post.date | date: "%d/%m/%Y" }}</time>
           </div>
           {% if post.description %}
-            <div class="excerpt">{{ post.description }}</div>
+            <p class="excerpt">{{ post.description }}</p>
           {% endif %}
           {% if post.tags %}
             <div class="tags">
@@ -31,14 +40,11 @@ title: Início
               {% endfor %}
             </div>
           {% endif %}
-        </a>
-      </li>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Ler mais →</a>
+        </div>
+      </article>
     {% endfor %}
-  </ul>
-{% else %}
-  <div style="text-align:center;padding:60px 0;color:#888;">
-    <p style="font-size:3rem;margin-bottom:12px;">🚴</p>
-    <p>Nenhum artigo publicado ainda.</p>
-    <p style="font-size:0.9rem;margin-top:6px;">Em breve: reviews, comparativos e guias de compra.</p>
   </div>
-{% endif %}
+
+  {% include pagination.html %}
+</section>

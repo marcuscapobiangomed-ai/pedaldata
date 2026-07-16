@@ -1,0 +1,16 @@
+{% if page.tags %}
+  {% assign related = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.tags contains page.tags.first" | limit: 3 %}
+  {% if related.size > 0 %}
+  <section class="related-posts">
+    <h3>Artigos Relacionados</h3>
+    <div class="related-grid">
+      {% for post in related %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="related-card">
+          <h4>{{ post.title }}</h4>
+          <span class="related-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+{% endif %}

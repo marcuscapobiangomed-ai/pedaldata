@@ -27,6 +27,10 @@ exclude:
   - Gemfile.lock
   - .gitignore
 
+paginate: 10
+paginate_path: "/page/:num/"
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
