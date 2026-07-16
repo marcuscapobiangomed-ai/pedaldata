@@ -1,31 +1,3 @@
-<header class="site-header" id="siteHeader">
-  <div class="container header-container">
-    <a href="{{ site.baseurl }}/" class="logo">
-      <span class="logo-icon">🚴</span>
-      <span class="logo-text">{{ site.title }}</span>
-    </a>
-
-    <nav class="main-nav" id="mainNav">
-      <a href="{{ site.baseurl }}/" class="nav-link {% if page.url == '/' %}active{% endif %}">Início</a>
-      <a href="{{ site.baseurl }}/categorias" class="nav-link {% if page.url contains '/categorias' %}active{% endif %}">Categorias</a>
-      <a href="{{ site.baseurl }}/sobre" class="nav-link {% if page.url contains '/sobre' %}active{% endif %}">Sobre</a>
-    </nav>
-
-    <div class="header-actions">
-      <button class="search-btn" id="searchToggle" aria-label="Buscar">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </button>
-      <button class="menu-btn" id="menuToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <div class="header-accent"></div>
-</header>
-
 <aside class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
     <span class="mobile-menu-logo">🚴 {{ site.title }}</span>
@@ -38,3 +10,7 @@
   </nav>
 </aside>
 <div class="mobile-overlay" id="mobileOverlay"></div>
+
+<button class="menu-btn menu-btn-fab" id="menuToggle" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>

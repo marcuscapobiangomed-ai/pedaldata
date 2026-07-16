@@ -4,8 +4,15 @@ title: Início
 ---
 
 <section class="hero">
-  <div class="container">
-    <div class="hero-content">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-nav">
+      <a href="{{ site.baseurl }}/" class="hero-nav-link active">Início</a>
+      <a href="{{ site.baseurl }}/categorias" class="hero-nav-link">Categorias</a>
+      <a href="{{ site.baseurl }}/sobre" class="hero-nav-link">Sobre</a>
+    </div>
+
+    <div class="hero-main">
       <div class="hero-icon">🚴</div>
       <h1 class="hero-title">{{ site.title }}</h1>
       <p class="hero-tagline">{{ site.tagline }}</p>
@@ -26,50 +33,65 @@ title: Início
       </div>
     </div>
   </div>
+
+  <div class="hero-scroll">
+    <span>Role para ver os artigos</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
 </section>
 
-<section class="featured-section">
-  {% assign featured = site.posts.first %}
-  <article class="featured-post">
-    <div class="featured-content">
-      <span class="featured-label">Destaque</span>
-      <h2><a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a></h2>
-      <p class="featured-excerpt">{{ featured.description }}</p>
-      <div class="featured-meta">
-        <time>{{ featured.date | date: "%d/%m/%Y" }}</time>
-        {% for tag in featured.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </div>
-  </article>
-</section>
-
-<section class="posts-section">
-  <h2 class="section-title">Últimos Artigos</h2>
-  <div class="post-list">
-    {% for post in paginator.posts %}
-      <article class="post-card">
-        <div class="post-card-body">
-          <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-          <div class="meta">
-            <time>{{ post.date | date: "%d/%m/%Y" }}</time>
-          </div>
-          {% if post.description %}
-            <p class="excerpt">{{ post.description }}</p>
-          {% endif %}
-          {% if post.tags %}
-            <div class="tags">
-              {% for tag in post.tags %}
+<div class="main-container">
+  <div class="container main-grid">
+    <div class="content-area">
+      <section class="featured-section">
+        {% assign featured = site.posts.first %}
+        <article class="featured-post">
+          <div class="featured-content">
+            <span class="featured-label">Destaque</span>
+            <h2><a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a></h2>
+            <p class="featured-excerpt">{{ featured.description }}</p>
+            <div class="featured-meta">
+              <time>{{ featured.date | date: "%d/%m/%Y" }}</time>
+              {% for tag in featured.tags limit:3 %}
                 <span class="tag">{{ tag }}</span>
               {% endfor %}
             </div>
-          {% endif %}
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Ler mais →</a>
-        </div>
-      </article>
-    {% endfor %}
-  </div>
+          </div>
+        </article>
+      </section>
 
-  {% include pagination.html %}
-</section>
+      <section class="posts-section">
+        <h2 class="section-title">Últimos Artigos</h2>
+        <div class="post-list">
+          {% for post in paginator.posts %}
+            <article class="post-card">
+              <div class="post-card-body">
+                <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+                <div class="meta">
+                  <time>{{ post.date | date: "%d/%m/%Y" }}</time>
+                </div>
+                {% if post.description %}
+                  <p class="excerpt">{{ post.description }}</p>
+                {% endif %}
+                {% if post.tags %}
+                  <div class="tags">
+                    {% for tag in post.tags %}
+                      <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Ler mais →</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% include pagination.html %}
+      </section>
+    </div>
+
+    {% include sidebar.html %}
+  </div>
+</div>
