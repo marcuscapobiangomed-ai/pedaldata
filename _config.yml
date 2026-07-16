@@ -1,0 +1,24 @@
+title: "Pedal Data"
+tagline: "Reviews, guias e dicas de ciclismo de estrada"
+description: "Comparativos, reviews e guias de compra de bicicletas de estrada, componentes e acessórios para ciclistas brasileiros"
+url: "https://SEU_USUARIO.github.io"
+baseurl: "/medblog"
+lang: pt-BR
+
+author: "Equipe Pedal Data"
+email: "seu-email@gmail.com"
+
+markdown: kramdown
+highlighter: rouge
+
+permalink: /:year/:month/:title/
+
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

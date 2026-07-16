@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="{{ site.baseurl }}/" class="logo">
+        <span class="logo-icon">🏥</span>
+        <span class="logo-text">{{ site.title }}</span>
+      </a>
+      <nav>
+        <a href="{{ site.baseurl }}/">Início</a>
+        <a href="{{ site.baseurl }}/sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} — Todos os direitos reservados.</p>
+      <p class="disclaimer">
+        ⚕️ Conteúdo educacional baseado em casos clínicos reais. 
+        Não substitui consulta médica presencial.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

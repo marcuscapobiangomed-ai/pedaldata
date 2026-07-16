@@ -1,0 +1,21 @@
+{
+  "name": "pedaldata-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bot WhatsApp + Gemini + GitHub para blog de ciclismo automático",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "post:manual": "node src/manual.js",
+    "batch": "node src/batch.js",
+    "batch:30": "node src/batch.js 1 30"
+  },
+  "dependencies": {
+    "whatsapp-web.js": "^1.26.0",
+    "qrcode-terminal": "^0.12.0",
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.0",
+    "simple-git": "^3.27.0",
+    "puppeteer": "^23.0.0"
+  }
+}
