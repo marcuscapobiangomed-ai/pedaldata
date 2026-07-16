@@ -28,46 +28,20 @@
   var menuClose = document.getElementById('menuClose');
   var mobileMenu = document.getElementById('mobileMenu');
   var mobileOverlay = document.getElementById('mobileOverlay');
-  var searchToggle = document.getElementById('searchToggle');
-  var searchClose = document.getElementById('searchClose');
-  var headerSearch = document.getElementById('headerSearch');
 
   function toggleMenu(open) {
     mobileMenu.classList.toggle('open', open);
     mobileOverlay.classList.toggle('open', open);
     document.body.classList.toggle('menu-open', open);
-    menuToggle.classList.toggle('active', open);
+    if (menuToggle) menuToggle.classList.toggle('active', open);
   }
 
   if (menuToggle) menuToggle.addEventListener('click', function() { toggleMenu(true); });
   if (menuClose) menuClose.addEventListener('click', function() { toggleMenu(false); });
   if (mobileOverlay) mobileOverlay.addEventListener('click', function() { toggleMenu(false); });
 
-  if (searchToggle) {
-    searchToggle.addEventListener('click', function() {
-      var isOpen = headerSearch.classList.toggle('open');
-      searchToggle.classList.toggle('active', isOpen);
-      if (isOpen) {
-        setTimeout(function() {
-          headerSearch.querySelector('.search-input').focus();
-        }, 200);
-      }
-    });
-  }
-
-  if (searchClose) {
-    searchClose.addEventListener('click', function() {
-      headerSearch.classList.remove('open');
-      searchToggle.classList.remove('active');
-    });
-  }
-
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      headerSearch.classList.remove('open');
-      searchToggle.classList.remove('active');
-      toggleMenu(false);
-    }
+    if (e.key === 'Escape') toggleMenu(false);
   });
 })();
 </script>
