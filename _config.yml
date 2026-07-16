@@ -19,6 +19,14 @@ defaults:
     values:
       layout: post
 
+exclude:
+  - bot
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
