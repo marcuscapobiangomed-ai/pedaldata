@@ -1,15 +1,50 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+const MODELS = ["gemini-2.0-flash", "gemini-2.0-flash-001", "gemini-1.5-flash-002", "gemini-1.5-flash"];
+
 export class GeminiAI {
   constructor(apiKey) {
     this.genAI = new GoogleGenerativeAI(apiKey);
-    this.model = this.genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
-      systemInstruction: {
-        role: "user",
-        parts: [{ text: this._systemPrompt() }],
-      },
-    });
+    this.currentModelIndex = 0;
+    this.model = this._initModel(MODELS[0]);
+  }
+
+  _initModel(modelName) {
+    try {
+      return this.genAI.getGenerativeModel({
+        model: modelName,
+        systemInstruction: {
+          role: "user",
+          parts: [{ text: this._systemPrompt() }],
+        },
+      });
+    } catch {
+      return null;
+    }
+  }
+
+  async _tryGenerate(prompt, retries = 3) {
+    for (let attempt = 0; attempt < retries; attempt++) {
+      for (let mi = 0; mi < MODELS.length; mi++) {
+        const model = this._initModel(MODELS[mi]);
+        if (!model) continue;
+        try {
+          const result = await model.generateContent(prompt);
+          return result.response.text();
+        } catch (err) {
+          const isQuota = err.message?.includes("429") || err.message?.includes("quota");
+          const isNotFound = err.message?.includes("404") || err.message?.includes("not found");
+          if (isQuota && attempt < retries - 1) {
+            const wait = Math.pow(2, attempt) * 5000;
+            await new Promise((r) => setTimeout(r, wait));
+            break;
+          }
+          if (isNotFound) continue;
+          if (attempt === retries - 1 && mi === MODELS.length - 1) throw err;
+        }
+      }
+    }
+    throw new Error("Todos os modelos Gemini falharam (cota esgotada). Tente novamente mais tarde.");
   }
 
   _systemPrompt() {
@@ -65,8 +100,7 @@ IDEIA:
 
 Gere o artigo completo em português brasileiro, seguindo o formato especificado. Inclua recomendações de produtos com links de afiliados Amazon Brasil quando relevante.`;
 
-    const result = await this.model.generateContent(prompt);
-    const text = result.response.text();
+    const text = await this._tryGenerate(prompt);
 
     return this._parseResponse(text);
   }
