@@ -2,22 +2,22 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>{{ site.title }}</h4>
+        <span class="footer-logo">PEDAL<span>.</span>DATA</span>
         <p>{{ site.tagline }}</p>
       </div>
       <div class="footer-col">
-        <h4>Links</h4>
+        <h4>Navegação</h4>
         <a href="{{ site.baseurl }}/">Início</a>
         <a href="{{ site.baseurl }}/categorias">Categorias</a>
         <a href="{{ site.baseurl }}/sobre">Sobre</a>
       </div>
       <div class="footer-col">
-        <h4>Disclaimer</h4>
-        <p class="disclaimer">Este site contém links de afiliados. Podemos ganhar comissão sem custo adicional para você.</p>
+        <h4>Aviso</h4>
+        <p>Este site participa de programas de afiliados. Podemos ganhar comissão sem custo adicional para você.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} — Todos os direitos reservados.</p>
+      &copy; {{ site.time | date: "%Y" }} {{ site.author }} — Todos os direitos reservados.
     </div>
   </div>
 </footer>
@@ -25,23 +25,21 @@
 <script>
 (function() {
   var menuToggle = document.getElementById('menuToggle');
-  var menuClose = document.getElementById('menuClose');
+  var menuClose  = document.getElementById('menuClose');
   var mobileMenu = document.getElementById('mobileMenu');
-  var mobileOverlay = document.getElementById('mobileOverlay');
+  var overlay    = document.getElementById('mobileOverlay');
 
   function toggleMenu(open) {
+    if (!mobileMenu) return;
     mobileMenu.classList.toggle('open', open);
-    mobileOverlay.classList.toggle('open', open);
+    if (overlay) overlay.classList.toggle('open', open);
     document.body.classList.toggle('menu-open', open);
     if (menuToggle) menuToggle.classList.toggle('active', open);
   }
 
   if (menuToggle) menuToggle.addEventListener('click', function() { toggleMenu(true); });
-  if (menuClose) menuClose.addEventListener('click', function() { toggleMenu(false); });
-  if (mobileOverlay) mobileOverlay.addEventListener('click', function() { toggleMenu(false); });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') toggleMenu(false);
-  });
+  if (menuClose)  menuClose.addEventListener('click',  function() { toggleMenu(false); });
+  if (overlay)    overlay.addEventListener('click',    function() { toggleMenu(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') toggleMenu(false); });
 })();
 </script>

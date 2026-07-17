@@ -4,8 +4,8 @@
     <ul class="recent-posts">
       {% for post in site.posts limit:5 %}
         <li>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          <span class="post-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncate: 55 }}</a>
+          <span class="post-date">{{ post.date | date: "%d %b %Y" | downcase }}</span>
         </li>
       {% endfor %}
     </ul>

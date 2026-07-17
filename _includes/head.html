@@ -1,14 +1,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }} | {{ site.title }}</title>
+<title>{% if page.title == "Início" %}{{ site.title }} — {{ site.tagline }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 <meta name="author" content="{{ page.author | default: site.author }}">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="{{ site.baseurl }}/assets/img/logo.svg" type="image/svg+xml">
-{% seo %}
 
+<!-- Fontes: Barlow Condensed (títulos) + Inter (corpo) + JetBrains Mono (dados técnicos) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+<link rel="icon" href="{{ site.baseurl }}/assets/img/logo.svg" type="image/svg+xml">
+
+{% seo %}
 {% include analytics.html %}
 
 {% if page.layout == "post" %}

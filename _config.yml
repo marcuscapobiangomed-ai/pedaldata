@@ -14,18 +14,23 @@ social:
   name: Pedal Data
   links:
     - https://www.instagram.com/pedaldata
+    # - https://www.youtube.com/@pedaldata  # adicionar quando criar canal
 
 webmaster_verifications:
-  google: # Cole seu código de verificação Google Search Console aqui
-  bing:
-  yandex:
+  google: # PREENCHER: cole aqui o código de verificação do Google Search Console
+  bing:   # PREENCHER: código Bing Webmaster (opcional)
+  yandex: # PREENCHER: código Yandex (opcional)
 
-google_analytics: # Sua Measurement ID (ex: G-XXXXXXXXXX)
+google_analytics: # PREENCHER: cole aqui sua Measurement ID (ex: G-XXXXXXXXXX)
+                  # Crie em analytics.google.com → Admin → Criar Propriedade
 
 markdown: kramdown
 highlighter: rouge
 
 permalink: /:year/:month/:title/
+
+# Metadados extras por post (usado no redesign)
+# Adicionar nos posts: reading_time, image, image_alt, image_credit
 
 defaults:
   - scope:

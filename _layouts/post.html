@@ -1,54 +1,97 @@
 ---
 layout: default
 ---
-<div class="container main-grid">
-  <div class="content-area">
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="{{ site.baseurl }}/">Início</a>
-      <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-current">{{ page.title }}</span>
-    </nav>
+<div class="post-layout">
+  <div class="container post-grid">
+    <article class="post-main" itemscope itemtype="https://schema.org/Article">
 
-    <article class="post" itemscope itemtype="https://schema.org/Article">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="{{ site.baseurl }}/">Início</a>
+        <span class="breadcrumb-sep">›</span>
+        {% if page.tags.first %}
+          <a href="{{ site.baseurl }}/categorias#{{ page.tags.first | slugify }}">{{ page.tags.first }}</a>
+          <span class="breadcrumb-sep">›</span>
+        {% endif %}
+        <span class="breadcrumb-current">{{ page.title | truncate: 40 }}</span>
+      </nav>
+
+      <!-- Header do post -->
       <header class="post-header">
+        {% if page.tags.first %}
+          <span class="post-tag">{{ page.tags.first }}</span>
+        {% endif %}
+
         <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+
         <div class="post-meta">
-          <span class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-            Por <span itemprop="name">{{ page.author | default: site.author }}</span>
+          <span class="post-meta-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="author-avatar-sm" aria-hidden="true">
+              {{ page.author | default: site.author | truncate: 2, "" | upcase }}
+            </span>
+            <span itemprop="name">{{ page.author | default: site.author }}</span>
           </span>
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%d/%m/%Y" }}
-          </time>
-          {% if page.tags %}
-            <div class="post-tags">
-              {% for tag in page.tags %}
-                <span class="tag" itemprop="keywords">{{ tag }}</span>
-              {% endfor %}
-            </div>
-          {% endif %}
+
+          <span class="post-meta-date">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {{ page.date | date: "%d %b %Y" | downcase }}
+            </time>
+          </span>
+
+          {% assign words = content | number_of_words %}
+          {% assign reading_time = words | divided_by: 200 %}
+          {% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+          <span class="post-meta-reading">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ reading_time }} min de leitura
+          </span>
         </div>
       </header>
 
+      <!-- Hero image -->
+      <div class="post-hero-img" itemprop="image">
+        {% if page.image and page.image != "/assets/img/logo.svg" %}
+          <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager">
+        {% endif %}
+      </div>
+
+      <!-- Nota de afiliado -->
       <p class="affiliate-note">
-        🛒 Este post contém links de afiliados. Se você comprar algo através deles, podemos ganhar uma comissão sem custo adicional para você.
+        🛒 Este post pode conter links de afiliados. Se você comprar através deles, recebemos uma comissão sem custo adicional para você.
       </p>
 
+      <!-- Conteúdo -->
       <div class="post-content" itemprop="articleBody">
         {{ content }}
       </div>
 
-      {% include faq-schema.html %}
+      <!-- Card Autor -->
+      <div class="author-card">
+        <div class="author-avatar" aria-hidden="true">
+          {{ page.author | default: site.author | truncate: 2, "" | upcase }}
+        </div>
+        <div>
+          <div class="author-name">{{ page.author | default: site.author }}</div>
+          <div class="author-bio">Ciclistas apaixonados que testam, pesquisam e comparam bikes no mercado brasileiro.</div>
+        </div>
+      </div>
+
+      <!-- Posts relacionados -->
       {% include related-posts.html %}
 
+      <!-- Footer do post -->
       <div class="post-footer">
-        <a href="{{ site.baseurl }}/" class="btn">← Ver todos os artigos</a>
+        <a href="{{ site.baseurl }}/" class="btn-outline btn">← Ver todos os artigos</a>
       </div>
-    </article>
-  </div>
 
-  {% include sidebar.html %}
+    </article>
+
+    {% include sidebar.html %}
+  </div>
 </div>
 
+<!-- Schema: BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,3 +102,5 @@ layout: default
   ]
 }
 </script>
+
+{% include faq-schema.html %}

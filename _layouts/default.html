@@ -4,6 +4,22 @@
   {% include head.html %}
 </head>
 <body>
+  <nav class="site-nav">
+    <div class="container site-nav-inner">
+      <a href="{{ site.baseurl }}/" class="site-logo">PEDAL<span>.</span>DATA</a>
+      <ul class="nav-links">
+        <li><a href="{{ site.baseurl }}/categorias#review">Reviews</a></li>
+        <li><a href="{{ site.baseurl }}/categorias#guia-de-compra">Guias de Compra</a></li>
+        <li><a href="{{ site.baseurl }}/categorias#comparação">Comparativos</a></li>
+        <li><a href="{{ site.baseurl }}/sobre">Sobre</a></li>
+      </ul>
+      <button class="menu-btn" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <hr class="nav-divider">
+
   {% include header.html %}
 
   <main>

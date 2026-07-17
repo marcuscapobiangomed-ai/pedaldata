@@ -1,16 +1,14 @@
-<aside class="mobile-menu" id="mobileMenu">
+<aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-menu-header">
-    <span class="mobile-menu-logo">🚴 {{ site.title }}</span>
-    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <span class="mobile-menu-logo">PEDAL<span>.</span>DATA</span>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Fechar menu">✕</button>
   </div>
   <nav class="mobile-menu-nav">
     <a href="{{ site.baseurl }}/" class="mobile-nav-link">Início</a>
-    <a href="{{ site.baseurl }}/categorias" class="mobile-nav-link">Categorias</a>
+    <a href="{{ site.baseurl }}/categorias#review" class="mobile-nav-link">Reviews</a>
+    <a href="{{ site.baseurl }}/categorias#guia-de-compra" class="mobile-nav-link">Guias de Compra</a>
+    <a href="{{ site.baseurl }}/categorias#comparação" class="mobile-nav-link">Comparativos</a>
     <a href="{{ site.baseurl }}/sobre" class="mobile-nav-link">Sobre</a>
   </nav>
 </aside>
 <div class="mobile-overlay" id="mobileOverlay"></div>
-
-<button class="menu-btn menu-btn-fab" id="menuToggle" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>

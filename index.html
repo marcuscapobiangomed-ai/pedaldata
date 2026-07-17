@@ -3,124 +3,156 @@ layout: default
 title: Início
 ---
 
-<div class="hero-bar" id="heroBar">
-  <div class="container hero-bar-inner">
-    <a href="{{ site.baseurl }}/" class="hero-bar-logo">🚴 Pedal Data</a>
-    <nav class="hero-bar-nav">
-      <a href="{{ site.baseurl }}/" class="hero-bar-link">Início</a>
-      <a href="{{ site.baseurl }}/categorias" class="hero-bar-link">Categorias</a>
-      <a href="{{ site.baseurl }}/sobre" class="hero-bar-link">Sobre</a>
-    </nav>
-  </div>
-</div>
-
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-main">
-      <div class="hero-icon">🚴</div>
-      <h1 class="hero-title">{{ site.title }}</h1>
-      <p class="hero-tagline">{{ site.tagline }}</p>
-
-      <form role="search" class="hero-search" onsubmit="event.preventDefault(); window.location.href='{{ site.baseurl }}/categorias#' + encodeURIComponent(this.q.value)">
-        <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="search" name="q" class="hero-search-input" placeholder="Buscar artigos..." autocomplete="off">
-        <button type="submit" class="hero-search-btn">Buscar</button>
-      </form>
-
-      <div class="hero-categories">
-        {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
-        {% for tag in all_tags limit:10 %}
-          <a href="{{ site.baseurl }}/categorias#{{ tag | slugify }}" class="hero-chip">{{ tag }}</a>
-        {% endfor %}
-      </div>
+<!-- ── Hero Destaque ─────────────────────────────────────── -->
+{% assign featured = site.posts | first %}
+<section class="home-hero">
+  <div class="container">
+    {% if featured.tags.first %}
+      <span class="hero-label">{{ featured.tags.first }}</span>
+    {% endif %}
+    <h2 class="hero-title">
+      <a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a>
+    </h2>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <span class="hero-meta-dot"></span>
+        {{ featured.author | default: site.author }}
+      </span>
+      <span class="hero-meta-item">
+        <span class="hero-meta-dot"></span>
+        <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%d %b %Y" | downcase }}</time>
+      </span>
+      {% assign words = featured.content | number_of_words %}
+      {% assign rt = words | divided_by: 200 %}
+      {% if rt < 1 %}{% assign rt = 1 %}{% endif %}
+      <span class="hero-meta-item">
+        <span class="hero-meta-dot"></span>
+        {{ rt }} min de leitura
+      </span>
     </div>
-  </div>
-
-  <div class="hero-scroll">
-    <span>Role para ver os artigos</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
   </div>
 </section>
 
-<div class="main-container" id="mainContent">
-  <div class="container main-grid">
-    <div class="content-area">
-      <section class="featured-section">
-        {% assign featured = site.posts.first %}
-        <article class="featured-post">
-          <div class="featured-content">
-            <span class="featured-label">Destaque</span>
-            <h2><a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a></h2>
-            <p class="featured-excerpt">{{ featured.description }}</p>
-            <div class="featured-meta">
-              <time>{{ featured.date | date: "%d/%m/%Y" }}</time>
-              {% for tag in featured.tags limit:3 %}
-                <span class="tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
+<!-- ── Conteúdo principal ────────────────────────────────── -->
+<div class="home-main">
+  <div class="container home-grid">
+    <div class="home-content">
+
+      <!-- Guias de Compra -->
+      {% assign guias = site.posts | where_exp: "p", "p.tags contains 'guia-de-compra'" | limit: 3 %}
+      {% if guias.size > 0 %}
+      <div class="section-header">
+        <span class="section-title">Guias de Compra</span>
+        <a href="{{ site.baseurl }}/categorias#guia-de-compra" class="section-link">ver todos →</a>
+      </div>
+      <div class="cards-grid">
+        {% for post in guias %}
+          <article class="post-card">
+            {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+            <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+            {% if post.description %}
+              <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Fallback: se não houver guias suficientes, mostra últimos posts em cards -->
+      {% assign guias_count = guias.size %}
+      {% if guias_count < 3 %}
+      {% unless guias_count > 0 %}
+      <div class="section-header">
+        <span class="section-title">Artigos em Destaque</span>
+        <a href="{{ site.baseurl }}/categorias" class="section-link">ver todos →</a>
+      </div>
+      <div class="cards-grid">
+        {% for post in site.posts limit: 3 %}
+          <article class="post-card">
+            {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+            <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+            {% if post.description %}
+              <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+      {% endunless %}
+      {% endif %}
+
+      <hr class="section-divider">
+
+      <!-- Últimas Notícias / Posts recentes -->
+      <div class="section-header">
+        <span class="section-title">Últimas Notícias</span>
+        <a href="{{ site.baseurl }}/categorias" class="section-link">ver todos →</a>
+      </div>
+      <div class="news-list">
+        {% for post in paginator.posts limit: 5 %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
+          <div class="news-thumb"></div>
+          <div>
+            <div class="news-title">{{ post.title }}</div>
+            <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>
           </div>
-        </article>
-      </section>
+        </a>
+        {% endfor %}
+      </div>
 
-      <section class="posts-section">
-        <h2 class="section-title">Últimos Artigos</h2>
-        <div class="post-list">
-          {% for post in paginator.posts %}
-            <article class="post-card">
-              <div class="post-card-body">
-                <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-                <div class="meta">
-                  <time>{{ post.date | date: "%d/%m/%Y" }}</time>
-                </div>
-                {% if post.description %}
-                  <p class="excerpt">{{ post.description }}</p>
-                {% endif %}
-                {% if post.tags %}
-                  <div class="tags">
-                    {% for tag in post.tags %}
-                      <span class="tag">{{ tag }}</span>
-                    {% endfor %}
-                  </div>
-                {% endif %}
-                <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Ler mais →</a>
-              </div>
-            </article>
-          {% endfor %}
+      <hr class="section-divider">
+
+      <!-- Reviews em Destaque -->
+      {% assign reviews = site.posts | where_exp: "p", "p.tags contains 'review'" | limit: 4 %}
+      {% if reviews.size > 0 %}
+      <div class="section-header">
+        <span class="section-title">Reviews em Destaque</span>
+        <a href="{{ site.baseurl }}/categorias#review" class="section-link">ver todos →</a>
+      </div>
+      <div class="reviews-grid">
+        {% for post in reviews %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class="review-card">
+            <div class="review-card-title">{{ post.title }}</div>
+            <div class="review-card-specs">
+              {% if post.weight %}<span class="review-spec">{{ post.weight }}</span>{% endif %}
+              {% if post.price %}<span class="review-spec">{{ post.price }}</span>{% endif %}
+              {% unless post.weight or post.price %}
+                <span class="review-spec">{{ post.date | date: "%d %b %Y" | downcase }}</span>
+              {% endunless %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Posts mais recentes (paginados) - listagem completa -->
+      <div class="section-header" style="margin-top:32px;">
+        <span class="section-title">Todos os Artigos</span>
+      </div>
+      <div class="news-list">
+        {% for post in paginator.posts %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
+          <div class="news-thumb"></div>
+          <div>
+            <div class="news-title">{{ post.title }}</div>
+            <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      {% include pagination.html %}
+
+      <!-- CTA Newsletter -->
+      <div class="newsletter-cta">
+        <div class="newsletter-text">
+          <strong>Receba os melhores guias de compra por e-mail</strong>
+          <span>Sem spam, um resumo por semana</span>
         </div>
+        <a href="#" class="newsletter-btn" onclick="return false;">Assinar</a>
+      </div>
 
-        {% include pagination.html %}
-      </section>
-    </div>
+    </div><!-- /.home-content -->
 
     {% include sidebar.html %}
-  </div>
-</div>
-
-<script>
-(function() {
-  var hero = document.getElementById('hero');
-  var heroBar = document.getElementById('heroBar');
-  var menuBtn = document.getElementById('menuToggle');
-  var ticking = false;
-
-  function updateBar() {
-    var heroBottom = hero.offsetTop + hero.offsetHeight;
-    var pastHero = window.scrollY > heroBottom - 60;
-    heroBar.classList.toggle('visible', pastHero);
-    if (menuBtn) menuBtn.style.display = pastHero ? 'none' : '';
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(updateBar);
-      ticking = true;
-    }
-  });
-})();
-</script>
+  </div><!-- /.home-grid -->
+</div><!-- /.home-main -->
