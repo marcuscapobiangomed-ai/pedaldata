@@ -17,12 +17,9 @@ social:
     # - https://www.youtube.com/@pedaldata  # adicionar quando criar canal
 
 webmaster_verifications:
-  google: # PREENCHER: cole aqui o código de verificação do Google Search Console
-  bing:   # PREENCHER: código Bing Webmaster (opcional)
-  yandex: # PREENCHER: código Yandex (opcional)
+  google: googleae077bce8e335daa
 
-google_analytics: # PREENCHER: cole aqui sua Measurement ID (ex: G-XXXXXXXXXX)
-                  # Crie em analytics.google.com → Admin → Criar Propriedade
+google_analytics: G-DHD86P6XDZ
 
 markdown: kramdown
 highlighter: rouge

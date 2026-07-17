@@ -1,8 +1,10 @@
 export class AIProvider {
+  constructor() {
     this.deepseekKey = process.env.DEEPSEEK_API_KEY;
     this.geminiKey = process.env.GEMINI_API_KEY;
     this.githubToken = process.env.GITHUB_TOKEN;
   }
+
 
   async generate(systemPrompt, userPrompt) {
     if (this.deepseekKey) {
