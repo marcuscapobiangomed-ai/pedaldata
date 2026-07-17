@@ -52,7 +52,7 @@ layout: default
       <!-- Hero image -->
       <div class="post-hero-img" itemprop="image">
         {% if page.image and page.image != "/assets/img/logo.svg" %}
-          <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager">
+          <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" loading="lazy">
         {% endif %}
       </div>
 
