@@ -6,7 +6,7 @@ tags: [ciclismo, bicicletas, bikes de estrada]
 description: "Um guia completo com as melhores bikes de estrada até R$ 10.000 para ciclistas em 2026."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/trek-road-bike.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

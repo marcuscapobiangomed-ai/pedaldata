@@ -6,7 +6,7 @@ tags: [ciclismo, pedais clipless, iniciantes]
 description: "Descubra os melhores pedais clipless para iniciantes em 2026 e escolha o modelo ideal para sua bicicleta de estrada."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/cycling-accessories.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

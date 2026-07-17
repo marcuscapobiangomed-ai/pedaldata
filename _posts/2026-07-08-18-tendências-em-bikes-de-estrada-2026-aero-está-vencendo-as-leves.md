@@ -6,7 +6,7 @@ tags: [ciclismo, bicicletas, tendências]
 description: "Descubra se as bikes aerodinâmicas estão superando as leves em 2026 e o que os dados nos mostram sobre essa evolução."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/trek-road-bike.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

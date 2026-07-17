@@ -6,7 +6,7 @@ tags: [componentes de bike, tecnologia, ciclismo]
 description: "Descubra as inovações em componentes de bicicletas em 2026, como grupos eletrônicos, rodas de carbono e sensores de potência."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/cycling-accessories.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

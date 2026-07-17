@@ -6,7 +6,7 @@ tags: [ciclismo, aplicativos, treino, comparação]
 description: "Descubra os melhores apps de treino para ciclismo em 2026: Zwift, TrainerRoad, TrainingPeaks e MyWhoosh comparados."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/cycling-accessories.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

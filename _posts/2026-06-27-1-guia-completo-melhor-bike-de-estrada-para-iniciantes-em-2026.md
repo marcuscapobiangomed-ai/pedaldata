@@ -6,7 +6,7 @@ tags: [ciclismo, bike de estrada, iniciantes]
 description: "Descubra as melhores bicicletas de estrada para iniciantes em 2026, com opções que variam de R$ 3.000 a R$ 8.000."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/trek-road-bike.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

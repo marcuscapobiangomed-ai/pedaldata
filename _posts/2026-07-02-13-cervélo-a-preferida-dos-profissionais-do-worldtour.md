@@ -6,7 +6,7 @@ tags: [Cervélo, ciclismo, bicicletas de estrada]
 description: "Descubra por que a Cervélo é a escolha dos profissionais do WorldTour. História, modelos e recomendações."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/scott-addict-foil.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

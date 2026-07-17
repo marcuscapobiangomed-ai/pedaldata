@@ -6,7 +6,7 @@ tags: [bikes, lançamentos, ciclismo]
 description: "Descubra o que as principais marcas de bicicletas de estrada estão preparando para 2026 e quais tendências você não pode perder."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/specialized-tarmac-sl8.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

@@ -6,7 +6,7 @@ tags: [manutenção, bike de estrada, ciclistas amadores]
 description: "Descubra dicas essenciais de manutenção para sua bike de estrada e aprenda a cuidar melhor do seu equipamento."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/cycling-accessories.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

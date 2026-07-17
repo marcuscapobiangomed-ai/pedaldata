@@ -6,7 +6,7 @@ tags: [WorldTour, ciclismo, equipamentos]
 description: "Descubra as bicicletas e componentes que as equipes do WorldTour estão utilizando em 2026."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/scott-addict-foil.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"

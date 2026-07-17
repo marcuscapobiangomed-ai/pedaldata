@@ -6,7 +6,7 @@ tags: [bicicletas, ciclismo, compra]
 description: "Descubra as vantagens e desvantagens de comprar uma bicicleta de estrada nova ou usada e saiba quanto vale investir em uma seminova no Brasil."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
+image: "/assets/img/posts/trek-road-bike.png"
 image_alt: "Logo Pedal Data"
 weight: "Não informado"
 price: "Não informado"
