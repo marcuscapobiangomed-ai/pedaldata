@@ -3,7 +3,18 @@ layout: default
 title: Início
 ---
 
-<section class="hero">
+<div class="hero-bar" id="heroBar">
+  <div class="container hero-bar-inner">
+    <a href="{{ site.baseurl }}/" class="hero-bar-logo">🚴 Pedal Data</a>
+    <nav class="hero-bar-nav">
+      <a href="{{ site.baseurl }}/" class="hero-bar-link">Início</a>
+      <a href="{{ site.baseurl }}/categorias" class="hero-bar-link">Categorias</a>
+      <a href="{{ site.baseurl }}/sobre" class="hero-bar-link">Sobre</a>
+    </nav>
+  </div>
+</div>
+
+<section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-main">
@@ -36,7 +47,7 @@ title: Início
   </div>
 </section>
 
-<div class="main-container">
+<div class="main-container" id="mainContent">
   <div class="container main-grid">
     <div class="content-area">
       <section class="featured-section">
@@ -89,3 +100,27 @@ title: Início
     {% include sidebar.html %}
   </div>
 </div>
+
+<script>
+(function() {
+  var hero = document.getElementById('hero');
+  var heroBar = document.getElementById('heroBar');
+  var menuBtn = document.getElementById('menuToggle');
+  var ticking = false;
+
+  function updateBar() {
+    var heroBottom = hero.offsetTop + hero.offsetHeight;
+    var pastHero = window.scrollY > heroBottom - 60;
+    heroBar.classList.toggle('visible', pastHero);
+    if (menuBtn) menuBtn.style.display = pastHero ? 'none' : '';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateBar);
+      ticking = true;
+    }
+  });
+})();
+</script>
