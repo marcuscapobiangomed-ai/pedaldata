@@ -14,13 +14,13 @@ const ai = new AIProvider();
 const publisher = new GitHubPublisher();
 
 async function handleMessage({ from, body, reply }) {
-  console.log(`📩 Caso recebido: "${body.substring(0, 60)}..."`);
+  console.log(`📩 Pedido de post recebido: "${body.substring(0, 60)}..."`);
 
   await reply(
-    `👨‍⚕️ *Recebi seu caso clínico!*\n\n` +
+    `🚴 *Recebi sua sugestão de post de bike!*\n\n` +
     `⏳ Processando com IA Gemini...\n` +
-    `📝 Gerando artigo...\n` +
-    `🚀 Publicando no blog...`
+    `📝 Gerando artigo técnico...\n` +
+    `🚀 Publicando no blog (via GitHub API)...`
   );
 
   try {
@@ -28,27 +28,27 @@ async function handleMessage({ from, body, reply }) {
 
     const postUrl = await publisher.publishPost(post.content, post.slug);
 
-    console.log(`✅ Post publicado: ${post.title}`);
+    console.log(`✅ Post publicado no GitHub: ${post.title}`);
 
     await reply(
-      `✅ *Artigo publicado com sucesso!*\n\n` +
+      `✅ *Artigo de ciclismo publicado com sucesso!*\n\n` +
       `📄 *Título:* ${post.title}\n` +
       `🏷️ *Tags:* ${post.tags.join(", ")}\n\n` +
       `🔗 *Link:* ${postUrl}\n\n` +
-      `📝 *Nota:* verifique o post e edite se necessário no GitHub.`
+      `📝 *Nota:* O GitHub Pages demora cerca de 1-2 minutos para atualizar o visual no ar.`
     );
   } catch (err) {
     console.error("❌ Erro:", err.message);
     await reply(
       `❌ *Erro ao processar:* ${err.message}\n\n` +
-      `Verifique o .env e tente novamente.`
+      `Verifique o arquivo .env e a chave do Gemini/GitHub e tente novamente.`
     );
   }
 }
 
 async function main() {
   console.log("=".repeat(45));
-  console.log("🏥 MedBlog Bot v2.0 — 100% Gratuito");
+  console.log("🚴 Pedal Data Bot v2.0 — 100% Gratuito");
   console.log("=".repeat(45));
   console.log(`🤖 Gemini AI + GitHub Pages`);
   console.log(`📡 Blog: ${process.env.BLOG_URL || "https://" + process.env.GITHUB_USER + ".github.io/" + process.env.GITHUB_REPO}`);

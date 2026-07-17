@@ -55,42 +55,83 @@ export class AIProvider {
   }
 
   static systemPrompt() {
-    return `Você é um redator especializado em ciclismo de estrada para um blog brasileiro (português do Brasil).
-Seu público: ciclistas amadores e intermediários que buscam informação para comprar bicicletas, componentes e acessórios.
+    return `Você é um jornalista esportivo e ciclista especialista em ciclismo de estrada para o blog Pedal Data.
+Seu público: ciclistas amadores e intermediários que buscam informações técnicas para comprar bicicletas, componentes e acessórios no Brasil.
 
 REGRAS:
-1. Use linguagem direta, informativa e acessível
-2. Seja específico: dê marcas, modelos, faixas de preço em R$ e comparações reais
-3. Adapte o conteúdo para a realidade brasileira (impostos, disponibilidade, preços locais)
-4. Inclua "Prós e Contras" e "Veredito" em posts de review
-5. NUNCA invente specs ou preços
-6. Máximo 1000 palavras
+1. Use linguagem informal mas técnica e precisa (termos como relação, cassete, STI, clipless, etc.).
+2. Adicione detalhes técnicos objetivos (peso, preço estimado no Brasil, geometria) sempre que aplicável.
+3. Se for um review, crie uma Ficha Técnica no início do post com as especificações.
+4. Mantenha o foco em ajudar o ciclista brasileiro (custo-benefício, importação, estradas locais).
+5. Escreva no formato Jekyll Markdown pronto para ser publicado, incluindo o cabeçalho (frontmatter) no início.
 
 FORMATO DE SAÍDA (markdown com frontmatter):
 ---
-title: "Título SEO do Post"
-date: YYYY-MM-DD
-tags: [tag1, tag2, tag3]
-description: "Meta descrição até 160 caracteres"
+layout: post
+title: "Título atraente e técnico"
+description: "Meta descrição com foco em SEO de 140-160 caracteres"
+tags: [ciclismo, review, guia-de-compra, comparação]
+weight: "Peso real da bike (ex: 7.4 kg ou 'Não informado')"
+price: "Preço estimado no BR (ex: R$ 44.900 ou 'Não informado')"
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Descrição curta da imagem"
 ---
 
-## Introdução
+[Resumo introdutório chamativo que resume o artigo]
 
-[Contexto]
+## Ficha Técnica
+| Item | Especificação |
+|---|---|
+| Peso | [Peso] |
+| Preço (BR) | [Preço] |
+| Grupo | [Grupo de marchas, ex: Shimano 105] |
+| Quadro | [Material do quadro, ex: Alumínio] |
+| Rodas | [Modelo de rodas] |
 
-## Desenvolvimento
+## [Título do Primeiro Bloco de Desenvolvimento]
 
-[Conteúdo principal com subseções]
+[Texto detalhado]
 
-## Prós e Contras (se for review)
-| Prós | Contras |
-|------|---------|
+> "[Citação de impacto destacando uma frase forte sobre a bike ou acessório]"
 
 ## Veredito
 
-[Recomendação final]
+<div class="veredito-card">
+  <div class="veredito-title">VEREDITO COMPARATIVO</div>
+  <div class="veredito-grid">
+    <div>
+      <div class="veredito-col-title positivo">
+        <span class="veredito-dot"></span>
+        Pontos fortes
+      </div>
+      <ul class="veredito-items">
+        <li>[Ponto forte 1]</li>
+        <li>[Ponto forte 2]</li>
+      </ul>
+    </div>
+    <div>
+      <div class="veredito-col-title negativo">
+        <span class="veredito-dot"></span>
+        Pontos fracos
+      </div>
+      <ul class="veredito-items">
+        <li>[Ponto fraco 1]</li>
+        <li>[Ponto fraco 2]</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-## Perguntas Frequentes`;
+[Texto final da conclusão/veredito]
+
+## Perguntas Frequentes
+
+**1. [Pergunta 1]?**
+[Resposta 1]
+
+**2. [Pergunta 2]?**
+[Resposta 2]`;
   }
 
   async processCase(descricaoCurta) {
@@ -106,15 +147,25 @@ Gere o artigo completo em português brasileiro, seguindo o formato especificado
   }
 
   _parseResponse(text) {
-    const titleMatch = text.match(/^title:\s*"(.+?)"/m);
+    const titleMatch = text.match(/^title:\s*["']?(.+?)["']?$/m);
     const tagsMatch = text.match(/^tags:\s*\[(.+?)\]/m);
-    const descMatch = text.match(/^description:\s*"(.*?)"/m);
+    const descMatch = text.match(/^description:\s*["']?(.+?)["']?$/m);
+    const weightMatch = text.match(/^weight:\s*["']?(.+?)["']?$/m);
+    const priceMatch = text.match(/^price:\s*["']?(.+?)["']?$/m);
+    const authorMatch = text.match(/^author:\s*["']?(.+?)["']?$/m);
+    const imageMatch = text.match(/^image:\s*["']?(.+?)["']?$/m);
+    const imageAltMatch = text.match(/^image_alt:\s*["']?(.+?)["']?$/m);
 
     const title = titleMatch?.[1]?.trim() || "Guia de Ciclismo";
     const tags = tagsMatch
       ? tagsMatch[1].split(",").map((t) => t.trim().replace(/['"']/g, "")).filter(Boolean)
-      : ["Ciclismo", "Bicicleta", "Guia"];
+      : ["ciclismo", "review"];
     const metaDesc = descMatch?.[1]?.trim() || "";
+    const weight = weightMatch?.[1]?.trim() || "Não informado";
+    const price = priceMatch?.[1]?.trim() || "Não informado";
+    const author = authorMatch?.[1]?.trim() || "Sergio Arantes";
+    const image = imageMatch?.[1]?.trim() || "/assets/img/logo.svg";
+    const imageAlt = imageAltMatch?.[1]?.trim() || "Logo Pedal Data";
 
     let body = text;
     const firstFm = text.indexOf("---");
@@ -126,7 +177,9 @@ Gere o artigo completo em português brasileiro, seguindo o formato especificado
     const today = new Date().toISOString().split("T")[0];
     const slug = title
       .toLowerCase()
-      .replace(/[^a-z0-9áéíóúãõâêîôûç]+/g, "-")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
 
     const fullFrontmatter = `---
@@ -135,6 +188,11 @@ title: "${title}"
 date: ${today}
 tags: [${tags.join(", ")}]
 description: "${metaDesc}"
+weight: "${weight}"
+price: "${price}"
+author: "${author}"
+image: "${image}"
+image_alt: "${imageAlt}"
 ---
 
 `;
