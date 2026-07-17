@@ -1,16 +1,16 @@
 import "dotenv/config";
 import { WhatsAppBot } from "./whatsapp.js";
-import { GeminiAI } from "./gemini.js";
+import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 
-const REQUIRED_VARS = ["GEMINI_API_KEY", "GITHUB_TOKEN", "GITHUB_USER", "GITHUB_REPO"];
+const REQUIRED_VARS = ["GITHUB_TOKEN", "GITHUB_USER", "GITHUB_REPO"];
 const missing = REQUIRED_VARS.filter((v) => !process.env[v]);
 if (missing.length) {
   console.error("❌ Variáveis faltando no .env:", missing.join(", "));
   process.exit(1);
 }
 
-const ai = new GeminiAI(process.env.GEMINI_API_KEY);
+const ai = new AIProvider();
 const publisher = new GitHubPublisher();
 
 async function handleMessage({ from, body, reply }) {

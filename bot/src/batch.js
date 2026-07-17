@@ -4,7 +4,7 @@
  * Uso: node src/batch.js
  */
 import "dotenv/config";
-import { GeminiAI } from "./gemini.js";
+import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 import fs from "fs/promises";
 import path from "path";
@@ -62,7 +62,7 @@ async function main() {
   console.log("🚴 Batch Generator — 30 Posts de Ciclismo");
   console.log("=".repeat(50));
 
-  const ai = new GeminiAI(process.env.GEMINI_API_KEY);
+  const ai = new AIProvider();
   const publisher = new GitHubPublisher();
 
   const startFrom = parseInt(process.argv[2] || "1");

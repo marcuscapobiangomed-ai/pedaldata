@@ -1,64 +1,70 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const MODELS = ["gemini-2.0-flash", "gemini-2.0-flash-001", "gemini-1.5-flash-002", "gemini-1.5-flash"];
-
-export class GeminiAI {
-  constructor(apiKey) {
-    this.genAI = new GoogleGenerativeAI(apiKey);
-    this.currentModelIndex = 0;
-    this.model = this._initModel(MODELS[0]);
+export class AIProvider {
+  constructor() {
+    this.githubToken = process.env.GITHUB_TOKEN;
+    this.geminiKey = process.env.GEMINI_API_KEY;
   }
 
-  _initModel(modelName) {
-    try {
-      return this.genAI.getGenerativeModel({
-        model: modelName,
-        systemInstruction: {
-          role: "user",
-          parts: [{ text: this._systemPrompt() }],
-        },
-      });
-    } catch {
-      return null;
+  async generate(systemPrompt, userPrompt) {
+    return this._tryGitHubModels(systemPrompt, userPrompt);
+  }
+
+  async _tryGitHubModels(system, user) {
+    const res = await fetch("https://models.inference.ai.azure.com/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${this.githubToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+        max_tokens: 4096,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`GitHub Models API: ${res.status} - ${err}`);
     }
+
+    const data = await res.json();
+    return data.choices[0].message.content;
   }
 
-  async _tryGenerate(prompt, retries = 3) {
-    for (let attempt = 0; attempt < retries; attempt++) {
-      for (let mi = 0; mi < MODELS.length; mi++) {
-        const model = this._initModel(MODELS[mi]);
-        if (!model) continue;
-        try {
-          const result = await model.generateContent(prompt);
-          return result.response.text();
-        } catch (err) {
-          const isQuota = err.message?.includes("429") || err.message?.includes("quota");
-          const isNotFound = err.message?.includes("404") || err.message?.includes("not found");
-          if (isQuota && attempt < retries - 1) {
-            const wait = Math.pow(2, attempt) * 5000;
-            await new Promise((r) => setTimeout(r, wait));
-            break;
-          }
-          if (isNotFound) continue;
-          if (attempt === retries - 1 && mi === MODELS.length - 1) throw err;
-        }
+  async _tryGemini(system, user) {
+    if (!this.geminiKey) throw new Error("Sem Gemini API Key");
+    const { GoogleGenerativeAI } = await import("@google/generative-ai");
+    const genAI = new GoogleGenerativeAI(this.geminiKey);
+    const models = ["gemini-2.0-flash", "gemini-1.5-flash"];
+    for (const m of models) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: m,
+          systemInstruction: { role: "user", parts: [{ text: system }] },
+        });
+        const result = await model.generateContent(user);
+        return result.response.text();
+      } catch {
+        continue;
       }
     }
-    throw new Error("Todos os modelos Gemini falharam (cota esgotada). Tente novamente mais tarde.");
+    throw new Error("Gemini indisponível (cota esgotada)");
   }
 
-  _systemPrompt() {
+  static systemPrompt() {
     return `Você é um redator especializado em ciclismo de estrada para um blog brasileiro (português do Brasil).
 Seu público: ciclistas amadores e intermediários que buscam informação para comprar bicicletas, componentes e acessórios.
 
 REGRAS:
-1. Use linguagem direta, informativa e acessível — não seja muito acadêmico nem muito informal
+1. Use linguagem direta, informativa e acessível
 2. Seja específico: dê marcas, modelos, faixas de preço em R$ e comparações reais
 3. Adapte o conteúdo para a realidade brasileira (impostos, disponibilidade, preços locais)
-4. Inclua seções de "Prós e Contras" e "Veredito" em posts de review
-5. NUNCA invente informações técnicas, specs ou preços — se não souber, diga "verifique"
+4. Inclua "Prós e Contras" e "Veredito" em posts de review
+5. NUNCA invente specs ou preços
 6. Máximo 1000 palavras
-7. Inclua links de afiliados da Amazon de forma natural (ex: "disponível na Amazon")
 
 FORMATO DE SAÍDA (markdown com frontmatter):
 ---
@@ -70,26 +76,21 @@ description: "Meta descrição até 160 caracteres"
 
 ## Introdução
 
-[Contexto: para quem é este guia, qual problema resolve]
+[Contexto]
 
 ## Desenvolvimento
 
-[Conteúdo principal com subseções, comparações, dicas]
+[Conteúdo principal com subseções]
 
 ## Prós e Contras (se for review)
-
 | Prós | Contras |
 |------|---------|
-| ... | ... |
 
 ## Veredito
 
-[Recomendação final e para quem vale a pena]
+[Recomendação final]
 
-## Perguntas Frequentes
-
-1. **Pergunta?** Resposta curta.
-2. **Pergunta?** Resposta curta.`;
+## Perguntas Frequentes`;
   }
 
   async processCase(descricaoCurta) {
@@ -98,10 +99,9 @@ description: "Meta descrição até 160 caracteres"
 IDEIA:
 "${descricaoCurta}"
 
-Gere o artigo completo em português brasileiro, seguindo o formato especificado. Inclua recomendações de produtos com links de afiliados Amazon Brasil quando relevante.`;
+Gere o artigo completo em português brasileiro, seguindo o formato especificado.`;
 
-    const text = await this._tryGenerate(prompt);
-
+    const text = await this.generate(AIProvider.systemPrompt(), prompt);
     return this._parseResponse(text);
   }
 

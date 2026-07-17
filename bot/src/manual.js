@@ -4,7 +4,7 @@
  * Uso: node src/manual.js "descrição do caso"
  */
 import "dotenv/config";
-import { GeminiAI } from "./gemini.js";
+import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 
 const args = process.argv.slice(2);
@@ -19,7 +19,7 @@ if (!descricao) {
 console.log("🤖 Processando caso com Gemini...\n");
 console.log(`📝 Descrição: "${descricao}"\n`);
 
-const ai = new GeminiAI(process.env.GEMINI_API_KEY);
+const ai = new AIProvider();
 const post = await ai.processCase(descricao);
 
 console.log("📄 Artigo gerado:");
