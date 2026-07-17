@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#1d3557" rx="20"/>
+  <text x="200" y="180" font-family="Arial,sans-serif" font-size="120" text-anchor="middle" fill="white">🚴</text>
+  <text x="200" y="250" font-family="Arial,sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white" letter-spacing="2">PEDAL DATA</text>
+  <text x="200" y="280" font-family="Arial,sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.5)" letter-spacing="1">REVIEWS · GUIAS · COMPARATIVOS</text>
+</svg>

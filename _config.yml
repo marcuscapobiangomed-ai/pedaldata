@@ -6,7 +6,19 @@ baseurl: "/pedaldata"
 lang: pt-BR
 
 author: "Equipe Pedal Data"
-email: "seu-email@gmail.com"
+email: "contato@pedaldatablog.com.br"
+
+logo: "/assets/img/logo.svg"
+
+social:
+  name: Pedal Data
+  links:
+    - https://www.instagram.com/pedaldata
+
+webmaster_verifications:
+  google:
+  bing:
+  yandex:
 
 markdown: kramdown
 highlighter: rouge
@@ -18,6 +30,12 @@ defaults:
       path: "_posts"
     values:
       layout: post
+      author: "Equipe Pedal Data"
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      image: /assets/img/logo.svg
 
 exclude:
   - bot

@@ -638,6 +638,31 @@ body.menu-open { overflow: hidden; }
 .btn-outline:hover { background: var(--primary); color: var(--white); }
 
 /* Post Single */
+.breadcrumbs {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.breadcrumbs a {
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumbs a:hover { color: var(--primary); }
+.breadcrumb-sep { color: var(--gray-400); font-size: 1.1rem; }
+.breadcrumb-current { color: var(--gray-700); font-weight: 500; }
+
+.post-author {
+  color: var(--gray-600);
+  font-size: 0.85rem;
+}
+.post-author span { font-weight: 500; color: var(--gray-700); }
+
 .post-title {
   font-size: 1.9rem;
   line-height: 1.3;
