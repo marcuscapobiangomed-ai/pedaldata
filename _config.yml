@@ -16,9 +16,11 @@ social:
     - https://www.instagram.com/pedaldata
 
 webmaster_verifications:
-  google:
+  google: # Cole seu código de verificação Google Search Console aqui
   bing:
   yandex:
+
+google_analytics: # Sua Measurement ID (ex: G-XXXXXXXXXX)
 
 markdown: kramdown
 highlighter: rouge
