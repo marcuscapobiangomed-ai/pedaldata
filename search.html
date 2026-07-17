@@ -1,0 +1,80 @@
+---
+layout: default
+title: Busca
+---
+
+<div class="page-layout">
+  <div class="container page-grid">
+    <div class="content-area">
+      <h1 class="page-title">Resultados da Busca</h1>
+      <div class="page-title-underline"></div>
+
+      <div style="margin-bottom: 24px;">
+        <form action="{{ site.baseurl }}/search" method="get" style="display: flex; gap: 8px; max-width: 480px;">
+          <input type="text" id="search-input" name="q" placeholder="Buscar artigos..." style="flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; background: var(--bg-card); color: var(--text); outline: none;">
+          <button type="submit" class="btn">Buscar</button>
+        </form>
+      </div>
+
+      <p id="search-status" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Carregando artigos...</p>
+
+      <div id="search-results" class="news-list">
+        <!-- Resultados inseridos via JS -->
+      </div>
+    </div>
+
+    {% include sidebar.html %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+  const params = new URLSearchParams(window.location.search);
+  const query = params.get('q') || '';
+  const searchInput = document.getElementById('search-input');
+  const searchStatus = document.getElementById('search-status');
+  const searchResults = document.getElementById('search-results');
+
+  searchInput.value = query;
+
+  try {
+    const response = await fetch('{{ site.baseurl }}/search.json');
+    if (!response.ok) throw new Error('Não foi possível carregar o índice de busca.');
+    const posts = await response.json();
+
+    if (!query.trim()) {
+      searchStatus.textContent = "Digite algum termo para buscar.";
+      return;
+    }
+
+    const cleanQuery = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    const results = posts.filter(post => {
+      const title = (post.title || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const desc = (post.description || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const tags = (post.tags || []).join(' ').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      
+      return title.includes(cleanQuery) || desc.includes(cleanQuery) || tags.includes(cleanQuery);
+    });
+
+    if (results.length === 0) {
+      searchStatus.textContent = `Nenhum resultado encontrado para "${query}".`;
+    } else {
+      searchStatus.textContent = `${results.length} ${results.length === 1 ? 'resultado encontrado' : 'resultados encontrados'} para "${query}":`;
+      
+      searchResults.innerHTML = results.map(post => `
+        <a href="${post.url}" class="news-item">
+          <div class="news-thumb"></div>
+          <div>
+            <div class="news-title">${post.title}</div>
+            <div class="news-date">${post.date}</div>
+          </div>
+        </a>
+      `).join('');
+    }
+  } catch (error) {
+    console.error(error);
+    searchStatus.textContent = "Erro ao carregar os resultados da busca.";
+  }
+});
+</script>

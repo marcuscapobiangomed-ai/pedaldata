@@ -1,10 +1,25 @@
----
 layout: post
-title: "Trek Madone vs Trek Émonda: Diferenças entre as Linhas Aero e Leve da Trek"
+title: "Trek Madone vs Trek Émonda: Diferenças entre as Linhas Aero e Leve"
 date: 2026-07-05
-tags: [Trek, Madone, Émonda, bicicletas de estrada]
-description: "Descubra as diferenças entre as bicicletas Trek Madone e Émonda para escolher a ideal para suas pedaladas."
+tags: [comparação, Trek, Madone, Émonda]
+description: "Trek Madone (Aero) vs Trek Émonda (Leve): Veja o comparativo de peso, preço, rigidez e comportamento em subidas."
+weight: "7.1 kg - 7.8 kg"
+price: "R$ 38.000 - R$ 89.000"
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Comparativo Trek Madone vs Trek Émonda"
 ---
+
+No portfólio da Trek, a divisão sempre foi clara: a **Madone** é a máquina aerodinâmica para velocidade pura no plano, enquanto a **Émonda** é o modelo peso-pena feito para escalar montanhas. Mas qual delas faz mais sentido para o ciclista amador no Brasil?
+
+## Ficha Técnica Comparativa
+| Característica | Trek Madone SLR | Trek Émonda SLR |
+|---|---|---|
+| Foco Principal | Aerodinâmica e Velocidade | Leveza e Escalada |
+| Peso Médio | 7.4 kg | 6.8 kg |
+| Preço no Brasil | R$ 48.000 - R$ 98.000 | R$ 44.900 - R$ 89.000 |
+| Grupo de Marchas | Shimano Ultegra/Dura-Ace Di2 | Shimano Ultegra/Dura-Ace Di2 |
+| Geometria | H1.5 Race (Agressiva) | H1.5 Race (Agressiva) |
 
 ## Introdução
 
@@ -49,22 +64,35 @@ Os preços da linha Émonda variam de R$ 18.000 a R$ 40.000. A Émonda SL 6, por
 | Conforto           | Boa, IsoSpeed para absorver impactos | Excelente, ideal para longas distâncias |
 | Uso Ideais         | Estradas planas e competições       | Montanhas e subidas                  |
 
-## Prós e Contras
+<div class="veredito-card">
+  <div class="veredito-title">VEREDITO COMPARATIVO</div>
+  <div class="veredito-grid">
+    <div>
+      <div class="veredito-col-title positivo">
+        <span class="veredito-dot"></span>
+        Trek Madone (Aero)
+      </div>
+      <ul class="veredito-items">
+        <li>Ideal para circuitos planos e vento contra</li>
+        <li>Sensação de velocidade sustentada fantástica</li>
+        <li>Sistema IsoSpeed traz ótimo conforto no asfalto irregular</li>
+      </ul>
+    </div>
+    <div>
+      <div class="veredito-col-title negativo">
+        <span class="veredito-dot"></span>
+        Trek Émonda (Leve)
+      </div>
+      <ul class="veredito-items">
+        <li>Aceleração imediata e excelente em rampas acima de 8%</li>
+        <li>Muito mais leve e ágil nas curvas e descidas técnicas</li>
+        <li>Menos arrasto aerodinâmico vertical</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-| Prós                      | Contras                        |
-|---------------------------|-------------------------------|
-| **Trek Madone**          |                               |
-| Desempenho aerodinâmico  | Preço alto                    |
-| Conforto em estradas irregulares | Menos leve que a Émonda     |
-| **Trek Émonda**          |                               |
-| Extremamente leve        | Menor performance aerodinâmica |
-| Boa estabilidade em descidas | Preço também elevado         |
-
-## Veredito
-
-Se você é um ciclista que prioriza velocidade e compete em provas, a Trek Madone é a escolha ideal. Seus benefícios aerodinâmicos irão facilitar o seu desempenho em retas e competições. No entanto, se você busca leveza e conforto para longas pedaladas e subidas, a Trek Émonda será mais adequada. 
-
-Ambas as bicicletas oferecem alta qualidade e performance, porém, a escolha depende muito do seu estilo de ciclismo e das suas necessidades pessoais. Avalie o que você mais valoriza em uma bicicleta e, com certeza, fará uma excelente escolha.
+A escolha depende essencialmente da sua altimetria média de treino: se você pedala na maioria das vezes em planos e vales, a aerodinâmica da Madone compensará seu peso extra. Se o seu foco é subir serras ou se você valoriza o comportamento ágil de uma bike peso-pena nas subidas, a Émonda é a máquina ideal.
 
 ## Perguntas Frequentes
 
