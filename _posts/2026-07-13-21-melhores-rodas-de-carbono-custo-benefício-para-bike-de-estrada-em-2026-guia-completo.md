@@ -4,6 +4,12 @@ title: "Melhores Rodas de Carbono Custo-Benefício para Bike de Estrada em 2026:
 date: 2026-07-13
 tags: [bicicleta, rodas de carbono, ciclismo de estrada]
 description: "Descubra as melhores rodas de carbono custo-benefício para sua bike de estrada em 2026 e como escolher a ideal."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

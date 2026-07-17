@@ -4,6 +4,12 @@ title: "Quanto Custa Importar uma Scott Addict para o Brasil em 2026"
 date: 2026-08-03
 tags: [importação, Scott Addict, ciclismo de estrada]
 description: "Descubra o custo total para importar uma bicicleta Scott Addict para o Brasil em 2026 e o que considerar antes de comprar."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

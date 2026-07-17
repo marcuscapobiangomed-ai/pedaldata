@@ -4,6 +4,12 @@ title: "Como Escolher o Tamanho Certo de Bike de Estrada: Guia Completo com Tabe
 date: 2026-07-31
 tags: [ciclismo, bike de estrada, tamanhos de bicicleta]
 description: "Aprenda a escolher o tamanho ideal da sua bike de estrada com nosso guia completo e tabela de medidas por altura."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

@@ -4,6 +4,12 @@ title: "Specialized Tarmac SL8: Vale o Investimento? Review Completo"
 date: 2026-07-04
 tags: [Ciclistas Amadores, Ciclismo, Bicicletas]
 description: "Avaliação detalhada da Specialized Tarmac SL8 e se vale a pena para ciclistas amadores e intermediários no Brasil."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

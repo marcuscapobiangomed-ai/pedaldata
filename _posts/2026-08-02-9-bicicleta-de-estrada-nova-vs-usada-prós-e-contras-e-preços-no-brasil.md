@@ -4,6 +4,12 @@ title: "Bicicleta de Estrada Nova vs Usada: Prós e Contras e Preços no Brasil"
 date: 2026-08-02
 tags: [bicicletas, ciclismo, compra]
 description: "Descubra as vantagens e desvantagens de comprar uma bicicleta de estrada nova ou usada e saiba quanto vale investir em uma seminova no Brasil."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

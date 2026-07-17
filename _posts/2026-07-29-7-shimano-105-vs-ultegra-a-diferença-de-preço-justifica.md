@@ -4,6 +4,12 @@ title: "Shimano 105 vs Ultegra: a Diferença de Preço Justifica?"
 date: 2026-07-29
 tags: [ciclismo, Shimano, transmissões]
 description: "Entenda as principais diferenças entre Shimano 105 e Ultegra e descubra qual grupo de transmissão é o ideal para você!"
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

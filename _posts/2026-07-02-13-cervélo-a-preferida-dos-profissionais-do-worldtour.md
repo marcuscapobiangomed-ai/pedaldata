@@ -4,6 +4,12 @@ title: "Cervélo: a Preferida dos Profissionais do WorldTour"
 date: 2026-07-02
 tags: [Cervélo, ciclismo, bicicletas de estrada]
 description: "Descubra por que a Cervélo é a escolha dos profissionais do WorldTour. História, modelos e recomendações."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

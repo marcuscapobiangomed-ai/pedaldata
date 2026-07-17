@@ -4,6 +4,12 @@ title: "Onde Comprar Bike de Estrada Importada no Brasil em 2026: Lojas, Sites e
 date: 2026-07-19
 tags: [ciclismo, bikes de estrada, compra]
 description: "Descubra onde comprar bicicletas de estrada importadas no Brasil em 2026 e os cuidados necessários para garantir um bom investimento."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

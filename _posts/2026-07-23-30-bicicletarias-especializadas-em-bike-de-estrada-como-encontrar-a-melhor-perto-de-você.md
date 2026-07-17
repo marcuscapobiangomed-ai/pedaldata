@@ -4,6 +4,12 @@ title: "Bicicletarias Especializadas em Bike de Estrada: Como Encontrar a Melhor
 date: 2026-07-23
 tags: [bicicletas, ciclismo, bike de estrada]
 description: "Saiba como encontrar a melhor bicicletaria especializada em bikes de estrada perto de você com dicas úteis e fatores a considerar."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

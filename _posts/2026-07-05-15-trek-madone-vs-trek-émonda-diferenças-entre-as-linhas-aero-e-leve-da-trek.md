@@ -1,20 +1,15 @@
-layout: post
-title: "Trek Madone vs Trek Émonda: Diferenças entre as Linhas Aero e Leve"
-date: 2026-07-05
-tags: [comparação, Trek, Madone, Émonda]
-description: "Trek Madone (Aero) vs Trek Émonda (Leve): Veja o comparativo de peso, preço, rigidez e comportamento em subidas."
-weight: "7.1 kg - 7.8 kg"
-price: "R$ 38.000 - R$ 89.000"
-author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Comparativo Trek Madone vs Trek Émonda"
 ---
-
 No portfólio da Trek, a divisão sempre foi clara: a **Madone** é a máquina aerodinâmica para velocidade pura no plano, enquanto a **Émonda** é o modelo peso-pena feito para escalar montanhas. Mas qual delas faz mais sentido para o ciclista amador no Brasil?
 
 ## Ficha Técnica Comparativa
 | Característica | Trek Madone SLR | Trek Émonda SLR |
-|---|---|---|
+|
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
+---|---|---|
 | Foco Principal | Aerodinâmica e Velocidade | Leveza e Escalada |
 | Peso Médio | 7.4 kg | 6.8 kg |
 | Preço no Brasil | R$ 48.000 - R$ 98.000 | R$ 44.900 - R$ 89.000 |

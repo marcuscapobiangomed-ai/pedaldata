@@ -4,6 +4,12 @@ title: "Tendências em Bikes de Estrada 2026: Aero Está Vencendo as Leves?"
 date: 2026-07-08
 tags: [ciclismo, bicicletas, tendências]
 description: "Descubra se as bikes aerodinâmicas estão superando as leves em 2026 e o que os dados nos mostram sobre essa evolução."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

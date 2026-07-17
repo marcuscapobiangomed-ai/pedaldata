@@ -4,6 +4,12 @@ title: "Comparativo: 5 Melhores Bikes de Estrada Até R$ 5.000 em 2026"
 date: 2026-07-11
 tags: [bicicletas, ciclismo, estrada, comparativos]
 description: "Confira o comparativo das 5 melhores bicicletas de estrada até R$ 5.000 para ciclistas amadores e intermediários em 2026."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução

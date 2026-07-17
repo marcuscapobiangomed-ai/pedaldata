@@ -4,6 +4,12 @@ title: "Sensores de Potência para Bike: Vale a Pena para Ciclista Amador? Guia 
 date: 2026-07-16
 tags: [ciclismo, equipamentos, sensores de potência]
 description: "Descubra se os sensores de potência são uma boa compra para ciclistas amadores e conheça os melhores modelos disponíveis."
+
+author: "Sergio Arantes"
+image: "/assets/img/logo.svg"
+image_alt: "Logo Pedal Data"
+weight: "Não informado"
+price: "Não informado"
 ---
 
 ## Introdução
