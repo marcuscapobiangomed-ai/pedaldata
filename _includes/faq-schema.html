@@ -1,0 +1,53 @@
+<script>
+(function() {
+  var headings = document.querySelectorAll('.post-content h2');
+  var faqHeading = null;
+  for (var i = 0; i < headings.length; i++) {
+    if (headings[i].textContent.trim().toLowerCase().indexOf('perguntas frequentes') !== -1) {
+      faqHeading = headings[i];
+      break;
+    }
+  }
+  if (!faqHeading) return;
+
+  var questions = [];
+  var el = faqHeading.nextElementSibling;
+  while (el && el.tagName !== 'H2') {
+    if (el.tagName === 'H3') {
+      var answer = '';
+      var ansEl = el.nextElementSibling;
+      while (ansEl && ansEl.tagName !== 'H3' && ansEl.tagName !== 'H2') {
+        if (ansEl.tagName === 'P' || ansEl.tagName === 'DIV' || ansEl.tagName === 'UL' || ansEl.tagName === 'OL') {
+          answer += ansEl.textContent.replace(/\s+/g, ' ').trim() + ' ';
+        }
+        ansEl = ansEl.nextElementSibling;
+      }
+      questions.push({
+        question: el.textContent.replace(/^\d+\.\s*/, '').trim(),
+        answer: answer.trim()
+      });
+    }
+    el = el.nextElementSibling;
+  }
+
+  if (questions.length > 0) {
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": questions.map(function(q) {
+        return {
+          "@type": "Question",
+          "name": q.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": q.answer
+          }
+        };
+      })
+    });
+    document.head.appendChild(script);
+  }
+})();
+</script>
