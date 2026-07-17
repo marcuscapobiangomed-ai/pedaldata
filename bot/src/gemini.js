@@ -1,11 +1,55 @@
 export class AIProvider {
-  constructor() {
-    this.githubToken = process.env.GITHUB_TOKEN;
+    this.deepseekKey = process.env.DEEPSEEK_API_KEY;
     this.geminiKey = process.env.GEMINI_API_KEY;
+    this.githubToken = process.env.GITHUB_TOKEN;
   }
 
   async generate(systemPrompt, userPrompt) {
+    if (this.deepseekKey) {
+      try {
+        return await this._tryDeepSeek(systemPrompt, userPrompt);
+      } catch (err) {
+        console.warn("⚠️ Falha ao usar DeepSeek, tentando fallback:", err.message);
+      }
+    }
+    if (this.geminiKey) {
+      try {
+        return await this._tryGemini(systemPrompt, userPrompt);
+      } catch (err) {
+        console.warn("⚠️ Falha ao usar Gemini, tentando fallback:", err.message);
+      }
+    }
     return this._tryGitHubModels(systemPrompt, userPrompt);
+  }
+
+  async _tryDeepSeek(system, user) {
+    const baseUrl = process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com";
+    const model = process.env.DEEPSEEK_MODEL || "deepseek-chat";
+    
+    const res = await fetch(`${baseUrl}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${this.deepseekKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: model,
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+        temperature: 0.2, // Baixa temperatura para manter o tom técnico e factual
+        max_tokens: 4096,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`DeepSeek API: ${res.status} - ${err}`);
+    }
+
+    const data = await res.json();
+    return data.choices[0].message.content;
   }
 
   async _tryGitHubModels(system, user) {

@@ -1,0 +1,52 @@
+name: Publicação Automática de Posts (Cron)
+
+on:
+  schedule:
+    # Executa todos os dias às 09:00 UTC (06:00 BRT)
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    # Permite rodar manualmente pela interface do GitHub Actions
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Código do Repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: bot/package-lock.json
+
+      - name: Instalar Dependências do Bot
+        run: |
+          cd bot
+          npm install
+
+      - name: Rodar Script de Geração
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node bot/src/cron_post.js
+
+      - name: Commit e Push das Alterações
+        run: |
+          git config --global user.name "Pedal Data Bot"
+          git config --global user.email "bot@pedaldatablog.com.br"
+          git add _posts/ bot/topics.txt bot/posted_topics.txt
+          
+          # Commita apenas se houver alterações para evitar erros no GitHub Actions
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(auto): gera post diario agendado e atualiza fila"
+            git push origin main
+          else
+            echo "Nenhuma alteração para commitar."
+          fi
