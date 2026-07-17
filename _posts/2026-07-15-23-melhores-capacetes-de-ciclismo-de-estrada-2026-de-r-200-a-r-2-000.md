@@ -6,8 +6,8 @@ tags: [ciclismo, capacetes, equipamentos]
 description: "Descubra os melhores capacetes de ciclismo de estrada de 2026, com opções para todos os orçamentos, de R$ 200 a R$ 2.000."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/cycling-accessories.png"
+image_alt: "Capacetes de Ciclismo de Estrada"
 weight: "Não informado"
 price: "Não informado"
 ---

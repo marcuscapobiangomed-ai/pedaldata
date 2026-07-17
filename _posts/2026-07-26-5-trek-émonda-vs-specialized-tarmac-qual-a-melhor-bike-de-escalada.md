@@ -6,8 +6,8 @@ tags: [bicicletas, escalada, Trek, Specialized]
 description: "Comparativo entre Trek Émonda e Specialized Tarmac: confira preços, características e decida qual é a melhor bike de escalada para você."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/trek-road-bike.png"
+image_alt: "Trek Émonda vs Specialized Tarmac"
 weight: "Não informado"
 price: "Não informado"
 ---

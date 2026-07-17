@@ -5,8 +5,8 @@ No portfólio da Trek, a divisão sempre foi clara: a **Madone** é a máquina a
 | Característica | Trek Madone SLR | Trek Émonda SLR |
 |
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/trek-road-bike.png"
+image_alt: "Trek Madone vs Trek Émonda"
 weight: "Não informado"
 price: "Não informado"
 ---|---|---|

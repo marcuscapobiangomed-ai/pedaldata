@@ -6,8 +6,8 @@ tags: [Scott, Bicicleta de estrada, Review]
 description: "Confira a ficha técnica, preço e análise da Scott Addict 2026, ideal para ciclistas que buscam desempenho e leveza."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/scott-addict-foil.png"
+image_alt: "Scott Addict 2026"
 weight: "Não informado"
 price: "Não informado"
 ---

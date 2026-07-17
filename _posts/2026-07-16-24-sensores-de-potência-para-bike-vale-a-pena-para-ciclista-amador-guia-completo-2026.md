@@ -6,8 +6,8 @@ tags: [ciclismo, equipamentos, sensores de potência]
 description: "Descubra se os sensores de potência são uma boa compra para ciclistas amadores e conheça os melhores modelos disponíveis."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/cycling-accessories.png"
+image_alt: "Sensores de Potência para Bike"
 weight: "Não informado"
 price: "Não informado"
 ---

@@ -6,8 +6,8 @@ tags: [Ciclistas Amadores, Ciclismo, Bicicletas]
 description: "Avaliação detalhada da Specialized Tarmac SL8 e se vale a pena para ciclistas amadores e intermediários no Brasil."
 
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+image: "/assets/img/posts/specialized-tarmac-sl8.png"
+image_alt: "Specialized Tarmac SL8"
 weight: "Não informado"
 price: "Não informado"
 ---
