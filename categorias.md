@@ -9,12 +9,13 @@ title: Categorias
       <h1 class="page-title">Categorias</h1>
       <div class="page-title-underline"></div>
 
-      {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+      {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
+      {% assign all_tags = published_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
       {% for tag in all_tags %}
         <section class="category-section">
           <h2 id="{{ tag | slugify }}" class="category-section-title">{{ tag }}</h2>
           <ul class="category-posts">
-            {% for post in site.posts %}
+            {% for post in published_posts %}
               {% if post.tags contains tag %}
                 <li>
                   <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>

@@ -8,7 +8,11 @@
     "start": "node src/index.js",
     "post:manual": "node src/manual.js",
     "batch": "node src/batch.js",
-    "batch:30": "node src/batch.js 1 30"
+    "batch:30": "node src/batch.js 1 30",
+    "publish": "node src/publish_post.js",
+    "lint": "node --check src/*.js",
+    "test": "node --check src/*.js",
+    "validate:frontmatter": "node -e \"const fs=require('fs');const p=require('path');const d='../_posts';fs.readdirSync(d).filter(f=>f.endsWith('.md')).forEach(f=>{const c=fs.readFileSync(p.join(d,f),'utf8');const m=c.match(/^---\\n([\\s\\S]*?)\\n---/);if(!m)console.log('Sem frontmatter:',f);else if(!m[1].includes('layout:'))console.log('Sem layout:',f);else if(!m[1].includes('title:'))console.log('Sem title:',f)})"
   },
   "dependencies": {
     "whatsapp-web.js": "^1.26.0",

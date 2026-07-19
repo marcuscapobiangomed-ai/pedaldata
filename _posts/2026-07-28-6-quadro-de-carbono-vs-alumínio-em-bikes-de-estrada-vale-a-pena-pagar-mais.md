@@ -2,7 +2,7 @@
 layout: post
 title: "Quadro de Carbono vs Alumínio em Bikes de Estrada: Vale a Pena Pagar Mais?"
 date: 2026-07-28
-tags: [ciclismo, bikes, quadros]
+tags: [comparativos, ciclismo, bikes, quadros]
 description: "Descubra as diferenças entre quadros de carbono e alumínio em bicicletas de estrada e saiba qual é a melhor opção para você."
 
 author: "Sergio Arantes"

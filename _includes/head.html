@@ -14,6 +14,18 @@
 <link rel="preload" href="{{ site.baseurl }}/assets/img/logo.svg" as="image">
 
 {% seo %}
+
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+{% if page.tags %}
+  {% for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+{% endif %}
+{% if page.layout == "post" %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+{% endif %}
+
 {% include analytics.html %}
 
 {% if page.layout == "post" %}

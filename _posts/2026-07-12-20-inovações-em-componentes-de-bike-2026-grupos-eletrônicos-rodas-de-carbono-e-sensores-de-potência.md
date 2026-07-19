@@ -2,7 +2,7 @@
 layout: post
 title: "Inovações em Componentes de Bike 2026: Grupos Eletrônicos, Rodas de Carbono e Sensores de Potência"
 date: 2026-07-12
-tags: [componentes de bike, tecnologia, ciclismo]
+tags: [componentes, componentes de bike, tecnologia, ciclismo]
 description: "Descubra as inovações em componentes de bicicletas em 2026, como grupos eletrônicos, rodas de carbono e sensores de potência."
 
 author: "Sergio Arantes"

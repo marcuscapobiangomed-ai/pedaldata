@@ -2,7 +2,7 @@
 layout: post
 title: "Comparativo: 5 Melhores Bikes de Estrada até R$ 10.000 em 2026"
 date: 2026-07-22
-tags: [ciclismo, bicicletas, bikes de estrada]
+tags: [comparativos, ciclismo, bicicletas, bikes de estrada]
 description: "Um guia completo com as melhores bikes de estrada até R$ 10.000 para ciclistas em 2026."
 
 author: "Sergio Arantes"

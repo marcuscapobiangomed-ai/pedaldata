@@ -1,54 +1,58 @@
 name: Publicação Automática de Posts (Cron)
 
 on:
-  schedule:
-    # 3 posts por dia — um em cada turno
-    - cron: '0 9 * * *'    # 06:00 BRT — manhã
-    - cron: '0 15 * * *'   # 12:00 BRT — tarde
-    - cron: '0 21 * * *'   # 18:00 BRT — noite
+  # CRON SUSPENSO — reativar apenas após revisão editorial
+  # schedule:
+  #   - cron: '0 9 * * *'    # 06:00 BRT
+  #   - cron: '0 15 * * *'   # 12:00 BRT
+  #   - cron: '0 21 * * *'   # 18:00 BRT
   workflow_dispatch:
-    # Permite rodar manualmente pela interface do GitHub Actions
+    inputs:
+      topic:
+        description: "Tópico específico (deixe vazio para pegar da fila)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pedaldata-auto-publisher
+  cancel-in-progress: false
 
 jobs:
   generate-post:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Código do Repositório
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Configurar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: bot/package-lock.json
 
-      - name: Instalar Dependências do Bot
-        run: |
-          cd bot
-          npm install
+      - name: Instalar Dependências
+        run: npm ci
+        working-directory: bot
 
-      - name: Rodar Script de Geração
+      - name: Gerar Post e Criar PR
         env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          node bot/src/cron_post.js
+          MANUAL_TOPIC: ${{ inputs.topic || '' }}
+        run: node src/cron_post.js
+        working-directory: bot
 
-      - name: Commit e Push das Alterações
-        run: |
-          git config --global user.name "Pedal Data Bot"
-          git config --global user.email "bot@pedaldatablog.com.br"
-          git add _posts/ bot/topics.txt bot/posted_topics.txt
-          
-          # Commita apenas se houver alterações para evitar erros no GitHub Actions
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(auto): gera post diario agendado e atualiza fila"
-            git push origin main
-          else
-            echo "Nenhuma alteração para commitar."
-          fi
+      - name: Validar Build Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - run: bundle exec jekyll build --baseurl ""
+        env:
+          JEKYLL_ENV: production

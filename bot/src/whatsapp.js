@@ -1,10 +1,38 @@
 import { Client, LocalAuth } from "whatsapp-web.js";
 import qrcode from "qrcode-terminal";
 
+const AUTHORIZED_NUMBERS = new Set(
+  (process.env.AUTHORIZED_WHATSAPP_NUMBERS || process.env.ALLOWED_NUMBERS || "")
+    .split(",")
+    .map(n => n.trim())
+    .filter(Boolean)
+);
+
+const DAILY_LIMIT = parseInt(process.env.DAILY_REQUEST_LIMIT || "10", 10);
+const requestCounts = new Map();
+
+function checkRateLimit(from) {
+  const today = new Date().toISOString().split("T")[0];
+  const key = `${from}:${today}`;
+  const count = requestCounts.get(key) || 0;
+  if (count >= DAILY_LIMIT) return false;
+  requestCounts.set(key, count + 1);
+  return true;
+}
+
 export class WhatsAppBot {
   constructor(onMessage) {
     this.onMessage = onMessage;
     this.client = null;
+  }
+
+  isAuthorized(from) {
+    if (AUTHORIZED_NUMBERS.size === 0) return true;
+    const number = from.replace(/\D/g, "");
+    for (const allowed of AUTHORIZED_NUMBERS) {
+      if (number.endsWith(allowed.replace(/\D/g, ""))) return true;
+    }
+    return false;
   }
 
   async start() {
@@ -34,6 +62,19 @@ export class WhatsAppBot {
 
     this.client.on("message", async (msg) => {
       if (msg.from.includes("status") || msg.fromMe) return;
+      if (msg.from.endsWith("@g.us")) {
+        console.log(`⛔ Mensagem ignorada de grupo: ${msg.from}`);
+        return;
+      }
+      if (!this.isAuthorized(msg.from)) {
+        console.warn(`⛔ Mensagem não autorizada de ${msg.from}`);
+        return;
+      }
+      if (!checkRateLimit(msg.from)) {
+        console.warn(`⛔ Limite diário excedido para ${msg.from}`);
+        await msg.reply(`❌ Limite diário de ${DAILY_LIMIT} solicitações atingido. Tente novamente amanhã.`);
+        return;
+      }
       if (this.onMessage) {
         await this.onMessage({
           from: msg.from,

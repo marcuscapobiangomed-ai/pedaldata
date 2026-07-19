@@ -2,7 +2,7 @@
 layout: post
 title: "Guia de Manutenção Básica para Bike de Estrada: O que Todo Ciclista Precisa Saber"
 date: 2026-07-18
-tags: [manutenção, bike de estrada, ciclistas amadores]
+tags: [manutencao, manutenção, bike de estrada, ciclistas amadores]
 description: "Descubra dicas essenciais de manutenção para sua bike de estrada e aprenda a cuidar melhor do seu equipamento."
 
 author: "Sergio Arantes"

@@ -32,11 +32,11 @@ console.log("\nConteúdo:\n");
 console.log(post.content);
 
 const publisher = new GitHubPublisher();
-console.log("\n🚀 Publicando no GitHub Pages...\n");
+console.log("\n🔀 Criando PR no GitHub...\n");
 try {
   const url = await publisher.publishPost(post.content, post.slug);
-  console.log(`✅ Publicado em: ${url}`);
+  console.log(`✅ PR criado: ${url}`);
 } catch (err) {
-  console.error("❌ Erro ao publicar:", err.message);
+  console.error("❌ Erro ao criar PR:", err.message);
   console.log("\nO conteúdo acima foi salvo localmente. Publique manualmente no GitHub.");
 }

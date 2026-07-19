@@ -2,7 +2,7 @@
 layout: post
 title: "Scott Foil 2026: Review Completo do Modelo Aero e Suas Novidades"
 date: 2026-06-30
-tags: [bicicleta, ciclismo, review]
+tags: [reviews, bicicleta, ciclismo, review]
 description: "Descubra tudo sobre a Scott Foil 2026 e suas melhorias em relação à geração anterior. Veja prós, contras e o que a torna uma escolha ideal."
 
 author: "Sergio Arantes"

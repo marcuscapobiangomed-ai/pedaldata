@@ -2,7 +2,7 @@
 layout: post
 title: "Scott Addict 2026: ficha técnica completa, preço no Brasil e para quem é indicada"
 date: 2026-06-29
-tags: [Scott, Bicicleta de estrada, Review]
+tags: [reviews, scott, bicicleta de estrada, review]
 description: "Confira a ficha técnica, preço e análise da Scott Addict 2026, ideal para ciclistas que buscam desempenho e leveza."
 
 author: "Sergio Arantes"

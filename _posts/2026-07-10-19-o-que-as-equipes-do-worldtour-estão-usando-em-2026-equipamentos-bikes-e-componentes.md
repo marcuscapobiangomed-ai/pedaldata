@@ -2,7 +2,7 @@
 layout: post
 title: "O que as equipes do WorldTour estão usando em 2026: equipamentos, bikes e componentes"
 date: 2026-07-10
-tags: [WorldTour, ciclismo, equipamentos]
+tags: [noticias, worldtour, ciclismo, equipamentos]
 description: "Descubra as bicicletas e componentes que as equipes do WorldTour estão utilizando em 2026."
 
 author: "Sergio Arantes"

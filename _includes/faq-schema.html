@@ -1,32 +1,81 @@
 <script>
 (function() {
-  var headings = document.querySelectorAll('.post-content h2');
-  var faqHeading = null;
-  for (var i = 0; i < headings.length; i++) {
-    if (headings[i].textContent.trim().toLowerCase().indexOf('perguntas frequentes') !== -1) {
-      faqHeading = headings[i];
+  var content = document.querySelector('.post-content');
+  if (!content) return;
+
+  // Procura por "## Perguntas Frequentes" (h2) ou "**Perguntas Frequentes**" (strong em p)
+  var faqHeading = content.querySelector('h2');
+  var faqFound = false;
+  while (faqHeading) {
+    if (faqHeading.textContent.trim().toLowerCase().indexOf('perguntas frequentes') !== -1) {
+      faqFound = true;
       break;
     }
+    faqHeading = faqHeading.nextElementSibling;
+    // Também procura por <strong> dentro de <p> marcações em negrito
+    if (!faqHeading || faqHeading.tagName !== 'H2') {
+      var allP = content.querySelectorAll('p');
+      for (var p = 0; p < allP.length; p++) {
+        var strong = allP[p].querySelector('strong');
+        if (strong && strong.textContent.trim().toLowerCase().indexOf('perguntas frequentes') !== -1) {
+          faqHeading = allP[p];
+          faqFound = true;
+          break;
+        }
+      }
+      if (faqFound) break;
+    }
   }
-  if (!faqHeading) return;
+  if (!faqFound) return;
 
   var questions = [];
   var el = faqHeading.nextElementSibling;
-  while (el && el.tagName !== 'H2') {
-    if (el.tagName === 'H3') {
-      var answer = '';
-      var ansEl = el.nextElementSibling;
-      while (ansEl && ansEl.tagName !== 'H3' && ansEl.tagName !== 'H2') {
-        if (ansEl.tagName === 'P' || ansEl.tagName === 'DIV' || ansEl.tagName === 'UL' || ansEl.tagName === 'OL') {
-          answer += ansEl.textContent.replace(/\s+/g, ' ').trim() + ' ';
+
+  // Detecta se o formato é markdown bold (**1. Pergunta?**) ou h3
+  var isMarkdownBold = false;
+  if (el) {
+    var firstStrong = el.querySelector('strong');
+    if (firstStrong) isMarkdownBold = true;
+  }
+
+  while (el && (!faqHeading.tagName || faqHeading.tagName !== 'H2' || el.tagName !== 'H2')) {
+    // Sai se encontrar outro h2 (próxima seção)
+    if (el.tagName === 'H2' && el !== faqHeading) break;
+
+    var questionText = null;
+    var answerEl = null;
+
+    if (isMarkdownBold) {
+      // Formato: <p><strong>1. Pergunta?</strong><br>Resposta</p>
+      var strong = el.tagName === 'P' ? el.querySelector('strong') : null;
+      if (strong) {
+        questionText = strong.textContent.replace(/^\d+[\.\)]\s*/, '').trim();
+        // Resposta é o resto do <p> após o <strong>
+        var textContent = el.textContent;
+        var qFull = strong.textContent;
+        var answerText = textContent.substring(textContent.indexOf(qFull) + qFull.length).trim();
+        if (answerText) {
+          questions.push({ question: questionText, answer: answerText });
         }
-        ansEl = ansEl.nextElementSibling;
       }
-      questions.push({
-        question: el.textContent.replace(/^\d+\.\s*/, '').trim(),
-        answer: answer.trim()
-      });
+    } else {
+      // Formato: <h3>Pergunta?</h3>
+      if (el.tagName === 'H3') {
+        questionText = el.textContent.replace(/^\d+\.\s*/, '').trim();
+        var ansEl = el.nextElementSibling;
+        var answerText = '';
+        while (ansEl && ansEl.tagName !== 'H3' && ansEl.tagName !== 'H2') {
+          if (ansEl.tagName === 'P' || ansEl.tagName === 'DIV' || ansEl.tagName === 'UL' || ansEl.tagName === 'OL') {
+            answerText += ansEl.textContent.replace(/\s+/g, ' ').trim() + ' ';
+          }
+          ansEl = ansEl.nextElementSibling;
+        }
+        if (answerText.trim()) {
+          questions.push({ question: questionText, answer: answerText.trim() });
+        }
+      }
     }
+
     el = el.nextElementSibling;
   }
 

@@ -20,22 +20,22 @@ async function handleMessage({ from, body, reply }) {
     `🚴 *Recebi sua sugestão de post de bike!*\n\n` +
     `⏳ Processando com IA Gemini...\n` +
     `📝 Gerando artigo técnico...\n` +
-    `🚀 Publicando no blog (via GitHub API)...`
+    `🔀 Criando PR de revisão...`
   );
 
   try {
     const post = await ai.processCase(body);
 
-    const postUrl = await publisher.publishPost(post.content, post.slug);
+    const prUrl = await publisher.publishPost(post.content, post.slug);
 
-    console.log(`✅ Post publicado no GitHub: ${post.title}`);
+    console.log(`✅ PR criado: ${post.title}`);
 
     await reply(
-      `✅ *Artigo de ciclismo publicado com sucesso!*\n\n` +
+      `✅ *PR de revisão criado!*\n\n` +
       `📄 *Título:* ${post.title}\n` +
       `🏷️ *Tags:* ${post.tags.join(", ")}\n\n` +
-      `🔗 *Link:* ${postUrl}\n\n` +
-      `📝 *Nota:* O GitHub Pages demora cerca de 1-2 minutos para atualizar o visual no ar.`
+      `🔗 *PR:* ${prUrl}\n\n` +
+      `📝 *Nota:* O post entra como rascunho. Faça o merge do PR para publicar.`
     );
   } catch (err) {
     console.error("❌ Erro:", err.message);

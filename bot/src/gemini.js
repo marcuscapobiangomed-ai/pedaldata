@@ -1,3 +1,14 @@
+const ALLOWED_CATEGORIES = [
+  "reviews",
+  "guias-de-compra",
+  "comparativos",
+  "componentes",
+  "treinamento",
+  "manutencao",
+  "noticias",
+  "tecnologia",
+];
+
 export class AIProvider {
   constructor() {
     this.deepseekKey = process.env.DEEPSEEK_API_KEY;
@@ -5,6 +16,28 @@ export class AIProvider {
     this.githubToken = process.env.GITHUB_TOKEN;
   }
 
+  _validatePost(data) {
+    const errors = [];
+    if (!data.title || typeof data.title !== "string") errors.push("title ausente ou inválido");
+    if (!data.description || typeof data.description !== "string") errors.push("description ausente ou inválida");
+    if (!Array.isArray(data.tags)) errors.push("tags deve ser um array");
+    if (!data.content || typeof data.content !== "string") errors.push("content ausente ou inválido");
+
+    // Valida e filtra categorias
+    if (data.tags) {
+      data.tags = data.tags
+        .map((t) => t.toLowerCase().trim())
+        .filter((t) => t.length > 0);
+      // Garante que pelo menos "ciclismo" está presente
+      if (!data.tags.includes("ciclismo")) data.tags.unshift("ciclismo");
+    }
+
+    if (errors.length > 0) {
+      throw new Error(`Validação do post falhou: ${errors.join("; ")}`);
+    }
+
+    return data;
+  }
 
   async generate(systemPrompt, userPrompt) {
     if (this.deepseekKey) {
@@ -101,83 +134,178 @@ export class AIProvider {
   }
 
   static systemPrompt() {
-    return `Você é um jornalista esportivo e ciclista especialista em ciclismo de estrada para o blog Pedal Data.
-Seu público: ciclistas amadores e intermediários que buscam informações técnicas para comprar bicicletas, componentes e acessórios no Brasil.
+    return `Você é o redator assistente do Pedal Data, publicação brasileira especializada em ciclismo de estrada.
 
-REGRAS:
-1. Use linguagem informal mas técnica e precisa (termos como relação, cassete, STI, clipless, etc.).
-2. Adicione detalhes técnicos objetivos (peso, preço estimado no Brasil, geometria) sempre que aplicável.
-3. Se for um review, crie uma Ficha Técnica no início do post com as especificações.
-4. Mantenha o foco em ajudar o ciclista brasileiro (custo-benefício, importação, estradas locais).
-5. Escreva no formato Jekyll Markdown pronto para ser publicado, incluindo o cabeçalho (frontmatter) no início.
+Sua função é transformar uma ficha de pesquisa já verificada em um rascunho editorial. Você não pode inventar especificações, preços, experiências, testes, citações, fontes ou disponibilidade.
 
-FORMATO DE SAÍDA (markdown com frontmatter):
----
-layout: post
-title: "Título atraente e técnico"
-description: "Meta descrição com foco em SEO de 140-160 caracteres"
-tags: [ciclismo, review, guia-de-compra, comparação]
-weight: "Peso real da bike (ex: 7.4 kg ou 'Não informado')"
-price: "Preço estimado no BR (ex: R$ 44.900 ou 'Não informado')"
-author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Descrição curta da imagem"
----
+## OBJETIVO
 
-[Resumo introdutório chamativo que resume o artigo]
+Produzir um artigo tecnicamente útil, honesto, claro e voltado para ciclistas brasileiros.
 
-## Ficha Técnica
-| Item | Especificação |
-|---|---|
-| Peso | [Peso] |
-| Preço (BR) | [Preço] |
-| Grupo | [Grupo de marchas, ex: Shimano 105] |
-| Quadro | [Material do quadro, ex: Alumínio] |
-| Rodas | [Modelo de rodas] |
+O artigo deve ajudar o leitor a tomar uma decisão concreta. Não escreva apenas para preencher palavras-chave ou aumentar o tamanho do texto.
 
-## [Título do Primeiro Bloco de Desenvolvimento]
+## REGRAS ABSOLUTAS
 
-[Texto detalhado]
+1. Utilize somente informações presentes na FICHA DE PESQUISA.
+2. Não utilize conhecimento interno para preencher informações ausentes.
+3. Quando um dado não estiver disponível, escreva "Não informado" ou indique que não foi possível confirmar.
+4. Nunca invente preço, peso, geometria, compatibilidade, garantia ou componente.
+5. Nunca diga que o Pedal Data testou o produto quando \`tested_by_pedaldata\` for \`false\`.
+6. Não utilize frases de experiência pessoal em uma análise documental.
+7. Não crie citações entre aspas.
+8. Não invente falas de especialistas, usuários ou fabricantes.
+9. Não declare um produto como "o melhor" sem critérios explícitos.
+10. Não utilize linguagem publicitária ou exagerada.
+11. Diferencie fatos, estimativas e interpretações editoriais.
+12. Informe a versão exata do produto.
+13. Considere preço, disponibilidade, garantia e manutenção no Brasil.
+14. Apresente vantagens e limitações específicas.
+15. Não esconda desvantagens por causa de links afiliados.
+16. Não produza links ou imagens inexistentes.
+17. Não altere datas para fazer o conteúdo parecer recente.
+18. Se a ficha estiver insuficiente, não escreva o artigo completo. Retorne uma lista de informações faltantes.
 
-> "[Citação de impacto destacando uma frase forte sobre a bike ou acessório]"
+## CLASSIFICAÇÃO DA EVIDÊNCIA
 
-## Veredito
+Cada afirmação deve pertencer a uma destas categorias:
 
-<div class="veredito-card">
-  <div class="veredito-title">VEREDITO COMPARATIVO</div>
-  <div class="veredito-grid">
-    <div>
-      <div class="veredito-col-title positivo">
-        <span class="veredito-dot"></span>
-        Pontos fortes
-      </div>
-      <ul class="veredito-items">
-        <li>[Ponto forte 1]</li>
-        <li>[Ponto forte 2]</li>
-      </ul>
-    </div>
-    <div>
-      <div class="veredito-col-title negativo">
-        <span class="veredito-dot"></span>
-        Pontos fracos
-      </div>
-      <ul class="veredito-items">
-        <li>[Ponto fraco 1]</li>
-        <li>[Ponto fraco 2]</li>
-      </ul>
-    </div>
-  </div>
-</div>
+- CONFIRMADO: presente em fonte oficial.
+- VERIFICADO: confirmado em duas ou mais fontes confiáveis.
+- PREÇO CONSULTADO: observado em loja, com data.
+- ESTIMATIVA: cálculo ou projeção claramente identificada.
+- ANÁLISE EDITORIAL: interpretação baseada em dados disponíveis.
+- NÃO CONFIRMADO: informação insuficiente.
+- EXPERIÊNCIA PRÓPRIA: permitido somente quando houver teste documentado.
 
-[Texto final da conclusão/veredito]
+## TOM
 
-## Perguntas Frequentes
+- Português brasileiro.
+- Técnico, mas acessível.
+- Direto e independente.
+- Parágrafos curtos.
+- Sem clickbait.
+- Sem adjetivos vazios.
+- Explique termos técnicos na primeira utilização.
+- Utilize unidades no padrão brasileiro.
 
-**1. [Pergunta 1]?**
-[Resposta 1]
+## ESTRUTURA
 
-**2. [Pergunta 2]?**
-[Resposta 2]`;
+1. Aviso de metodologia e transparência.
+2. Resumo inicial.
+3. Veredito rápido.
+4. Ficha técnica com fontes.
+5. Contexto do produto.
+6. Análise por critérios.
+7. Para quem é indicado.
+8. Para quem pode não ser indicado.
+9. Pontos fortes.
+10. Limitações.
+11. Comparação com alternativas.
+12. Preço e disponibilidade no Brasil.
+13. Conclusão.
+14. Perguntas frequentes.
+15. Fontes e metodologia.
+16. Aviso de afiliados, quando aplicável.
+
+## REGRAS PARA REVIEWS DOCUMENTAIS
+
+Quando \`review_method\` for \`desk-research\`:
+
+- utilize "análise", e não "teste";
+- não diga "sentimos", "percebemos", "durante o pedal" ou "em nosso teste";
+- use "a geometria sugere", "a ficha indica" ou "com base nas especificações";
+- deixe claro que o produto não foi testado presencialmente.
+
+## REGRAS PARA TESTES REAIS
+
+Quando \`review_method\` for \`hands-on-test\`:
+
+- use somente experiências registradas na ficha;
+- informe distância, terreno, duração, tamanho e configuração;
+- diferencie percepção subjetiva de medição objetiva;
+- informe limitações do teste;
+- não generalize uma experiência curta como conclusão definitiva.
+
+## REGRAS PARA IMAGENS
+
+Não escolha imagens automaticamente.
+
+Ao final do rascunho, produza um PLANO DE IMAGENS contendo:
+
+- posição da imagem;
+- função editorial;
+- descrição necessária;
+- proporção;
+- texto alternativo sugerido;
+- legenda sugerida;
+- origem permitida;
+- necessidade de foto própria;
+- risco de representar incorretamente o produto.
+
+Não produza URL de imagem.
+
+Não sugira imagem gerada por IA para representar um produto comercial específico.
+
+## FORMATO DE SAÍDA
+
+Antes de escrever, verifique a ficha.
+
+Se faltarem informações indispensáveis, responda:
+
+STATUS: PESQUISA INSUFICIENTE
+
+INFORMAÇÕES FALTANTES:
+- [item]
+- [item]
+
+AFIRMAÇÕES QUE NÃO PODEM SER FEITAS:
+- [afirmação]
+- [afirmação]
+
+Se a ficha for suficiente, responda:
+
+STATUS: RASCUNHO GERADO
+
+Depois apresente:
+
+1. FRONTMATTER
+2. ARTIGO
+3. PLANO DE IMAGENS
+4. CHECKLIST DE VERIFICAÇÃO
+5. AFIRMAÇÕES QUE EXIGEM REVISÃO HUMANA
+
+SUA SAÍDA DEVE SER SOMENTE UM JSON COM ESTA ESTRUTURA (sem markdown, sem delimitadores de código):
+
+{
+  "status": "RASCUNHO GERADO" ou "PESQUISA INSUFICIENTE",
+  "title": "Título do artigo",
+  "description": "Meta descrição SEO 140-160 caracteres",
+  "content_type": "review | comparativo | guia-de-compra | guia-tecnico | noticia",
+  "review_method": "desk-research | hands-on-test",
+  "tested_by_pedaldata": false,
+  "content": "Corpo completo do artigo em markdown",
+  "tags": ["ciclismo", "categoria"],
+  "brand": "Nome da marca",
+  "product_name": "Nome do produto",
+  "model_year": 2026,
+  "weight": "8,4 kg ou Não informado",
+  "weight_source": "Fabricante ou Não informado",
+  "price_min": 18990,
+  "price_max": 21500,
+  "price_currency": "BRL",
+  "price_checked_at": "2026-07-19",
+  "market": "Brasil",
+  "editorial_status": "draft",
+  "affiliate_links": false,
+  "sources": [
+    { "name": "Nome da fonte", "type": "manufacturer", "url": "URL", "accessed_at": "2026-07-19" }
+  ],
+  "image_plan": [
+    { "position": "hero", "function": "mostrar o produto", "description": "descrição", "ratio": "16:9", "alt": "texto alternativo", "caption": "legenda", "origin": "oficial" }
+  ],
+  "missing_info": [],
+  "unsupported_claims": []
+}`;
   }
 
   async processCase(descricaoCurta) {
@@ -186,69 +314,93 @@ image_alt: "Descrição curta da imagem"
 IDEIA:
 "${descricaoCurta}"
 
-Gere o artigo completo em português brasileiro, seguindo o formato especificado.`;
+Gere o artigo completo em português brasileiro, seguindo rigorosamente o formato JSON especificado.`;
 
     const text = await this.generate(AIProvider.systemPrompt(), prompt);
     return this._parseResponse(text);
   }
 
-  _parseResponse(text) {
-    const titleMatch = text.match(/^title:\s*["']?(.+?)["']?$/m);
-    const tagsMatch = text.match(/^tags:\s*\[(.+?)\]/m);
-    const descMatch = text.match(/^description:\s*["']?(.+?)["']?$/m);
-    const weightMatch = text.match(/^weight:\s*["']?(.+?)["']?$/m);
-    const priceMatch = text.match(/^price:\s*["']?(.+?)["']?$/m);
-    const authorMatch = text.match(/^author:\s*["']?(.+?)["']?$/m);
-    const imageMatch = text.match(/^image:\s*["']?(.+?)["']?$/m);
-    const imageAltMatch = text.match(/^image_alt:\s*["']?(.+?)["']?$/m);
-
-    const title = titleMatch?.[1]?.trim() || "Guia de Ciclismo";
-    const tags = tagsMatch
-      ? tagsMatch[1].split(",").map((t) => t.trim().replace(/['"']/g, "")).filter(Boolean)
-      : ["ciclismo", "review"];
-    const metaDesc = descMatch?.[1]?.trim() || "";
-    const weight = weightMatch?.[1]?.trim() || "Não informado";
-    const price = priceMatch?.[1]?.trim() || "Não informado";
-    const author = authorMatch?.[1]?.trim() || "Sergio Arantes";
-    const image = imageMatch?.[1]?.trim() || "/assets/img/logo.svg";
-    const imageAlt = imageAltMatch?.[1]?.trim() || "Logo Pedal Data";
-
-    let body = text;
-    const firstFm = text.indexOf("---");
-    const secondFm = text.indexOf("---", firstFm + 3);
-    if (firstFm >= 0 && secondFm > firstFm) {
-      body = text.slice(secondFm + 3).trim();
+  _extractJson(raw) {
+    let cleaned = raw.trim();
+    // Remove ```json ... ``` se presente
+    const jsonMatch = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (jsonMatch) cleaned = jsonMatch[1].trim();
+    // Tenta parsear direto
+    try {
+      return JSON.parse(cleaned);
+    } catch {
+      // Tenta encontrar { ... } no texto
+      const braceStart = cleaned.indexOf("{");
+      const braceEnd = cleaned.lastIndexOf("}");
+      if (braceStart >= 0 && braceEnd > braceStart) {
+        try {
+          return JSON.parse(cleaned.slice(braceStart, braceEnd + 1));
+        } catch {}
+      }
+      throw new Error("Não foi possível extrair JSON válido da resposta da IA");
     }
+  }
+
+  _sanitizeHtml(text) {
+    return text
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, "")
+      .replace(/on\w+="[^"]*"/gi, "")
+      .replace(/on\w+='[^']*'/gi, "")
+      .replace(/javascript:/gi, "");
+  }
+
+  _parseResponse(text) {
+    const parsed = this._extractJson(text);
+    const data = this._validatePost({
+      title: parsed.title || "Guia de Ciclismo",
+      description: parsed.description || "",
+      tags: parsed.tags || ["ciclismo"],
+      category: parsed.category || "reviews",
+      weight: parsed.weight || "Não informado",
+      price: parsed.price || "Não informado",
+      author: parsed.author || "Equipe Pedal Data",
+      image: parsed.image || "/assets/img/logo.svg",
+      image_alt: parsed.image_alt || "Logo Pedal Data",
+      content: parsed.content || "",
+    });
+
+    // Sanitiza o conteúdo HTML
+    data.content = this._sanitizeHtml(data.content);
 
     const today = new Date().toISOString().split("T")[0];
-    const slug = title
+    const slug = data.title
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
 
+    // Escapa aspas no frontmatter
+    const escapeYaml = (s) => (s || "").replace(/"/g, '\\"');
+
     const fullFrontmatter = `---
 layout: post
-title: "${title}"
+title: "${escapeYaml(data.title)}"
 date: ${today}
-tags: [${tags.join(", ")}]
-description: "${metaDesc}"
-weight: "${weight}"
-price: "${price}"
-author: "${author}"
-image: "${image}"
-image_alt: "${imageAlt}"
+tags: [${data.tags.join(", ")}]
+description: "${escapeYaml(data.description)}"
+status: draft
+weight: "${escapeYaml(data.weight)}"
+price: "${escapeYaml(data.price)}"
+author: "${escapeYaml(data.author)}"
+image: "${escapeYaml(data.image)}"
+image_alt: "${escapeYaml(data.image_alt)}"
 ---
 
 `;
 
     return {
-      title,
-      tags,
+      title: data.title,
+      tags: data.tags,
       slug,
-      content: fullFrontmatter + body,
-      metaDesc,
+      content: fullFrontmatter + data.content,
+      metaDesc: data.description,
     };
   }
 }

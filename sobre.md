@@ -14,23 +14,23 @@ title: Sobre
 
         <h2>Nossa Missão</h2>
         <p>O mercado de bicicletas de estrada no Brasil cresce a cada ano, trazendo novas tecnologias como grupos eletrônicos, freios a disco hidráulicos e quadros aerodinâmicos integrados. No entanto, encontrar informações precisas, opiniões honestas e análises baseadas em dados objetivos em português ainda é um desafio.</p>
-        <p>Nossa missão é preencher essa lacuna trazendo fichas técnicas reais, testes de campo e comparativos sinceros de custo-benefício, ajudando você a investir seu dinheiro na bike certa.</p>
+        <p>Nossa missão é preencher essa lacuna trazendo fichas técnicas detalhadas, comparativos sinceros de custo-benefício e conteúdo editorial de qualidade, ajudando você a investir seu dinheiro na bike certa.</p>
 
         <h2>Quem Escreve</h2>
         <div class="author-card" style="margin: 20px 0;">
           <div class="author-avatar">SA</div>
           <div>
             <div class="author-name">Sergio Arantes</div>
-            <div class="author-bio">Ciclista amador de estrada há mais de 8 anos, entusiasta de tecnologia de performance (sensores de potência, aerodinâmica) e editor-chefe do Pedal Data. Já testou mais de 30 modelos de road bikes no mercado brasileiro.</div>
+            <div class="author-bio">Editor-chefe do Pedal Data. Ciclista de estrada desde 2017 e responsável pela supervisão editorial de todo o conteúdo publicado.</div>
           </div>
         </div>
 
         <h2>Metodologia de Análise</h2>
-        <p>Acreditamos em dados objetivos. Nossas avaliações são estruturadas em:</p>
+        <p>Acreditamos em dados objetivos e transparência. Nossos artigos são produzidos com as seguintes classificações:</p>
         <ul>
-          <li><strong>Especificações Técnicas:</strong> Peso real do quadro e componentes, relações de marcha (cassete e coroas) e compatibilidade de upgrades.</li>
-          <li><strong>Testes de Campo:</strong> Como a bicicleta se comporta em subidas íngremes, descidas técnicas e terrenos irregulares (asfalto áspero do Brasil).</li>
-          <li><strong>Custo-Benefício Local:</strong> Análise de preços de mercado, custos de importação, tributação e facilidade de manutenção no território nacional.</li>
+          <li><strong>Análise Documental (desk-research):</strong> Artigos baseados em pesquisa a partir de fontes públicas — sites de fabricantes, distribuidores oficiais e lojas — com data e URL registrados. Esses artigos não envolvem teste físico do produto.</li>
+          <li><strong>Review de Campo:</strong> Artigos com experiência real de uso, incluindo testes em estrada, medições próprias e contato com o produto.</li>
+          <li><strong>Conteúdo gerado com IA:</strong> Os artigos são produzidos com auxílio de inteligência artificial e revisados editorialmente com base em fontes oficiais. Todo conteúdo passa por verificação antes da publicação.</li>
         </ul>
 
         <h2>Transparência e Afiliados</h2>

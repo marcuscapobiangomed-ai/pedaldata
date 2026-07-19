@@ -2,7 +2,7 @@
 layout: post
 title: "Cannondale SuperSix Evo vs SystemSix: Qual Escolher em 2026?"
 date: 2026-07-06
-tags: [Cannondale, bicicletas de estrada, comparação]
+tags: [comparativos, cannondale, bicicletas de estrada, comparação]
 description: "Descubra qual modelo da Cannondale é a melhor escolha para você em 2026: SuperSix Evo ou SystemSix."
 
 author: "Sergio Arantes"

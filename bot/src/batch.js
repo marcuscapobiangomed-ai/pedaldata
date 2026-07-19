@@ -90,7 +90,7 @@ async function main() {
       if (process.env.GITHUB_TOKEN) {
         try {
           const url = await publisher.publishPost(post.content, `${num}-${post.slug}`);
-          console.log(`   🌐 Publicado: ${url}`);
+          console.log(`   🔀 PR criado: ${url}`);
         } catch (pubErr) {
           console.log(`   ⚠️  Erro ao publicar: ${pubErr.message} (salvo localmente)`);
         }

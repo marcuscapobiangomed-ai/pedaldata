@@ -1,5 +1,5 @@
 {% if page.tags %}
-  {% assign related = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.tags contains page.tags.first" | limit: 2 %}
+  {% assign related = site.posts | where_exp: "post", "post.status != 'draft'" | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.tags contains page.tags.first" | limit: 2 %}
   {% if related.size > 0 %}
   <section class="related-posts">
     <h3 class="related-title">Veja Também</h3>

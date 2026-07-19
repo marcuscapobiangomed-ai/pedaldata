@@ -2,7 +2,8 @@
 layout: null
 ---
 [
-  {% for post in site.posts %}
+  {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
+  {% for post in published_posts %}
     {
       "title": {{ post.title | jsonify }},
       "url": {{ post.url | prepend: site.baseurl | jsonify }},

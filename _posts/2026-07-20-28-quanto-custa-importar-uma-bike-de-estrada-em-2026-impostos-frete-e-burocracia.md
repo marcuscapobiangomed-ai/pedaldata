@@ -2,7 +2,7 @@
 layout: post
 title: "Quanto Custa Importar uma Bike de Estrada em 2026: Impostos, Frete e Burocracia"
 date: 2026-07-20
-tags: [importação, bicicleta de estrada, custo]
+tags: [guias-de-compra, importação, bicicleta de estrada, custo]
 description: "Descubra quanto custa importar uma bike de estrada em 2026, incluindo impostos, frete e burocracia envolvida."
 
 author: "Sergio Arantes"

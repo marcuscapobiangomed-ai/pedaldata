@@ -2,7 +2,7 @@
 layout: post
 title: "Lançamentos de Bikes de Estrada 2026: O Que Esperar das Principais Marcas"
 date: 2026-07-07
-tags: [bikes, lançamentos, ciclismo]
+tags: [noticias, bikes, lançamentos, ciclismo]
 description: "Descubra o que as principais marcas de bicicletas de estrada estão preparando para 2026 e quais tendências você não pode perder."
 
 author: "Sergio Arantes"
