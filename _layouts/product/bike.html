@@ -1,0 +1,126 @@
+---
+layout: default
+---
+
+{% assign product_id = page.product_id %}
+{% assign price_lowest = page.price_lowest %}
+{% assign price_highest = page.price_highest %}
+
+{% include schema-product.html product=page price_lowest=price_lowest price_highest=price_highest show_breadcrumb=true %}
+{% include schema-faq.html %}
+
+<section class="product-layout">
+  <div class="container">
+    <div class="product-grid">
+      <div class="product-main">
+        <div class="product-header">
+          <div class="breadcrumbs">
+            <a href="{{ site.baseurl }}/">Início</a>
+            <span class="breadcrumb-sep">→</span>
+            <a href="{{ site.baseurl }}/bikes/">Bicicletas</a>
+            <span class="breadcrumb-sep">→</span>
+            <span class="breadcrumb-current">{{ page.brand }} {{ page.model }}</span>
+          </div>
+          <h1 class="product-title">{{ page.brand }} {{ page.model }}</h1>
+          <span class="product-year">{{ page.modelYear }}</span>
+          {% if page.category %}
+          <span class="hero-label" style="margin-top:10px;display:inline-block;">
+            {{ page.category | replace: '-', ' ' | capitalize }}
+          </span>
+          {% endif %}
+        </div>
+
+        {% include product-specs.html product_id=product_id %}
+        {% include affiliate-links.html product_id=product_id %}
+        {% include product-prices.html product_id=product_id %}
+
+        <div class="product-section">
+          <h3>Geometria</h3>
+          <div id="geometry-{{ product_id }}">
+            <p style="color:var(--text-muted);font-size:0.85rem;">Carregando geometria...</p>
+          </div>
+          <script>
+          (async function() {
+            const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+            try {
+              const geo = await (await fetch(BASE + '/data/geometries/{{ product_id }}.json')).json()
+              if (!geo || !geo.sizes) return
+              const container = document.getElementById('geometry-{{ product_id }}')
+              let html = '<table class="specs-table"><thead><tr><th>Tamanho</th><th>Stack</th><th>Reach</th><th>Top Tube</th><th>Seat Tube</th><th>Head Tube</th><th>Head Angle</th><th>Seat Angle</th><th>Chainstay</th><th>Wheelbase</th></tr></thead><tbody>'
+              geo.sizes.forEach(s => {
+                html += `<tr><td><strong>${s.size}</strong></td><td>${s.stack}</td><td>${s.reach}</td><td>${s.effectiveTopTube}</td><td>${s.seatTube}</td><td>${s.headTube}</td><td>${s.headAngle}°</td><td>${s.seatAngle}°</td><td>${s.chainstay}</td><td>${s.wheelbase}</td></tr>`
+              })
+              html += '</tbody></table>'
+              container.innerHTML = html
+            } catch(e) {
+              document.getElementById('geometry-{{ product_id }}').innerHTML = '<p style="color:var(--text-muted);font-style:italic;">Geometria não disponível.</p>'
+            }
+          })()
+          </script>
+        </div>
+
+        {% if page.content and page.content != '' %}
+        <div class="product-section">
+          <h3>Sobre este modelo</h3>
+          <div class="post-content">{{ content }}</div>
+        </div>
+        {% endif %}
+
+        <div class="product-section">
+          <h3>Artigos relacionados</h3>
+          {% assign related = site.posts | where_exp: "p", "p.content contains product_id or p.content contains page.brand" | limit: 5 %}
+          {% if related.size > 0 %}
+          <ul class="product-alternatives">
+            {% for post in related %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p style="color:var(--text-muted);font-size:0.85rem;">Nenhum artigo relacionado encontrado.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h4 class="widget-title">Alternativas</h4>
+          <div id="alternatives-{{ product_id }}">
+            <p style="color:var(--text-muted);font-size:0.82rem;">Carregando...</p>
+          </div>
+          <script>
+          (async function() {
+            const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+            try {
+              const catalog = await (await fetch(BASE + '/data/catalog-index.json')).json()
+              const current = catalog.bikes.find(b => b.id === '{{ product_id }}')
+              if (!current) return
+              const alternatives = catalog.bikes
+                .filter(b => b.id !== '{{ product_id }}' && b.priceLowest != null)
+                .sort((a, b) => Math.abs((a.priceLowest || 0) - (current.priceLowest || 0)))
+                .slice(0, 5)
+              const container = document.getElementById('alternatives-{{ product_id }}')
+              container.innerHTML = '<ul class="product-alternatives">' + alternatives.map(b =>
+                `<li><a href="${BASE}/bikes/${b.slug}/">${b.brand} ${b.model}</a></li>`
+              ).join('') + '</ul>'
+            } catch(e) {
+              document.getElementById('alternatives-{{ product_id }}').innerHTML = ''
+            }
+          })()
+          </script>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4 class="widget-title">Informações</h4>
+          <p style="font-size:0.82rem;color:var(--text-muted);line-height:1.5;">
+            As especificações são baseadas em dados oficiais dos fabricantes e distribuidores.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script>
+  if (typeof PedalData.trackProductView === 'function') {
+    PedalData.trackProductView('{{ product_id }}', '{{ page.brand }}', '{{ page.model }}')
+  }
+  </script>
+</section>

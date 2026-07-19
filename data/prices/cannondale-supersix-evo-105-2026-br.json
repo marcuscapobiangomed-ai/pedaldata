@@ -1,0 +1,26 @@
+{
+  "productId": "cannondale-supersix-evo-105-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "BikeExpress",
+      "price": 14850,
+      "regularPrice": 16080,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/cannondale-supersix-evo-105-2026-br",
+      "checkedAt": "2026-07-08"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 16410,
+      "regularPrice": 17610,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/cannondale-supersix-evo-105-2026-br",
+      "checkedAt": "2026-07-12"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "melhores-rotas-ciclismo-brasil",
+  "title": "Melhores Estradas e Rotas para Ciclismo de Estrada no Brasil",
+  "content_type": "guia-turistico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "melhores-estradas-e-rotas-para-ciclismo-de-estrada-no-brasil-guia-por-região",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Content type corrigido de guia-de-compra para guia-turistico",
+    "Tags corrigidas (removido guia-de-compra, adicionado guia-turistico)",
+    "Adicionadas dicas de segurança específicas",
+    "Gramado movido para RS (estava 'Gramado (RS)' mas listado na seção Sudeste)",
+    "Nota duplicada removida (explicava que Graciosa e Rio do Rastro são Sul)"
+  ],
+  "sources": [
+    { "name": "Strava", "url": "https://www.strava.com", "accessed": "2026-07-19" },
+    { "name": "WikiLoc", "url": "https://www.wikiloc.com", "accessed": "2026-07-19" }
+  ],
+  "notes": "Conteúdo evergreen com correções de classificação e melhorias editoriais.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2027-01-19"
+}

@@ -1,0 +1,37 @@
+{% assign product_id = include.product_id %}
+{% assign product = site.data.products.bikes[product_id] %}
+{% if product %}
+<div class="product-specs" data-product-id="{{ product_id }}">
+  <h3>Ficha Técnica — {{ product.brand }} {{ product.model }} ({{ product.modelYear }})</h3>
+  <table class="specs-table">
+    <tbody>
+      <tr><td class="spec-label">Categoria</td><td>{{ product.category | replace: '-', ' ' | capitalize }}</td></tr>
+      <tr><td class="spec-label">Quadro</td><td>{{ product.frame.material | capitalize }} — {{ product.frame.technology }}</td></tr>
+      <tr><td class="spec-label">Garfo</td><td>{{ product.fork.material | capitalize }} — {{ product.fork.model }}</td></tr>
+      <tr><td class="spec-label">Grupo</td><td>{{ product.drivetrain.brand }} {{ product.drivetrain.groupset }} ({{ product.drivetrain.speeds }}v)</td></tr>
+      <tr><td class="spec-label">Transmissão</td><td>{{ product.drivetrain.shifting | capitalize }}</td></tr>
+      <tr><td class="spec-label">Freios</td><td>{{ product.brakes.brand }} {{ product.brakes.model }} ({{ product.brakes.type | replace: '-', ' ' }})</td></tr>
+      <tr><td class="spec-label">Rodas</td><td>{{ product.wheels.brand }} {{ product.wheels.model }}</td></tr>
+      <tr><td class="spec-label">Pneus</td><td>{{ product.tires.brand }} {{ product.tires.model }} ({{ product.tires.widthMm }}mm)</td></tr>
+      {% if product.declaredWeight %}
+      <tr><td class="spec-label">Peso declarado</td><td>{{ product.declaredWeight.valueKg }} kg (tam. {{ product.declaredWeight.size }})</td></tr>
+      {% endif %}
+      {% if product.maxTireClearanceMm %}
+      <tr><td class="spec-label">Clearance máximo</td><td>{{ product.maxTireClearanceMm.value }} mm</td></tr>
+      {% endif %}
+      <tr><td class="spec-label">Status</td><td>
+        {% if product.status == 'active' %}Disponível{% endif %}
+        {% if product.status == 'discontinued' %}Descontinuado{% endif %}
+        {% if product.status == 'pre-release' %}Pré-lançamento{% endif %}
+        {% if product.status == 'unavailable-br' %}Indisponível no Brasil{% endif %}
+      </td></tr>
+      {% if product.testedByPedalData %}
+      <tr><td class="spec-label">Testado pelo Pedal Data</td><td>Sim</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <p class="specs-source">Última atualização: {{ product.updatedAt | date: "%d/%m/%Y" }}</p>
+</div>
+{% else %}
+<p class="specs-error">Produto não encontrado na base de dados.</p>
+{% endif %}

@@ -1,0 +1,69 @@
+{
+  "slug": "onde-comprar-bike-importada-brasil-2026",
+  "title": "Onde Comprar Bike de Estrada Importada no Brasil em 2026",
+  "content_type": "guia-de-compra",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "onde-comprar-bike-de-estrada-importada-no-brasil-em-2026-lojas-sites-e-cuidados",
+  "decision": "reescrever",
+  "errors_corrected": [
+    "Post original não citava lojas específicas — apenas sugestões genéricas",
+    "Não mencionava a Cervélo Brasil (cervelobr.com) como distribuidora oficial",
+    "Não mencionava a Soul Cycles como distribuidora Trek e Cannondale",
+    "Não mencionava a AllSports Store como revendedora Scott",
+    "Não mencionava a Bert Bike Store (BH) e Demarchi Bicicletas (SC) como lojas físicas relevantes",
+    "Não mencionava a Specialized.com.br (loja oficial Specialized no Brasil)"
+  ],
+  "distributors": {
+    "specialized": {
+      "name": "Specialized Brasil",
+      "url": "https://www.specialized.com/br/pt",
+      "type": "Loja oficial do fabricante",
+      "note": "Venda online direta com entrega para todo o Brasil. Linha completa de bikes e equipamentos."
+    },
+    "cervelo_br": {
+      "name": "Cervélo Brasil",
+      "url": "https://cervelobr.com",
+      "type": "Distribuidora oficial",
+      "note": "Loja online oficial da Cervélo no Brasil. Caledonia, Soloist, P-Series, R5, S5 disponíveis."
+    },
+    "allsports": {
+      "name": "AllSports Store",
+      "url": "https://www.allsports.com.br",
+      "type": "Revendedora multimarcas",
+      "note": "Revendedora oficial Scott, Specialized, Cannondale, entre outras. Loja física em SP e e-commerce."
+    },
+    "bert_bike": {
+      "name": "Bert Bike Store",
+      "url": "https://bertbikestore.com.br",
+      "type": "Loja física + online",
+      "note": "Revendedora autorizada Trek, Scott e TSW. BH (Pampulha). Test ride disponível."
+    },
+    "demarchi": {
+      "name": "Demarchi Bicicletas",
+      "url": "https://www.demarchibicicletas.com.br",
+      "type": "Loja física + online",
+      "note": "Revendedora Trek, Cannondale, Caloi. SC. Parcelamento em 12x sem juros."
+    },
+    "soul_cycles": {
+      "name": "Soul Cycles Brasil",
+      "type": "Distribuidora",
+      "note": "Importadora oficial Trek, Cannondale, Cervélo, entre outras. Atende lojas em todo o Brasil."
+    }
+  },
+  "sources": [
+    { "name": "Specialized Brasil", "url": "https://www.specialized.com/br/pt", "accessed": "2026-07-19" },
+    { "name": "Cervélo Brasil", "url": "https://cervelobr.com", "accessed": "2026-07-19" },
+    { "name": "AllSports Store", "url": "https://www.allsports.com.br", "accessed": "2026-07-19" },
+    { "name": "Bert Bike Store", "url": "https://bertbikestore.com.br", "accessed": "2026-07-19" },
+    { "name": "Demarchi Bicicletas", "url": "https://www.demarchibicicletas.com.br", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo reescrito com lojas e distribuidores reais. Preços de exemplo atualizados conforme pesquisa de julho/2026.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

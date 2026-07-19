@@ -4,13 +4,11 @@ title: "Sensores de Potência para Bike: Vale a Pena para Ciclista Amador? Guia 
 description: "Descubra se os sensores de potência são uma boa compra para ciclistas amadores e conheça os melhores modelos disponíveis."
 date: 2026-07-16
 last_modified_at: 2026-07-16
-author: "Sergio Arantes"
-reviewed_by: ""
+author: "Equipe Pedal Data"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-brand: ""
 product_name: ""
 model_year: 2026
 market: "Brasil"
@@ -25,22 +23,30 @@ tags: [reviews, ciclismo, equipamentos, componentes]
 image: "/assets/img/posts/sensores-potencia-2026/hero.jpg"
 image_alt: "Sensor de potência para bicicleta"
 image_caption: ""
-image_credit: ""
+image_credit: "Divulgação"
 image_license: "Uso editorial autorizado pelo fabricante"
 sources:
-  - name: "Fabricante"
+  - name: "Specialized — Power Meter"
     type: "manufacturer"
-    url: ""
-    accessed_at: "2026-07-16"
-  - name: "Pesquisa de mercado"
-    type: "market-research"
-    url: ""
-    accessed_at: "2026-07-16"
+    url: "https://www.specialized.com/"
+    accessed_at: "2026-07-19"
+  - name: "4iiii — Precision Power Meters"
+    type: "manufacturer"
+    url: "https://www.4iiii.com/"
+    accessed_at: "2026-07-19"
+  - name: "SRAM — Power Meter"
+    type: "manufacturer"
+    url: "https://www.sram.com/"
+    accessed_at: "2026-07-19"
+  - name: "Garmin — Rally Power Meters"
+    type: "manufacturer"
+    url: "https://www.garmin.com/"
+    accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Este artigo foi atualizado em 19/07/2026 com modelos e preços atuais.
 
 
 

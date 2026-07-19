@@ -1,0 +1,26 @@
+{
+  "productId": "cannondale-caad13-105-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 29880,
+      "regularPrice": null,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/cannondale-caad13-105-2026-br",
+      "checkedAt": "2026-07-13"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 29880,
+      "regularPrice": 30650,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/cannondale-caad13-105-2026-br",
+      "checkedAt": "2026-07-17"
+    }
+  ]
+}

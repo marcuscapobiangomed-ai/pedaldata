@@ -1,0 +1,36 @@
+{
+  "productId": "specialized-tarmac-sl8-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 23850,
+      "regularPrice": 25040,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/specialized-tarmac-sl8-2026-br",
+      "checkedAt": "2026-07-17"
+    },
+    {
+      "store": "PedalMais",
+      "price": 20980,
+      "regularPrice": 22290,
+      "installments": null,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/specialized-tarmac-sl8-2026-br",
+      "checkedAt": "2026-07-06"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 23180,
+      "regularPrice": 25170,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/specialized-tarmac-sl8-2026-br",
+      "checkedAt": "2026-07-19"
+    }
+  ]
+}

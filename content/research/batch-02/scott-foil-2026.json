@@ -1,0 +1,44 @@
+{
+  "slug": "scott-foil-2026",
+  "title": "Scott Foil RC 2026: Review Completo do Modelo Aero",
+  "content_type": "review",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_posts": ["scott-foil-2026-review-completo-do-modelo-aero-e-suas-novidades"],
+  "decision": "reescrever",
+  "target_url": "/reviews/scott-foil-2026/",
+
+  "errors_corrected": [
+    "Peso do quadro não é 850g — Foil RC HMX é ~985g, Foil RC Ultimate HMX SL é ~970g",
+    "Aerodinâmica '10% melhor' não tem fonte — dado removido",
+    "Rodas Zipp 303 não são usadas na Scott Foil — o correto é Syncros Capital 1.0 60mm",
+    "Preço Dura-Ace de R$ 20k-25k é absurdo — Foil RC Pro com Dura-Ace custa R$ 94.990 no Brasil",
+    "Sistema 'Foil Compliance' não existe — Scott chama de CFT (Compliance Fork Technology)",
+    "Preços corrigidos com base na AllSports Store (revendedora oficial Scott Brasil)"
+  ],
+
+  "models_confirmed": [
+    { "name": "Foil RC Ultimate", "groupset": "SRAM Red AXS", "weight_kg": 6.8, "price_euro": 11999, "price_brl": null, "frame": "HMX SL Carbon", "wheels": "Syncros Capital SL Aero 60mm" },
+    { "name": "Foil RC Pro", "groupset": "Shimano Dura-Ace Di2", "weight_kg": null, "price_euro": 7999, "price_brl": 94990, "frame": "HMX Carbon", "wheels": "Syncros Capital 1.0S Aero 60mm" },
+    { "name": "Foil RC Team", "groupset": "Shimano Ultegra Di2", "weight_kg": null, "price_euro": 6499, "price_brl": null, "frame": "HMF Carbon", "wheels": "Syncros Capital 1.0 60mm" },
+    { "name": "Foil RC 10", "groupset": "Shimano Ultegra Di2", "weight_kg": null, "price_euro": 5499, "price_brl": 63999, "frame": "HMX Carbon", "wheels": "Syncros Capital 1.0 60mm" },
+    { "name": "Foil RC 20", "groupset": "Shimano 105 Di2", "weight_kg": null, "price_euro": 4599, "price_brl": 53999, "frame": "HMX Carbon", "wheels": "Syncros Capital 1.0 60mm" }
+  ],
+
+  "sources": [
+    { "name": "Scott Sports (site oficial PT)", "url": "https://www.scott-sports.com/pt/pt/foil", "accessed": "2026-07-19" },
+    { "name": "AllSports Store (revendedora oficial Scott Brasil)", "url": "https://www.allsports.com.br/", "accessed": "2026-07-19" },
+    { "name": "AllSports Store - Foil RC 10", "url": "https://www.allsports.com.br/produto/bike-speed-scott-foil-rc-10-2026-carbon-black/", "accessed": "2026-07-19" },
+    { "name": "AllSports Store - Foil RC Pro", "url": "https://www.allsports.com.br/produto/bike-scott-foil-rc-pro-2026-cumulus-white-e-carbon-black/", "accessed": "2026-07-19" },
+    { "name": "AllSports Store - Foil RC 20", "url": "https://www.allsports.com.br/produto/bike-speed-scott-foil-rc-20-2026-carbon-grey/", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo reescrito. Erros graves corrigidos: preços (de R$ 20k para R$ 53k+), rodas (Zipp 303 → Syncros Capital), sistemas inventados removidos. Preços Brasil confirmados na AllSports Store (revendedora oficial). Foil RC 20 com 105 Di2 é o modelo de entrada da linha Foil no Brasil a R$ 53.999.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

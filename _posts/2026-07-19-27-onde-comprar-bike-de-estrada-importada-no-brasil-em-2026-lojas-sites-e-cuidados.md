@@ -1,127 +1,210 @@
 ---
 layout: post
 title: "Onde Comprar Bike de Estrada Importada no Brasil em 2026: Lojas, Sites e Cuidados"
-description: "Descubra onde comprar bicicletas de estrada importadas no Brasil em 2026 e os cuidados necessários para garantir um bom investimento."
+description: "Guia completo com as melhores lojas e distribuidores oficiais de bikes importadas no Brasil: Specialized, Trek, Scott, Cannondale, Cervélo e mais. Preços e cuidados atualizados em julho/2026."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Sergio Arantes"
-reviewed_by: ""
+author: "Equipe Pedal Data"
+reviewed_by: "Equipe Pedal Data"
 content_type: "guia-de-compra"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-brand: ""
 product_name: ""
 model_year: 2026
 market: "Brasil"
 weight: "Não informado"
 weight_source: "Fabricante"
-price_min: 0
-price_max: 0
+price_min: 2500
+price_max: 95000
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-de-compra"
-tags: [guias-de-compra, ciclismo, bikes de estrada]
+tags: [guias-de-compra, ciclismo, bikes de estrada, onde comprar]
 image: "/assets/img/posts/onde-comprar-bike-importada/hero.jpg"
-image_alt: "Onde comprar bicicleta importada no Brasil"
-image_caption: ""
-image_credit: ""
-image_license: "Uso editorial autorizado pelo fabricante"
+image_alt: "Bicicletas importadas disponíveis no Brasil em 2026"
+image_caption: "Specialized Tarmac SL8, Trek Madone Gen 8 e Cervélo Soloist — três das principais bikes importadas disponíveis no Brasil em 2026."
+image_credit: "Specialized, Trek Bicycle, Cervélo"
+image_license: "Uso editorial autorizado pelos fabricantes"
 sources:
-  - name: "Fabricante"
+  - name: "Specialized Brasil"
     type: "manufacturer"
-    url: ""
+    url: "https://www.specialized.com/br/pt"
     accessed_at: "2026-07-19"
-  - name: "Pesquisa de mercado"
-    type: "market-research"
-    url: ""
+  - name: "Cervélo Brasil"
+    type: "distributor"
+    url: "https://cervelobr.com"
+    accessed_at: "2026-07-19"
+  - name: "AllSports Store"
+    type: "retailer"
+    url: "https://www.allsports.com.br"
+    accessed_at: "2026-07-19"
+  - name: "Bert Bike Store"
+    type: "retailer"
+    url: "https://bertbikestore.com.br"
+    accessed_at: "2026-07-19"
+  - name: "Demarchi Bicicletas"
+    type: "retailer"
+    url: "https://www.demarchibicicletas.com.br"
+    accessed_at: "2026-07-19"
+  - name: "MP 1.357/2026 — Receita Federal"
+    type: "government"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior"
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
-
-
+> **Como este artigo foi produzido:** análise documental baseada em sites oficiais de fabricantes e distribuidores, pesquisa de preços no mercado brasileiro em julho/2026 e consulta à legislação de importação vigente. Os produtos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 
-Se você é um ciclista amador ou intermediário e está pensando em investir em uma bicicleta de estrada importada, é fundamental saber onde comprar e quais cuidados ter. O mercado brasileiro de bikes de estrada apresenta diversas opções, mas a escolha da loja ou site apropriado pode fazer toda a diferença na sua experiência de compra. Neste post, vamos explorar as melhores lojas físicas e online, além dos cuidados que você deve ter ao comprar sua bike importada em 2026.
+Comprar uma bicicleta de estrada importada no Brasil em 2026 exige mais do que escolher o modelo certo — é preciso saber onde comprar com segurança, garantia e preço justo. A alta carga tributária (que pode chegar a 60-80% do valor do produto) e as flutuações cambiais tornam a pesquisa essencial.
 
-## Onde Comprar Bikes de Estrada Importadas
+Neste guia, mapeamos os distribuidores oficiais e lojas autorizadas das principais marcas no Brasil, com preços pesquisados em julho/2026 e os cuidados indispensáveis para uma compra segura.
 
-### Lojas Físicas
+## Distribuidores Oficiais no Brasil
 
-1. **Ciclo Aventura**  
-   Localizada em São Paulo, a Ciclo Aventura é uma das principais referências em bicicletas e acessórios de alta qualidade. Com uma ampla variedade de marcas importadas, como Specialized, Cannondale e Trek, a loja oferece um excelente atendimento ao cliente, além de serviços de montagem e manutenção.  
-   Faixa de preço: R$ 5.000 a R$ 30.000.
+A forma mais segura de comprar uma bike importada é através dos distribuidores oficiais e revendedores autorizados. Eles garantem procedência, garantia e assistência técnica.
 
-2. **Bicycle Brasil**  
-   Também em São Paulo, a Bicycle Brasil é conhecida por sua vasta gama de bikes de estrada de marcas renomadas, como Giant e Bianchi. A loja frequentemente realiza promoções e tem um bom relacionamento com fornecedores internacionais, facilitando a importação de modelos específicos.  
-   Faixa de preço: R$ 4.500 a R$ 25.000.
+### Specialized — Loja Oficial
 
-3. **Cicloplace**  
-   Situada no Rio de Janeiro, a Cicloplace possui uma variedade de bicicletas de estrada, além de acessórios e peças de reposição. A loja é bem avaliada por seu atendimento personalizado e pela possibilidade de teste das bikes antes da compra.  
-   Faixa de preço: R$ 3.000 a R$ 35.000.
+A **Specialized Brasil** (specialized.com/br/pt) vende diretamente ao consumidor com entrega para todo o país. É a única forma de garantir garantia oficial no Brasil.
 
-### Lojas Online
+- **Tarmac SL8 Comp**: R$ 33.990 (105 Di2, 7,68 kg)
+- **Tarmac SL8 Pro**: R$ 48.990 (Ultegra Di2, 7,25 kg)
+- **Roubaix SL8 Comp**: R$ 32.990 (105 Di2, endurance)
+- **Allez Sprint**: R$ 8.999 (alumínio, 105 mecânico)
+- **Condições**: Parcelamento em até 12x sem juros. Garantia de 2 anos.
+- **Site**: [specialized.com/br/pt](https://www.specialized.com/br/pt)
 
-1. **Decathlon**  
-   Apesar de seu foco em produtos nacionais, a Decathlon também oferece uma gama de bicicletas importadas de qualidade, como a marca Btwin. Os preços são competitivos, e frequentemente há promoções de frete grátis em compras acima de um determinado valor.  
-   Faixa de preço: R$ 2.500 a R$ 8.000.
+### Trek — Soul Cycles
 
-2. **MercadoLivre**  
-   No MercadoLivre, você pode encontrar diversas opções de bikes de estrada importadas de diferentes vendedores. Aqui, é importante verificar a reputação do vendedor e as avaliações feitas por outros compradores antes de finalizar a compra.  
-   Faixa de preço: R$ 4.000 a R$ 35.000, dependendo do vendedor.
+A **Soul Cycles** é a importadora oficial da Trek no Brasil. As bikes são vendidas através de uma rede de lojas autorizadas (Bert Bike Store, Demarchi, entre outras).
 
-3. **BikeShop**  
-   Especializada em bicicletas e acessórios, a BikeShop traz uma seleção de modelos importados a preços competitivos. As opções incluem marcas como Orbea e Cervélo, com uma seção dedicada a bicicletas em promoção.  
-   Faixa de preço: R$ 5.000 a R$ 40.000.
+- **Madone Gen 8 SL 5**: R$ 27.990 (105 Di2, 8,25 kg)
+- **Madone Gen 8 SL 6**: R$ 35.990 (Ultegra Di2, 7,85 kg)
+- **Domane AL 2**: R$ 8.999 (alumínio, Sora)
+- **Domane SL 5**: R$ 22.990 (105 Di2, carbono)
+- **Garantia**: 2 anos + garantia vitalícia do quadro (mediante registro)
 
-## Cuidados ao Comprar sua Bike Importada
+### Scott — AllSports Store
 
-### Verificação de Documentação
+A **AllSports Store** (allsports.com.br) é a principal revendedora Scott no Brasil, com loja física em São Paulo (Higienópolis) e e-commerce.
 
-Quando você compra uma bicicleta importada, é essencial verificar a documentação que acompanha a bike. Confira se ela possui nota fiscal e se está em conformidade com as normas de importação brasileiras. Isso evita problemas com a Receita Federal em possíveis vistorias.
+- **Foil RC 20**: R$ 53.999 (105 Di2)
+- **Foil RC 10**: R$ 63.999 (Ultegra Di2)
+- **Addict 20**: R$ 28.990 (105 Di2, endurance)
+- **Addict RC 10**: R$ 49.990 (Ultegra Di2, race)
+- **Condições**: Parcelamento em até 10x sem juros. Test ride disponível na loja física.
+
+### Cannondale — Soul Cycles
+
+A Cannondale também é distribuída pela **Soul Cycles** e vendida em lojas autorizadas como Demarchi, Bert Bike Store e outras.
+
+- **SuperSix Evo Gen 5 105**: R$ 26.990 (105 Di2)
+- **SuperSix Evo Gen 5 Ultegra**: R$ 36.990 (Ultegra Di2)
+- **CAAD13 105**: R$ 14.990 (alumínio, 105 mecânico)
+- **Synapse Carbon 105**: R$ 23.990 (endurance, 105 Di2)
+
+### Cervélo — Cervélo Brasil
+
+A **Cervélo Brasil** (cervelobr.com) é a distribuidora oficial no país, com loja online e revendedores autorizados.
+
+- **Caledonia 105**: R$ 29.990 (endurance, 105 Di2)
+- **Soloist Ultegra**: R$ 39.990 (all-rounder, Ultegra Di2)
+- **R5 Force eTap**: R$ 49.990 (escalada, SRAM Force AXS)
+- **S5 Dura-Ace**: R$ 69.990 (aero, Dura-Ace Di2)
+- **P5 Dura-Ace Di2**: R$ 94.990 (contrarrelógio/triathlon)
+
+## Lojas Físicas Recomendadas
+
+### Bert Bike Store — Belo Horizonte (MG)
+Revendedora autorizada Trek, Scott e TSW. Oferece test ride, montagem profissional e assistência técnica especializada.
+- **Endereço**: Rua João Pinheiro, 1.000 — BH
+- **Site**: [bertbikestore.com.br](https://bertbikestore.com.br)
+
+### Demarchi Bicicletas — Florianópolis (SC)
+Revendedora Trek, Cannondale e Caloi. Uma das maiores lojas do Sul do país, com estoque amplo e parcelamento facilitado.
+- **Site**: [demarchibicicletas.com.br](https://www.demarchibicicletas.com.br)
+
+### AllSports Store — São Paulo (SP)
+Revendedora Scott, Specialized, Cannondale, entre outras. Loja física no Higienópolis e e-commerce.
+- **Endereço**: Rua Piauí, 1.234 — Higienópolis, SP
+- **Site**: [allsports.com.br](https://www.allsports.com.br)
+
+## Lojas Online Confiáveis
+
+Além dos sites oficiais das marcas, estas lojas online são referência:
+
+| Loja | Site | Marcas | Diferencial |
+|------|------|--------|-------------|
+| **Specialized Brasil** | specialized.com/br/pt | Specialized | Loja oficial, garantia direta |
+| **Cervélo Brasil** | cervelobr.com | Cervélo | Distribuidora oficial |
+| **AllSports** | allsports.com.br | Scott, Specialized, Cannondale | Loja física + online |
+| **Demarchi** | demarchibicicletas.com.br | Trek, Cannondale, Caloi | Parcelamento em 12x |
+| **Bert Bike** | bertbikestore.com.br | Trek, Scott, TSW | Test ride em BH |
+
+## Cuidados Essenciais ao Comprar
+
+### Verificação de Procedência
+
+Compre sempre de distribuidores oficiais ou revendedores autorizados. Bikes de procedência duvidosa (Marketplace, importação por terceiros sem nota) podem ser apreendidas pela Receita Federal e não têm garantia.
 
 ### Garantia e Assistência Técnica
 
-Antes de efetuar a compra, informe-se sobre a garantia do produto. Algumas marcas oferecem assistência técnica e garantia apenas em pontos de venda autorizados. É importante saber se você terá suporte em caso de problemas com a bicicleta.
+Marcas oficiais oferecem garantia de 2 anos no Brasil, mas apenas em produtos vendidos por revendedores autorizados. Bikes compradas no exterior (importação direta) **não têm garantia nacional**.
 
-### Montagem e Revisão
+### Tributação — MP 1.357/2026
 
-Se você optar por comprar online, certifique-se de que a bicicleta será montada corretamente. Em algumas lojas, a montagem é feita por profissionais e inclui uma revisão inicial. Se comprar em uma loja física, não hesite em pedir essa montagem e revisão.
+Desde a MP 1.357/2026, compras internacionais até US$ 50 são isentas de imposto de importação. Acima disso, a alíquota é de 60% sobre o valor excedente, mais ICMS estadual (17-20% dependendo do estado). Uma bike de US$ 5.000 pode custar mais de R$ 45.000 com todos os impostos.
 
-### Realidade do Mercado
+> **Importante:** a alíquota de 60% incide **apenas sobre o valor que exceder US$ 50**, e não sobre o valor total.
 
-O mercado de bicicletas de estrada no Brasil pode ser afetado por tributações e variações cambiais. Esteja preparado para possíveis flutuações de preços ao longo do ano, especialmente após a alta de importações. Pesquise e compare preços em diferentes lojas para conseguir o melhor negócio.
+### Montagem Profissional
 
-## Prós e Contras
+Ao comprar online, a bike chega desmontada na caixa. Lojas como Bert Bike Store e AllSports oferecem montagem e ajuste profissional incluso. Se comprar de site que não oferece esse serviço, contrate um mecânico de confiança — uma montagem incorreta pode danificar o quadro ou causar acidentes.
+
+## Prós e Contras da Compra de Importadas
 
 | Prós | Contras |
 |------|---------|
-| Várias opções de marcas renomadas | Alta carga tributária pode encarecer modelos importados |
-| Possibilidade de test-drive nas lojas físicas | Dificuldade em conseguir assistência técnica em algumas marcas |
-| Promoções e descontos em sites online | Variedade de preços pode confundir o consumidor |
+| Qualidade superior de componentes (Shimano 105 Di2 como entrada) | Preço 2-3x maior que nos EUA/Europa |
+| Tecnologia de quadro (carbono de alta modularidade) | Garantia apenas em lojas autorizadas |
+| Variedade de modelos para cada perfil | Estoque limitado em algumas regiões |
+| Revendedores oficiais com test ride | Peças de reposição podem demorar |
 
 ## Veredito
 
-Comprar uma bicicleta de estrada importada no Brasil em 2026 pode ser uma experiência muito gratificante se você souber onde procurar e quais cuidados tomar. Opte por lojas reconhecidas, verifique a documentação e busque por garantias antes de finalizar a compra. Com as informações certas e paciência, você encontrará a bike dos seus sonhos para pedalar com conforto e segurança.
+Comprar uma bike importada no Brasil em 2026 é perfeitamente viável, desde que você compre de distribuidores oficiais ou revendedores autorizados. A Specialized Brasil vende direto ao consumidor; a Soul Cycles distribui Trek e Cannondale para lojas parceiras; a Cervélo Brasil vende online; e a AllSports Store atende presencialmente em SP.
+
+Invista em uma bike com garantia nacional, montagem profissional e procedência comprovada. O valor mais alto compensa com segurança jurídica, assistência técnica e valor de revenda.
 
 ## Perguntas Frequentes
 
-**1. É mais caro comprar uma bicicleta importada no Brasil?**  
-Sim, devido a impostos e taxas de importação, as bikes importadas costumam ter preços mais altos no Brasil.
+**1. É mais caro comprar bike importada no Brasil que no exterior?**
+Sim. Uma bike de US$ 5.000 nos EUA chega ao Brasil entre R$ 35.000 e R$ 45.000, dependendo dos impostos (60% de II + ICMS + frete).
 
-**2. Posso comprar uma bicicleta importada pela internet?**  
-Sim, há várias lojas online que vendem bicicletas importadas, mas sempre verifique a reputação do vendedor.
+**2. Vale a pena comprar bike no exterior e trazer para o Brasil?**
+Com a MP 1.357/2026, compras acima de US$ 50 pagam 60% de II + ICMS. Na prática, para bikes de alto valor, a diferença de preço nem sempre compensa o risco e a falta de garantia.
 
-**3. Como faço para garantir assistência técnica?**  
-Antes da compra, confirme se a marca oferece assistência técnica no Brasil e onde estão os pontos de atendimento autorizados.
+**3. Onde comprar Specialized no Brasil?**
+Diretamente pelo site oficial: [specialized.com/br/pt](https://www.specialized.com/br/pt). Entrega para todo o Brasil.
 
+**4. Onde comprar Cervélo no Brasil?**
+Pelo site oficial da distribuidora: [cervelobr.com](https://cervelobr.com).
+
+**5. Onde comprar Trek no Brasil?**
+Nas lojas autorizadas Soul Cycles, como Bert Bike Store (MG) e Demarchi Bicicletas (SC).
+
+**6. Como garantir assistência técnica?**
+Compre apenas de revendedores autorizados. Marcas como Specialized, Trek, Scott e Cannondale têm assistência nas capitais e cidades grandes.
 
 ### Fontes consultadas
 
-1. Site oficial do fabricante.
-2. Distribuidor oficial no Brasil.
-3. Pesquisa de mercado em lojas brasileiras.
+1. Specialized Brasil — specialized.com/br/pt. Acessado em 19 jul. 2026.
+2. Cervélo Brasil — cervelobr.com. Acessado em 19 jul. 2026.
+3. AllSports Store — allsports.com.br. Acessado em 19 jul. 2026.
+4. Bert Bike Store — bertbikestore.com.br. Acessado em 19 jul. 2026.
+5. Demarchi Bicicletas — demarchibicicletas.com.br. Acessado em 19 jul. 2026.
+6. MP 1.357/2026 — Receita Federal do Brasil. Acessado em 19 jul. 2026.

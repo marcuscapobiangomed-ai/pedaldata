@@ -1,0 +1,67 @@
+{
+  "productId": "specialized-tarmac-sl7-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "S",
+      "stack": 527,
+      "reach": 380,
+      "effectiveTopTube": 534,
+      "seatTube": 490,
+      "headTube": 115,
+      "headAngle": 72.5,
+      "seatAngle": 74.0,
+      "chainstay": 410,
+      "wheelbase": 982
+    },
+    {
+      "size": "M",
+      "stack": 544,
+      "reach": 385,
+      "effectiveTopTube": 549,
+      "seatTube": 515,
+      "headTube": 131,
+      "headAngle": 73.0,
+      "seatAngle": 73.5,
+      "chainstay": 410,
+      "wheelbase": 988
+    },
+    {
+      "size": "M-L",
+      "stack": 567,
+      "reach": 393,
+      "effectiveTopTube": 568,
+      "seatTube": 535,
+      "headTube": 152,
+      "headAngle": 73.5,
+      "seatAngle": 73.0,
+      "chainstay": 410,
+      "wheelbase": 997
+    },
+    {
+      "size": "L",
+      "stack": 585,
+      "reach": 400,
+      "effectiveTopTube": 585,
+      "seatTube": 565,
+      "headTube": 170,
+      "headAngle": 73.5,
+      "seatAngle": 72.5,
+      "chainstay": 410,
+      "wheelbase": 1004
+    },
+    {
+      "size": "XL",
+      "stack": 611,
+      "reach": 408,
+      "effectiveTopTube": 606,
+      "seatTube": 600,
+      "headTube": 195,
+      "headAngle": 73.5,
+      "seatAngle": 72.0,
+      "chainstay": 410,
+      "wheelbase": 1015
+    }
+  ],
+  "sourceId": "specialized-geometry-2026"
+}

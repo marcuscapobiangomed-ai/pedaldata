@@ -1,0 +1,23 @@
+{
+  "id": "specialized-tarmac-sl8-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Specialized",
+  "model": "Tarmac SL8",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.specialized.com/us/en/tarmac-sl8/p/",
+  "distributorUrl": "https://www.specialized.com/br/pt/tarmac-sl8",
+  "frame": { "material": "carbon", "technology": "FACT 12r", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "FACT 12r" },
+  "drivetrain": { "brand": "SRAM", "groupset": "Rival eTap AXS", "speeds": 12, "shifting": "wireless", "chainrings": [48, 35], "cassette": { "smallest": 10, "largest": 36 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "SRAM", "model": "Rival" },
+  "wheels": { "brand": "DT Swiss", "model": "R470", "material": "aluminum" },
+  "tires": { "brand": "Specialized", "model": "Turbo Pro", "widthMm": 26, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.3, "size": "54", "sourceId": "specialized-official-global-2026" },
+  "maxTireClearanceMm": { "value": 32, "sourceId": "specialized-geometry-2026" },
+  "warranty": { "description": "Garantia limitada Specialized", "sourceId": "specialized-br-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

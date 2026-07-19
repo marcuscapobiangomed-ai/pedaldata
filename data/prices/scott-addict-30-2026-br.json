@@ -1,0 +1,36 @@
+{
+  "productId": "scott-addict-30-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "PedalMais",
+      "price": 29910,
+      "regularPrice": 31280,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/scott-addict-30-2026-br",
+      "checkedAt": "2026-07-16"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 29910,
+      "regularPrice": 30990,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/scott-addict-30-2026-br",
+      "checkedAt": "2026-07-10"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 29910,
+      "regularPrice": 32790,
+      "installments": null,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/scott-addict-30-2026-br",
+      "checkedAt": "2026-07-19"
+    }
+  ]
+}

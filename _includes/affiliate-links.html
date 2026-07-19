@@ -1,0 +1,31 @@
+<div class="affiliate-links" style="background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-lg);padding:16px 18px;margin:20px 0;">
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;"><strong>📌 Links de compra</strong> — Os preços podem variar. Comprando através dos links abaixo, você ajuda o Pedal Data sem pagar nada a mais.</p>
+  <div id="affiliate-links-{{ include.product_id }}" style="display:flex;flex-wrap:wrap;gap:8px;">
+    <span style="font-size:0.82rem;color:var(--text-muted);">Carregando lojas...</span>
+  </div>
+  <script>
+  (async function() {
+    const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+    const pid = '{{ include.product_id }}'
+    try {
+      const priceData = await (await fetch(BASE + '/data/prices/' + pid + '.json')).json()
+      if (!priceData || !priceData.observations) return
+      const container = document.getElementById('affiliate-links-' + pid)
+      container.innerHTML = priceData.observations
+        .filter(o => o.availability === 'in-stock')
+        .map(function(o) {
+          var finalUrl = o.url
+          if (typeof PedalData.utils.getAffiliateUrl === 'function') {
+            var partnerMap = { 'mercadolivre': 'mercadolivre', 'amazon': 'amazon', 'magalu': 'magalu', 'centauro': 'centauro', 'bikeexpress': 'bikeexpress' }
+            var partnerId = partnerMap[o.store.toLowerCase().replace(/\s+/g, '')] || null
+            if (partnerId) finalUrl = PedalData.utils.getAffiliateUrl(o.url, partnerId)
+          }
+          return '<a href="' + finalUrl + '" rel="nofollow sponsored" target="_blank" data-affiliate="true" data-partner="' + (o.store || '') + '" data-product="' + pid + '" data-placement="affiliate-links" onclick="if(typeof PedalData.trackAffiliateClick===\'function\'){PedalData.trackAffiliateClick(\'' + (o.store || '') + '\',\'' + pid + '\',\'affiliate-links\',this.href)}" style="display:inline-block;background:var(--accent);color:var(--bg-dark);padding:8px 16px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:0.82rem;">' + o.store + ' — R$ ' + o.price.toLocaleString('pt-BR') + '</a>'
+        })
+        .join('') || '<span style="font-size:0.82rem;color:var(--text-muted);">Nenhuma loja disponível no momento.</span>'
+    } catch(e) {
+      document.getElementById('affiliate-links-' + pid).innerHTML = ''
+    }
+  })()
+  </script>
+</div>

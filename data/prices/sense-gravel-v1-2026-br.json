@@ -1,0 +1,36 @@
+{
+  "productId": "sense-gravel-v1-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 21820,
+      "regularPrice": null,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/sense-gravel-v1-2026-br",
+      "checkedAt": "2026-07-16"
+    },
+    {
+      "store": "SoulCycles",
+      "price": 20460,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/sense-gravel-v1-2026-br",
+      "checkedAt": "2026-07-16"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 21820,
+      "regularPrice": 23650,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/sense-gravel-v1-2026-br",
+      "checkedAt": "2026-07-16"
+    }
+  ]
+}

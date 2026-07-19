@@ -1,0 +1,95 @@
+{
+  "description": "Registro de marcas acompanhadas pelo Pedal Data",
+  "version": "1.0",
+  "lastUpdated": "2026-07-19",
+  "brands": [
+    {
+      "id": "caloi",
+      "name": "Caloi",
+      "country": "Brasil",
+      "website": "https://www.caloi.com",
+      "websiteBr": "https://www.caloi.com",
+      "hasDistributorBr": true,
+      "distributorName": "Caloi (própria)",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "sense",
+      "name": "Sense",
+      "country": "Brasil",
+      "website": "https://www.sensebikes.com.br",
+      "websiteBr": "https://www.sensebikes.com.br",
+      "hasDistributorBr": true,
+      "distributorName": "Sense (própria)",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "oggi",
+      "name": "Oggi",
+      "country": "Brasil",
+      "website": "https://www.oggi.com.br",
+      "websiteBr": "https://www.oggi.com.br",
+      "hasDistributorBr": true,
+      "distributorName": "Oggi (própria)",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "specialized",
+      "name": "Specialized",
+      "country": "Estados Unidos",
+      "website": "https://www.specialized.com",
+      "websiteBr": "https://www.specialized.com/br/pt",
+      "hasDistributorBr": true,
+      "distributorName": "Specialized Brasil",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "trek",
+      "name": "Trek",
+      "country": "Estados Unidos",
+      "website": "https://www.trekbikes.com",
+      "websiteBr": "https://www.trekbikes.com/br/pt_BR/",
+      "hasDistributorBr": true,
+      "distributorName": "Trek Brasil",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "scott",
+      "name": "Scott",
+      "country": "Suíça",
+      "website": "https://www.scott-sports.com",
+      "websiteBr": "https://www.scottbrasil.com.br",
+      "hasDistributorBr": true,
+      "distributorName": "Scott Brasil",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "cannondale",
+      "name": "Cannondale",
+      "country": "Estados Unidos",
+      "website": "https://www.cannondale.com",
+      "websiteBr": null,
+      "hasDistributorBr": true,
+      "distributorName": "Cannondale Brasil",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    },
+    {
+      "id": "cervelo",
+      "name": "Cervélo",
+      "country": "Canadá",
+      "website": "https://www.cervelo.com",
+      "websiteBr": null,
+      "hasDistributorBr": true,
+      "distributorName": "Cervélo Brasil (importador)",
+      "createdAt": "2026-07-19",
+      "updatedAt": "2026-07-19"
+    }
+  ]
+}

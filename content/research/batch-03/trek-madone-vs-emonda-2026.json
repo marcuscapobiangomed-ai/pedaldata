@@ -1,0 +1,78 @@
+{
+  "slug": "trek-madone-vs-emonda-2026",
+  "title": "Trek Madone Gen 8 vs Trek Émonda 2026: Comparativo",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Internacional",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "trek-madone-vs-trek-emonda-diferencas-entre-as-linhas-aero-e-leve-da-trek",
+  "decision": "reescrever",
+
+  "errors_corrected": [
+    "Post original não mencionava que a Émonda foi descontinuada — Madone Gen 8 fundiu as duas linhas",
+    "Preços originais estavam desatualizados (usava dados 2024-2025)",
+    "Não mencionava o carbono 900 OCLV do Madone SLR (novo, superior ao 800 da Émonda SLR)",
+    "Clearance de pneus do Madone era citado como 30mm — real é 32mm",
+    "Peso do Madone Gen 8 não era mencionado corretamente"
+  ],
+
+  "key_update_2026": {
+    "emonda_discontinued": true,
+    "madone_gen8_merges_both": true,
+    "trek_statement": "Madone Gen 8 é 'leve como a Émonda, rápido como a Madone' — a nova superbike única da Trek",
+    "emonda_still_available": "Modelos Émonda 2026 ainda estão à venda, mas não haverá nova geração"
+  },
+
+  "comparison": {
+    "emonda_slr_2026": {
+      "frame": "800 OCLV Carbon",
+      "frame_weight": "698g (size 56)",
+      "built_weight": "~6,7 kg (SLR 9)",
+      "aero_drag_savings": "182g vs geração anterior (60s/h a 40 km/h)",
+      "tube_shaping": "Kammtail aero refinement",
+      "comfort_tech": "Tradicional (layup)",
+      "cockpit": "Bontrager RSL bar/stem (separado)",
+      "tire_clearance": "30mm",
+      "price_range_usd": "$5.500 – $13.000",
+      "best_for": "Subidas sustained, gran fondos de montanha"
+    },
+    "madone_gen8_slr_2026": {
+      "frame": "900 OCLV Carbon (novo, 20% fibras mais fortes)",
+      "frame_weight": "795g (size 56)",
+      "built_weight": "~7,1 kg (SLR 9)",
+      "aero_drag_savings": "~19W a 45 km/h vs Gen 7",
+      "tube_shaping": "Full System Foil",
+      "comfort_tech": "IsoFlow Gen 8 (80% mais compliance vertical)",
+      "cockpit": "Bontrager RSL Aero integrado",
+      "tire_clearance": "32mm",
+      "price_range_usd": "$6.000 – $14.500",
+      "best_for": "Clássicas, sprints, fugas, tudo-em-um"
+    }
+  },
+
+  "pricing_table": [
+    { "model": "Émonda SL 6", "carbon": "500 OCLV", "groupset": "105 Di2", "price_usd": 5499 },
+    { "model": "Émonda SL 7", "carbon": "500 OCLV", "groupset": "Ultegra Di2", "price_usd": 6799 },
+    { "model": "Émonda SLR 7", "carbon": "800 OCLV", "groupset": "Force AXS", "price_usd": 8499 },
+    { "model": "Émonda SLR 9", "carbon": "800 OCLV", "groupset": "Dura-Ace Di2", "price_usd": 12499 },
+    { "model": "Madone SL 6", "carbon": "500 OCLV", "groupset": "105 Di2", "price_usd": 6099 },
+    { "model": "Madone SL 7", "carbon": "500 OCLV", "groupset": "Ultegra Di2", "price_usd": 7599 },
+    { "model": "Madone SLR 7", "carbon": "900 OCLV", "groupset": "Force AXS", "price_usd": 9499 },
+    { "model": "Madone SLR 9", "carbon": "900 OCLV", "groupset": "Dura-Ace Di2", "price_usd": 13999 },
+    { "model": "Madone SLR 9 eTap", "carbon": "900 OCLV", "groupset": "Red AXS", "price_usd": 14499 }
+  ],
+
+  "sources": [
+    { "name": "CyclingArchives — Émonda vs Madone 2026", "url": "https://cyclingarchives.com/trek-emonda-vs-madone-2026-complete-head-to-head-comparison", "accessed": "2026-07-19" },
+    { "name": "Trek Bikes — Madone Gen 8", "url": "https://www.trekbikes.com/us/en_US/madone/", "accessed": "2026-07-19" },
+    { "name": "Cyclist — Madone vs Domane 2026", "url": "https://www.cyclist.co.uk/buying-guides/trek-madone-vs-domane", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo reescrito para refletir a fusão das linhas. A Émonda não terá nova geração — a Madone Gen 8 é o futuro da Trek em bikes de estrada de performance. No Brasil, preços estimados via Soul Bikes: Madone SL 6 ~R$ 25.000-30.000, SLR 9 ~R$ 60.000-70.000.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

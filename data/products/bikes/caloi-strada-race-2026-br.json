@@ -1,0 +1,23 @@
+{
+  "id": "caloi-strada-race-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Caloi",
+  "model": "Strada Race",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.caloi.com/bicicletas/strada-race",
+  "distributorUrl": "https://www.caloi.com/bicicletas/strada-race",
+  "frame": { "material": "carbon", "technology": "Caloi carbon", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Caloi carbon fork" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 R7100", "speeds": 12, "shifting": "mechanical", "chainrings": [50, 34], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "mechanical-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Caloi", "model": "Caloi aero disc", "material": "aluminum" },
+  "tires": { "brand": "Pirelli", "model": "Sport", "widthMm": 28, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 9.2, "size": "M", "sourceId": "caloi-official-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "caloi-official-2026" },
+  "warranty": { "description": "Garantia Caloi de 1 ano", "sourceId": "caloi-br-warranty" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

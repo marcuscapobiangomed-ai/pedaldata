@@ -1,0 +1,57 @@
+{% assign p = include.product %}
+{% assign price_lowest = include.price_lowest %}
+{% assign price_highest = include.price_highest %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ p.brand }} {{ p.model }} {{ p.modelYear }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ p.brand }}"
+  },
+  "description": "{{ p.brand }} {{ p.model }} {{ p.modelYear }} — bike de estrada {{ p.category | replace: '-', ' ' }}",
+  "category": "{{ p.category | replace: '-', ' ' }}",
+  "modelYear": {{ p.modelYear }},
+  "material": "{{ p.frame.material }}",
+  "productID": "{{ p.id }}",
+  "sku": "{{ p.id }}",
+  {% if price_lowest %}
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": {{ price_lowest }},
+    "highPrice": {{ price_highest }},
+    "priceCurrency": "BRL",
+    "availability": "{% if p.status == 'active' %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
+  },
+  {% endif %}
+  {% if p.declaredWeight %}
+  "weight": {
+    "@type": "QuantitativeValue",
+    "value": {{ p.declaredWeight.valueKg }},
+    "unitCode": "KGM",
+    "description": "Peso declarado para tamanho {{ p.declaredWeight.size }}"
+  },
+  {% endif %}
+  "additionalProperty": [
+    {"@type": "PropertyValue", "name": "Grupo", "value": "{{ p.drivetrain.brand }} {{ p.drivetrain.groupset }}"},
+    {"@type": "PropertyValue", "name": "Velocidades", "value": "{{ p.drivetrain.speeds }}"},
+    {"@type": "PropertyValue", "name": "Transmissão", "value": "{{ p.drivetrain.shifting }}"},
+    {"@type": "PropertyValue", "name": "Freios", "value": "{{ p.brakes.type | replace: '-', ' ' }}"},
+    {"@type": "PropertyValue", "name": "Material do quadro", "value": "{{ p.frame.material }}"}
+  ]
+}
+</script>
+{% if include.show_breadcrumb %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site.url }}{{ site.baseurl }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Bicicletas", "item": "{{ site.url }}{{ site.baseurl }}/bikes/"},
+    {"@type": "ListItem", "position": 3, "name": "{{ p.brand }} {{ p.model }}", "item": "{{ page.url | absolute_url }}"}
+  ]
+}
+</script>
+{% endif %}

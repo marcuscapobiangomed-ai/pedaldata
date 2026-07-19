@@ -3,3 +3,4 @@ node_modules/
 .gitignore
 repo/
 _generated/
+data/price-audit-log.json

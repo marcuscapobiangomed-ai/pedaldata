@@ -1,0 +1,57 @@
+{
+  "slug": "guia-importacao-bike-2026",
+  "title": "Guia Completo de Importação de Bicicletas para o Brasil em 2026",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_posts": [
+    "quanto-custa-importar-uma-bike-de-estrada-em-2026-impostos-frete-e-burocracia",
+    "quanto-custa-importar-uma-scott-addict-para-o-brasil-em-2026"
+  ],
+  "decision": "fundir",
+  "target_url": "/guias/importacao-bike-brasil-2026/",
+
+  "errors_corrected": [
+    "Post 28 usava exemplo R$ 4.000 como se fosse USD — erro grave de matemática",
+    "Post 33 usava dólar a R$ 5,50 mas não citava fonte oficial",
+    "IPI não se aplica no RTS (Regime de Tributação Simplificada) para pessoa física",
+    "Alíquota de ICMS varia por estado (17-20%, não 18% fixo)",
+    "Novas regras de maio/2026 (MP 1.357/2026) adicionam desconto de US$ 30 no II para PRC",
+    "Fontes oficiais da Receita Federal adicionadas"
+  ],
+
+  "import_rules_2026": {
+    "ii_aliquota": "60% para compras acima de US$ 50",
+    "ii_desconto_prc": "US$ 30 de desconto no II para sites do Programa Remessa Conforme",
+    "icms_aliquota": "17% a 20% dependendo do estado (cálculo 'por dentro')",
+    "ipi": "Isento no RTS (pessoa física)",
+    "pis_cofins": "Isento no RTS (pessoa física)",
+    "freight": "Incluso no valor aduaneiro",
+    "max_value_rts": "US$ 3.000",
+    "prc_sites": "AliExpress, Shopee, Shein, Amazon (alguns vendedores)"
+  },
+
+  "example_calculation": {
+    "bike_price_usd": 3500,
+    "exchange_rate_brl": 5.50,
+    "freight_usd": 200,
+    "customs_broker_brl": 500,
+    "scenario": "Bike de US$ 3.500 com frete, fora do PRC (acima do limite RTS de US$ 3.000)",
+    "note": "Acima de US$ 3.000, não se aplica RTS. É necessário contratar despachante e pagar II + IPI + PIS/COFINS + ICMS no regime comum. O custo total inviabiliza a importação para pessoa física na maioria dos casos."
+  },
+
+  "sources": [
+    { "name": "Receita Federal — Novas Regras (MP 1.357/2026)", "url": "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/regras-futuras/regras-futuras", "accessed": "2026-07-19" },
+    { "name": "Receita Federal — Tributação RTS", "url": "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/topicos/tributacao", "accessed": "2026-07-19" },
+    { "name": "Receita Federal — Perguntas Frequentes", "url": "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/viagens-internacionais/guia-do-viajante/perguntas-e-respostas", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo fundido substituindo posts 28 e 33. Erro crítico do post 28 corrigido: confundiu R$ 4.000 (preço em real) como se fosse USD. Regras atualizadas conforme MP 1.357/2026 (maio/2026). Conclusão: importar bike de estrada de valor elevado (acima de US$ 3.000) não compensa para pessoa física devido aos impostos e burocracia.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

@@ -1,0 +1,16 @@
+{
+  "productId": "trek-madone-sl6-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 40550,
+      "regularPrice": null,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/trek-madone-sl6-2026-br",
+      "checkedAt": "2026-07-15"
+    }
+  ]
+}

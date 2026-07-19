@@ -1,0 +1,75 @@
+{
+  "slug": "specialized-tarmac-sl8-2026",
+  "title": "Specialized Tarmac SL8 2026: Ficha Técnica, Preços e Modelos",
+  "content_type": "review",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Internacional",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "specialized-tarmac-sl8-vale-o-investimento-review-completo",
+  "decision": "reescrever",
+
+  "errors_corrected": [
+    "Post original não especificava os 3 tiers (S-Works, Pro, Comp) — tratava como linha única",
+    "Preço S-Works citado como 'a partir de US$ 12.000' — preço real é US$ 13.499 (SRAM Red AXS)",
+    "Não mencionava o Speed Sniffer (diferença chave da SL8 para SL7)",
+    "Peso do quadro S-Works citado como '~700g' — real é 685g",
+    "Não mencionava o Roval Rapide Cockpit integrado",
+    "Clearance de pneus era 30mm — real é 32mm"
+  ],
+
+  "lineup": {
+    "sworks": {
+      "frame": "FACT 12r Carbon (685g)",
+      "groupset": "SRAM Red AXS / Dura-Ace Di2",
+      "weight": "6,62 kg",
+      "price_usd": 13499,
+      "wheels": "Roval Rapide CLX III",
+      "cockpit": "Roval Rapide Cockpit (integrado)",
+      "power_meter": "Sim (Quarq / 4iiii)"
+    },
+    "pro": {
+      "frame": "FACT 10r Carbon",
+      "groupset": "Ultegra Di2 (US$ 8.499) / Force AXS (US$ 8.499)",
+      "weight": "7,25 kg",
+      "price_usd": 8499,
+      "wheels": "Roval Rapide CL III",
+      "cockpit": "Roval Rapide Cockpit (integrado)",
+      "power_meter": "Sim (4iiii Precision 3+ no Ultegra)"
+    },
+    "comp": {
+      "frame": "FACT 10r Carbon",
+      "groupset": "105 Di2",
+      "weight": "7,68 kg",
+      "price_usd": 4699,
+      "wheels": "DT Swiss R470 (alumínio)",
+      "cockpit": "Guidão Specialized Shallow Drop + mesa Tarmac",
+      "power_meter": "Não"
+    }
+  },
+
+  "key_tech": {
+    "speed_sniffer": "Nose cone que reduz arrasto frontal — 16,6s mais rápido em 40km que SL7",
+    "frame_weight": "685g (S-Works, size 56) — 15% mais leve que SL7",
+    "stiffness_to_weight": "33% melhor que SL7",
+    "compliance": "6% mais conforto que SL7",
+    "tire_clearance": "32mm",
+    "bb": "BSA roscado",
+    "aero_claim": "Mais aero que a Venge (segundo Specialized)",
+    "rider_first_engineering": "Cada tamanho tem layup otimizado individualmente"
+  },
+
+  "sources": [
+    { "name": "Specialized — S-Works Tarmac SL8", "url": "https://www.specialized.com/us/en/s-works-tarmac-sl8-sram-red-axs/p/4221554", "accessed": "2026-07-19" },
+    { "name": "Specialized — Tarmac SL8 Pro Ultegra Di2", "url": "https://www.specialized.com/us/en/tarmac-sl8-pro-shimano-ultegra-di2/p/4221576", "accessed": "2026-07-19" },
+    { "name": "Specialized — Tarmac SL8 Comp 105 Di2", "url": "https://www.specialized.com/us/en/tarmac-sl8-comp-shimano-105-di2/p/4221578", "accessed": "2026-07-19" },
+    { "name": "Specialized — Tarmac SL8 Pro Force AXS", "url": "https://www.specialized.com/us/en/tarmac-sl8-pro-sram-force-axs-/p/4279927", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Post original misturava specs da SL7 com SL8. Linha 2026 continua a mesma (SL8 lançada em 2023, sem refresh para 2026). Preços atualizados para 2026. No Brasil, preços estimados: S-Works ~R$ 50.000+, Pro ~R$ 30.000-35.000, Comp ~R$ 18.000-22.000 (importação direta ou lojas como Soul Bikes).",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

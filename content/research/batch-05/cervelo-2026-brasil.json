@@ -1,0 +1,103 @@
+{
+  "slug": "cervelo-2026-brasil",
+  "title": "Cervélo: a Preferida dos Profissionais do WorldTour — Atualização 2026",
+  "content_type": "review",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "cervélo-a-preferida-dos-profissionais-do-worldtour",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Artigo dizia que 'Cervélo significa cervelo em português' — o nome 'Cervélo' é a junção de 'CERV' (componentes) + 'VÉLO' (bicicleta em francês), não tem relação com a palavra portuguesa 'cérebro'",
+    "Mencionava R3 no FAQ — modelo descontinuado (foi substituído pela Soloist)",
+    "Preços eram genéricos (R$ 35.000 para R5, sem especificação de build)",
+    "Não citava a distribuidora oficial Cervélo Brasil (cervelobr.com)",
+    "Não mencionava os modelos Caledonia (endurance) e Soloist (all-rounder)",
+    "Não mencionava o patrocínio à Visma-Lease a Bike (WorldTour)",
+    "Não mencionava a P5 (substituiu a P-Series genérica)",
+    "Não incluía dados de peso dos quadros"
+  ],
+  "models": {
+    "caledonia": {
+      "full_name": "Cervélo Caledonia",
+      "type": "endurance",
+      "frame_weight_g": 1100,
+      "price_range_brl": "R$ 29.990 (105 Di2)",
+      "tire_clearance_mm": 34,
+      "use": "Endurance, conforto em longas distâncias, estradas irregulares",
+      "year_introduced": 2021,
+      "competitors": ["Specialized Roubaix", "Trek Domane"],
+      "note": "Atualização 2026 manteve o quadro anterior com novas cores. Clearance 34mm."
+    },
+    "soloist": {
+      "full_name": "Cervélo Soloist",
+      "type": "all-rounder",
+      "frame_weight_g": 935,
+      "price_range_brl": "R$ 39.990 (Ultegra Di2)",
+      "tire_clearance_mm": 30,
+      "use": "All-rounder, aerodinâmico mas leve, versátil",
+      "year_introduced": 2023,
+      "competitors": ["Trek Madone Gen 8", "Specialized Tarmac SL8"],
+      "note": "Substituiu a R3. Combina aerodinâmica da S5 com peso próximo da R5."
+    },
+    "r5": {
+      "full_name": "Cervélo R5",
+      "type": "race/climbing",
+      "frame_weight_g": 703,
+      "fork_weight_g": 290,
+      "price_range_brl": "R$ 49.990 (SRAM Force AXS)",
+      "tire_clearance_mm": 30,
+      "use": "Escalada, competição, peso mínimo",
+      "year_introduced": 2023,
+      "competitors": ["Specialized Tarmac SL8", "Trek Madone Gen 8"]
+    },
+    "s5": {
+      "full_name": "Cervélo S5",
+      "type": "aero race",
+      "frame_weight_g": 950,
+      "fork_weight_g": 380,
+      "price_range_brl": "R$ 69.990 (Dura-Ace Di2)",
+      "tire_clearance_mm": 30,
+      "use": "Velocidade máxima, provas de estrada, circuito",
+      "year_introduced": 2023,
+      "competitors": ["Scott Foil RC", "Cannondale SuperSix Evo Gen 5"]
+    },
+    "p5": {
+      "full_name": "Cervélo P5",
+      "type": "time trial / triathlon",
+      "frame_weight_g": 1200,
+      "price_range_brl": "R$ 94.990 (Dura-Ace Di2)",
+      "tire_clearance_mm": 28,
+      "use": "Contrarrelógio, triathlon",
+      "year_introduced": 2024,
+      "competitors": ["Trek Speed Concept", "Scott Plasma RC"]
+    }
+  },
+  "team_sponsorship": {
+    "team": "Team Visma-Lease a Bike",
+    "since": 2015,
+    "bikes_used": "Cervélo R5 (etapas de montanha), Cervélo S5 (clássicas/planas), Cervélo P5 (contrarrelógio)",
+    "riders": "Jonas Vingegaard, Wout van Aert, Cian Uijtdebroeks, Matteo Jorgenson",
+    "major_wins": "Tour de France 2022-2023 (Vingegaard), Vuelta a España 2023 (Kuss), Paris-Roubaix 2025 (van Aert)"
+  },
+  "distributor": {
+    "name": "Cervélo Brasil",
+    "url": "https://cervelobr.com",
+    "type": "Distribuidora oficial",
+    "note": "Loja online oficial da Cervélo no Brasil. Entrega para todo o país. Garantia de 2 anos."
+  },
+  "sources": [
+    { "name": "Cervélo (site global)", "url": "https://www.cervelo.com", "accessed": "2026-07-19" },
+    { "name": "Cervélo Brasil", "url": "https://cervelobr.com", "accessed": "2026-07-19" },
+    { "name": "Cervélo — Geometries", "url": "https://www.cervelo.com/geometries", "accessed": "2026-07-19" },
+    { "name": "BikeRadar — Cervélo Soloist review", "url": "https://www.bikeradar.com/reviews/bikes/road-bikes/cervelo-soloist-review/", "accessed": "2026-07-19" },
+    { "name": "Cyclingnews — Visma-Lease a Bike bikes", "url": "https://www.cyclingnews.com/features/visma-lease-a-bike-bikes-cervelo/", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo atualizado com modelos corretos (Caledonia, Soloist, R5, S5, P5), preços reais da cervelobr.com, dados de peso e patrocínio Visma-Lease a Bike.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "apps-treino-ciclismo-2026",
+  "title": "Melhores Apps de Treino para Ciclismo 2026",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "melhores-apps-de-treino-para-ciclismo-2026-comparativo-entre-zwift-trainerroad-trainingpeaks-e-mywhoosh",
+  "decision": "atualizar",
+  "apps": {
+    "zwift": {
+      "name": "Zwift",
+      "price_usd": 14.99,
+      "price_brl": "R$ 89/mês",
+      "features": ["Mundos virtuais (Watopia, França, Escócia, etc.)", "Corridas e eventos ao vivo", "Planos de treino estruturados", "Desafios e conquistas", "ZRacing (modo competitivo)", "Integração com TrainingPeaks"],
+      "pros": ["Maior comunidade", "Gráficos imersivos", "Muitos eventos"],
+      "cons": ["Pode ser pesado em hardware antigo", "Preço mensal"],
+      "free_trial": "7 dias",
+      "note": "Atualizado em 2026: ZRacing lançado, mais rotas de França e Escócia. R$ 89/mês com conversão direta."
+    },
+    "trainerroad": {
+      "name": "TrainerRoad",
+      "price_usd": 19.99,
+      "price_brl": "R$ 119/mês",
+      "features": ["Planos de treino adaptativos (AI)", "Biblioteca com mais de 3.000 treinos", "Análise de potência", "Planos para estrada e MTB", "Integração com TrainingPeaks, Strava, Garmin"],
+      "pros": ["Planos baseados em ciência do esporte", "Adaptive Training (AI) ajusta carga automaticamente"],
+      "cons": ["Sem ambiente virtual (só áudio/vídeo)", "Menos engajamento social"],
+      "free_trial": "30 dias",
+      "note": "Adaptive Training AI foi expandido em 2025/2026. Preço US$ 19.99/mês ≈ R$ 119."
+    },
+    "trainingpeaks": {
+      "name": "TrainingPeaks",
+      "price_usd_premium": 19.99,
+      "price_brl_premium": "R$ 119/mês",
+      "features": ["Análise avançada de dados (CTL, ATL, TSB)", "Planos de treino de treinadores", "Biblioteca de treinos", "Integração com Zwift, TrainerRoad, Garmin, Wahoo"],
+      "pros": ["Análise mais profunda do mercado", "Padrão para treinadores"],
+      "cons": ["Versão gratuita limitada", "Curva de aprendizado alta"],
+      "free_trial": "Versão gratuita (básica) disponível",
+      "note": "Premium US$ 19.99/mês ≈ R$ 119. Versão gratuita existe mas com limites severos."
+    },
+    "mywhoosh": {
+      "name": "MyWhoosh",
+      "price_brl": "Gratuito",
+      "features": ["Ambientes virtuais (EAU, Colômbia, etc.)", "Corridas ao vivo", "Treinos estruturados", "Parceria com UAE Team Emirates"],
+      "pros": ["Completamente gratuito", "Gráficos de qualidade", "Patrocinado pela UAE, sem custo para usuário"],
+      "cons": ["Base de usuários menor", "Menos eventos e comunidade que Zwift"],
+      "free_trial": "Gratuito (sem custos)",
+      "note": "MyWhoosh é gratuito desde 2024 após patrocínio da UAE. Disponível para PC, Mac e mobile."
+    },
+    "rouvy": {
+      "name": "Rouvy",
+      "price_usd": 12.99,
+      "price_brl": "R$ 78/mês",
+      "features": ["Vídeos de estradas reais (AR)", "Rotas de todo o mundo", "Corridas ao vivo", "Planos de treino"],
+      "pros": ["Rotas reais em vídeo", "Preço menor que Zwift"],
+      "cons": ["Gráficos menos polidos", "AR requer boa internet"],
+      "free_trial": "14 dias",
+      "note": "Alternativa realista ao Zwift. Inclui rotas brasileiras."
+    }
+  },
+  "sources": [
+    { "name": "Zwift — Preços", "url": "https://www.zwift.com/br/pricing", "accessed": "2026-07-19" },
+    { "name": "TrainerRoad — Preços", "url": "https://www.trainerroad.com/pricing", "accessed": "2026-07-19" },
+    { "name": "TrainingPeaks — Preços", "url": "https://www.trainingpeaks.com/pricing", "accessed": "2026-07-19" },
+    { "name": "MyWhoosh", "url": "https://www.mywhoosh.com", "accessed": "2026-07-19" },
+    { "name": "Rouvy", "url": "https://rouvy.com", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigos atualizados com preços em USD convertidos para BRL (cotação ~R$ 5,95), adição de Rouvy como 5ª opção, correção do valor do TrainingPeaks (era R$ 149, corrigido para R$ 119).",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

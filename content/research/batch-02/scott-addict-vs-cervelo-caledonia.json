@@ -1,0 +1,59 @@
+{
+  "slug": "scott-addict-vs-cervelo-caledonia",
+  "title": "Scott Addict vs Cervélo Caledonia: Comparativo para Ciclistas em 2026",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_posts": ["scott-addict-vs-cervelo-caledonia-comparativo-completo-para-ciclistas-em-2026"],
+  "decision": "reescrever",
+  "target_url": "/comparativos/scott-addict-vs-caledonia/",
+
+  "errors_corrected": [
+    "Comparava Addict RC (race) com Caledonia (endurance) — categorias diferentes",
+    "Novo Addict 2026 é endurance, mesma categoria da Caledonia — comparativo faz sentido agora",
+    "Preços estavam errados: Addict de R$ 15k-20k → Addict 50 custa €2.799 (entrada); Caledonia de R$ 14k-18k → US$ 3.300 (105 mechanical entrada)",
+    "Addict não tem 'Ultegra 2x11' — linha 2026 vai de Claris a SRAM Force AXS",
+    "Caledonia não tem '105 2x11' — 2026 usa 105 2x12 (12 velocidades)",
+    "Fontes adicionadas com URLs reais"
+  ],
+
+  "comparison": {
+    "scott_addict_2026": {
+      "category": "Endurance / All-road",
+      "frame_weight": "~780g (HMX), ~900g (HMF)",
+      "tire_clearance": "Até 38mm",
+      "models": "6 (Premium a 50)",
+      "entry_price_euro": 2799,
+      "entry_groupset": "Shimano Claris",
+      "top_groupset": "SRAM Force AXS",
+      "top_price_euro": 7699
+    },
+    "cervelo_caledonia_2026": {
+      "category": "Endurance / All-road",
+      "frame_weight": "~988g (pintado, tamanho 54)",
+      "tire_clearance": "Até 36mm (34mm com para-lamas)",
+      "models": "4 (105 a Force AXS)",
+      "entry_price_usd": 3300,
+      "entry_groupset": "Shimano 105 mechanical 12v",
+      "top_groupset": "SRAM Force AXS",
+      "top_price_usd": 6500
+    }
+  },
+
+  "sources": [
+    { "name": "Scott Sports", "url": "https://www.scott-sports.com/", "accessed": "2026-07-19" },
+    { "name": "Cyclonline — Scott Addict 2026 Guide", "url": "https://www.cyclonline.com/scott-bicycles-news-review-test/the-all-new-scott-addict-2026-the-ultimate-guide-to-specs,-price,-and-features", "accessed": "2026-07-19" },
+    { "name": "Cervélo — Caledonia", "url": "https://www.cervelo.com/en-US/bikes/caledonia", "accessed": "2026-07-19" },
+    { "name": "BikeRadar — 2026 Caledonia", "url": "https://www.bikeradar.com/news/2026-cervelo-caledonia", "accessed": "2026-07-19" },
+    { "name": "Cyclist — Caledonia 2026", "url": "https://www.cyclist.co.uk/news/cervelo-caledonia-2026", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo reescrito. O novo Scott Addict 2026 é endurance (não race), então o comparativo com a Caledonia agora faz sentido. Ambos são all-road/endurance. Addict tem mais opções de modelos (6 vs 4) e clearance maior (38mm vs 36mm). Caledonia tem preço de entrada mais alto mas grupo superior (105 vs Claris). Preços Brasil ainda não disponíveis para Addict 2026. Caledonia 2026 deve chegar ao Brasil via distribuidora.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

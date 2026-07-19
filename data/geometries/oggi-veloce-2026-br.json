@@ -1,0 +1,55 @@
+{
+  "productId": "oggi-veloce-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "S",
+      "stack": 540,
+      "reach": 372,
+      "effectiveTopTube": 528,
+      "seatTube": 475,
+      "headTube": 125,
+      "headAngle": 71.0,
+      "seatAngle": 74.0,
+      "chainstay": 422,
+      "wheelbase": 988
+    },
+    {
+      "size": "M",
+      "stack": 560,
+      "reach": 380,
+      "effectiveTopTube": 548,
+      "seatTube": 505,
+      "headTube": 145,
+      "headAngle": 72.0,
+      "seatAngle": 73.5,
+      "chainstay": 422,
+      "wheelbase": 998
+    },
+    {
+      "size": "L",
+      "stack": 582,
+      "reach": 388,
+      "effectiveTopTube": 568,
+      "seatTube": 535,
+      "headTube": 165,
+      "headAngle": 72.0,
+      "seatAngle": 73.0,
+      "chainstay": 422,
+      "wheelbase": 1008
+    },
+    {
+      "size": "XL",
+      "stack": 602,
+      "reach": 396,
+      "effectiveTopTube": 588,
+      "seatTube": 570,
+      "headTube": 185,
+      "headAngle": 72.5,
+      "seatAngle": 72.5,
+      "chainstay": 422,
+      "wheelbase": 1018
+    }
+  ],
+  "sourceId": "oggi-official-2026"
+}

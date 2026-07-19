@@ -17,6 +17,15 @@ async function main() {
   console.log("🚴 Pedal Data — Post Automático via PR");
   console.log("=".repeat(50));
 
+  // CRON CONTROL: publicação automática desativada por segurança
+  // Para executar manualmente: CRON_ENABLED=true node src/cron_post.js
+  if (process.env.CRON_ENABLED !== "true") {
+    console.log("🔒 Publicação automática desativada (CRON_ENABLED != true).");
+    console.log("   Execute manualmente com: CRON_ENABLED=true node src/cron_post.js");
+    console.log("   Ou use: node src/manual.js <tópico>");
+    return;
+  }
+
   if (!fs.existsSync(TOPICS_FILE)) {
     console.log("❌ topics.txt não encontrado.");
     return;

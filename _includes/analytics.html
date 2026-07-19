@@ -7,3 +7,27 @@ gtag('js', new Date());
 gtag('config', '{{ site.google_analytics }}');
 </script>
 {% endif %}
+<script src="{{ site.baseurl }}/assets/js/analytics-events.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof PedalData !== 'undefined' && PedalData.track) {
+    PedalData.track('content', 'article_view', document.title, null, {
+      path: window.location.pathname
+    })
+    var scrolled50 = false, scrolled90 = false
+    window.addEventListener('scroll', function() {
+      if (!scrolled50 || !scrolled90) {
+        var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100
+        if (!scrolled50 && scrollPct >= 50) {
+          scrolled50 = true
+          PedalData.track('content', 'article_scroll_50', document.title)
+        }
+        if (!scrolled90 && scrollPct >= 90) {
+          scrolled90 = true
+          PedalData.track('content', 'article_scroll_90', document.title)
+        }
+      }
+    })
+  }
+})
+</script>

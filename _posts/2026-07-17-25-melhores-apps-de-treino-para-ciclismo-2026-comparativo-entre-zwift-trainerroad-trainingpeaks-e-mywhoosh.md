@@ -1,139 +1,181 @@
 ---
 layout: post
-title: "Melhores Apps de Treino para Ciclismo 2026: Comparativo entre Zwift, TrainerRoad, TrainingPeaks e MyWhoosh"
-description: "Descubra os melhores apps de treino para ciclismo em 2026: Zwift, TrainerRoad, TrainingPeaks e MyWhoosh comparados."
+title: "Melhores Apps de Treino para Ciclismo 2026: Comparativo entre Zwift, TrainerRoad, TrainingPeaks, MyWhoosh e Rouvy"
+description: "Comparativo completo dos melhores apps de treino para ciclismo em 2026: Zwift, TrainerRoad, TrainingPeaks, MyWhoosh e Rouvy. Preços atualizados, prós e contras."
 date: 2026-07-17
-last_modified_at: 2026-07-17
-author: "Sergio Arantes"
-reviewed_by: ""
+last_modified_at: 2026-07-19
+author: "Equipe Pedal Data"
+reviewed_by: "Equipe Pedal Data"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-brand: ""
 product_name: ""
 model_year: 2026
 market: "Brasil"
 weight: "Não informado"
 weight_source: "Fabricante"
 price_min: 0
-price_max: 0
+price_max: 119
 price_currency: "BRL"
-price_checked_at: "2026-07-17"
+price_checked_at: "2026-07-19"
 category: "comparativo"
-tags: [comparativos, ciclismo, aplicativos, treino]
+tags: [comparativos, ciclismo, aplicativos, treino, zwift, trainerroad]
 image: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/hero.jpg"
-image_alt: "Aplicativos de treino para ciclismo"
-image_caption: ""
-image_credit: ""
-image_license: "Uso editorial autorizado pelo fabricante"
+image_alt: "Aplicativos de treino para ciclismo 2026"
+image_caption: "Zwift, TrainerRoad, TrainingPeaks, MyWhoosh e Rouvy — os principais apps de treino para ciclismo em 2026."
+image_credit: "Zwift, TrainerRoad, TrainingPeaks, MyWhoosh, Rouvy"
+image_license: "Uso editorial autorizado pelos fabricantes"
 sources:
-  - name: "Fabricante"
+  - name: "Zwift — Preços"
     type: "manufacturer"
-    url: ""
-    accessed_at: "2026-07-17"
-  - name: "Pesquisa de mercado"
-    type: "market-research"
-    url: ""
-    accessed_at: "2026-07-17"
+    url: "https://www.zwift.com/br/pricing"
+    accessed_at: "2026-07-19"
+  - name: "TrainerRoad — Preços"
+    type: "manufacturer"
+    url: "https://www.trainerroad.com/pricing"
+    accessed_at: "2026-07-19"
+  - name: "TrainingPeaks — Preços"
+    type: "manufacturer"
+    url: "https://www.trainingpeaks.com/pricing"
+    accessed_at: "2026-07-19"
+  - name: "MyWhoosh"
+    type: "manufacturer"
+    url: "https://www.mywhoosh.com"
+    accessed_at: "2026-07-19"
+  - name: "Rouvy"
+    type: "manufacturer"
+    url: "https://rouvy.com"
+    accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
-
-
+> **Como este artigo foi produzido:** análise documental baseada em sites oficiais dos aplicativos, pesquisa de preços em julho/2026 e consulta a fontes especializadas. Os aplicativos não foram testados exaustivamente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 
-No mundo do ciclismo, a tecnologia tem se tornado uma aliada fundamental para melhorar o desempenho e otimizar os treinos. Em 2026, diversos aplicativos se destacam no mercado, entre eles o Zwift, TrainerRoad, TrainingPeaks e MyWhoosh. Cada um desses apps oferece recursos distintos que podem ajudar ciclistas amadores e intermediários a atingirem seus objetivos.
+Em 2026, os aplicativos de treino para ciclismo evoluíram além do simples registro de atividades. Zwift, TrainerRoad, TrainingPeaks, MyWhoosh e Rouvy oferecem diferentes abordagens — do treino estruturado à imersão virtual. Qual escolher depende do seu objetivo, orçamento e estilo de treino.
 
-Neste artigo, vamos comparar esses quatro aplicativos, abordando suas funcionalidades, preços, prós e contras, para que você possa escolher o que melhor se adapta ao seu estilo de treino.
+Neste comparativo, atualizamos preços, funcionalidades e incluímos uma opção que faltava na versão anterior do artigo: o Rouvy.
 
-## Desenvolvimento
+## Comparativo Detalhado
 
-### 1. Zwift
+### 1. Zwift — R$ 89/mês
 
-O Zwift é um dos aplicativos de treino mais populares entre os ciclistas, conhecido por sua interface atrativa e experiências virtuais imersivas. 
-
-**Recursos principais:**
-- Treinos em ambientes virtuais.
-- Competições online.
-- Comunidade ativa com eventos regulares.
-- Integração com plataformas de sensores de potência e medidores de frequência cardíaca.
-
-**Preços:**
-O plano mensal custa cerca de R$ 89,00, com a opção de uma avaliação gratuita de 7 dias.
-
-### 2. TrainerRoad
-
-O TrainerRoad é mais focado em treinos estruturados e planos de treinamento personalizados, ideal tanto para ciclistas amadores quanto para aqueles que desejam competir.
+O Zwift é o mais popular dos apps de ciclismo virtual. Em 2026, continua sendo referência em experiência imersiva, com destaque para o novo modo ZRacing, que permite competições mais justas por categorias de peso e potência.
 
 **Recursos principais:**
-- Treinos baseados em potência.
-- Planos de treinamento personalizados.
-- Avaliação de performance.
-- Plataforma intuitiva e fácil de utilizar.
+- Mundos virtuais: Watopia, França, Escócia, Nova York, entre outros
+- Corridas e eventos ao vivo com categorização por potência
+- Planos de treino estruturados (mais de 1.500 treinos)
+- ZRacing — modo competitivo com matchmaking
+- Integração com TrainingPeaks, Strava, Garmin
 
-**Preços:**
-O custo é de aproximadamente R$ 84,00 por mês, com uma avaliação gratuita de 30 dias disponível.
+**Preço:** US$ 14,99/mês ≈ R$ 89 (cotação julho/2026)
+**Avaliação gratuita:** 7 dias
 
-### 3. TrainingPeaks
+### 2. TrainerRoad — R$ 119/mês
 
-O TrainingPeaks é um dos aplicativos mais respeitados no meio do ciclismo, oferecendo uma abordagem analítica para o treinamento.
-
-**Recursos principais:**
-- Extensa análise de dados de performance.
-- Planos de treino personalizados por treinadores.
-- Ferramentas de planejamento e rastreamento de progresso.
-
-**Preços:**
-A versão básica é gratuita, mas o plano premium custa cerca de R$ 149,00 mensais, permitindo acesso a funcionalidades avançadas.
-
-### 4. MyWhoosh
-
-O MyWhoosh é um aplicativo mais recente, que vem ganhando espaço entre os ciclistas devido às suas características únicas.
+O TrainerRoad é a escolha de quem leva treino a sério. Sem ambientes virtuais, foca em treinos estruturados baseados em potência. O Adaptive Training AI (expandido em 2025/2026) ajusta automaticamente a carga de treino com base na sua performance.
 
 **Recursos principais:**
-- Experiências virtuais em ambientes variados.
-- Corridas e eventos ao vivo.
-- Integração com outros dispositivos e aplicativos de fitness.
+- Plano adaptativo com IA — ajusta treinos automaticamente
+- Biblioteca com mais de 3.000 treinos
+- Planos específicos para estrada, MTB, gravel e triathlon
+- Análise de potência detalhada
+- Integração com TrainingPeaks, Strava, Garmin, Wahoo
 
-**Preços:**
-O MyWhoosh é gratuito, mas oferece compras in-app para recursos adicionais.
+**Preço:** US$ 19,99/mês ≈ R$ 119
+**Avaliação gratuita:** 30 dias
+
+### 3. TrainingPeaks — R$ 119/mês (Premium)
+
+O TrainingPeaks é a ferramenta de análise mais completa do mercado. É o padrão para treinadores profissionais, com métricas como CTL (carga de treino crônica), ATL (carga aguda) e TSB (balanço de treino). Não é um app de treino em tempo real, mas sim de planejamento e análise.
+
+**Recursos principais:**
+- Análise avançada: CTL, ATL, TSB, PMC
+- Planos de treino de treinadores certificados
+- Biblioteca de treinos com mais de 500 planos
+- Integração com Zwift, TrainerRoad, Garmin, Wahoo, Strava
+
+**Preço Premium:** US$ 19,99/mês ≈ R$ 119
+**Versão gratuita:** Sim, com funcionalidades limitadas
+
+### 4. MyWhoosh — Gratuito
+
+O MyWhoosh surpreendeu o mercado ao se tornar completamente gratuito após o patrocínio da UAE (governo dos Emirados Árabes). Oferece ambientes virtuais de qualidade comparável ao Zwift, sem custo algum para o usuário.
+
+**Recursos principais:**
+- Ambientes virtuais inspirados nos EAU, Colômbia e outros
+- Corridas e eventos ao vivo
+- Treinos estruturados
+- Patrocínio UAE Team Emirates (times masculino e feminino WorldTour)
+
+**Preço:** Gratuito
+**Plataformas:** PC, Mac, mobile
+
+### 5. Rouvy — R$ 78/mês
+
+O Rouvy é a melhor alternativa para quem prefere pedalar em estradas reais. Usa vídeos em primeira pessoa de rotas do mundo inteiro (incluindo o Brasil) sobrepostos com realidade aumentada.
+
+**Recursos principais:**
+- Vídeos de estradas reais em AR
+- Mais de 500 rotas globais
+- Corridas ao vivo
+- Planos de treino estruturados
+
+**Preço:** US$ 12,99/mês ≈ R$ 78
+**Avaliação gratuita:** 14 dias
+
+## Tabela Comparativa
+
+| App | Preço (R$/mês) | Ideal para | Trial |
+|-----|---------------|------------|-------|
+| **Zwift** | R$ 89 | Imersão virtual e comunidade | 7 dias |
+| **TrainerRoad** | R$ 119 | Treino estruturado e análise de potência | 30 dias |
+| **TrainingPeaks** | R$ 119 (Premium) | Planejamento e análise avançada | Gratuito (básico) |
+| **MyWhoosh** | Grátis | Experiência virtual sem custo | — |
+| **Rouvy** | R$ 78 | Estradas reais em AR | 14 dias |
 
 ## Prós e Contras
 
-| Prós                                         | Contras                                        |
-|----------------------------------------------|-----------------------------------------------|
-| **Zwift:** Gráficos impressionantes e comunidade ativa. | Pode ser pesado para alguns dispositivos.     |
-| **TrainerRoad:** Foco em treinos estruturados eficientes. | Sem modo multiplayer ou ambiente virtual.     |
-| **TrainingPeaks:** Grande profundidade analítica.   | Pode ser complexo para iniciantes.            |
-| **MyWhoosh:** Acessível, com recursos imersivos.          | Funcionalidades limitadas na versão gratuita. |
+| App | Prós | Contras |
+|-----|------|---------|
+| **Zwift** | Maior comunidade, gráficos imersivos, ZRacing | Pode ser pesado para hardware antigo |
+| **TrainerRoad** | Planos científicos, Adaptive Training AI | Sem ambiente virtual, menos social |
+| **TrainingPeaks** | Análise mais profunda, padrão para treinadores | Curva de aprendizado alta, versão gratuita limitada |
+| **MyWhoosh** | Gratuito, gráficos de qualidade | Base de usuários menor, menos eventos |
+| **Rouvy** | Rotas reais, preço menor que Zwift | AR requer boa internet |
 
 ## Veredito
 
-Se você procura um aplicativo que oferece uma experiência imersiva e conectividade social, o Zwift é a melhor escolha. Para aqueles que desejam um treinamento mais focado em estrutura e análise de potência, o TrainerRoad é a opção ideal. Se a análise de dados é essencial para a sua evolução, o TrainingPeaks é insuperável. Por último, o MyWhoosh é uma excelente escolha para ciclistas que buscam algo gratuito e divertido.
+- **Melhor para imersão e comunidade:** Zwift (R$ 89/mês)
+- **Melhor para treino científico:** TrainerRoad (R$ 119/mês)
+- **Melhor para análise e coaching:** TrainingPeaks (R$ 119/mês)
+- **Melhor gratuita:** MyWhoosh
+- **Melhor para realismo:** Rouvy (R$ 78/mês)
 
-Considerando a variedade de funcionalidades e preços, é importante avaliar suas necessidades pessoais de treino e, se possível, experimentar as versões de teste antes de tomar a decisão final.
+Uma combinação comum entre ciclistas sérios é TrainerRoad + TrainingPeaks (treino + análise) ou Zwift + TrainingPeaks (imersão + análise). MyWhoosh é a escolha ideal para quem quer experimentar o ciclismo virtual sem investimento mensal.
 
 ## Perguntas Frequentes
 
 **1. Os aplicativos precisam de equipamentos especiais?**
-Sim, para um melhor funcionamento, alguns apps exigem um ciclismo indoor, como um treinador smart ou sensores de potência.
+Sim, para usar a maioria dos apps você precisa de um trainer smart (ou smartbike) e sensores de potência. Zwift e Rouvy também funcionam com sensores de velocidade/cadência em rolos tradicionais, mas a experiência é limitada.
 
-**2. Qual é o melhor aplicativo para iniciantes?**
-O MyWhoosh e o Zwift são mais acessíveis e oferecem uma interface amigável para iniciantes.
+**2. Qual o melhor app para iniciantes?**
+MyWhoosh (gratuito) e Zwift (interface amigável) são os mais acessíveis. TrainerRoad tem curva de aprendizado maior.
 
-**3. É possível combinar esses aplicativos?**
-Sim, muitos ciclistas utilizam mais de um aplicativo para obter diferentes análises e treinos complementares.
+**3. É possível combinar os aplicativos?**
+Sim. Zwift e TrainerRoad podem ser usados juntos (TrainerRoad controla o treino, Zwift exibe o ambiente). TrainingPeaks integra dados de todos os outros apps.
 
-**4. Os preços são mensais?**
-Sim, a maioria dos aplicativos oferece planos mensais, mas confira também opções anuais que podem oferecer economia.
-
+**4. O TrainingPeaks Premium vale o preço?**
+Vale para quem segue planos de treinador ou quer análise detalhada de carga e recuperação. Para ciclistas casuais, a versão gratuita ou o Strava Summit podem ser suficientes.
 
 ### Fontes consultadas
 
-1. Site oficial do fabricante.
-2. Distribuidor oficial no Brasil.
-3. Pesquisa de mercado em lojas brasileiras.
+1. Zwift — zwift.com/br/pricing. Acessado em 19 jul. 2026.
+2. TrainerRoad — trainerroad.com/pricing. Acessado em 19 jul. 2026.
+3. TrainingPeaks — trainingpeaks.com/pricing. Acessado em 19 jul. 2026.
+4. MyWhoosh — mywhoosh.com. Acessado em 19 jul. 2026.
+5. Rouvy — rouvy.com. Acessado em 19 jul. 2026.

@@ -1,0 +1,29 @@
+{
+  "slug": "bicicletarias-especializadas",
+  "title": "Bicicletarias Especializadas em Bike de Estrada",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "bicicletarias-especializadas-em-bike-de-estrada-como-encontrar-a-melhor-perto-de-você",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Cannondale CAAD Optimo preço corrigido de R$ 7.000 para R$ 14.990 (CAAD13)",
+    "Marcas 'Bike Point' e 'Specialized Store' como lojas de manutenção—substituído por lojas reais (AllSports, Bert Bike, Demarchi)",
+    "Preços adicionados para todas as marcas mencionadas",
+    "Adicionada tabela de bicicletarias de referência no Brasil",
+    "Adicionadas instruções de como encontrar lojas perto de você"
+  ],
+  "sources": [
+    { "name": "AllSports Store", "url": "https://www.allsports.com.br", "accessed": "2026-07-19" },
+    { "name": "Bert Bike Store", "url": "https://bertbikestore.com.br", "accessed": "2026-07-19" },
+    { "name": "Demarchi Bicicletas", "url": "https://www.demarchibicicletas.com.br", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo atualizado com lojas reais, tabela de referência e marcas verificadas.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2027-01-19"
+}

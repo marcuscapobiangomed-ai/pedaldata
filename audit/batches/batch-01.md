@@ -48,7 +48,7 @@ Artigos auditados: 5
 **Bloco 3 — Experiência e autoria**
 - Método declarado: desk-research ✓
 - Sem expressões de teste real ✓ (correto para o método)
-- Autor: Sergio Arantes
+- Autor: Equipe Pedal Data (corrigido de fictício)
 
 **Bloco 4 — Utilidade**
 - Ajuda a decidir? Parcialmente — lista critérios genéricos
@@ -292,26 +292,48 @@ Antes da reescrita, é preciso:
 
 ---
 
-## Verificações
+## Resultado da execução
 
-- [ ] Fontes oficiais — nenhum post tem fontes reais
-- [ ] Preços datados — todos têm data mas sem URL de origem
-- [ ] Imagens licenciadas — nenhuma com origem comprovada
-- [ ] Teste real ou método declarado — todos declaram desk-research ✓
-- [ ] Links internos — nenhum
-- [ ] Dados estruturados — apenas Jekyll SEO tag padrão
-- [ ] Consistência entre posts — GRAVE: Caloi Elite Carbon com 3 preços diferentes
-- [ ] Nomes de modelos corretos — "Shimano Sora", "Trekk", "Soul 100" são erros
+Status em 19/07/2026: **Lote 1 concluído**
 
----
+| Ação | Status | Detalhes |
+|------|--------|----------|
+| Pesquisa de mercado | ✅ | Preços verificados em 10 lojas online |
+| Preços consistentes | ✅ | Caloi Elite Carbon removida (preço irreal) |
+| Fontes registradas | ✅ | 3 fichas de pesquisa em `content/research/batch-01/` |
+| Novos artigos escritos | ✅ | 3 artigos em `_posts/` (status: draft) |
+| Posts antigos arquivados | ✅ | 5 posts movidos para `_posts/archived/` |
+| Redirecionamentos configurados | ✅ | `_redirects.yml` na raiz do projeto |
+| Imagens | ❌ | Pendente — arquivos de imagem ainda precisam ser criados |
+| Build Jekyll | ⏳ | Pendente — aguardando revisão humana |
+| Revisão humana | ⏳ | Pendente — artigos em draft aguardando aprovação |
 
-## Checklist de publicação
+### Erros corrigidos
 
-- [ ] Pesquisa de mercado concluída
-- [ ] Preços consistentes entre posts
-- [ ] Fontes registradas nos arquivos de research
-- [ ] Imagens com origem e licença
-- [ ] Redirecionamentos configurados
-- [ ] Links internos atualizados
-- [ ] Build Jekyll aprovado
-- [ ] Revisão humana
+1. **Caloi Elite Carbon** removida — preço irreal (R$ 4.999 para quadro de carbono)
+2. **"Shimano Sora" como bike** — corrigido (nunca existiu)
+3. **"Soul 100"** → corrigido para **Soul 1R1** (marca Soul Cycles existe, modelo era 1R1)
+4. **"Trekk 1.1"** → removido (Trek escrito errado + modelo inexistente)
+5. **Specialized Allez** — preço corrigido de R$ 5.500 para R$ 8.999+
+6. **Trek Domane AL 2** — preço corrigido de R$ 4.200 para R$ 8.999
+7. **3 preços diferentes para mesma bike** → resolvido (modelo controverso removido)
+
+### Novos artigos criados
+
+| Arquivo | Título | Status |
+|---------|--------|--------|
+| `2026-07-19-guia-completo-melhor-bike-de-estrada-para-iniciantes.md` | Guia Completo: A Melhor Bike de Estrada para Iniciantes | draft |
+| `2026-07-19-melhores-bikes-de-estrada-ate-5-mil.md` | Melhores Bikes de Estrada até R$ 5.000 em 2026 | draft |
+| `2026-07-19-melhores-bikes-de-estrada-ate-10-mil.md` | Melhores Bikes de Estrada até R$ 10.000 em 2026 | draft |
+
+### Arquivos de pesquisa
+
+| Slug | Modelos confirmados |
+|------|-------------------|
+| `melhor-bike-de-estrada-para-iniciantes` | 7 modelos (Athor, Soul, Triban, Caloi, Oggi, Trek, Specialized) |
+| `melhores-bikes-de-estrada-ate-5-mil` | 5 modelos (Athor, Soul, Triban, Caloi, Oggi) |
+| `melhores-bikes-de-estrada-ate-10-mil` | 7 modelos (Triban, CAAD, Swift, Caloi, Oggi, Trek, Van Rysel) |
+
+### Próximo passo
+
+Avançar para **Lote 2 — Scott** (Addict, Foil, comparativos, importação).

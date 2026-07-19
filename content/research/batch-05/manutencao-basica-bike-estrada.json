@@ -1,0 +1,30 @@
+{
+  "slug": "manutencao-basica-bike-estrada",
+  "title": "Guia de Manutenção Básica para Bike de Estrada",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "guia-de-manutenção-básica-para-bike-de-estrada-o-que-todo-ciclista-precisa-saber",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Pressão de pneus 80-130 PSI atualizada para 70-95 PSI (pneus 25-28mm modernos)",
+    "Adicionada seção de freios a disco (padrão atual em bikes de estrada)",
+    "Adicionada seção de manutenção de transmissão eletrônica (Di2, AXS)",
+    "Adicionada tabela de periodicidade recomendada",
+    "Adicionada lista de ferramentas essenciais para levar na pedal",
+    "Fontes: substituídas genéricas por Park Tool, Shimano, SRAM"
+  ],
+  "sources": [
+    { "name": "Shimano — Manutenção de transmissão", "url": "https://www.shimano.com", "accessed": "2026-07-19" },
+    { "name": "Park Tool — Guias de manutenção", "url": "https://www.parktool.com/en-us/blog/repair-help", "accessed": "2026-07-19" },
+    { "name": "SRAM — Guias técnicos", "url": "https://www.sram.com", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo atualizado com práticas modernas de manutenção (disco, eletrônico, tubeless). Conteúdo evergreen com pequenas correções.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2027-01-19"
+}

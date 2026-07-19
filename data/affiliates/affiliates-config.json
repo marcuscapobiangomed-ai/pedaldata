@@ -1,0 +1,104 @@
+{
+  "defaultUtmSource": "pedaldata.com.br",
+  "partners": [
+    {
+      "id": "mercadolivre",
+      "name": "Mercado Livre",
+      "type": "affiliate-network",
+      "tagParam": "tag_id",
+      "tagValue": "PREENCHER_AO_CADASTRAR",
+      "baseUrl": "https://www.mercadolivre.com.br",
+      "logo": "/assets/img/partners/mercadolivre.svg"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon Brasil",
+      "type": "affiliate-network",
+      "tagParam": "tag",
+      "tagValue": "PREENCHER_AO_CADASTRAR",
+      "baseUrl": "https://www.amazon.com.br",
+      "logo": "/assets/img/partners/amazon.svg"
+    },
+    {
+      "id": "allsports",
+      "name": "AllSports Store",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.allsports.com.br",
+      "logo": "/assets/img/partners/allsports.svg"
+    },
+    {
+      "id": "berbike",
+      "name": "Bert Bike Store",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.bertbikestore.com.br",
+      "logo": "/assets/img/partners/bertbike.svg"
+    },
+    {
+      "id": "soulcycles",
+      "name": "Soul Cycles",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.soulcycles.com.br",
+      "logo": "/assets/img/partners/soulcycles.svg"
+    },
+    {
+      "id": "decathlon",
+      "name": "Decathlon",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.decathlon.com.br",
+      "logo": "/assets/img/partners/decathlon.svg"
+    },
+    {
+      "id": "specialized",
+      "name": "Specialized Brasil",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.specialized.com/br/pt",
+      "logo": "/assets/img/partners/specialized.svg"
+    },
+    {
+      "id": "cervelo",
+      "name": "Cervélo Brasil",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.cervelobr.com",
+      "logo": "/assets/img/partners/cervelo.svg"
+    },
+    {
+      "id": "demarchi",
+      "name": "Demarchi Bicicletas",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.demarchibicicletas.com.br",
+      "logo": "/assets/img/partners/demarchi.svg"
+    },
+    {
+      "id": "bikecenter",
+      "name": "Bike Center Ribeirão",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.bikecenterribeirao.com.br",
+      "logo": "/assets/img/partners/bikecenter.svg"
+    },
+    {
+      "id": "jauribike",
+      "name": "Jauri Bike",
+      "type": "direct",
+      "tagParam": "utm_source",
+      "tagValue": "pedaldata",
+      "baseUrl": "https://www.jauribike.com.br",
+      "logo": "/assets/img/partners/jauribike.svg"
+    }
+  ]
+}

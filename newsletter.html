@@ -1,0 +1,89 @@
+---
+layout: default
+title: Newsletter
+permalink: /newsletter/
+---
+
+<section class="page-header">
+  <div class="container">
+    <h1>Newsletter Pedal Data</h1>
+    <p class="page-subtitle">Receba análises, comparativos e novidades do mundo do ciclismo de estrada</p>
+  </div>
+</section>
+
+<section class="calculator-section">
+  <div class="container calculator-layout">
+    <div class="calculator-form">
+      <h3>Inscreva-se gratuitamente</h3>
+      <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:18px;line-height:1.6;">
+        Uma vez por semana, enviamos um resumo com:<br>
+        • Novos produtos cadastrados na base<br>
+        • Comparativos e análises de dados<br>
+        • Variações de preço do mercado<br>
+        • Guias de compra e dicas exclusivas
+      </p>
+      <form id="newsletter-form" action="#" method="post" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="form-group">
+          <label for="newsletter-name">Seu nome</label>
+          <input type="text" id="newsletter-name" placeholder="Ex: João Silva" required>
+        </div>
+        <div class="form-group">
+          <label for="newsletter-email">Melhor e-mail</label>
+          <input type="email" id="newsletter-email" placeholder="Ex: joao@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="newsletter-profile">Perfil de ciclista</label>
+          <select id="newsletter-profile">
+            <option value="beginner">Iniciante</option>
+            <option value="recreational">Recreacional</option>
+            <option value="endurance">Endurance / longas distâncias</option>
+            <option value="performance">Performance / treinos</option>
+            <option value="competitive">Competitivo</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;padding:12px;">Inscrever-se</button>
+      </form>
+      <p style="font-size:0.75rem;color:var(--text-light);margin-top:14px;">Seus dados não serão compartilhados. Você pode cancelar a qualquer momento.</p>
+    </div>
+    <div class="calculator-result" style="display:block;">
+      <h3>Por que assinar?</h3>
+      <ul style="list-style:none;padding:0;">
+        <li style="padding:10px 0;border-bottom:1px solid var(--border-card);font-size:0.88rem;">
+          <strong style="color:var(--accent-dark);">📊</strong> Dados exclusivos da base Pedal Data
+        </li>
+        <li style="padding:10px 0;border-bottom:1px solid var(--border-card);font-size:0.88rem;">
+          <strong style="color:var(--accent-dark);">🏷️</strong> Alertas de preço e promoções
+        </li>
+        <li style="padding:10px 0;border-bottom:1px solid var(--border-card);font-size:0.88rem;">
+          <strong style="color:var(--accent-dark);">🔍</strong> Comparativos que você não encontra em blogs comuns
+        </li>
+        <li style="padding:10px 0;border-bottom:1px solid var(--border-card);font-size:0.88rem;">
+          <strong style="color:var(--accent-dark);">🚴</strong> Conteúdo feito por ciclistas, para ciclistas
+        </li>
+        <li style="padding:10px 0;font-size:0.88rem;">
+          <strong style="color:var(--accent-dark);">🎯</strong> Recomendações personalizadas por perfil
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault()
+
+  var name = document.getElementById('newsletter-name').value
+  var email = document.getElementById('newsletter-email').value
+  var profile = document.getElementById('newsletter-profile').value
+
+  if (typeof PedalData.track === 'function') {
+    PedalData.track('newsletter', 'newsletter_submit', email, null, {
+      name: name,
+      email: email,
+      profile: profile
+    })
+  }
+
+  alert('📬 Inscrição registrada! Assim que o sistema de newsletter estiver pronto, você receberá nossas atualizações no e-mail ' + email + '. Fique ligado!')
+})
+</script>

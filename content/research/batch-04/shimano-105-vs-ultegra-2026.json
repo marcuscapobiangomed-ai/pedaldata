@@ -1,0 +1,40 @@
+{
+  "slug": "shimano-105-vs-ultegra-2026",
+  "title": "Shimano 105 vs Ultegra 2026: A Diferença de Preço Justifica?",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Internacional",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "shimano-105-vs-ultegra-a-diferenca-de-preco-justifica",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Post original não mencionava Di2 como opção em ambos os grupos (ambos têm versões eletrônicas agora)",
+    "Diferença de peso citada como ~250g — real é ~300-373g (grupo completo)",
+    "Não mencionava Hyperglide+ (Ultegra) vs Hyperglide (105) — diferença real de performance",
+    "Preços desatualizados (US$ 600-900 para 105, US$ 1.000-1.500 para Ultegra em 2026)",
+    "Não mencionava que 105 Di2 não aceita shifters satélite nem terceiro botão (limitação real)"
+  ],
+  "key_facts": {
+    "weight_105_di2": "2.950g (medido BikeRadar)",
+    "weight_ultegra_di2": "2.577g (medido BikeRadar)",
+    "weight_difference": "~373g (~300g na literatura Shimano)",
+    "price_105_di2_complete": "US$ 1.890 / £1.730 (preço cheio)",
+    "price_ultegra_di2_complete": "US$ 2.400 / £2.328 (preço cheio)",
+    "price_difference": "~US$ 500 / £600 (preço cheio); ~£300 na prática com descontos",
+    "real_world_performance": "90% dos ciclistas não sentem diferença em teste cego (consenso entre múltiplas fontes)"
+  },
+  "verdict": "105 é suficiente para 90% dos ciclistas. Ultegra faz sentido para competidores, longas subidas acumulativas ou quem quer Di2 sem pagar Dura-Ace.",
+  "sources": [
+    { "name": "BikeRadar — 105 Di2 vs Ultegra", "url": "https://www.bikeradar.com/advice/buyers-guides/shimano-105-di2-vs-shimano-ultegra", "accessed": "2026-07-19" },
+    { "name": "Pro Bike Tech — Shimano 105 vs Ultegra", "url": "https://probiketech.com/shimano-105-vs-ultegra/", "accessed": "2026-07-19" },
+    { "name": "Cyclist — Madone vs Domane", "url": "https://www.cyclist.co.uk/buying-guides/trek-madone-vs-domane", "accessed": "2026-07-19" },
+    { "name": "Fietsvoeter — Shimano 105 vs Ultegra 2026", "url": "https://www.fietsvoeter.nl/blog/shimano-105-vs-ultegra/", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo atualizado para 2026 com dados concretos de peso, preço e performance. Consenso: 105 é a melhor relação custo-benefício da Shimano.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

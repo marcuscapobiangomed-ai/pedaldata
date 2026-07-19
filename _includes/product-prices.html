@@ -1,0 +1,38 @@
+{% assign product_id = include.product_id %}
+{% assign price_data = site.data.prices[product_id] %}
+{% if price_data and price_data.observations.size > 0 %}
+<div class="product-prices">
+  <h4>Preços no Brasil</h4>
+  <table class="prices-table">
+    <thead>
+      <tr>
+        <th>Loja</th>
+        <th>Preço</th>
+        <th>Preço regular</th>
+        <th>Parcelamento</th>
+        <th>Frete</th>
+        <th>Disponibilidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for obs in price_data.observations %}
+      <tr>
+        <td><a href="{{ obs.url }}" rel="nofollow sponsored" target="_blank" data-affiliate="true" data-partner="{{ obs.store }}" data-product="{{ product_id }}" data-placement="price-table">{{ obs.store }}</a></td>
+        <td><strong>R$ {{ obs.price | number_with_delimiter: ".", "," }}</strong></td>
+        <td>{% if obs.regularPrice %}R$ {{ obs.regularPrice | number_with_delimiter: ".", "," }}{% else %}—{% endif %}</td>
+        <td>{% if obs.installments %}até {{ obs.installments }}x{% else %}—{% endif %}</td>
+        <td>{% if obs.shippingIncluded %}Grátis{% else %}Consulte{% endif %}</td>
+        <td>
+          {% if obs.availability == 'in-stock' %}Disponível{% endif %}
+          {% if obs.availability == 'out-of-stock' %}Esgotado{% endif %}
+          {% if obs.availability == 'pre-order' %}Pré-venda{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="prices-note">Preços coletados em {{ price_data.observations[0].checkedAt | date: "%d/%m/%Y" }}. Podem variar.</p>
+</div>
+{% else %}
+<p class="prices-unavailable">Preços não disponíveis no momento.</p>
+{% endif %}

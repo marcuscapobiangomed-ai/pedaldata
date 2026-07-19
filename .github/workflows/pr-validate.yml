@@ -5,8 +5,11 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - "_posts/**"
+      - "data/**"
       - "content/research/**"
       - "assets/img/posts/**"
+      - "_config.yml"
+      - "_redirects.yml"
 
 permissions:
   contents: read
@@ -47,17 +50,29 @@ jobs:
       - name: Validar Fichas de Pesquisa
         run: node src/validation/validate-research.js
         working-directory: bot
-        continue-on-error: true
 
       - name: Verificar Alegações Proibidas
         run: node src/validation/check-claims.js
         working-directory: bot
-        continue-on-error: true
 
       - name: Validar Imagens
         run: node src/validation/validate-images.js
         working-directory: bot
-        continue-on-error: true
+
+      - name: Validar Base de Dados (schemas)
+        run: node data/schemas/validate-all.js
+
+      - name: Check for fictional authorship
+        run: |
+          ! grep -r "Sergio Arantes" _posts/ --include="*.md" && echo "OK" || (echo "ERRO: autoria fictícia encontrada"; exit 1)
+
+      - name: Check for missing source sections
+        run: |
+          for f in _posts/*.md; do
+            if ! grep -qi "## Fontes\|## Referências" "$f"; then
+              echo "AVISO: $f não tem seção de fontes"
+            fi
+          done
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1

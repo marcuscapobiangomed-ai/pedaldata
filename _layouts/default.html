@@ -8,10 +8,11 @@
     <div class="container site-nav-inner">
       <a href="{{ site.baseurl }}/" class="site-logo">PEDAL<span>.</span>DATA</a>
       <ul class="nav-links">
+        <li><a href="{{ site.baseurl }}/bikes/">Bicicletas</a></li>
+        <li><a href="{{ site.baseurl }}/comparar/" class="nav-highlight">Comparar</a></li>
+        <li><a href="{{ site.baseurl }}/calculadoras/tamanho-road-bike/">Calculadoras</a></li>
         <li><a href="{{ site.baseurl }}/categorias#review">Reviews</a></li>
-        <li><a href="{{ site.baseurl }}/categorias#guia-de-compra">Guias de Compra</a></li>
-        <li><a href="{{ site.baseurl }}/categorias#comparação">Comparativos</a></li>
-        <li><a href="{{ site.baseurl }}/sobre">Sobre</a></li>
+        <li><a href="{{ site.baseurl }}/newsletter/">Newsletter</a></li>
         <li>
           <a href="{{ site.baseurl }}/search" aria-label="Buscar" style="display: flex; align-items: center; padding: 5px 8px;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -32,5 +33,6 @@
   </main>
 
   {% include footer.html %}
+  {% include auth-scripts.html %}
 </body>
 </html>

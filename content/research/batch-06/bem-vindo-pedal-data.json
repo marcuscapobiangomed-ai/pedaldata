@@ -1,0 +1,24 @@
+{
+  "slug": "bem-vindo-pedal-data",
+  "title": "Bem-vindo ao Pedal Data",
+  "content_type": "noticia",
+  "review_method": "editorial",
+  "tested_by_pedaldata": false,
+  "ai_assisted": false,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "bem-vindo",
+  "decision": "manter",
+  "errors_corrected": [
+    "Tags genéricas (comparativos, ciclismo) substituídas por tags específicas (ciclismo, boas-vindas)",
+    "Disclaimer removido (não se aplica a post institucional)",
+    "Removidas fontes placeholder de fabricante",
+    "Texto enxugado (removido 'Próximos posts' e frases genéricas)"
+  ],
+  "sources": [],
+  "notes": "Post institucional. Mantido com leves ajustes editoriais.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2027-01-19"
+}

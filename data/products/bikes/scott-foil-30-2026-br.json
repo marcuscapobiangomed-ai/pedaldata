@@ -1,0 +1,23 @@
+{
+  "id": "scott-foil-30-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Foil 30",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-aero",
+  "officialUrl": "https://www.scott-sports.com/us/en/product/scott-foil-30-2026",
+  "distributorUrl": "https://www.scottbrasil.com.br/foil-30",
+  "frame": { "material": "carbon", "technology": "HMF", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Foil HMF" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 30 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Syncros", "model": "Razor Disc", "material": "aluminum" },
+  "tires": { "brand": "Schwalbe", "model": "ONE Race", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.8, "size": "M", "sourceId": "scott-official-global-2026" },
+  "maxTireClearanceMm": { "value": 32, "sourceId": "scott-manual-2026" },
+  "warranty": { "description": "Conforme política do distribuidor brasileiro", "sourceId": "scott-brazil-warranty" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "specialized-tarmac-sl7-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Specialized",
+  "model": "Tarmac SL7",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.specialized.com/us/en/tarmac-sl7/p/",
+  "distributorUrl": "https://www.specialized.com/br/pt/tarmac-sl7",
+  "frame": {
+    "material": "carbon",
+    "technology": "FACT 10r",
+    "internalCableRouting": true
+  },
+  "fork": {
+    "material": "carbon",
+    "model": "FACT carbon"
+  },
+  "drivetrain": {
+    "brand": "Shimano",
+    "groupset": "105 Di2",
+    "speeds": 12,
+    "shifting": "electronic",
+    "chainrings": [52, 36],
+    "cassette": {
+      "smallest": 11,
+      "largest": 30
+    }
+  },
+  "brakes": {
+    "type": "hydraulic-disc",
+    "brand": "Shimano",
+    "model": "105"
+  },
+  "wheels": {
+    "brand": "DT Swiss",
+    "model": "R470",
+    "material": "aluminum"
+  },
+  "tires": {
+    "brand": "Specialized",
+    "model": "Turbo Pro",
+    "widthMm": 26,
+    "tubelessReady": true
+  },
+  "declaredWeight": {
+    "valueKg": 8.8,
+    "size": "54",
+    "sourceId": "specialized-official-global-2026"
+  },
+  "maxTireClearanceMm": {
+    "value": 32,
+    "sourceId": "specialized-geometry-2026"
+  },
+  "warranty": {
+    "description": "Garantia limitada Specialized conforme política do distribuidor",
+    "sourceId": "specialized-br-2026"
+  },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19",
+  "updatedAt": "2026-07-19",
+  "reviewStatus": "verified"
+}

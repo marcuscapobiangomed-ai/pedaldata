@@ -4,13 +4,11 @@ title: "Melhores Pedais Clipless para Iniciantes em Ciclismo de Estrada: Qual Es
 description: "Descubra os melhores pedais clipless para iniciantes em 2026 e escolha o modelo ideal para sua bicicleta de estrada."
 date: 2026-07-14
 last_modified_at: 2026-07-14
-author: "Sergio Arantes"
-reviewed_by: ""
+author: "Equipe Pedal Data"
 content_type: "guia-de-compra"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-brand: ""
 product_name: ""
 model_year: 2026
 market: "Brasil"
@@ -25,22 +23,30 @@ tags: [componentes, ciclismo, pedais clipless]
 image: "/assets/img/posts/melhores-pedais-clipless-2026/hero.jpg"
 image_alt: "Pedais clipless para ciclismo de estrada"
 image_caption: ""
-image_credit: ""
+image_credit: "Divulgação"
 image_license: "Uso editorial autorizado pelo fabricante"
 sources:
-  - name: "Fabricante"
+  - name: "Ciclismo Pelo Mundo — Guia de Pedais Clipless"
+    type: "review"
+    url: "https://www.ciclismopelomundo.com.br/guia-pedais-de-encaixe-clipless/"
+    accessed_at: "2026-07-19"
+  - name: "KF Bikes — Look Kéo Classic 3"
+    type: "retailer"
+    url: "https://www.kfbikes.com.br/produtos/pedal-look-keo-classic-3-pto-vermelho-280gr-par-speed-road/"
+    accessed_at: "2026-07-19"
+  - name: "Sensation Bike Store — Shimano PD-RS500"
+    type: "retailer"
+    url: "https://sensationbikestore.com.br/products/pedal-road-shimano-pd-rs500"
+    accessed_at: "2026-07-19"
+  - name: "Shimano — SPD-SL"
     type: "manufacturer"
-    url: ""
-    accessed_at: "2026-07-14"
-  - name: "Pesquisa de mercado"
-    type: "market-research"
-    url: ""
-    accessed_at: "2026-07-14"
+    url: "https://www.shimano.com/"
+    accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Este artigo foi atualizado em 19/07/2026 com preços e modelos reais do mercado brasileiro.
 
 
 

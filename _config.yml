@@ -48,6 +48,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - .gitignore
+  - scripts
 
 paginate: 10
 paginate_path: "/page/:num/"

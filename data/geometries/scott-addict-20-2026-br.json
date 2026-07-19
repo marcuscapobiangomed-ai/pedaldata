@@ -1,0 +1,67 @@
+{
+  "productId": "scott-addict-20-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "XS",
+      "stack": 527,
+      "reach": 374,
+      "effectiveTopTube": 520,
+      "seatTube": 470,
+      "headTube": 110,
+      "headAngle": 71.0,
+      "seatAngle": 74.5,
+      "chainstay": 418,
+      "wheelbase": 989
+    },
+    {
+      "size": "S",
+      "stack": 547,
+      "reach": 379,
+      "effectiveTopTube": 537,
+      "seatTube": 495,
+      "headTube": 130,
+      "headAngle": 71.5,
+      "seatAngle": 74.0,
+      "chainstay": 418,
+      "wheelbase": 995
+    },
+    {
+      "size": "M",
+      "stack": 566,
+      "reach": 384,
+      "effectiveTopTube": 555,
+      "seatTube": 520,
+      "headTube": 150,
+      "headAngle": 72.5,
+      "seatAngle": 73.5,
+      "chainstay": 418,
+      "wheelbase": 1002
+    },
+    {
+      "size": "L",
+      "stack": 587,
+      "reach": 393,
+      "effectiveTopTube": 575,
+      "seatTube": 550,
+      "headTube": 170,
+      "headAngle": 73.0,
+      "seatAngle": 73.0,
+      "chainstay": 418,
+      "wheelbase": 1010
+    },
+    {
+      "size": "XL",
+      "stack": 615,
+      "reach": 402,
+      "effectiveTopTube": 597,
+      "seatTube": 585,
+      "headTube": 195,
+      "headAngle": 73.0,
+      "seatAngle": 72.5,
+      "chainstay": 418,
+      "wheelbase": 1020
+    }
+  ],
+  "sourceId": "scott-geometry-2026"
+}

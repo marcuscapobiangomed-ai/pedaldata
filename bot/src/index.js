@@ -5,6 +5,7 @@ import { GitHubPublisher } from "./publisher.js";
 import { generateMarkdown } from "./generator.js";
 import { validateResearch } from "./schemas/research.schema.js";
 import { validateArticle } from "./schemas/article.schema.js";
+import { InputValidator } from "./input-validator.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -26,13 +27,22 @@ const publisher = new GitHubPublisher();
 async function handleCommand({ command, args, from, reply }) {
   if (command !== "novo") return;
 
-  const slug = args.topic.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  // Validar entrada do usuário
+  const validation = InputValidator.validateMessage(args.topic, from);
+  if (!validation.valid) {
+    console.log(`⛔ Entrada inválida de ${from}: ${validation.errors.join("; ")}`);
+    await reply(`❌ Entrada inválida: ${validation.errors.join(". ")}`);
+    return;
+  }
+
+  const sanitizedTopic = validation.sanitized;
+  const slug = sanitizedTopic.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
   const today = new Date().toISOString().split("T")[0];
 
   try {
     // 1. Gera o artigo via IA
-    await reply(`⏳ Gerando artigo sobre "${args.topic}"...`);
-    const post = await ai.processCase(args.topic);
+    await reply(`⏳ Gerando artigo sobre "${sanitizedTopic}"...`);
+    const post = await ai.processCase(sanitizedTopic);
 
     // 2. Valida o artigo
     const articleData = JSON.parse(post.rawJson || "{}");
@@ -51,12 +61,12 @@ async function handleCommand({ command, args, from, reply }) {
     if (!fs.existsSync(RESEARCH_DIR)) fs.mkdirSync(RESEARCH_DIR, { recursive: true });
 
     const researchData = {
-      topic: args.topic,
+      topic: sanitizedTopic,
       contentType: articleData.category || "review",
       reviewMethod: "desk-research",
       testedByPedalData: false,
       market: "Brasil",
-      product: { brand: "", name: args.topic, modelYear: 2026 },
+      product: { brand: "", name: sanitizedTopic, modelYear: 2026 },
       specifications: {},
       prices: [],
       sources: [{ id: "pending", name: "Pendente", type: "manufacturer", url: "", accessedAt: today }],

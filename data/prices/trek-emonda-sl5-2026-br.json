@@ -1,0 +1,36 @@
+{
+  "productId": "trek-emonda-sl5-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "PedalMais",
+      "price": 27320,
+      "regularPrice": 28650,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "out-of-stock",
+      "url": "https://www.pedalmais.com.br/trek-emonda-sl5-2026-br",
+      "checkedAt": "2026-07-07"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 27320,
+      "regularPrice": 28100,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/trek-emonda-sl5-2026-br",
+      "checkedAt": "2026-07-11"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 27320,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/trek-emonda-sl5-2026-br",
+      "checkedAt": "2026-07-12"
+    }
+  ]
+}

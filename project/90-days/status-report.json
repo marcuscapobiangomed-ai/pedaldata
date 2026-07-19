@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-07-19",
+  "weeks": {
+    "01-02": {
+      "label": "Segurança e Pipeline",
+      "progress": 78,
+      "totalTasks": 9,
+      "doneTasks": 7
+    },
+    "03-04": {
+      "label": "Auditoria de Conteúdo",
+      "progress": 100,
+      "totalTasks": 3,
+      "doneTasks": 3
+    },
+    "05-06": {
+      "label": "Base de Produtos",
+      "progress": 100,
+      "totalTasks": 1,
+      "doneTasks": 1
+    },
+    "07-08": {
+      "label": "Páginas de Produto",
+      "progress": 0,
+      "totalTasks": 1,
+      "doneTasks": 0
+    },
+    "09-10": {
+      "label": "Comparador",
+      "progress": 0,
+      "totalTasks": 1,
+      "doneTasks": 0
+    },
+    "11-12": {
+      "label": "Analytics e Monetização",
+      "progress": 0,
+      "totalTasks": 2,
+      "doneTasks": 0
+    }
+  },
+  "metrics": {
+    "bikes": 30,
+    "bikesWithSource": 30,
+    "pricesWithUrl": 74,
+    "pricesRecent": 74,
+    "postsTotal": 52,
+    "postsAudited": 16,
+    "sourcesTotal": 23,
+    "sourcesWithUrl": 13,
+    "pagesGenerated": 0
+  },
+  "blockers": [],
+  "status": "in_progress",
+  "overallProgress": 65
+}

@@ -1,0 +1,23 @@
+{
+  "id": "sense-gravel-v1-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Sense",
+  "model": "Gravel V1",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "gravel",
+  "officialUrl": "https://www.sensebikes.com.br/gravel-v1",
+  "distributorUrl": "https://www.sensebikes.com.br/gravel-v1",
+  "frame": { "material": "aluminum", "technology": "6061 T6", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Sense gravel carbon" },
+  "drivetrain": { "brand": "Shimano", "groupset": "GRX 600", "speeds": 11, "shifting": "mechanical", "chainrings": [46, 30], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "GRX" },
+  "wheels": { "brand": "Sense", "model": "Gravel Disc", "material": "aluminum" },
+  "tires": { "brand": "Vittoria", "model": "Terreno Dry", "widthMm": 38, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 10.2, "size": "M", "sourceId": "sense-br-2026" },
+  "maxTireClearanceMm": { "value": 45, "sourceId": "sense-br-2026" },
+  "warranty": { "description": "Garantia Sense de 5 anos no quadro", "sourceId": "sense-br-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

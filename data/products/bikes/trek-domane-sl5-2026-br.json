@@ -1,0 +1,65 @@
+{
+  "id": "trek-domane-sl5-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Trek",
+  "model": "Domane SL 5",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-endurance",
+  "officialUrl": "https://www.trekbikes.com/us/en_US/bikes/road-bikes/endurance-road-bikes/domane-sl/domane-sl-5/p/3696000/",
+  "distributorUrl": "https://www.trekbikes.com/br/pt_BR/bikes/road-bikes/endurance-road-bikes/domane-sl/domane-sl-5/p/3696000/",
+  "frame": {
+    "material": "carbon",
+    "technology": "OCLV 500",
+    "internalCableRouting": true
+  },
+  "fork": {
+    "material": "carbon",
+    "model": "Domane SL carbon"
+  },
+  "drivetrain": {
+    "brand": "Shimano",
+    "groupset": "105 Di2",
+    "speeds": 12,
+    "shifting": "electronic",
+    "chainrings": [50, 34],
+    "cassette": {
+      "smallest": 11,
+      "largest": 36
+    }
+  },
+  "brakes": {
+    "type": "hydraulic-disc",
+    "brand": "Shimano",
+    "model": "105"
+  },
+  "wheels": {
+    "brand": "Bontrager",
+    "model": "Paradigm SL",
+    "material": "aluminum"
+  },
+  "tires": {
+    "brand": "Bontrager",
+    "model": "R3 Hard-Case Lite",
+    "widthMm": 32,
+    "tubelessReady": false
+  },
+  "declaredWeight": {
+    "valueKg": 9.2,
+    "size": "M",
+    "sourceId": "trek-official-global-2026"
+  },
+  "maxTireClearanceMm": {
+    "value": 38,
+    "sourceId": "trek-geometry-2026"
+  },
+  "warranty": {
+    "description": "Garantia vitalícia do quadro Trek",
+    "sourceId": "trek-br-2026"
+  },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19",
+  "updatedAt": "2026-07-19",
+  "reviewStatus": "verified"
+}

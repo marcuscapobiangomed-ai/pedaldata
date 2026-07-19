@@ -1,0 +1,23 @@
+{
+  "id": "oggi-giro-carbon-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Giro Carbon",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.oggi.com.br/giro-carbon",
+  "distributorUrl": "https://www.oggi.com.br/giro-carbon",
+  "frame": { "material": "carbon", "technology": "Oggi T800", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Oggi T800 tapered" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 30 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Oggi", "model": "Aero 40 Carbon", "material": "carbon" },
+  "tires": { "brand": "Vittoria", "model": "Rubino Pro", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.3, "size": "M", "sourceId": "oggi-official-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "oggi-official-2026" },
+  "warranty": { "description": "Garantia Oggi de 2 anos", "sourceId": "oggi-official-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

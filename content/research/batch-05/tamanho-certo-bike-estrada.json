@@ -1,0 +1,32 @@
+{
+  "slug": "tamanho-certo-bike-estrada",
+  "title": "Como Escolher o Tamanho Certo de Bike de Estrada",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "como-escolher-o-tamanho-certo-de-bike-de-estrada-guia-completo-com-tabela-de-medidas",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Caloi Elite Pro removida como recomendação (Caloi não tem bike de estrada de entrada competitiva em 2026)",
+    "Trek Domane AL 2 preço corrigido de R$ 5.000-30.000 (genérico) para R$ 8.999 (preço real)",
+    "Giant Contend R$ 4.500 removida — Giant não tem distribuição oficial no Brasil",
+    "Caloi faixa R$ 1.500-10.000 removida — preços irreais para bikes de estrada em 2026",
+    "Adicionados conceitos de reach e stack (essenciais para escolha moderna)",
+    "Adicionada tabela de geometria comparativa entre marcas (Specialized, Trek, Cervélo, Cannondale, Scott)",
+    "Adicionada seção de bike fit profissional",
+    "Adicionados erros comuns na escolha de tamanho"
+  ],
+  "sources": [
+    { "name": "Specialized Brasil — Geometrias", "url": "https://www.specialized.com/br/pt", "accessed": "2026-07-19" },
+    { "name": "Cervélo — Geometries", "url": "https://www.cervelo.com/geometries", "accessed": "2026-07-19" },
+    { "name": "Trek — Bike Sizing", "url": "https://www.trekbikes.com/us/en_US/bike-sizing/", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo reescrito com conceitos modernos de bike fit (reach, stack), tabelas de geometria reais e correção de preços. Giant e Caloi removidas por falta de distribuição oficial ou modelos competitivos.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

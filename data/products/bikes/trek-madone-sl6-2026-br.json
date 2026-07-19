@@ -1,0 +1,23 @@
+{
+  "id": "trek-madone-sl6-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Trek",
+  "model": "Madone SL 6",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-aero",
+  "officialUrl": "https://www.trekbikes.com/us/en_US/bikes/road-bikes/aero-road-bikes/madone-sl/madone-sl-6/p/3699000/",
+  "distributorUrl": "https://www.trekbikes.com/br/pt_BR/bikes/road-bikes/aero-road-bikes/madone-sl/madone-sl-6/p/3699000/",
+  "frame": { "material": "carbon", "technology": "OCLV 500", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Madone SL carbon" },
+  "drivetrain": { "brand": "Shimano", "groupset": "Ultegra Di2 R8170", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 30 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "Ultegra" },
+  "wheels": { "brand": "Bontrager", "model": "Aeolus Elite 35", "material": "carbon" },
+  "tires": { "brand": "Bontrager", "model": "R3 Hard-Case Lite", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.3, "size": "M", "sourceId": "trek-official-global-2026" },
+  "maxTireClearanceMm": { "value": 32, "sourceId": "trek-geometry-2026" },
+  "warranty": { "description": "Garantia vitalícia do quadro Trek", "sourceId": "trek-br-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

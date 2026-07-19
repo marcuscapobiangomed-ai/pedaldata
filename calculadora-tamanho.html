@@ -1,0 +1,65 @@
+---
+layout: default
+title: Calculadora de Tamanho de Road Bike
+permalink: /calculadoras/tamanho-road-bike/
+---
+
+<section class="page-header">
+  <div class="container">
+    <h1>Calculadora de Tamanho de Road Bike</h1>
+    <p class="page-subtitle">Encontre o tamanho ideal de bike de estrada com base nas suas medidas</p>
+  </div>
+</section>
+
+<section class="calculator-section">
+  <div class="container calculator-layout">
+    <div class="calculator-form">
+      <div class="form-group">
+        <label for="calc-height">Altura (cm)</label>
+        <input type="number" id="calc-height" min="140" max="220" step="1" placeholder="Ex: 175">
+      </div>
+      <div class="form-group">
+        <label for="calc-inseam">Cavalo (cm) — altura do chão ao períneo</label>
+        <input type="number" id="calc-inseam" min="60" max="120" step="0.5" placeholder="Ex: 82">
+      </div>
+      <div class="form-group">
+        <label for="calc-flexibility">Flexibilidade</label>
+        <select id="calc-flexibility">
+          <option value="low">Baixa — sinto desconforto ao me curvar</option>
+          <option value="medium" selected>Média — consigo inclinar sem problemas</option>
+          <option value="high">Alta — muito flexível, prefiro posição agressiva</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="calc-experience">Experiência</label>
+        <select id="calc-experience">
+          <option value="beginner">Iniciante — primeiras pedaladas</option>
+          <option value="intermediate" selected>Intermediário — pedalo 2-3x por semana</option>
+          <option value="advanced">Avançado — treino e participo de eventos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="calc-goal">Objetivo principal</label>
+        <select id="calc-goal">
+          <option value="comfort">Conforto e longas distâncias</option>
+          <option value="performance" selected>Performance e velocidade</option>
+          <option value="race">Competição e máxima performance</option>
+        </select>
+      </div>
+      <button id="calc-size-btn" class="btn btn-primary">Calcular tamanho</button>
+    </div>
+
+    <div id="calc-size-result" class="calculator-result" style="display:none;">
+      <h3>Recomendação de tamanho</h3>
+      <div id="size-recommendation" class="size-recommendation"></div>
+      <div id="size-geometry" class="size-geometry"></div>
+      <div id="size-models" class="size-models"></div>
+      <div class="calculator-disclaimer">
+        <p><strong>Aviso importante:</strong> Esta ferramenta oferece uma estimativa inicial e não substitui avaliação profissional de bike fit. Consulte um especialista para ajuste fino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
+<script src="{{ site.baseurl }}/assets/js/size-calculator.js"></script>

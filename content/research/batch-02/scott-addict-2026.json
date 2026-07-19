@@ -1,0 +1,58 @@
+{
+  "slug": "scott-addict-2026",
+  "title": "Scott Addict 2026: Ficha Técnica, Preço no Brasil e Para Quem é Indicada",
+  "content_type": "review",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_posts": ["scott-addict-2026-ficha-tecnica-completa-preco-no-brasil-e-para-quem-e-indicada"],
+  "decision": "reescrever",
+  "target_url": "/reviews/scott-addict-2026/",
+
+  "errors_corrected": [
+    "Confusão entre Addict (endurance 2026) e Addict RC (race) — são modelos diferentes",
+    "RC 20 não é 'modelo de entrada' do Addict — Addict 50 é o de entrada",
+    "Preço de R$ 28k-35k para RC 20 não faz sentido — Addict 50 custa ~€2.799",
+    "Ultegra Di2 não é grupo do modelo de entrada",
+    "Fontes adicionadas com URLs reais"
+  ],
+
+  "models_confirmed": {
+    "addict_2026_endurance": [
+      { "name": "Addict Premium", "groupset": "SRAM Force AXS", "weight_kg": 7.4, "price_euro": 7699, "frame": "HMX Carbon" },
+      { "name": "Addict 10", "groupset": "Shimano Ultegra Di2", "weight_kg": 7.8, "price_euro": 6599, "frame": "HMX Carbon" },
+      { "name": "Addict 20", "groupset": "Shimano 105 Di2", "weight_kg": 8.2, "price_euro": 5299, "frame": "HMF Carbon" },
+      { "name": "Addict 30", "groupset": "Shimano 105", "weight_kg": 8.5, "price_euro": 3999, "frame": "HMF Carbon" },
+      { "name": "Addict 40", "groupset": "Shimano Tiagra", "weight_kg": 8.8, "price_euro": 3399, "frame": "HMF Carbon" },
+      { "name": "Addict 50", "groupset": "Shimano Claris", "weight_kg": 8.9, "price_euro": 2799, "frame": "HMF Carbon" }
+    ],
+    "addict_rc_race": [
+      { "name": "Addict RC Ultimate", "groupset": "SRAM Red AXS", "weight_kg": 5.9, "price_usd": 14999 },
+      { "name": "Addict RC Pro", "groupset": "Shimano Dura-Ace Di2", "weight_kg": 6.7, "price_usd": 8999, "price_euro": 8499, "price_brl": null },
+      { "name": "Addict RC 10", "groupset": "Shimano Ultegra Di2", "weight_kg": null, "price_usd": 6999 },
+      { "name": "Addict RC 20", "groupset": "Shimano 105 Di2", "weight_kg": null, "price_usd": 5999 },
+      { "name": "Addict RC 30", "groupset": "Shimano 105", "weight_kg": null, "price_usd": 4999 }
+    ]
+  },
+
+  "key_differences": {
+    "addict_2026": "Endurance/all-road. Conforto, pneus até 38mm, geometria mais upright. 25% mais compliance que Addict RC.",
+    "addict_rc": "Race/climbing. Leveza extrema (599g quadro HMX-SL). Geometria agressiva. Pneus até 30mm."
+  },
+
+  "sources": [
+    { "name": "Scott Sports", "url": "https://www.scott-sports.com/", "accessed": "2026-07-19" },
+    { "name": "Cyclonline", "url": "https://www.cyclonline.com/scott-bicycles-news-review-test/the-all-new-scott-addict-2026-the-ultimate-guide-to-specs,-price,-and-features", "accessed": "2026-07-19" },
+    { "name": "Bicycle Superstore AU", "url": "https://www.bicyclesuperstore.com.au/pages/introducing-the-all-new-2026-scott-addict", "accessed": "2026-07-19" },
+    { "name": "RA Cycles", "url": "https://racycles.com/collections/scott-addict-rc", "accessed": "2026-07-19" },
+    { "name": "AllSports Store (BR)", "url": "https://www.allsports.com.br/", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo reescrito. Esclarece a diferença entre o novo Addict 2026 (endurance, 6 modelos) e o Addict RC (race, 5 modelos). Preços internacionais em euro/usd. Preço Brasil da linha Addict 2026 ainda não disponível em lojas nacionais (lançamento recente). AllSports Store é revendedora autorizada Scott no Brasil e tem a linha Foil RC precificada.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

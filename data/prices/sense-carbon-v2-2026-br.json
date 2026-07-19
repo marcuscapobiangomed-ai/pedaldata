@@ -1,0 +1,36 @@
+{
+  "productId": "sense-carbon-v2-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 34180,
+      "regularPrice": 37360,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/sense-carbon-v2-2026-br",
+      "checkedAt": "2026-07-08"
+    },
+    {
+      "store": "PedalMais",
+      "price": 28990,
+      "regularPrice": 31450,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/sense-carbon-v2-2026-br",
+      "checkedAt": "2026-07-07"
+    },
+    {
+      "store": "SoulCycles",
+      "price": 30520,
+      "regularPrice": 31430,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/sense-carbon-v2-2026-br",
+      "checkedAt": "2026-07-18"
+    }
+  ]
+}

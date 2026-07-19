@@ -1,0 +1,9 @@
+{
+  "name": "pedaldata-data",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "validate": "node schemas/validate-all.js",
+    "validate:bikes": "node schemas/validate-bikes-only.js"
+  }
+}

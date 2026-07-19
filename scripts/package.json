@@ -1,0 +1,13 @@
+{
+  "name": "pedaldata-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scripts de automação do Pedal Data",
+  "scripts": {
+    "check-prices": "node price-checker.js",
+    "validate-data": "node ../data/schemas/validate-all.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

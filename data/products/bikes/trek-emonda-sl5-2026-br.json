@@ -1,0 +1,23 @@
+{
+  "id": "trek-emonda-sl5-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Trek",
+  "model": "Émonda SL 5",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-climbing",
+  "officialUrl": "https://www.trekbikes.com/us/en_US/bikes/road-bikes/performance-road-bikes/emonda/emonda-sl-5/p/3695000/",
+  "distributorUrl": "https://www.trekbikes.com/br/pt_BR/bikes/road-bikes/performance-road-bikes/emonda/emonda-sl-5/p/3695000/",
+  "frame": { "material": "carbon", "technology": "OCLV 500", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Émonda SL carbon" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Bontrager", "model": "Paradigm SL", "material": "aluminum" },
+  "tires": { "brand": "Bontrager", "model": "R3 Hard-Case Lite", "widthMm": 28, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 8.8, "size": "M", "sourceId": "trek-official-global-2026" },
+  "maxTireClearanceMm": { "value": 32, "sourceId": "trek-geometry-2026" },
+  "warranty": { "description": "Garantia vitalícia do quadro Trek", "sourceId": "trek-br-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

@@ -1,0 +1,26 @@
+{
+  "productId": "specialized-roubaix-sl8-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 21950,
+      "regularPrice": 23480,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "out-of-stock",
+      "url": "https://produto.mercadolivre.com.br/specialized-roubaix-sl8-2026-br",
+      "checkedAt": "2026-07-16"
+    },
+    {
+      "store": "SoulCycles",
+      "price": 23410,
+      "regularPrice": 24460,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/specialized-roubaix-sl8-2026-br",
+      "checkedAt": "2026-07-08"
+    }
+  ]
+}

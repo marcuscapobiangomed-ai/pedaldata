@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "description": "Taxonomia padronizada do Pedal Data para categorização de bicicletas",
+  "lastUpdated": "2026-07-19",
+
+  "categories": {
+    "road-entry": { "label": "Road de Entrada", "description": "Bicicletas de estrada de entrada, geralmente alumínio e grupos de entrada" },
+    "road-endurance": { "label": "Road Endurance", "description": "Geometria mais confortável, adequada para longas distâncias" },
+    "road-race": { "label": "Road Race", "description": "Geometria agressiva para performance e competição" },
+    "road-aero": { "label": "Road Aero", "description": "Foco em aerodinâmica, quadros com perfil de tubo aerodinâmico" },
+    "road-climbing": { "label": "Road Climber", "description": "Leves e responsivas, otimizadas para subidas" },
+    "road-allround": { "label": "Road All-Round", "description": "Versáteis, combinam características de race e endurance" },
+    "gravel": { "label": "Gravel", "description": "Para uso misto asfalto/estrada de terra" },
+    "triathlon": { "label": "Triathlon", "description": "Otimizadas para contrarrelógio e triátlon" },
+    "time-trial": { "label": "Time Trial", "description": "Máxima aerodinâmica para provas contra o relógio" }
+  },
+
+  "frameMaterials": {
+    "aluminum": { "label": "Alumínio", "aliases": ["aluminio", "alloy", "aluminium"] },
+    "carbon": { "label": "Carbono", "aliases": ["carbon", "carbon fiber", "fibra de carbono"] },
+    "steel": { "label": "Aço", "aliases": ["steel", "aco", "cromoly"] },
+    "titanium": { "label": "Titânio", "aliases": ["titanium", "titanio", "ti"] }
+  },
+
+  "shiftingTypes": {
+    "mechanical": { "label": "Mecânico", "aliases": ["mecanico", "cabo", "mechanical"] },
+    "electronic": { "label": "Eletrônico", "aliases": ["eletronico", "di2", "etap", "axs", "eps"] },
+    "wireless": { "label": "Sem fio", "aliases": ["wireless", "sem fio", "axs"] },
+    "semi-wireless": { "label": "Semi sem fio", "aliases": ["semi wireless", "105 di2", "ultegra di2"] }
+  },
+
+  "brakeTypes": {
+    "mechanical-disc": { "label": "Disco mecânico", "aliases": ["mechanical disc", "disco mecanico", "cabo"] },
+    "hydraulic-disc": { "label": "Disco hidráulico", "aliases": ["hydraulic disc", "disco hidraulico", "hidraulico"] },
+    "rim-brake": { "label": "Freio de aro", "aliases": ["rim brake", "freio de aro", "caliper", "direct mount"] }
+  },
+
+  "riderProfiles": {
+    "beginner": { "label": "Iniciante", "description": "Primeira bike de estrada, pedalos casuais até 50km" },
+    "recreational": { "label": "Recreacional", "description": "Pedalos regulares de 30-80km, conforto é prioridade" },
+    "endurance": { "label": "Endurance", "description": "Percorre 80-150km, busca conforto em longas distâncias" },
+    "performance": { "label": "Performance", "description": "Treina 3-5x/semana, participa de eventos e busca velocidade" },
+    "competitive": { "label": "Competitivo", "description": "Corre provas amadoras avançadas, busca performance máxima" },
+    "professional": { "label": "Profissional", "description": "Atleta de alto nível, equipamento de ponta" }
+  },
+
+  "status": {
+    "active": { "label": "Ativo", "description": "Modelo em produção e disponível no mercado" },
+    "discontinued": { "label": "Descontinuado", "description": "Modelo fora de linha" },
+    "pre-release": { "label": "Pré-lançamento", "description": "Anunciado mas ainda não disponível" },
+    "unavailable-br": { "label": "Indisponível no Brasil", "description": "Modelo não comercializado oficialmente no Brasil" }
+  },
+
+  "markets": {
+    "BR": { "label": "Brasil" },
+    "US": { "label": "Estados Unidos" },
+    "EU": { "label": "Europa" },
+    "global": { "label": "Global" }
+  },
+
+  "reviewStatus": {
+    "pending": { "label": "Pendente", "description": "Aguardando revisão" },
+    "verified": { "label": "Verificado", "description": "Dados conferidos contra fontes oficiais" },
+    "needs-review": { "label": "Necessita revisão", "description": "Divergência encontrada, precisa verificação" }
+  },
+
+  "sourceReliability": {
+    "primary": { "label": "Primária", "description": "Fonte oficial do fabricante ou distribuidor" },
+    "secondary": { "label": "Secundária", "description": "Revendas autorizadas, manuais, catálogos" },
+    "market-observation": { "label": "Observação de mercado", "description": "Preços praticados, lojas, marketplaces" },
+    "unverified": { "language": "pt-BR", "label": "Não verificado", "description": "Informação sem confirmação independente" }
+  },
+
+  "availability": {
+    "in-stock": { "label": "Disponível" },
+    "out-of-stock": { "label": "Esgotado" },
+    "pre-order": { "label": "Pré-venda" },
+    "discontinued": { "label": "Descontinuado" },
+    "call-to-check": { "label": "Consultar" }
+  },
+
+  "currencies": {
+    "BRL": { "label": "Real", "symbol": "R$", "locale": "pt-BR" },
+    "USD": { "label": "Dólar", "symbol": "$", "locale": "en-US" },
+    "EUR": { "label": "Euro", "symbol": "€", "locale": "de-DE" }
+  },
+
+  "alertLevels": {
+    "error": { "label": "Erro", "description": "Impede publicação automaticamente" },
+    "warning": { "label": "Aviso", "description": "Requer atenção antes da publicação" },
+    "review-required": { "label": "Revisão necessária", "description": "Precisa de revisão manual" }
+  }
+}

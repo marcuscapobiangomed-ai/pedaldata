@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-07-19",
+  "total": 0,
+  "summary": {
+    "pending": 0,
+    "investigating": 0,
+    "confirmed": 0,
+    "rejected": 0,
+    "corrected": 0
+  },
+  "feedback": []
+}

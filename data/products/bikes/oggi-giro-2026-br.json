@@ -1,0 +1,23 @@
+{
+  "id": "oggi-giro-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Giro",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.oggi.com.br/giro",
+  "distributorUrl": "https://www.oggi.com.br/giro",
+  "frame": { "material": "aluminum", "technology": "Oggi Aero Aluminium", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Oggi carbon tapered" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 R7100", "speeds": 12, "shifting": "mechanical", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "mechanical-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Oggi", "model": "Oggi Aero Disc", "material": "aluminum" },
+  "tires": { "brand": "Vittoria", "model": "Zaffiro", "widthMm": 28, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 9.8, "size": "M", "sourceId": "oggi-official-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "oggi-official-2026" },
+  "warranty": { "description": "Garantia Oggi de 2 anos", "sourceId": "oggi-official-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

@@ -1,0 +1,36 @@
+{
+  "productId": "cervelo-s5-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Mercado Livre",
+      "price": 29830,
+      "regularPrice": 31820,
+      "installments": 10,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/cervelo-s5-2026-br",
+      "checkedAt": "2026-07-08"
+    },
+    {
+      "store": "PedalMais",
+      "price": 26630,
+      "regularPrice": 27580,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/cervelo-s5-2026-br",
+      "checkedAt": "2026-07-13"
+    },
+    {
+      "store": "SoulCycles",
+      "price": 26630,
+      "regularPrice": 27760,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/cervelo-s5-2026-br",
+      "checkedAt": "2026-07-10"
+    }
+  ]
+}

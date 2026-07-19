@@ -8,7 +8,7 @@
   "market": "Brasil",
   "generated_at": "2026-07-19",
   "last_updated": "2026-07-19",
-  "status": "research_pending",
+  "status": "pesquisa_concluida",
 
   "original_posts": [
     "guia-completo-melhor-bike-de-estrada-para-iniciantes-em-2026",
@@ -21,83 +21,130 @@
 
   "application": {
     "question": "Qual a melhor bicicleta de estrada para quem está começando?",
-    "audience": "Ciclistas iniciantes no Brasil, orçamento de R$ 3.000 a R$ 8.000",
-    "product_version": "N/A — guia geral com modelos específicos",
-    "model_year": null,
-    "article_type": "Guia de compra completo",
+    "audience": "Ciclistas iniciantes no Brasil, orçamento de R$ 2.500 a R$ 10.000",
+    "product_version": "Modelos 2025-2026 disponíveis no Brasil",
+    "model_year": "2025-2026",
+    "article_type": "Guia de compra completo para iniciantes",
     "actual_review_or_desk": "desk-research"
   },
 
-  "claims_to_verify": [
+  "models_confirmed": [
     {
-      "claim": "Caloi Strada 100 — R$ 3.500, quadro alumínio, Shimano Tourney",
-      "status": "parcialmente_confirmada",
-      "source": "",
-      "notes": "Modelo existe. Preço e grupo a confirmar com distribuidor."
+      "name": "Decathlon Triban RC120",
+      "price": "R$ 3.419 - R$ 3.499",
+      "groupset": "Microshift 3x8 (ou Shimano 3x8)",
+      "frame": "Alumínio",
+      "fork": "Aço rígido",
+      "brakes": "Freio caliper (versão básica) ou disco (RC120 Disc)",
+      "weight": "~11,5 kg",
+      "pros": ["Preço mais baixo entre as marcas grandes", "Garantia vitalícia do quadro", "Rede de lojas Decathlon em todo Brasil"],
+      "cons": ["Componentes básicos (Microshift)", "Garfo de aço pesado", "Pneu 700x25 mais fino"],
+      "source_url": "https://www.decathlon.com.br/bicicleta-de-ciclismo-estrada-triban-rc120-disc-8631051-btwin/p",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Orçamento muito apertado, primeiros contatos com ciclismo de estrada"
     },
     {
-      "claim": "Specialized Allez — R$ 5.500, quadro alumínio, Shimano Tiagra",
-      "status": "parcialmente_confirmada",
-      "source": "",
-      "notes": "Allez existe. Preço brasileiro e configuração exata a verificar."
+      "name": "Soul 1R1",
+      "price": "R$ 2.990 - R$ 3.490",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio 6061",
+      "fork": "Alumínio 6061",
+      "brakes": "Shimano Claris BR-R2000 (caliper)",
+      "weight": "~10,7 kg",
+      "pros": ["Marca nacional com boa rede", "Grupo Shimano Claris completo", "Peso competitivo para a faixa"],
+      "cons": ["Disponibilidade irregular", "Garfo de alumínio (menos conforto que carbono)", "Menos lojas que Decathlon"],
+      "source_url": "https://www.soulcycles.com.br/",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Quem prefere marca nacional e grupo Shimano desde o início"
     },
     {
-      "claim": "Trek Domane AL 2 — R$ 6.000, quadro alumínio, Shimano Sora",
-      "status": "parcialmente_confirmada",
-      "source": "",
-      "notes": "Modelo existe. Preço a confirmar no distribuidor brasileiro."
+      "name": "Oggi Velloce Disc 2026",
+      "price": "R$ 4.999",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio hidroformado com LSS",
+      "fork": "Carbono Oggi Carbon Racing",
+      "brakes": "Freio a disco mecânico Shimano BR-R317",
+      "weight": "~11,7 kg",
+      "pros": ["Garfo de carbono (maior conforto)", "Freio a disco (melhor frenagem)", "Quadro moderno com LSS", "Pneus 700x32c (mais conforto)"],
+      "cons": ["Peso elevado (11,7 kg)", "Preço na fronteira dos R$ 5.000", "Pneus 32c podem ser lentos para alguns"],
+      "source_url": "https://www.bikecenterribeirao.com.br/bicicleta-oggi-velloce-disc-2026/p/0024373",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Iniciante que quer conforto e segurança com freio a disco"
     },
     {
-      "claim": "Cannondale CAAD Optimo — R$ 7.000, quadro alumínio, Shimano 105",
-      "status": "parcialmente_confirmada",
-      "source": "",
-      "notes": "Modelo existe. Preço parece abaixo do mercado para configuração com 105."
+      "name": "Caloi Strada",
+      "price": "R$ 4.850 - R$ 5.399",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio 6061",
+      "fork": "Alumínio rígido",
+      "brakes": "Promax RC-481 (caliper)",
+      "weight": "~11,0 kg",
+      "pros": ["Marca tradicional brasileira", "Rede de assistência ampla", "Construção robusta"],
+      "cons": ["Garfo de alumínio (menos conforto)", "Freio caliper (menos potência que disco)", "Preço acima dos concorrentes diretos"],
+      "source_url": "https://www.bikecenterribeirao.com.br/bicicleta-caloi-strada/p/0017836",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Quem prefere Caloi pela tradição e assistência"
     },
     {
-      "claim": "Caloi Elite Carbon — R$ 4.999 a R$ 10.000",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço varia R$ 5.001 entre posts. Inconsistência grave. Verificar preço real."
+      "name": "Decathlon Triban RC500",
+      "price": "R$ 5.600 - R$ 5.999",
+      "groupset": "Shimano Sora 18v (2x9)",
+      "frame": "Alumínio",
+      "fork": "Carbono",
+      "brakes": "Freio a disco mecânico",
+      "weight": "~10,5 kg",
+      "pros": ["Grupo Shimano Sora superior ao Claris", "Garfo de carbono", "Melhor custo-benefício da faixa de R$ 5k-R$ 6k"],
+      "cons": ["Disponibilidade pode ser limitada", "Acima do orçamento de R$ 5.000"],
+      "source_url": "https://www.decathlon.com.br/bicicleta-de-estrada-triban-rc500/p",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Iniciante que pode esticar o orçamento e quer um grupo superior"
     },
     {
-      "claim": "Giant Contend 3 — R$ 4.500 a R$ 5.000",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Verificar modelo e preço."
+      "name": "Trek Domane AL 2 Gen 4",
+      "price": "R$ 8.999",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio Alpha Série 100",
+      "fork": "Carbono Domane AL",
+      "brakes": "Freio a disco mecânico Tektro C550",
+      "weight": "~10,55 kg",
+      "pros": ["Garfo de carbono", "Freio a disco", "Garantia vitalícia do quadro", "Marca premium com revenda valorizada"],
+      "cons": ["Preço elevado para grupo Claris", "Acima do orçamento da maioria dos iniciantes"],
+      "source_url": "https://www.biketechcuritiba.com.br/bicicleta-trek-domane-al-2-2026",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Iniciante com orçamento maior que quer marca premium"
+    },
+    {
+      "name": "Specialized Allez",
+      "price": "R$ 8.999 - R$ 12.990",
+      "groupset": "Shimano Tiagra (Allez Sport) ou Claris (Allez)",
+      "frame": "Alumínio E5 premium",
+      "fork": "Carbono full (sem steerer de alumínio)",
+      "brakes": "Freio a disco",
+      "weight": "~9,5 kg",
+      "pros": ["Quadro de alumínio mais leve da categoria (1.375g)", "Garfo full carbono", "Geometria Roubaix (conforto)", "Marca premium"],
+      "cons": ["Preço alto para iniciantes", "Pode ser mais bike do que um iniciante precisa"],
+      "source_url": "https://www.specialized.com/br/pt/bicicleta-allez-sport-shimano-tiagra/p/4277823",
+      "price_checked_at": "2026-07-19",
+      "recommended_for": "Iniciante que quer começar com uma bike que não precisará trocar tão cedo"
     }
   ],
 
-  "sources_to_find": [
-    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Especificações Strada 100" },
-    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Especificações Allez" },
-    { "type": "manufacturer", "name": "Trek Bicycles", "url": "https://www.trekbikes.com/br/pt", "purpose": "Especificações Domane AL 2" },
-    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "Especificações CAAD Optimo" },
-    { "type": "distributor", "name": "Distribuidor oficial Caloi/Sense", "url": "", "purpose": "Preços e disponibilidade" },
-    { "type": "retailer", "name": "Decathlon Brasil", "url": "https://www.decathlon.com.br", "purpose": "Preços de bikes de entrada" },
-    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Comparação de preços" }
-  ],
-
-  "price_check": {
-    "currency": "BRL",
-    "checked_at": null,
-    "min_budget": 3000,
-    "max_budget": 8000,
-    "stores_to_check": ["Decathlon", "Centauro", "Mercado Livre", "Bike Point", "lojas especializadas locais"]
+  "accessories": {
+    "helmet": { "min_price": 150, "max_price": 800, "recommended_brands": ["Giro", "Kask", "Trek Bontrager", "Specialized"] },
+    "lights": { "min_price": 50, "max_price": 200, "recommended_brands": ["Blackburn", "Cateye"] },
+    "pump": { "min_price": 50, "max_price": 150, "recommended_brands": ["Topeak", "Lezyne"] },
+    "bottle_cage": { "min_price": 20, "max_price": 80, "recommended_brands": ["Camelbak", "Elite", "Specialized"] }
   },
 
   "image_plan": {
     "needs_hero": true,
     "needs_comparison_table": true,
     "needs_size_chart": true,
-    "needs_diagram": false,
-    "ai_generated_allowed_for": ["hero ilustrativo", "tabela comparativa", "gráfico de faixa de preço"],
+    "ai_generated_allowed_for": ["hero ilustrativo de estrada", "tabela comparativa"],
     "ai_generated_banned_for": ["qualquer modelo específico de bike"]
   },
 
-  "affiliate_links": false,
-  "affiliate_disclosure": "N/A",
-
-  "next_revision": null,
+  "notes": "Guia principal para iniciantes. Substitui 3 posts existentes. Pesquisa concluída com preços verificados em lojas online brasileiras em julho/2026. Soul Cycles confirmada como marca real (modelo 1R1, não '100'). Preços corrigidos: Specialized Allez custa R$ 8.999+, não R$ 5.500 como o post antigo afirmava. Trek Domane AL 2 custa R$ 8.999, não R$ 4.200-R$ 6.000.",
   "responsible": "Sergio Arantes",
-  "notes": "Guia principal para iniciantes. Substitui 3 posts existentes. Prioridade máxima por ser porta de entrada do blog. Pesquisa de preços reais necessária antes da reescrita."
+  "next_revision": "2026-10-19"
 }

@@ -1,0 +1,67 @@
+{
+  "productId": "oggi-sport-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "XS",
+      "stack": 483,
+      "reach": 365,
+      "effectiveTopTube": 512,
+      "seatTube": 460,
+      "headTube": 105,
+      "headAngle": 71,
+      "seatAngle": 74.5,
+      "chainstay": 418,
+      "wheelbase": 988
+    },
+    {
+      "size": "S",
+      "stack": 503,
+      "reach": 375,
+      "effectiveTopTube": 532,
+      "seatTube": 490,
+      "headTube": 125,
+      "headAngle": 71.5,
+      "seatAngle": 74,
+      "chainstay": 418,
+      "wheelbase": 995
+    },
+    {
+      "size": "M",
+      "stack": 523,
+      "reach": 383,
+      "effectiveTopTube": 550,
+      "seatTube": 515,
+      "headTube": 145,
+      "headAngle": 72.5,
+      "seatAngle": 73.5,
+      "chainstay": 418,
+      "wheelbase": 1003
+    },
+    {
+      "size": "L",
+      "stack": 545,
+      "reach": 391,
+      "effectiveTopTube": 570,
+      "seatTube": 545,
+      "headTube": 165,
+      "headAngle": 73,
+      "seatAngle": 73,
+      "chainstay": 418,
+      "wheelbase": 1011
+    },
+    {
+      "size": "XL",
+      "stack": 571,
+      "reach": 400,
+      "effectiveTopTube": 592,
+      "seatTube": 580,
+      "headTube": 190,
+      "headAngle": 73,
+      "seatAngle": 72.5,
+      "chainstay": 418,
+      "wheelbase": 1021
+    }
+  ],
+  "sourceId": "pedaldata-verified-2026"
+}

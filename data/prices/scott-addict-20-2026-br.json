@@ -1,0 +1,46 @@
+{
+  "productId": "scott-addict-20-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "SoulCycles",
+      "price": 18990,
+      "regularPrice": 20990,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/scott-addict-20-2026",
+      "checkedAt": "2026-07-19"
+    },
+    {
+      "store": "BikeExpress",
+      "price": 21500,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "pre-order",
+      "url": "https://www.bikeexpress.com.br/scott-addict-20",
+      "checkedAt": "2026-07-19"
+    },
+    {
+      "store": "PedalMais",
+      "price": 19990,
+      "regularPrice": 21990,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/scott-addict-20",
+      "checkedAt": "2026-07-19"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 22490,
+      "regularPrice": 22490,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/scott-addict-20-2026",
+      "checkedAt": "2026-07-18"
+    }
+  ]
+}

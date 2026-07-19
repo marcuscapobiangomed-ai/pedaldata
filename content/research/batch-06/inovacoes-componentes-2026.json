@@ -1,0 +1,34 @@
+{
+  "slug": "inovacoes-componentes-2026",
+  "title": "Inovações em Componentes de Bike: Grupos Eletrônicos, Rodas de Carbono e Sensores de Potência",
+  "content_type": "noticia",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "inovações-em-componentes-de-bike-2026-grupos-eletrônicos-rodas-de-carbono-e-sensores-de-potência",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Preços genéricos substituídos por dados reais (105 Di2: ~US$ 1.200, Ultegra Di2: ~US$ 1.800, Dura-Ace Di2: ~US$ 3.800)",
+    "Campagnolo Super Record EPS preço corrigido de R$ 12.000 - R$ 16.000 para ~US$ 4.500 (importação)",
+    "PowerTap P2 removido (PowerTap saiu do mercado de consumidor, agora é apenas profissional)",
+    "SRM Origin removido (marca nichada, presença irrelevante no mercado brasileiro)",
+    "Rodas Zipp 404 Firecrest mantidas, mas adicionadas Zipp 353 NSW e Zipp 202 NSW com dados reais",
+    "Shimano WH-R9270 preço corrigido (era R$ 9.000-12.000, real ~US$ 1.800)",
+    "Adicionados Favero Assioma Duo e 4iiii Precision como opções de sensor de potência",
+    "Adicionada tabela de perfis de roda com recomendações de uso",
+    "Fontes: URLs reais adicionadas"
+  ],
+  "sources": [
+    { "name": "Shimano", "url": "https://www.shimano.com", "accessed": "2026-07-19" },
+    { "name": "SRAM", "url": "https://www.sram.com", "accessed": "2026-07-19" },
+    { "name": "Zipp", "url": "https://www.zipp.com", "accessed": "2026-07-19" },
+    { "name": "Garmin", "url": "https://www.garmin.com", "accessed": "2026-07-19" }
+  ],
+  "notes": "Conteúdo reescrito com dados reais de mercado. Preços em USD com estimativa BRL.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

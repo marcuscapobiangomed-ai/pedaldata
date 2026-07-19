@@ -1,0 +1,23 @@
+{
+  "id": "cannondale-supersix-evo-105-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Cannondale",
+  "model": "SuperSix Evo 105",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-105",
+  "distributorUrl": null,
+  "frame": { "material": "carbon", "technology": "BallisTec", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "BallisTec" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 30 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Cannondale", "model": "RDB 1.0", "material": "aluminum" },
+  "tires": { "brand": "Cannondale", "model": "Cannondale 700x28", "widthMm": 28, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 8.6, "size": "M", "sourceId": "cannondale-official-global-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "cannondale-geometry-2026" },
+  "warranty": { "description": "Garantia Cannondale conforme política do distribuidor", "sourceId": "cannondale-official-global-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

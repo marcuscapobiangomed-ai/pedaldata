@@ -1,0 +1,23 @@
+{
+  "id": "cervelo-s5-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Cervélo",
+  "model": "S5",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-aero",
+  "officialUrl": "https://www.cervelo.com/en/bikes/s5",
+  "distributorUrl": null,
+  "frame": { "material": "carbon", "technology": "Cervélo carbon", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "S5 carbon" },
+  "drivetrain": { "brand": "SRAM", "groupset": "Force eTap AXS", "speeds": 12, "shifting": "wireless", "chainrings": [48, 35], "cassette": { "smallest": 10, "largest": 33 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "SRAM", "model": "Force" },
+  "wheels": { "brand": "Reserve", "model": "52/63", "material": "carbon" },
+  "tires": { "brand": "Vittoria", "model": "Corsa", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.0, "size": "56", "sourceId": "cervelo-official-global-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "cervelo-official-global-2026" },
+  "warranty": { "description": "Garantia Cervélo conforme política do importador", "sourceId": "cervelo-official-global-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

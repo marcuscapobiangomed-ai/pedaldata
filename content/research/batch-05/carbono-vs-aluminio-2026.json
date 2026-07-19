@@ -1,0 +1,57 @@
+{
+  "slug": "carbono-vs-aluminio-2026",
+  "title": "Quadro de Carbono vs Alumínio em Bikes de Estrada",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "quadro-de-carbono-vs-alumínio-em-bikes-de-estrada-vale-a-pena-pagar-mais",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Caloi Elite Carbon R$ 8.000 removido — Caloi Elite era alumínio, não carbono, e preço era ficcional",
+    "Cannondale CAAD13 R$ 6.500 corrigido para R$ 14.990 (CAAD13 105, 2026)",
+    "Trek Domane AL 2 R$ 5.800 corrigido para R$ 8.999 (mesma correção do Lote 1)",
+    "Specialized Allez R$ 4.500 corrigido para R$ 8.999+",
+    "Specialized Tarmac SL6 R$ 15.000 corrigido para Tarmac SL8 Comp R$ 33.990 (SL6 é modelo 2019, descontinuado)",
+    "Giant TCR Advanced 2 R$ 12.000 — Giant não tem distribuidora oficial no Brasil, preços de importação variam muito",
+    "Canyon Ultimate CF SL 8.0 R$ 13.500 — Canyon não tem distribuição oficial no Brasil; preço e disponibilidade irreais"
+  ],
+  "aluminum": {
+    "intro": "Quadros de alumínio continuam sendo a opção de entrada para ciclistas no Brasil. Com avanços como hidroformação e soldas lisas, os quadros modernos de alumínio são mais leves e confortáveis que os de gerações anteriores.",
+    "pros": ["Custo mais acessível", "Durabilidade (não trinca com impacto como carbono)", "Boa rigidez para transferência de potência"],
+    "cons": ["Mais pesado que carbono (200-400g a mais)", "Menor absorção de vibrações", "Pode fadigar com o tempo (vida útil menor que carbono de qualidade)"],
+    "price_range_brl": "R$ 8.000 a R$ 15.000",
+    "models": [
+      "Specialized Allez Sprint (R$ 8.999, 105 mecânico)",
+      "Trek Domane AL 2 (R$ 8.999, Sora)",
+      "Cannondale CAAD13 105 (R$ 14.990, 105 mecânico)"
+    ]
+  },
+  "carbon": {
+    "intro": "Quadros de carbono dominam o ciclismo de competição. Dos modelos de entrada (Tarmac SL8 Comp) aos de topo (S-Works), o carbono oferece o melhor peso, rigidez e conforto. A diferença de preço para alumínio, no entanto, é expressiva.",
+    "pros": ["Peso muito baixo (6,6-7,7 kg bikes completas)", "Absorção de vibrações superior", "Vida útil longa (sem fadiga do alumínio)", "Rigidez direcional (engenheiros orientam as fibras para cada necessidade)"],
+    "cons": ["Custo elevado (a partir de R$ 23.000)", "Pode trincar em quedas ou impactos pontuais", "Reparo caro ou impossível"],
+    "price_range_brl": "R$ 23.000 a R$ 95.000",
+    "models": [
+      "Trek Domane SL 5 (R$ 22.990, 105 Di2)",
+      "Specialized Tarmac SL8 Comp (R$ 33.990, 105 Di2)",
+      "Cannondale SuperSix Evo Gen 5 105 (R$ 26.990, 105 Di2)",
+      "Scott Addict RC 10 (R$ 49.990, Ultegra Di2)",
+      "Cervélo R5 Force eTap (R$ 49.990, SRAM Force AXS)"
+    ]
+  },
+  "sources": [
+    { "name": "Specialized Brasil", "url": "https://www.specialized.com/br/pt", "accessed": "2026-07-19" },
+    { "name": "Cervélo Brasil", "url": "https://cervelobr.com", "accessed": "2026-07-19" },
+    { "name": "AllSports Store", "url": "https://www.allsports.com.br", "accessed": "2026-07-19" },
+    { "name": "Demarchi Bicicletas", "url": "https://www.demarchibicicletas.com.br", "accessed": "2026-07-19" },
+    { "name": "Bert Bike Store", "url": "https://bertbikestore.com.br", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo reescrito com preços reais de 2026, modelos corretos e remoção de marcas sem distribuição oficial no Brasil (Giant, Canyon). Caloi Elite removida porque era alumínio e preço era ficcional.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

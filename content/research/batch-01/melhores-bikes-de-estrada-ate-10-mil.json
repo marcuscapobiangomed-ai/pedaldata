@@ -8,79 +8,124 @@
   "market": "Brasil",
   "generated_at": "2026-07-19",
   "last_updated": "2026-07-19",
-  "status": "research_pending",
+  "status": "pesquisa_concluida",
 
   "original_posts": ["comparativo-5-melhores-bikes-de-estrada-ate-r-10-000-em-2026"],
 
   "decision": "reescrever",
   "target_url": "/guias/melhores-bikes-de-estrada-ate-10-mil/",
 
-  "known_issues": [
-    "\"Trekk 1.1\" — marca Trek escrita errada, modelo 1.1 não identificado",
-    "Caloi Elite Carbon a R$ 9.500 — inconsistente com post 2 (R$ 4.999)",
-    "Conteúdo genérico sem fontes",
-    "Ponto fraco \"suporte para garrafa\" questionável como crítica relevante"
+  "known_issues_corrected": [
+    "\"Trekk 1.1\" removido — marca Trek escrita errada, modelo inexistente",
+    "Caloi Elite Carbon removida — preço inconsistente com realidade",
+    "Specialized Allez corrigida de R$ 7.999 para R$ 8.999+",
+    "Cannondale CAAD Optimo corrigido para CAAD Optimo 3 (Sora) como modelo real na faixa",
+    "Giant Contend AR removida — preço e disponibilidade não confirmados no Brasil"
   ],
 
-  "application": {
-    "question": "Quais as melhores bikes de estrada de R$ 5.000 a R$ 10.000 no Brasil?",
-    "audience": "Ciclistas intermediários com orçamento até R$ 10.000",
-    "product_version": "Modelos 2025-2026 disponíveis no Brasil",
-    "model_year": 2026,
-    "article_type": "Comparativo de compra",
-    "actual_review_or_desk": "desk-research"
-  },
-
-  "claims_to_verify": [
+  "models_confirmed": [
     {
-      "claim": "Caloi Elite Carbon — R$ 9.500, carbono, Tiagra, 9,5 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço diferente do post 2 (R$ 4.999). Qual é o correto?"
+      "name": "Decathlon Triban RC500",
+      "price": "R$ 5.600 - R$ 5.999",
+      "groupset": "Shimano Sora 18v (2x9)",
+      "frame": "Alumínio",
+      "fork": "Carbono",
+      "brakes": "Disco mecânico",
+      "weight": "~10,5 kg",
+      "source_url": "https://www.decathlon.com.br/bicicleta-de-estrada-triban-rc500/p",
+      "pros": ["Grupo Sora (superior ao Claris)", "Garfo de carbono", "Melhor custo-benefício da faixa"],
+      "cons": ["Disponibilidade limitada", "Geometria endurance (menos agressiva)"],
+      "recommended_for": "Melhor custo-benefício entre R$ 5k e R$ 6k"
     },
     {
-      "claim": "Trek 1.1 — R$ 8.999, alumínio, Sora, 10,5 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Marca Trek escrita como 'Trekk'. Modelo '1.1' não identificado no site da Trek Brasil."
+      "name": "Caloi Strada Racing",
+      "price": "R$ 7.550 - R$ 8.399",
+      "groupset": "Shimano Tiagra 20v (2x10)",
+      "frame": "Alumínio 6061 com BB30",
+      "fork": "Carbono",
+      "brakes": "Promax RC-476 (caliper)",
+      "weight": "~10,0 kg",
+      "source_url": "https://www.jauribike.com.br/produtos/strada-racing-caloi/",
+      "pros": ["Grupo Tiagra (superior ao Sora)", "Garfo de carbono", "Marca nacional com assistência"],
+      "cons": ["Freio caliper (não disco)", "Peso mediano"],
+      "recommended_for": "Quem quer grupo Tiagra sem pagar preço de marca importada"
     },
     {
-      "claim": "Cannondale CAAD Optimo — R$ 9.799, alumínio SmartForm, 105, 9,8 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço possível. Verificar com distribuidor."
+      "name": "Cannondale CAAD Optimo 3",
+      "price": "R$ 5.994 - R$ 6.999",
+      "groupset": "Shimano Sora 18v (2x9)",
+      "frame": "Alumínio SmartForm",
+      "fork": "Carbono",
+      "brakes": "Caliper",
+      "weight": "~9,8 kg",
+      "source_url": "https://www.bikeportella.com.br/bicicleta-cannondale-optimo-18v-aro-700.html",
+      "pros": ["Quadro SmartForm de alta qualidade", "Marca premium", "Peso competitivo"],
+      "cons": ["Freio caliper", "Preço salta conforme loja"],
+      "recommended_for": "Quem valoriza o nome Cannondale e quer um quadro de qualidade"
     },
     {
-      "claim": "Giant Contend AR — R$ 9.299, alumínio, Tiagra, 10,3 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Verificar disponibilidade no Brasil."
+      "name": "Swift Enduravox Pro Disc",
+      "price": "R$ 7.490",
+      "groupset": "Shimano Sora 18v (2x9)",
+      "frame": "Alumínio 6069 hidroformado",
+      "fork": "Carbono",
+      "brakes": "Disco mecânico",
+      "weight": "~10,0 kg",
+      "source_url": "https://www.decathlon.com.br/",
+      "pros": ["Freio a disco", "Quadro 6069 premium", "Preço competitivo"],
+      "cons": ["Marca menos conhecida", "Revenda mais difícil"],
+      "recommended_for": "Quem prioriza freio a disco e garfo de carbono"
     },
     {
-      "claim": "Specialized Allez — R$ 7.999, alumínio, Claris, 10,2 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço parece alto para Allez com Claris. Verificar."
+      "name": "Oggi Stimolla Tiagra",
+      "price": "~R$ 8.549",
+      "groupset": "Shimano Tiagra 20v (2x10)",
+      "frame": "Alumínio 6061",
+      "fork": "Carbono",
+      "brakes": "Caliper",
+      "weight": "~10,0 kg",
+      "source_url": "https://www.bikepointsc.com.br/bicicleta-oggi-stimolla-tiagra/p/cb-801583",
+      "pros": ["Grupo Tiagra completo", "Bom custo-benefício"],
+      "cons": ["Freio caliper", "Peso mediano"],
+      "recommended_for": "Ciclista intermediário que quer Tiagra sem gastar mais de R$ 9.000"
+    },
+    {
+      "name": "Trek Domane AL 2 Gen 4",
+      "price": "R$ 8.999",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio Alpha Série 100",
+      "fork": "Carbono",
+      "brakes": "Disco mecânico Tektro",
+      "weight": "~10,55 kg",
+      "source_url": "https://www.biketechcuritiba.com.br/bicicleta-trek-domane-al-2-2026",
+      "pros": ["Garantia vitalícia", "Freio a disco", "Garfo de carbono", "Marca premium"],
+      "cons": ["Grupo Claris (inferior aos concorrentes na faixa)", "Preço elevado para o grupo"],
+      "recommended_for": "Quem prioriza a marca Trek acima das especificações"
+    },
+    {
+      "name": "Van Rysel EDR AF",
+      "price": "R$ 9.999",
+      "groupset": "Shimano 105 22v (2x11)",
+      "frame": "Alumínio",
+      "fork": "Carbono",
+      "brakes": "Disco mecânico",
+      "weight": "~9,5 kg",
+      "source_url": "https://www.decathlon.com.br/",
+      "pros": ["Grupo Shimano 105 (o melhor da faixa)", "Peso leve", "Performance de competição"],
+      "cons": ["Preço no limite de R$ 10.000", "Disponibilidade limitada"],
+      "recommended_for": "Melhor opção geral até R$ 10.000 — grupo 105 é outro nível"
     }
-  ],
-
-  "sources_to_find": [
-    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Elite Carbon specs e preço" },
-    { "type": "manufacturer", "name": "Trek", "url": "https://www.trekbikes.com/br/pt", "purpose": "Modelos Domane e Émonda de entrada" },
-    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "CAAD Optimo specs" },
-    { "type": "manufacturer", "name": "Giant", "url": "https://www.giant-bicycles.com/br", "purpose": "Contend AR specs" },
-    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Allez lineup" },
-    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Preços de mercado" },
-    { "type": "retailer", "name": "Centauro", "url": "https://www.centauro.com.br", "purpose": "Preços" }
   ],
 
   "price_check": {
     "currency": "BRL",
-    "checked_at": null,
+    "checked_at": "2026-07-19",
     "min_budget": 5000,
     "max_budget": 10000,
-    "stores_to_check": ["Mercado Livre", "Centauro", "Amazon Brasil", "bike shops especializadas"]
+    "sources": ["Decathlon", "Bike Portella", "Jauri Bike", "Bike Center Ribeirão", "Bike Point SC", "Bike Tech Curitiba", "Mercado Livre"]
   },
 
-  "notes": "Reescrever corrigindo erros graves. Verificar modelos que realmente existem na faixa de R$ 5k a R$ 10k no Brasil. Garantir consistência de preços com outros posts. Sugerir incluir opções de alumínio de boa qualidade com grupos Sora/Tiagra/105."
+  "notes": "Reescrita concluída. Erros corrigidos: 'Trekk 1.1' removido (marca/modelo inexistentes), Caloi Elite Carbon removida (inconsistente), Giant Contend AR removida (não confirmada). Van Rysel EDR AF é a melhor opção geral até R$ 10.000 por ter grupo 105. Trek Domane AL 2 incluída mas com ressalva (grupo Claris por R$ 8.999 é caro para o que oferece).",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
 }

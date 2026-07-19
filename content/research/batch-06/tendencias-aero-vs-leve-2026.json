@@ -1,0 +1,31 @@
+{
+  "slug": "tendencias-aero-vs-leve-2026",
+  "title": "Tendências em Bikes de Estrada: Aero vs Leve",
+  "content_type": "noticia",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "tendências-em-bikes-de-estrada-2026-aero-está-vencendo-as-leves",
+  "decision": "atualizar",
+  "errors_corrected": [
+    "Preços genéricos substituídos por dados reais",
+    "Caloi e OGGI como opções 'aerodinâmicas' removidos—não têm engenharia aero comparável",
+    "Giant TCR Advanced SL removido—Giant não tem distribuição oficial no Brasil",
+    "Cannondale SuperSix EVO Hi-Mod preço corrigido de R$ 50.000 para referência real (Gen 5 105: R$ 26.990)",
+    "Adicionado segmento all-rounder (Soloist, SuperSix Evo Gen 5) como tendência principal",
+    "Adicionada comparação de dados Cervélo R5 vs Soloist vs S5",
+    "Trek Madone SLR 9 removido (modelo descontinuado—Madone Gen 8 substituiu)"
+  ],
+  "sources": [
+    { "name": "Specialized", "url": "https://www.specialized.com", "accessed": "2026-07-19" },
+    { "name": "Trek", "url": "https://www.trekbikes.com", "accessed": "2026-07-19" },
+    { "name": "Cervélo", "url": "https://www.cervelo.com", "accessed": "2026-07-19" }
+  ],
+  "notes": "Artigo atualizado com foco no segmento all-rounder como tendência 2025-2026. Remoção de marcas sem distribuição oficial.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

@@ -1,0 +1,50 @@
+# Configuração de afiliados para uso nos templates Jekyll
+# partner-id: { tagParam, tagValue, utmSource, utmMedium }
+
+mercadolivre:
+  tagParam: tag_id
+  tagValue: "PREENCHER"
+  utmSource: pedaldata.com.br
+  utmMedium: affiliate
+
+amazon:
+  tagParam: tag
+  tagValue: "PREENCHER"
+  utmSource: pedaldata.com.br
+  utmMedium: affiliate
+
+allsports:
+  utmSource: pedaldata
+  utmMedium: referral
+
+berbike:
+  utmSource: pedaldata
+  utmMedium: referral
+
+soulcycles:
+  utmSource: pedaldata
+  utmMedium: referral
+
+decathlon:
+  utmSource: pedaldata
+  utmMedium: referral
+
+specialized:
+  utmSource: pedaldata
+  utmMedium: referral
+
+cervelo:
+  utmSource: pedaldata
+  utmMedium: referral
+
+demarchi:
+  utmSource: pedaldata
+  utmMedium: referral
+
+bikecenter:
+  utmSource: pedaldata
+  utmMedium: referral
+
+jauribike:
+  utmSource: pedaldata
+  utmMedium: referral

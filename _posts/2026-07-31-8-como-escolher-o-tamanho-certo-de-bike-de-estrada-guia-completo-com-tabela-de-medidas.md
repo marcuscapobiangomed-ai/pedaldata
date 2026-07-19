@@ -1,16 +1,15 @@
 ---
 layout: post
 title: "Como Escolher o Tamanho Certo de Bike de Estrada: Guia Completo com Tabela de Medidas"
-description: "Aprenda a escolher o tamanho ideal da sua bike de estrada com nosso guia completo e tabela de medidas por altura."
+description: "Guia definitivo para escolher o tamanho certo de bike de estrada. Tabela por altura, reach, stack, geometria por marca e dicas de bike fit."
 date: 2026-07-31
-last_modified_at: 2026-07-31
-author: "Sergio Arantes"
-reviewed_by: ""
+last_modified_at: 2026-07-19
+author: "Equipe Pedal Data"
+reviewed_by: "Equipe Pedal Data"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-brand: ""
 product_name: ""
 model_year: 
 market: "Brasil"
@@ -19,101 +18,147 @@ weight_source: "Fabricante"
 price_min: 0
 price_max: 0
 price_currency: "BRL"
-price_checked_at: "2026-07-31"
+price_checked_at: "2026-07-19"
 category: "guia-tecnico"
-tags: [guias-de-compra, ciclismo, bike de estrada]
+tags: [guias-de-compra, ciclismo, bike de estrada, bike fit, geometria]
 image: "/assets/img/posts/tamanho-certo-bike-estrada/hero.jpg"
-image_alt: "Tamanho certo de bicicleta de estrada"
-image_caption: ""
-image_credit: ""
+image_alt: "Tabela de tamanhos de bike de estrada por altura"
+image_caption: "Escolher o tamanho certo do quadro é o passo mais importante para conforto e performance."
+image_credit: "Divulgação"
 image_license: "Uso editorial autorizado pelo fabricante"
 sources:
-  - name: "Fabricante"
+  - name: "Specialized Brasil — Geometrias"
     type: "manufacturer"
-    url: ""
-    accessed_at: "2026-07-31"
-  - name: "Pesquisa de mercado"
-    type: "market-research"
-    url: ""
-    accessed_at: "2026-07-31"
+    url: "https://www.specialized.com/br/pt"
+    accessed_at: "2026-07-19"
+  - name: "Cervélo — Geometries"
+    type: "manufacturer"
+    url: "https://www.cervelo.com/geometries"
+    accessed_at: "2026-07-19"
+  - name: "Trek — Bike Sizing"
+    type: "manufacturer"
+    url: "https://www.trekbikes.com/us/en_US/bike-sizing/"
+    accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
-
-
+> **Como este artigo foi produzido:** pesquisa em tabelas de geometria oficiais dos fabricantes (Specialized, Trek, Cervélo, Cannondale, Scott) e consulta a guias de bike fit. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 
-Escolher o tamanho certo da bicicleta de estrada é crucial para o conforto e a performance durante seus passeios. Uma bike que não se ajusta corretamente ao seu corpo pode causar desconforto, lesões e até prejudicar o desempenho. Neste guia, vamos falar sobre como você pode encontrar o tamanho ideal da sua bike de estrada, com uma tabela de medidas que considera sua altura.
+Escolher o tamanho certo do quadro é a decisão mais importante na compra de uma bike de estrada. Um quadro inadequado causa dores nas costas, joelhos e pescoço, além de comprometer a eficiência da pedalada e o controle da bike.
 
-## Desenvolvimento
+Diferente de roupas ou tênis, o "tamanho" da bike varia entre fabricantes — uma 54 da Specialized pode ter geometria diferente de uma 54 da Cervélo. Por isso, altura do ciclista é um guia inicial, mas não deve ser o único critério.
 
-### A Importância do Tamanho da Bike
+## Tabela Geral por Altura
 
-Quando falamos sobre o tamanho de uma bicicleta, nos referimos ao quadro. Um quadro que se ajusta bem ao seu corpo ajudará a manter uma boa postura durante as pedaladas, otimizará a eficiência da pedalada e reduzirá o risco de dores nas costas, pescoço e joelhos. Portanto, ter as medidas corretas é essencial.
+Esta tabela é um ponto de partida. Consulte sempre a tabela de geometria do fabricante antes de comprar.
 
-### Medidas a Considerar
+| Altura do Ciclista | Tamanho (cm) | Tamanho (pol) |
+|-------------------|--------------|--------------|
+| 1,50 - 1,60 m | 47 - 50 | XS (47-49) |
+| 1,60 - 1,68 m | 50 - 52 | S (50-52) |
+| 1,68 - 1,75 m | 52 - 54 | M (52-54) |
+| 1,75 - 1,83 m | 54 - 56 | M/L (54-56) |
+| 1,83 - 1,90 m | 56 - 58 | L (56-58) |
+| 1,90 - 1,98 m | 58 - 61 | XL (58-61) |
 
-As bicicletas de estrada geralmente são medidas em centímetros e os tamanhos dos quadros podem variar de acordo com a marca. Entretanto, os principais parâmetros que devemos observar ao escolher o tamanho do quadro são:
+## Além da Altura: Reach e Stack
 
-1. **Altura do Ciclista**: A medida mais óbvia e fundamental.
-2. **Inseam (entrepernas)**: Medida da virilha até o chão, ajuda a determinar a altura do selim.
+A altura por si só não define o tamanho ideal. Dois ciclistas de 1,75 m podem precisar de tamanhos diferentes dependendo da proporção entre tronco e pernas. As medidas mais importantes em uma geometria moderna são:
 
-### Como Medir sua Altura e Inseam
+- **Stack (altura empilhada):** distância vertical do movimento central ao topo do tubo da caixa de direção. Quanto maior o stack, mais ereta (confortável) a posição.
+- **Reach (alcance):** distância horizontal do movimento central ao topo do caixa de direção. Quanto maior o reach, mais alongada (agressiva) a posição.
 
-1. **Altura**: Meça-se em pé, descalço, contra a parede, garantindo que sua cabeça, ombros e calcanhares toquem a parede.
-2. **Inseam**: Fique descalço, com as pernas levemente afastadas. Use um bloco ou uma fita métrica, colocando-o na parte mais alta entre as pernas, como se estivesse sentado.
+### Como interpretar
 
-### Tabela de Tamanhos para Bikes de Estrada
+| Perfil | Stack | Reach | Exemplo de bike |
+|--------|-------|-------|-----------------|
+| Conforto / Endurance | Alto | Curto | Specialized Roubaix, Trek Domane, Cervélo Caledonia |
+| Versátil / All-round | Médio | Médio | Specialized Tarmac SL8, Cervélo Soloist, Cannondale SuperSix Evo |
+| Competição / Agressivo | Baixo | Longo | Cervélo S5, Scott Foil RC |
 
-Abaixo está uma tabela geral que pode ajudar você a escolher o tamanho correto da sua bike de estrada, baseada na sua altura:
+### Exemplo prático
 
-| Altura do Ciclista (m) | Tamanho do Quadro (cm) |
-|------------------------|-------------------------|
-| Até 1,60 m             | 50-52                   |
-| 1,60 m a 1,70 m        | 52-54                   |
-| 1,70 m a 1,80 m        | 54-56                   |
-| 1,80 m a 1,90 m        | 56-58                   |
-| Acima de 1,90 m        | 58-60                   |
+Um ciclista de 1,78 m com pernas longas e tronco curto pode precisar de um quadro 54 com **menos reach** (ou mesa mais curta). Um ciclista da mesma altura com pernas curtas e tronco longo pode precisar de 56 com **mais stack** (ou mesa mais longa).
 
-> **Observação**: Essas medidas são apenas referências. Diferentes marcas podem ter suas próprias tabelas de tamanhos, então sempre consulte as especificações do fabricante.
+## Como Medir seu Inseam
 
-### Exemplos de Marcas e Modelos
+O inseam (altura da virilha ao chão) é usado para calcular a altura ideal do selim e, indiretamente, o tamanho do quadro:
 
-Algumas marcas muito respeitadas no Brasil que oferecem uma boa variedade de tamanhos incluem:
+1. Fique descalço, de costas para a parede, com as pernas afastadas ~15 cm
+2. Use um livro ou bloco entre as pernas, subindo até sentir pressão na virilha (simulando a pressão do selim)
+3. Meça do topo do livro até o chão
 
-- **Caloi**: A Caloi oferece modelos que vão de R$ 1.500,00 a R$ 10.000,00. O modelo Caloi Elite Pro é uma opção excelente para quem busca uma bike de entrada competente, com quadro leve e bom equipamento.
-- **Trek**: Os preços dos modelos da Trek variam entre R$ 5.000,00 e R$ 30.000,00. O modelo Trek Domane AL 2 é uma boa escolha para iniciantes.
-- **Giant**: Modelos como a Giant Contend começam na faixa de R$ 4.500,00 e a marca é conhecida por oferecer boas opções de ajuste em seus quadros.
+**Cálculo do tamanho de quadro (estrada):**
+- Multiplique o inseam (cm) por 0,66 para obter o tamanho aproximado do quadro (cm)
+- Exemplo: inseam de 82 cm → 82 × 0,66 = 54,1 → quadro 54
+
+## Geometria por Marca (Referência 2026)
+
+Cada marca tem sua filosofia de geometria. Uma "54" pode ser mais agressiva ou mais confortável dependendo do fabricante:
+
+| Marca / Modelo | Tamanho | Stack (mm) | Reach (mm) | Perfil |
+|-------|---------|--------|---------|--------|
+| **Specialized Tarmac SL8** | 54 | 544 | 395 | Race |
+| **Specialized Roubaix SL8** | 54 | 585 | 380 | Endurance |
+| **Trek Domane SL** | 54 | 582 | 378 | Endurance |
+| **Trek Madone Gen 8** | 54 (M) | 550 | 392 | Race |
+| **Cervélo Caledonia** | 54 | 570 | 381 | Endurance |
+| **Cervélo Soloist** | 54 | 550 | 392 | All-round |
+| **Cannondale SuperSix Evo Gen 5** | 54 | 548 | 390 | All-round |
+| **Scott Addict RC** | 54 (M) | 552 | 389 | Race |
+
+> **Nota:** A mesma numeração (54) na Caledonia (570 mm de stack) é 26 mm mais alta que na SuperSix Evo (548 mm) — diferença de quase um tamanho entre modelos endurance vs race.
+
+## Test Ride e Bike Fit
+
+**Test ride:** Sempre que possível, pedale a bike antes de comprar. Lojas como Bert Bike Store (BH), AllSports (SP) e Demarchi (SC) oferecem test ride.
+
+**Bike fit profissional:** Para quem pedala mais de 5 horas por semana, um bike fit profissional (R$ 300-800) é o melhor investimento depois da bike. Ajusta altura e recuo do selim, altura e inclinação do guidão, posição das manetes e até o comprimento da mesa.
+
+## Erros Comuns ao Escolher Tamanho
+
+1. **"Quero um quadro menor para ser mais ágil"** — Um quadro muito pequeno força o selim muito alto, deixando a bike instável e sobrecarregando os joelhos
+2. **"Quero um quadro maior para ter mais conforto"** — Um quadro muito grande força o ciclista a se esticar demais, causando dores nas costas e pescoço
+3. **"Guidão muito largo"** — Largura do guidão deve acompanhar a largura dos ombros, não o tamanho do quadro
+4. **"Selim muito baixo"** — Joelho deve ficar levemente flexionado no ponto mais baixo do pedal (cerca de 25-35° de flexão)
 
 ## Prós e Contras
 
 | Prós | Contras |
 |------|---------|
-| A escolha correta evita desconforto e lesões. | A inadequação do tamanho pode afetar desempenho. |
-| Melhora a eficiência da pedalada. | Algumas marcas podem não ter disponibilidade em todos os tamanhos. |
-| Bikes bem ajustadas proporcionam maior prazer em pedalar. | Preços podem variar significativamente. |
+| Quadro correto evita dores e lesões | Geometria varia entre marcas — confunde na escolha |
+| Melhora eficiência e potência | Bike fit profissional tem custo adicional |
+| Mais prazer em pedalar | Test ride nem sempre disponível |
 
 ## Veredito
 
-Escolher o tamanho certo da sua bike de estrada é um passo fundamental para garantir conforto e desempenho nas pedaladas. Use a tabela de tamanhos como um guia, mas não hesite em testar diferentes bicicletas. Sempre que possível, faça um teste de pedalada antes de decidir. Com a bike adequada, suas experiências sobre duas rodas poderão ser ainda mais satisfatórias!
+Use a tabela por altura como guia inicial, mas **sempre consulte a geometria do fabricante** antes de comprar. Se estiver entre dois tamanhos, considere seu perfil:
+
+- **Prefere conforto e posição mais ereta:** escolha o maior dos dois
+- **Prefere performance e posição mais aerodinâmica:** escolha o menor dos dois
+
+E, se possível, invista em um bike fit profissional. É o upgrade mais barato e mais impactante que você pode fazer no seu conforto e desempenho.
 
 ## Perguntas Frequentes
 
-**1. Como posso saber se o tamanho do quadro está correto?**
-- Se você está em cima da bicicleta e consegue tocar o chão com os dedos dos pés enquanto ainda mantém uma posição confortável no selim, é um bom sinal. Quando você está sentado, suas pernas devem estar quase estendidas, mas com o joelho levemente flexionado.
+**1. Como saber se o tamanho do quadro está correto?**
+Monte na bike e pedale em um local seguro. Você deve conseguir tocar o chão com as pontas dos pés quando parado. No pedal, o joelho deve estar levemente flexionado no ponto mais baixo (nem esticado demais, nem muito dobrado).
 
-**2. Posso ajustar minha bike se o tamanho não for bem avaliado?**
-- Sim, ajustes podem ser feitos com a altura do selim, do guidão e até mesmo da posição do selim. No entanto, ajustes extremos podem não compensar um tamanho de quadro que está muito fora do ideal.
+**2. Posso ajustar a bike se o tamanho não for ideal?**
+Ajustes de selim (altura, recuo), guidão (altura, avanço/recuo via mesa) e manetes podem compensar pequenas diferenças. Mas se o quadro for muito grande ou muito pequeno, nenhum ajuste resolve.
 
-**3. É melhor comprar uma bike online ou em uma loja física?**
-- Para quem está começando, o ideal é experimentar em uma loja física, onde você pode testar diferentes tamanhos e estilos. A compra online pode ser conveniente, mas sempre verifique a política de retorno da loja caso precise trocar.
+**3. É melhor comprar online ou em loja física?**
+Para a primeira bike, loja física com test ride é muito recomendado. Depois que você já conhece seu tamanho em marcas específicas, a compra online (especialized.com.br, cervelobr.com) é segura.
 
+**4. Mulheres precisam de geometria feminina?**
+Não necessariamente. Muitas ciclistas se adaptam bem a quadros unissex com ajustes de selim, guidão e mesa. O importante é encontrar o tamanho certo de quadro. A Specialized, por exemplo, tem a linha Ruby (geometria feminina), mas a Tarmac SL8 unissex também atende bem.
 
 ### Fontes consultadas
 
-1. Site oficial do fabricante.
-2. Distribuidor oficial no Brasil.
-3. Pesquisa de mercado em lojas brasileiras.
+1. Specialized Brasil — specialized.com/br/pt. Acessado em 19 jul. 2026.
+2. Cervélo Geometries — cervelo.com/geometries. Acessado em 19 jul. 2026.
+3. Trek Bike Sizing — trekbikes.com. Acessado em 19 jul. 2026.
+4. Park Tool — Guia de bike fit. Acessado em 19 jul. 2026.

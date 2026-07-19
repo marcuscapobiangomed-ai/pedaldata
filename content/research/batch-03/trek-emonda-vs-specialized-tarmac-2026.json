@@ -1,0 +1,78 @@
+{
+  "slug": "trek-emonda-vs-specialized-tarmac-2026",
+  "title": "Trek Émonda vs Specialized Tarmac SL8: Comparativo de Escalada",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Internacional",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "trek-emonda-vs-specialized-tarmac-qual-a-melhor-bike-de-escalada",
+  "decision": "reescrever",
+
+  "errors_corrected": [
+    "Post original comparava Émonda SLR com Tarmac SL7 (não SL8)",
+    "Preços originais estavam desatualizados",
+    "Não mencionava que Émonda foi descontinuada (Madone Gen 8 substitui)",
+    "Peso do quadro Tarmac SL8 S-Works é 685g (não ~700g como citado)",
+    "Não mencionava que a Tarmac SL8 é mais aero que a Venge (ou seja, não é só bike de escalada)"
+  ],
+
+  "key_context": {
+    "emonda_future": "A Émonda não terá nova geração. A Madone Gen 8 é o futuro da Trek em bikes de performance.",
+    "tarmac_sl8_role": "A Tarmac SL8 não é apenas uma bike de escalada — é a 'mais rápida do mundo' combinando aero + leveza.",
+    "still_relevant": "A comparação ainda é útil para entender filosofias de projeto, mas não reflete a direção futura das marcas."
+  },
+
+  "comparison": {
+    "emonda_slr_9_2026": {
+      "frame_material": "800 OCLV Carbon",
+      "frame_weight": "698g",
+      "built_weight": "~6,7 kg",
+      "groupset": "Dura-Ace Di2",
+      "price_usd": 12499,
+      "tire_clearance": "30mm",
+      "aero_focus": "Moderado (Kammtail)",
+      "best_for": "Subidas puras, gran fondos de montanha"
+    },
+    "tarmac_sl8_sworks_2026": {
+      "frame_material": "FACT 12r Carbon",
+      "frame_weight": "685g (mais leve)",
+      "built_weight": "~6,62 kg",
+      "groupset": "SRAM Red AXS",
+      "price_usd": 13499,
+      "tire_clearance": "32mm",
+      "aero_focus": "Alto (Speed Sniffer, mais aero que Venge)",
+      "best_for": "Tudo (escalada + aero + conforto)"
+    },
+    "tarmac_sl8_comp_2026": {
+      "frame_material": "FACT 10r Carbon",
+      "frame_weight": "~780g (estimado)",
+      "built_weight": "~7,68 kg",
+      "groupset": "105 Di2",
+      "price_usd": 4699,
+      "tire_clearance": "32mm",
+      "aero_focus": "Alto (mesmo quadro S-Works, carbono 10r)",
+      "best_for": "Performance com melhor custo-benefício"
+    }
+  },
+
+  "verdict": {
+    "climbing_edge": "Tarmac SL8 S-Works (685g vs 698g, mais aero)",
+    "value_edge": "Tarmac SL8 Comp (US$ 4.699) vs Émonda SL 6 (US$ 5.499)",
+    "note": "Com o fim da Émonda, a Madone Gen 8 (795g, 900 OCLV, IsoFlow) é agora a opção Trek para escalada + aero"
+  },
+
+  "sources": [
+    { "name": "Specialized — S-Works Tarmac SL8", "url": "https://www.specialized.com/us/en/s-works-tarmac-sl8-sram-red-axs/p/4221554", "accessed": "2026-07-19" },
+    { "name": "Specialized — Tarmac SL8 Comp", "url": "https://www.specialized.com/us/en/tarmac-sl8-comp-shimano-105-di2/p/4221578", "accessed": "2026-07-19" },
+    { "name": "CyclingArchives — Émonda vs Madone 2026", "url": "https://cyclingarchives.com/trek-emonda-vs-madone-2026-complete-head-to-head-comparison-trek-climber-aero-race-bikes/", "accessed": "2026-07-19" },
+    { "name": "Trek — Madone Gen 8", "url": "https://www.trekbikes.com/us/en_US/madone/", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Comparativo reescrito com dados 2026. A Émonda está com dias contados (sem nova geração), então o artigo contextualiza isso. A Tarmac SL8 vence em quase todos os critérios (peso, aero, preço de entrada), mas a Madone Gen 8 é a resposta da Trek.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

@@ -1,0 +1,79 @@
+{
+  "productId": "trek-domane-sl5-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "XS",
+      "stack": 525,
+      "reach": 365,
+      "effectiveTopTube": 515,
+      "seatTube": 440,
+      "headTube": 100,
+      "headAngle": 70.5,
+      "seatAngle": 74.5,
+      "chainstay": 420,
+      "wheelbase": 1000
+    },
+    {
+      "size": "S",
+      "stack": 543,
+      "reach": 370,
+      "effectiveTopTube": 531,
+      "seatTube": 470,
+      "headTube": 115,
+      "headAngle": 71.0,
+      "seatAngle": 74.0,
+      "chainstay": 420,
+      "wheelbase": 1007
+    },
+    {
+      "size": "M",
+      "stack": 565,
+      "reach": 378,
+      "effectiveTopTube": 550,
+      "seatTube": 500,
+      "headTube": 135,
+      "headAngle": 71.5,
+      "seatAngle": 73.5,
+      "chainstay": 420,
+      "wheelbase": 1015
+    },
+    {
+      "size": "ML",
+      "stack": 582,
+      "reach": 383,
+      "effectiveTopTube": 566,
+      "seatTube": 520,
+      "headTube": 150,
+      "headAngle": 72.0,
+      "seatAngle": 73.0,
+      "chainstay": 420,
+      "wheelbase": 1022
+    },
+    {
+      "size": "L",
+      "stack": 602,
+      "reach": 392,
+      "effectiveTopTube": 585,
+      "seatTube": 550,
+      "headTube": 170,
+      "headAngle": 72.0,
+      "seatAngle": 72.5,
+      "chainstay": 420,
+      "wheelbase": 1031
+    },
+    {
+      "size": "XL",
+      "stack": 625,
+      "reach": 402,
+      "effectiveTopTube": 608,
+      "seatTube": 590,
+      "headTube": 195,
+      "headAngle": 72.0,
+      "seatAngle": 72.0,
+      "chainstay": 420,
+      "wheelbase": 1042
+    }
+  ],
+  "sourceId": "trek-geometry-2026"
+}

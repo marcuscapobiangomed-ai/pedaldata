@@ -1,0 +1,55 @@
+{
+  "productId": "caloi-strada-100-2026-br",
+  "unit": "mm",
+  "sizes": [
+    {
+      "size": "S",
+      "stack": 535,
+      "reach": 375,
+      "effectiveTopTube": 530,
+      "seatTube": 480,
+      "headTube": 120,
+      "headAngle": 71.5,
+      "seatAngle": 74.0,
+      "chainstay": 425,
+      "wheelbase": 990
+    },
+    {
+      "size": "M",
+      "stack": 558,
+      "reach": 382,
+      "effectiveTopTube": 550,
+      "seatTube": 510,
+      "headTube": 140,
+      "headAngle": 72.0,
+      "seatAngle": 73.5,
+      "chainstay": 425,
+      "wheelbase": 1000
+    },
+    {
+      "size": "L",
+      "stack": 580,
+      "reach": 390,
+      "effectiveTopTube": 570,
+      "seatTube": 540,
+      "headTube": 160,
+      "headAngle": 72.0,
+      "seatAngle": 73.0,
+      "chainstay": 425,
+      "wheelbase": 1010
+    },
+    {
+      "size": "XL",
+      "stack": 600,
+      "reach": 398,
+      "effectiveTopTube": 590,
+      "seatTube": 575,
+      "headTube": 180,
+      "headAngle": 72.5,
+      "seatAngle": 72.5,
+      "chainstay": 425,
+      "wheelbase": 1020
+    }
+  ],
+  "sourceId": "caloi-official-2026"
+}

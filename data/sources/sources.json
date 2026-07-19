@@ -1,0 +1,260 @@
+{
+  "description": "Registro centralizado de fontes de dados do Pedal Data",
+  "version": "1.0",
+  "lastUpdated": "2026-07-19",
+  "sources": [
+    {
+      "id": "scott-official-global-2026",
+      "name": "Scott Sports",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Scott Sports com fichas técnicas dos modelos 2026."
+    },
+    {
+      "id": "scott-br-distributor-2026",
+      "name": "Scott Brasil",
+      "type": "distributor",
+      "url": "https://www.scottbrasil.com.br",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Site do distribuidor oficial da Scott no Brasil."
+    },
+    {
+      "id": "trek-official-global-2026",
+      "name": "Trek Bicycle Corporation",
+      "type": "manufacturer",
+      "url": "https://www.trekbikes.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Trek com especificações completas."
+    },
+    {
+      "id": "trek-br-2026",
+      "name": "Trek Brasil",
+      "type": "distributor",
+      "url": "https://www.trekbikes.com/br/pt_BR/",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Site da Trek Brasil com preços e disponibilidade local."
+    },
+    {
+      "id": "specialized-official-global-2026",
+      "name": "Specialized Bicycle Components",
+      "type": "manufacturer",
+      "url": "https://www.specialized.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Specialized com specs dos modelos."
+    },
+    {
+      "id": "specialized-br-2026",
+      "name": "Specialized Brasil",
+      "type": "distributor",
+      "url": "https://www.specialized.com/br/pt",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Site oficial da Specialized Brasil."
+    },
+    {
+      "id": "caloi-official-2026",
+      "name": "Caloi",
+      "type": "manufacturer",
+      "url": "https://www.caloi.com",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Caloi."
+    },
+    {
+      "id": "sense-br-2026",
+      "name": "Sense Bikes",
+      "type": "manufacturer",
+      "url": "https://www.sensebikes.com.br",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Sense Bikes."
+    },
+    {
+      "id": "oggi-official-2026",
+      "name": "Oggi Bikes",
+      "type": "manufacturer",
+      "url": "https://www.oggi.com.br",
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Oggi Bikes."
+    },
+    {
+      "id": "cannondale-official-global-2026",
+      "name": "Cannondale",
+      "type": "manufacturer",
+      "url": "https://www.cannondale.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Cannondale."
+    },
+    {
+      "id": "cervelo-official-global-2026",
+      "name": "Cervélo Cycles",
+      "type": "manufacturer",
+      "url": "https://www.cervelo.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Site oficial da Cervélo."
+    },
+    {
+      "id": "marketplace-scott-addict-2026",
+      "name": "Observação de mercado — Scott Addict",
+      "type": "marketplace",
+      "url": null,
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "market-observation",
+      "notes": "Consulta de preços em múltiplas lojas online brasileiras."
+    },
+    {
+      "id": "marketplace-trek-domane-2026",
+      "name": "Observação de mercado — Trek Domane",
+      "type": "marketplace",
+      "url": null,
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "market-observation",
+      "notes": "Consulta de preços em múltiplas lojas online brasileiras."
+    },
+    {
+      "id": "scott-manual-2026",
+      "name": "Manual do proprietário Scott 2026",
+      "type": "manual",
+      "url": null,
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Manual técnico com clearance e especificações do quadro."
+    },
+    {
+      "id": "shimano-official-2026",
+      "name": "Shimano",
+      "type": "manufacturer",
+      "url": "https://www.shimano.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Especificações técnicas de grupos Shimano."
+    },
+    {
+      "id": "sram-official-2026",
+      "name": "SRAM",
+      "type": "manufacturer",
+      "url": "https://www.sram.com",
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Especificações técnicas de grupos SRAM."
+    },
+    {
+      "id": "scott-geometry-2026",
+      "name": "Tabela de geometria Scott 2026",
+      "type": "catalog",
+      "url": null,
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Tabela de geometria oficial Scott para modelos 2026."
+    },
+    {
+      "id": "trek-geometry-2026",
+      "name": "Tabela de geometria Trek 2026",
+      "type": "catalog",
+      "url": null,
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Tabela de geometria oficial Trek para modelos 2026."
+    },
+    {
+      "id": "specialized-geometry-2026",
+      "name": "Tabela de geometria Specialized 2026",
+      "type": "catalog",
+      "url": null,
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Tabela de geometria oficial Specialized para modelos 2026."
+    },
+    {
+      "id": "cannondale-geometry-2026",
+      "name": "Tabela de geometria Cannondale 2026",
+      "type": "catalog",
+      "url": null,
+      "market": "global",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "primary",
+      "notes": "Tabela de geometria oficial Cannondale para modelos 2026."
+    },
+    {
+      "id": "caloi-br-warranty",
+      "name": "Política de garantia Caloi Brasil",
+      "type": "distributor",
+      "url": null,
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Política de garantia para bicicletas Caloi no Brasil."
+    },
+    {
+      "id": "scott-brazil-warranty",
+      "name": "Política de garantia Scott Brasil",
+      "type": "distributor",
+      "url": null,
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Política de garantia para bicicletas Scott no Brasil."
+    },
+    {
+      "id": "pedaldata-verified-2026",
+      "name": "Verificação Pedal Data",
+      "type": "independent-review",
+      "url": null,
+      "market": "BR",
+      "accessedAt": "2026-07-19",
+      "archivedUrl": null,
+      "reliability": "secondary",
+      "notes": "Verificação independente realizada pela equipe Pedal Data."
+    }
+  ]
+}

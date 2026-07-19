@@ -1,0 +1,23 @@
+{
+  "id": "cannondale-caad-optimo-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Cannondale",
+  "model": "CAAD Optimo",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-entry",
+  "officialUrl": "https://www.cannondale.com/en/bikes/road/performance/caad-optimo",
+  "distributorUrl": null,
+  "frame": { "material": "aluminum", "technology": "SmartForm C3", "internalCableRouting": false },
+  "fork": { "material": "carbon", "model": "Cannondale carbon" },
+  "drivetrain": { "brand": "Shimano", "groupset": "Claris R2000", "speeds": 16, "shifting": "mechanical", "chainrings": [50, 34], "cassette": { "smallest": 11, "largest": 32 } },
+  "brakes": { "type": "rim-brake", "brand": "Shimano", "model": "Claris" },
+  "wheels": { "brand": "Cannondale", "model": "Cannondale RB 1.0", "material": "aluminum" },
+  "tires": { "brand": "Cannondale", "model": "Cannondale 700x25", "widthMm": 25, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 10.2, "size": "M", "sourceId": "cannondale-official-global-2026" },
+  "maxTireClearanceMm": { "value": 30, "sourceId": "cannondale-geometry-2026" },
+  "warranty": { "description": "Garantia Cannondale conforme política", "sourceId": "cannondale-official-global-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

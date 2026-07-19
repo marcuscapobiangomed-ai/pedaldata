@@ -1,0 +1,26 @@
+<script>
+document.addEventListener('DOMContentLoaded', async function() {
+  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+  const el = document.querySelector('[data-product-id]')
+  if (!el) return
+  const productId = el.dataset.productId
+  try {
+    const r = await fetch(BASE + '/data/products/bikes/' + productId + '.json')
+    if (!r.ok) return
+    const b = await r.json()
+    const w = b.declaredWeight ? `${b.declaredWeight.valueKg} kg (tam. ${b.declaredWeight.size})` : 'consulte'
+    const g = b.drivetrain ? `${b.drivetrain.brand} ${b.drivetrain.groupset} (${b.drivetrain.speeds}v)` : 'consulte'
+    const entry = (b.category||'').includes('entry')
+    const p = entry ? 'Sim, é uma bike de entrada.' : `É uma bike ${(b.category||'').replace(/-/g,' ')}, para ciclistas experientes.`
+    const faq = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":`Peso da ${b.brand} ${b.model}?`,"acceptedAnswer":{"@type":"Answer","text":`${w}.`}},
+      {"@type":"Question","name":`Grupo da ${b.brand} ${b.model}?`,"acceptedAnswer":{"@type":"Answer","text":`${g}.`}},
+      {"@type":"Question","name":`${b.brand} ${b.model} é para iniciantes?`,"acceptedAnswer":{"@type":"Answer","text":p}}
+    ]}
+    const s = document.createElement('script')
+    s.type = 'application/ld+json'
+    s.textContent = JSON.stringify(faq)
+    document.head.appendChild(s)
+  } catch(e) {}
+})
+</script>

@@ -8,78 +8,97 @@
   "market": "Brasil",
   "generated_at": "2026-07-19",
   "last_updated": "2026-07-19",
-  "status": "research_pending",
+  "status": "pesquisa_concluida",
 
   "original_posts": ["comparativo-5-melhores-bikes-de-estrada-ate-r-5-000-em-2026"],
 
   "decision": "reescrever",
   "target_url": "/guias/melhores-bikes-de-estrada-ate-5-mil/",
 
-  "known_issues": [
-    "Caloi Elite Carbon a R$ 4.999 — preço irreal para quadro de carbono",
-    "Soul 100 — marca não identificada, provavelmente inventada",
-    "Specialized Allez Sport a R$ 4.800 — verificar se há configuração nesse preço",
-    "Sem fontes — todos os links são placeholders"
+  "known_issues_corrected": [
+    "Caloi Elite Carbon removida — preço de R$ 4.999 para carbono era irreal",
+    "Soul '100' corrigido para Soul 1R1 (modelo real da Soul Cycles)",
+    "Specialized Allez Sport corrigida de R$ 4.800 para R$ 8.999+ (não cabe no orçamento)",
+    "Trek Domane AL 2 corrigida de R$ 4.200 para R$ 8.999 (não cabe no orçamento)",
+    "Cannondale CAAD Optimo está na faixa de R$ 5.000 em promoção (CAAD Optimo 4)"
   ],
 
-  "application": {
-    "question": "Quais as melhores bikes de estrada até R$ 5.000 no Brasil?",
-    "audience": "Ciclistas iniciantes e intermediários com orçamento limitado",
-    "product_version": "Modelos 2025-2026 disponíveis no Brasil",
-    "model_year": 2026,
-    "article_type": "Comparativo de compra",
-    "actual_review_or_desk": "desk-research"
-  },
-
-  "claims_to_verify": [
+  "models_confirmed": [
     {
-      "claim": "Caloi Elite Carbon — R$ 4.999, carbono, Tiagra 10v, 9,5 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço muito abaixo do mercado para carbono. Verificar existência e preço real."
+      "name": "Athor V-one",
+      "price": "R$ 2.890 - R$ 3.399",
+      "groupset": "Shimano Tourney A070 14v (2x7)",
+      "frame": "Alumínio",
+      "fork": "Aço rígido",
+      "brakes": "Caliper",
+      "weight": "~12 kg",
+      "source_url": "https://www.ro7parts.com.br/bicicletas/speedgravel/bicicleta-athor-speed-estrada-v-one-aro-700-shimano-14-velocidades",
+      "pros": ["Preço mais baixo da lista", "Grupo Shimano (entrada)"],
+      "cons": ["Grupo Tourney básico", "Garfo de aço pesado", "Peso elevado"],
+      "recommended_for": "Orçamento muito limitado, primeiras pedaladas"
     },
     {
-      "claim": "Cannondale CAAD Optimo 4 — R$ 4.500, alumínio, Sora 9v, 10,2 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço parece baixo para CAAD Optimo. Verificar."
+      "name": "Decathlon Triban RC120",
+      "price": "R$ 3.419 - R$ 3.499",
+      "groupset": "Microshift 3x8 ou Shimano 3x8",
+      "frame": "Alumínio",
+      "fork": "Aço rígido",
+      "brakes": "Caliper ou disco (RC120 Disc)",
+      "weight": "~11,5 kg",
+      "source_url": "https://www.decathlon.com.br/bicicleta-de-ciclismo-estrada-triban-rc120-disc-8631051-btwin/p",
+      "pros": ["Garantia vitalícia do quadro", "Rede Decathlon em todo Brasil", "Bom custo-benefício"],
+      "cons": ["Componentes básicos", "Garfo de aço"],
+      "recommended_for": "Iniciante que quer garantia e loja física"
     },
     {
-      "claim": "Specialized Allez Sport — R$ 4.800, alumínio, Claris 8v, 10,5 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Verificar se Allez Sport existe nessa configuração e preço."
+      "name": "Soul 1R1",
+      "price": "R$ 2.990 - R$ 3.490",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio 6061",
+      "fork": "Alumínio 6061",
+      "brakes": "Shimano Claris BR-R2000 (caliper)",
+      "weight": "~10,7 kg",
+      "source_url": "https://www.soulcycles.com.br/",
+      "pros": ["Grupo Shimano Claris (superior ao Tourney/Microshift)", "Peso leve para a faixa", "Marca nacional"],
+      "cons": ["Disponibilidade irregular", "Garfo de alumínio"],
+      "recommended_for": "Melhor custo-benefício da faixa até R$ 3.500"
     },
     {
-      "claim": "Trek Domane AL 2 — R$ 4.200, alumínio, Sora 9v, 10,3 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Preço parece abaixo do mercado para Domane AL 2."
+      "name": "Caloi Strada",
+      "price": "R$ 4.850 - R$ 5.399 (na fronteira)",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio 6061",
+      "fork": "Alumínio rígido",
+      "brakes": "Promax RC-481 (caliper)",
+      "weight": "~11,0 kg",
+      "source_url": "https://www.bikecenterribeirao.com.br/bicicleta-caloi-strada/p/0017836",
+      "pros": ["Marca tradicional", "Construção robusta"],
+      "cons": ["Preço acima de R$ 4.800", "Garfo de alumínio"],
+      "recommended_for": "Quem prefere Caloi pela tradição"
     },
     {
-      "claim": "Soul 100 — R$ 3.999, alumínio, Tourney 7v, 11 kg",
-      "status": "nao_confirmada",
-      "source": "",
-      "notes": "Marca 'Soul' não é conhecida no mercado de bikes de estrada. Provável erro."
+      "name": "Oggi Velloce Disc 2026",
+      "price": "R$ 4.999",
+      "groupset": "Shimano Claris 16v (2x8)",
+      "frame": "Alumínio hidroformado LSS",
+      "fork": "Carbono",
+      "brakes": "Disco mecânico Shimano BR-R317",
+      "weight": "~11,7 kg",
+      "source_url": "https://www.bikecenterribeirao.com.br/bicicleta-oggi-velloce-disc-2026/p/0024373",
+      "pros": ["Garfo de carbono", "Freio a disco", "Pneus 32c (conforto)"],
+      "cons": ["Peso elevado", "Preço no limite de R$ 5.000"],
+      "recommended_for": "Melhor opção até R$ 5.000 para quem quer freio a disco e garfo de carbono"
     }
-  ],
-
-  "sources_to_find": [
-    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Linha completa e preços sugeridos" },
-    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "CAAD Optimo lineup" },
-    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Allez lineup" },
-    { "type": "manufacturer", "name": "Trek", "url": "https://www.trekbikes.com/br/pt", "purpose": "Domane AL lineup" },
-    { "type": "retailer", "name": "Decathlon Brasil", "url": "https://www.decathlon.com.br", "purpose": "Triban e outras marcas até R$ 5k" },
-    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Preços de mercado" },
-    { "type": "retailer", "name": "Bike Point", "url": "", "purpose": "Preços de loja especializada" }
   ],
 
   "price_check": {
     "currency": "BRL",
-    "checked_at": null,
+    "checked_at": "2026-07-19",
     "max_budget": 5000,
-    "stores_to_check": ["Decathlon", "Centauro", "Mercado Livre", "OLX", "bike shops locais"]
+    "sources": ["Decathlon", "Mercado Livre", "Bike Center Ribeirão", "Ro7 Parts", "Soul Cycles", "Jauri Bike"]
   },
 
-  "notes": "Reescrever completamente com modelos reais. Sugerir incluir: Caloi Strada (se dentro do orçamento), Decathlon Triban, Sense (marca nacional), e verificar se alguma Specialized Allez, Trek Domane ou Cannondade CAAD cabe no orçamento. Remover Soul 100 e Caloi Elite Carbon se preço não se confirmar."
+  "notes": "Reescrita concluída. Erros corrigidos: Caloi Elite Carbon removida (preço irreal para carbono), Soul corrigido para 1R1, Specialized e Trek removidas (custam acima de R$ 8.000). Novos modelos adicionados: Athor V-one, Triban RC120, Soul 1R1. Oggi Velloce Disc 2026 é a melhor opção geral na faixa de R$ 5.000.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
 }

@@ -1,0 +1,56 @@
+{
+  "description": "Definição dos selos de confiabilidade exibidos nas páginas de produto",
+  "badges": [
+    {
+      "id": "verified",
+      "label": "Verificado",
+      "icon": "✓",
+      "color": "green",
+      "minScore": 90,
+      "description": "Dados verificados em fontes oficiais e revisados pela equipe.",
+      "requirements": [
+        "Fonte oficial do fabricante registrada",
+        "Preço atualizado nos últimos 15 dias",
+        "Revisão humana concluída",
+        "Especificações completas"
+      ]
+    },
+    {
+      "id": "partial",
+      "label": "Parcialmente verificado",
+      "icon": "~",
+      "color": "yellow",
+      "minScore": 60,
+      "description": "Algumas informações ainda aguardam confirmação no mercado brasileiro.",
+      "requirements": [
+        "Fonte oficial registrada",
+        "Preço pode estar desatualizado",
+        "Revisão humana pendente ou parcial"
+      ]
+    },
+    {
+      "id": "outdated",
+      "label": "Preço desatualizado",
+      "icon": "!",
+      "color": "red",
+      "minScore": 0,
+      "description": "O último preço foi consultado há mais de 30 dias.",
+      "requirements": [
+        "Preço não atualizado nos últimos 30 dias",
+        "Demais dados podem estar corretos"
+      ]
+    },
+    {
+      "id": "discontinued",
+      "label": "Modelo descontinuado",
+      "icon": "✗",
+      "color": "gray",
+      "minScore": -1,
+      "description": "Este produto não aparece mais no catálogo atual da fabricante.",
+      "requirements": [
+        "Produto não encontrado no site do fabricante",
+        "Status alterado para discontinued"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "sense-carbon-v2-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Sense",
+  "model": "Carbon V2",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-race",
+  "officialUrl": "https://www.sensebikes.com.br/carbon-v2",
+  "distributorUrl": "https://www.sensebikes.com.br/carbon-v2",
+  "frame": { "material": "carbon", "technology": "T800", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Sense carbon T800" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 R7100", "speeds": 12, "shifting": "mechanical", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "Sense", "model": "Aero 40", "material": "carbon" },
+  "tires": { "brand": "Vittoria", "model": "Rubino Pro", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.5, "size": "M", "sourceId": "sense-br-2026" },
+  "maxTireClearanceMm": { "value": 32, "sourceId": "sense-br-2026" },
+  "warranty": { "description": "Garantia Sense de 5 anos no quadro", "sourceId": "sense-br-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

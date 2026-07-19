@@ -1,0 +1,36 @@
+{
+  "productId": "oggi-sport-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "SoulCycles",
+      "price": 2510,
+      "regularPrice": 2570,
+      "installments": null,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/oggi-sport-2026-br",
+      "checkedAt": "2026-07-18"
+    },
+    {
+      "store": "PedalMais",
+      "price": 2850,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.pedalmais.com.br/oggi-sport-2026-br",
+      "checkedAt": "2026-07-06"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 2770,
+      "regularPrice": 2910,
+      "installments": null,
+      "shippingIncluded": true,
+      "availability": "out-of-stock",
+      "url": "https://produto.mercadolivre.com.br/oggi-sport-2026-br",
+      "checkedAt": "2026-07-12"
+    }
+  ]
+}

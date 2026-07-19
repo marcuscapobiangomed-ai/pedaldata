@@ -1,0 +1,71 @@
+{
+  "slug": "melhores-capacetes-ciclismo-2026",
+  "title": "Melhores Capacetes de Ciclismo de Estrada 2026: De R$ 200 a R$ 3.000",
+  "content_type": "guia-de-compra",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "pesquisa_concluida",
+  "original_post": "melhores-capacetes-de-ciclismo-de-estrada-2026-de-r-200-a-r-2-000",
+  "decision": "reescrever",
+
+  "errors_corrected": [
+    "Post original tinha faixa de preço desatualizada (R$ 200-R$ 2.000) — real em 2026 é R$ 200-R$ 3.000+",
+    "Modelos listados estavam desatualizados (Giro Synthe foi substituído, POC Ventral Air é o correto)",
+    "Não mencionava tecnologias de segurança como MIPS, Kineticore e WaveCel",
+    "Não citava o Virginia Tech Helmet Lab como referência de testes de impacto",
+    "Preços originais baseados em dados 2024 (inflação desde então)"
+  ],
+
+  "categories": {
+    "entry_up_to_300": {
+      "range": "Até R$ 300",
+      "description": "Proteção básica certificada, ventilação razoável, MIPS começa a aparecer",
+      "examples": ["Specialized Align II", "Giant Relay MIPS", "Giro Register MIPS"]
+    },
+    "mid_300_to_800": {
+      "range": "R$ 300 a R$ 800",
+      "description": "Melhor custo-benefício. MIPS, Kineticore ou WaveCel presentes",
+      "examples": ["Lazer Tonic Kineticore", "MET Vinci MIPS", "Van Rysel FCR", "Giro Savant MIPS"]
+    },
+    "premium_800_to_2000": {
+      "range": "R$ 800 a R$ 2.000",
+      "description": "Materiais nobres, peso abaixo de 250g, proteção avançada",
+      "examples": ["Giro Aether MIPS", "POC Ventral Air MIPS", "Trek Velocis MIPS", "KASK Valegro"]
+    },
+    "high_end_above_2000": {
+      "range": "Acima de R$ 2.000",
+      "description": "Fibra de carbono, túnel de vento, peso mínimo",
+      "examples": ["MET Trenta 3K Carbon", "Specialized S-Works Evade 3", "Giro Aeon RS", "POC Procen Air"]
+    }
+  },
+
+  "top_picks": {
+    "best_overall": { "model": "Giro Aether MIPS", "price": "~R$ 1.500", "note": "Ventilação excelente, Roc Loc Air, MIPS integrado" },
+    "best_ventilation": { "model": "POC Ventral Air MIPS", "price": "~R$ 1.800", "note": "Canais generosos, ideal para calor brasileiro" },
+    "best_aero": { "model": "MET Trenta 3K Carbon", "price": "~R$ 2.500", "note": "Fibra de carbono, túnel de vento, leve" },
+    "best_safety": { "model": "Trek Velocis MIPS", "price": "~R$ 1.600", "note": "WaveCel 3G + MIPS, melhor em teste de impacto (Virginia Tech)" },
+    "best_value": { "model": "Lazer Tonic Kineticore", "price": "~R$ 400", "note": "Proteção nível premium por preço de entrada" }
+  },
+
+  "safety_tech": {
+    "mips": "Sistema de proteção contra impactos rotacionais — camada deslizante dentro do capacete",
+    "kineticore": "Tecnologia Lazer — EPS com zonas de deformação controlada (dispensa camada extra)",
+    "wavecel": "Tecnologia Trek/Bontrager — estrutura em colmeia que absorve impacto + giro"
+  },
+
+  "sources": [
+    { "name": "Ciclismo Pelo Mundo — Melhores Capacetes 2026", "url": "https://www.ciclismopelomundo.com.br/capacete-para-ciclismo-melhores-modelos-2026/", "accessed": "2026-07-19" },
+    { "name": "Ciclismo Pelo Mundo — Guia Completo Capacetes", "url": "https://www.ciclismopelomundo.com.br/capacetes-para-ciclismo-guia-completo-2026/", "accessed": "2026-07-19" },
+    { "name": "AnalisaMelhor — 10 Melhores Capacetes 2026", "url": "https://analisamelhor.com.br/melhor-capacete-de-ciclismo/", "accessed": "2026-07-19" },
+    { "name": "Cyclo Abdias — Lazer Strada KinetiCore", "url": "https://cycloabdias.com.br/products/capacete-road-lazer-strada-kineticore", "accessed": "2026-07-19" },
+    { "name": "Cyclo Abdias — MET Rivale MIPS", "url": "https://cycloabdias.com.br/products/capacete-met-road-rivale-mips", "accessed": "2026-07-19" }
+  ],
+
+  "notes": "Artigo reescrito com dados atualizados de 2026. Foco em segurança (MIPS/Kineticore/WaveCel) e faixas de preço reais no Brasil. Virginia Tech Helmet Lab como referência de testes independentes.",
+  "responsible": "Sergio Arantes",
+  "next_revision": "2026-10-19"
+}

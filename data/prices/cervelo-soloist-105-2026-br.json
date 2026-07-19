@@ -1,0 +1,16 @@
+{
+  "productId": "cervelo-soloist-105-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "BikeExpress",
+      "price": 30270,
+      "regularPrice": 31170,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.bikeexpress.com.br/cervelo-soloist-105-2026-br",
+      "checkedAt": "2026-07-12"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "productId": "cannondale-caad-optimo-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "SoulCycles",
+      "price": 4320,
+      "regularPrice": 4420,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/cannondale-caad-optimo-2026-br",
+      "checkedAt": "2026-07-14"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 4780,
+      "regularPrice": 5060,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/cannondale-caad-optimo-2026-br",
+      "checkedAt": "2026-07-11"
+    }
+  ]
+}

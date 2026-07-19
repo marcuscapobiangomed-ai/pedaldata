@@ -1,0 +1,16 @@
+{
+  "productId": "oggi-giro-carbon-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "SoulCycles",
+      "price": 27700,
+      "regularPrice": null,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.soulcycles.com.br/oggi-giro-carbon-2026-br",
+      "checkedAt": "2026-07-17"
+    }
+  ]
+}

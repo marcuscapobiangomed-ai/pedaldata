@@ -1,0 +1,185 @@
+---
+layout: default
+title: Painel Interno
+permalink: /admin/
+---
+
+<section class="page-header">
+  <div class="container">
+    <h1>Painel Interno — Pedal Data</h1>
+    <p class="page-subtitle">Gerenciamento da base de dados e monitoramento (acesso restrito)</p>
+  </div>
+</section>
+
+<section class="comparator-section">
+  <div class="container">
+    <div class="calculator-layout">
+      <div class="calculator-form">
+        <h3>📊 Resumo da Base</h3>
+        <div id="admin-summary">
+          <p style="color:var(--text-muted);">Carregando...</p>
+        </div>
+      </div>
+      <div class="calculator-form">
+        <h3>⚠️ Alertas e Pendências</h3>
+        <div id="admin-alerts">
+          <p style="color:var(--text-muted);">Carregando...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="calculator-form" style="margin-top:20px;">
+      <h3>📋 Últimos Registros</h3>
+      <div id="admin-recent">
+        <p style="color:var(--text-muted);">Carregando...</p>
+      </div>
+    </div>
+
+    <div class="calculator-form" style="margin-top:20px;">
+      <h3>📈 Métricas de Eventos</h3>
+      <div id="events-metrics">
+        <p style="color:var(--text-muted);">Carregando...</p>
+      </div>
+    </div>
+
+    <div class="calculator-form" style="margin-top:20px;">
+      <h3>🛠️ Ações</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
+        <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
+          ✏️ Cadastro de produtos → via JSON em <code style="font-family:var(--font-mono);">data/products/bikes/</code>
+        </span>
+        <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
+          🔄 Atualizar via Pull Request no GitHub
+        </span>
+        <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
+          🧪 Validar: <code style="font-family:var(--font-mono);">cd data && node schemas/validate-all.js</code>
+        </span>
+        <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
+          🗑️ Limpar eventos: <code style="font-family:var(--font-mono);" onclick="if(typeof PedalData.clearEvents==='function'){PedalData.clearEvents();alert('Eventos limpos!');location.reload()}" style="cursor:pointer;">clearEvents()</code>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+;(async function() {
+  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+
+  async function loadJSON(path) {
+    try {
+      const r = await fetch(BASE + path)
+      return r.ok ? await r.json() : null
+    } catch { return null }
+  }
+
+  const [catalog, sources] = await Promise.all([
+    loadJSON('/data/catalog-index.json'),
+    loadJSON('/data/sources/sources.json')
+  ])
+
+  // Summary
+  if (catalog) {
+    const bikes = catalog.bikes
+    const brands = [...new Set(bikes.map(b => b.brand))].sort()
+    const categories = [...new Set(bikes.map(b => b.category))].sort()
+    const carbon = bikes.filter(b => b.frameMaterial === 'carbon').length
+    const aluminum = bikes.filter(b => b.frameMaterial === 'aluminum').length
+    const withPrice = bikes.filter(b => b.priceLowest).length
+    const avgWeight = bikes.filter(b => b.weightKg).reduce((s, b) => s + b.weightKg, 0) / bikes.filter(b => b.weightKg).length || 0
+    const avgPrice = bikes.filter(b => b.priceLowest).reduce((s, b) => s + b.priceLowest, 0) / withPrice || 0
+
+    document.getElementById('admin-summary').innerHTML = `
+      <table class="specs-table" style="font-size:0.85rem;">
+        <tr><td class="spec-label">Total de bicicletas</td><td><strong>${bikes.length}</strong></td></tr>
+        <tr><td class="spec-label">Marcas</td><td><strong>${brands.length}</strong> (${brands.join(', ')})</td></tr>
+        <tr><td class="spec-label">Categorias</td><td><strong>${categories.length}</strong></td></tr>
+        <tr><td class="spec-label">Quadro carbono</td><td>${carbon}</td></tr>
+        <tr><td class="spec-label">Quadro alumínio</td><td>${aluminum}</td></tr>
+        <tr><td class="spec-label">Com preço registrado</td><td>${withPrice} (${Math.round(withPrice/bikes.length*100)}%)</td></tr>
+        <tr><td class="spec-label">Peso médio</td><td>${avgWeight.toFixed(1)} kg</td></tr>
+        <tr><td class="spec-label">Preço médio</td><td>R$ ${avgPrice.toLocaleString('pt-BR')}</td></tr>
+      </table>`
+  }
+
+  // Alerts
+  if (catalog) {
+    const noPrice = catalog.bikes.filter(b => !b.priceLowest)
+    const alerts = []
+    if (noPrice.length > 0) alerts.push(`⚠️ ${noPrice.length} bicicletas sem preço registrado`)
+    if (sources) alerts.push(`✅ ${sources.sources.length} fontes cadastradas`)
+    alerts.push(`📅 Última atualização: ${catalog.generatedAt || '—'}`)
+
+    document.getElementById('admin-alerts').innerHTML = alerts.map(a =>
+      `<div style="padding:8px 0;border-bottom:1px solid var(--border-card);font-size:0.85rem;">${a}</div>`
+    ).join('')
+  }
+
+  // Recent
+  if (catalog) {
+    const sorted = [...catalog.bikes].sort((a, b) => b.year - a.year || a.brand.localeCompare(b.brand))
+    const recent = sorted.slice(0, 10)
+    document.getElementById('admin-recent').innerHTML = `
+      <table class="specs-table" style="font-size:0.82rem;">
+        <tr><th style="text-align:left;padding:6px 10px;font-size:0.68rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);">Bicicleta</th><th style="text-align:left;padding:6px 10px;">Ano</th><th style="text-align:left;padding:6px 10px;">Categoria</th><th style="text-align:left;padding:6px 10px;">Menor preço</th></tr>
+        ${recent.map(b => `
+          <tr><td style="padding:6px 10px;"><a href="${BASE}/bikes/${b.slug}/">${b.brand} ${b.model}</a></td>
+          <td style="padding:6px 10px;">${b.year}</td>
+          <td style="padding:6px 10px;">${b.category.replace(/-/g, ' ')}</td>
+          <td style="padding:6px 10px;">${b.priceLowest ? 'R$ ' + b.priceLowest.toLocaleString('pt-BR') : '—'}</td></tr>
+        `).join('')}
+      </table>`
+  }
+
+  // Event Metrics
+  function renderEventsMetrics() {
+    var metricsDiv = document.getElementById('events-metrics')
+    if (typeof PedalData === 'undefined' || typeof PedalData.getEventSummary !== 'function') {
+      metricsDiv.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);">Sistema de eventos não carregado. Navegue pelo site para gerar eventos.</p>'
+      return
+    }
+
+    var summary = PedalData.getEventSummary()
+    var recentEvents = PedalData.getEvents({ limit: 20 })
+
+    if (summary.total === 0) {
+      metricsDiv.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);">Nenhum evento registrado ainda. Use o site para gerar eventos.</p>'
+      return
+    }
+
+    var categoryLabels = {
+      content: 'Conteúdo',
+      product: 'Produto',
+      tool: 'Ferramentas',
+      lead: 'Lead',
+      newsletter: 'Newsletter',
+      affiliate: 'Afiliados'
+    }
+
+    var html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px;">'
+    html += '<div style="background:var(--bg);padding:12px;border-radius:var(--radius);text-align:center;"><div style="font-size:1.5rem;font-weight:700;">' + summary.total + '</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);">Total de eventos</div></div>'
+    html += '<div style="background:var(--bg);padding:12px;border-radius:var(--radius);text-align:center;"><div style="font-size:1.5rem;font-weight:700;">' + summary.today + '</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);">Hoje</div></div>'
+    html += '</div>'
+
+    html += '<h4 style="font-size:0.82rem;margin-bottom:8px;">Por categoria</h4>'
+    html += '<table class="specs-table" style="font-size:0.82rem;">'
+    for (var cat in summary.byCategory) {
+      html += '<tr><td class="spec-label">' + (categoryLabels[cat] || cat) + '</td><td><strong>' + summary.byCategory[cat] + '</strong></td></tr>'
+    }
+    html += '</table>'
+
+    html += '<h4 style="font-size:0.82rem;margin-top:16px;margin-bottom:8px;">Últimos eventos</h4>'
+    html += '<table class="specs-table" style="font-size:0.78rem;">'
+    html += '<tr><th style="text-align:left;padding:4px 6px;">Ação</th><th style="text-align:left;padding:4px 6px;">Categoria</th><th style="text-align:left;padding:4px 6px;">Página</th><th style="text-align:left;padding:4px 6px;">Data</th></tr>'
+    recentEvents.reverse().forEach(function(ev) {
+      html += '<tr><td style="padding:4px 6px;">' + ev.action + '</td><td style="padding:4px 6px;">' + ev.category + '</td><td style="padding:4px 6px;font-size:0.72rem;">' + ev.page + '</td><td style="padding:4px 6px;font-size:0.72rem;">' + new Date(ev.timestamp).toLocaleString('pt-BR') + '</td></tr>'
+    })
+    html += '</table>'
+
+    metricsDiv.innerHTML = html
+  }
+
+  renderEventsMetrics()
+  setInterval(renderEventsMetrics, 5000)
+})()
+</script>

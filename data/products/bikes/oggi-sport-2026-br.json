@@ -1,0 +1,23 @@
+{
+  "id": "oggi-sport-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Sport",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-entry",
+  "officialUrl": "https://www.oggi.com.br/sport",
+  "distributorUrl": "https://www.oggi.com.br/sport",
+  "frame": { "material": "aluminum", "technology": "Oggi Aluminium", "internalCableRouting": false },
+  "fork": { "material": "steel", "model": "Oggi Hi-Ten" },
+  "drivetrain": { "brand": "Shimano", "groupset": "Tourney A070", "speeds": 14, "shifting": "mechanical", "chainrings": [50, 34], "cassette": { "smallest": 14, "largest": 28 } },
+  "brakes": { "type": "rim-brake", "brand": "Shimano", "model": "Tourney" },
+  "wheels": { "brand": "Oggi", "model": "Oggi standard", "material": "aluminum" },
+  "tires": { "brand": "Kenda", "model": "K193", "widthMm": 25, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 12.5, "size": "M", "sourceId": "oggi-official-2026" },
+  "maxTireClearanceMm": { "value": 28, "sourceId": "oggi-official-2026" },
+  "warranty": { "description": "Garantia Oggi de 2 anos", "sourceId": "oggi-official-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

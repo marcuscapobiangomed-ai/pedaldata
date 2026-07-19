@@ -1,0 +1,36 @@
+{
+  "productId": "specialized-tarmac-sl7-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Specialized Brasil",
+      "price": 25990,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.specialized.com/br/pt/tarmac-sl7",
+      "checkedAt": "2026-07-19"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 27990,
+      "regularPrice": 29990,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/specialized-tarmac-sl7",
+      "checkedAt": "2026-07-18"
+    },
+    {
+      "store": "Centauro",
+      "price": 24990,
+      "regularPrice": 27990,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "out-of-stock",
+      "url": "https://www.centauro.com.br/specialized-tarmac-sl7",
+      "checkedAt": "2026-07-15"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cervelo-soloist-105-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Cervélo",
+  "model": "Soloist 105",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-allround",
+  "officialUrl": "https://www.cervelo.com/en/bikes/soloist",
+  "distributorUrl": null,
+  "frame": { "material": "carbon", "technology": "Cervélo carbon", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Soloist carbon" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105 Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 30 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "105" },
+  "wheels": { "brand": "DT Swiss", "model": "R470", "material": "aluminum" },
+  "tires": { "brand": "Vittoria", "model": "Rubino Pro", "widthMm": 28, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 8.8, "size": "56", "sourceId": "cervelo-official-global-2026" },
+  "maxTireClearanceMm": { "value": 34, "sourceId": "cervelo-official-global-2026" },
+  "warranty": { "description": "Garantia Cervélo conforme política do importador", "sourceId": "cervelo-official-global-2026" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "scott-addict-10-2026-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Addict 10",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-endurance",
+  "officialUrl": "https://www.scott-sports.com/us/en/product/scott-addict-10-2026",
+  "distributorUrl": "https://www.scottbrasil.com.br/addict-10",
+  "frame": { "material": "carbon", "technology": "HMX", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Addict HMX" },
+  "drivetrain": { "brand": "Shimano", "groupset": "Ultegra Di2 R8170", "speeds": 12, "shifting": "electronic", "chainrings": [50, 34], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "Ultegra" },
+  "wheels": { "brand": "Syncros", "model": "Capital 1.0", "material": "carbon" },
+  "tires": { "brand": "Schwalbe", "model": "ONE Race", "widthMm": 30, "tubelessReady": true },
+  "declaredWeight": { "valueKg": 7.8, "size": "M", "sourceId": "scott-official-global-2026" },
+  "maxTireClearanceMm": { "value": 35, "sourceId": "scott-manual-2026" },
+  "warranty": { "description": "Conforme política do distribuidor brasileiro", "sourceId": "scott-brazil-warranty" },
+  "testedByPedalData": false,
+  "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
+}

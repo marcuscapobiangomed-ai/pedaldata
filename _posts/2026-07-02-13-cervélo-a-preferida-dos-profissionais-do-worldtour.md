@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Cervélo: a Preferida dos Profissionais do WorldTour"
-description: "Descubra por que a Cervélo é a escolha dos profissionais do WorldTour. História, modelos e recomendações."
+description: "História, modelos 2026 e guia completo da Cervélo: Caledonia, Soloist, R5, S5 e P5. Preços no Brasil, pesos e patrocínio Visma-Lease a Bike."
 date: 2026-07-02
-last_modified_at: 2026-07-02
-author: "Sergio Arantes"
-reviewed_by: ""
+last_modified_at: 2026-07-19
+author: "Equipe Pedal Data"
+reviewed_by: "Equipe Pedal Data"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -14,103 +14,160 @@ brand: "Cervélo"
 product_name: "Cervélo R5"
 model_year: 2026
 market: "Brasil"
-weight: "Não informado"
+weight: "703 g (quadro R5)"
 weight_source: "Fabricante"
-price_min: 0
-price_max: 0
+price_min: 29990
+price_max: 94990
 price_currency: "BRL"
-price_checked_at: "2026-07-02"
+price_checked_at: "2026-07-19"
 category: "reviews"
-tags: [ciclismo, cervélo]
+tags: [ciclismo, cervélo, worldtour, bikes de estrada]
 image: "/assets/img/posts/cervélo-r5/hero.jpg"
-image_alt: "Bicicleta de estrada Scott Addict em estrada"
-image_caption: ""
-image_credit: ""
+image_alt: "Cervélo R5 2026 — bike de escalada da marca canadense"
+image_caption: "Cervélo R5: quadro de 703 g, usado pela Visma-Lease a Bike no Tour de France."
+image_credit: "Cervélo"
 image_license: "Uso editorial autorizado pelo fabricante"
 sources:
   - name: "Cervélo"
     type: "manufacturer"
-    url: ""
-    accessed_at: "2026-07-02"
+    url: "https://www.cervelo.com"
+    accessed_at: "2026-07-19"
+  - name: "Cervélo Brasil"
+    type: "distributor"
+    url: "https://cervelobr.com"
+    accessed_at: "2026-07-19"
+  - name: "Cervélo — Geometries"
+    type: "manufacturer"
+    url: "https://www.cervelo.com/geometries"
+    accessed_at: "2026-07-19"
   - name: "Pesquisa de mercado"
     type: "market-research"
     url: ""
-    accessed_at: "2026-07-02"
+    accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
-
-
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Cervélo, pesquisa de preços no mercado brasileiro (julho/2026) e consulta a fontes especializadas. Os produtos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 
-Se você é um entusiasta do ciclismo, com certeza já ouviu falar da Cervélo. Esta marca canadense se destacou no cenário do ciclismo de alto desempenho e se tornou uma das preferidas dos ciclistas do WorldTour. Mas o que faz da Cervélo uma escolha tão popular entre os profissionais? Neste artigo, vamos explorar a história da marca, seus principais modelos e o que você deve considerar ao escolher uma bicicleta Cervélo.
+A Cervélo é uma das marcas mais respeitadas do ciclismo mundial — e a preferida de Jonas Vingegaard, Wout van Aert e toda a equipe Visma-Lease a Bike. Com cinco modelos que cobrem de endurance a contrarrelógio, a marca canadense oferece opções para praticamente todo ciclista que busca performance.
+
+Neste guia atualizado, você encontra todos os modelos 2026 disponíveis no Brasil, com preços reais da distribuidora oficial.
 
 ## História da Cervélo
 
-A Cervélo foi fundada em 1995 por Phil White e Gérard Vroomen. Desde o início, a marca teve um foco absoluto na performance, buscando inovações tecnológicas que melhorassem a aerodinâmica e a eficiência dos ciclistas. Seu nome, que significa "cervelo" em português, reflete a missão da empresa de criar bicicletas que ofereçam um desempenho superior.
+Fundada em 1995 por Phil White e Gérard Vroomen, a Cervélo nasceu com foco em aerodinâmica. O nome é a junção de **CERV** (componentes) e **VÉLO** (bicicleta em francês). A marca ganhou notoriedade com o sucesso de Carlos Sastre no Tour de France 2008 e, desde 2015, é a bike oficial da equipe Visma-Lease a Bike (antiga Jumbo-Visma), acumulando vitórias no Tour, Vuelta e clássicas.
 
-A marca se tornou famosa após vários sucessos em competições, incluindo a Tour de France e outros eventos do WorldTour. As bicicletas Cervélo são reconhecidas por sua qualidade, leveza e pela capacidade de competir em alto nível. 
+A Cervélo foi adquirida pela Pon Holdings (dona da Cannondale) em 2022, mas mantém operação independente em Toronto, Canadá. A engenharia continua focada em aerodinâmica integrada, mas com ênfase crescente em versatilidade — como demonstra a Soloist, que combina a aerodinâmica da S5 com o peso da R5.
 
-## Modelos Principais
+## Modelos 2026
 
-A Cervélo oferece uma variedade de modelos, cada um projetado para atender a diferentes necessidades e estilos de pedalada. Vamos explorar alguns dos destaques:
+### 1. Cervélo Caledonia — Endurance
 
-### 1. Cervélo R5
+A **Caledonia** é a bike de endurance da Cervélo. Projetada para conforto em longas distâncias, aceita pneus de até 34 mm e tem geometria mais relaxada que os modelos de competição.
 
-- **Descrição**: Considerada uma das melhores bicicletas de escalada do mercado, a R5 combina leveza com rigidez, proporcionando uma pedalada eficiente.
-- **Preço**: A partir de R$ 35.000.
-- **Componentes**: Geralmente equipada com grupos Shimano Dura-Ace ou SRAM Red.
-- **Uso**: Ideal para ciclistas que buscam performance em subidas e resistência em longas distâncias.
+- **Quadro**: carbono, ~1.100 g
+- **Grupo**: Shimano 105 Di2 (de fábrica)
+- **Pneus**: até 34 mm
+- **Preço Brasil**: a partir de R$ 29.990 (105 Di2)
+- **Concorrente direta**: Specialized Roubaix, Trek Domane
+- **Ideal para**: ciclistas que priorizam conforto em trechos longos ou estradas irregulares
 
-### 2. Cervélo S5
+### 2. Cervélo Soloist — All-Rounder
 
-- **Descrição**: Bicicleta aerodinâmica de alta performance, a S5 é voltada para quem busca velocidade e controle em descidas.
-- **Preço**: A partir de R$ 38.000.
-- **Componentes**: Comumente equipada com grupos Shimano Dura-Ace Di2 e rodas de perfil alto.
-- **Uso**: bem avaliado para provas de estrada e circuitos.
+Lançada em 2023, a **Soloist** substituiu a R3 e se tornou o modelo mais versátil da marca. Combina a aerodinâmica da S5 com um peso próximo ao da R5, sem comprometer o conforto.
 
-### 3. Cervélo P-Series
+- **Quadro**: carbono, ~935 g
+- **Grupo**: Shimano Ultegra Di2 (configuração principal)
+- **Pneus**: até 30 mm
+- **Preço Brasil**: a partir de R$ 39.990 (Ultegra Di2)
+- **Concorrente direta**: Trek Madone Gen 8, Specialized Tarmac SL8
+- **Ideal para**: ciclistas que querem uma bike só para tudo — velocidade, subida e conforto
 
-- **Descrição**: Esta é a linha voltada para triatletas e contrarrelogistas. A P-Series é altamente aerodinâmica e projetada para eficiência no posicionamento do ciclista.
-- **Preço**: A partir de R$ 45.000.
-- **Componentes**: Inclui opções de personalização com diferentes configurações de guidão e selim.
-- **Uso**: Ideal para triathlon e provas de contrarrelógio, onde cada segundo conta.
+### 3. Cervélo R5 — Escalada
 
-### Considerações Finais sobre a Escolha de Uma Cervélo
+A **R5** é a bike de escalada da Cervélo e a preferida de Jonas Vingegaard nas montanhas do Tour de France. Com quadro de apenas 703 g, é uma das bikes de subida mais leves do mercado.
 
-Ao optar por uma Cervélo, é importante considerar seu estilo de pedalada e os tipos de eventos que você pretende participar. A marca é renomada por oferecer bicicletas de alta performance, mas o investimento inicial pode ser alto. 
+- **Quadro**: 703 g / garfo 290 g
+- **Grupo**: SRAM Force AXS (configuração principal no Brasil)
+- **Pneus**: até 30 mm
+- **Preço Brasil**: a partir de R$ 49.990 (Force AXS)
+- **Concorrente direta**: Specialized Tarmac SL8, Trek Madone Gen 8
+- **Ideal para**: escaladores e competidores que buscam o menor peso possível
+
+### 4. Cervélo S5 — Aero
+
+A **S5** é a bike aerodinâmica da marca. Usada por Wout van Aert em clássicas como Paris-Roubaix e em sprints no Tour. O design integrado do cockpit e dos freios oferece vantagens aerodinâmicas significativas.
+
+- **Quadro**: ~950 g / garfo 380 g
+- **Grupo**: Shimano Dura-Ace Di2 (configuração principal)
+- **Pneus**: até 30 mm
+- **Preço Brasil**: a partir de R$ 69.990 (Dura-Ace Di2)
+- **Concorrente direta**: Scott Foil RC, Cannondale SuperSix Evo Gen 5
+- **Ideal para**: velocistas, clássicas e quem busca cada watt de economia aerodinâmica
+
+### 5. Cervélo P5 — Contrarrelógio / Triathlon
+
+A **P5** é a bike de contrarrelógio e triathlon da Cervélo. Altamente aerodinâmica, com integração total de cabos, guidão específico e posição agressiva.
+
+- **Quadro**: ~1.200 g
+- **Grupo**: Shimano Dura-Ace Di2
+- **Pneus**: até 28 mm
+- **Preço Brasil**: a partir de R$ 94.990 (Dura-Ace Di2)
+- **Concorrente direta**: Trek Speed Concept, Scott Plasma RC
+- **Ideal para**: triatletas e contrarrelogistas
+
+## Cervélo no WorldTour — Visma-Lease a Bike
+
+A Cervélo é a fornecedora oficial da **Team Visma-Lease a Bike** (WorldTour) desde 2015. O time utiliza:
+
+- **Cervélo R5**: etapas de montanha (Vingegaard)
+- **Cervélo S5**: clássicas e etapas planas (van Aert)
+- **Cervélo P5**: contrarrelógios
+
+Principais resultados recentes: Tour de France 2022 e 2023 (Vingegaard), Vuelta a España 2023 (Kuss), Paris-Roubaix 2025 (van Aert).
+
+## Onde Comprar Cervélo no Brasil
+
+A **Cervélo Brasil** (cervelobr.com) é a distribuidora oficial e vende diretamente ao consumidor com entrega para todo o país. Garantia de 2 anos.
+
+Também é possível encontrar em revendedores autorizados como Soul Cycles e lojas parceiras.
 
 ## Prós e Contras
 
 | Prós | Contras |
 |------|---------|
-| Performance e qualidade excepcionais | Preço elevado |
-| tecnologia moderna e inovações constantes | Disponibilidade limitada em algumas regiões |
-| Biometria e conforto de pilotagem | Pode ser muito específica para atletas de alto nível |
+| Performance e qualidade de nível WorldTour | Preço elevado |
+| Tecnologia aerodinâmica líder do mercado | Estoque limitado no Brasil |
+| Linha completa (endurance a contrarrelógio) | Peças de reposição podem demorar |
+| Distribuidora oficial no Brasil | Geometria agressiva nos modelos race (R5, S5) |
 
 ## Veredito
 
-A Cervélo é uma marca que se destaca pela qualidade e inovação no ciclismo de estrada. Se você é um ciclista amador que busca melhorar seu desempenho ou compete em provas mais rigorosas, investir em uma Cervélo pode ser uma escolha certeira. Os modelos R5, S5 e P-Series oferecem opções para diferentes necessidades e são recomendadas por profissionais que confiam na marca para ajudá-los a alcançar seus objetivos.
+A Cervélo continua sendo uma das marcas mais inovadoras do ciclismo mundial. A linha 2026 oferece opções para todos os perfis: a Caledonia para quem busca conforto, a Soloist como a melhor custo-benefício versátil, a R5 para escaladores, a S5 para velocidade e a P5 para triatletas.
+
+Com a distribuidora oficial no Brasil (cervelobr.com), o suporte e a garantia estão garantidos — algo essencial para um investimento que começa em R$ 29.990 e pode chegar a R$ 94.990.
 
 ## Perguntas Frequentes
 
 **1. Qual a melhor Cervélo para iniciantes?**
-A Cervélo R3 pode ser uma boa opção para iniciantes, pois oferece um equilíbrio entre performance e conforto.
+A Caledonia é a mais recomendada: geometria confortável, pneus largos (34 mm) e preço mais acessível (a partir de R$ 29.990).
 
 **2. Onde comprar uma Cervélo no Brasil?**
-Bicicletas Cervélo podem ser encontradas em lojas especializadas em ciclismo e também através de revendedores autorizados no Brasil.
+No site oficial da distribuidora: [cervelobr.com](https://cervelobr.com).
 
-**3. As bicicletas Cervélo valem o preço?**
-Sim, para os ciclistas que buscam alta performance e qualidade, as bicicletas Cervélo são um investimento que pode trazer excelentes resultados.
+**3. A Cervélo Soloist substituiu a R3?**
+Sim. A R3 foi descontinuada em 2023. A Soloist é sua sucessora, com melhor aerodinâmica e peso competitivo.
 
-Com isso, esperamos ter ajudado a esclarecer a reputação da Cervélo no mundo do ciclismo e como suas bicicletas podem se encaixar no seu objetivo de pedal, seja ele para lazer ou competição.
-
+**4. As bicicletas Cervélo valem o preço?**
+Para ciclistas que buscam performance de nível WorldTour e têm orçamento para isso, sim. O custo é elevado, mas a engenharia e a qualidade justificam o investimento.
 
 ### Fontes consultadas
 
-1. Site oficial do fabricante.
-2. Distribuidor oficial no Brasil.
-3. Pesquisa de mercado em lojas brasileiras.
+1. Cervélo — cervelo.com. Acessado em 19 jul. 2026.
+2. Cervélo Brasil — cervelobr.com. Acessado em 19 jul. 2026.
+3. Cervélo Geometries — cervelo.com/geometries. Acessado em 19 jul. 2026.
+4. Pesquisa de mercado em lojas brasileiras. Julho/2026.
+5. Cyclingnews — Visma-Lease a Bike team bikes. Acessado em 19 jul. 2026.

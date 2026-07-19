@@ -1,0 +1,36 @@
+{
+  "productId": "caloi-strada-100-2026-br",
+  "currency": "BRL",
+  "observations": [
+    {
+      "store": "Caloi",
+      "price": 3299,
+      "regularPrice": 3499,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.caloi.com/bicicletas/strada-100",
+      "checkedAt": "2026-07-19"
+    },
+    {
+      "store": "Mercado Livre",
+      "price": 3799,
+      "regularPrice": null,
+      "installments": 12,
+      "shippingIncluded": true,
+      "availability": "in-stock",
+      "url": "https://produto.mercadolivre.com.br/caloi-strada-100",
+      "checkedAt": "2026-07-18"
+    },
+    {
+      "store": "Centauro",
+      "price": 3499,
+      "regularPrice": 3799,
+      "installments": 10,
+      "shippingIncluded": false,
+      "availability": "in-stock",
+      "url": "https://www.centauro.com.br/caloi-strada-100",
+      "checkedAt": "2026-07-19"
+    }
+  ]
+}
