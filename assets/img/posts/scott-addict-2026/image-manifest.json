@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/grayscale-photography-of-road-bicycle-pIwu5XNvXpk",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Mike B",
+    "alt": "Bicicleta de estrada em fotografia monocromática",
+    "width": 1200,
+    "height": 675
+  }
+}

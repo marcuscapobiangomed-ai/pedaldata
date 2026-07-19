@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/cyclist-rides-his-bike-on-a-curvy-road-66c693mbVKU",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Fredo Gerdes",
+    "alt": "Ciclista em estrada sinuosa com bicicleta de estrada",
+    "width": 1200,
+    "height": 675
+  }
+}

@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Trek Émonda vs Specialized Tarmac: Qual a Melhor Bike de Escalada?"
-date: 2026-07-26
-tags: [comparativos, bicicletas, escalada, trek, specialized]
 description: "Comparativo entre Trek Émonda e Specialized Tarmac: confira preços, características e decida qual é a melhor bike de escalada para você."
-
+date: 2026-07-26
+last_modified_at: 2026-07-26
 author: "Sergio Arantes"
-image: "/assets/img/posts/trek-road-bike.png"
-image_alt: "Trek Émonda vs Specialized Tarmac"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Trek / Specialized"
+product_name: "Émonda vs Tarmac"
+model_year: 
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-26"
+category: "comparativo"
+tags: [comparativos, bicicletas, ciclismo, trek]
+image: "/assets/img/posts/trek-emonda-vs-specialized-tarmac/hero.jpg"
+image_alt: "Comparativo Trek Émonda vs Specialized Tarmac"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Specialized"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-26"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-26"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -88,3 +120,10 @@ Para iniciantes, a Specialized Tarmac pode ser mais indicada devido ao seu confo
 Ambas são de marcas renomadas e oferecem boa durabilidade, desde que feitas manutenções regulares.
 
 Seja qual for sua escolha, ambas as bicicletas são excelentes para o que há de melhor em escaladas no ciclismo!
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

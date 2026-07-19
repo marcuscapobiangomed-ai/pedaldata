@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+    "license": "Unsplash Free",
+    "credit": "Alex Alvarez",
+    "alt": "Componentes e inovações para bicicleta 2026",
+    "width": 1200,
+    "height": 675
+  }
+}

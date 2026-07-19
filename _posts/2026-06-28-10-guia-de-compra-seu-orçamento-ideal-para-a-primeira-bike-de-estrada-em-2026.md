@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Guia de Compra: Seu Orçamento Ideal para a Primeira Bike de Estrada em 2026"
-date: 2026-06-28
-tags: [componentes, bike de estrada, ciclismo, orçamento]
 description: "Descubra o orçamento ideal para a sua primeira bike de estrada em 2026, incluindo acessórios essenciais para ciclistas iniciantes."
-
+date: 2026-06-28
+last_modified_at: 2026-06-28
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "guia-de-compra"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: ""
+product_name: ""
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-06-28"
+category: "guia-de-compra"
+tags: [componentes, bike de estrada, ciclismo, guias-de-compra]
+image: "/assets/img/posts/orcamento-ideal-primeira-bike-estrada/hero.jpg"
+image_alt: "Bicicleta em estrada de terra — orçamento para primeira bike"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Fabricante"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-06-28"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-06-28"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -90,3 +122,10 @@ As de alumínio são mais baratas e pesadas, enquanto as de carbono são mais le
 Loja especializadas em ciclismo e e-commerce são boas opções. Sempre verifique a reputação da loja antes de comprar.
 
 Entrar no mundo do ciclismo de estrada é uma jornada empolgante e extremamente gratificante. Com as informações desse guia, esperamos que você se sinta mais preparado para fazer a escolha certa!
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

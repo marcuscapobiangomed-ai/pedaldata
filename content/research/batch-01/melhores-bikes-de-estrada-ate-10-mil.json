@@ -1,0 +1,86 @@
+{
+  "slug": "melhores-bikes-de-estrada-ate-10-mil",
+  "title": "Melhores Bikes de Estrada até R$ 10.000 em 2026",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "research_pending",
+
+  "original_posts": ["comparativo-5-melhores-bikes-de-estrada-ate-r-10-000-em-2026"],
+
+  "decision": "reescrever",
+  "target_url": "/guias/melhores-bikes-de-estrada-ate-10-mil/",
+
+  "known_issues": [
+    "\"Trekk 1.1\" — marca Trek escrita errada, modelo 1.1 não identificado",
+    "Caloi Elite Carbon a R$ 9.500 — inconsistente com post 2 (R$ 4.999)",
+    "Conteúdo genérico sem fontes",
+    "Ponto fraco \"suporte para garrafa\" questionável como crítica relevante"
+  ],
+
+  "application": {
+    "question": "Quais as melhores bikes de estrada de R$ 5.000 a R$ 10.000 no Brasil?",
+    "audience": "Ciclistas intermediários com orçamento até R$ 10.000",
+    "product_version": "Modelos 2025-2026 disponíveis no Brasil",
+    "model_year": 2026,
+    "article_type": "Comparativo de compra",
+    "actual_review_or_desk": "desk-research"
+  },
+
+  "claims_to_verify": [
+    {
+      "claim": "Caloi Elite Carbon — R$ 9.500, carbono, Tiagra, 9,5 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço diferente do post 2 (R$ 4.999). Qual é o correto?"
+    },
+    {
+      "claim": "Trek 1.1 — R$ 8.999, alumínio, Sora, 10,5 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Marca Trek escrita como 'Trekk'. Modelo '1.1' não identificado no site da Trek Brasil."
+    },
+    {
+      "claim": "Cannondale CAAD Optimo — R$ 9.799, alumínio SmartForm, 105, 9,8 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço possível. Verificar com distribuidor."
+    },
+    {
+      "claim": "Giant Contend AR — R$ 9.299, alumínio, Tiagra, 10,3 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Verificar disponibilidade no Brasil."
+    },
+    {
+      "claim": "Specialized Allez — R$ 7.999, alumínio, Claris, 10,2 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço parece alto para Allez com Claris. Verificar."
+    }
+  ],
+
+  "sources_to_find": [
+    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Elite Carbon specs e preço" },
+    { "type": "manufacturer", "name": "Trek", "url": "https://www.trekbikes.com/br/pt", "purpose": "Modelos Domane e Émonda de entrada" },
+    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "CAAD Optimo specs" },
+    { "type": "manufacturer", "name": "Giant", "url": "https://www.giant-bicycles.com/br", "purpose": "Contend AR specs" },
+    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Allez lineup" },
+    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Preços de mercado" },
+    { "type": "retailer", "name": "Centauro", "url": "https://www.centauro.com.br", "purpose": "Preços" }
+  ],
+
+  "price_check": {
+    "currency": "BRL",
+    "checked_at": null,
+    "min_budget": 5000,
+    "max_budget": 10000,
+    "stores_to_check": ["Mercado Livre", "Centauro", "Amazon Brasil", "bike shops especializadas"]
+  },
+
+  "notes": "Reescrever corrigindo erros graves. Verificar modelos que realmente existem na faixa de R$ 5k a R$ 10k no Brasil. Garantir consistência de preços com outros posts. Sugerir incluir opções de alumínio de boa qualidade com grupos Sora/Tiagra/105."
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "melhor-bike-de-estrada-para-iniciantes",
+  "title": "Guia Completo: A Melhor Bike de Estrada para Iniciantes",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "research_pending",
+
+  "original_posts": [
+    "guia-completo-melhor-bike-de-estrada-para-iniciantes-em-2026",
+    "guia-de-compra-seu-orcamento-ideal-para-a-primeira-bike-de-estrada-em-2026",
+    "bicicleta-de-estrada-nova-vs-usada-pros-e-contras-e-precos-no-brasil"
+  ],
+
+  "decision": "fundir",
+  "target_url": "/guias/melhor-bike-de-estrada-para-iniciantes/",
+
+  "application": {
+    "question": "Qual a melhor bicicleta de estrada para quem está começando?",
+    "audience": "Ciclistas iniciantes no Brasil, orçamento de R$ 3.000 a R$ 8.000",
+    "product_version": "N/A — guia geral com modelos específicos",
+    "model_year": null,
+    "article_type": "Guia de compra completo",
+    "actual_review_or_desk": "desk-research"
+  },
+
+  "claims_to_verify": [
+    {
+      "claim": "Caloi Strada 100 — R$ 3.500, quadro alumínio, Shimano Tourney",
+      "status": "parcialmente_confirmada",
+      "source": "",
+      "notes": "Modelo existe. Preço e grupo a confirmar com distribuidor."
+    },
+    {
+      "claim": "Specialized Allez — R$ 5.500, quadro alumínio, Shimano Tiagra",
+      "status": "parcialmente_confirmada",
+      "source": "",
+      "notes": "Allez existe. Preço brasileiro e configuração exata a verificar."
+    },
+    {
+      "claim": "Trek Domane AL 2 — R$ 6.000, quadro alumínio, Shimano Sora",
+      "status": "parcialmente_confirmada",
+      "source": "",
+      "notes": "Modelo existe. Preço a confirmar no distribuidor brasileiro."
+    },
+    {
+      "claim": "Cannondale CAAD Optimo — R$ 7.000, quadro alumínio, Shimano 105",
+      "status": "parcialmente_confirmada",
+      "source": "",
+      "notes": "Modelo existe. Preço parece abaixo do mercado para configuração com 105."
+    },
+    {
+      "claim": "Caloi Elite Carbon — R$ 4.999 a R$ 10.000",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço varia R$ 5.001 entre posts. Inconsistência grave. Verificar preço real."
+    },
+    {
+      "claim": "Giant Contend 3 — R$ 4.500 a R$ 5.000",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Verificar modelo e preço."
+    }
+  ],
+
+  "sources_to_find": [
+    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Especificações Strada 100" },
+    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Especificações Allez" },
+    { "type": "manufacturer", "name": "Trek Bicycles", "url": "https://www.trekbikes.com/br/pt", "purpose": "Especificações Domane AL 2" },
+    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "Especificações CAAD Optimo" },
+    { "type": "distributor", "name": "Distribuidor oficial Caloi/Sense", "url": "", "purpose": "Preços e disponibilidade" },
+    { "type": "retailer", "name": "Decathlon Brasil", "url": "https://www.decathlon.com.br", "purpose": "Preços de bikes de entrada" },
+    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Comparação de preços" }
+  ],
+
+  "price_check": {
+    "currency": "BRL",
+    "checked_at": null,
+    "min_budget": 3000,
+    "max_budget": 8000,
+    "stores_to_check": ["Decathlon", "Centauro", "Mercado Livre", "Bike Point", "lojas especializadas locais"]
+  },
+
+  "image_plan": {
+    "needs_hero": true,
+    "needs_comparison_table": true,
+    "needs_size_chart": true,
+    "needs_diagram": false,
+    "ai_generated_allowed_for": ["hero ilustrativo", "tabela comparativa", "gráfico de faixa de preço"],
+    "ai_generated_banned_for": ["qualquer modelo específico de bike"]
+  },
+
+  "affiliate_links": false,
+  "affiliate_disclosure": "N/A",
+
+  "next_revision": null,
+  "responsible": "Sergio Arantes",
+  "notes": "Guia principal para iniciantes. Substitui 3 posts existentes. Prioridade máxima por ser porta de entrada do blog. Pesquisa de preços reais necessária antes da reescrita."
+}

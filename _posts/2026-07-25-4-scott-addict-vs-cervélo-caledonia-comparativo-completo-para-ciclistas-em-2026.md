@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Scott Addict vs Cervélo Caledonia: Comparativo Completo para Ciclistas em 2026"
-date: 2026-07-25
-tags: [comparativos, scott, cervélo, bike de estrada, comparativo]
 description: "Compare a Scott Addict e a Cervélo Caledonia e descubra qual bike de estrada é a melhor opção para você em 2026."
-
+date: 2026-07-25
+last_modified_at: 2026-07-25
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Scott Addict vs Cervélo Caledonia"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Scott"
+product_name: "Addict"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-25"
+category: "comparativo"
+tags: [ciclismo, comparativos, scott, cervélo]
+image: "/assets/img/posts/scott-addict-vs-cervelo-caledonia/hero.jpg"
+image_alt: "Comparativo Scott Addict vs Cervélo Caledonia"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Scott"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-25"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-25"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -34,7 +66,7 @@ A Addict é elogiada por sua leveza e resposta rápida, além do conforto durant
 
 ### Cervélo Caledonia
 
-Por outro lado, a Cervélo Caledonia é uma bike que se destaca pela versatilidade e conforto, perfeita tanto para pedaladas em estradas pavimentadas quanto em terrenos um pouco mais acidentados.
+Por outro lado, a Cervélo Caledonia é uma bike que se destaca pela versatilidade e conforto, bem avaliado tanto para pedaladas em estradas pavimentadas quanto em terrenos um pouco mais acidentados.
 
 #### Especificações:
 - **Quadro:** Fibra de carbono
@@ -90,3 +122,10 @@ Sim, devido à sua leveza e componentes de alta qualidade, a Scott Addict tende 
 
 **Qual das duas tem um melhor custo-benefício?**
 A Cervélo Caledonia pode ser considerada melhor em termos de custo-benefício, especialmente se você busca uma bike versátil e confortável sem gastar tanto.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

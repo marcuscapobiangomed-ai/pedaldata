@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/black-and-gray-bicycle-on-road-during-daytime-gP4pegIxClU",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Usman Omar",
+    "alt": "Bicicleta preta e cinza em estrada durante o dia",
+    "width": 1200,
+    "height": 675
+  }
+}

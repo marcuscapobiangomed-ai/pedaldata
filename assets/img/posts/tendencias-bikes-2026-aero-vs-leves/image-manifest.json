@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/cyclist-rides-down-a-paved-road-on-a-sunny-day-_6ucMuLcAhI",
+    "license": "Unsplash Free",
+    "credit": "Photographer: TienDat Photographer",
+    "alt": "Ciclista descendo estrada asfaltada em dia ensolarado",
+    "width": 1200,
+    "height": 675
+  }
+}

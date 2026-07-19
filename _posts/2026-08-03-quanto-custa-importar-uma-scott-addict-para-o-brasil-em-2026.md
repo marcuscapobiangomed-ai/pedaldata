@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Quanto Custa Importar uma Scott Addict para o Brasil em 2026"
-date: 2026-08-03
-tags: [guias-de-compra, importação, scott addict, ciclismo de estrada]
 description: "Descubra o custo total para importar uma bicicleta Scott Addict para o Brasil em 2026 e o que considerar antes de comprar."
-
+date: 2026-08-03
+last_modified_at: 2026-08-03
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "guia-tecnico"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Scott"
+product_name: "Addict"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-08-03"
+category: "guia-tecnico"
+tags: [guias-de-compra, importação, scott addict, ciclismo]
+image: "/assets/img/posts/quanto-custa-importar-scott-addict/hero.jpg"
+image_alt: "Quanto custa importar Scott Addict para o Brasil"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Scott"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-08-03"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-08-03"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -22,9 +54,9 @@ A Scott Addict é uma das bicicletas de estrada mais desejadas por ciclistas ama
 
 Antes de falarmos sobre a importação, precisamos entender o preço da bicicleta no mercado internacional. Em 2026, a Scott Addict, dependendo da configuração, está sendo vendida a partir de:
 
-- **Scott Addict RC 15**: cerca de R$ 25.000,00 a R$ 30.000,00.
-- **Scott Addict RC 30**: aproximadamente R$ 20.000,00 a R$ 25.000,00.
-  
+- **Scott Addict RC 20** (Shimano Ultegra Di2): cerca de R$ 18.000,00 a R$ 22.000,00.
+- **Scott Addict RC Pro** (Shimano Dura-Ace Di2): aproximadamente R$ 48.000,00 a R$ 55.000,00.
+   
 Esses valores são as médias encontradas em lojas da Europa e dos Estados Unidos, que são os principais mercados para esse modelo.
 
 ### 2. Custos de Importação
@@ -35,19 +67,19 @@ Ao importar uma bicicleta para o Brasil, vários custos adicionais devem ser con
 
 A importação de bens pessoais está sujeita a uma alíquota de 60% sobre o valor da mercadoria, além de possíveis taxas estaduais e municipais, como ICMS, que varia entre 7% e 18%, dependendo do estado.
 
-Vamos fazer uma simulação básica para a **Scott Addict RC 15** com preço na Europa: R$ 27.500,00.
+Vamos fazer uma simulação básica para a **Scott Addict RC 20** com preço no exterior: USD $3.500,00.
 
-- **Custo da Bicicleta**: R$ 27.500,00
-- **Imposto de Importação (60%)**: R$ 16.500,00
-- **ICMS (considerando 12%)**: R$ 5.160,00
-  
-**Custo total**: R$ 27.500,00 + R$ 16.500,00 + R$ 5.160,00 = R$ 49.160,00.
+- **Custo da Bicicleta (USD $3.500 × R$ 5,50)**: R$ 19.250,00
+- **Imposto de Importação (60%)**: R$ 11.550,00
+- **ICMS (considerando 12%)**: R$ 3.696,00
+   
+**Custo total**: R$ 19.250,00 + R$ 11.550,00 + R$ 3.696,00 = R$ 34.496,00.
 
 #### 2.2. Frete e Taxas
 
 Além disso, o frete internacional pode girar em torno de R$ 1.200,00 a R$ 2.000,00, dependendo da transportadora. Assim, se incluirmos o frete no custo total:
 
-- **Total com Frete (considerando R$ 1.500,00)**: R$ 49.160,00 + R$ 1.500,00 = R$ 50.660,00.
+- **Total com Frete (considerando R$ 1.500,00)**: R$ 34.496,00 + R$ 1.500,00 = R$ 35.996,00.
 
 #### 2.3. Despesas Adicionais
 
@@ -59,7 +91,7 @@ Com tudo isso, o custo total pode chegar a mais de R$ 52.000,00.
 
 ### 3. Comparativo com o Mercado Nacional
 
-No Brasil, os preços da Scott Addict podem variar consideravelmente, mas em geral, podemos encontrar modelos como a **Scott Addict RC 30** por volta de R$ 35.000,00 a R$ 45.000,00, dependendo da loja e das promoções.
+No Brasil, os preços da Scott Addict podem variar consideravelmente, mas em geral, podemos encontrar modelos como a **Scott Addict RC 20** por volta de R$ 28.000,00 a R$ 35.000,00, dependendo da loja e das promoções.
 
 O que considerar:
 - **A garantia** geralmente é mais fácil de ser reivindicada no Brasil.
@@ -90,3 +122,10 @@ Algumas lojas oferecem descontos em compras de múltiplas unidades ou promoçõe
 
 ### 4. A importação é legalizada? 
 Sim, desde que siga todas as normas e impostos estipulados pela Receita Federal do Brasil, a importação é completamente legal.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

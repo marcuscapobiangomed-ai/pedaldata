@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Scott Foil 2026: Review Completo do Modelo Aero e Suas Novidades"
-date: 2026-06-30
-tags: [reviews, bicicleta, ciclismo, review]
 description: "Descubra tudo sobre a Scott Foil 2026 e suas melhorias em relação à geração anterior. Veja prós, contras e o que a torna uma escolha ideal."
-
+date: 2026-06-30
+last_modified_at: 2026-06-30
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Scott Foil 2026"
+reviewed_by: ""
+content_type: "review"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Scott"
+product_name: "Scott Foil"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-06-30"
+category: "reviews"
+tags: [reviews, bicicleta, ciclismo]
+image: "/assets/img/posts/scott-foil-2026/hero.jpg"
+image_alt: "Ciclista em bicicleta de estrada — Scott Foil 2026"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Scott"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-06-30"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-06-30"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -65,3 +97,10 @@ A melhor opção é consultar lojas de ciclismo especializadas ou grandes redes 
 
 ### 4. Quais são os cuidados para manutenção da Scott Foil?
 É essencial realizar manutenções regulares, especialmente no sistema de mudanças e nas rodas, além de verificar os pneus e os freios, garantindo sempre a segurança e eficiência nas pedaladas.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

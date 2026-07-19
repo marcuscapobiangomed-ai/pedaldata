@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/a-person-riding-a-bike-on-a-road-GmWxFO8FcqA",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Nikita Kachanovsky",
+    "alt": "Ciclista em estrada durante pedalada",
+    "width": 1200,
+    "height": 675
+  }
+}

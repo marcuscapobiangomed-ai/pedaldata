@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Cannondale SuperSix Evo vs SystemSix: Qual Escolher em 2026?"
-date: 2026-07-06
-tags: [comparativos, cannondale, bicicletas de estrada, comparação]
 description: "Descubra qual modelo da Cannondale é a melhor escolha para você em 2026: SuperSix Evo ou SystemSix."
-
+date: 2026-07-06
+last_modified_at: 2026-07-06
 author: "Sergio Arantes"
-image: "/assets/img/posts/specialized-tarmac-sl8.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Cannondale"
+product_name: "SuperSix Evo vs SystemSix"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-06"
+category: "comparativo"
+tags: [ciclismo, comparativos, cannondale, bicicletas de estrada]
+image: "/assets/img/posts/cannondale-supersix-evo-vs-systemsix/hero.jpg"
+image_alt: "Ciclista em estrada — Cannondale SuperSix EVO"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Cannondale"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-06"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-06"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -74,3 +106,10 @@ Para velocidade em retas e competições, a SystemSix se destaca devido ao seu d
 
 **5. Posso encontrar facilmente essas bicicletas no Brasil?**  
 Sim, a Cannondale é uma marca bem distribuída no Brasil, e você deve encontrar ambas em lojas especializadas e lojas online.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

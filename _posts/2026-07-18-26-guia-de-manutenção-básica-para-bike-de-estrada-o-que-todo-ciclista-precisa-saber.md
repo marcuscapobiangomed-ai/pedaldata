@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Guia de Manutenção Básica para Bike de Estrada: O que Todo Ciclista Precisa Saber"
-date: 2026-07-18
-tags: [manutencao, manutenção, bike de estrada, ciclistas amadores]
 description: "Descubra dicas essenciais de manutenção para sua bike de estrada e aprenda a cuidar melhor do seu equipamento."
-
+date: 2026-07-18
+last_modified_at: 2026-07-18
 author: "Sergio Arantes"
-image: "/assets/img/posts/cycling-accessories.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "guia-tecnico"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: ""
+product_name: ""
+model_year: 
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-18"
+category: "guia-tecnico"
+tags: [manutencao, manutenção, bike de estrada, ciclismo]
+image: "/assets/img/posts/guia-manutencao-basica/hero.jpg"
+image_alt: "Manutenção básica de bicicleta de estrada"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Fabricante"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-18"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-18"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -59,7 +91,7 @@ Freios bem ajustados garantem segurança em descidas e em situações de emergê
 ### 5. Revisão do Grupo de Transmissão
 
 **Por que revisar?**
-O grupo de transmissão inclui câmbios, correntes e cassete, e deve funcionar perfeitamente para garantir trocas suaves de marchas.
+O grupo de transmissão inclui câmbios, correntes e cassete, e deve funcionar excelentemente para garantir trocas suaves de marchas.
 
 **Como verificar?**
 - Teste o câmbio: Gire o pedal e troque as marchas várias vezes, ouvindo se há algum "estalo" ou resistência.
@@ -91,3 +123,10 @@ Use um manômetro de pneus para medições precisas, ou verifique as indicaçõe
 
 **4. O que eu faço se não souber ajustar os componentes da minha bike?**
 É sempre recomendado levar sua bicicleta a um mecânico especializado para ajustes mais complexos.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

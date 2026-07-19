@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Shimano 105 vs Ultegra: a Diferença de Preço Justifica?"
-date: 2026-07-29
-tags: [comparativos, ciclismo, shimano, transmissões]
 description: "Entenda as principais diferenças entre Shimano 105 e Ultegra e descubra qual grupo de transmissão é o ideal para você!"
-
+date: 2026-07-29
+last_modified_at: 2026-07-29
 author: "Sergio Arantes"
-image: "/assets/img/posts/cycling-accessories.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Shimano"
+product_name: "Shimano 105 / Ultegra"
+model_year: 
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-29"
+category: "comparativo"
+tags: [comparativos, ciclismo, shimano]
+image: "/assets/img/posts/shimano-105-vs-ultegra/hero.jpg"
+image_alt: "Comparativo Shimano 105 vs Ultegra"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Shimano"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-29"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-29"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -85,3 +117,10 @@ Sim, a Shimano projetou seus grupos para que sejam compatíveis entre si em muit
 
 **3. Quais são os cuidados que devo ter com os grupos de transmissão?**
 Manutenção regular, como lubrificação da corrente e verificação dos desgastes dos componentes, ajudará a garantir a longevidade do seu grupo.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

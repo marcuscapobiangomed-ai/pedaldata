@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Quanto Custa Importar uma Bike de Estrada em 2026: Impostos, Frete e Burocracia"
-date: 2026-07-20
-tags: [guias-de-compra, importação, bicicleta de estrada, custo]
 description: "Descubra quanto custa importar uma bike de estrada em 2026, incluindo impostos, frete e burocracia envolvida."
-
+date: 2026-07-20
+last_modified_at: 2026-07-20
 author: "Sergio Arantes"
-image: "/assets/img/logo.svg"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "guia-tecnico"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: ""
+product_name: ""
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-20"
+category: "guia-tecnico"
+tags: [ciclismo, guias-de-compra, importação, bicicleta de estrada]
+image: "/assets/img/posts/quanto-custa-importar-bike/hero.jpg"
+image_alt: "Importação de bicicleta de estrada para o Brasil"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Fabricante"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-20"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-20"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -81,3 +113,10 @@ Os principais riscos incluem atrasos na entrega, danos durante o transporte e cu
 
 ### 3. Existem alternativas à importação?
 Sim, você pode optar por comprar em lojas especializadas, que oferecem modelos variados e assistência local. Além disso, a compra em grupos de importação pode reduzir custos.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

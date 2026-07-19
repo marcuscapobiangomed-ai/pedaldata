@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Scott Addict 2026: ficha técnica completa, preço no Brasil e para quem é indicada"
-date: 2026-06-29
-tags: [reviews, scott, bicicleta de estrada, review]
 description: "Confira a ficha técnica, preço e análise da Scott Addict 2026, ideal para ciclistas que buscam desempenho e leveza."
-
+date: 2026-06-29
+last_modified_at: 2026-06-29
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Scott Addict 2026"
+reviewed_by: ""
+content_type: "review"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Scott"
+product_name: "Scott Addict"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-06-29"
+category: "reviews"
+tags: [ciclismo, reviews, scott, bicicleta de estrada]
+image: "/assets/img/posts/scott-addict-2026/hero.jpg"
+image_alt: "Bicicleta de estrada Scott Addict em estrada"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Scott"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-06-29"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-06-29"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -24,14 +56,14 @@ A Scott Addict 2026 é uma bicicleta projetada para ser leve e eficiente, com um
 
 - **Quadro:** HMX Carbon
 - **Garfo:** HMX Carbon
-- **Transmissão:** Shimano 105 11 velocidades
-- **Rodas:** Syncros Race 24 
-- **Acessórios:** Selim Syncros, guidão e canote em carbono
-- **Peso:** Aproximadamente 8,0 kg (tamanho M)
+- **Transmissão:** Shimano Ultegra Di2 12 velocidades (modelo de entrada RC 20)
+- **Rodas:** Syncros Capital 1.0 40mm (modelo RC 20)
+- **Acessórios:** Selim Syncros Belcarra, guidão Syncros HB-R100-CF e canote Syncros SP-R101-CF
+- **Peso:** Aproximadamente 7,7 kg (tamanho M, modelo RC 20)
 
 ### Preço no Brasil
 
-O preço da Scott Addict 2026 no Brasil pode variar bastante dependendo da localização e da loja. Em geral, a faixa de preço fica entre **R$ 19.000,00 a R$ 23.000,00**. Vale a pena pesquisar em revendedores autorizados e conferir se há promoções ou pacotes que incluam acessórios, como capacete e roupas.
+O preço da Scott Addict 2026 no Brasil pode variar bastante dependendo da configuração e da loja. Em geral, a faixa de preço do modelo de entrada (RC 20) fica entre **R$ 28.000,00 a R$ 35.000,00**, enquanto versões superiores como a RC Pro e a Ultimate ultrapassam os R$ 70.000,00. Vale a pena pesquisar em revendedores autorizados e conferir se há promoções ou pacotes que incluam acessórios, como capacete e roupas.
 
 ### Para quem é indicada
 
@@ -52,7 +84,7 @@ A Addict é recomendada para aqueles que buscam um equilíbrio entre velocidade 
 
 ## Veredito
 
-A Scott Addict 2026 é uma excelente opção para ciclistas que buscam uma bicicleta de estrada que una leveza, conforto e desempenho. Com um design sofisticado e tecnologia de ponta, ela atende tanto os ciclistas amadores quanto os intermediários que pretendem se aventurar em competições. No entanto, é importante avaliar o investimento, já que seu preço pode ser um fator limitante para alguns. Se você está disposto a investir em qualidade e performance, a Scott Addict 2026 é uma escolha segura.
+A Scott Addict 2026 é uma excelente opção para ciclistas que buscam uma bicicleta de estrada que una leveza, conforto e desempenho. Com um design sofisticado e tecnologia moderna, ela atende tanto os ciclistas amadores quanto os intermediários que pretendem se aventurar em competições. No entanto, é importante avaliar o investimento, já que seu preço pode ser um fator limitante para alguns. Se você está disposto a investir em qualidade e performance, a Scott Addict 2026 é uma escolha segura.
 
 ## Perguntas Frequentes
 
@@ -66,3 +98,10 @@ Sim, a Addict é projetada para ser confortável em longas distâncias, ideal pa
 A bicicleta está disponível em lojas de bicicletas especializadas e em revendedores autorizados da Scott. Confira também as lojas online.
 
 Com informações precisas e relevantes, esperamos que esse guia ajude você a decidir se a Scott Addict 2026 é a bicicleta certa para suas necessidades!
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

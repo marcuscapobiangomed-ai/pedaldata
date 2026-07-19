@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/black-road-bike-against-wooden-wall-sw9Vozf6j_4",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Alex Alvarez",
+    "alt": "Bicicleta de estrada preta encostada em parede de madeira",
+    "width": 1200,
+    "height": 675
+  }
+}

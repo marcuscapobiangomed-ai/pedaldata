@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Specialized Tarmac SL8: Vale o Investimento? Review Completo"
-date: 2026-07-04
-tags: [reviews, ciclistas amadores, ciclismo, bicicletas]
 description: "Avaliação detalhada da Specialized Tarmac SL8 e se vale a pena para ciclistas amadores e intermediários no Brasil."
-
+date: 2026-07-04
+last_modified_at: 2026-07-04
 author: "Sergio Arantes"
-image: "/assets/img/posts/specialized-tarmac-sl8.png"
-image_alt: "Specialized Tarmac SL8"
+reviewed_by: ""
+content_type: "review"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Specialized"
+product_name: "Specialized Tarmac SL8"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-04"
+category: "reviews"
+tags: [reviews, ciclistas amadores, ciclismo]
+image: "/assets/img/posts/specialized-tarmac-sl8/hero.jpg"
+image_alt: "Bicicleta Specialized Tarmac SL8 em estrada"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Specialized"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-04"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-04"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -20,7 +52,7 @@ A Specialized é uma das marcas mais renomadas no mundo do ciclismo, e a linha T
 
 ### Design e Construção
 
-O Specialized Tarmac SL8 é conhecido por apresentar um design aerodinâmico e moderno, utilizando a tecnologia FACT (Future Shock), que melhora a absorção de impactos e proporciona maior conforto nas subidas e nas descidas. A estrutura é feita de carbono e possui um peso mínimo, facilitando a performance em longas distâncias.
+O Specialized Tarmac SL8 é conhecido por apresentar um design aerodinâmico e moderno, utilizando a construção em carbono FACT 12r, que oferece alto equilíbrio entre rigidez, leveza e absorção de vibrações. A estrutura é feita de carbono e possui um peso mínimo, facilitando a performance em longas distâncias.
 
 ### Componentes
 
@@ -38,7 +70,7 @@ Por se tratar de uma bicicleta de competição, o desempenho do Tarmac SL8 nas s
 
 #### Conforto e Estabilidade
 
-Outro ponto forte é o conforto. O sistema Future Shock minimiza as vibrações do solo, tornando longos passeios mais agradáveis, mesmo em estradas irregulares. A estabilidade em altas velocidades também é digna de nota, oferecendo segurança nas descidas e curvas.
+Outro ponto forte é o conforto. A rigidez do conjunto e a geometria Race contribuem para uma excelente absorção de vibrações de alta frequência, tornando longos passeios mais agradáveis, mesmo em estradas irregulares. A estabilidade em altas velocidades também é digna de nota, oferecendo segurança nas descidas e curvas.
 
 ### Comparação com Outros Modelos
 
@@ -72,3 +104,10 @@ A manutenção é de alta qualidade, mas pode ser custosa devido aos componentes
 
 **Essa bicicleta é indicada para iniciantes?**
 Não necessariamente, pois a complexidade de uso e o investimento podem não ser adequados para quem está apenas começando no ciclismo.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

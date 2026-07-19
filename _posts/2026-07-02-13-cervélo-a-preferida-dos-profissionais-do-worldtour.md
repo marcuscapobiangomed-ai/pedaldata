@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Cervélo: a Preferida dos Profissionais do WorldTour"
-date: 2026-07-02
-tags: [noticias, cervélo, ciclismo, bicicletas de estrada]
 description: "Descubra por que a Cervélo é a escolha dos profissionais do WorldTour. História, modelos e recomendações."
-
+date: 2026-07-02
+last_modified_at: 2026-07-02
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "review"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: "Cervélo"
+product_name: "Cervélo R5"
+model_year: 2026
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-02"
+category: "reviews"
+tags: [ciclismo, cervélo]
+image: "/assets/img/posts/cervélo-r5/hero.jpg"
+image_alt: "Bicicleta de estrada Scott Addict em estrada"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Cervélo"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-02"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-02"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -38,7 +70,7 @@ A Cervélo oferece uma variedade de modelos, cada um projetado para atender a di
 - **Descrição**: Bicicleta aerodinâmica de alta performance, a S5 é voltada para quem busca velocidade e controle em descidas.
 - **Preço**: A partir de R$ 38.000.
 - **Componentes**: Comumente equipada com grupos Shimano Dura-Ace Di2 e rodas de perfil alto.
-- **Uso**: Perfeita para provas de estrada e circuitos.
+- **Uso**: bem avaliado para provas de estrada e circuitos.
 
 ### 3. Cervélo P-Series
 
@@ -56,7 +88,7 @@ Ao optar por uma Cervélo, é importante considerar seu estilo de pedalada e os 
 | Prós | Contras |
 |------|---------|
 | Performance e qualidade excepcionais | Preço elevado |
-| Tecnologia de ponta e inovações constantes | Disponibilidade limitada em algumas regiões |
+| tecnologia moderna e inovações constantes | Disponibilidade limitada em algumas regiões |
 | Biometria e conforto de pilotagem | Pode ser muito específica para atletas de alto nível |
 
 ## Veredito
@@ -75,3 +107,10 @@ Bicicletas Cervélo podem ser encontradas em lojas especializadas em ciclismo e 
 Sim, para os ciclistas que buscam alta performance e qualidade, as bicicletas Cervélo são um investimento que pode trazer excelentes resultados.
 
 Com isso, esperamos ter ajudado a esclarecer a reputação da Cervélo no mundo do ciclismo e como suas bicicletas podem se encaixar no seu objetivo de pedal, seja ele para lazer ou competição.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

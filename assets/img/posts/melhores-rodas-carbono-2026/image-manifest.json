@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91",
+    "license": "Unsplash Free",
+    "credit": "Alex Alvarez",
+    "alt": "Melhores rodas de carbono para bike de estrada",
+    "width": 1200,
+    "height": 675
+  }
+}

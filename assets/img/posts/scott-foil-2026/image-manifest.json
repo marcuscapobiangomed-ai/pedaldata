@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/man-riding-on-bicycle-during-daytime-qDBbM9Erwo4",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Tim Foster",
+    "alt": "Ciclista em bicicleta de estrada durante o dia",
+    "width": 1200,
+    "height": 675
+  }
+}

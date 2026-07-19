@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1541625602330-2277a4c46182",
+    "license": "Unsplash Free",
+    "credit": "Hush Naidoo",
+    "alt": "Quanto custa importar uma bicicleta de estrada",
+    "width": 1200,
+    "height": 675
+  }
+}

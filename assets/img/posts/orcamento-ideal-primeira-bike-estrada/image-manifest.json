@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://unsplash.com/photos/black-and-gray-bicycle-on-brown-dirt-road-during-daytime-BqpfFRxWQe0",
+    "license": "Unsplash Free",
+    "credit": "Photographer: Eduardo Dutra",
+    "alt": "Bicicleta em estrada de terra durante o dia",
+    "width": 1200,
+    "height": 675
+  }
+}

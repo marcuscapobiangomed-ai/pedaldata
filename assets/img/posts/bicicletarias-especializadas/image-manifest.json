@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+    "license": "Unsplash Free",
+    "credit": "Cameron Venti",
+    "alt": "Bicicletaria especializada em bike de estrada",
+    "width": 1200,
+    "height": 675
+  }
+}

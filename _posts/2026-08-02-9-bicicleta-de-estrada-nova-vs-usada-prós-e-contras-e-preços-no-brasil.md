@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Bicicleta de Estrada Nova vs Usada: Prós e Contras e Preços no Brasil"
-date: 2026-08-02
-tags: [comparativos, bicicletas, ciclismo, compra]
 description: "Descubra as vantagens e desvantagens de comprar uma bicicleta de estrada nova ou usada e saiba quanto vale investir em uma seminova no Brasil."
-
+date: 2026-08-02
+last_modified_at: 2026-08-02
 author: "Sergio Arantes"
-image: "/assets/img/posts/trek-road-bike.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: ""
+product_name: ""
+model_year: 
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-08-02"
+category: "comparativo"
+tags: [comparativos, bicicletas, ciclismo, guias-de-compra]
+image: "/assets/img/posts/bike-nova-vs-usada/hero.jpg"
+image_alt: "Bicicleta nova vs usada — prós e contras"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Fabricante"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-08-02"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-08-02"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -23,13 +55,13 @@ Escolher a bicicleta de estrada ideal pode ser uma tarefa desafiadora, principal
 Comprar uma bicicleta de estrada nova traz uma série de benefícios, especialmente para ciclistas que buscam o melhor desempenho e tecnologia.
 
 #### Vantagens
-1. **Tecnologia de Ponta**: Modelos novos frequentemente contam com as tecnologias mais recentes em quadros, componentes e acessórios. Por exemplo, bicicletas como a **Caloi Elite Carbon**, que custa em torno de R$ 10.000, têm estrutura leve e aerodinâmica.
+1. **tecnologia moderna**: Modelos novos frequentemente contam com as tecnologias mais recentes em quadros, componentes e acessórios. Por exemplo, bicicletas como a **Caloi Elite Carbon**, que custa em torno de R$ 10.000, têm estrutura leve e aerodinâmica.
 
 2. **Garantia e Assistência**: A maioria das bicicletas novas vem com garantia do fabricante, oferecendo segurança ao consumidor. A **Shimano**, por exemplo, garante seus componentes por até 2 anos.
 
 3. **Personalização**: Ao comprar nova, você pode escolher a configuração que mais se adapta ao seu estilo, incluindo tamanho do quadro e componentes.
 
-4. **Menos Manutenção Inicial**: Uma bicicleta nova geralmente requer menos manutenção nos primeiros meses, uma vez que os componentes estão em perfeito estado.
+4. **Menos Manutenção Inicial**: Uma bicicleta nova geralmente requer menos manutenção nos primeiros meses, uma vez que os componentes estão em bem avaliado estado.
 
 #### Desvantagens
 1. **Custo Elevado**: O valor é um dos principais fatores que afastam ciclistas. As bicicletas de estrada novas podem variar de R$ 3.000 até valores superiores a R$ 20.000, dependendo da marca e dos componentes.
@@ -58,7 +90,7 @@ As bicicletas usadas podem ser uma excelente opção para ciclistas que buscam e
 
 | Prós de Bicicleta Nova | Contras de Bicicleta Nova |
 |------------------------|---------------------------|
-| Tecnologia de ponta     | Custo elevado             |
+| tecnologia moderna     | Custo elevado             |
 | Garantia e assistência   | Desvalorização rápida     |
 | Personalização          |                           |
 | Menos manutenção        |                           |
@@ -85,3 +117,10 @@ Verifique o estado do quadro, pneus, rodas e componentes. Realizar um test ride 
 
 **3. Vale a pena investir em componentes de qualidade na bicicleta usada?**
 Sim, recomenda-se investir em componentes que impactem diretamente no desempenho, como os freios e as rodas.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

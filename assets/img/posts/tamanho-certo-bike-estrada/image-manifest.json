@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "file": "hero.jpg",
+    "source": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
+    "license": "Unsplash Free",
+    "credit": "Mike B",
+    "alt": "Como escolher o tamanho certo de bike de estrada",
+    "width": 1200,
+    "height": 675
+  }
+}

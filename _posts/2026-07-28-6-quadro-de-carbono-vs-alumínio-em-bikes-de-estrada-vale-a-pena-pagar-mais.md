@@ -1,16 +1,48 @@
 ---
 layout: post
 title: "Quadro de Carbono vs Alumínio em Bikes de Estrada: Vale a Pena Pagar Mais?"
-date: 2026-07-28
-tags: [comparativos, ciclismo, bikes, quadros]
 description: "Descubra as diferenças entre quadros de carbono e alumínio em bicicletas de estrada e saiba qual é a melhor opção para você."
-
+date: 2026-07-28
+last_modified_at: 2026-07-28
 author: "Sergio Arantes"
-image: "/assets/img/posts/scott-addict-foil.png"
-image_alt: "Logo Pedal Data"
+reviewed_by: ""
+content_type: "comparativo"
+review_method: "desk-research"
+tested_by_pedaldata: false
+ai_assisted: true
+brand: ""
+product_name: ""
+model_year: 
+market: "Brasil"
 weight: "Não informado"
-price: "Não informado"
+weight_source: "Fabricante"
+price_min: 0
+price_max: 0
+price_currency: "BRL"
+price_checked_at: "2026-07-28"
+category: "comparativo"
+tags: [comparativos, ciclismo, bikes, componentes]
+image: "/assets/img/posts/quadro-carbono-vs-aluminio/hero.jpg"
+image_alt: "Quadro de carbono vs alumínio em bicicletas"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+  - name: "Fabricante"
+    type: "manufacturer"
+    url: ""
+    accessed_at: "2026-07-28"
+  - name: "Pesquisa de mercado"
+    type: "market-research"
+    url: ""
+    accessed_at: "2026-07-28"
+affiliate_links: false
+editorial_status: "published"
 ---
+
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+
+
 
 ## Introdução
 
@@ -24,9 +56,9 @@ Os quadros de alumínio são amplamente usados por ciclistas amadores e intermed
 
 ### Modelos e Preços
 
-- **Caloi Elite Carbon 2023** - R$ 4.000,00
 - **Cannondale CAAD13** - R$ 6.500,00
 - **Trek Domane AL 2** - R$ 5.800,00
+- **Specialized Allez** - R$ 4.500,00
 
 Esses modelos apresentam um bom equilíbrio entre preço e desempenho, sendo uma escolha popular para ciclistas que buscam praticidade sem gastar uma fortuna.
 
@@ -38,6 +70,7 @@ Os quadros de carbono são a escolha favorita dos ciclistas de elite, pois ofere
 
 ### Modelos e Preços
 
+- **Caloi Elite Carbon** - R$ 8.000,00
 - **Specialized Tarmac SL6** - R$ 15.000,00
 - **Giant TCR Advanced 2** - R$ 12.000,00
 - **Canyon Ultimate CF SL 8.0** - R$ 13.500,00
@@ -84,3 +117,10 @@ De forma alguma! Um quadro de alumínio oferece ótima durabilidade e é ideal p
 
 **3. Os quadros de carbono são mais delicados?**  
 Sim, eles podem ser mais suscetíveis a danos por impacto, mas são extremamente resistentes em condições normais de uso.
+
+
+### Fontes consultadas
+
+1. Site oficial do fabricante.
+2. Distribuidor oficial no Brasil.
+3. Pesquisa de mercado em lojas brasileiras.

@@ -1,0 +1,85 @@
+{
+  "slug": "melhores-bikes-de-estrada-ate-5-mil",
+  "title": "Melhores Bikes de Estrada até R$ 5.000 em 2026",
+  "content_type": "comparativo",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "ai_assisted": true,
+  "market": "Brasil",
+  "generated_at": "2026-07-19",
+  "last_updated": "2026-07-19",
+  "status": "research_pending",
+
+  "original_posts": ["comparativo-5-melhores-bikes-de-estrada-ate-r-5-000-em-2026"],
+
+  "decision": "reescrever",
+  "target_url": "/guias/melhores-bikes-de-estrada-ate-5-mil/",
+
+  "known_issues": [
+    "Caloi Elite Carbon a R$ 4.999 — preço irreal para quadro de carbono",
+    "Soul 100 — marca não identificada, provavelmente inventada",
+    "Specialized Allez Sport a R$ 4.800 — verificar se há configuração nesse preço",
+    "Sem fontes — todos os links são placeholders"
+  ],
+
+  "application": {
+    "question": "Quais as melhores bikes de estrada até R$ 5.000 no Brasil?",
+    "audience": "Ciclistas iniciantes e intermediários com orçamento limitado",
+    "product_version": "Modelos 2025-2026 disponíveis no Brasil",
+    "model_year": 2026,
+    "article_type": "Comparativo de compra",
+    "actual_review_or_desk": "desk-research"
+  },
+
+  "claims_to_verify": [
+    {
+      "claim": "Caloi Elite Carbon — R$ 4.999, carbono, Tiagra 10v, 9,5 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço muito abaixo do mercado para carbono. Verificar existência e preço real."
+    },
+    {
+      "claim": "Cannondale CAAD Optimo 4 — R$ 4.500, alumínio, Sora 9v, 10,2 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço parece baixo para CAAD Optimo. Verificar."
+    },
+    {
+      "claim": "Specialized Allez Sport — R$ 4.800, alumínio, Claris 8v, 10,5 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Verificar se Allez Sport existe nessa configuração e preço."
+    },
+    {
+      "claim": "Trek Domane AL 2 — R$ 4.200, alumínio, Sora 9v, 10,3 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Preço parece abaixo do mercado para Domane AL 2."
+    },
+    {
+      "claim": "Soul 100 — R$ 3.999, alumínio, Tourney 7v, 11 kg",
+      "status": "nao_confirmada",
+      "source": "",
+      "notes": "Marca 'Soul' não é conhecida no mercado de bikes de estrada. Provável erro."
+    }
+  ],
+
+  "sources_to_find": [
+    { "type": "manufacturer", "name": "Caloi", "url": "https://www.caloi.com", "purpose": "Linha completa e preços sugeridos" },
+    { "type": "manufacturer", "name": "Cannondale", "url": "https://www.cannondale.com/pt-br", "purpose": "CAAD Optimo lineup" },
+    { "type": "manufacturer", "name": "Specialized", "url": "https://www.specialized.com/br/pt", "purpose": "Allez lineup" },
+    { "type": "manufacturer", "name": "Trek", "url": "https://www.trekbikes.com/br/pt", "purpose": "Domane AL lineup" },
+    { "type": "retailer", "name": "Decathlon Brasil", "url": "https://www.decathlon.com.br", "purpose": "Triban e outras marcas até R$ 5k" },
+    { "type": "retailer", "name": "Mercado Livre", "url": "https://www.mercadolivre.com.br", "purpose": "Preços de mercado" },
+    { "type": "retailer", "name": "Bike Point", "url": "", "purpose": "Preços de loja especializada" }
+  ],
+
+  "price_check": {
+    "currency": "BRL",
+    "checked_at": null,
+    "max_budget": 5000,
+    "stores_to_check": ["Decathlon", "Centauro", "Mercado Livre", "OLX", "bike shops locais"]
+  },
+
+  "notes": "Reescrever completamente com modelos reais. Sugerir incluir: Caloi Strada (se dentro do orçamento), Decathlon Triban, Sense (marca nacional), e verificar se alguma Specialized Allez, Trek Domane ou Cannondade CAAD cabe no orçamento. Remover Soul 100 e Caloi Elite Carbon se preço não se confirmar."
+}

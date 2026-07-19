@@ -1,0 +1,136 @@
+# Redirecionamentos — Pedal Data
+# Gerenciado pela auditoria editorial. Atualizar a cada lote.
+redirects:
+  # ──────────────────────────────────────────────
+  # Lote 1 — Guias de compra por orçamento
+  # ──────────────────────────────────────────────
+  - from: /2026/06/guia-completo-melhor-bike-de-estrada-para-iniciantes-em-2026/
+    to: /guias/melhor-bike-de-estrada-para-iniciantes/
+    status: 301
+
+  - from: /2026/06/guia-de-compra-seu-orcamento-ideal-para-a-primeira-bike-de-estrada-em-2026/
+    to: /guias/melhor-bike-de-estrada-para-iniciantes/
+    status: 301
+
+  - from: /2026/08/bicicleta-de-estrada-nova-vs-usada-pros-e-contras-e-precos-no-brasil/
+    to: /guias/melhor-bike-de-estrada-para-iniciantes/#nova-vs-usada
+    status: 301
+
+  - from: /2026/07/comparativo-5-melhores-bikes-de-estrada-ate-r-5-000-em-2026/
+    to: /guias/melhores-bikes-de-estrada-ate-5-mil/
+    status: 301
+
+  - from: /2026/07/comparativo-5-melhores-bikes-de-estrada-ate-r-10-000-em-2026/
+    to: /guias/melhores-bikes-de-estrada-ate-10-mil/
+    status: 301
+
+  # ──────────────────────────────────────────────
+  # Lote 2 — Scott (pendente)
+  # ──────────────────────────────────────────────
+  - from: /2026/06/scott-addict-2026-ficha-tecnica-completa-preco-no-brasil-e-para-quem-e-indicada/
+    to: /reviews/scott-addict-2026/
+    status: 301
+
+  - from: /2026/06/scott-foil-2026-review-completo-do-modelo-aero-e-suas-novidades/
+    to: /reviews/scott-foil-2026/
+    status: 301
+
+  - from: /2026/07/scott-addict-vs-cervelo-caledonia-comparativo-completo-para-ciclistas-em-2026/
+    to: /comparativos/scott-addict-vs-caledonia/
+    status: 301
+
+  - from: /2026/08/quanto-custa-importar-uma-scott-addict-para-o-brasil-em-2026/
+    to: /guias/custos-importacao-bike/
+    status: 301
+
+  # ──────────────────────────────────────────────
+  # Lote 3 — Trek, Specialized, Cannondale, Cervélo (pendente)
+  # ──────────────────────────────────────────────
+  - from: /2026/07/specialized-tarmac-sl8-vale-o-investimento-review-completo/
+    to: /reviews/specialized-tarmac-sl8/
+    status: 301
+
+  - from: /2026/07/trek-madone-vs-trek-emonda-diferencas-entre-as-linhas-aero-e-leve-da-trek/
+    to: /comparativos/trek-madone-vs-emonda/
+    status: 301
+
+  - from: /2026/07/trek-emonda-vs-specialized-tarmac-qual-a-melhor-bike-de-escalada/
+    to: /comparativos/trek-emonda-vs-tarmac/
+    status: 301
+
+  - from: /2026/07/cannondale-supersix-evo-vs-systemsix-qual-escolher-em-2026/
+    to: /comparativos/cannondale-supersix-vs-systemsix/
+    status: 301
+
+  - from: /2026/07/cervelo-a-preferida-dos-profissionais-do-worldtour/
+    to: /marcas/cervelo-guia-completo/
+    status: 301
+
+  # ──────────────────────────────────────────────
+  # Lote 4 — Componentes e acessórios (pendente)
+  # ──────────────────────────────────────────────
+  - from: /2026/07/melhores-rodas-de-carbono-custo-beneficio-para-bike-de-estrada-em-2026-guia-completo/
+    to: /guias/melhores-rodas-de-carbono/
+    status: 301
+
+  - from: /2026/07/melhores-pedais-clipless-para-iniciantes-em-ciclismo-de-estrada-qual-escolher-em-2026/
+    to: /guias/melhores-pedais-clipless/
+    status: 301
+
+  - from: /2026/07/melhores-capacetes-de-ciclismo-de-estrada-2026-de-r-200-a-r-2-000/
+    to: /guias/melhores-capacetes-ciclismo/
+    status: 301
+
+  - from: /2026/07/sensores-de-potencia-para-bike-vale-a-pena-para-ciclista-amador-guia-completo-2026/
+    to: /guias/sensores-de-potencia/
+    status: 301
+
+  - from: /2026/07/shimano-105-vs-ultegra-a-diferenca-de-preco-justifica/
+    to: /comparativos/shimano-105-vs-ultegra/
+    status: 301
+
+  # ──────────────────────────────────────────────
+  # Lote 5 — Guias perenes (pendente)
+  # ──────────────────────────────────────────────
+  - from: /2026/07/quadro-de-carbono-vs-aluminio-em-bikes-de-estrada-vale-a-pena-pagar-mais/
+    to: /guias/carbono-vs-aluminio/
+    status: 301
+
+  - from: /2026/07/como-escolher-o-tamanho-certo-de-bike-de-estrada-guia-completo-com-tabela-de-medidas/
+    to: /guias/tamanho-bike-estrada/
+    status: 301
+
+  - from: /2026/07/guia-de-manutencao-basica-para-bike-de-estrada-o-que-todo-ciclista-precisa-saber/
+    to: /guias/manutencao-basica/
+    status: 301
+
+  - from: /2026/07/onde-comprar-bike-de-estrada-importada-no-brasil-em-2026-lojas-sites-e-cuidados/
+    to: /guias/comprar-bike-importada-brasil/
+    status: 301
+
+  - from: /2026/07/quanto-custa-importar-uma-bike-de-estrada-em-2026-impostos-frete-e-burocracia/
+    to: /guias/custos-importacao-bike/
+    status: 301
+
+  - from: /2026/07/melhores-apps-de-treino-para-ciclismo-2026-comparativo-entre-zwift-trainerroad-trainingpeaks-e-mywhoosh/
+    to: /comparativos/melhores-apps-ciclismo/
+    status: 301
+
+  # ──────────────────────────────────────────────
+  # Lote 6 — Tendências e WorldTour (pendente)
+  # ──────────────────────────────────────────────
+  - from: /2026/07/lancamentos-de-bikes-de-estrada-2026-o-que-esperar-das-principais-marcas/
+    to: /categoria/lancamentos/
+    status: 301
+
+  - from: /2026/07/tendencias-em-bikes-de-estrada-2026-aero-esta-vencendo-as-leves/
+    to: /tendencias/bike-aero-vs-leve/
+    status: 301
+
+  - from: /2026/07/o-que-as-equipes-do-worldtour-estao-usando-em-2026-equipamentos-bikes-e-componentes/
+    to: /worldtour/equipamentos-2026/
+    status: 301
+
+  - from: /2026/07/inovacoes-em-componentes-de-bike-2026-grupos-eletronicos-rodas-de-carbono-e-sensores-de-potencia/
+    to: /componentes/inovacoes-2026/
+    status: 301
