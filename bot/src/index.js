@@ -2,6 +2,16 @@ import "dotenv/config";
 import { WhatsAppBot } from "./whatsapp.js";
 import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
+import { generateMarkdown } from "./generator.js";
+import { validateResearch } from "./schemas/research.schema.js";
+import { validateArticle } from "./schemas/article.schema.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const RESEARCH_DIR = path.resolve(__dirname, "../../content/research");
 
 const REQUIRED_VARS = ["GITHUB_TOKEN", "GITHUB_USER", "GITHUB_REPO"];
 const missing = REQUIRED_VARS.filter((v) => !process.env[v]);
@@ -13,48 +23,85 @@ if (missing.length) {
 const ai = new AIProvider();
 const publisher = new GitHubPublisher();
 
-async function handleMessage({ from, body, reply }) {
-  console.log(`📩 Pedido de post recebido: "${body.substring(0, 60)}..."`);
+async function handleCommand({ command, args, from, reply }) {
+  if (command !== "novo") return;
 
-  await reply(
-    `🚴 *Recebi sua sugestão de post de bike!*\n\n` +
-    `⏳ Processando com IA Gemini...\n` +
-    `📝 Gerando artigo técnico...\n` +
-    `🔀 Criando PR de revisão...`
-  );
+  const slug = args.topic.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  const today = new Date().toISOString().split("T")[0];
 
   try {
-    const post = await ai.processCase(body);
+    // 1. Gera o artigo via IA
+    await reply(`⏳ Gerando artigo sobre "${args.topic}"...`);
+    const post = await ai.processCase(args.topic);
 
-    const prUrl = await publisher.publishPost(post.content, post.slug);
+    // 2. Valida o artigo
+    const articleData = JSON.parse(post.rawJson || "{}");
+    try {
+      validateArticle(articleData);
+    } catch (valErr) {
+      await reply(`❌ *Validação do artigo falhou:*\n${valErr.message}`);
+      return;
+    }
 
-    console.log(`✅ PR criado: ${post.title}`);
+    // 3. Converte para Markdown
+    const markdown = generateMarkdown(articleData);
+
+    // 4. Salva ficha de pesquisa inicial
+    const researchFile = path.join(RESEARCH_DIR, `${slug}.json`);
+    if (!fs.existsSync(RESEARCH_DIR)) fs.mkdirSync(RESEARCH_DIR, { recursive: true });
+
+    const researchData = {
+      topic: args.topic,
+      contentType: articleData.category || "review",
+      reviewMethod: "desk-research",
+      testedByPedalData: false,
+      market: "Brasil",
+      product: { brand: "", name: args.topic, modelYear: 2026 },
+      specifications: {},
+      prices: [],
+      sources: [{ id: "pending", name: "Pendente", type: "manufacturer", url: "", accessedAt: today }],
+      affiliateLinks: false,
+    };
+    fs.writeFileSync(researchFile, JSON.stringify(researchData, null, 2), "utf-8");
+
+    // 5. Cria PR
+    await reply(`🔀 Criando Pull Request de revisão...`);
+    const prUrl = await publisher.publishPost({
+      postContent: markdown,
+      slug,
+      researchData,
+      imageManifest: null,
+      checklist: articleData.claimsRequiringReview || [],
+    });
 
     await reply(
       `✅ *PR de revisão criado!*\n\n` +
-      `📄 *Título:* ${post.title}\n` +
-      `🏷️ *Tags:* ${post.tags.join(", ")}\n\n` +
+      `📄 *Título:* ${articleData.title}\n` +
       `🔗 *PR:* ${prUrl}\n\n` +
-      `📝 *Nota:* O post entra como rascunho. Faça o merge do PR para publicar.`
+      `📋 *Status:*\n` +
+      `✅ Pesquisa (rascunho inicial)\n` +
+      `🔲 Rascunho ✅\n` +
+      `🔲 Imagens pendentes\n` +
+      `🔲 Revisão pendente\n` +
+      `🔲 Publicação pendente\n\n` +
+      `Revise e edite a ficha de pesquisa em \`content/research/${slug}.json\` antes do merge.`
     );
   } catch (err) {
     console.error("❌ Erro:", err.message);
-    await reply(
-      `❌ *Erro ao processar:* ${err.message}\n\n` +
-      `Verifique o arquivo .env e a chave do Gemini/GitHub e tente novamente.`
-    );
+    await reply(`❌ *Erro ao processar:* ${err.message}`);
   }
 }
 
 async function main() {
   console.log("=".repeat(45));
-  console.log("🚴 Pedal Data Bot v2.0 — 100% Gratuito");
+  console.log("🚴 Pedal Data Bot v3 — Pipeline Editorial");
   console.log("=".repeat(45));
-  console.log(`🤖 Gemini AI + GitHub Pages`);
-  console.log(`📡 Blog: ${process.env.BLOG_URL || "https://" + process.env.GITHUB_USER + ".github.io/" + process.env.GITHUB_REPO}`);
+  console.log(`🤖 Gemini AI + GitHub API`);
+  console.log(`📡 Fluxo: /novo → pesquisa → rascunho → PR → revisão → publicação`);
+  console.log(`🔒 Whitelist: ${process.env.AUTHORIZED_WHATSAPP_NUMBERS ? "ativa" : "inativa"}`);
   console.log("");
 
-  const bot = new WhatsAppBot(handleMessage);
+  const bot = new WhatsAppBot(handleCommand);
   await bot.start();
 }
 

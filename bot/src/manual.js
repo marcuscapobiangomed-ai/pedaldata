@@ -34,7 +34,7 @@ console.log(post.content);
 const publisher = new GitHubPublisher();
 console.log("\n🔀 Criando PR no GitHub...\n");
 try {
-  const url = await publisher.publishPost(post.content, post.slug);
+  const url = await publisher.publishPost(post.content, post.slug, post);
   console.log(`✅ PR criado: ${url}`);
 } catch (err) {
   console.error("❌ Erro ao criar PR:", err.message);

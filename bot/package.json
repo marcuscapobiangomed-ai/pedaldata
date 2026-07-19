@@ -10,16 +10,24 @@
     "batch": "node src/batch.js",
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
-    "lint": "node --check src/*.js",
-    "test": "node --check src/*.js",
-    "validate:frontmatter": "node -e \"const fs=require('fs');const p=require('path');const d='../_posts';fs.readdirSync(d).filter(f=>f.endsWith('.md')).forEach(f=>{const c=fs.readFileSync(p.join(d,f),'utf8');const m=c.match(/^---\\n([\\s\\S]*?)\\n---/);if(!m)console.log('Sem frontmatter:',f);else if(!m[1].includes('layout:'))console.log('Sem layout:',f);else if(!m[1].includes('title:'))console.log('Sem title:',f)})"
+    "lint": "node --check src/*.js && node --check src/schemas/*.js && node --check src/validation/*.js",
+    "test": "node test_schema.mjs",
+    "validate:research": "node src/validation/validate-research.js",
+    "validate:posts": "node src/validate_posts.js",
+    "validate:images": "node src/validation/validate-images.js",
+    "check:claims": "node src/validation/check-claims.js",
+    "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
+    "generate": "node src/generator.js"
   },
   "dependencies": {
-    "whatsapp-web.js": "^1.26.0",
-    "qrcode-terminal": "^0.12.0",
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.0",
+    "gray-matter": "^4.0.3",
+    "puppeteer": "^23.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "sanitize-html": "^2.17.6",
     "simple-git": "^3.27.0",
-    "puppeteer": "^23.0.0"
+    "whatsapp-web.js": "^1.26.0",
+    "zod": "^4.4.3"
   }
 }

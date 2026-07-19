@@ -308,16 +308,21 @@ SUA SAÍDA DEVE SER SOMENTE UM JSON COM ESTA ESTRUTURA (sem markdown, sem delimi
 }`;
   }
 
-  async processCase(descricaoCurta) {
-    const prompt = `Com base na ideia abaixo, gere um artigo completo para blog de ciclismo.
+  async processCase(descricaoCurta, researchData) {
+    const userPrompt = `## FICHA DE PESQUISA
 
-IDEIA:
-"${descricaoCurta}"
+Tema: "${descricaoCurta}"
 
-Gere o artigo completo em português brasileiro, seguindo rigorosamente o formato JSON especificado.`;
+Data de produção: ${new Date().toISOString().split("T")[0]}
 
-    const text = await this.generate(AIProvider.systemPrompt(), prompt);
-    return this._parseResponse(text);
+### Informações disponíveis
+
+${researchData ? researchData : "Nenhuma pesquisa adicional fornecida. Utilize apenas o tema abaixo.\ntested_by_pedaldata: false\nreview_method: desk-research"}
+
+Produza o rascunho conforme as instruções do sistema. Lembre-se de verificar se há informação suficiente antes de gerar o artigo completo.`;
+
+    const text = await this.generate(AIProvider.systemPrompt(), userPrompt);
+    return this._parseResponse(text, descricaoCurta);
   }
 
   _extractJson(raw) {
@@ -350,57 +355,187 @@ Gere o artigo completo em português brasileiro, seguindo rigorosamente o format
       .replace(/javascript:/gi, "");
   }
 
-  _parseResponse(text) {
-    const parsed = this._extractJson(text);
-    const data = this._validatePost({
-      title: parsed.title || "Guia de Ciclismo",
-      description: parsed.description || "",
-      tags: parsed.tags || ["ciclismo"],
-      category: parsed.category || "reviews",
-      weight: parsed.weight || "Não informado",
-      price: parsed.price || "Não informado",
-      author: parsed.author || "Equipe Pedal Data",
-      image: parsed.image || "/assets/img/logo.svg",
-      image_alt: parsed.image_alt || "Logo Pedal Data",
-      content: parsed.content || "",
-    });
+  _validateRichPost(parsed) {
+    const errors = [];
 
-    // Sanitiza o conteúdo HTML
-    data.content = this._sanitizeHtml(data.content);
+    if (parsed.status === "PESQUISA INSUFICIENTE") {
+      return {
+        status: "INSUFFICIENT",
+        missingInfo: parsed.missing_info || [],
+        unsupportedClaims: parsed.unsupported_claims || [],
+        title: null,
+      };
+    }
+
+    if (!parsed.title || typeof parsed.title !== "string") errors.push("title ausente");
+    if (!parsed.content || typeof parsed.content !== "string") errors.push("content ausente");
+    if (!parsed.description || typeof parsed.description !== "string") errors.push("description ausente");
+    if (!Array.isArray(parsed.tags)) errors.push("tags deve ser um array");
+
+    if (errors.length > 0) {
+      // Fallback para formato antigo (caso a IA ainda retorne JSON simplificado)
+      return this._legacyValidate(parsed);
+    }
+
+    // Garante "ciclismo" nas tags
+    if (Array.isArray(parsed.tags)) {
+      parsed.tags = parsed.tags
+        .map((t) => t.toLowerCase().trim())
+        .filter((t) => t.length > 0);
+      if (!parsed.tags.includes("ciclismo")) parsed.tags.unshift("ciclismo");
+    }
+
+    return {
+      status: "OK",
+      parsed,
+    };
+  }
+
+  _legacyValidate(parsed) {
+    const errors = [];
+    if (!parsed.title || typeof parsed.title !== "string") errors.push("title ausente ou inválido");
+    if (!parsed.description || typeof parsed.description !== "string") errors.push("description ausente ou inválida");
+    if (!Array.isArray(parsed.tags)) errors.push("tags deve ser um array");
+    if (!parsed.content || typeof parsed.content !== "string") errors.push("content ausente ou inválido");
+
+    if (Array.isArray(parsed.tags)) {
+      parsed.tags = parsed.tags
+        .map((t) => t.toLowerCase().trim())
+        .filter((t) => t.length > 0);
+      if (!parsed.tags.includes("ciclismo")) parsed.tags.unshift("ciclismo");
+    }
+
+    if (errors.length > 0) {
+      throw new Error(`Validação do post falhou: ${errors.join("; ")}`);
+    }
+
+    return {
+      status: "OK_LEGACY",
+      parsed,
+    };
+  }
+
+  _parseResponse(text, originalTopic) {
+    const raw = this._extractJson(text);
+    const validation = this._validateRichPost(raw);
+
+    if (validation.status === "INSUFFICIENT") {
+      const msg = [
+        "STATUS: PESQUISA INSUFICIENTE",
+        "",
+        "INFORMAÇÕES FALTANTES:",
+        ...validation.missingInfo.map((i) => `- ${i}`),
+        "",
+        "AFIRMAÇÕES QUE NÃO PODEM SER FEITAS:",
+        ...validation.unsupportedClaims.map((i) => `- ${i}`),
+      ].join("\n");
+      throw new Error(msg);
+    }
+
+    const parsed = validation.parsed;
+
+    // Sanitiza o conteúdo
+    parsed.content = this._sanitizeHtml(parsed.content || "");
 
     const today = new Date().toISOString().split("T")[0];
-    const slug = data.title
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
+    const slug = parsed.title
+      ? parsed.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
+      : originalTopic.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
-    // Escapa aspas no frontmatter
-    const escapeYaml = (s) => (s || "").replace(/"/g, '\\"');
+    const escapeYaml = (s) => {
+      if (s === null || s === undefined) return "";
+      return String(s).replace(/"/g, '\\"');
+    };
 
+    const formatPrice = (min, max, currency) => {
+      if (!min && !max) return "Não informado";
+      if (currency === "BRL") {
+        if (min && max) return `R$ ${min.toLocaleString("pt-BR")} a R$ ${max.toLocaleString("pt-BR")}`;
+        if (min) return `a partir de R$ ${min.toLocaleString("pt-BR")}`;
+        return `até R$ ${max.toLocaleString("pt-BR")}`;
+      }
+      return `${min || ""} - ${max || ""} ${currency || ""}`.trim();
+    };
+
+    // Constrói o aviso de metodologia
+    const isHandsOn = parsed.review_method === "hands-on-test" || parsed.tested_by_pedaldata === true;
+    const methodologyNotice = isHandsOn
+      ? `> **Como testamos:** o produto foi testado presencialmente pela equipe Pedal Data.`
+      : `> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.`;
+
+    // Monta o frontmatter rico conforme o manual
     const fullFrontmatter = `---
 layout: post
-title: "${escapeYaml(data.title)}"
+title: "${escapeYaml(parsed.title)}"
+description: "${escapeYaml(parsed.description)}"
 date: ${today}
-tags: [${data.tags.join(", ")}]
-description: "${escapeYaml(data.description)}"
-status: draft
-weight: "${escapeYaml(data.weight)}"
-price: "${escapeYaml(data.price)}"
-author: "${escapeYaml(data.author)}"
-image: "${escapeYaml(data.image)}"
-image_alt: "${escapeYaml(data.image_alt)}"
+last_modified_at: ${today}
+author: "Equipe Pedal Data"
+reviewed_by: ""
+content_type: "${escapeYaml(parsed.content_type || "review")}"
+review_method: "${escapeYaml(parsed.review_method || "desk-research")}"
+tested_by_pedaldata: ${parsed.tested_by_pedaldata === true}
+ai_assisted: true
+brand: "${escapeYaml(parsed.brand || "")}"
+product_name: "${escapeYaml(parsed.product_name || "")}"
+model_year: ${parsed.model_year || ""}
+market: "${escapeYaml(parsed.market || "Brasil")}"
+weight: "${escapeYaml(parsed.weight || "Não informado")}"
+weight_source: "${escapeYaml(parsed.weight_source || "Não informado")}"
+price_min: ${parsed.price_min || 0}
+price_max: ${parsed.price_max || 0}
+price_currency: "${escapeYaml(parsed.price_currency || "BRL")}"
+price_checked_at: "${escapeYaml(parsed.price_checked_at || today)}"
+category: "${escapeYaml(parsed.content_type || "reviews")}"
+tags: [${Array.isArray(parsed.tags) ? parsed.tags.map(t => escapeYaml(t)).join(", ") : "ciclismo"}]
+image: "/assets/img/logo.svg"
+image_alt: "${escapeYaml(parsed.description || "")}"
+image_caption: ""
+image_credit: ""
+image_license: "Uso editorial autorizado pelo fabricante"
+sources:
+${Array.isArray(parsed.sources) ? parsed.sources.map(s => `  - name: "${escapeYaml(s.name)}"\n    type: "${escapeYaml(s.type || "manufacturer")}"\n    url: "${escapeYaml(s.url || "")}"\n    accessed_at: "${escapeYaml(s.accessed_at || today)}"`).join("\n") : '  - name: "Pesquisa de mercado"\n    type: "market-research"\n    url: ""\n    accessed_at: "' + today + '"'}
+affiliate_links: ${parsed.affiliate_links === true}
+editorial_status: "draft"
 ---
+
+${methodologyNotice}
 
 `;
 
+    // Concatena aviso + conteúdo
+    let fullContent = fullFrontmatter;
+
+    // Se o conteúdo já tem o aviso, não duplica
+    if (!parsed.content.includes("Como este artigo foi produzido") && !parsed.content.includes("Como testamos")) {
+      fullContent += "\n" + parsed.content;
+    } else {
+      fullContent += parsed.content.replace(/^>\s*Como (este artigo foi produzido|testamos):.*(\n>.*)*/m, "").trim();
+    }
+
+    // Extrai o plano de imagens (se veio no JSON, retorna separado)
+    const imagePlan = Array.isArray(parsed.image_plan) ? parsed.image_plan : [];
+
     return {
-      title: data.title,
-      tags: data.tags,
+      title: parsed.title,
+      tags: parsed.tags || ["ciclismo"],
       slug,
-      content: fullFrontmatter + data.content,
-      metaDesc: data.description,
+      content: fullContent,
+      metaDesc: parsed.description,
+      content_type: parsed.content_type || "review",
+      review_method: parsed.review_method || "desk-research",
+      tested_by_pedaldata: parsed.tested_by_pedaldata === true,
+      imagePlan,
+      sources: parsed.sources || [],
+      brand: parsed.brand,
+      product_name: parsed.product_name,
+      model_year: parsed.model_year,
+      weight: parsed.weight,
+      price_min: parsed.price_min,
+      price_max: parsed.price_max,
+      claims: parsed.claims_requiring_review || [],
+      methodologyNotice: parsed.methodology_notice || "",
+      rawJson: JSON.stringify(parsed),
     };
   }
 }

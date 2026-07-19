@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Valida todos os posts em _posts/ buscando problemas de frontmatter,
- * YAML, tags, imagens, informações inventadas e consistência.
+ * Valida todos os posts em _posts/ conforme o checklist do Manual Editorial (seção 15).
  *
- * Uso: node src/validate_posts.js
+ * Uso: node src/validate_posts.js [caminho/para/arquivo.md]
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { TEMPLATES } from "./templates.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,16 +25,33 @@ const ALLOWED_TAGS = [
   "tecnologia",
 ];
 
-const REQUIRED_FM = ["layout", "title", "date", "tags", "description"];
-const SUSPICIOUS_PATTERNS = [
-  /\bpre[içc]o\s*exato\b/i,
-  /\bpre[içc]o\s*oficial\b/i,
-  /\bpre[içc]o\s*no\s*brasil\b/i,
-  /\bdispon[ií]vel\s*apenas\b/i,
-  /\b[úu]nica\s*configura[çc][ãa]o\b/i,
-  /\bcompat[ií]vel\s*apenas\b/i,
-  /\bapenas\s*pneus\b/i,
-  /\bfalta\s*de\s*suspens[ãa]o\b.*road\b/i,
+const REQUIRED_FM = [
+  "layout", "title", "date", "tags", "description",
+  "content_type", "review_method", "tested_by_pedaldata", "ai_assisted",
+  "editorial_status",
+];
+
+const FORBIDDEN_PATTERNS = [
+  { pattern: /\brevolucion[aá]ri[ao]\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\bperfeit[ao]\b/, reason: "linguagem publicitária proibida" },
+  { pattern: /\bimbat[ií]vel\b/, reason: "linguagem publicitária proibida" },
+  { pattern: /\ba melhor do mercado\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\btecnologia de ponta\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\bqualidade incompar[aá]vel\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\bcompra obrigat[oó]ria\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\bsem d[uú]vidas\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\bvale cada centavo\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\b[íi]cone do ciclismo\b/i, reason: "linguagem publicitária proibida" },
+  { pattern: /\blend[aá]ria ic[oô]nic[ao]\b/i, reason: "linguagem publicitária proibida" },
+];
+
+const FORBIDDEN_DESK_PHRASES = [
+  { pattern: /\bTestamos\b/, reason: "frase de teste real proibida em análise documental" },
+  { pattern: /\bSentimos\b/, reason: "frase de teste real proibida em análise documental" },
+  { pattern: /\bDurante o pedal\b/i, reason: "frase de teste real proibida em análise documental" },
+  { pattern: /\bNossa experi[êe]ncia com a bicicleta\b/i, reason: "frase de teste real proibida em análise documental" },
+  { pattern: /\bEm nosso teste\b/i, reason: "frase de teste real proibida em análise documental" },
+  { pattern: /\bpercebemos\b/i, reason: "frase de teste real proibida em análise documental" },
 ];
 
 let totalErrors = 0;
@@ -50,72 +67,71 @@ function logWarning(file, msg) {
   totalWarnings++;
 }
 
-function validateFrontmatter(content, fileName) {
+function parseFrontmatter(content) {
   const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) {
+  if (!fmMatch) return null;
+  const fmText = fmMatch[1];
+  const fm = {};
+  for (const line of fmText.split("\n")) {
+    const kvMatch = line.match(/^\s*([a-z_]+)\s*:\s*(.*)/);
+    if (kvMatch) {
+      fm[kvMatch[1]] = kvMatch[2].replace(/^["']|["']$/g, "").trim();
+    }
+  }
+  return fm;
+}
+
+function validateFrontmatter(content, fileName) {
+  const fm = parseFrontmatter(content);
+  if (!fm) {
     logError(fileName, "Sem frontmatter");
     return null;
   }
 
-  const fmText = fmMatch[1];
   const errors = [];
 
-  // Verifica campos obrigatórios via regex (porque YAML pode estar corrompido)
   for (const field of REQUIRED_FM) {
-    const re = new RegExp(`^${field}:\\s`, "m");
-    if (!re.test(fmText)) {
+    if (!fm[field] || fm[field] === "") {
       errors.push(`Campo obrigatório '${field}' ausente`);
     }
   }
 
-  // Testa se o YAML é válido (tentativa)
-  try {
-    // YAML simples: parse manual para detectar aspas não escapadas
-    const lines = fmText.split("\n");
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      // Verifica campos com aspas
-      const match = line.match(/^\s*[a-z_]+\s*:\s*"(.*)"\s*$/);
-      if (match) {
-        const val = match[1];
-        // Conta aspas dentro do valor
-        const innerQuotes = val.match(/"/g);
-        if (innerQuotes && innerQuotes.length > 0) {
-          logWarning(fileName, `Linha ${i + 1}: aspas não escapadas no valor: "${line.trim()}"`);
-        }
-      }
-      // Verifica se a linha parece conter YAML inválido
-      if (line.includes(":") && !line.match(/^\s*[a-z_]+\s*:/)) {
-        logWarning(fileName, `Linha ${i + 1}: possível YAML inválido: "${line.trim()}"`);
-      }
-    }
-  } catch {
-    logError(fileName, "Erro ao analisar frontmatter");
+  // Valida editorial_status
+  if (fm.editorial_status && !["draft", "reviewed", "published"].includes(fm.editorial_status)) {
+    errors.push(`editorial_status inválido: "${fm.editorial_status}" (use: draft, reviewed, published)`);
+  }
+
+  // Valida content_type
+  if (fm.content_type && !["review", "comparativo", "guia-de-compra", "guia-tecnico", "noticia"].includes(fm.content_type)) {
+    logWarning(fileName, `content_type não padronizado: "${fm.content_type}"`);
+  }
+
+  // Valida review_method
+  if (fm.review_method && !["desk-research", "hands-on-test"].includes(fm.review_method)) {
+    logWarning(fileName, `review_method inválido: "${fm.review_method}"`);
+  }
+
+  // Verifica se tested_by_pedaldata é booleano
+  if (fm.tested_by_pedaldata && !["true", "false"].includes(fm.tested_by_pedaldata.toLowerCase())) {
+    logWarning(fileName, `tested_by_pedaldata deve ser true ou false, encontrado: "${fm.tested_by_pedaldata}"`);
+  }
+
+  // Verifica preços
+  if (fm.price_min && isNaN(parseFloat(fm.price_min))) {
+    logWarning(fileName, `price_min não é numérico: "${fm.price_min}"`);
+  }
+  if (fm.price_max && isNaN(parseFloat(fm.price_max))) {
+    logWarning(fileName, `price_max não é numérico: "${fm.price_max}"`);
   }
 
   // Extrai tags
-  const tagsMatch = fmText.match(/^tags:\s*\[(.+?)\]/m);
+  const tagsMatch = content.match(/^tags:\s*\[(.+?)\]/m);
   if (tagsMatch) {
-    const tags = tagsMatch[1].split(",").map((t) => t.trim().toLowerCase());
+    const tags = tagsMatch[1].split(",").map((t) => t.trim().toLowerCase().replace(/["']/g, ""));
     const invalidTags = tags.filter((t) => !ALLOWED_TAGS.includes(t) && t !== "");
     if (invalidTags.length > 0) {
       logWarning(fileName, `Tags não padronizadas: ${invalidTags.join(", ")}`);
     }
-  }
-
-  // Extrai status
-  const statusMatch = fmText.match(/^status:\s*(\S+)/m);
-  if (statusMatch) {
-    const status = statusMatch[1];
-    if (!["draft", "reviewed", "published"].includes(status)) {
-      logWarning(fileName, `Status inválido: "${status}" (use: draft, reviewed, published)`);
-    }
-  }
-
-  // Verifica se image é o placeholder padrão
-  const imgMatch = fmText.match(/^image:\s*["']?(.+?)["']?\s*$/m);
-  if (imgMatch && imgMatch[1].includes("logo.svg")) {
-    logWarning(fileName, "Imagem é o placeholder padrão (logo.svg)");
   }
 
   if (errors.length > 0) {
@@ -123,66 +139,85 @@ function validateFrontmatter(content, fileName) {
     return null;
   }
 
-  return fmText;
+  return fm;
 }
 
-function checkSuspiciousContent(content, fileName) {
-  const fmMatch = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
-  if (!fmMatch) return;
+function checkSuspiciousContent(content, fileName, fm) {
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
 
-  const body = fmMatch[1];
-
-  for (const pattern of SUSPICIOUS_PATTERNS) {
+  // Verifica padrões proibidos
+  for (const { pattern, reason } of FORBIDDEN_PATTERNS) {
     const match = body.match(pattern);
     if (match) {
       const context = body.substring(Math.max(0, match.index - 30), match.index + 60).replace(/\n/g, " ");
-      logWarning(fileName, `Possível conteúdo inventado: "${match[0]}" — contexto: "${context}"`);
+      logWarning(fileName, `${reason}: "${match[0]}" — contexto: "${context.trim()}"`);
     }
   }
-}
 
-function checkImageReferences(content, fileName) {
-  const imgRefs = content.match(/!\[.*?\]\((.*?)\)/g);
-  if (!imgRefs) return;
-
-  for (const ref of imgRefs) {
-    const urlMatch = ref.match(/\]\((.*?)\)/);
-    if (!urlMatch) continue;
-    const url = urlMatch[1];
-    if (url.startsWith("http") && !url.includes("placehold")) {
-      // Link externo — só avisar
-      logWarning(fileName, `Imagem externa: ${url.substring(0, 80)}`);
-    }
-    if (url.startsWith("/assets")) {
-      const fullPath = path.join(POSTS_DIR, "..", url);
-      if (!fs.existsSync(fullPath)) {
-        logWarning(fileName, `Imagem local não encontrada: ${url}`);
+  // Se for desk-research, verifica frases proibidas de teste real
+  if (fm?.review_method === "desk-research" || fm?.tested_by_pedaldata === "false") {
+    for (const { pattern, reason } of FORBIDDEN_DESK_PHRASES) {
+      const match = body.match(pattern);
+      if (match) {
+        const context = body.substring(Math.max(0, match.index - 30), match.index + 60).replace(/\n/g, " ");
+        logError(fileName, `${reason}: "${match[0]}" — contexto: "${context.trim()}"`);
       }
     }
   }
 }
 
-function checkPriceConsistency(content, fileName) {
-  const fmMatch = content.match(/^---\n[\s\S]*?\n---/);
-  if (!fmMatch) return;
+function checkImages(content, fileName) {
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const imgRefs = [...body.matchAll(/!\[.*?\]\((.*?)\)/g)];
 
-  const fm = fmMatch[0];
-  const priceMatch = fm.match(/^price:\s*["']?(.+?)["']?\s*$/m);
-  if (!priceMatch) return;
+  for (const ref of imgRefs) {
+    const url = ref[1];
 
-  const price = priceMatch[1];
-  if (price === "Não informado") return;
+    if (url.startsWith("http") && !url.includes("placehold")) {
+      logWarning(fileName, `Imagem externa sem hotlink confirmado: ${url.substring(0, 80)}`);
+    }
 
-  // Verifica se o preço aparece no corpo
-  const body = content.replace(fm, "");
-  const priceInBody = body.includes(price.replace("R$", "").trim());
-  if (!priceInBody) {
-    logWarning(fileName, `Preço "${price}" no frontmatter mas não mencionado no corpo`);
+    if (url.startsWith("/assets")) {
+      const fullPath = path.resolve(POSTS_DIR, "..", url.substring(1));
+      if (!fs.existsSync(fullPath)) {
+        logWarning(fileName, `Imagem local não encontrada: ${url}`);
+      }
+    }
+  }
+
+  // Verifica se tem alt text
+  const imgWithoutAlt = body.match(/!\[(.*?)\]\(.*?\)/g);
+  if (imgWithoutAlt) {
+    for (const ref of imgWithoutAlt) {
+      const altMatch = ref.match(/!\[(.*?)\]/);
+      if (altMatch && (!altMatch[1] || altMatch[1].trim() === "")) {
+        logWarning(fileName, "Imagem com texto alternativo vazio (decorativa deve usar alt vazio intencionalmente)");
+      }
+    }
+  }
+}
+
+function checkPriceConsistency(content, fileName, fm) {
+  if (!fm) return;
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+
+  if (fm.price_min && fm.price_min !== "0") {
+    const priceStr = String(fm.price_min);
+    const inBody = body.includes(priceStr) || body.includes(parseFloat(priceStr).toLocaleString("pt-BR"));
+    if (!inBody) {
+      logWarning(fileName, `Preço mínimo (${fm.price_min}) no frontmatter mas não mencionado no corpo`);
+    }
+  }
+
+  if (fm.price_checked_at) {
+    const dateStr = fm.price_checked_at.replace(/["']/g, "");
+    if (!body.includes(dateStr)) {
+      logWarning(fileName, `Data de consulta de preço (${dateStr}) não mencionada no corpo`);
+    }
   }
 }
 
 function checkDateConsistency(fileName) {
-  // Extrai a data do nome do arquivo: YYYY-MM-DD-slug.md
   const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
   if (!dateMatch) {
     logWarning(fileName, "Nome do arquivo não segue padrão YYYY-MM-DD-title.md");
@@ -191,44 +226,109 @@ function checkDateConsistency(fileName) {
 
   const fileDate = dateMatch[1];
   const content = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf-8");
-  const fmMatch = content.match(/^---\n[\s\S]*?\n---/);
-  if (!fmMatch) return;
+  const fm = parseFrontmatter(content);
 
-  const fmDateMatch = fmMatch[0].match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})/m);
-  if (fmDateMatch && fmDateMatch[1] !== fileDate) {
-    logWarning(fileName, `Data no frontmatter (${fmDateMatch[1]}) difere da data no nome do arquivo (${fileDate})`);
+  if (fm?.date) {
+    const fmDate = fm.date.replace(/["']/g, "").split(" ")[0]; // remove timestamp
+    if (fmDate && fmDate !== fileDate) {
+      logWarning(fileName, `Data no frontmatter (${fmDate}) difere da data no nome do arquivo (${fileDate})`);
+    }
+  }
+}
+
+function checkSources(content, fileName, fm) {
+  if (!fm) return;
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+
+  // Verifica se há seção de fontes
+  if (!body.match(/##\s*Fontes/i) && !body.match(/##\s*Refer[eê]ncias/i)) {
+    logWarning(fileName, "Seção de fontes ou referências não encontrada no corpo do artigo");
+  }
+
+  // Verifica se há fontes no frontmatter
+  if (!content.match(/^sources:/m)) {
+    logWarning(fileName, "Campo 'sources' ausente no frontmatter");
+  }
+}
+
+function checkAlternatives(content, fileName, fm) {
+  if (!fm) return;
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+
+  // Reviews e comparativos devem ter alternativas
+  if (fm.content_type === "review" || fm.content_type === "comparativo") {
+    const altSection = body.match(/##\s*(Alternativas|Comparação com alternativas|Concorrentes)/i);
+    if (!altSection) {
+      logWarning(fileName, "Review sem seção de alternativas/concorrentes");
+    }
+  }
+}
+
+function checkForWhom(content, fileName, fm) {
+  if (!fm) return;
+  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+
+  if (fm.content_type === "review" || fm.content_type === "guia-de-compra") {
+    if (!body.match(/##\s*Para quem/i)) {
+      logWarning(fileName, "Seção 'Para quem é indicado' não encontrada");
+    }
   }
 }
 
 function main() {
-  console.log("=".repeat(60));
-  console.log("🔍 Validação de Posts — Pedal Data");
-  console.log("=".repeat(60));
-  console.log(`📁 Diretório: ${POSTS_DIR}\n`);
+  const args = process.argv.slice(2);
+  const singleFile = args[0];
 
-  if (!fs.existsSync(POSTS_DIR)) {
-    console.log("❌ Diretório _posts não encontrado.");
-    process.exit(1);
+  console.log("=".repeat(60));
+  console.log("🔍 Validação de Posts — Pedal Data (Manual Editorial Seção 15)");
+  console.log("=".repeat(60));
+
+  let files;
+
+  if (singleFile) {
+    const targetPath = path.resolve(singleFile);
+    if (!fs.existsSync(targetPath)) {
+      console.log(`❌ Arquivo não encontrado: ${targetPath}`);
+      process.exit(1);
+    }
+    files = [path.basename(targetPath)];
+    console.log(`📄 Validando: ${path.basename(targetPath)}\n`);
+  } else {
+    if (!fs.existsSync(POSTS_DIR)) {
+      console.log("❌ Diretório _posts não encontrado.");
+      process.exit(1);
+    }
+    files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md")).sort();
+    console.log(`📁 Diretório: ${POSTS_DIR}`);
+    console.log(`📄 Total de posts: ${files.length}\n`);
   }
-
-  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".md")).sort();
-  console.log(`📄 Total de posts: ${files.length}\n`);
 
   let validCount = 0;
 
   for (const file of files) {
-    const content = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
-    const fmValid = validateFrontmatter(content, file);
+    const fullPath = singleFile ? path.resolve(singleFile) : path.join(POSTS_DIR, file);
+    const content = fs.readFileSync(fullPath, "utf-8");
+    const fm = validateFrontmatter(content, file);
 
-    if (fmValid) {
+    if (fm) {
       validCount++;
     }
 
-    checkSuspiciousContent(content, file);
-    checkImageReferences(content, file);
-    checkPriceConsistency(content, file);
+    checkSuspiciousContent(content, file, fm);
+    checkImages(content, file);
+    checkPriceConsistency(content, file, fm);
     checkDateConsistency(file);
+    checkSources(content, file, fm);
+    checkAlternatives(content, file, fm);
+    checkForWhom(content, file, fm);
+
+    if (!singleFile && fm) {
+      // Linha de progresso compacta
+      process.stdout.write(".");
+    }
   }
+
+  if (!singleFile) console.log("");
 
   console.log("\n" + "=".repeat(60));
   console.log(`📊 Resumo:`);
