@@ -68,7 +68,7 @@ layout: default
 
         <div class="product-section">
           <h3>Artigos relacionados</h3>
-          {% assign related = site.posts | where_exp: "p", "p.content contains product_id or p.content contains page.brand" | limit: 5 %}
+          {% assign related = site.posts | where_exp: "p", "p.content contains product_id" | limit: 5 %}
           {% if related.size > 0 %}
           <ul class="product-alternatives">
             {% for post in related %}
