@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/scott-foil-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Scott Sports e preços da AllSports Store, revendedora autorizada Scott no Brasil. Nenhum produto foi testado presencialmente. Conteúdo elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

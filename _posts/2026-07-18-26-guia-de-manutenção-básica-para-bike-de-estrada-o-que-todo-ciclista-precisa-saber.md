@@ -41,8 +41,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/guia-manutencao-basica/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** pesquisa em guias técnicos de fabricantes (Shimano, SRAM, Park Tool) e consenso de mecânicos especializados. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

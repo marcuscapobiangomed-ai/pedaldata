@@ -8,5 +8,14 @@
     "alt": "Ciclistas em estrada — comparativo de bikes até R$ 10.000",
     "width": 1200,
     "height": 675
+  },
+  "variants": {
+    "thumb-480": {
+      "file": "thumb-480.webp",
+      "width": 480,
+      "height": 320,
+      "sizeKB": 25,
+      "quality": 82
+    }
   }
 }

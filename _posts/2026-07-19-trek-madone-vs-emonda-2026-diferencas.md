@@ -45,8 +45,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/trek-madone-vs-emonda/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Trek. Nenhum produto foi testado presencialmente. Conteúdo elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Caloi Strada 100 2026 — Ficha Técnica"
-description: "Ficha técnica completa da Caloi Strada 100 2026: especificações, preço no Brasil e para quem é indicada."
+title: "Caloi Strada 100 2026 â€” Ficha TÃ©cnica"
+description: "Ficha tÃ©cnica completa da Caloi Strada 100 2026: especificaÃ§Ãµes, preÃ§o no Brasil e para quem Ã© indicada."
 date: 2026-07-19
 author: "Equipe Pedal Data"
 content_type: "review"
@@ -20,7 +20,7 @@ category: "road-entry"
 tags: [caloi, strada-100, bike-de-estrada, ciclismo]
 image: "/assets/img/posts/caloi-strada-100-2026-br/hero.jpg"
 image_alt: "Caloi Strada 100 2026"
-image_credit: "Divulgação Caloi"
+image_credit: "DivulgaÃ§Ã£o Caloi"
 image_license: "Uso editorial autorizado pelo fabricante"
 sources:
   - name: "Caloi Oficial"
@@ -28,8 +28,9 @@ sources:
     url: "https://www.caloi.com/bicicletas/strada-100"
     accessed_at: "2026-07-19"
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/caloi-strada-100-2026-br/thumb-480.webp"
+
 ---
+> **Como este artigo foi produzido:** anÃ¡lise documental baseada em especificaÃ§Ãµes oficiais, pesquisa de preÃ§os no mercado brasileiro e comparaÃ§Ã£o com modelos concorrentes.
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes.
-
-Ficha técnica gerada automaticamente a partir da base estruturada.
+Ficha tÃ©cnica gerada automaticamente a partir da base estruturada.

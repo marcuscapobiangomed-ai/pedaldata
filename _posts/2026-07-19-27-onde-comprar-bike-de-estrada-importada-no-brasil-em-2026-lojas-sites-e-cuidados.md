@@ -53,8 +53,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/onde-comprar-bike-importada/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em sites oficiais de fabricantes e distribuidores, pesquisa de preços no mercado brasileiro em julho/2026 e consulta à legislação de importação vigente. Os produtos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em sites oficiais dos aplicativos, pesquisa de preços em julho/2026 e consulta a fontes especializadas. Os aplicativos não foram testados exaustivamente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

@@ -20,7 +20,7 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guias-de-compra"
 tags: [guias-de-compra, capacetes, segurança, ciclismo]
-image: "/assets/img/posts/melhores-capacetes-ciclismo/hero.jpg"
+image: "/assets/img/posts/melhores-capacetes-2026/hero.jpg"
 image_alt: "Capacetes de ciclismo de estrada 2026"
 image_caption: ""
 image_credit: "Divulgação"
@@ -44,8 +44,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/melhores-capacetes-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em reviews especializados, testes de impacto independentes (Virginia Tech Helmet Lab) e preços de lojas brasileiras. Nenhum produto foi testado presencialmente. Conteúdo elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

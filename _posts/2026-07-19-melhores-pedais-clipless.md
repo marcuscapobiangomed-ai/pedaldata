@@ -42,8 +42,8 @@ sources:
 affiliate_links: false
 editorial_status: "draft"
 permalink: /guias/melhores-pedais-clipless/
+thumbnail: "/assets/img/posts/melhores-pedais-clipless/thumb-480.webp"
 ---
-
 > **Este artigo foi produzido com pesquisa de preços em lojas brasileiras em julho/2026. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

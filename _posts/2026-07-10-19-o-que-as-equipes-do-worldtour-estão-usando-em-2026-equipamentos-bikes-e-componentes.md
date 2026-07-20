@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/worldtour-equipes-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** pesquisa em sites oficiais das equipes e fabricantes, com dados atualizados para a temporada 2026. Os equipamentos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

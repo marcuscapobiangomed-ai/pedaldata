@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/scott-addict-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Scott Sports e preços de revendedores internacionais. Nenhum produto foi testado presencialmente. Conteúdo elaborado com auxílio de IA e revisado editorialmente. Preços no Brasil (BRL) serão atualizados quando disponíveis em lojas nacionais.
 
 ## Introdução

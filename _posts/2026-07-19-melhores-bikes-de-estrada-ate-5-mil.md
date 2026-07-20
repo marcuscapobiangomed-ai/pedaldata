@@ -20,7 +20,7 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "comparativo"
 tags: [comparativos, guias-de-compra, bike-de-estrada, ciclismo]
-image: "/assets/img/posts/bikes-ate-5-mil/hero.jpg"
+image: "/assets/img/posts/comparativo-5-melhores-bikes-ate-5000/hero.jpg"
 image_alt: "Bicicletas de estrada de entrada lado a lado — comparativo até R$ 5.000"
 image_caption: ""
 image_credit: "Divulgação"
@@ -52,8 +52,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/comparativo-5-melhores-bikes-ate-5000/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais e pesquisa de preços em lojas brasileiras em julho de 2026. Nenhum produto foi testado presencialmente. Conteúdo elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

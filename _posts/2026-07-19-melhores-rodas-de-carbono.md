@@ -46,8 +46,8 @@ sources:
 affiliate_links: false
 editorial_status: "draft"
 permalink: /guias/melhores-rodas-de-carbono/
+thumbnail: "/assets/img/posts/melhores-rodas-de-carbono/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** pesquisa em sites oficiais dos fabricantes e distribuidores no Brasil. Preços em julho/2026. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

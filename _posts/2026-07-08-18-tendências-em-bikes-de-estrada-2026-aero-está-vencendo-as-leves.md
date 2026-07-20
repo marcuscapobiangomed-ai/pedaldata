@@ -41,8 +41,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/tendencias-bikes-2026-aero-vs-leves/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise baseada em especificações oficiais de fabricantes e dados de mercado. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

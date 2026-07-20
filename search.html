@@ -63,10 +63,21 @@ document.addEventListener("DOMContentLoaded", async function() {
       searchStatus.textContent = `${results.length} ${results.length === 1 ? 'resultado encontrado' : 'resultados encontrados'} para "${query}":`;
       
       searchResults.innerHTML = results.map(post => {
+        const baseurl = '{{ site.baseurl }}';
+        const hasImage = post.image && post.image !== '/assets/img/logo.svg';
+        const fbMap = {
+          'reviews': 'reviews',
+          'comparativos': 'comparativos',
+          'guias-de-compra': 'guias'
+        };
+        const fb = fbMap[post.category] || 'default';
+        const thumbHtml = hasImage
+          ? `<img src="${baseurl}${post.image}" alt="" width="176" height="120" loading="lazy" decoding="async">`
+          : `<div class="news-thumb-fallback" aria-hidden="true"><img src="${baseurl}/assets/img/fallbacks/${fb}.svg" alt="" loading="lazy"></div>`;
         const div = document.createElement('div');
         div.innerHTML = `
           <a href="${post.url}" class="news-item">
-            <div class="news-thumb"></div>
+            <div class="news-thumb">${thumbHtml}</div>
             <div>
               <div class="news-title"></div>
               <div class="news-date">${post.date.replace(/[<>]/g, '')}</div>

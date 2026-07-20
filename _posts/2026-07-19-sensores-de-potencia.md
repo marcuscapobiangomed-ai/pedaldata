@@ -46,8 +46,8 @@ sources:
 affiliate_links: false
 editorial_status: "draft"
 permalink: /guias/sensores-de-potencia/
+thumbnail: "/assets/img/posts/sensores-de-potencia/thumb-480.webp"
 ---
-
 > **Este artigo foi produzido com pesquisa em sites oficiais dos fabricantes e lojas brasileiras em julho/2026. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

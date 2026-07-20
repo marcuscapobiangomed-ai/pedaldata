@@ -37,8 +37,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/melhores-estradas-rotas-brasil/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** pesquisa em comunidades de ciclismo, Strava e guias de cicloturismo. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução

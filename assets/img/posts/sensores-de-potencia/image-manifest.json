@@ -1,12 +1,21 @@
-﻿{
-    "hero":  {
-                 "credit":  "Imagem temporária — substituir por foto real de sensor de potência",
-                 "license":  "Placeholder",
-                 "file":  "hero.jpg",
-                 "width":  1200,
-                 "sourceUrl":  "",
-                 "alt":  "Sensor de potência para bike",
-                 "height":  675,
-                 "source":  "Placeholder"
-             }
+{
+  "hero": {
+    "credit": "Imagem temporária — substituir por foto real de sensor de potência",
+    "license": "Placeholder",
+    "file": "hero.jpg",
+    "width": 1200,
+    "sourceUrl": "",
+    "alt": "Sensor de potência para bike",
+    "height": 675,
+    "source": "Placeholder"
+  },
+  "variants": {
+    "thumb-480": {
+      "file": "thumb-480.webp",
+      "width": 480,
+      "height": 320,
+      "sizeKB": 9,
+      "quality": 82
+    }
+  }
 }

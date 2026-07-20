@@ -8,5 +8,14 @@
     "alt": "Bicicleta em estrada de terra durante o dia",
     "width": 1200,
     "height": 675
+  },
+  "variants": {
+    "thumb-480": {
+      "file": "thumb-480.webp",
+      "width": 480,
+      "height": 320,
+      "sizeKB": 35,
+      "quality": 82
+    }
   }
 }

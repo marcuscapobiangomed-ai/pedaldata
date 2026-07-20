@@ -1,0 +1,12 @@
+{
+  "name": "pedaldata-blog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:images": "node scripts/validate-images.js",
+    "audit:images": "node ../medblog-automation/src/audit-images.js",
+    "generate:thumbnails": "node ../medblog-automation/src/generate-thumbnails.js",
+    "generate:placeholders": "node ../medblog-automation/src/generate-placeholders.js && node ../medblog-automation/src/generate-data-placeholders.js",
+    "pipeline:images": "npm run generate:placeholders && npm run generate:thumbnails && npm run validate:images"
+  }
+}

@@ -8,5 +8,14 @@
     "alt": "Ciclista em estrada durante pedalada",
     "width": 1200,
     "height": 675
+  },
+  "variants": {
+    "thumb-480": {
+      "file": "thumb-480.webp",
+      "width": 480,
+      "height": 320,
+      "sizeKB": 28,
+      "quality": 82
+    }
   }
 }

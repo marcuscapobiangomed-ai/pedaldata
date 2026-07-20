@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/inovacoes-componentes-2026/thumb-480.webp"
 ---
-
 > **Este artigo foi atualizado em 19/07/2026 com dados reais de mercado.
 
 ## Introdução

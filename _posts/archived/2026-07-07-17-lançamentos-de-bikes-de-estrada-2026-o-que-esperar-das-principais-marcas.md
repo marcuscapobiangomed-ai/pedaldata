@@ -36,8 +36,8 @@ sources:
     accessed_at: "2026-07-07"
 affiliate_links: false
 editorial_status: "published"
+thumbnail: "/assets/img/posts/lancamentos-bikes-2026/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 

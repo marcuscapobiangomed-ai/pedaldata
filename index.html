@@ -91,7 +91,33 @@ title: Início
       <div class="news-list">
         {% for post in paginator.posts | where_exp: "p", "p.status != 'draft'" limit: 5 %}
         <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
-          <div class="news-thumb"></div>
+          <div class="news-thumb">
+            {% assign preview_image = post.thumbnail | default: post.image %}
+            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+              <img
+                src="{{ site.baseurl }}{{ preview_image }}"
+                alt=""
+                width="176"
+                height="120"
+                loading="lazy"
+                decoding="async"
+              >
+            {% else %}
+              {% case post.category %}
+                {% when "reviews" %}
+                  {% assign fb = "reviews" %}
+                {% when "comparativos" %}
+                  {% assign fb = "comparativos" %}
+                {% when "guias-de-compra" %}
+                  {% assign fb = "guias" %}
+                {% else %}
+                  {% assign fb = "default" %}
+              {% endcase %}
+              <div class="news-thumb-fallback" aria-hidden="true">
+                <img src="{{ site.baseurl }}/assets/img/fallbacks/{{ fb }}.svg" alt="" loading="lazy">
+              </div>
+            {% endif %}
+          </div>
           <div>
             <div class="news-title">{{ post.title }}</div>
             <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>
@@ -111,14 +137,26 @@ title: Início
       </div>
       <div class="reviews-grid">
         {% for post in reviews %}
+          {% assign preview_image = post.thumbnail | default: post.image %}
+          {% assign has_img = false %}
+          {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+            {% assign has_img = true %}
+          {% endif %}
           <a href="{{ site.baseurl }}{{ post.url }}" class="review-card">
-            <div class="review-card-title">{{ post.title }}</div>
-            <div class="review-card-specs">
-              {% if post.weight %}<span class="review-spec">{{ post.weight }}</span>{% endif %}
-              {% if post.price %}<span class="review-spec">{{ post.price }}</span>{% endif %}
-              {% unless post.weight or post.price %}
-                <span class="review-spec">{{ post.date | date: "%d %b %Y" | downcase }}</span>
-              {% endunless %}
+            {% if has_img %}
+              <div class="review-card-thumb">
+                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
+              </div>
+            {% endif %}
+            <div class="review-card-body">
+              <div class="review-card-title">{{ post.title }}</div>
+              <div class="review-card-specs">
+                {% if post.weight %}<span class="review-spec">{{ post.weight }}</span>{% endif %}
+                {% if post.price %}<span class="review-spec">{{ post.price }}</span>{% endif %}
+                {% unless post.weight or post.price %}
+                  <span class="review-spec">{{ post.date | date: "%d %b %Y" | downcase }}</span>
+                {% endunless %}
+              </div>
             </div>
           </a>
         {% endfor %}
@@ -132,7 +170,33 @@ title: Início
       <div class="news-list">
         {% for post in paginator.posts | where_exp: "p", "p.status != 'draft'" %}
         <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
-          <div class="news-thumb"></div>
+          <div class="news-thumb">
+            {% assign preview_image = post.thumbnail | default: post.image %}
+            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+              <img
+                src="{{ site.baseurl }}{{ preview_image }}"
+                alt=""
+                width="176"
+                height="120"
+                loading="lazy"
+                decoding="async"
+              >
+            {% else %}
+              {% case post.category %}
+                {% when "reviews" %}
+                  {% assign fb = "reviews" %}
+                {% when "comparativos" %}
+                  {% assign fb = "comparativos" %}
+                {% when "guias-de-compra" %}
+                  {% assign fb = "guias" %}
+                {% else %}
+                  {% assign fb = "default" %}
+              {% endcase %}
+              <div class="news-thumb-fallback" aria-hidden="true">
+                <img src="{{ site.baseurl }}/assets/img/fallbacks/{{ fb }}.svg" alt="" loading="lazy">
+              </div>
+            {% endif %}
+          </div>
           <div>
             <div class="news-title">{{ post.title }}</div>
             <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>

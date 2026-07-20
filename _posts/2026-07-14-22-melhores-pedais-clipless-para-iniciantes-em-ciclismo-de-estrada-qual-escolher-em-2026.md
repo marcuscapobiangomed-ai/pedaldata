@@ -44,8 +44,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/melhores-pedais-clipless-2026/thumb-480.webp"
 ---
-
 > **Este artigo foi atualizado em 19/07/2026 com preços e modelos reais do mercado brasileiro.
 
 

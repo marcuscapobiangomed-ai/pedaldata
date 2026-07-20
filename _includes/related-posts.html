@@ -5,9 +5,23 @@
     <h3 class="related-title">Veja Também</h3>
     <div class="related-grid">
       {% for post in related %}
+        {% assign preview_image = post.thumbnail | default: post.image %}
+        {% assign has_img = false %}
+        {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+          {% assign has_img = true %}
+        {% endif %}
         <a href="{{ site.baseurl }}{{ post.url }}" class="related-card">
-          <h4>{{ post.title }}</h4>
-          <span class="related-date">{{ post.date | date: "%d %b %Y" | downcase }}</span>
+          <div class="related-thumb">
+            {% if has_img %}
+              <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
+            {% else %}
+              <div class="related-thumb-fallback">PD</div>
+            {% endif %}
+          </div>
+          <div class="related-card-body">
+            <h4>{{ post.title }}</h4>
+            <span class="related-date">{{ post.date | date: "%d %b %Y" | downcase }}</span>
+          </div>
         </a>
       {% endfor %}
     </div>

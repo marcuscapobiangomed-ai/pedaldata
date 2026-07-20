@@ -20,7 +20,7 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-tecnico"
 tags: [guias-de-compra, iniciantes, bike-de-estrada, ciclismo]
-image: "/assets/img/posts/guia-iniciantes/hero.jpg"
+image: "/assets/img/posts/guia-completo-melhor-bike-iniciantes/hero.jpg"
 image_alt: "Ciclista em bike de estrada em estrada brasileira"
 image_caption: ""
 image_credit: "Divulgação"
@@ -52,8 +52,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "draft"
+thumbnail: "/assets/img/posts/guia-completo-melhor-bike-iniciantes/thumb-480.webp"
 ---
-
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais dos fabricantes e pesquisa de preços em lojas brasileiras em julho de 2026. Nenhum produto foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
