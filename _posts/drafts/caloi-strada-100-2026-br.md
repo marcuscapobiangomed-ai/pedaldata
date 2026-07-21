@@ -29,8 +29,8 @@ sources:
     accessed_at: "2026-07-19"
 editorial_status: "draft"
 thumbnail: "/assets/img/posts/caloi-strada-100-2026-br/thumb-480.webp"
-
 ---
+
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes.
 
 Ficha técnica gerada automaticamente a partir da base estruturada.
