@@ -49,6 +49,12 @@ title: Início
       <div class="cards-grid">
         {% for post in guias %}
           <article class="post-card">
+            {% assign preview_image = post.thumbnail | default: post.image %}
+            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+              <div class="post-card-thumb">
+                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
+              </div>
+            {% endif %}
             {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
             <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
             {% if post.description %}
@@ -70,6 +76,12 @@ title: Início
       <div class="cards-grid">
         {% for post in published_posts limit: 3 %}
           <article class="post-card">
+            {% assign preview_image = post.thumbnail | default: post.image %}
+            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
+              <div class="post-card-thumb">
+                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
+              </div>
+            {% endif %}
             {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
             <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
             {% if post.description %}
