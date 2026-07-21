@@ -1,0 +1,212 @@
+{
+  "checkedAt": "2026-07-19T16:36:50.971Z",
+  "products": [
+    {
+      "id": "caloi-strada-100-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "caloi-strada-race-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-14",
+      "stale": false
+    },
+    {
+      "id": "caloi-strada-sport-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-17",
+      "stale": false
+    },
+    {
+      "id": "cannondale-caad-optimo-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-14",
+      "stale": false
+    },
+    {
+      "id": "cannondale-caad13-105-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-17",
+      "stale": false
+    },
+    {
+      "id": "cannondale-supersix-evo-105-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-12",
+      "stale": false
+    },
+    {
+      "id": "cannondale-supersix-evo-ultegra-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-18",
+      "stale": false
+    },
+    {
+      "id": "cervelo-caledonia-105-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "cervelo-s5-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-13",
+      "stale": false
+    },
+    {
+      "id": "cervelo-soloist-105-2026-br",
+      "observationCount": 1,
+      "lastUpdate": "2026-07-12",
+      "stale": false
+    },
+    {
+      "id": "oggi-bike-7-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-14",
+      "stale": true
+    },
+    {
+      "id": "oggi-giro-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "oggi-giro-carbon-2026-br",
+      "observationCount": 1,
+      "lastUpdate": "2026-07-17",
+      "stale": false
+    },
+    {
+      "id": "oggi-sport-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-18",
+      "stale": true
+    },
+    {
+      "id": "oggi-veloce-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "scott-addict-10-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "scott-addict-20-2026-br",
+      "observationCount": 4,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "scott-addict-30-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "scott-foil-30-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-13",
+      "stale": false
+    },
+    {
+      "id": "scott-foil-40-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-14",
+      "stale": false
+    },
+    {
+      "id": "sense-carbon-v2-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-18",
+      "stale": false
+    },
+    {
+      "id": "sense-carbon-v2-pro-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-10",
+      "stale": false
+    },
+    {
+      "id": "sense-gravel-v1-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-16",
+      "stale": false
+    },
+    {
+      "id": "specialized-allez-2026-br",
+      "observationCount": 1,
+      "lastUpdate": "2026-07-16",
+      "stale": false
+    },
+    {
+      "id": "specialized-roubaix-sl8-2026-br",
+      "observationCount": 2,
+      "lastUpdate": "2026-07-16",
+      "stale": false
+    },
+    {
+      "id": "specialized-tarmac-sl7-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "specialized-tarmac-sl8-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "trek-domane-sl5-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-19",
+      "stale": false
+    },
+    {
+      "id": "trek-emonda-sl5-2026-br",
+      "observationCount": 3,
+      "lastUpdate": "2026-07-12",
+      "stale": false
+    },
+    {
+      "id": "trek-madone-sl6-2026-br",
+      "observationCount": 1,
+      "lastUpdate": "2026-07-15",
+      "stale": false
+    }
+  ],
+  "alerts": [
+    {
+      "productId": "oggi-bike-7-2026-br",
+      "alerts": [
+        {
+          "store": "BikeExpress",
+          "issue": "Preço desatualizado (11 dias, limite 7)",
+          "level": "warning"
+        },
+        {
+          "store": "Mercado Livre",
+          "issue": "Preço desatualizado (12 dias, limite 7)",
+          "level": "warning"
+        }
+      ]
+    },
+    {
+      "productId": "oggi-sport-2026-br",
+      "alerts": [
+        {
+          "store": "PedalMais",
+          "issue": "Preço desatualizado (13 dias, limite 7)",
+          "level": "warning"
+        }
+      ]
+    }
+  ]
+}

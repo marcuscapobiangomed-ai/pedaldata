@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Grupos de transmissÃ£o mais comuns em bikes de estrada no Brasil em 2026"
-description: "AnÃ¡lise de dados reais: 30 bikes catalogadas, 12 com Shimano 105 (mecÃ¢nico ou Di2), grupos mais frequentes por faixa de preÃ§o."
+title: "Grupos de transmiss�o mais comuns em bikes de estrada no Brasil em 2026"
+description: "An�lise de dados reais: 30 bikes catalogadas, 12 com Shimano 105 (mec�nico ou Di2), grupos mais frequentes por faixa de pre�o."
 date: 2026-07-19
 last_modified_at: 2026-07-19
 author: "Equipe Pedal Data"
@@ -18,14 +18,14 @@ image_license: "Uso editorial"
 thumbnail: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/thumb-480.webp"
 
 ---
-Analisamos as **30 bicicletas de estrada** do catÃ¡logo do Pedal Data para identificar quais grupos de transmissÃ£o sÃ£o mais comuns no mercado brasileiro em 2026.
+Analisamos as **30 bicicletas de estrada** do cat�logo do Pedal Data para identificar quais grupos de transmiss�o s�o mais comuns no mercado brasileiro em 2026.
 
-## DistribuiÃ§Ã£o geral
+## Distribui��o geral
 
 | Grupo | Quantidade | Percentual |
 |---|---|---|
-| Shimano 105 Di2 (eletrÃ´nico) | 10 | 33% |
-| Shimano 105 R7100 (mecÃ¢nico) | 6 | 20% |
+| Shimano 105 Di2 (eletr�nico) | 10 | 33% |
+| Shimano 105 R7100 (mec�nico) | 6 | 20% |
 | Shimano Claris R2000 | 4 | 13% |
 | Shimano Ultegra Di2 R8170 | 4 | 13% |
 | Shimano Sora R3000 | 2 | 7% |
@@ -34,27 +34,27 @@ Analisamos as **30 bicicletas de estrada** do catÃ¡logo do Pedal Data para ide
 | SRAM Force eTap AXS | 1 | 3% |
 | Shimano GRX 600 | 1 | 3% |
 
-## EletrÃ´nico vs MecÃ¢nico
+## Eletr�nico vs Mec�nico
 
-- **EletrÃ´nico:** 16 bicicletas (53%) â€” inclui Di2, eTap AXS e semi-wireless
-- **MecÃ¢nico:** 14 bicicletas (47%)
+- **Eletr�nico:** 16 bicicletas (53%) � inclui Di2, eTap AXS e semi-wireless
+- **Mec�nico:** 14 bicicletas (47%)
 
-Pela primeira vez, mais da metade das bikes do catÃ¡logo sÃ£o equipadas com transmissÃ£o eletrÃ´nica. Isso reflete a descida da Shimano 105 Di2 para faixas de preÃ§o mais acessÃ­veis.
+Pela primeira vez, mais da metade das bikes do cat�logo s�o equipadas com transmiss�o eletr�nica. Isso reflete a descida da Shimano 105 Di2 para faixas de pre�o mais acess�veis.
 
-## Por faixa de preÃ§o
+## Por faixa de pre�o
 
 | Faixa | Grupo mais comum |
 |---|---|
-| AtÃ© R$ 5.000 | Claris / Sora / Tourney |
-| R$ 5.000 - R$ 15.000 | 105 mecÃ¢nico |
+| At� R$ 5.000 | Claris / Sora / Tourney |
+| R$ 5.000 - R$ 15.000 | 105 mec�nico |
 | R$ 15.000 - R$ 25.000 | 105 Di2 |
 | R$ 25.000 - R$ 35.000 | Ultegra Di2 / Force eTap |
 | Acima de R$ 35.000 | Ultegra Di2 / Force eTap |
 
-## ConclusÃ£o
+## Conclus�o
 
-A Shimano 105 Di2 se consolidou como o grupo mais presente no mercado brasileiro, aparecendo em 33% das bikes catalogadas. Com 12 velocidades e operaÃ§Ã£o eletrÃ´nica a um preÃ§o cada vez mais acessÃ­vel, Ã© a escolha dominante na faixa intermediÃ¡ria.
+A Shimano 105 Di2 se consolidou como o grupo mais presente no mercado brasileiro, aparecendo em 33% das bikes catalogadas. Com 12 velocidades e opera��o eletr�nica a um pre�o cada vez mais acess�vel, � a escolha dominante na faixa intermedi�ria.
 
-A SRAM aparece com forÃ§a apenas nas bikes premium (Tarmac SL8, CervÃ©lo S5), representando apenas 7% do mercado analisado.
+A SRAM aparece com for�a apenas nas bikes premium (Tarmac SL8, Cerv�lo S5), representando apenas 7% do mercado analisado.
 
-> *Base: 30 bicicletas do catÃ¡logo Pedal Data (julho/2026). A amostra inclui marcas como Caloi, Sense, Oggi, Specialized, Trek, Scott, Cannondale e CervÃ©lo.*
+> *Base: 30 bicicletas do cat�logo Pedal Data (julho/2026). A amostra inclui marcas como Caloi, Sense, Oggi, Specialized, Trek, Scott, Cannondale e Cerv�lo.*
