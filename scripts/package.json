@@ -2,6 +2,7 @@
   "name": "pedaldata-scripts",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Scripts de automação do Pedal Data",
   "scripts": {
     "check-prices": "node price-checker.js",

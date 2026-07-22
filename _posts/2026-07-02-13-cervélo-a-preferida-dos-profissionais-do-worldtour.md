@@ -22,7 +22,7 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "reviews"
 tags: [ciclismo, cervélo, worldtour, bikes de estrada]
-image: "/assets/img/posts/cervélo-r5/hero.jpg"
+image: "/assets/img/posts/cervelo-r5/hero.jpg"
 image_alt: "Cervélo R5 2026 — bike de escalada da marca canadense"
 image_caption: "Cervélo R5: quadro de 703 g, usado pela Visma-Lease a Bike no Tour de France."
 image_credit: "Cervélo"

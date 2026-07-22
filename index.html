@@ -8,12 +8,26 @@ title: Início
 {% assign featured = published_posts | first %}
 <section class="home-hero">
   <div class="container">
-    {% if featured.tags.first %}
-      <span class="hero-label">{{ featured.tags.first }}</span>
+    {% if featured.category %}
+      {% case featured.category %}
+        {% when "reviews" %}
+          {% assign featured_label = "Reviews" %}
+        {% when "comparativo" %}
+          {% assign featured_label = "Comparativos" %}
+        {% when "guia-de-compra" %}
+          {% assign featured_label = "Guias de Compra" %}
+        {% when "guia-tecnico" %}
+          {% assign featured_label = "Guias Técnicos" %}
+        {% when "noticia", "noticias" %}
+          {% assign featured_label = "Notícias" %}
+        {% else %}
+          {% assign featured_label = featured.category | replace: "-", " " | capitalize %}
+      {% endcase %}
+      <span class="hero-label">{{ featured_label }}</span>
     {% endif %}
-    <h2 class="hero-title">
+    <h1 class="hero-title">
       <a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a>
-    </h2>
+    </h1>
     <div class="hero-meta">
       <span class="hero-meta-item">
         <span class="hero-meta-dot"></span>
@@ -40,7 +54,7 @@ title: Início
     <div class="home-content">
 
       <!-- Guias de Compra -->
-      {% assign guias = published_posts | where_exp: "p", "p.tags contains 'guia-de-compra'" | limit: 3 %}
+      {% assign guias = published_posts | where_exp: "p", "p.tags contains 'guia-de-compra' or p.tags contains 'guias-de-compra'" | limit: 3 %}
       {% if guias.size > 0 %}
       <div class="section-header">
         <span class="section-title">Guias de Compra</span>
@@ -55,7 +69,25 @@ title: Início
                 <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
               </div>
             {% endif %}
-            {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+            {% if post.category %}
+              {% case post.category %}
+                {% when "reviews" %}
+                  {% assign card_label = "Reviews" %}
+                {% when "comparativo" %}
+                  {% assign card_label = "Comparativos" %}
+                {% when "guia-de-compra" %}
+                  {% assign card_label = "Guias de Compra" %}
+                {% when "guia-tecnico" %}
+                  {% assign card_label = "Guias Técnicos" %}
+                {% when "noticia", "noticias" %}
+                  {% assign card_label = "Notícias" %}
+                {% else %}
+                  {% assign card_label = post.category | replace: "-", " " | capitalize %}
+              {% endcase %}
+              <span class="card-tag">{{ card_label }}</span>
+            {% elsif post.tags.first %}
+              <span class="card-tag">{{ post.tags.first }}</span>
+            {% endif %}
             <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
             {% if post.description %}
               <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
@@ -82,7 +114,25 @@ title: Início
                 <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
               </div>
             {% endif %}
-            {% if post.tags.first %}<span class="card-tag">{{ post.tags.first }}</span>{% endif %}
+            {% if post.category %}
+              {% case post.category %}
+                {% when "reviews" %}
+                  {% assign card_label = "Reviews" %}
+                {% when "comparativo" %}
+                  {% assign card_label = "Comparativos" %}
+                {% when "guia-de-compra" %}
+                  {% assign card_label = "Guias de Compra" %}
+                {% when "guia-tecnico" %}
+                  {% assign card_label = "Guias Técnicos" %}
+                {% when "noticia", "noticias" %}
+                  {% assign card_label = "Notícias" %}
+                {% else %}
+                  {% assign card_label = post.category | replace: "-", " " | capitalize %}
+              {% endcase %}
+              <span class="card-tag">{{ card_label }}</span>
+            {% elsif post.tags.first %}
+              <span class="card-tag">{{ post.tags.first }}</span>
+            {% endif %}
             <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
             {% if post.description %}
               <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
@@ -118,9 +168,11 @@ title: Início
               {% case post.category %}
                 {% when "reviews" %}
                   {% assign fb = "reviews" %}
-                {% when "comparativos" %}
+                {% when "comparativo" %}
                   {% assign fb = "comparativos" %}
                 {% when "guias-de-compra" %}
+                  {% assign fb = "guias" %}
+                {% when "guia-tecnico" %}
                   {% assign fb = "guias" %}
                 {% else %}
                   {% assign fb = "default" %}
@@ -141,11 +193,11 @@ title: Início
       <hr class="section-divider">
 
       <!-- Reviews em Destaque -->
-      {% assign reviews = published_posts | where_exp: "p", "p.tags contains 'review'" | limit: 4 %}
+      {% assign reviews = published_posts | where_exp: "p", "p.category == 'reviews'" | limit: 4 %}
       {% if reviews.size > 0 %}
       <div class="section-header">
         <span class="section-title">Reviews em Destaque</span>
-        <a href="{{ site.baseurl }}/categorias#review" class="section-link">ver todos →</a>
+        <a href="{{ site.baseurl }}/categorias#reviews" class="section-link">ver todos →</a>
       </div>
       <div class="reviews-grid">
         {% for post in reviews %}
@@ -197,9 +249,11 @@ title: Início
               {% case post.category %}
                 {% when "reviews" %}
                   {% assign fb = "reviews" %}
-                {% when "comparativos" %}
+                {% when "comparativo" %}
                   {% assign fb = "comparativos" %}
                 {% when "guias-de-compra" %}
+                  {% assign fb = "guias" %}
+                {% when "guia-tecnico" %}
                   {% assign fb = "guias" %}
                 {% else %}
                   {% assign fb = "default" %}

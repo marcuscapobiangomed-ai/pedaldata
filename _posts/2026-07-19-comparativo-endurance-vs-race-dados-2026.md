@@ -11,6 +11,9 @@ tested_by_pedaldata: false
 ai_assisted: true
 editorial_status: "published"
 thumbnail: "/assets/img/posts/endurance-vs-race-dados/thumb-480.webp"
+image: "/assets/img/posts/endurance-vs-race-dados/hero.jpg"
+image_credit: "Pedal Data"
+image_license: "Uso editorial do Pedal Data"
 tags: [comparativo, dados]
 reading_time: 8
 ---

@@ -11,6 +11,9 @@ tested_by_pedaldata: false
 ai_assisted: true
 editorial_status: "published"
 thumbnail: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/thumb-480.webp"
+image: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/hero.jpg"
+image_credit: "Pedal Data"
+image_license: "Uso editorial do Pedal Data"
 tags: [guia-de-compra, dados]
 reading_time: 5
 ---

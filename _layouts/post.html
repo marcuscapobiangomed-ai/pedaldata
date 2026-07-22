@@ -6,11 +6,26 @@ layout: default
     <article class="post-main" itemscope itemtype="https://schema.org/Article">
 
       <!-- Breadcrumb -->
+      {% assign post_category = page.category | default: page.tags.first %}
+      {% case post_category %}
+        {% when "reviews" %}
+          {% assign post_category_label = "Reviews" %}
+        {% when "comparativo" %}
+          {% assign post_category_label = "Comparativos" %}
+        {% when "guia-de-compra" %}
+          {% assign post_category_label = "Guias de Compra" %}
+        {% when "guia-tecnico" %}
+          {% assign post_category_label = "Guias Técnicos" %}
+        {% when "noticia", "noticias" %}
+          {% assign post_category_label = "Notícias" %}
+        {% else %}
+          {% assign post_category_label = post_category | replace: "-", " " | capitalize %}
+      {% endcase %}
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="{{ site.baseurl }}/">Início</a>
         <span class="breadcrumb-sep">›</span>
-        {% if page.tags.first %}
-          <a href="{{ site.baseurl }}/categorias#{{ page.tags.first | slugify }}">{{ page.tags.first }}</a>
+        {% if post_category %}
+          <a href="{{ site.baseurl }}/categorias#{{ post_category | slugify }}">{{ post_category_label }}</a>
           <span class="breadcrumb-sep">›</span>
         {% endif %}
         <span class="breadcrumb-current">{{ page.title | truncate: 40 }}</span>
@@ -18,8 +33,8 @@ layout: default
 
       <!-- Header do post -->
       <header class="post-header">
-        {% if page.tags.first %}
-          <span class="post-tag">{{ page.tags.first }}</span>
+        {% if post_category %}
+          <span class="post-tag">{{ post_category_label }}</span>
         {% endif %}
 
         <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
@@ -50,9 +65,16 @@ layout: default
       </header>
 
       <!-- Hero image -->
-      <div class="post-hero-img" itemprop="image">
-        {% if page.image and page.image != "/assets/img/logo.svg" %}
-          <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager" fetchpriority="high" width="1200" height="675">
+      {% assign hero_image = page.image | default: site.logo %}
+      {% assign has_custom_hero = page.image and page.image != site.logo %}
+      <div class="post-hero-img{% unless has_custom_hero %} post-hero-img--placeholder{% endunless %}" itemprop="image">
+        {% if has_custom_hero %}
+          <img src="{{ site.baseurl }}{{ hero_image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager" fetchpriority="high" width="1200" height="675">
+        {% else %}
+          <div class="post-hero-placeholder" aria-label="Imagem padrão do artigo">
+            <img src="{{ site.baseurl }}{{ site.logo }}" alt="" aria-hidden="true" width="160" height="160">
+            <span>Imagem padrão do artigo</span>
+          </div>
         {% endif %}
       </div>
 
@@ -97,8 +119,10 @@ layout: default
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site.url }}{{ site.baseurl }}/" },
-    { "@type": "ListItem", "position": 2, "name": "{{ page.title | escape }}", "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}" }
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site.url }}{{ site.baseurl }}/" }{% if post_category %},
+    { "@type": "ListItem", "position": 2, "name": "{{ post_category_label | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias#{{ post_category | slugify }}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}" }{% else %},
+    { "@type": "ListItem", "position": 2, "name": "{{ page.title | escape }}", "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}" }{% endif %}
   ]
 }
 </script>

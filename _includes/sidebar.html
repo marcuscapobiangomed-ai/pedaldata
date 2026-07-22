@@ -14,9 +14,23 @@
   <div class="sidebar-widget">
     <h3 class="widget-title">Categorias</h3>
     <ul class="category-list">
-      {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
-      {% for tag in all_tags %}
-        <li><a href="{{ site.baseurl }}/categorias#{{ tag | slugify }}">{{ tag }}</a></li>
+      {% assign all_categories = site.posts | where_exp: "post", "post.status != 'draft'" | map: "category" | compact | uniq | sort %}
+      {% for category in all_categories %}
+        {% case category %}
+          {% when "reviews" %}
+            {% assign category_label = "Reviews" %}
+          {% when "comparativo" %}
+            {% assign category_label = "Comparativos" %}
+          {% when "guia-de-compra" %}
+            {% assign category_label = "Guias de Compra" %}
+          {% when "guia-tecnico" %}
+            {% assign category_label = "Guias Técnicos" %}
+          {% when "noticia", "noticias" %}
+            {% assign category_label = "Notícias" %}
+          {% else %}
+            {% assign category_label = category | replace: "-", " " | capitalize %}
+        {% endcase %}
+        <li><a href="{{ site.baseurl }}/categorias#{{ category | slugify }}">{{ category_label }}</a></li>
       {% endfor %}
     </ul>
   </div>
@@ -24,7 +38,7 @@
   <div class="sidebar-widget">
     <h3 class="widget-title">Tags</h3>
     <div class="tag-cloud">
-      {% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+      {% assign all_tags = site.posts | where_exp: "post", "post.status != 'draft'" | map: "tags" | join: "," | split: "," | uniq | sort %}
       {% for tag in all_tags %}
         <a href="{{ site.baseurl }}/categorias#{{ tag | slugify }}" class="tag">{{ tag }}</a>
       {% endfor %}

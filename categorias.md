@@ -10,13 +10,27 @@ title: Categorias
       <div class="page-title-underline"></div>
 
       {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
-      {% assign all_tags = published_posts | map: "tags" | join: "," | split: "," | uniq | sort %}
-      {% for tag in all_tags %}
+      {% assign all_categories = published_posts | map: "category" | compact | uniq | sort %}
+      {% for category in all_categories %}
+        {% case category %}
+          {% when "reviews" %}
+            {% assign category_label = "Reviews" %}
+          {% when "comparativo" %}
+            {% assign category_label = "Comparativos" %}
+          {% when "guia-de-compra" %}
+            {% assign category_label = "Guias de Compra" %}
+          {% when "guia-tecnico" %}
+            {% assign category_label = "Guias Técnicos" %}
+          {% when "noticia", "noticias" %}
+            {% assign category_label = "Notícias" %}
+          {% else %}
+            {% assign category_label = category | replace: "-", " " | capitalize %}
+        {% endcase %}
         <section class="category-section">
-          <h2 id="{{ tag | slugify }}" class="category-section-title">{{ tag }}</h2>
+          <h2 id="{{ category | slugify }}" class="category-section-title">{{ category_label }}</h2>
           <div class="category-posts">
             {% for post in published_posts %}
-              {% if post.tags contains tag %}
+              {% if post.category == category %}
                 <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
                   <div class="news-thumb">
                     {% assign preview_image = post.thumbnail | default: post.image %}
@@ -25,8 +39,9 @@ title: Categorias
                     {% else %}
                       {% case post.category %}
                         {% when "reviews" %}{% assign fb = "reviews" %}
-                        {% when "comparativos" %}{% assign fb = "comparativos" %}
+                        {% when "comparativo" %}{% assign fb = "comparativos" %}
                         {% when "guias-de-compra" %}{% assign fb = "guias" %}
+                        {% when "guia-tecnico" %}{% assign fb = "guias" %}
                         {% else %}{% assign fb = "default" %}
                       {% endcase %}
                       <div class="news-thumb-fallback" aria-hidden="true">

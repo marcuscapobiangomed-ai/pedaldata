@@ -10,7 +10,7 @@
     "batch": "node src/batch.js",
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
-    "lint": "node --check src/*.js && node --check src/schemas/*.js && node --check src/validation/*.js",
+    "lint": "node scripts/check-js.mjs",
     "test": "node test_schema.mjs",
     "validate:research": "node src/validation/validate-research.js",
     "validate:posts": "node src/validate_posts.js",
