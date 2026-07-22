@@ -25,6 +25,7 @@ export function generateMarkdown(article) {
   const today = new Date().toISOString().split("T")[0];
   const sources = normalizeSources(data.sources);
   const image = data.frontmatter?.image || "/assets/img/logo.svg";
+  const thumbnail = data.frontmatter?.thumbnail || `/assets/img/posts/${data.slug}/thumb-480.webp`;
   const imageAlt = data.frontmatter?.image_alt || data.description;
   const imageCaption = data.frontmatter?.image_caption || "";
   const imageCredit = data.frontmatter?.image_credit || "Pedal Data";
@@ -60,6 +61,7 @@ export function generateMarkdown(article) {
     `tags: ${yamlList(data.tags)}`,
     `description: "${escapeYaml(data.description)}"`,
     `image: "${escapeYaml(image)}"`,
+    `thumbnail: "${escapeYaml(thumbnail)}"`,
     `image_alt: "${escapeYaml(imageAlt)}"`,
     `image_caption: "${escapeYaml(imageCaption)}"`,
     `image_credit: "${escapeYaml(imageCredit)}"`,

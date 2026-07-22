@@ -294,6 +294,7 @@ export class AIProvider {
     next.frontmatter = next.frontmatter || {};
     next.frontmatter.author = this._sanitizeHtml(next.frontmatter.author || "Equipe Pedal Data");
     next.frontmatter.image = this._sanitizeHtml(next.frontmatter.image || "/assets/img/logo.svg");
+    next.frontmatter.thumbnail = this._sanitizeHtml(next.frontmatter.thumbnail || "");
     next.frontmatter.image_alt = this._sanitizeHtml(next.frontmatter.image_alt || next.description || "");
     next.frontmatter.image_caption = this._sanitizeHtml(next.frontmatter.image_caption || "");
     next.frontmatter.image_credit = this._sanitizeHtml(next.frontmatter.image_credit || "Pedal Data");

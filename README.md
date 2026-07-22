@@ -47,7 +47,8 @@ _posts/
 
 assets/img/posts/<slug>/
 ├── image-manifest.json      # Metadados das imagens
-└── hero-1600.webp           # Imagem principal
+├── hero.jpg                 # Imagem principal
+└── thumb-480.webp           # Thumbnail para cards e listas
 ```
 
 ## Comandos do WhatsApp

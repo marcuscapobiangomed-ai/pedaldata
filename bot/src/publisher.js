@@ -112,8 +112,13 @@ export class GitHubPublisher {
     // Imagens
     if (imageManifest) {
       prBody += "\n### Imagens\n";
-      for (const [key, img] of Object.entries(imageManifest)) {
-        prBody += `- [ ] ${key}: ${img.alt || "sem descrição"}\n`;
+      if (imageManifest.hero) {
+        prBody += `- [ ] hero: ${imageManifest.hero.alt || "sem descrição"}\n`;
+      }
+      if (imageManifest.variants) {
+        for (const [key, img] of Object.entries(imageManifest.variants)) {
+          prBody += `- [ ] ${key}: ${img.file || "sem arquivo"}\n`;
+        }
       }
     }
 

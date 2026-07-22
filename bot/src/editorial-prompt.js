@@ -111,6 +111,7 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '  "frontmatter": {',
     '    "author": "Equipe Pedal Data",',
     '    "image": "/assets/img/logo.svg",',
+    '    "thumbnail": "/assets/img/logo.svg",',
     '    "image_alt": "Texto alternativo descritivo",',
     '    "image_caption": "",',
     '    "image_credit": "Pedal Data",',

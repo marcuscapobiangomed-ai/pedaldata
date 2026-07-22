@@ -3,6 +3,7 @@ import { WhatsAppBot } from "./whatsapp.js";
 import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 import { generateMarkdown } from "./generator.js";
+import { buildImageManifest } from "./image-manifest.js";
 import { validateResearch } from "./schemas/research.schema.js";
 import { validateArticle } from "./schemas/article.schema.js";
 import { InputValidator } from "./input-validator.js";
@@ -55,6 +56,14 @@ async function handleCommand({ command, args, from, reply }) {
 
     // 3. Converte para Markdown
     const markdown = generateMarkdown(articleData);
+    const imageManifest = buildImageManifest({
+      ...articleData,
+      frontmatter: {
+        ...(articleData.frontmatter || {}),
+        image: articleData.frontmatter?.image || `/assets/img/posts/${slug}/hero.jpg`,
+        thumbnail: articleData.frontmatter?.thumbnail || `/assets/img/posts/${slug}/thumb-480.webp`,
+      },
+    });
 
     // 4. Salva ficha de pesquisa inicial
     const researchFile = path.join(RESEARCH_DIR, `${slug}.json`);
@@ -80,7 +89,7 @@ async function handleCommand({ command, args, from, reply }) {
       postContent: markdown,
       slug,
       researchData,
-      imageManifest: null,
+      imageManifest,
       checklist: articleData.claimsRequiringReview || [],
     });
 

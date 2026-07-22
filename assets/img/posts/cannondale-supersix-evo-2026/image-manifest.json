@@ -1,11 +1,11 @@
 {
   "hero": {
     "file": "hero.jpg",
-    "source": "",
+    "source": "Pedal Data",
     "sourceUrl": "",
-    "license": "",
-    "credit": "",
-    "alt": "",
+    "license": "Uso editorial do Pedal Data",
+    "credit": "Pedal Data",
+    "alt": "Cannondale SuperSix Evo 2026",
     "width": 1200,
     "height": 675
   },

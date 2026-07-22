@@ -82,6 +82,7 @@ export const ArticleSchema = z.object({
     price: z.string().default("Não informado"),
     author: z.string().default("Equipe Pedal Data"),
     image: z.string().default("/assets/img/logo.svg"),
+    thumbnail: z.string().default(""),
     image_alt: z.string().default("Logo Pedal Data"),
     image_caption: z.string().default(""),
     image_credit: z.string().default("Pedal Data"),
