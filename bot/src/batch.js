@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Gera os primeiros N posts do blog automaticamente via Gemini.
+ * Gera os primeiros N posts do blog automaticamente via DeepSeek/Gemini.
  * Uso: node src/batch.js
  */
 import "dotenv/config";

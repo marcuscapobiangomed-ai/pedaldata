@@ -77,7 +77,7 @@ npm run build:jekyll        # Build do site Jekyll
 ```bash
 cd bot
 cp .env.example .env
-# Configure GEMINI_API_KEY, GITHUB_TOKEN, etc.
+# Configure DEEPSEEK_API_KEY (preferencial), GEMINI_API_KEY (fallback), GITHUB_TOKEN, etc.
 npm start
 ```
 
@@ -85,5 +85,6 @@ npm start
 
 - Node.js 18+
 - Conta GitHub
-- Google Gemini API key (https://aistudio.google.com/apikey)
+- DeepSeek API key
+- Google Gemini API key (fallback) (https://aistudio.google.com/apikey)
 - WhatsApp no celular

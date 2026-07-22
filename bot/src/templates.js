@@ -203,7 +203,18 @@ export const TEMPLATES = {
 };
 
 export function getTemplate(type) {
-  return TEMPLATES[type] || TEMPLATES["review-desk"];
+  const aliases = {
+    review: "review-desk",
+    "review-desk": "review-desk",
+    "review-hands-on": "review-hands-on",
+    comparativo: "comparativo",
+    "guia-de-compra": "guia-de-compra",
+    "guia-tecnico": "guia-tecnico",
+    noticia: "noticia",
+  };
+
+  const key = aliases[type] || type;
+  return TEMPLATES[key] || TEMPLATES["review-desk"];
 }
 
 export function buildResearchSheet({ type, product_name, brand, model_year, sources, prices, specs }) {

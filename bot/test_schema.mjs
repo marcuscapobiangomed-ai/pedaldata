@@ -5,10 +5,35 @@ import { validateResearch } from "./src/schemas/research.schema.js";
 
 const validArticle = {
   title: "Comparativo de bikes endurance e race em 2026",
-  description: "Uma análise editorial de mais de cem caracteres sobre diferenças de geometria, peso, custo e perfil de uso entre bikes endurance e race.",
+  description:
+    "Uma análise editorial de mais de cem caracteres sobre diferenças de geometria, peso, custo e perfil de uso entre bikes endurance e race.",
   slug: "comparativo-bikes-endurance-race-2026",
   category: "comparativos",
+  content_type: "comparativo",
+  review_method: "desk-research",
+  tested_by_pedaldata: false,
+  methodologyNotice:
+    "Análise documental baseada em especificações oficiais e pesquisa de mercado. O produto não foi testado presencialmente pela equipe.",
+  brand: "Trek",
+  product_name: "Domane SL 5",
+  model_year: 2026,
+  market: "Brasil",
+  weight: "8.8 kg",
+  weight_source: "Fabricante",
+  price_min: 21990,
+  price_max: 24990,
+  price_currency: "BRL",
+  price_checked_at: "2026-07-22",
+  affiliate_links: false,
   tags: ["ciclismo", "comparativo", "dados"],
+  sources: [
+    {
+      name: "Trek Brasil",
+      type: "manufacturer",
+      url: "https://example.com",
+      accessed_at: "2026-07-22",
+    },
+  ],
   sections: [
     { heading: "Contexto", content: "Conteúdo de contexto." },
     { heading: "Conclusão", content: "Conteúdo de conclusão." },
@@ -28,6 +53,9 @@ const validArticle = {
     author: "Equipe Pedal Data",
     image: "/assets/img/logo.svg",
     image_alt: "Logo Pedal Data",
+    image_caption: "Comparativo editorial",
+    image_credit: "Pedal Data",
+    image_license: "Uso editorial do Pedal Data",
   },
 };
 

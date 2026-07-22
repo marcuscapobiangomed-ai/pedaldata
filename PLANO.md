@@ -66,3 +66,29 @@
 - [ ] Instagram: calendário editorial e direcionamento para ferramentas
 - [ ] YouTube: comparativos e análises técnicas
 - [ ] WhatsApp: boletim e alertas de preço
+
+## Direção Editorial — Próximos 90 Dias
+
+Baseado no benchmark de blogs de ciclismo e no estado atual do Pedal Data, a prioridade editorial passa a ser:
+
+- consolidar o blog como referência em ciclismo de estrada + dados + decisão;
+- reduzir dispersão entre notícia solta e conteúdo evergreen;
+- publicar comparativos, guias e reviews com estrutura repetível;
+- usar newsletter e ferramentas como captura principal de audiência.
+
+Documento de referência:
+
+- [Plano editorial de 90 dias](docs/benchmark-90-dias.md)
+
+### Primeiras prioridades editoriais
+
+- [ ] Comparativo endurance vs race
+- [ ] Carbono vs alumínio
+- [ ] Tamanho certo de bike
+- [ ] Quanto custa importar uma bike
+- [ ] Melhor bike de estrada para iniciantes
+- [ ] Shimano 105 vs Ultegra
+- [ ] Melhores rodas de carbono
+- [ ] Melhores pedais clipless
+- [ ] Grupos mais comuns em bikes de estrada
+- [ ] Peso médio por tipo de quadro

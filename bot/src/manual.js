@@ -16,7 +16,7 @@ if (!descricao) {
   process.exit(1);
 }
 
-console.log("🤖 Processando caso com Gemini...\n");
+console.log("🤖 Processando caso com DeepSeek/Gemini...\n");
 console.log(`📝 Descrição: "${descricao}"\n`);
 
 const ai = new AIProvider();

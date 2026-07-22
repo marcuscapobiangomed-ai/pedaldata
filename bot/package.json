@@ -2,7 +2,7 @@
   "name": "pedaldata-bot",
   "version": "1.0.0",
   "type": "module",
-  "description": "Bot WhatsApp + Gemini + GitHub para blog de ciclismo automático",
+  "description": "Bot WhatsApp + DeepSeek + Gemini + GitHub para blog de ciclismo automático",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

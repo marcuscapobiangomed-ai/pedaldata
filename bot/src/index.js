@@ -62,15 +62,15 @@ async function handleCommand({ command, args, from, reply }) {
 
     const researchData = {
       topic: sanitizedTopic,
-      contentType: articleData.category || "review",
-      reviewMethod: "desk-research",
-      testedByPedalData: false,
+      contentType: articleData.content_type || "review",
+      reviewMethod: articleData.review_method || "desk-research",
+      testedByPedalData: articleData.tested_by_pedaldata === true,
       market: "Brasil",
-      product: { brand: "", name: sanitizedTopic, modelYear: 2026 },
+      product: { brand: articleData.brand || "", name: articleData.product_name || sanitizedTopic, modelYear: articleData.model_year || 2026 },
       specifications: {},
       prices: [],
       sources: [{ id: "pending", name: "Pendente", type: "manufacturer", url: "", accessedAt: today }],
-      affiliateLinks: false,
+      affiliateLinks: articleData.affiliate_links === true,
     };
     fs.writeFileSync(researchFile, JSON.stringify(researchData, null, 2), "utf-8");
 
@@ -106,7 +106,7 @@ async function main() {
   console.log("=".repeat(45));
   console.log("🚴 Pedal Data Bot v3 — Pipeline Editorial");
   console.log("=".repeat(45));
-  console.log(`🤖 Gemini AI + GitHub API`);
+  console.log(`🤖 DeepSeek AI + Gemini fallback + GitHub API`);
   console.log(`📡 Fluxo: /novo → pesquisa → rascunho → PR → revisão → publicação`);
   console.log(`🔒 Whitelist: ${process.env.AUTHORIZED_WHATSAPP_NUMBERS ? "ativa" : "inativa"}`);
   console.log("");

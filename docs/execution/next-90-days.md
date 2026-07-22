@@ -5,6 +5,36 @@ Sair de MRR R$ 0 para primeira receita, melhorar qualidade dos dados de 78% para
 
 ---
 
+## Fase 0 — Direção Editorial
+
+Antes de acelerar receita e produto, o site precisa de uma linha editorial mais nítida.
+
+### Documento-base
+
+- [Plano editorial de 90 dias](../benchmark-90-dias.md)
+
+### Prioridades iniciais
+
+1. Fixar o núcleo do blog em ciclismo de estrada + dados + decisão.
+2. Publicar comparativos e guias evergreen com estrutura repetível.
+3. Transformar os posts analíticos mais fortes em páginas-pilar.
+4. Usar newsletter e ferramentas como captura principal de audiência.
+
+### Primeiros posts a priorizar
+
+- Comparativo endurance vs race
+- Carbono vs alumínio
+- Tamanho certo de bike
+- Quanto custa importar uma bike
+- Melhor bike de estrada para iniciantes
+- Shimano 105 vs Ultegra
+- Melhores rodas de carbono
+- Melhores pedais clipless
+- Grupos mais comuns em bikes de estrada
+- Peso médio por tipo de quadro
+
+---
+
 ## Semana 1–2: Ativar Receita via Afiliados
 
 ### Ação 1: Escolher programa de afiliados
