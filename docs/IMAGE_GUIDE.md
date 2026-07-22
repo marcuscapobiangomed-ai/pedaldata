@@ -7,6 +7,11 @@ assets/img/posts/<slug>/
 ├── hero.jpg
 ├── thumb-480.webp
 └── image-manifest.json
+
+assets/img/system/covers/<tipo>/
+├── hero.webp
+├── thumb-480.webp
+└── image-manifest.json
 ```
 
 ## image-manifest.json
@@ -43,6 +48,16 @@ assets/img/posts/<slug>/
 - **Licença**: sempre registrada no hero do manifest
 - **Crédito**: obrigatório para imagens de terceiros
 - **sourceUrl**: recomendado quando houver URL pública de referência; opcional em imagens internas ou geradas pela equipe
+
+## Fallback visual do site
+
+Quando um post não tiver imagem própria, o bot usa um cover editorial padrão por tipo:
+
+- `comparativo` → capa com duas bikes em composição comparativa
+- `review` → capa com uma bike em destaque técnico
+- `guia-de-compra`, `guia-tecnico` e `noticia` → capa de estrada/guia editorial
+
+Esses covers ficam em `assets/img/system/covers/` e podem ser reaproveitados em novos posts, páginas especiais e rascunhos automáticos.
 
 ## Bloqueios
 

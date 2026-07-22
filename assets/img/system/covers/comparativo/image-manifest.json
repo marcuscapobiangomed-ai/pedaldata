@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "file": "hero.webp",
+    "source": "Pedal Data",
+    "sourceUrl": "",
+    "license": "Uso editorial do Pedal Data",
+    "credit": "Pedal Data",
+    "alt": "Duas bikes de estrada em composi??o editorial comparativa",
+    "width": 1200,
+    "height": 675
+  },
+  "variants": {
+    "thumb-480": {
+      "file": "thumb-480.webp",
+      "width": 480,
+      "height": 320,
+      "sizeKB": 9,
+      "quality": 78
+    }
+  }
+}

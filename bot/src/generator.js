@@ -3,6 +3,7 @@
  * Ex.: node src/generator.js < input.json > output.md
  */
 import { validateArticle } from "./schemas/article.schema.js";
+import { getCoverPreset } from "./image-presets.js";
 
 const escapeYaml = (s) => (s || "").replace(/"/g, '\\"');
 
@@ -24,8 +25,13 @@ export function generateMarkdown(article) {
   const data = validateArticle(article);
   const today = new Date().toISOString().split("T")[0];
   const sources = normalizeSources(data.sources);
-  const image = data.frontmatter?.image || "/assets/img/logo.svg";
-  const thumbnail = data.frontmatter?.thumbnail || `/assets/img/posts/${data.slug}/thumb-480.webp`;
+  const preset = getCoverPreset(data.content_type);
+  const image = data.frontmatter?.image && data.frontmatter.image !== "/assets/img/logo.svg"
+    ? data.frontmatter.image
+    : preset.hero;
+  const thumbnail = data.frontmatter?.thumbnail && data.frontmatter.thumbnail !== "/assets/img/logo.svg"
+    ? data.frontmatter.thumbnail
+    : preset.thumbnail;
   const imageAlt = data.frontmatter?.image_alt || data.description;
   const imageCaption = data.frontmatter?.image_caption || "";
   const imageCredit = data.frontmatter?.image_credit || "Pedal Data";

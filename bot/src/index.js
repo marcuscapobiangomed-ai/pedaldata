@@ -4,6 +4,7 @@ import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 import { generateMarkdown } from "./generator.js";
 import { buildImageManifest } from "./image-manifest.js";
+import { getCoverPreset } from "./image-presets.js";
 import { validateResearch } from "./schemas/research.schema.js";
 import { validateArticle } from "./schemas/article.schema.js";
 import { InputValidator } from "./input-validator.js";
@@ -56,12 +57,19 @@ async function handleCommand({ command, args, from, reply }) {
 
     // 3. Converte para Markdown
     const markdown = generateMarkdown(articleData);
+    const preset = getCoverPreset(articleData.content_type);
     const imageManifest = buildImageManifest({
       ...articleData,
       frontmatter: {
         ...(articleData.frontmatter || {}),
-        image: articleData.frontmatter?.image || `/assets/img/posts/${slug}/hero.jpg`,
-        thumbnail: articleData.frontmatter?.thumbnail || `/assets/img/posts/${slug}/thumb-480.webp`,
+        image:
+          articleData.frontmatter?.image && articleData.frontmatter.image !== "/assets/img/logo.svg"
+            ? articleData.frontmatter.image
+            : preset.hero,
+        thumbnail:
+          articleData.frontmatter?.thumbnail && articleData.frontmatter.thumbnail !== "/assets/img/logo.svg"
+            ? articleData.frontmatter.thumbnail
+            : preset.thumbnail,
       },
     });
 

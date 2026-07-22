@@ -9,6 +9,23 @@ Cores, tipografia e estilo visual a serem definidos com designer especializado.
 - Foco no detalhe técnico (grupo, rodas, quadro)
 - Sem filtros pesados ou saturação excessiva
 
+## Capas editoriais padrão
+
+Os artigos sem fotografia específica devem usar os templates do sistema visual:
+
+- `comparativo`: composição com duas bikes lado a lado, fundo escuro e leitura técnica
+- `review`: bike única em enquadramento editorial, com destaque para cockpit, rodas e quadro
+- `guia-de-compra`, `guia-tecnico` e `noticia`: cena aberta de estrada, com clima mais humano e didático
+
+Direção visual comum:
+
+- fundo grafite/charcoal
+- acentos amarelos discretos
+- composição limpa
+- sem texto embutido
+- sem logos de marca
+- sem excesso de elementos
+
 ## Estilo de ilustração
 - Esquemas técnicos e diagramas
 - Comparações visuais lado a lado
@@ -40,5 +57,4 @@ Cores, tipografia e estilo visual a serem definidos com designer especializado.
 - Tipografia principal e secundária
 - Variações de logo
 - Ícone de aplicativo e favicon
-- Padrão de thumbnails
 - Template de stories e posts
