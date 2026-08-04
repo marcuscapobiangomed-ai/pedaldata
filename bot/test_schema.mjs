@@ -41,8 +41,8 @@ const validArticle = {
     },
   ],
   sections: [
-    { heading: "Contexto", content: "Conteúdo de contexto." },
-    { heading: "Conclusão", content: "Conteúdo de conclusão." },
+    { heading: "A geometria muda antes de a estrada inclinar", content: "Conteúdo de contexto." },
+    { heading: "Quem ganha mais com cada configuração", content: "Conteúdo de decisão." },
   ],
   imagePlan: [
     {
@@ -105,6 +105,17 @@ const generatedMarkdown = generateMarkdown(validArticle);
 assert.match(generatedMarkdown, /editorial_scope: "portfolio"/);
 assert.match(generatedMarkdown, /promoted_brands: \["Scott"\]/);
 assert.match(generatedMarkdown, /portfolio_evidence_url: "https:\/\/www\.thebiker\.com\.br\/bikes\/estrada\/"/);
+assert.match(generatedMarkdown, /## De onde vêm os dados desta análise/);
+assert.throws(
+  () => validateArticle({
+    ...validArticle,
+    sections: [
+      { heading: "Introdução", content: "Abertura genérica." },
+      { heading: "Conclusão", content: "Fechamento genérico." },
+    ],
+  }),
+  /intertítulo específico e atraente/i,
+);
 assert.throws(
   () => validateArticle({
     ...validArticle,

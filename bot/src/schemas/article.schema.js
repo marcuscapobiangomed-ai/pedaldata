@@ -53,6 +53,8 @@ const SectionSchema = z.object({
   content: z.string().min(1),
 });
 
+const GENERIC_SECTION_HEADING = /^(?:\d+[.)-]?\s*)?(?:introdu[cç][aã]o|desenvolvimento|conclus[aã]o|considera[cç][oõ]es finais|resumo(?: inicial)?|contexto|an[aá]lise|aviso de metodologia|fontes|refer[eê]ncias|fontes e (?:metodologia|refer[eê]ncias))\s*[.!?:-]*$/iu;
+
 const SourceSchema = z.object({
   name: z.string().min(1, "source.name é obrigatório"),
   type: z.string().min(1, "source.type é obrigatório"),
@@ -130,6 +132,16 @@ export const ArticleSchema = z.object({
       message: "Marcas concorrentes só podem ser mencionadas como contexto factual em cobertura de corridas.",
     });
   }
+
+  article.sections.forEach((section, index) => {
+    if (GENERIC_SECTION_HEADING.test(section.heading.trim())) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["sections", index, "heading"],
+        message: "Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos.",
+      });
+    }
+  });
 });
 
 export function validateArticle(data) {

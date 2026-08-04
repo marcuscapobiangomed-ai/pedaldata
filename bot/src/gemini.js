@@ -96,10 +96,13 @@ export class AIProvider {
   }
 
   async generate(systemPrompt, userPrompt, options = {}) {
+    const providerErrors = [];
+
     if (this.deepseekKey) {
       try {
         return await this._tryDeepSeek(systemPrompt, userPrompt, options);
       } catch (err) {
+        providerErrors.push(`DeepSeek: ${err.message}`);
         console.warn("⚠️ Falha ao usar DeepSeek, tentando fallback:", err.message);
       }
     }
@@ -108,17 +111,29 @@ export class AIProvider {
       try {
         return await this._tryGemini(systemPrompt, userPrompt, options);
       } catch (err) {
+        providerErrors.push(`Gemini: ${err.message}`);
         console.warn("⚠️ Falha ao usar Gemini, tentando fallback:", err.message);
       }
     }
 
-    return this._tryGitHubModels(systemPrompt, userPrompt, options);
+    if (this.githubToken) {
+      try {
+        return await this._tryGitHubModels(systemPrompt, userPrompt, options);
+      } catch (err) {
+        providerErrors.push(`GitHub Models: ${err.message}`);
+      }
+    }
+
+    const details = providerErrors.length > 0 ? ` Detalhes: ${providerErrors.join(" | ")}` : "";
+    throw new Error(
+      `Nenhum provedor de IA respondeu. Configure DEEPSEEK_API_KEY, GEMINI_API_KEY ou GITHUB_TOKEN.${details}`,
+    );
   }
 
   async _tryDeepSeek(system, user, options = {}) {
     const baseUrl = process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com";
     const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro";
-    const maxTokens = toNumber(process.env.DEEPSEEK_MAX_TOKENS || options.maxTokens, 4096);
+    const maxTokens = toNumber(process.env.DEEPSEEK_MAX_TOKENS || options.maxTokens, 8192);
 
     const payload = {
       model,
@@ -127,7 +142,7 @@ export class AIProvider {
         { role: "user", content: user },
       ],
       temperature: options.temperature ?? 0.2,
-      max_tokens: maxTokens ?? 4096,
+      max_tokens: maxTokens ?? 8192,
     };
 
     if (options.jsonMode) {
@@ -154,12 +169,13 @@ export class AIProvider {
 
   async _tryGitHubModels(system, user, options = {}) {
     const payload = {
-      model: "gpt-4o-mini",
+      model: process.env.GITHUB_MODELS_MODEL || "gpt-4o-mini",
       messages: [
         { role: "system", content: system },
         { role: "user", content: user },
       ],
-      max_tokens: options.maxTokens || 4096,
+      temperature: options.temperature ?? 0.2,
+      max_tokens: options.maxTokens || 8192,
     };
 
     if (options.jsonMode) {
@@ -184,17 +200,26 @@ export class AIProvider {
     return data.choices?.[0]?.message?.content || "";
   }
 
-  async _tryGemini(system, user) {
+  async _tryGemini(system, user, options = {}) {
     if (!this.geminiKey) throw new Error("Sem Gemini API Key");
     const { GoogleGenerativeAI } = await import("@google/generative-ai");
     const genAI = new GoogleGenerativeAI(this.geminiKey);
-    const models = ["gemini-2.0-flash", "gemini-1.5-flash"];
+    const models = [
+      process.env.GEMINI_MODEL,
+      "gemini-2.0-flash",
+      "gemini-1.5-flash",
+    ].filter(Boolean);
 
     for (const modelName of models) {
       try {
         const model = genAI.getGenerativeModel({
           model: modelName,
           systemInstruction: system,
+          generationConfig: {
+            temperature: options.temperature ?? 0.2,
+            maxOutputTokens: options.maxTokens || 8192,
+            ...(options.jsonMode ? { responseMimeType: "application/json" } : {}),
+          },
         });
         const result = await model.generateContent(user);
         return result.response.text();
@@ -389,7 +414,7 @@ export class AIProvider {
 
     const rawText = await this.generate(AIProvider.systemPrompt(), userPrompt, {
       jsonMode: true,
-      maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 4096),
+      maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
     });
 
     try {
@@ -411,7 +436,7 @@ export class AIProvider {
       const repairedText = await this.generate(AIProvider.systemPrompt(), repairPrompt, {
         jsonMode: true,
         temperature: 0,
-        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 4096),
+        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
       });
 
       return this._parseStructuredResponse(repairedText, descricaoCurta);

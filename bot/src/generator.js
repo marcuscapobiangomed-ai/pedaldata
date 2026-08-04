@@ -97,8 +97,8 @@ export function generateMarkdown(article) {
     body += `## ${section.heading}\n\n${section.content}\n\n`;
   }
 
-  if (!body.match(/##\s*(Fontes|Fontes e metodologia|Referências)/i)) {
-    body += "## Fontes e metodologia\n\n";
+  if (!body.match(/##\s*(Fontes|Fontes e metodologia|Referências|De onde vêm os dados)/i)) {
+    body += "## De onde vêm os dados desta análise\n\n";
     for (const source of sources) {
       body += `- **${source.name}** (${source.type})${source.url ? ` — ${source.url}` : ""} — acessado em ${source.accessed_at}\n`;
     }
