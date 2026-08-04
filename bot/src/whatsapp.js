@@ -138,7 +138,7 @@ export class WhatsAppBot {
 
     if (body === "/ajuda" || body === "/help") {
       await reply(
-        "🤖 *Comandos do Pedal Data Bot:*\n\n" +
+        "🤖 *Comandos do The Biker Blog Bot:*\n\n" +
         `/novo <tema> — Registrar novo tema\n` +
         `/status <slug> — Ver status do artigo\n` +
         `/aprovar <slug> — Aprovar para publicação\n` +

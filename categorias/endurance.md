@@ -7,7 +7,7 @@ permalink: /categorias/endurance/
 <section class="page-header">
   <div class="container">
     <h1>Melhores Bikes Endurance 2026</h1>
-    <p class="page-subtitle">Bicicletas de estrada com geometria confortável para longas distâncias — selecionadas da base Pedal Data</p>
+    <p class="page-subtitle">Bicicletas de estrada com geometria confortável para longas distâncias — selecionadas da base The Biker Blog</p>
   </div>
 </section>
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   html += '<div class="catalog-grid">'
 
   endurance.forEach(b => {
-    const price = b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : '<div class="catalog-card-price" style="color:var(--text-muted)">Preço sob consulta</div>'
+    const price = PedalData.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : '<div class="catalog-card-price" style="color:var(--text-muted)">Preço em revisão</div>'
     const specTags = [
       b.frameMaterial === 'carbon' ? 'Carbono' : 'Alumínio',
       b.groupset,
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   html += '<div class="product-section" style="margin-top:28px;"><h3>Sobre bikes Endurance</h3>'
   html += '<p>Bikes endurance são projetadas para oferecer conforto em longas distâncias sem abrir mão de performance. Com geometria mais elevada na frente (mais stack), caixas de direção mais altas e pneus mais largos (30-32mm), elas absorvem melhor as irregularidades do asfalto.</p>'
-  html += '<p>Das 30 bikes catalogadas, ' + endurance.length + ' são do perfil endurance. Os preços variam de R$ ' + (endurance.length ? endurance[0].priceLowest?.toLocaleString('pt-BR') || 'consulta' : '—') + ' a R$ ' + (endurance.length ? endurance[endurance.length-1].priceLowest?.toLocaleString('pt-BR') || 'consulta' : '—') + '.</p></div>'
+  html += '<p>Das 30 bikes catalogadas, ' + endurance.length + ' são do perfil endurance. Preços e disponibilidade estão em revisão editorial.</p></div>'
 
   document.getElementById('category-content').innerHTML = html
 })

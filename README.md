@@ -51,7 +51,11 @@ assets/img/posts/<slug>/
 └── thumb-480.webp           # Thumbnail para cards e listas
 ```
 
-## Comandos do WhatsApp
+## Integração com WhatsApp
+
+A integração está desativada e suas dependências de navegador não fazem parte da instalação padrão. Use `npm run post:manual` ou `npm run batch` dentro de `bot/` para operar o pipeline editorial. A reativação exige uma revisão de segurança explícita.
+
+Comandos históricos do adaptador:
 
 | Comando | Ação |
 |---|---|
@@ -63,14 +67,20 @@ assets/img/posts/<slug>/
 
 ## Scripts de validação
 
+Instale primeiro as dependências do bot e execute os comandos abaixo a partir da raiz do repositório:
+
 ```bash
+npm run install:bot         # Instala versões travadas em bot/package-lock.json
 npm run validate:research   # Valida fichas de pesquisa
 npm run validate:posts      # Valida frontmatter dos posts
-npm run validate:images     # Valida manifests de imagem
+npm run validate:images     # Valida arquivos de imagem referenciados pelos posts
+npm run validate:manifests  # Valida manifests editoriais de imagem
+npm run validate:data       # Valida produtos, preços, geometrias e fontes
 npm run check:claims        # Verifica alegações proibidas
 npm run test                # Testa schemas + generator
 npm run lint                # Verifica sintaxe JS
 npm run build:jekyll        # Build do site Jekyll
+npm run validate            # Executa toda a suíte Node (não inclui o build Jekyll)
 ```
 
 ## Setup

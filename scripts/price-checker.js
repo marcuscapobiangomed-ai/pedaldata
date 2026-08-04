@@ -1,5 +1,5 @@
 // ============================================================
-// Price Checker — Pedal Data
+// Price Checker — The Biker Blog
 // Usage: node scripts/price-checker.js
 // Pré-requisito: npm install node-fetch cheerio
 //
@@ -127,7 +127,7 @@ function savePriceFile(productId, data) {
 // ============================================================
 
 async function main() {
-  console.log('=== Pedal Data Price Checker ===')
+  console.log('=== The Biker Blog Price Checker ===')
   console.log(`Data: ${new Date().toISOString().slice(0, 10)}`)
 
   const products = loadAllProducts()

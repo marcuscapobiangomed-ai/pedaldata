@@ -5,9 +5,12 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - "_posts/**"
-      - "data/**"
+      - "_data/**"
       - "content/research/**"
       - "assets/img/posts/**"
+      - "assets/js/**"
+      - "bot/**"
+      - "scripts/**"
       - "_config.yml"
       - "_redirects.yml"
 
@@ -55,12 +58,22 @@ jobs:
         run: node src/validation/check-claims.js
         working-directory: bot
 
+      - name: Validar Posts
+        run: node src/validate_posts.js
+        working-directory: bot
+
       - name: Validar Imagens
         run: node src/validation/validate-images.js
         working-directory: bot
 
       - name: Validar Base de Dados (schemas)
-        run: node data/schemas/validate-all.js
+        run: node _data/schemas/validate-all.js
+
+      - name: Verificar sincronização das páginas de produto
+        run: npm run check:product-pages
+
+      - name: Verificar taxonomia de tags
+        run: npm run check:tags
 
       - name: Check for fictional authorship
         run: |

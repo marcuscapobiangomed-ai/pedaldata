@@ -13,17 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const POSTS_DIR = path.resolve(__dirname, "../../_posts");
 
-const ALLOWED_TAGS = [
-  "ciclismo",
-  "reviews",
-  "guias-de-compra",
-  "comparativos",
-  "componentes",
-  "treinamento",
-  "manutencao",
-  "noticias",
-  "tecnologia",
-];
+const CANONICAL_TAG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const REQUIRED_FM = [
   "layout", "title", "date", "tags", "description",
@@ -102,7 +92,7 @@ function validateFrontmatter(content, fileName) {
   }
 
   // Valida content_type
-  if (fm.content_type && !["review", "comparativo", "guia-de-compra", "guia-tecnico", "noticia"].includes(fm.content_type)) {
+  if (fm.content_type && !["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia"].includes(fm.content_type)) {
     logWarning(fileName, `content_type não padronizado: "${fm.content_type}"`);
   }
 
@@ -128,7 +118,7 @@ function validateFrontmatter(content, fileName) {
   const tagsMatch = content.match(/^tags:\s*\[(.+?)\]/m);
   if (tagsMatch) {
     const tags = tagsMatch[1].split(",").map((t) => t.trim().toLowerCase().replace(/["']/g, ""));
-    const invalidTags = tags.filter((t) => !ALLOWED_TAGS.includes(t) && t !== "");
+    const invalidTags = tags.filter((t) => t !== "" && !CANONICAL_TAG_PATTERN.test(t));
     if (invalidTags.length > 0) {
       logWarning(fileName, `Tags não padronizadas: ${invalidTags.join(", ")}`);
     }
@@ -200,8 +190,11 @@ function checkImages(content, fileName) {
 function checkPriceConsistency(content, fileName, fm) {
   if (!fm) return;
   const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const priceMin = parseFloat(fm.price_min || "0") || 0;
+  const priceMax = parseFloat(fm.price_max || "0") || 0;
+  const hasPriceData = priceMin > 0 || priceMax > 0;
 
-  if (fm.price_min && fm.price_min !== "0") {
+  if (priceMin > 0) {
     const priceStr = String(fm.price_min);
     const inBody = body.includes(priceStr) || body.includes(parseFloat(priceStr).toLocaleString("pt-BR"));
     if (!inBody) {
@@ -209,9 +202,17 @@ function checkPriceConsistency(content, fileName, fm) {
     }
   }
 
-  if (fm.price_checked_at) {
+  if (hasPriceData && fm.price_checked_at) {
     const dateStr = fm.price_checked_at.replace(/["']/g, "");
-    if (!body.includes(dateStr)) {
+    const [year, month, day] = dateStr.split("-");
+    const monthNames = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const monthName = monthNames[Number(month) - 1];
+    const normalizedBody = body.toLowerCase();
+    const dateMentioned = body.includes(dateStr)
+      || body.includes(`${day}/${month}/${year}`)
+      || normalizedBody.includes(`${monthName} de ${year}`)
+      || normalizedBody.includes(`${monthName}/${year}`);
+    if (!dateMentioned) {
       logWarning(fileName, `Data de consulta de preço (${dateStr}) não mencionada no corpo`);
     }
   }
@@ -257,7 +258,7 @@ function checkAlternatives(content, fileName, fm) {
 
   // Reviews e comparativos devem ter alternativas
   if (fm.content_type === "review" || fm.content_type === "comparativo") {
-    const altSection = body.match(/##\s*(Alternativas|Comparação com alternativas|Concorrentes)/i);
+    const altSection = body.match(/##\s*.*(Alternativas|Concorrentes|Comparativ|Comparaç|Qual escolher|Qual vence|\bvs\b|Modelos \d{4})/i);
     if (!altSection) {
       logWarning(fileName, "Review sem seção de alternativas/concorrentes");
     }
@@ -280,7 +281,7 @@ function main() {
   const singleFile = args[0];
 
   console.log("=".repeat(60));
-  console.log("🔍 Validação de Posts — Pedal Data (Manual Editorial Seção 15)");
+  console.log("🔍 Validação de Posts — The Biker Blog (Manual Editorial Seção 15)");
   console.log("=".repeat(60));
 
   let files;

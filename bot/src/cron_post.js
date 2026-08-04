@@ -14,7 +14,7 @@ const POSTED_FILE = path.join(BOT_DIR, "posted_topics.txt");
 
 async function main() {
   console.log("=".repeat(50));
-  console.log("🚴 Pedal Data — Post Automático via PR");
+  console.log("🚴 The Biker Blog — Post Automático via PR");
   console.log("=".repeat(50));
 
   // CRON CONTROL: publicação automática desativada por segurança

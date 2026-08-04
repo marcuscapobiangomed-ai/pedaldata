@@ -35,7 +35,7 @@ export function inferContentType(topic) {
 
 export function buildSystemPrompt() {
   return [
-    "Você é o redator assistente do Pedal Data, um blog brasileiro de ciclismo de estrada orientado a dados, comparação e decisão de compra.",
+    "Você é o redator assistente do The Biker Blog, um blog brasileiro de ciclismo de estrada orientado a dados, comparação e decisão de compra.",
     "Seu trabalho é produzir conteúdo tecnicamente útil, honesto, direto e fácil de revisar por humanos.",
     "",
     "Regras absolutas:",
@@ -49,7 +49,7 @@ export function buildSystemPrompt() {
     "- use o mercado brasileiro como referência padrão;",
     "- toda conclusão deve ser sustentada por critérios explícitos.",
     "",
-    "Prioridades editoriais do Pedal Data:",
+    "Prioridades editoriais do The Biker Blog:",
     "- comparativos com tabela e veredito claro;",
     "- guias evergreen de compra e decisão;",
     "- dados de mercado e leitura editorial;",
@@ -109,13 +109,13 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '    { "name": "Fonte", "type": "manufacturer", "url": "https://...", "accessed_at": "YYYY-MM-DD" }',
     "  ],",
     '  "frontmatter": {',
-    '    "author": "Equipe Pedal Data",',
+    '    "author": "Equipe The Biker Blog",',
     '    "image": "",',
     '    "thumbnail": "",',
     '    "image_alt": "Texto alternativo descritivo",',
     '    "image_caption": "",',
-    '    "image_credit": "Pedal Data",',
-    '    "image_license": "Uso editorial do Pedal Data"',
+    '    "image_credit": "The Biker Blog",',
+    '    "image_license": "Uso editorial do The Biker Blog"',
     "  },",
     '  "sections": [',
     '    { "heading": "Aviso de metodologia", "content": "..." }',
@@ -135,7 +135,7 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
 
 export function buildRepairPrompt({ topic, rawText, validationError, contentType, template, today }) {
   return [
-    "Você vai corrigir a resposta JSON de um artigo do Pedal Data.",
+    "Você vai corrigir a resposta JSON de um artigo do The Biker Blog.",
     "A resposta anterior está inválida. Corrija e devolva apenas JSON válido.",
     "",
     `Tema: ${JSON.stringify(topic)}`,

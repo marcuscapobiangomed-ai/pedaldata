@@ -80,13 +80,13 @@ export const ArticleSchema = z.object({
   frontmatter: z.object({
     weight: z.string().default("Não informado"),
     price: z.string().default("Não informado"),
-    author: z.string().default("Equipe Pedal Data"),
+    author: z.string().default("Equipe The Biker Blog"),
     image: z.string().default("/assets/img/logo.svg"),
     thumbnail: z.string().default(""),
-    image_alt: z.string().default("Logo Pedal Data"),
+    image_alt: z.string().default("Logo The Biker Blog"),
     image_caption: z.string().default(""),
-    image_credit: z.string().default("Pedal Data"),
-    image_license: z.string().default("Uso editorial do Pedal Data"),
+    image_credit: z.string().default("The Biker Blog"),
+    image_license: z.string().default("Uso editorial do The Biker Blog"),
   }).optional().default({}),
 });
 

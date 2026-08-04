@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RESEARCH_DIR = path.resolve(__dirname, "../../../content/research");
 
 function validateFile(filePath) {
-  const fileName = path.basename(filePath);
+  const fileName = path.relative(RESEARCH_DIR, filePath);
   console.log(`  📄 ${fileName}`);
   const content = fs.readFileSync(filePath, "utf8");
   let data;
@@ -30,6 +30,16 @@ function validateFile(filePath) {
     console.log(`    ❌ ${err.message}`);
     return false;
   }
+}
+
+function findJsonFiles(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .flatMap((entry) => {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) return findJsonFiles(fullPath);
+      return entry.isFile() && entry.name.endsWith(".json") ? [fullPath] : [];
+    })
+    .sort();
 }
 
 function main() {
@@ -51,7 +61,7 @@ function main() {
     process.exit(0);
   }
 
-  const files = fs.readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".json")).sort();
+  const files = findJsonFiles(RESEARCH_DIR);
   if (files.length === 0) {
     console.log("📭 Nenhuma ficha JSON encontrada.");
     process.exit(0);
@@ -59,9 +69,9 @@ function main() {
 
   let valid = 0;
   let total = 0;
-  for (const file of files) {
+  for (const filePath of files) {
     total++;
-    if (validateFile(path.join(RESEARCH_DIR, file))) valid++;
+    if (validateFile(filePath)) valid++;
   }
 
   console.log(`\n📊 ${valid}/${total} fichas válidas`);

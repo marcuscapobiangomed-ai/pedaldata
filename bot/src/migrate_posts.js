@@ -215,9 +215,9 @@ function fixBodyContent(body, contentType) {
 
 function buildMethodology(contentType, reviewMethod) {
   if (reviewMethod === "hands-on-test") {
-    return `> **Como testamos:** o produto foi testado presencialmente pela equipe Pedal Data.`;
+    return `> **Como testamos:** o produto foi testado presencialmente pela equipe The Biker Blog.`;
   }
-  return `> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.`;
+  return `> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.`;
 }
 
 function buildSourcesSection(contentType) {
@@ -256,7 +256,7 @@ function migratePost(filePath, dryRun) {
       return raw.split(",").map(t => t.trim()).filter(Boolean);
     }
   })();
-  const existingAuthor = getField("author") || "Equipe Pedal Data";
+  const existingAuthor = getField("author") || "Equipe The Biker Blog";
   const existingImage = getField("image") || "/assets/img/logo.svg";
   const existingImageAlt = getField("image_alt") || "";
   const existingWeight = getField("weight") || "Não informado";

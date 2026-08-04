@@ -20,7 +20,7 @@ function loadJSON(path) {
 
 function monitorPrices() {
   console.log('\n========================================')
-  console.log('  PEDAL DATA — Monitor de Preços')
+  console.log('  THE BIKER BLOG — Monitor de Preços')
   console.log('========================================\n')
 
   const now = new Date()

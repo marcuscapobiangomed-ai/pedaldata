@@ -84,7 +84,7 @@
         if (compatible.length > 0) {
           let modelsHtml = '<h4>Modelos compatíveis na base</h4><ul>'
           compatible.forEach(b => {
-            const price = b.priceLowest ? ` — a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}` : ''
+            const price = PedalData.commerceEnabled && b.priceLowest ? ` — a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}` : ''
             modelsHtml += `<li><strong>${b.brand} ${b.model}</strong> (${b.category.replace(/-/g, ' ')})${price}</li>`
           })
           modelsHtml += '</ul>'

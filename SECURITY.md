@@ -9,6 +9,8 @@
 
 ## Automação
 
+- A integração com WhatsApp está desativada e isolada da instalação padrão
+- `WHATSAPP_ENABLED=true` não reativa o adaptador sem revisão explícita das dependências
 - Publicação automática (cron) está **desativada por padrão**
 - `CRON_ENABLED=true` é necessário para execução manual
 - Todo conteúdo publicado passa por Pull Request com validação
@@ -22,4 +24,4 @@
 
 ## Reporting
 
-Para reportar vulnerabilidades, abra um incidente em `data/incidents/` ou contato via contato@pedaldatablog.com.br.
+Para reportar vulnerabilidades, abra um incidente em `_data/incidents/` ou entre em contato via contato@pedaldatablog.com.br.

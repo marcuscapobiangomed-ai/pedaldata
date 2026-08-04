@@ -36,11 +36,11 @@ function resolveSource(article, frontmatter) {
     name:
       safeText(frontmatter?.image_credit) ||
       safeText(firstSource?.name) ||
-      "Pedal Data",
+      "The Biker Blog",
     url: safeText(firstSource?.url) || "",
     license:
       safeText(frontmatter?.image_license) ||
-      "Uso editorial do Pedal Data",
+      "Uso editorial do The Biker Blog",
   };
 }
 

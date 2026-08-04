@@ -14,7 +14,15 @@
     const bodyEl = document.getElementById('comparison-body')
     const veredictEl = document.getElementById('comparison-veredict')
 
-    const catalog = await PedalData.utils.loadCatalog()
+    let catalog
+    try {
+      catalog = await PedalData.utils.loadCatalog()
+      if (!catalog || !Array.isArray(catalog.bikes)) throw new Error('Catálogo inválido')
+    } catch (error) {
+      console.error(error)
+      emptyDiv.innerHTML = '<p>Não foi possível carregar os dados do comparador. Tente novamente mais tarde.</p>'
+      return
+    }
 
     function populateSelects() {
       const sorted = catalog.bikes.slice().sort((a, b) => {
@@ -42,7 +50,7 @@
       shifting: { label: 'Transmissão', fn: b => b.shifting ? b.shifting.charAt(0).toUpperCase() + b.shifting.slice(1) : '-' },
       brakeType: { label: 'Freios', fn: b => b.brakeType ? b.brakeType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '-' },
       weightKg: { label: 'Peso declarado', fn: b => b.weightKg ? `${b.weightKg} kg` : '-' },
-      price: { label: 'Menor preço', fn: b => b.priceLowest ? `R$ ${b.priceLowest.toLocaleString('pt-BR')}` : '-' }
+      price: { label: 'Menor preço', fn: b => PedalData.commerceEnabled && b.priceLowest ? `R$ ${b.priceLowest.toLocaleString('pt-BR')}` : 'Em revisão' }
     }
 
     function getValue(bike, key) {
@@ -82,7 +90,7 @@
     function buildVeredict(bikes) {
       const lowestWeight = Math.min(...bikes.map(b => b.weightKg || Infinity))
       const highestWeight = Math.max(...bikes.map(b => b.weightKg || 0))
-      const cheapest = Math.min(...bikes.map(b => b.priceLowest || Infinity))
+      const cheapest = PedalData.commerceEnabled ? Math.min(...bikes.map(b => b.priceLowest || Infinity)) : Infinity
       const electronic = bikes.filter(b => b.shifting === 'electronic' || b.shifting === 'wireless')
       const mechanical = bikes.filter(b => b.shifting === 'mechanical')
 
@@ -91,7 +99,7 @@
       const lightest = bikes.find(b => b.weightKg === lowestWeight)
       if (lightest) html += `<li><strong>Melhor para baixo peso:</strong> ${lightest.brand} ${lightest.model} — ${lightest.weightKg} kg</li>`
 
-      const bestValue = bikes.find(b => b.priceLowest === cheapest)
+      const bestValue = PedalData.commerceEnabled ? bikes.find(b => b.priceLowest === cheapest) : null
       if (bestValue) html += `<li><strong>Melhor custo-benefício:</strong> ${bestValue.brand} ${bestValue.model} — menor preço da comparação</li>`
 
       if (electronic.length > 0) {
@@ -104,7 +112,7 @@
       }
 
       html += '</ul>'
-      html += '<p class="veredict-note">Conclusão baseada nos dados disponíveis na base Pedal Data. Consulte sempre um especialista.</p>'
+      html += '<p class="veredict-note">Conclusão baseada nos dados disponíveis na base The Biker Blog. Consulte sempre um especialista.</p>'
       html += '</div>'
       veredictEl.innerHTML = html
     }

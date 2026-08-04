@@ -34,11 +34,11 @@ export function generateMarkdown(article) {
     : preset.thumbnail;
   const imageAlt = data.frontmatter?.image_alt || data.description;
   const imageCaption = data.frontmatter?.image_caption || "";
-  const imageCredit = data.frontmatter?.image_credit || "Pedal Data";
-  const imageLicense = data.frontmatter?.image_license || "Uso editorial do Pedal Data";
+  const imageCredit = data.frontmatter?.image_credit || "The Biker Blog";
+  const imageLicense = data.frontmatter?.image_license || "Uso editorial do The Biker Blog";
   const methodologyNotice = data.methodologyNotice || (data.review_method === "hands-on-test"
-    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe Pedal Data."
-    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
+    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe The Biker Blog."
+    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
 
   const frontmatter = [
     "---",
@@ -47,7 +47,7 @@ export function generateMarkdown(article) {
     `slug: "${escapeYaml(data.slug)}"`,
     `date: ${today}`,
     `last_modified_at: ${today}`,
-    'author: "Equipe Pedal Data"',
+    'author: "Equipe The Biker Blog"',
     'reviewed_by: ""',
     `content_type: "${escapeYaml(data.content_type)}"`,
     `review_method: "${escapeYaml(data.review_method)}"`,

@@ -5,6 +5,8 @@ layout: default
 {% assign product_id = page.product_id %}
 {% assign price_lowest = page.price_lowest %}
 {% assign price_highest = page.price_highest %}
+{% assign geometry = site.data.geometries[product_id] %}
+{% assign catalog = site.data["catalog-index"].bikes %}
 
 {% include schema-product.html product=page price_lowest=price_lowest price_highest=price_highest show_breadcrumb=true %}
 {% include schema-faq.html %}
@@ -36,27 +38,20 @@ layout: default
 
         <div class="product-section">
           <h3>Geometria</h3>
-          <div id="geometry-{{ product_id }}">
-            <p style="color:var(--text-muted);font-size:0.85rem;">Carregando geometria...</p>
+          {% if geometry and geometry.sizes.size > 0 %}
+          <div class="table-scroll" role="region" aria-label="Tabela de geometria" tabindex="0">
+            <table class="specs-table">
+              <thead><tr><th>Tamanho</th><th>Stack</th><th>Reach</th><th>Top Tube</th><th>Seat Tube</th><th>Head Tube</th><th>Head Angle</th><th>Seat Angle</th><th>Chainstay</th><th>Wheelbase</th></tr></thead>
+              <tbody>
+                {% for size in geometry.sizes %}
+                <tr><td><strong>{{ size.size }}</strong></td><td>{{ size.stack }}</td><td>{{ size.reach }}</td><td>{{ size.effectiveTopTube }}</td><td>{{ size.seatTube }}</td><td>{{ size.headTube }}</td><td>{{ size.headAngle }}°</td><td>{{ size.seatAngle }}°</td><td>{{ size.chainstay }}</td><td>{{ size.wheelbase }}</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
-          <script>
-          (async function() {
-            const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-            try {
-              const geo = await (await fetch(BASE + '/data/geometries/{{ product_id }}.json')).json()
-              if (!geo || !geo.sizes) return
-              const container = document.getElementById('geometry-{{ product_id }}')
-              let html = '<table class="specs-table"><thead><tr><th>Tamanho</th><th>Stack</th><th>Reach</th><th>Top Tube</th><th>Seat Tube</th><th>Head Tube</th><th>Head Angle</th><th>Seat Angle</th><th>Chainstay</th><th>Wheelbase</th></tr></thead><tbody>'
-              geo.sizes.forEach(s => {
-                html += `<tr><td><strong>${s.size}</strong></td><td>${s.stack}</td><td>${s.reach}</td><td>${s.effectiveTopTube}</td><td>${s.seatTube}</td><td>${s.headTube}</td><td>${s.headAngle}°</td><td>${s.seatAngle}°</td><td>${s.chainstay}</td><td>${s.wheelbase}</td></tr>`
-              })
-              html += '</tbody></table>'
-              container.innerHTML = html
-            } catch(e) {
-              document.getElementById('geometry-{{ product_id }}').innerHTML = '<p style="color:var(--text-muted);font-style:italic;">Geometria não disponível.</p>'
-            }
-          })()
-          </script>
+          {% else %}
+          <p style="color:var(--text-muted);font-style:italic;">Geometria não disponível.</p>
+          {% endif %}
         </div>
 
         {% if page.content and page.content != '' %}
@@ -84,29 +79,16 @@ layout: default
       <aside class="sidebar">
         <div class="sidebar-widget">
           <h4 class="widget-title">Alternativas</h4>
-          <div id="alternatives-{{ product_id }}">
-            <p style="color:var(--text-muted);font-size:0.82rem;">Carregando...</p>
-          </div>
-          <script>
-          (async function() {
-            const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-            try {
-              const catalog = await (await fetch(BASE + '/data/catalog-index.json')).json()
-              const current = catalog.bikes.find(b => b.id === '{{ product_id }}')
-              if (!current) return
-              const alternatives = catalog.bikes
-                .filter(b => b.id !== '{{ product_id }}' && b.priceLowest != null)
-                .sort((a, b) => Math.abs((a.priceLowest || 0) - (current.priceLowest || 0)))
-                .slice(0, 5)
-              const container = document.getElementById('alternatives-{{ product_id }}')
-              container.innerHTML = '<ul class="product-alternatives">' + alternatives.map(b =>
-                `<li><a href="${BASE}/bikes/${b.slug}/">${b.brand} ${b.model}</a></li>`
-              ).join('') + '</ul>'
-            } catch(e) {
-              document.getElementById('alternatives-{{ product_id }}').innerHTML = ''
-            }
-          })()
-          </script>
+          {% assign shown_alternatives = 0 %}
+          <ul class="product-alternatives">
+            {% for bike in catalog %}
+              {% if bike.id != product_id and bike.category == page.category and shown_alternatives < 5 %}
+              <li><a href="{{ site.baseurl }}/bikes/{{ bike.slug }}/">{{ bike.brand }} {{ bike.model }}</a></li>
+              {% assign shown_alternatives = shown_alternatives | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% if shown_alternatives == 0 %}<p style="color:var(--text-muted);font-size:0.82rem;">Nenhuma alternativa cadastrada.</p>{% endif %}
         </div>
 
         <div class="sidebar-widget">

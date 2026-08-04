@@ -3,34 +3,15 @@
   "currency": "BRL",
   "observations": [
     {
-      "store": "Mercado Livre",
-      "price": 23850,
-      "regularPrice": 25040,
-      "installments": 10,
-      "shippingIncluded": true,
-      "availability": "in-stock",
-      "url": "https://produto.mercadolivre.com.br/specialized-tarmac-sl8-2026-br",
-      "checkedAt": "2026-07-17"
-    },
-    {
-      "store": "PedalMais",
-      "price": 20980,
-      "regularPrice": 22290,
+      "store": "Specialized Brasil",
+      "price": 42990,
+      "regularPrice": 42990,
       "installments": null,
       "shippingIncluded": false,
-      "availability": "in-stock",
-      "url": "https://www.pedalmais.com.br/specialized-tarmac-sl8-2026-br",
-      "checkedAt": "2026-07-06"
-    },
-    {
-      "store": "BikeExpress",
-      "price": 23180,
-      "regularPrice": 25170,
-      "installments": 10,
-      "shippingIncluded": false,
-      "availability": "in-stock",
-      "url": "https://www.bikeexpress.com.br/specialized-tarmac-sl8-2026-br",
-      "checkedAt": "2026-07-19"
+      "availability": "out-of-stock",
+      "url": "https://www.specialized.com/br/pt/tarmac-sl8-comp-sram-rival-axs/p/4292996",
+      "checkedAt": "2026-08-03",
+      "sourceId": "specialized-br-2026"
     }
   ]
 }

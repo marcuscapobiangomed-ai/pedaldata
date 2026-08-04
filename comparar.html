@@ -7,7 +7,7 @@ permalink: /comparar/
 <section class="page-header">
   <div class="container">
     <h1>Comparador de Bicicletas</h1>
-    <p class="page-subtitle">Compare até 3 bicicletas lado a lado com dados da base Pedal Data</p>
+    <p class="page-subtitle">Compare até 3 bicicletas lado a lado com dados da base The Biker Blog</p>
   </div>
 </section>
 
@@ -16,20 +16,20 @@ permalink: /comparar/
     <div class="comparator-controls">
       <div class="comparator-selectors">
         <div class="comparator-slot" data-slot="0">
-          <label>Bicicleta 1</label>
-          <select class="bike-select" data-slot="0">
+          <label for="bike-select-1">Bicicleta 1</label>
+          <select id="bike-select-1" class="bike-select" data-slot="0">
             <option value="">Selecione uma bicicleta</option>
           </select>
         </div>
         <div class="comparator-slot" data-slot="1">
-          <label>Bicicleta 2</label>
-          <select class="bike-select" data-slot="1">
+          <label for="bike-select-2">Bicicleta 2</label>
+          <select id="bike-select-2" class="bike-select" data-slot="1">
             <option value="">Selecione uma bicicleta</option>
           </select>
         </div>
         <div class="comparator-slot" data-slot="2">
-          <label>Bicicleta 3 (opcional)</label>
-          <select class="bike-select" data-slot="2">
+          <label for="bike-select-3">Bicicleta 3 (opcional)</label>
+          <select id="bike-select-3" class="bike-select" data-slot="2">
             <option value="">Selecione uma bicicleta</option>
           </select>
         </div>
@@ -49,7 +49,7 @@ permalink: /comparar/
       <div id="comparison-veredict" class="comparison-veredict"></div>
     </div>
 
-    <div id="comparator-empty" class="comparator-empty">
+    <div id="comparator-empty" class="comparator-empty" role="status" aria-live="polite">
       <p>Selecione pelo menos duas bicicletas para comparar.</p>
     </div>
   </div>

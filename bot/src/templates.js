@@ -1,6 +1,6 @@
 /**
  * Templates editoriais por tipo de publicação
- * Conforme o Manual Editorial do Pedal Data (seções 3.1 a 3.6)
+ * Conforme o Manual Editorial do The Biker Blog (seções 3.1 a 3.6)
  */
 
 export const TEMPLATES = {

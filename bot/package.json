@@ -23,11 +23,11 @@
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.0",
     "gray-matter": "^4.0.3",
-    "puppeteer": "^23.0.0",
-    "qrcode-terminal": "^0.12.0",
     "sanitize-html": "^2.17.6",
     "simple-git": "^3.27.0",
-    "whatsapp-web.js": "^1.26.0",
     "zod": "^4.4.3"
+  },
+  "overrides": {
+    "postcss": "8.5.25"
   }
 }

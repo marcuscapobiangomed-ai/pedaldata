@@ -132,7 +132,7 @@ export class GitHubPublisher {
 - [ ] Build aprovado
 - [ ] status: draft → status: published
 
-> 🤖 PR gerado automaticamente pelo Pedal Data Bot.
+> 🤖 PR gerado automaticamente pelo The Biker Blog Bot.
 `;
 
     if (checklist && checklist.length > 0) {
