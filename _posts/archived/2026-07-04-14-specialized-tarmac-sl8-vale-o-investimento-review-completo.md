@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Specialized Tarmac SL8: Vale o Investimento? Review Completo"
 description: "Avaliação detalhada da Specialized Tarmac SL8 e se vale a pena para ciclistas amadores e intermediários no Brasil."
 date: 2026-07-04

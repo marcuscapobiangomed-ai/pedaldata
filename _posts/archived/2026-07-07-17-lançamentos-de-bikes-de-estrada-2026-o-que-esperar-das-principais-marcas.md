@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Lançamentos de Bikes de Estrada 2026: O Que Esperar das Principais Marcas"
 description: "Descubra o que as principais marcas de bicicletas de estrada estão preparando para 2026 e quais tendências você não pode perder."
 date: 2026-07-07

@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Melhores Capacetes de Ciclismo de Estrada 2026: De R$ 200 a R$ 2.000"
 description: "Descubra os melhores capacetes de ciclismo de estrada de 2026, com opções para todos os orçamentos, de R$ 200 a R$ 2.000."
 date: 2026-07-15

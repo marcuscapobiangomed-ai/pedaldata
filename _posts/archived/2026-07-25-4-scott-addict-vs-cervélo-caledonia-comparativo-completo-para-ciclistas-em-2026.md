@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Scott Addict vs Cervélo Caledonia: Comparativo Completo para Ciclistas em 2026"
 description: "Compare a Scott Addict e a Cervélo Caledonia e descubra qual bike de estrada é a melhor opção para você em 2026."
 date: 2026-07-25

@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marca fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Trek Madone vs Trek Émonda 2026: Qual a Diferença?"
 description: "Comparativo completo entre Trek Madone Gen 8 e Trek Émonda 2026. Preços, pesos, especificações e a verdade sobre o fim da linha Émonda."
 date: 2026-07-19

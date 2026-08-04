@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marca fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Specialized Tarmac SL8 2026: Ficha Técnica, Preços e Vale o Investimento?"
 description: "Review completo da Specialized Tarmac SL8 2026: especificações dos 3 tiers (S-Works, Pro, Comp), preços (US$ 4.699 a US$ 13.499) e para quem é indicada."
 date: 2026-07-19

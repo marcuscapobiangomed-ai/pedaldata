@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Bicicleta de Estrada Nova vs Usada: Prós e Contras e Preços no Brasil"
 description: "Descubra as vantagens e desvantagens de comprar uma bicicleta de estrada nova ou usada e saiba quanto vale investir em uma seminova no Brasil."
 date: 2026-08-02

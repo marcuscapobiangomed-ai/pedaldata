@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marca fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Cervélo: a Preferida dos Profissionais do WorldTour"
 description: "História, modelos 2026 e guia completo da Cervélo: Caledonia, Soloist, R5, S5 e P5. Preços no Brasil, pesos e patrocínio Visma-Lease a Bike."
 date: 2026-07-02

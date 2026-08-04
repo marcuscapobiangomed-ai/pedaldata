@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Comparativo: 5 Melhores Bikes de Estrada até R$ 10.000 em 2026"
 description: "Um guia completo com as melhores bikes de estrada até R$ 10.000 para ciclistas em 2026."
 date: 2026-07-22

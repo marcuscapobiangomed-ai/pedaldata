@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Scott Foil 2026: Review Completo do Modelo Aero e Suas Novidades"
 description: "Descubra tudo sobre a Scott Foil 2026 e suas melhorias em relação à geração anterior. Veja prós, contras e o que a torna uma escolha ideal."
 date: 2026-06-30

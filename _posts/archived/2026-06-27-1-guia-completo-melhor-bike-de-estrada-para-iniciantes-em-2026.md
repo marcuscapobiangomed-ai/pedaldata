@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Guia Completo: Melhor Bike de Estrada para Iniciantes em 2026"
 description: "Descubra as melhores bicicletas de estrada para iniciantes em 2026, com opções que variam de R$ 3.000 a R$ 8.000."
 date: 2026-06-27

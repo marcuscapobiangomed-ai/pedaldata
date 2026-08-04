@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Guia de Compra: Seu Orçamento Ideal para a Primeira Bike de Estrada em 2026"
 description: "Descubra o orçamento ideal para a sua primeira bike de estrada em 2026, incluindo acessórios essenciais para ciclistas iniciantes."
 date: 2026-06-28

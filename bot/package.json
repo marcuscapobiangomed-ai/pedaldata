@@ -16,6 +16,7 @@
     "validate:posts": "node src/validate_posts.js",
     "validate:images": "node src/validation/validate-images.js",
     "check:claims": "node src/validation/check-claims.js",
+    "audit:editorial": "node src/validation/audit-editorial-portfolio.js",
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
     "generate": "node src/generator.js"
   },

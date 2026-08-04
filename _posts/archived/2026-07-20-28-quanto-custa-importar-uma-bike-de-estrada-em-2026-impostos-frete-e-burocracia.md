@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Quanto Custa Importar uma Bike de Estrada em 2026: Impostos, Frete e Burocracia"
 description: "Descubra quanto custa importar uma bike de estrada em 2026, incluindo impostos, frete e burocracia envolvida."
 date: 2026-07-20

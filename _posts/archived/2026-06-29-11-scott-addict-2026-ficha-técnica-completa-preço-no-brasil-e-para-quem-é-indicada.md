@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Scott Addict 2026: ficha técnica completa, preço no Brasil e para quem é indicada"
 description: "Confira a ficha técnica, preço e análise da Scott Addict 2026, ideal para ciclistas que buscam desempenho e leveza."
 date: 2026-06-29

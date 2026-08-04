@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marca fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Cannondale SuperSix Evo 2026: O Adeus ao SystemSix — Review Gen 5"
 description: "Review da Cannondale SuperSix Evo 2026 (Gen 5): mais leve, mais aero, e o fim do SystemSix. Preços de US$ 4.999 a US$ 13.499 e todos os modelos."
 date: 2026-07-19

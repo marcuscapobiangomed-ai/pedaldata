@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Trek Madone vs Trek Émonda: diferenças entre as linhas aero e leve da Trek"
 description: "Comparativo entre Trek Madone (aero) e Trek Émonda (leve): diferenças de desempenho, preços no Brasil e para quem cada modelo é indicado."
 date: 2026-07-05

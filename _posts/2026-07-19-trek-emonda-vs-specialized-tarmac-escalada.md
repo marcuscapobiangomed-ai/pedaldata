@@ -1,5 +1,7 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marcas fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Trek Émonda vs Specialized Tarmac SL8: Qual a Melhor Bike de Escalada?"
 description: "Comparativo entre Trek Émonda e Specialized Tarmac SL8 para escalada em 2026. Preços, pesos, geometria e a verdade sobre o futuro de cada linha."
 date: 2026-07-19
