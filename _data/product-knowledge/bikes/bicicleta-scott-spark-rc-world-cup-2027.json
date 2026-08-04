@@ -78,11 +78,234 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425328",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "carbon black",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Spark RC Carbon HMF",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.rearAxle": {
+      "value": "12x148",
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.frontTravel": {
+      "value": 120,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.rearTravel": {
+      "value": 120,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.fork": {
+      "value": "RockShox SID 3P Air, Rush RL 3-Mode",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.rearShock": {
+      "value": "RockShox NUDE 5 RL3 Trunnion",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "SRAM S1000 Eagle AXS Transmission",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 12,
+      "unit": "velocidades",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.shifting": {
+      "value": "wireless electronic",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "SRAM Eagle 70 Transmission, 34T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "SRAM Eagle XS 1270 V2, 10-52",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "SRAM DB6 4-Piston Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.rotors": {
+      "value": "SRAM Centerline CL 180 mm dianteiro / 160 mm traseiro",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.wheelset": {
+      "value": "Syncros Silverton 2.5-30 CL, tubeless ready",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Maxxis Rekon Race 29x2.4, 120 TPI, tubeless ready, EXO",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 12.5,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Configuração tubeless declarada pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 130,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
     }
   },
-  "unresolvedFields": [
-    "manufacturerSpecifications"
-  ],
+  "unresolvedFields": [],
   "schemaVersion": "1.0",
   "provenance": {
     "researchSlug": "thebiker-catalog-enrichment",
@@ -91,6 +314,10 @@
   "history": [
     {
       "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "scott-spark-official-specifications",
       "syncedAt": "2026-08-04"
     }
   ]

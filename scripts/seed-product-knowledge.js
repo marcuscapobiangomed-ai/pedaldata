@@ -58,9 +58,17 @@ for (const item of source.queue) {
     history: [{ researchSlug: 'thebiker-catalog-enrichment', syncedAt: source.generatedAt }]
   })
   const target = path.join(outputDir, `${record.id}.json`)
-  const output = JSON.stringify(record, null, 2) + '\n'
+  const existing = fs.existsSync(target) ? validateProductKnowledgeRecord(JSON.parse(fs.readFileSync(target, 'utf8'))) : null
+  const merged = existing ? validateProductKnowledgeRecord({
+    ...record,
+    sources: [...new Map([...existing.sources, ...record.sources].map((entry) => [entry.id, entry])).values()],
+    facts: { ...existing.facts, ...record.facts },
+    unresolvedFields: [...new Set([...existing.unresolvedFields, ...record.unresolvedFields])],
+    history: [...new Map([...existing.history, ...record.history].map((entry) => [`${entry.researchSlug}:${entry.syncedAt}`, entry])).values()]
+  }) : record
+  const output = JSON.stringify(merged, null, 2) + '\n'
   if (check) {
-    if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== output) process.exitCode = 1
+    if (!existing || Object.entries(record.facts).some(([key, value]) => JSON.stringify(existing.facts[key]) !== JSON.stringify(value))) process.exitCode = 1
   } else if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== output) {
     fs.writeFileSync(target, output)
     changed++
