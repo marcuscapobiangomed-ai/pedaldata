@@ -160,7 +160,7 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '    { "heading": "Intertítulo específico e atraente, nunca um rótulo genérico", "content": "..." }',
     "  ],",
     '  "imagePlan": [',
-    '    { "position": "hero", "purpose": "Função editorial da imagem", "aspectRatio": "16:9", "altSuggestion": "Texto alternativo", "allowedSource": "manufacturer-authorized", "aiGeneratedAllowed": false }',
+    '    { "position": "hero", "purpose": "Função editorial da imagem", "assetType": "official-product-photo | own-photo | licensed-editorial-photo | data-graphic | technical-diagram | ai-editorial-concept | system-fallback", "editorialUse": "draft-only | publishable", "factualSubject": "exact-product | real-event | conceptual | not-applicable", "brief": "Briefing visual preciso", "sourceRequired": true, "avoid": ["produto inventado", "marca concorrente em destaque", "texto embutido"], "aspectRatio": "16:9", "altSuggestion": "Texto alternativo", "allowedSource": "manufacturer-authorized", "aiGeneratedAllowed": false }',
     "  ],",
     '  "claimsRequiringReview": []',
     "}",
@@ -171,6 +171,8 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '{ "status": "PORTFÓLIO NÃO CONFIRMADO", "missing_info": ["URL oficial do produto ou categoria na TheBiker"] }',
     "",
     "Não inclua markdown fora dos campos JSON.",
+    "Para produto exato, lançamento ou corrida real, aiGeneratedAllowed deve ser false.",
+    "Fallback de sistema só pode usar editorialUse draft-only.",
   ].join("\n");
 }
 

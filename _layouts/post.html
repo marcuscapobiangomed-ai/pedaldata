@@ -69,7 +69,10 @@ layout: default
       {% assign has_custom_hero = page.image and page.image != site.logo %}
       <div class="post-hero-img{% unless has_custom_hero %} post-hero-img--placeholder{% endunless %}" itemprop="image">
         {% if has_custom_hero %}
-          <img src="{{ site.baseurl }}{{ hero_image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager" fetchpriority="high" width="1200" height="675">
+          <picture>
+            <source media="(max-width: 720px)" srcset="{{ site.baseurl }}{{ page.image_mobile | default: hero_image }}">
+            <img src="{{ site.baseurl }}{{ hero_image }}" alt="{{ page.image_alt | default: page.title }}" loading="eager" fetchpriority="high" decoding="async" width="1600" height="900">
+          </picture>
         {% else %}
           <div class="post-hero-placeholder" aria-label="Imagem padrão do artigo">
             <img src="{{ site.baseurl }}{{ site.logo }}" alt="" aria-hidden="true" width="160" height="160">
@@ -77,11 +80,19 @@ layout: default
           </div>
         {% endif %}
       </div>
+      {% if page.image_caption or page.image_credit %}
+        <p class="post-image-caption">
+          {% if page.image_caption %}{{ page.image_caption }}{% endif %}
+          {% if page.image_credit %}<span>Crédito: {{ page.image_credit }}</span>{% endif %}
+        </p>
+      {% endif %}
 
       <!-- Nota de afiliado -->
-      <p class="affiliate-note">
-        Este post pode conter links de afiliados. Se você comprar através deles, recebemos uma comissão sem custo adicional para você.
-      </p>
+      {% if page.affiliate_links %}
+        <p class="affiliate-note">
+          Este post pode conter links de afiliados. Se você comprar através deles, recebemos uma comissão sem custo adicional para você.
+        </p>
+      {% endif %}
 
       <!-- Conteúdo -->
       <div class="post-content" itemprop="articleBody">

@@ -92,6 +92,8 @@ Antes de salvar:
 6. ausência de intertítulos genéricos proibidos;
 7. extensão e cobertura compatíveis com o formato;
 8. status final ainda definido como rascunho.
+9. plano visual compatível com o tipo editorial;
+10. imagem publicável com manifesto v2 e aprovação humana.
 
 ## Política de custo
 

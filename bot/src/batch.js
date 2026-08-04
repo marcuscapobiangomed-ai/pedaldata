@@ -100,6 +100,7 @@ async function main() {
             slug: `${num}-${post.slug}`,
             researchData: null,
             imageManifest: null,
+            imageProductionPlan: post.imageProductionPlan,
             checklist: post.claims || [],
           });
           console.log(`   🔀 PR criado: ${url}`);

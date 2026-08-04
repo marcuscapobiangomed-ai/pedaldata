@@ -726,7 +726,7 @@ body.menu-open { overflow: hidden; }
 /* ── Hero Image ───────────────────────────────────────────── */
 .post-hero-img {
   width: 100%;
-  height: 340px;
+  aspect-ratio: 16 / 9;
   background: var(--bg-dark);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -775,6 +775,23 @@ body.menu-open { overflow: hidden; }
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
+}
+.post-image-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -18px 0 28px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+.post-image-caption span {
+  flex: 0 0 auto;
+}
+.post-hero-img picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .post-content > p:first-child {
   font-size: 1.05rem;
@@ -1329,7 +1346,7 @@ body.menu-open { overflow: hidden; }
   .nav-links { display: none; }
   .menu-btn { display: flex; }
   .newsletter-cta { flex-direction: column; align-items: flex-start; }
-  .post-hero-img { height: 220px; }
+  .post-hero-img { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 520px) {
   .container { padding: 0 16px; }
@@ -1338,6 +1355,8 @@ body.menu-open { overflow: hidden; }
   .sidebar { grid-template-columns: 1fr; }
   .ficha-row { flex-direction: column; gap: 2px; }
   .ficha-value { text-align: left; }
+  .post-image-caption { display: block; }
+  .post-image-caption span { display: block; margin-top: 4px; }
 }
 
 /* ══════════════════════════════════════════════════════════

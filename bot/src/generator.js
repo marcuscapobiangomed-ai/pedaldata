@@ -32,10 +32,17 @@ export function generateMarkdown(article) {
   const thumbnail = data.frontmatter?.thumbnail && data.frontmatter.thumbnail !== "/assets/img/logo.svg"
     ? data.frontmatter.thumbnail
     : preset.thumbnail;
+  const isFallbackImage = image.startsWith("/assets/img/system/covers/");
   const imageAlt = data.frontmatter?.image_alt || data.description;
-  const imageCaption = data.frontmatter?.image_caption || "";
-  const imageCredit = data.frontmatter?.image_credit || "TheBiker";
-  const imageLicense = data.frontmatter?.image_license || "Uso editorial da TheBiker";
+  const imageCaption = data.frontmatter?.image_caption || (isFallbackImage
+    ? "Imagem conceitual temporária; será substituída por material editorial aprovado."
+    : "");
+  const imageCredit = isFallbackImage
+    ? "TheBiker com geração assistida por IA"
+    : (data.frontmatter?.image_credit || "TheBiker");
+  const imageLicense = isFallbackImage
+    ? "Uso editorial interno TheBiker"
+    : (data.frontmatter?.image_license || "Uso editorial da TheBiker");
   const methodologyNotice = data.methodologyNotice || (data.review_method === "hands-on-test"
     ? "> **Como testamos:** o produto foi testado presencialmente pela equipe TheBiker."
     : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, catálogo TheBiker e comparação com alternativas vendidas pela loja. O produto não foi testado presencialmente pela equipe TheBiker. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
@@ -68,7 +75,11 @@ export function generateMarkdown(article) {
     `tags: ${yamlList(data.tags)}`,
     `description: "${escapeYaml(data.description)}"`,
     `image: "${escapeYaml(image)}"`,
+    `image_mobile: "${escapeYaml(isFallbackImage ? (preset.mobile || image) : image)}"`,
     `thumbnail: "${escapeYaml(thumbnail)}"`,
+    'image_manifest_version: 2',
+    `image_asset_type: "${isFallbackImage ? "system-fallback" : "unverified"}"`,
+    `image_status: "${isFallbackImage ? "draft" : "pending-approval"}"`,
     `image_alt: "${escapeYaml(imageAlt)}"`,
     `image_caption: "${escapeYaml(imageCaption)}"`,
     `image_credit: "${escapeYaml(imageCredit)}"`,

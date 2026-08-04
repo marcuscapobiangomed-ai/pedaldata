@@ -9,6 +9,7 @@ import {
 import { getTemplate } from "./templates.js";
 import { ThreeProviderPipeline } from "./ai/three-provider-pipeline.js";
 import { assertEditorialPublicationGates } from "./validation/editorial-publication-gates.js";
+import { buildImageProductionPlan } from "./image-manifest.js";
 
 const CATEGORY_ALIASES = {
   review: "reviews",
@@ -333,6 +334,12 @@ export class AIProvider {
     next.imagePlan = normalizeList(next.imagePlan).map((item) => ({
       position: this._sanitizeHtml(item.position || "hero"),
       purpose: this._sanitizeHtml(item.purpose || ""),
+      assetType: this._sanitizeHtml(item.assetType || "system-fallback"),
+      editorialUse: this._sanitizeHtml(item.editorialUse || "draft-only"),
+      factualSubject: this._sanitizeHtml(item.factualSubject || "not-applicable"),
+      brief: this._sanitizeHtml(item.brief || item.purpose || ""),
+      sourceRequired: toBoolean(item.sourceRequired, true),
+      avoid: normalizeList(item.avoid).map((value) => this._sanitizeHtml(value)),
       aspectRatio: this._sanitizeHtml(item.aspectRatio || "16:9"),
       altSuggestion: this._sanitizeHtml(item.altSuggestion || ""),
       allowedSource: this._sanitizeHtml(item.allowedSource || "manufacturer-authorized"),
@@ -392,6 +399,7 @@ export class AIProvider {
       review_method: article.review_method,
       tested_by_pedaldata: article.tested_by_pedaldata === true,
       imagePlan: article.imagePlan,
+      imageProductionPlan: buildImageProductionPlan(article),
       sources: article.sources || [],
       brand: article.brand,
       product_name: article.product_name,

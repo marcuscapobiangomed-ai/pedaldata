@@ -174,6 +174,7 @@ export class ThreeProviderPipeline {
           "intertítulos fracos",
           "repetição e enchimento",
           "decisões sem critério",
+          "plano visual incompatível com produto real, corrida real ou política de imagens",
         ],
         output: {
           score: 0,

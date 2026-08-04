@@ -12,10 +12,12 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import matter from "gray-matter";
+import { validateImageManifestV2 } from "./validation/image-manifest-v2.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const POSTS_DIR = path.resolve(__dirname, "../../_posts");
+const ROOT_DIR = path.resolve(__dirname, "../..");
 
 function main() {
   const target = process.argv[2];
@@ -51,6 +53,41 @@ function main() {
     }
     if (!String(parsed.data.reviewed_by || "").trim()) {
       console.error("❌ Publicação bloqueada: reviewed_by precisa identificar o revisor humano.");
+      process.exit(1);
+    }
+    if (parsed.data.image_manifest_version !== 2) {
+      console.error("❌ Publicação bloqueada: image_manifest_version precisa ser 2.");
+      process.exit(1);
+    }
+
+    const imagePath = String(parsed.data.image || "").replace(/^\//, "");
+    const absoluteImage = path.resolve(ROOT_DIR, imagePath);
+    if (!absoluteImage.startsWith(ROOT_DIR + path.sep)) {
+      console.error("❌ Publicação bloqueada: caminho de imagem inválido.");
+      process.exit(1);
+    }
+    const manifestPath = path.join(path.dirname(absoluteImage), "image-manifest.json");
+    if (!fs.existsSync(manifestPath)) {
+      console.error("❌ Publicação bloqueada: image-manifest.json ausente.");
+      process.exit(1);
+    }
+    try {
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+      const validatedManifest = validateImageManifestV2(
+        manifest,
+        path.dirname(manifestPath),
+        { requirePublishable: true },
+      );
+      if (validatedManifest.factualSubject === "exact-product") {
+        const expectedProduct = String(parsed.data.product_name || "").trim().toLocaleLowerCase("pt-BR");
+        const depicted = validatedManifest.depictedProducts
+          .map((product) => product.trim().toLocaleLowerCase("pt-BR"));
+        if (!expectedProduct || !depicted.includes(expectedProduct)) {
+          throw new Error("produto retratado no manifesto não corresponde ao product_name do post");
+        }
+      }
+    } catch (error) {
+      console.error(`❌ Publicação bloqueada: ${error.message}`);
       process.exit(1);
     }
   }

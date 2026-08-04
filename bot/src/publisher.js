@@ -60,7 +60,7 @@ export class GitHubPublisher {
     await this._api("PUT", `/contents/${pathInRepo}`, body);
   }
 
-  async publishPost({ postContent, slug, researchData, imageManifest, checklist }) {
+  async publishPost({ postContent, slug, researchData, imageManifest, imageProductionPlan, checklist }) {
     const today = new Date().toISOString().split("T")[0];
     const fileName = `${today}-${slug}.md`;
     const branchName = `content/${slug}`;
@@ -91,6 +91,16 @@ export class GitHubPublisher {
         `assets/img/posts/${slug}/image-manifest.json`,
         JSON.stringify(imageManifest, null, 2),
         `🖼️  Images: ${slug}`
+      );
+    }
+
+    if (imageProductionPlan) {
+      console.log(`🖼️ Commitando plano de produção de imagens`);
+      await this._commitFile(
+        branchName,
+        `assets/img/posts/${slug}/image-plan.json`,
+        JSON.stringify(imageProductionPlan, null, 2),
+        `🖼️ Image plan: ${slug}`,
       );
     }
 

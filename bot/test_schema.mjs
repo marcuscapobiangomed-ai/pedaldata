@@ -48,6 +48,12 @@ const validArticle = {
     {
       position: "hero",
       purpose: "Imagem de destaque para o comparativo editorial",
+      assetType: "ai-editorial-concept",
+      editorialUse: "draft-only",
+      factualSubject: "conceptual",
+      brief: "Composição editorial conceitual que represente a diferença entre geometrias sem marcas.",
+      sourceRequired: false,
+      avoid: ["logotipos", "produto específico"],
       aspectRatio: "16:9",
       altSuggestion: "Comparativo entre bikes endurance e race",
       allowedSource: "ai-generated",

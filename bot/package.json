@@ -11,21 +11,25 @@
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
     "lint": "node scripts/check-js.mjs",
-    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs",
+    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs && node test_image_system.mjs",
     "validate:research": "node src/validation/validate-research.js",
     "validate:posts": "node src/validate_posts.js",
     "validate:images": "node src/validation/validate-images.js",
+    "validate:images-v2": "node src/validation/validate-images-v2.js",
     "check:claims": "node src/validation/check-claims.js",
     "audit:editorial": "node src/validation/audit-editorial-portfolio.js",
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
     "generate": "node src/generator.js",
-    "ai:doctor": "node src/ai/doctor.js"
+    "ai:doctor": "node src/ai/doctor.js",
+    "images:prepare": "node src/images/prepare-variants.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.0",
     "gray-matter": "^4.0.3",
+    "image-size": "^2.0.2",
     "sanitize-html": "^2.17.6",
+    "sharp": "^0.35.3",
     "simple-git": "^3.27.0",
     "zod": "^4.4.3"
   },

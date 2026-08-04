@@ -42,6 +42,20 @@ export const ALLOWED_TAGS = [
 const ImagePlanSchema = z.object({
   position: z.enum(["hero", "spec-detail", "comparison", "lifestyle"]),
   purpose: z.string().min(10, "Informe o propósito da imagem"),
+  assetType: z.enum([
+    "official-product-photo",
+    "own-photo",
+    "licensed-editorial-photo",
+    "data-graphic",
+    "technical-diagram",
+    "ai-editorial-concept",
+    "system-fallback",
+  ]),
+  editorialUse: z.enum(["draft-only", "publishable"]),
+  factualSubject: z.enum(["exact-product", "real-event", "conceptual", "not-applicable"]),
+  brief: z.string().min(30, "O briefing visual precisa ter ao menos 30 caracteres"),
+  sourceRequired: z.boolean(),
+  avoid: z.array(z.string()).default([]),
   aspectRatio: z.string().default("16:9"),
   altSuggestion: z.string().min(10, "altSuggestion precisa ter ao menos 10 caracteres"),
   allowedSource: z.enum(["manufacturer-authorized", "own-photo", "ai-generated", "public-domain"]),
@@ -139,6 +153,26 @@ export const ArticleSchema = z.object({
         code: "custom",
         path: ["sections", index, "heading"],
         message: "Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos.",
+      });
+    }
+  });
+
+  article.imagePlan.forEach((image, index) => {
+    if (
+      image.aiGeneratedAllowed &&
+      ["exact-product", "real-event"].includes(image.factualSubject)
+    ) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["imagePlan", index, "aiGeneratedAllowed"],
+        message: "IA generativa não pode representar produto exato ou evento real.",
+      });
+    }
+    if (image.editorialUse === "publishable" && image.assetType === "system-fallback") {
+      ctx.addIssue({
+        code: "custom",
+        path: ["imagePlan", index, "editorialUse"],
+        message: "Fallback de sistema é exclusivo para rascunhos.",
       });
     }
   });

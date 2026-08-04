@@ -56,7 +56,14 @@ async function main() {
 
     console.log("🚀 Publicando via PR no GitHub...");
     const publisher = new GitHubPublisher();
-    const prUrl = await publisher.publishPost(post.content, post.slug, post);
+    const prUrl = await publisher.publishPost({
+      postContent: post.content,
+      slug: post.slug,
+      researchData: null,
+      imageManifest: null,
+      imageProductionPlan: post.imageProductionPlan,
+      checklist: post.claims || [],
+    });
 
     // Remove da fila (apenas se não for execução manual)
     if (!manualTopic) {
