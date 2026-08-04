@@ -4,7 +4,7 @@ title: "Cannondale SuperSix Evo 2026: O Adeus ao SystemSix — Review Gen 5"
 description: "Review da Cannondale SuperSix Evo 2026 (Gen 5): mais leve, mais aero, e o fim do SystemSix. Preços de US$ 4.999 a US$ 13.499 e todos os modelos."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -106,6 +106,16 @@ A Soul Cycles Brasil é a importadora oficial Cannondale. Preços estimados:
 - SuperSix Evo 5: ~R$ 20.000-25.000
 - SuperSix Evo 1: ~R$ 38.000-42.000
 - Lab71: ~R$ 55.000-65.000
+
+> Valores históricos consultados em 19 de julho de 2026. Preços, estoque e configuração estão em revisão editorial; confirme a variante no site oficial ou em revendedor autorizado.
+
+## Alternativas
+
+Antes de escolher a SuperSix Evo, compare sua geometria e configuração com outras bicicletas race do catálogo, como Specialized Tarmac SL8 Comp, Scott Addict e Trek Madone. A decisão deve considerar posição, disponibilidade de tamanhos, suporte local e componentes, não apenas peso declarado.
+
+## Para quem é indicada
+
+A SuperSix Evo é indicada a ciclistas intermediários e avançados que buscam uma bicicleta race para treinos rápidos, provas e percursos mistos. Quem prioriza posição mais ereta, pneus mais largos e conforto prolongado deve comparar também modelos endurance.
 
 ## Perguntas frequentes
 

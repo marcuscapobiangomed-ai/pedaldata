@@ -4,7 +4,7 @@ title: "Guia Completo: Importar Bike de Estrada para o Brasil em 2026"
 description: "Saiba quanto custa importar uma bicicleta de estrada para o Brasil em 2026: impostos (II 60%, ICMS 17-20%), frete, burocracia e se realmente compensa."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false

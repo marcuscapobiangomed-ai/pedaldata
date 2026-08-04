@@ -4,8 +4,8 @@ title: "Melhores Pedais Clipless para Bike de Estrada: Guia para Iniciantes 2026
 description: "Guia completo de pedais clipless para iniciantes em 2026. Shimano SPD-SL vs Look Keo vs Time Xpresso. Preços, compatibilidade e dicas de uso."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "guia-de-compra"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +20,7 @@ price_max: 500
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-de-compra"
-tags: [pedais-clipless, bike-de-estrada, guia-de-compra, ciclismo, iniciantes]
+tags: [pedais-clipless, bike-de-estrada, guias-de-compra, ciclismo, iniciantes]
 image: "/assets/img/posts/melhores-pedais-clipless/hero.jpg"
 image_alt: "Pedais clipless para ciclismo de estrada"
 image_caption: "Shimano PD-RS500 (R$ 400), Look Keo Classic 3 (R$ 450) e Time Xpresso 2 (R$ 430) — os pedais de entrada mais populares."
@@ -128,7 +128,7 @@ Sistema de 2 furos (SPD/MTB). Para quem quer começar com um pedal que também s
 Os cleats (tacos) são tão importantes quanto os pedais. Eles definem o **float** (quanto o pé pode girar sem soltar).
 
 - **Float alto (6°):** mais tolerante, recomendado para iniciantes e quem tem dores no joelho
-- **Float baixo (0-2°):** máximo desempenho, mas pode causar dores se a posição não for perfeita
+- **Float baixo (0-2°):** máximo desempenho, mas pode causar dores se a posição não estiver adequada
 - **Cleats de carbono (Shimano Dura-Ace, Look Keo Blade):** mesmos pedais, cleats mais leves e resistentes
 
 **Dica de iniciante:** comece com float alto (6° — cleats amarelos Shimano ou cinza Look). Depois de 3-6 meses, avalie se quer reduzir o float para ganhar eficiência.
@@ -140,6 +140,10 @@ Os cleats (tacos) são tão importantes quanto os pedais. Eles definem o **float
 3. **Solte o pedal com antecedência** — ao se aproximar de um cruzamento ou semáforo, solte um pé antes de parar
 4. **Não force o desencaixe lateral** — o movimento é rotacional (gire o calcanhar para fora)
 5. **Queda de iniciante é normal** — todo ciclista cai pelo menos uma vez preso ao pedal. Use capacete.
+
+## Para quem é indicado
+
+Este guia é indicado a ciclistas iniciantes no sistema clipless. Quem usa a bicicleta em deslocamentos com muitas paradas ou precisa caminhar pode preferir pedais e sapatilhas de MTB; para treinos de estrada, sistemas com plataforma maior oferecem apoio mais estável. Faça a adaptação em local seguro e procure ajuste profissional se houver dor persistente.
 
 ## Perguntas Frequentes
 

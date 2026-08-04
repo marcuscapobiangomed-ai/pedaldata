@@ -4,7 +4,7 @@ title: "Guia Completo: A Melhor Bike de Estrada para Iniciantes"
 description: "Tudo que você precisa saber para comprar sua primeira bicicleta de estrada: orçamento, modelos reais no Brasil, nova vs usada e acessórios essenciais."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -54,7 +54,7 @@ affiliate_links: false
 editorial_status: "draft"
 thumbnail: "/assets/img/posts/guia-completo-melhor-bike-iniciantes/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais dos fabricantes e pesquisa de preços em lojas brasileiras em julho de 2026. Nenhum produto foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais dos fabricantes e pesquisa de preços em lojas brasileiras em julho de 2026. Nenhum produto foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 

@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Endurance vs Race: comparativo completo com dados reais do mercado brasileiro em 2026"
-description: "Qual perfil de bike é ideal para você? Comparamos dados reais de geometria, peso, preço e componentes da base Pedal Data."
+description: "Qual perfil de bike é ideal para você? Comparamos dados reais de geometria, peso, preço e componentes da base The Biker Blog."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -12,13 +12,18 @@ ai_assisted: true
 editorial_status: "published"
 thumbnail: "/assets/img/posts/endurance-vs-race-dados/thumb-480.webp"
 image: "/assets/img/posts/endurance-vs-race-dados/hero.jpg"
-image_credit: "Pedal Data"
-image_license: "Uso editorial do Pedal Data"
-tags: [comparativo, dados]
+image_credit: "The Biker Blog"
+image_license: "Uso editorial do The Biker Blog"
+tags: [comparativos, dados]
 reading_time: 8
+sources:
+  - name: "Base estruturada The Biker Blog"
+    type: "editorial-dataset"
+    url: "https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/"
+    accessed_at: "2026-07-19"
 ---
 
-A escolha entre uma bike endurance e uma race é uma das decisões mais importantes para quem compra uma bike de estrada. Com base na base de dados do Pedal Data, comparamos as opções disponíveis no mercado brasileiro em 2026.
+A escolha entre uma bike endurance e uma race é uma das decisões mais importantes para quem compra uma bike de estrada. Com base na base de dados do The Biker Blog, comparamos as opções disponíveis no mercado brasileiro em 2026.
 
 ## O que dizem os dados
 
@@ -73,4 +78,8 @@ Analisando as **30 bikes do catálogo**, observamos que:
 - **Endurances aceitam pneus até 38mm**, enquanto a maioria das race limita em 30-32mm
 - O **preço médio** das endurance (R$ 21.000) é similar ao das race (R$ 22.000)
 
-> *Dados da base Pedal Data — 30 bicicletas catalogadas em julho/2026. Preços podem variar conforme loja e região.*
+> *Dados da base The Biker Blog — 30 bicicletas catalogadas em julho/2026. Preços podem variar conforme loja e região.*
+
+## Fontes
+
+- The Biker Blog. Base estruturada de bicicletas, geometrias e preços, versão consultada em 19 de julho de 2026. Os valores históricos permanecem em revisão editorial.

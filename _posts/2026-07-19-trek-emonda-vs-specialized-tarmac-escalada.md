@@ -4,7 +4,7 @@ title: "Trek Émonda vs Specialized Tarmac SL8: Qual a Melhor Bike de Escalada?"
 description: "Comparativo entre Trek Émonda e Specialized Tarmac SL8 para escalada em 2026. Preços, pesos, geometria e a verdade sobre o futuro de cada linha."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -107,6 +107,8 @@ A Émonda não terá nova geração. Quem comprar uma Émonda hoje está compran
 A Tarmac SL8 vence em todos os cenários: é mais leve, mais aero, mais barata na entrada e tem futuro garantido. A Émonda ainda é uma excelente bike de escalada, mas só faz sentido se encontrada com desconto de fim de linha.
 
 Para quem quer o melhor da Trek em performance, a Madone Gen 8 (US$ 6.099 a US$ 14.499) é a resposta — mas ela é mais pesada que a Tarmac SL8 (795g vs 685g de quadro).
+
+> Valores históricos consultados em 19 de julho de 2026. Preços e disponibilidade estão em revisão editorial; confirme os modelos atuais nas páginas oficiais das fabricantes.
 
 ## Perguntas frequentes
 

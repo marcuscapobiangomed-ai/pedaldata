@@ -4,8 +4,8 @@ title: "Como Escolher o Tamanho Certo de Bike de Estrada: Guia Completo com Tabe
 description: "Guia definitivo para escolher o tamanho certo de bike de estrada. Tabela por altura, reach, stack, geometria por marca e dicas de bike fit."
 date: 2026-07-31
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +20,7 @@ price_max: 0
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-tecnico"
-tags: [guias-de-compra, ciclismo, bike de estrada, bike fit, geometria]
+tags: [guias-de-compra, ciclismo, bike-de-estrada, bike-fit, geometria]
 image: "/assets/img/posts/tamanho-certo-bike-estrada/hero.jpg"
 image_alt: "Tabela de tamanhos de bike de estrada por altura"
 image_caption: "Escolher o tamanho certo do quadro é o passo mais importante para conforto e performance."

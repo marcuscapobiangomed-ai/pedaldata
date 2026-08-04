@@ -4,7 +4,7 @@ title: "Scott Addict 2026: Ficha Técnica, Preços e Para Quem é Indicada"
 description: "Guia completo da linha Scott Addict 2026: especificações, preços no exterior, diferenças entre Addict (endurance) e Addict RC (race) e dicas de compra."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -115,6 +115,10 @@ A linha Addict RC (race) deve ter preços similares ou ligeiramente inferiores. 
 | **Geometria** | Mais upright, menos agressiva | Agressiva, racing |
 | **Peso** | 7,4 a 8,9 kg | 5,9 a 7,5 kg |
 | **Preço (entrada)** | € 2.799 (Addict 50) | $ 4.999 (Addict RC 30) |
+
+## Para quem é indicada
+
+A Addict é indicada a quem prioriza conforto, longas distâncias e maior versatilidade de pneus. A Addict RC atende melhor ciclistas experientes, com boa adaptação a posições agressivas e foco em provas ou treinos de alta intensidade. Como preços e disponibilidade no Brasil ainda não estavam confirmados na consulta, verifique a oferta atual com a Scott ou revendedor autorizado.
 
 ## Perguntas frequentes
 

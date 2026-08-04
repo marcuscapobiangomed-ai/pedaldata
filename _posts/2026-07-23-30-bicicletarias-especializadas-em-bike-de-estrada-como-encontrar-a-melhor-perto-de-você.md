@@ -4,8 +4,8 @@ title: "Bicicletarias Especializadas em Bike de Estrada: Como Encontrar a Melhor
 description: "Dicas para encontrar bicicletarias especializadas em bikes de estrada: o que observar, marcas disponíveis e rede de assistência no Brasil."
 date: 2026-07-23
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +20,7 @@ price_max: 0
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-tecnico"
-tags: [guias-de-compra, bicicletarias, ciclismo, assistência técnica]
+tags: [guias-de-compra, bicicletarias, ciclismo, assistencia-tecnica]
 image: "/assets/img/posts/bicicletarias-especializadas/hero.jpg"
 image_alt: "Bicicletaria especializada em bike de estrada"
 image_caption: "Bicicletarias de referência no Brasil: AllSports SP, Bert Bike BH e Demarchi SC."

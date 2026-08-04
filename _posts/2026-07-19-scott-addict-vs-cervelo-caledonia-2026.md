@@ -4,7 +4,7 @@ title: "Scott Addict vs Cervélo Caledonia 2026: Comparativo para Ciclistas"
 description: "Comparativo entre as duas melhores bikes endurance de 2026: Scott Addict vs Cervélo Caledonia. Especificações, preços e para quem cada uma é indicada."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false

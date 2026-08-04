@@ -4,8 +4,8 @@ title: "Quadro de Carbono vs Alumínio em Bikes de Estrada: Vale a Pena Pagar Ma
 description: "Comparativo completo entre quadros de carbono e alumínio em 2026: pesos, preços reais no Brasil, conforto, durabilidade e recomendações por perfil de ciclista."
 date: 2026-07-28
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +20,7 @@ price_max: 94990
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "comparativo"
-tags: [comparativos, ciclismo, bikes, componentes, carbono, alumínio]
+tags: [comparativos, ciclismo, bike-de-estrada, componentes, carbono, aluminio]
 image: "/assets/img/posts/quadro-carbono-vs-aluminio/hero.jpg"
 image_alt: "Quadro de carbono vs alumínio em bicicletas de estrada"
 image_caption: "Cannondale CAAD13 (alumínio, R$ 14.990) vs Specialized Tarmac SL8 Comp (carbono, R$ 33.990) — os dois materiais em 2026."
@@ -51,7 +51,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/quadro-carbono-vs-aluminio/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais de fabricantes, pesquisa de preços no mercado brasileiro em julho/2026 e comparação entre modelos reais disponíveis no país. Os produtos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais de fabricantes, pesquisa de preços no mercado brasileiro em julho/2026 e comparação entre modelos reais disponíveis no país. Os produtos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 

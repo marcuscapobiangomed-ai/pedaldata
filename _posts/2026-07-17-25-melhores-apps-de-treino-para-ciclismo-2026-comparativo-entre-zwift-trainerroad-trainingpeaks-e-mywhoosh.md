@@ -4,8 +4,8 @@ title: "Melhores Apps de Treino para Ciclismo 2026: Comparativo entre Zwift, Tra
 description: "Comparativo completo dos melhores apps de treino para ciclismo em 2026: Zwift, TrainerRoad, TrainingPeaks, MyWhoosh e Rouvy. Preços atualizados, prós e contras."
 date: 2026-07-17
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -51,7 +51,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em sites oficiais dos aplicativos, pesquisa de preços em julho/2026 e consulta a fontes especializadas. Os aplicativos não foram testados exaustivamente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em sites oficiais dos aplicativos, pesquisa de preços em julho/2026 e consulta a fontes especializadas. Os aplicativos não foram testados exaustivamente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 

@@ -4,7 +4,7 @@ title: "Melhores Bikes de Estrada até R$ 10.000 em 2026"
 description: "Comparativo com 7 modelos reais de bicicletas de estrada de R$ 5.000 a R$ 10.000 no Brasil. Preços verificados em lojas em julho de 2026."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false

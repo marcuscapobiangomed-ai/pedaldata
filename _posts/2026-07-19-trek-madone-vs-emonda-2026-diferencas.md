@@ -4,7 +4,7 @@ title: "Trek Madone vs Trek Émonda 2026: Qual a Diferença?"
 description: "Comparativo completo entre Trek Madone Gen 8 e Trek Émonda 2026. Preços, pesos, especificações e a verdade sobre o fim da linha Émonda."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -114,6 +114,8 @@ A Trek é distribuída no Brasil pela Soul Bikes. Preços estimados:
 - Madone SL 6: ~R$ 28.000-32.000
 - Madone SLR 7: ~R$ 45.000-50.000
 - Madone SLR 9: ~R$ 65.000-75.000
+
+> Valores históricos consultados em 19 de julho de 2026. Preços e disponibilidade estão em revisão editorial; confirme os modelos atuais nas páginas oficiais da Trek.
 
 ## Perguntas frequentes
 

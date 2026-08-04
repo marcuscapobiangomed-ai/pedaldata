@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Geometria de bikes de estrada 2026: endurance vs race — dados reais"
-description: "Comparativo real de stack, reach e relações geométricas entre 30 bikes do catálogo Pedal Data. Entenda as diferenças entre perfis."
+description: "Comparativo real de stack, reach e relações geométricas entre 30 bikes do catálogo The Biker Blog. Entenda as diferenças entre perfis."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -12,13 +12,18 @@ ai_assisted: true
 editorial_status: "published"
 thumbnail: "/assets/img/posts/evolucao-geometria-endurance-vs-race/thumb-480.webp"
 image: "/assets/img/posts/evolucao-geometria-endurance-vs-race/hero.jpg"
-image_credit: "Pedal Data"
-image_license: "Uso editorial do Pedal Data"
-tags: [guia-de-compra, dados, comparativo]
+image_credit: "The Biker Blog"
+image_license: "Uso editorial do The Biker Blog"
+tags: [guias-de-compra, dados, comparativos]
 reading_time: 7
+sources:
+  - name: "Base estruturada The Biker Blog"
+    type: "editorial-dataset"
+    url: "https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/"
+    accessed_at: "2026-07-19"
 ---
 
-Com base nos dados de geometria do catálogo Pedal Data, comparamos as diferenças reais entre bikes de perfil endurance e race disponíveis no Brasil em 2026.
+Com base nos dados de geometria do catálogo The Biker Blog, comparamos as diferenças reais entre bikes de perfil endurance e race disponíveis no Brasil em 2026.
 
 ## A métrica fundamental: relação Stack/Reach
 
@@ -54,4 +59,8 @@ A relação stack/reach é o indicador mais objetivo da posição que a bike pro
 
 **Melhor meio-termo:** Cervélo Soloist (stack 555 mm, reach 382 mm, relação 1,45)
 
-> *Dados de geometria do catálogo Pedal Data, considerando tamanho M. Consulte a página individual de cada modelo para geometrias completas em todos os tamanhos.*
+> *Dados de geometria do catálogo The Biker Blog, considerando tamanho M. Consulte a página individual de cada modelo para geometrias completas em todos os tamanhos.*
+
+## Fontes
+
+- The Biker Blog. Base estruturada de geometrias, versão consultada em 19 de julho de 2026. Medidas devem ser confirmadas na tabela oficial de cada fabricante.

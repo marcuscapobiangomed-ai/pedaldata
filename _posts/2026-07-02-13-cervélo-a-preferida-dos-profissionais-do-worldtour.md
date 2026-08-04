@@ -4,8 +4,8 @@ title: "Cervélo: a Preferida dos Profissionais do WorldTour"
 description: "História, modelos 2026 e guia completo da Cervélo: Caledonia, Soloist, R5, S5 e P5. Preços no Brasil, pesos e patrocínio Visma-Lease a Bike."
 date: 2026-07-02
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -21,7 +21,7 @@ price_max: 94990
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "reviews"
-tags: [ciclismo, cervélo, worldtour, bikes de estrada]
+tags: [ciclismo, cervelo, worldtour, bike-de-estrada]
 image: "/assets/img/posts/cervelo-r5/hero.jpg"
 image_alt: "Cervélo R5 2026 — bike de escalada da marca canadense"
 image_caption: "Cervélo R5: quadro de 703 g, usado pela Visma-Lease a Bike no Tour de France."
@@ -49,7 +49,7 @@ editorial_status: "published"
 thumbnail: "/assets/img/posts/cervelo-r5/thumb-480.webp"
 ---
 
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Cervélo, pesquisa de preços no mercado brasileiro (julho/2026) e consulta a fontes especializadas. Os produtos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais da Cervélo, pesquisa de preços no mercado brasileiro (julho/2026) e consulta a fontes especializadas. Os produtos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 
@@ -150,6 +150,10 @@ Também é possível encontrar em revendedores autorizados como Soul Cycles e lo
 A Cervélo continua sendo uma das marcas mais inovadoras do ciclismo mundial. A linha 2026 oferece opções para todos os perfis: a Caledonia para quem busca conforto, a Soloist como a melhor custo-benefício versátil, a R5 para escaladores, a S5 para velocidade e a P5 para triatletas.
 
 Com a distribuidora oficial no Brasil (cervelobr.com), o suporte e a garantia estão garantidos — algo essencial para um investimento que começa em R$ 29.990 e pode chegar a R$ 94.990.
+
+## Para quem é indicada
+
+A linha Cervélo faz mais sentido para ciclistas experientes que já conhecem sua posição e seu objetivo de uso. A Caledonia prioriza conforto e longas distâncias; Soloist e R5 atendem quem busca desempenho em estrada e escalada; S5 e P5 são opções mais específicas para aerodinâmica, competição e triathlon. Antes da compra, confirme tamanho, disponibilidade e suporte com um revendedor autorizado.
 
 ## Perguntas Frequentes
 

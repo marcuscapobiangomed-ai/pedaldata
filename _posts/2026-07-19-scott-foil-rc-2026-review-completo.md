@@ -4,7 +4,7 @@ title: "Scott Foil RC 2026: Review Completo da Bicicleta Aero"
 description: "Análise completa da Scott Foil RC 2026: especificações técnicas, preços no Brasil (R$ 53.999 a R$ 94.990) e comparativo entre os modelos."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -114,6 +114,8 @@ A Foil RC é ideal para:
 - **Ciclistas** que querem o que há de mais moderno em tecnologia aero
 
 Não é recomendada para iniciantes — o custo elevado e a geometria agressiva fazem mais sentido para quem já tem experiência e quer extrair o máximo de desempenho.
+
+> Valores históricos consultados em 19 de julho de 2026. Preços e disponibilidade estão em revisão editorial; confirme a configuração e o estoque com a Scott ou revendedor autorizado.
 
 ## Perguntas frequentes
 

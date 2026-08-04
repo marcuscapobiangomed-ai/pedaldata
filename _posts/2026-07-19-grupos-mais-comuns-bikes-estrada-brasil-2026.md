@@ -4,7 +4,7 @@ title: "Grupos de transmissão mais comuns em bikes de estrada no Brasil em 2026
 description: "Análise de dados reais: 30 bikes catalogadas, 12 com Shimano 105 (mecânico ou Di2), grupos mais frequentes por faixa de preço."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -12,13 +12,18 @@ ai_assisted: true
 editorial_status: "published"
 thumbnail: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/thumb-480.webp"
 image: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/hero.jpg"
-image_credit: "Pedal Data"
-image_license: "Uso editorial do Pedal Data"
-tags: [guia-de-compra, dados]
+image_credit: "The Biker Blog"
+image_license: "Uso editorial do The Biker Blog"
+tags: [guias-de-compra, dados]
 reading_time: 5
+sources:
+  - name: "Base estruturada The Biker Blog"
+    type: "editorial-dataset"
+    url: "https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/"
+    accessed_at: "2026-07-19"
 ---
 
-Analisamos as **30 bicicletas de estrada** do catálogo do Pedal Data para identificar quais grupos de transmissão são mais comuns no mercado brasileiro em 2026.
+Analisamos as **30 bicicletas de estrada** do catálogo do The Biker Blog para identificar quais grupos de transmissão são mais comuns no mercado brasileiro em 2026.
 
 ## Distribuição geral
 
@@ -57,4 +62,8 @@ A Shimano 105 Di2 se consolidou como o grupo mais presente no mercado brasileiro
 
 A SRAM aparece com força apenas nas bikes premium (Tarmac SL8, Cervélo S5), representando apenas 7% do mercado analisado.
 
-> *Base: 30 bicicletas do catálogo Pedal Data (julho/2026). A amostra inclui marcas como Caloi, Sense, Oggi, Specialized, Trek, Scott, Cannondale e Cervélo.*
+> *Base: 30 bicicletas do catálogo The Biker Blog (julho/2026). A amostra inclui marcas como Caloi, Sense, Oggi, Specialized, Trek, Scott, Cannondale e Cervélo.*
+
+## Fontes
+
+- The Biker Blog. Base estruturada de especificações de transmissão, versão consultada em 19 de julho de 2026. A distribuição representa apenas a amostra catalogada, não todo o mercado brasileiro.
