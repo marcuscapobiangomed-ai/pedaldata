@@ -80,6 +80,9 @@ jobs:
       - name: Verificar sincronização das páginas de produto
         run: npm run check:product-pages
 
+      - name: Verificar catálogo público TheBiker
+        run: npm run check:catalog-public
+
       - name: Verificar taxonomia de tags
         run: npm run check:tags
 

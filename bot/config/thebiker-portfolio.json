@@ -9,6 +9,15 @@
     "https://thebikershop.com.br/vestuario/",
     "https://thebikershop.com.br/acessorios/"
   ],
+  "category_scopes": {
+    "bikes": {
+      "source": "https://thebikershop.com.br/bikes/",
+      "verified_at": "2026-08-04",
+      "brands": ["Oggi", "Scott", "TSW"],
+      "product_url_required": true,
+      "maximum_evidence_age_days": 7
+    }
+  },
   "policy": {
     "portfolio_promotion_only": true,
     "competitor_promotion_forbidden": true,

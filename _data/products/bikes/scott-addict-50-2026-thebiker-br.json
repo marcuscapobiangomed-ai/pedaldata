@@ -1,0 +1,15 @@
+{
+  "id": "scott-addict-50-2026-thebiker-br", "type": "bike", "status": "pre-release",
+  "brand": "Scott", "model": "Addict 50", "modelYear": 2026, "market": "BR", "category": "road-endurance",
+  "officialUrl": "https://www.scott-sports.com/", "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+  "portfolioStatus": "verified", "portfolioVerifiedAt": "2026-08-04", "theBikerPrice": 28999,
+  "frame": { "material": "carbon", "technology": "HMF", "internalCableRouting": true },
+  "fork": { "material": "carbon", "model": "Addict HMF Flatmount Disc" },
+  "drivetrain": { "brand": "Shimano", "groupset": "105", "speeds": 12, "shifting": "mechanical", "chainrings": [50, 34], "cassette": { "smallest": 11, "largest": 34 } },
+  "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "BR-R7170" },
+  "wheels": { "brand": "Syncros", "model": "RP2.0 Disc", "material": "aluminum" },
+  "tires": { "brand": "Schwalbe", "model": "ONE", "widthMm": 34, "tubelessReady": false },
+  "declaredWeight": { "valueKg": 9, "size": "não informado", "sourceId": "thebiker-scott-addict-50-2026" },
+  "maxTireClearanceMm": { "value": 38, "sourceId": "thebiker-scott-addict-50-2026" },
+  "testedByPedalData": false, "createdAt": "2026-08-04", "updatedAt": "2026-08-04", "reviewStatus": "verified", "sourceId": "thebiker-scott-addict-50-2026"
+}

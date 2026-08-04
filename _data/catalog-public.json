@@ -1,0 +1,58 @@
+{
+  "version": "2.0",
+  "verifiedAt": "2026-08-04",
+  "totalBikes": 3,
+  "bikes": [
+    {
+      "id": "scott-addict-50-2026-thebiker-br",
+      "brand": "Scott",
+      "model": "Addict 50",
+      "year": 2026,
+      "category": "road-endurance",
+      "priceLowest": 28999,
+      "weightKg": 9,
+      "frameMaterial": "carbon",
+      "groupset": "105",
+      "speeds": 12,
+      "shifting": "mechanical",
+      "brakeType": "hydraulic-disc",
+      "slug": "scott/scott-addict-50-2026-thebiker",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+      "portfolioVerifiedAt": "2026-08-04"
+    },
+    {
+      "id": "scott-addict-rc-20-di2-2026-thebiker-br",
+      "brand": "Scott",
+      "model": "Addict RC 20 Di2",
+      "year": 2026,
+      "category": "road-race",
+      "priceLowest": 59990,
+      "weightKg": null,
+      "frameMaterial": "carbon",
+      "groupset": "Di2 — configuração pendente de confirmação",
+      "speeds": null,
+      "shifting": "electronic",
+      "brakeType": "não confirmado",
+      "slug": "scott/scott-addict-rc-20-di2-2026-thebiker",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "portfolioVerifiedAt": "2026-08-04"
+    },
+    {
+      "id": "scott-addict-rc-pro-di2-2026-thebiker-br",
+      "brand": "Scott",
+      "model": "Addict RC Pro Di2",
+      "year": 2026,
+      "category": "road-race",
+      "priceLowest": 94990,
+      "weightKg": 6.7,
+      "frameMaterial": "carbon",
+      "groupset": "Dura-Ace Di2",
+      "speeds": 12,
+      "shifting": "electronic",
+      "brakeType": "hydraulic-disc",
+      "slug": "scott/scott-addict-rc-pro-di2-2026-thebiker",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-pro-di2-2026-pre-venda/",
+      "portfolioVerifiedAt": "2026-08-04"
+    }
+  ]
+}

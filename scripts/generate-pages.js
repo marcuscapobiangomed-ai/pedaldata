@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
 
-const catalog = JSON.parse(readFileSync(join(ROOT, 'data', 'catalog-index.json'), 'utf-8'))
+const catalog = JSON.parse(readFileSync(join(ROOT, '_data', 'catalog-public.json'), 'utf-8'))
 
 const descriptions = {
   'road-entry': 'de entrada com excelente custo-benefício. Ideal para quem está começando no ciclismo de estrada.',
@@ -28,6 +28,7 @@ for (const bike of catalog.bikes) {
 
   const content = `---
 layout: product/bike
+published: true
 product_id: ${bike.id}
 brand: ${bike.brand}
 model: ${bike.model}

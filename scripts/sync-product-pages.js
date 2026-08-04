@@ -36,6 +36,9 @@ for (const pagePath of walk(path.join(ROOT, 'bikes'))) {
   updated = setFrontmatterField(updated, 'model', product.model)
   updated = setFrontmatterField(updated, 'modelYear', product.modelYear)
   updated = setFrontmatterField(updated, 'category', product.category)
+  const portfolioEligible = product.portfolioStatus === 'verified' &&
+    /^https:\/\/(www\.)?thebikershop\.com\.br\/produtos\//i.test(product.storeProductUrl || '')
+  updated = setFrontmatterField(updated, 'published', portfolioEligible)
 
   if (updated !== original) {
     changed++

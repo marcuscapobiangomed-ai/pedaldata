@@ -3,7 +3,7 @@
 ;(function() {
   'use strict'
 
-  const CATALOG = {{ site.data["catalog-index"] | jsonify }}
+  const CATALOG = {{ site.data["catalog-public"] | jsonify }}
   const AFFILIATE_CONFIG = {{ site.data.affiliates["affiliates-config"] | jsonify }}
 
   window.PedalData = window.PedalData || {}

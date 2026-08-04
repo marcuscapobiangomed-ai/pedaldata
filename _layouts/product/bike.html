@@ -6,7 +6,7 @@ layout: default
 {% assign price_lowest = page.price_lowest %}
 {% assign price_highest = page.price_highest %}
 {% assign geometry = site.data.geometries[product_id] %}
-{% assign catalog = site.data["catalog-index"].bikes %}
+{% assign catalog = site.data["catalog-public"].bikes %}
 
 {% include schema-product.html product=page price_lowest=price_lowest price_highest=price_highest show_breadcrumb=true %}
 {% include schema-faq.html %}
