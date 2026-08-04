@@ -4,7 +4,7 @@ title: "Scott Addict 2026: ficha técnica completa, preço no Brasil e para quem
 description: "Confira a ficha técnica, preço e análise da Scott Addict 2026, ideal para ciclistas que buscam desempenho e leveza."
 date: 2026-06-29
 last_modified_at: 2026-06-29
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -39,7 +39,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/scott-addict-2026/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 
 

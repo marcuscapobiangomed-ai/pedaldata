@@ -15,7 +15,7 @@
             {% if has_img %}
               <img src="{{ site.baseurl }}{{ preview_image }}" alt="{{ post.image_alt | default: post.title | escape }}" width="352" height="200" loading="lazy" decoding="async">
             {% else %}
-              <div class="related-thumb-fallback">PD</div>
+              <img src="{{ site.baseurl }}{{ site.logo }}" alt="" width="352" height="200" loading="lazy" decoding="async">
             {% endif %}
           </div>
           <div class="related-card-body">

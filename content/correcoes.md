@@ -4,16 +4,16 @@ title: Correções
 permalink: /correcoes/
 ---
 
-# Política de Correções — Pedal Data
+# Política de Correções — The Biker Blog
 
-No Pedal Data, erros são corrigidos com transparência. Esta página explica como você pode reportar problemas e como tratamos cada correção.
+No The Biker Blog, erros são corrigidos com transparência. Esta página explica como você pode reportar problemas e como tratamos cada correção.
 
 ## Como enviar uma correção
 
 Você pode reportar erros de três formas:
 
 1. **Formulário em cada página** — link "Informar erro" no rodapé de produtos e artigos
-2. **E-mail** — [correcoes@pedaldata.com.br](mailto:correcoes@pedaldata.com.br)
+2. **E-mail** — [atendimento@thebiker.com.br](mailto:atendimento@thebiker.com.br)
 3. **Redes sociais** — DM no Instagram ou Twitter
 
 Informe:
@@ -59,7 +59,7 @@ Erros que afetam segurança, decisão de compra ou que envolvem dados fraudulent
 
 ## Como fabricantes podem enviar informações
 
-Fabricantes e distribuidores podem enviar especificações oficiais para [dados@pedaldata.com.br](mailto:dados@pedaldata.com.br).
+Fabricantes e distribuidores podem enviar especificações oficiais para [atendimento@thebiker.com.br](mailto:atendimento@thebiker.com.br).
 
 Toda informação passa pelo mesmo processo de verificação:
 

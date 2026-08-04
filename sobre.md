@@ -6,11 +6,11 @@ title: Sobre
 <div class="page-layout">
   <div class="container page-grid">
     <div class="content-area">
-      <h1 class="page-title">Sobre o Pedal Data</h1>
+      <h1 class="page-title">Sobre o The Biker Blog</h1>
       <div class="page-title-underline"></div>
 
       <div class="sobre-content">
-        <p>O <strong>Pedal Data</strong> é um espaço independente dedicado a analisar, comparar e produzir guias detalhados sobre ciclismo de estrada, equipamentos e tecnologia de performance para ciclistas brasileiros.</p>
+        <p>O <strong>The Biker Blog</strong> é um espaço independente dedicado a analisar, comparar e produzir guias detalhados sobre ciclismo de estrada, equipamentos e tecnologia de performance para ciclistas brasileiros.</p>
 
         <h2>Nossa Missão</h2>
         <p>O mercado de bicicletas de estrada no Brasil cresce a cada ano, trazendo novas tecnologias como grupos eletrônicos, freios a disco hidráulicos e quadros aerodinâmicos integrados. No entanto, encontrar informações precisas, opiniões honestas e análises baseadas em dados objetivos em português ainda é um desafio.</p>
@@ -21,7 +21,7 @@ title: Sobre
           <div class="author-avatar">SA</div>
           <div>
             <div class="author-name">Sergio Arantes</div>
-            <div class="author-bio">Editor-chefe do Pedal Data. Ciclista de estrada desde 2017 e responsável pela supervisão editorial de todo o conteúdo publicado.</div>
+            <div class="author-bio">Editor-chefe do The Biker Blog. Ciclista de estrada desde 2017 e responsável pela supervisão editorial de todo o conteúdo publicado.</div>
           </div>
         </div>
 
@@ -34,12 +34,12 @@ title: Sobre
         </ul>
 
         <h2>Transparência e Afiliados</h2>
-        <p>Para manter o Pedal Data no ar de forma totalmente gratuita e sem banners de anúncios invasivos, participamos de programas de afiliados (incluindo o Programa de Associados da Amazon Brasil). Isso significa que, ao clicar em links externos e realizar uma compra, podemos receber uma comissão pela recomendação. Você não paga nada a mais por isso.</p>
+        <p>Para manter o The Biker Blog no ar de forma totalmente gratuita e sem banners de anúncios invasivos, participamos de programas de afiliados (incluindo o Programa de Associados da Amazon Brasil). Isso significa que, ao clicar em links externos e realizar uma compra, podemos receber uma comissão pela recomendação. Você não paga nada a mais por isso.</p>
         <p><strong>Importante:</strong> Nossas opiniões não são patrocinadas por marcas. Se uma bicicleta tem pontos fracos na relação ou peso excessivo, nós deixamos isso claro no review.</p>
 
         <hr class="section-divider">
 
-        <p>🚴‍♂️ Tem sugestões de bikes para testarmos, dúvidas sobre algum guia ou quer conversar sobre parcerias? Entre em contato com a gente pelo e-mail <strong>contato@pedaldatablog.com.br</strong> ou pelo Instagram <strong>@pedaldata</strong>.</p>
+        <p>Tem sugestões de bikes para testarmos, dúvidas sobre algum guia ou quer conversar sobre parcerias? Entre em contato pelo e-mail <strong>atendimento@thebiker.com.br</strong> ou pelo Instagram <strong>@thebikerbrasil</strong>.</p>
       </div>
     </div>
 

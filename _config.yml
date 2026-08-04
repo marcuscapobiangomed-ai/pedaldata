@@ -1,20 +1,19 @@
-title: "Pedal Data"
-tagline: "Reviews, guias e dicas de ciclismo de estrada"
-description: "Comparativos, reviews e guias de compra de bicicletas de estrada, componentes e acessórios para ciclistas brasileiros"
+title: "The Biker Blog"
+tagline: "Ciclismo vivido, testado e explicado"
+description: "O blog oficial da The Biker Shop: reviews, guias de compra, comparativos e histórias para ciclistas brasileiros"
 url: "https://marcuscapobiangomed-ai.github.io"
 baseurl: "/pedaldata"
 lang: pt-BR
 
-author: "Equipe Pedal Data"
-email: "contato@pedaldatablog.com.br"
+author: "Equipe The Biker Blog"
+email: "atendimento@thebiker.com.br"
 
-logo: "/assets/img/logo.svg"
+logo: "/assets/img/brand/the-biker-blog-logo.png"
 
 social:
-  name: Pedal Data
+  name: The Biker Blog
   links:
-    - https://www.instagram.com/pedaldata
-    # - https://www.youtube.com/@pedaldata  # adicionar quando criar canal
+    - https://www.instagram.com/thebikerbrasil
 
 webmaster_verifications:
   google: googleae077bce8e335daa
@@ -34,12 +33,12 @@ defaults:
       path: "_posts"
     values:
       layout: post
-      author: "Equipe Pedal Data"
+      author: "Equipe The Biker Blog"
   - scope:
       path: "_posts"
       type: posts
     values:
-      image: /assets/img/logo.svg
+      image: /assets/img/brand/the-biker-blog-logo.png
 
 exclude:
   - bot

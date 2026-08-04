@@ -4,7 +4,7 @@ title: "Guia de Compra: Seu Orçamento Ideal para a Primeira Bike de Estrada em 
 description: "Descubra o orçamento ideal para a sua primeira bike de estrada em 2026, incluindo acessórios essenciais para ciclistas iniciantes."
 date: 2026-06-28
 last_modified_at: 2026-06-28
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-de-compra"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -38,7 +38,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/orcamento-ideal-primeira-bike-estrada/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 
 

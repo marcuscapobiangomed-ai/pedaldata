@@ -3,7 +3,7 @@ layout: post
 title: "Caloi Strada 100 2026 — Ficha Técnica"
 description: "Ficha técnica completa da Caloi Strada 100 2026: especificações, preço no Brasil e para quem é indicada."
 date: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false

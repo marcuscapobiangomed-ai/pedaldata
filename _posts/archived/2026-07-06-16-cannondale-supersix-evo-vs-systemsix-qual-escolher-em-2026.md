@@ -4,7 +4,7 @@ title: "Cannondale SuperSix Evo vs SystemSix: Qual Escolher em 2026?"
 description: "Descubra qual modelo da Cannondale é a melhor escolha para você em 2026: SuperSix Evo ou SystemSix."
 date: 2026-07-06
 last_modified_at: 2026-07-06
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -39,7 +39,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/cannondale-supersix-evo-vs-systemsix/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 
 
