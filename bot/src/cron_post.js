@@ -6,6 +6,7 @@ import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
 import { loadQueue, selectReadyItem } from "./automation/queue.js";
 import { validateResearch } from "./schemas/research.schema.js";
+import { syncProductKnowledge } from "./knowledge/product-knowledge.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(__dirname, "../..");
@@ -37,10 +38,13 @@ export async function runAutomation({ env = process.env, ai, publisher, now = ne
 
   const provider = ai || new AIProvider();
   const post = await provider.processCase(item.topic, { ...researchData, editorialPriority: item.priority });
+  const knowledgeSync = await syncProductKnowledge(researchData, { root: repositoryRoot, syncedAt: now.toISOString().slice(0, 10) });
+  const productKnowledge = knowledgeSync?.record || null;
   const prUrl = await github.publishPost({
     postContent: post.content,
     slug: item.id,
     researchData,
+    productKnowledge,
     imageManifest: null,
     imageProductionPlan: post.imageProductionPlan,
     checklist: post.claims || [],

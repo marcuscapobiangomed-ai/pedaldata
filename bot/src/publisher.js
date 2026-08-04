@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { productKnowledgeCollection } from "./knowledge/product-knowledge.js";
 
 export class GitHubPublisher {
   constructor({ env = process.env } = {}) {
@@ -69,7 +70,7 @@ export class GitHubPublisher {
     await this._api("PUT", `/contents/${pathInRepo}`, body);
   }
 
-  async publishPost({ postContent, slug, researchData, imageManifest, imageProductionPlan, checklist }) {
+  async publishPost({ postContent, slug, researchData, productKnowledge, imageManifest, imageProductionPlan, checklist }) {
     const today = new Date().toISOString().split("T")[0];
     const fileName = `${today}-${slug}.md`;
     const branchName = `content/${slug}`;
@@ -106,6 +107,16 @@ export class GitHubPublisher {
         `assets/img/posts/${slug}/image-manifest.json`,
         JSON.stringify(imageManifest, null, 2),
         `🖼️  Images: ${slug}`
+      );
+    }
+
+    if (productKnowledge) {
+      console.log(`Commitando memória técnica do produto`);
+      await this._commitFile(
+        branchName,
+        `_data/product-knowledge/${productKnowledgeCollection(productKnowledge.type)}/${productKnowledge.id}.json`,
+        JSON.stringify(productKnowledge, null, 2),
+        `Product knowledge: ${productKnowledge.id}`,
       );
     }
 

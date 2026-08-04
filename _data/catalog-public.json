@@ -10,7 +10,7 @@
       "year": 2026,
       "category": "road-endurance",
       "priceLowest": 28999,
-      "weightKg": 9,
+      "weightKg": null,
       "frameMaterial": "carbon",
       "groupset": "105",
       "speeds": 12,

@@ -19,7 +19,8 @@ const bikes = fs.readdirSync(productsDir).filter((name) => name.endsWith('.json'
   .map((name) => JSON.parse(fs.readFileSync(path.join(productsDir, name), 'utf8'))).filter((product) => eligible(product))
   .map((product) => ({ id: product.id, brand: product.brand, model: product.model, year: product.modelYear,
     category: product.category, priceLowest: product.theBikerPrice || null,
-    weightKg: product.declaredWeight?.valueKg || null, frameMaterial: product.frame?.material || null,
+    weightKg: product.declaredWeight?.approximate ? null : product.declaredWeight?.valueKg || null,
+    frameMaterial: product.frame?.material || null,
     groupset: product.drivetrain?.groupset || null, speeds: product.drivetrain?.speeds || null,
     shifting: product.drivetrain?.shifting || null, brakeType: product.brakes?.type || null,
     slug: `${product.brand.toLowerCase()}/${product.id.replace(/-br$/, '')}`,

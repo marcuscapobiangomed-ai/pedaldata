@@ -6,6 +6,7 @@
 import "dotenv/config";
 import { AIProvider } from "./gemini.js";
 import fs from "node:fs";
+import { syncProductKnowledge } from "./knowledge/product-knowledge.js";
 
 const args = process.argv.slice(2);
 const researchArg = args.find((arg) => arg.startsWith("--research="));
@@ -30,12 +31,14 @@ console.log(`📝 Descrição: "${descricao}"\n`);
 
 const ai = new AIProvider();
 const post = await ai.processCase(descricao, researchData);
+const knowledge = await syncProductKnowledge(researchData);
 
 console.log("📄 Artigo gerado:");
 console.log("-".repeat(40));
 console.log(`Título: ${post.title}`);
 console.log(`Slug: ${post.slug}`);
 console.log(`Pipeline: ${JSON.stringify(post.pipelineMetadata?.providers || {})}`);
+console.log(`Base técnica: ${knowledge?.repositoryPath || "sem produto estruturado"}`);
 console.log("-".repeat(40));
 console.log("\nConteúdo:\n");
 console.log(post.content);

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ProductKnowledgeInputSchema } from "./product-knowledge.schema.js";
 
 export const SourceSchema = z.object({
   id: z.string().min(1, "source.id é obrigatório"),
@@ -56,6 +57,7 @@ export const EditorialResearchSchema = z.object({
   generated_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   status: z.enum(["pesquisa_pendente", "pesquisa_concluida"]),
   sources: z.array(EditorialSourceSchema).optional(),
+  product_knowledge: ProductKnowledgeInputSchema.optional(),
 }).passthrough();
 
 export const ResearchQueueItemSchema = z.object({

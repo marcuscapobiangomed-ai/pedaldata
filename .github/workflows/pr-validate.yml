@@ -44,6 +44,8 @@ jobs:
       - name: Lint (JS)
         run: |
           node --check src/schemas/research.schema.js
+          node --check src/schemas/product-knowledge.schema.js
+          node --check src/knowledge/product-knowledge.js
           node --check src/schemas/article.schema.js
           node --check src/validation/validate-research.js
           node --check src/validation/validate-images.js

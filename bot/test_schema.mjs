@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { validateArticle } from "./src/schemas/article.schema.js";
 import { validateResearch } from "./src/schemas/research.schema.js";
 import { generateMarkdown } from "./src/generator.js";
+import { buildProductKnowledgeRecord } from "./src/knowledge/product-knowledge.js";
 
 const validArticle = {
   title: "Comparativo de bikes endurance e race em 2026",
@@ -139,5 +140,49 @@ assert.throws(
   /site oficial da TheBiker/i,
 );
 assert.doesNotThrow(() => validateResearch(validResearch));
+
+const productKnowledgeResearch = {
+  slug: "scott-addict-50-2026",
+  status: "pesquisa_concluida",
+  product_knowledge: {
+    id: "scott-addict-50-2026-br",
+    type: "bike",
+    brand: "Scott",
+    model: "Addict 50",
+    modelYear: 2026,
+    market: "BR",
+    category: "road-endurance",
+    sources: [{
+      id: "official",
+      name: "Scott",
+      type: "manufacturer",
+      url: "https://www.scott-sports.com/product",
+      accessedAt: "2026-08-04",
+    }],
+    facts: {
+      "weight.declared": {
+        value: 9,
+        unit: "kg",
+        status: "approximate",
+        sourceIds: ["official"],
+        observedAt: "2026-08-04",
+        market: "BR",
+        qualifier: "Tamanho não informado",
+      },
+    },
+    unresolvedFields: ["tamanho da pesagem"],
+  },
+};
+const knowledgeRecord = buildProductKnowledgeRecord(productKnowledgeResearch, "2026-08-04");
+assert.equal(knowledgeRecord.facts["weight.declared"].status, "approximate");
+assert.equal(knowledgeRecord.history.length, 1);
+assert.throws(() => buildProductKnowledgeRecord({
+  ...productKnowledgeResearch,
+  product_knowledge: {
+    ...productKnowledgeResearch.product_knowledge,
+    sources: [{ ...productKnowledgeResearch.product_knowledge.sources[0], id: "store", type: "store", url: "https://concorrente.example/produto" }],
+    facts: { "weight.declared": { ...productKnowledgeResearch.product_knowledge.facts["weight.declared"], sourceIds: ["store"] } },
+  },
+}, "2026-08-04"), /Fonte não autorizada/);
 
 console.log("Schemas principais validados com sucesso.");
