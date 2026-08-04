@@ -4,6 +4,7 @@ import { validateArticle } from "./src/schemas/article.schema.js";
 import { validateResearch } from "./src/schemas/research.schema.js";
 import { generateMarkdown } from "./src/generator.js";
 import { buildProductKnowledgeRecord } from "./src/knowledge/product-knowledge.js";
+import { extractPortfolioBikeUrls, productFromJsonLd } from "../scripts/discover-thebiker-catalog.js";
 
 const validArticle = {
   title: "Comparativo de bikes endurance e race em 2026",
@@ -184,5 +185,17 @@ assert.throws(() => buildProductKnowledgeRecord({
     facts: { "weight.declared": { ...productKnowledgeResearch.product_knowledge.facts["weight.declared"], sourceIds: ["store"] } },
   },
 }, "2026-08-04"), /Fonte não autorizada/);
+
+const discoveredUrls = extractPortfolioBikeUrls(`
+  <loc>https://thebikershop.com.br/produtos/bicicleta-scott-addict-50/</loc>
+  <loc>https://thebikershop.com.br/produtos/bike-bag-scott-classic/</loc>
+  <loc>https://concorrente.example/produtos/bicicleta-outra/</loc>
+`);
+assert.deepEqual(discoveredUrls, ["https://thebikershop.com.br/produtos/bicicleta-scott-addict-50/"]);
+const discoveredProduct = productFromJsonLd(`
+  <script type="application/ld+json">{"@type":"Product","name":"Bicicleta Scott Addict 50","brand":{"name":"Scott"},"offers":{"price":"28999","priceCurrency":"BRL","url":"https://thebikershop.com.br/produtos/bicicleta-scott-addict-50/"}}</script>
+`, discoveredUrls[0]);
+assert.equal(discoveredProduct.price, 28999);
+assert.equal(discoveredProduct.brand, "Scott");
 
 console.log("Schemas principais validados com sucesso.");

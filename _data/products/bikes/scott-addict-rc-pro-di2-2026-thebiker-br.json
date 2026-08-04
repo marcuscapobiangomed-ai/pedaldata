@@ -2,7 +2,7 @@
   "id": "scott-addict-rc-pro-di2-2026-thebiker-br", "type": "bike", "status": "pre-release",
   "brand": "Scott", "model": "Addict RC Pro Di2", "modelYear": 2026, "market": "BR", "category": "road-race",
   "officialUrl": "https://www.scott-sports.com/", "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-pro-di2-2026-pre-venda/",
-  "portfolioStatus": "verified", "portfolioVerifiedAt": "2026-08-04", "theBikerPrice": 94990,
+  "portfolioStatus": "verified", "portfolioVerifiedAt": "2026-08-04", "theBikerPrice": 109990,
   "frame": { "material": "carbon", "technology": "HMX", "internalCableRouting": true },
   "fork": { "material": "carbon", "model": "Addict RC HMX Flatmount Disc" },
   "drivetrain": { "brand": "Shimano", "groupset": "Dura-Ace Di2", "speeds": 12, "shifting": "electronic", "chainrings": [52, 36], "cassette": { "smallest": 11, "largest": 34 } },

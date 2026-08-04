@@ -1,0 +1,551 @@
+{
+  "schemaVersion": "1.0",
+  "source": "https://thebikershop.com.br/sitemap.xml",
+  "currentListingSource": "https://thebikershop.com.br/bikes/",
+  "discoveredAt": "2026-08-04",
+  "portfolioBrands": [
+    "Scott",
+    "Oggi",
+    "Tsw"
+  ],
+  "total": 52,
+  "readyForPublication": 0,
+  "products": [
+    {
+      "id": "bicicleta-scott-scale-940-black",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-black/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Scale 940 - Black",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-black/",
+      "price": 19999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/scale-940-2023-tbkr1-b34ba1914f53fbad3716736160099253-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-910-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-910-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-speedster-gravel-30",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-speedster-gravel-30/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-980-black",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-black/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Scale 980 Black",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-black/",
+      "price": 8999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/captura-de-tela-2024-01-09-as-15-23-19-3304e88070bb3ef0a317048250578717-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-965",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-965/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-eletrica-tsw-e-quest-carbon",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-tsw-e-quest-carbon/",
+      "inferredBrand": "tsw",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-970",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-970/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-world-cup-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-980-blue",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-blue/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Scale 980 Blue",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-blue/",
+      "price": 8999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/a85e540c-d89e-11ed-ab60-aaecfe1cce00-4d72555089900a8ee017352493259920-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-rc-30-di2-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-30-di2-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-900-rc-comp-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-900-rc-comp-2025/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-foil-rc-pro-hmx-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-foil-rc-pro-hmx-2025/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-eletrica-oggi-big-wheel-8-0-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-big-wheel-8-0-2025/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-eletrica-oggi-razzo-t-110-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-razzo-t-110-2025/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo/",
+      "inferredBrand": "oggi",
+      "name": "Bicicleta Infantil Oggi Hacker 24 - Cinza e Amarelo",
+      "sku": null,
+      "brand": "Oggi",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo/",
+      "price": 2299,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/hacker-24-cinza-amarelo-scaled-296822b9540522384e17387900180747-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-infantil-oggi-hacker-24-azul-e-preto",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-infantil-oggi-hacker-24-azul-e-preto/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-oggi-big-wheel-7-2",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-2/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-oggi-big-wheel-7-1",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-1/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-30-di2-2025-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-30-di2-2025-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-50-2025-pre-venda-cinza",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2025-pre-venda-cinza/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-strike-eride-920-evo",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-strike-eride-920-evo/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-eletrica-oggi-razzo-t-130-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-razzo-t-130-2025/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-910-2026-pre-venda1",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-910-2026-pre-venda1/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-920-2026-white",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-920-2026-white/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-935-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-935-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-940-2026-white",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-2026-white/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-scale-940-2026-black",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-2026-black/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-patron-eride-910-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-patron-eride-910-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-plasma-rc-pro",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-plasma-rc-pro/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-world-cup-20261",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-20261/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-pro-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-pro-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-oggi-cattura-sport-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-cattura-sport-2025/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-oggi-cattura-pro-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-cattura-pro-2025/",
+      "inferredBrand": "oggi",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-team-issue-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-team-issue-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-world-cup-evo-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-evo-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-foil-rc-pro-hmx-2026-f0931",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-foil-rc-pro-hmx-2026-f0931/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-30-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-30-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-50-2026-pre-venda-flame-orange",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-flame-orange/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-plasma-rc-tt-hmx-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-plasma-rc-tt-hmx-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-plasma-rc-limited-hmx-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-plasma-rc-limited-hmx-2026/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-scale-rc-team-hmf-2026",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-scale-rc-team-hmf-2026/",
+      "inferredBrand": "scott",
+      "name": "Quadro Scott Scale RC Team HMF 2026",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/quadro-scott-scale-rc-team-hmf-2026/",
+      "price": 13999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/b6f1f242-1efc-11f1-bc89-762fe4583a60-97055a591ca044916d17751346940337-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "quadro-scott-scale-rc-world-cup-hmx-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/quadro-scott-scale-rc-world-cup-hmx-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P1",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-gravel-30-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-30-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-gravel-40-2025",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-40-2025/",
+      "inferredBrand": "scott",
+      "editorialPriority": "P0",
+      "discoveryStatus": "historical-url-not-currently-listed",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "price": 67999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/9f3f43d0-7451-11f0-bced-76750ea50910-a2888ac5d4430128d917751629729740-480-0.webp"
+      ],
+      "editorialPriority": "P0",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-rc-pro-di2-2026-pre-venda",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-pro-di2-2026-pre-venda/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Addict RC Pró Di2 2026 - Pré Venda",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-pro-di2-2026-pre-venda/",
+      "price": 109990,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/c0f2bd34-cb92-11f0-976b-421ea7c02475-2d80f052373a210bbd17751631326786-480-0.webp"
+      ],
+      "editorialPriority": "P0",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-1bxzy/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Addict 50 2026 - Pré Venda",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-1bxzy/",
+      "price": 28999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4253583649_2223060_4-8e571238ef09e63a1217761938113607-480-0.webp"
+      ],
+      "editorialPriority": "P0",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-addict-50-2026-pre-venda-cumulus-white",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Addict 50 2026 - Pré Venda",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+      "price": 28999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4253588087_2223062_4-c5743f8f2acaad1e3a17761939225164-480-0.webp"
+      ],
+      "editorialPriority": "P0",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-world-cup-2027",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Spark RC Team 2027",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
+      "price": 45999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585-01767c407eabe639a917812049642571-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-expert-2027",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Spark RC Expert 2027",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "price": 57999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275478350-71a59ea5d65db517c217812055658644-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    },
+    {
+      "id": "bicicleta-scott-spark-rc-world-cup-20271",
+      "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-20271/",
+      "inferredBrand": "scott",
+      "name": "Bicicleta Scott Spark RC World Cup 2027",
+      "sku": null,
+      "brand": "Scott",
+      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-20271/",
+      "price": 89999,
+      "currency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275448086-641d91160b00bbbd4917812058534425-480-0.webp"
+      ],
+      "editorialPriority": "P1",
+      "discoveryStatus": "listed-awaiting-official-enrichment",
+      "discoveredAt": "2026-08-04"
+    }
+  ]
+}
