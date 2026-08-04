@@ -1,48 +1,35 @@
-# Posicionamento de Marca — Pedal Data
+# Posicionamento — Blog oficial da TheBiker
 
-## Promessa central
-Dados, comparação, preços e decisão para ciclistas.
+## Promessa
 
-## Missão
-Transformar dados de mercado em decisões melhores para ciclistas, lojas e marcas.
-
-## Visão
-Ser a plataforma de referência em dados, comparação e inteligência de mercado do ciclismo brasileiro.
-
-## Valores
-- Transparência — dados com metodologia clara e fontes verificáveis
-- Independência — nenhum parceiro influencia dados ou conteúdo
-- Utilidade — cada página resolve um problema real
-- Precisão — qualidade dos dados acima de volume
-- Acessibilidade — informação técnica clara para qualquer nível de ciclista
-
-## Posicionamento oficial
-> O Pedal Data é uma plataforma brasileira de dados, comparação, preços e decisão para ciclistas.
+Conhecimento técnico de alto nível sobre produtos, performance e competições, conectado ao portfólio real da TheBiker.
 
 ## Propósito
-Ajudar ciclistas a escolher melhor, gastar melhor e evitar compras erradas.
+
+Transformar especificações, experiência, tecnologia e contexto competitivo em decisões de compra qualificadas para ciclistas exigentes.
 
 ## O que somos
-- Plataforma de dados e comparação
-- Ferramenta de decisão para compras
-- Referência em preços e especificações
-- Inteligência de mercado para o setor
+
+- Canal editorial oficial da TheBiker.
+- Referência técnica sobre produtos vendidos pela loja.
+- Publicação de reviews, comparativos, lançamentos e tecnologia.
+- Cobertura analítica das principais corridas e campeonatos.
+- Ponte entre autoridade editorial e catálogo comercial.
 
 ## O que não somos
-- Blog de opinião pessoal
-- Marketplace
-- Revista de notícias
-- Fórum ou comunidade social
-- Loja virtual
 
-## Públicos
-1. Ciclistas iniciantes — primeira compra guiada
-2. Ciclistas intermediários — upgrade com dados
-3. Compradores premium — comparação avançada
-4. Atletas — especificações técnicas precisas
-5. Lojas — inteligência de demanda e leads
-6. Marcas — dados de mercado e posicionamento
-7. Profissionais — bike fitters, treinadores, mecânicos
+- Veículo independente da loja.
+- Portal generalista para iniciantes.
+- Agregador promocional de marcas concorrentes.
+- Site de rumores sem confirmação.
 
-## Território de marca
-Dados | Confiança | Decisão | Comparação | Preço | Técnica
+## Público
+
+1. Ciclistas intermediários e avançados.
+2. Atletas amadores e profissionais.
+3. Entusiastas de tecnologia e equipamentos.
+4. Clientes em fase de compra ou upgrade.
+
+## Território
+
+Performance | Técnica | Equipamento | Competição | Autoridade | TheBiker

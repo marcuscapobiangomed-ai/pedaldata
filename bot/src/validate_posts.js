@@ -8,12 +8,14 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { TEMPLATES } from "./templates.js";
+import { isPortfolioBrand, THEBIKER_PORTFOLIO } from "./portfolio-policy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const POSTS_DIR = path.resolve(__dirname, "../../_posts");
 
 const CANONICAL_TAG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const PORTFOLIO_POLICY_EFFECTIVE_AT = THEBIKER_PORTFOLIO.policy_effective_at;
 
 const REQUIRED_FM = [
   "layout", "title", "date", "tags", "description",
@@ -71,6 +73,16 @@ function parseFrontmatter(content) {
   return fm;
 }
 
+function parseInlineList(value) {
+  const text = String(value || "").trim();
+  if (!text.startsWith("[") || !text.endsWith("]")) return [];
+  return text
+    .slice(1, -1)
+    .split(",")
+    .map((item) => item.trim().replace(/^['"]|['"]$/g, ""))
+    .filter(Boolean);
+}
+
 function validateFrontmatter(content, fileName) {
   const fm = parseFrontmatter(content);
   if (!fm) {
@@ -92,13 +104,38 @@ function validateFrontmatter(content, fileName) {
   }
 
   // Valida content_type
-  if (fm.content_type && !["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia"].includes(fm.content_type)) {
+  if (fm.content_type && !["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia", "lancamento", "previa-corrida", "resumo-corrida"].includes(fm.content_type)) {
     logWarning(fileName, `content_type não padronizado: "${fm.content_type}"`);
   }
 
   // Valida review_method
   if (fm.review_method && !["desk-research", "hands-on-test"].includes(fm.review_method)) {
     logWarning(fileName, `review_method inválido: "${fm.review_method}"`);
+  }
+
+  const fileDate = fileName.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] || "";
+  if (fileDate >= PORTFOLIO_POLICY_EFFECTIVE_AT) {
+    const promotedBrands = parseInlineList(fm.promoted_brands);
+    const blockedBrands = promotedBrands.filter((brand) => !isPortfolioBrand(brand));
+
+    if (!fm.editorial_scope || !["portfolio", "race-coverage"].includes(fm.editorial_scope)) {
+      errors.push("Campo 'editorial_scope' ausente ou inválido");
+    }
+    if (promotedBrands.length === 0) {
+      errors.push("Campo 'promoted_brands' precisa conter ao menos uma marca do portfólio TheBiker");
+    }
+    if (blockedBrands.length > 0) {
+      errors.push(`Promoção de marca fora do portfólio TheBiker: ${blockedBrands.join(", ")}`);
+    }
+    if (!/^https?:\/\/(www\.)?(thebiker\.com\.br|thebikershop\.com\.br)\//i.test(fm.portfolio_evidence_url || "")) {
+      errors.push("Campo 'portfolio_evidence_url' precisa apontar para o site oficial da TheBiker");
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(fm.portfolio_verified_at || "").replace(/["']/g, ""))) {
+      errors.push("Campo 'portfolio_verified_at' precisa usar YYYY-MM-DD");
+    }
+    if (fm.editorial_scope !== "race-coverage" && parseInlineList(fm.context_only_brands).length > 0) {
+      errors.push("Marcas concorrentes contextuais só são permitidas em cobertura de corridas");
+    }
   }
 
   // Verifica se tested_by_pedaldata é booleano
@@ -133,7 +170,7 @@ function validateFrontmatter(content, fileName) {
 }
 
 function checkSuspiciousContent(content, fileName, fm) {
-  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const body = content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
 
   // Verifica padrões proibidos
   for (const { pattern, reason } of FORBIDDEN_PATTERNS) {
@@ -157,7 +194,7 @@ function checkSuspiciousContent(content, fileName, fm) {
 }
 
 function checkImages(content, fileName) {
-  const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const body = content.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
   const imgRefs = [...body.matchAll(/!\[.*?\]\((.*?)\)/g)];
 
   for (const ref of imgRefs) {

@@ -19,6 +19,13 @@ const CATEGORY_ALIASES = {
   guia_tecnico: "guia-tecnico",
   noticia: "noticias",
   noticias: "noticias",
+  lancamento: "lancamentos",
+  lancamentos: "lancamentos",
+  corrida: "corridas",
+  corridas: "corridas",
+  campeonato: "campeonatos",
+  campeonatos: "campeonatos",
+  mercado: "mercado",
 };
 
 const CONTENT_TYPE_ALIASES = {
@@ -34,6 +41,11 @@ const CONTENT_TYPE_ALIASES = {
   guia_tecnico: "guia-tecnico",
   noticia: "noticia",
   noticias: "noticia",
+  lancamento: "lancamento",
+  lancamentos: "lancamento",
+  "previa-corrida": "previa-corrida",
+  "prévia-corrida": "previa-corrida",
+  "resumo-corrida": "resumo-corrida",
 };
 
 function toText(value, fallback = "") {
@@ -229,7 +241,7 @@ export class AIProvider {
   }
 
   _normalizeContentType(value) {
-    return CONTENT_TYPE_ALIASES[toText(value, "").trim().toLowerCase()] || "guia-de-compra";
+    return CONTENT_TYPE_ALIASES[toText(value, "").trim().toLowerCase()] || "review";
   }
 
   _sanitizeStructuredArticle(parsed) {
@@ -262,6 +274,15 @@ export class AIProvider {
       delete next.price_checked_at;
     }
     next.affiliate_links = toBoolean(next.affiliate_links, false);
+    next.editorial_scope = toText(next.editorial_scope, "portfolio").trim();
+    next.promoted_brands = normalizeList(next.promoted_brands)
+      .map((brand) => this._sanitizeHtml(brand).trim())
+      .filter(Boolean);
+    next.context_only_brands = normalizeList(next.context_only_brands)
+      .map((brand) => this._sanitizeHtml(brand).trim())
+      .filter(Boolean);
+    next.portfolio_evidence_url = this._sanitizeHtml(next.portfolio_evidence_url || "").trim();
+    next.portfolio_verified_at = this._sanitizeHtml(next.portfolio_verified_at || "").trim();
 
     next.tags = normalizeList(next.tags)
       .map((tag) => this._sanitizeHtml(tag).toLowerCase().trim())
@@ -292,13 +313,13 @@ export class AIProvider {
     next.claimsRequiringReview = normalizeList(next.claimsRequiringReview).map((item) => this._sanitizeHtml(item));
 
     next.frontmatter = next.frontmatter || {};
-    next.frontmatter.author = this._sanitizeHtml(next.frontmatter.author || "Equipe The Biker Blog");
+    next.frontmatter.author = this._sanitizeHtml(next.frontmatter.author || "Equipe TheBiker");
     next.frontmatter.image = this._sanitizeHtml(next.frontmatter.image || "/assets/img/logo.svg");
     next.frontmatter.thumbnail = this._sanitizeHtml(next.frontmatter.thumbnail || "");
     next.frontmatter.image_alt = this._sanitizeHtml(next.frontmatter.image_alt || next.description || "");
     next.frontmatter.image_caption = this._sanitizeHtml(next.frontmatter.image_caption || "");
-    next.frontmatter.image_credit = this._sanitizeHtml(next.frontmatter.image_credit || "The Biker Blog");
-    next.frontmatter.image_license = this._sanitizeHtml(next.frontmatter.image_license || "Uso editorial do The Biker Blog");
+    next.frontmatter.image_credit = this._sanitizeHtml(next.frontmatter.image_credit || "TheBiker");
+    next.frontmatter.image_license = this._sanitizeHtml(next.frontmatter.image_license || "Uso editorial da TheBiker");
 
     return next;
   }
@@ -315,6 +336,15 @@ export class AIProvider {
         "",
         "AFIRMAÇÕES QUE NÃO PODEM SER FEITAS:",
         ...normalizeList(raw.unsupported_claims).map((item) => `- ${item}`),
+      ].join("\n");
+      throw new Error(msg);
+    }
+
+    if (raw?.status === "PORTFÓLIO NÃO CONFIRMADO") {
+      const msg = [
+        "STATUS: PORTFÓLIO NÃO CONFIRMADO",
+        "",
+        ...normalizeList(raw.missing_info).map((item) => `- ${item}`),
       ].join("\n");
       throw new Error(msg);
     }

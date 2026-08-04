@@ -1,23 +1,22 @@
-# Independência Editorial — Pedal Data
+# Governança editorial — TheBiker
 
-## Princípio
-A produção editorial do Pedal Data é independente de interesses comerciais, parcerias ou patrocínios.
+## Natureza da publicação
+
+Este é o blog oficial da TheBiker. A seleção de pautas, produtos, marcas e chamadas comerciais atende ao portfólio e aos objetivos da loja.
+
+O blog não reivindica independência comercial em relação à TheBiker. Sua integridade editorial está na precisão factual, na identificação do método e na proibição de alegações inventadas.
 
 ## Regras
-1. Nenhum parceiro define pauta ou conteúdo
-2. Nenhum parceiro aprova conteúdo antes da publicação
-3. Nenhum dado é alterado por solicitação de parceiro
-4. Comparações incluem concorrentes de parceiros
-5. Resultados desfavoráveis a parceiros são publicados normalmente
-6. Conteúdo patrocinado é identificado e não se mistura com editorial
 
-## Exceções
-- Conteúdo co-criado com identificação clara de parceria
-- Dados fornecidos por parceiros com fonte identificada
-- Ambos os casos preservam right of reply, não direito de veto
+- Promover apenas produtos e marcas confirmados no catálogo da TheBiker.
+- Não anunciar nem promover concorrentes.
+- Permitir menções factuais a concorrentes somente quando indispensáveis à cobertura esportiva.
+- Não transformar menção contextual em recomendação, link ou CTA.
+- Não simular teste físico.
+- Registrar fontes, versão, mercado e data de consulta.
+- Declarar limitações técnicas relevantes mesmo em conteúdo favorável ao produto.
+- Exigir revisão humana antes da publicação.
 
-## Violações
-Violações são registradas no risk register e comunicadas publicamente quando relevantes.
+## Transparência
 
-## Revisão
-Este documento é revisado anualmente ou quando um incidente editorial ocorrer.
+O vínculo com a loja deve aparecer na página institucional e nas divulgações comerciais aplicáveis. A valorização do portfólio deve ser sustentada por características verificáveis, adequação de uso e comparação tecnicamente justa entre opções vendidas pela TheBiker.

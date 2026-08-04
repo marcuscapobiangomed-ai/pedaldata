@@ -1,6 +1,6 @@
-# 🚴 Pedal Data — Blog de Ciclismo
+# 🚴 TheBiker Blog
 
-**Reviews, guias e comparativos de ciclismo de estrada para o mercado brasileiro.**
+**Blog oficial da TheBiker para ciclistas experientes: reviews técnicos, comparativos, lançamentos e cobertura de competições.**
 
 ## Pipeline editorial
 

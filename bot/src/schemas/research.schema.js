@@ -49,7 +49,7 @@ const EditorialSourceSchema = z.object({
 export const EditorialResearchSchema = z.object({
   slug: z.string().min(3),
   title: z.string().min(3),
-  content_type: z.enum(["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia"]),
+  content_type: z.enum(["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia", "lancamento", "previa-corrida", "resumo-corrida"]),
   review_method: z.enum(["desk-research", "field-review", "editorial"]),
   tested_by_pedaldata: z.boolean(),
   market: z.string().min(2),

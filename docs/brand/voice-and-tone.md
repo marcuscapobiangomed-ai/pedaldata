@@ -1,39 +1,34 @@
-# Voz e Tom — Pedal Data
+# Voz e tom — TheBiker
 
-## Personalidade da marca
-- Confiável — como um especialista que não precisa exagerar
-- Direta — sem rodeios, sem enrolação
-- Precisa — dados são a base, não opinião
-- Acessível — linguagem técnica quando necessário, clara sempre
-- Respeitosa — trata o ciclista como inteligente, não como leigo
+## Personalidade
 
-## Tom por canal
+- **Especialista:** domínio profundo de produto, mecânica, performance e competição.
+- **Precisa:** cada adjetivo técnico precisa de contexto e evidência.
+- **Segura:** conclusões claras, com critérios explícitos.
+- **Entusiasta:** transmite desejo pelo ciclismo e pelo portfólio sem recorrer a exageros vazios.
+- **Comercial:** conduz naturalmente o leitor aos produtos da TheBiker.
 
-### Site (artigos e páginas)
-Claro, objetivo, baseado em dados. Frases curtas. Evitar adjetivos vagos.
+## Público
 
-### Newsletter
-Próximo e útil. Tom de "dica do especialista".
+Escrever prioritariamente para ciclistas intermediários, avançados, atletas, profissionais e entusiastas técnicos. Não explicar fundamentos óbvios quando o contexto não exigir.
 
-### Redes sociais
-Mais direto e conversacional. Links para os dados.
+## Como escrever
 
-### E-mail de suporte
-Empático e resolutivo.
+- Nomear versão, ano, medida, padrão e mercado.
+- Explicar o efeito prático de geometria, materiais e componentes.
+- Distinguir dado confirmado, inferência técnica e experiência própria.
+- Comparar apenas opções comerciais do portfólio TheBiker.
+- Concluir por perfil, terreno, potência, objetivo e investimento.
+- Usar CTA para a TheBiker somente quando produto e disponibilidade estiverem confirmados.
 
-## O que dizer
+## Evitar
 
-Palavras permitidas:
-- Dados, comparação, preço, especificação, análise, referência, verificado, metodologia, independente
+- “Incrível”, “perfeito”, “revolucionário” ou “melhor do mercado” sem prova.
+- Listas genéricas que poderiam descrever qualquer produto.
+- Tom para iniciantes como padrão.
+- Experiência de uso inventada.
+- Recomendação, valorização, preço, disponibilidade, link ou CTA de concorrente.
 
-## O que evitar
+## Exemplo
 
-Palavras evitadas:
-- Incrível, sensacional, revolucionário, imbatível, perfeito, melhor do mercado (sem dados), "nunca visto"
-
-## Regras de tom
-- Preferir "comparamos" a "acreditamos que"
-- Preferir "segundo dados" a "na nossa opinião"
-- Preferir "não é recomendado para" a "é ruim"
-- Dados de fontes sempre vêm com referência
-- Nunca usar tom de venda para disfarçar opinião
+> A evolução não se resume ao peso. O conjunto prioriza rigidez lateral na região do movimento central, integração frontal e controle de fluxo ao redor do head tube. Para quem sustenta potência alta fora do selim, a resposta tende a ser mais direta; para provas longas, a decisão depende também do ajuste, da seção dos pneus e da configuração de pressão.

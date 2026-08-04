@@ -1,17 +1,17 @@
-title: "The Biker Blog"
+title: "TheBiker Blog"
 tagline: "Ciclismo vivido, testado e explicado"
-description: "O blog oficial da The Biker Shop: reviews, guias de compra, comparativos e histórias para ciclistas brasileiros"
+description: "O blog oficial da TheBiker: reviews técnicos, comparativos, lançamentos e cobertura de competições para ciclistas experientes"
 url: "https://marcuscapobiangomed-ai.github.io"
 baseurl: "/pedaldata"
 lang: pt-BR
 
-author: "Equipe The Biker Blog"
+author: "Equipe TheBiker"
 email: "atendimento@thebiker.com.br"
 
 logo: "/assets/img/brand/the-biker-blog-logo.png"
 
 social:
-  name: The Biker Blog
+  name: TheBiker Blog
   links:
     - https://www.instagram.com/thebikerbrasil
 
@@ -33,7 +33,7 @@ defaults:
       path: "_posts"
     values:
       layout: post
-      author: "Equipe The Biker Blog"
+      author: "Equipe TheBiker"
   - scope:
       path: "_posts"
       type: posts

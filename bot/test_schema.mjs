@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { validateArticle } from "./src/schemas/article.schema.js";
 import { validateResearch } from "./src/schemas/research.schema.js";
+import { generateMarkdown } from "./src/generator.js";
 
 const validArticle = {
   title: "Comparativo de bikes endurance e race em 2026",
@@ -14,8 +15,8 @@ const validArticle = {
   tested_by_pedaldata: false,
   methodologyNotice:
     "Análise documental baseada em especificações oficiais e pesquisa de mercado. O produto não foi testado presencialmente pela equipe.",
-  brand: "Trek",
-  product_name: "Domane SL 5",
+  brand: "Scott",
+  product_name: "Addict RC 20",
   model_year: 2026,
   market: "Brasil",
   weight: "8.8 kg",
@@ -25,10 +26,15 @@ const validArticle = {
   price_currency: "BRL",
   price_checked_at: "2026-07-22",
   affiliate_links: false,
+  editorial_scope: "portfolio",
+  promoted_brands: ["Scott"],
+  context_only_brands: [],
+  portfolio_evidence_url: "https://www.thebiker.com.br/bikes/estrada/",
+  portfolio_verified_at: "2026-08-04",
   tags: ["ciclismo", "comparativo", "dados"],
   sources: [
     {
-      name: "Trek Brasil",
+      name: "Scott Brasil",
       type: "manufacturer",
       url: "https://example.com",
       accessed_at: "2026-07-22",
@@ -50,12 +56,12 @@ const validArticle = {
   ],
   claimsRequiringReview: [],
   frontmatter: {
-    author: "Equipe Pedal Data",
+    author: "Equipe TheBiker",
     image: "/assets/img/logo.svg",
-    image_alt: "Logo Pedal Data",
+    image_alt: "Logo TheBiker",
     image_caption: "Comparativo editorial",
-    image_credit: "Pedal Data",
-    image_license: "Uso editorial do Pedal Data",
+    image_credit: "TheBiker",
+    image_license: "Uso editorial da TheBiker",
   },
 };
 
@@ -66,8 +72,8 @@ const validResearch = {
   testedByPedalData: false,
   market: "Brasil",
   product: {
-    brand: "Trek",
-    name: "Domane SL 5",
+    brand: "Scott",
+    name: "Addict RC 20",
     modelYear: 2026,
   },
   specifications: {
@@ -85,7 +91,7 @@ const validResearch = {
   sources: [
     {
       id: "src-1",
-      name: "Trek Brasil",
+      name: "Scott Brasil",
       type: "manufacturer",
       url: "https://example.com",
       accessedAt: "2026-07-22",
@@ -95,6 +101,25 @@ const validResearch = {
 };
 
 assert.doesNotThrow(() => validateArticle(validArticle));
+const generatedMarkdown = generateMarkdown(validArticle);
+assert.match(generatedMarkdown, /editorial_scope: "portfolio"/);
+assert.match(generatedMarkdown, /promoted_brands: \["Scott"\]/);
+assert.match(generatedMarkdown, /portfolio_evidence_url: "https:\/\/www\.thebiker\.com\.br\/bikes\/estrada\/"/);
+assert.throws(
+  () => validateArticle({
+    ...validArticle,
+    brand: "Marca Concorrente",
+    promoted_brands: ["Marca Concorrente"],
+  }),
+  /promoção bloqueada para marca fora do portfólio/i,
+);
+assert.throws(
+  () => validateArticle({
+    ...validArticle,
+    portfolio_evidence_url: "https://concorrente.example/produto",
+  }),
+  /site oficial da TheBiker/i,
+);
 assert.doesNotThrow(() => validateResearch(validResearch));
 
 console.log("Schemas principais validados com sucesso.");

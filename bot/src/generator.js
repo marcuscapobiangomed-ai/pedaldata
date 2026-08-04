@@ -34,11 +34,11 @@ export function generateMarkdown(article) {
     : preset.thumbnail;
   const imageAlt = data.frontmatter?.image_alt || data.description;
   const imageCaption = data.frontmatter?.image_caption || "";
-  const imageCredit = data.frontmatter?.image_credit || "The Biker Blog";
-  const imageLicense = data.frontmatter?.image_license || "Uso editorial do The Biker Blog";
+  const imageCredit = data.frontmatter?.image_credit || "TheBiker";
+  const imageLicense = data.frontmatter?.image_license || "Uso editorial da TheBiker";
   const methodologyNotice = data.methodologyNotice || (data.review_method === "hands-on-test"
-    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe The Biker Blog."
-    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
+    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe TheBiker."
+    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, catálogo TheBiker e comparação com alternativas vendidas pela loja. O produto não foi testado presencialmente pela equipe TheBiker. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
 
   const frontmatter = [
     "---",
@@ -47,7 +47,7 @@ export function generateMarkdown(article) {
     `slug: "${escapeYaml(data.slug)}"`,
     `date: ${today}`,
     `last_modified_at: ${today}`,
-    'author: "Equipe The Biker Blog"',
+    'author: "Equipe TheBiker"',
     'reviewed_by: ""',
     `content_type: "${escapeYaml(data.content_type)}"`,
     `review_method: "${escapeYaml(data.review_method)}"`,
@@ -73,6 +73,11 @@ export function generateMarkdown(article) {
     `image_credit: "${escapeYaml(imageCredit)}"`,
     `image_license: "${escapeYaml(imageLicense)}"`,
     `affiliate_links: ${data.affiliate_links === true}`,
+    `editorial_scope: "${escapeYaml(data.editorial_scope)}"`,
+    `promoted_brands: ${yamlList(data.promoted_brands)}`,
+    `context_only_brands: ${yamlList(data.context_only_brands)}`,
+    `portfolio_evidence_url: "${escapeYaml(data.portfolio_evidence_url)}"`,
+    `portfolio_verified_at: "${escapeYaml(data.portfolio_verified_at)}"`,
     `editorial_status: "draft"`,
     `status: "draft"`,
     "sources:",

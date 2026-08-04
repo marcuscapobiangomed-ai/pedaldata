@@ -40,7 +40,7 @@ export const TEMPLATES = {
       "Para quem pode não ser indicado",
       "Pontos fortes específicos",
       "Limitações específicas",
-      "Comparação com alternativas",
+      "Comparação com alternativas autorizadas do portfólio TheBiker",
       "Preço e disponibilidade no Brasil",
       "Conclusão",
       "Perguntas frequentes",
@@ -80,7 +80,7 @@ export const TEMPLATES = {
       "Para quem pode não ser indicado",
       "Pontos fortes",
       "Limitações",
-      "Comparação com alternativas (mínimo 2)",
+      "Comparação com alternativas do portfólio TheBiker (mínimo 2)",
       "Preço e disponibilidade no Brasil",
       "Conclusão",
       "Perguntas frequentes",
@@ -200,6 +200,57 @@ export const TEMPLATES = {
       "Fontes",
     ],
   },
+
+  "lancamento": {
+    label: "Lançamento de marca do portfólio (3.7)",
+    required_distinctions: [
+      "anúncio oficial da marca",
+      "produto confirmado no portfólio TheBiker",
+      "versão e mercado",
+      "mudanças para a geração anterior",
+      "disponibilidade confirmada",
+      "preço confirmado ou não informado",
+    ],
+    structure: [
+      "O que foi lançado",
+      "O que mudou tecnicamente",
+      "Comparação com a geração anterior",
+      "Impacto em desempenho, compatibilidade e manutenção",
+      "Para qual ciclista faz sentido",
+      "Disponibilidade na TheBiker",
+      "Conclusão editorial",
+      "Fontes",
+    ],
+  },
+
+  "previa-corrida": {
+    label: "Prévia de corrida (3.8)",
+    structure: [
+      "Contexto da prova e posição no calendário",
+      "Percurso, altimetria e setores decisivos",
+      "Condições previstas e impacto tático",
+      "Favoritos e forma recente",
+      "Equipes, funções e cenários táticos",
+      "Equipamentos de marcas do portfólio TheBiker em destaque",
+      "Onde e quando acompanhar",
+      "Fontes oficiais",
+    ],
+  },
+
+  "resumo-corrida": {
+    label: "Resumo e análise de corrida (3.9)",
+    structure: [
+      "Resultado confirmado",
+      "Como a corrida foi decidida",
+      "Momentos e setores determinantes",
+      "Leitura tática das equipes",
+      "Desempenho dos principais atletas",
+      "Equipamentos de marcas do portfólio TheBiker em destaque",
+      "Impacto na classificação e na temporada",
+      "Próximas provas",
+      "Fontes oficiais",
+    ],
+  },
 };
 
 export function getTemplate(type) {
@@ -211,6 +262,9 @@ export function getTemplate(type) {
     "guia-de-compra": "guia-de-compra",
     "guia-tecnico": "guia-tecnico",
     noticia: "noticia",
+    lancamento: "lancamento",
+    "previa-corrida": "previa-corrida",
+    "resumo-corrida": "resumo-corrida",
   };
 
   const key = aliases[type] || type;

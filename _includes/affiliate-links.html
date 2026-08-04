@@ -3,7 +3,7 @@
   {% unless commerce_config.commerceEnabled %}
   <p style="font-size:0.82rem;color:var(--text-muted);margin:0;"><strong>Ofertas em revisão.</strong> {{ commerce_config.commerceReviewNote }}</p>
   {% else %}
-  <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;"><strong>Links de compra</strong> — Os preços podem variar. Comprando através dos links abaixo, você ajuda o The Biker Blog sem pagar nada a mais.</p>
+  <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px;"><strong>Compre na TheBiker</strong> — Preços e disponibilidade podem variar. Confira as condições atuais na loja oficial.</p>
   {% assign affiliate_prices = site.data.prices[include.product_id] %}
   <div id="affiliate-links-{{ include.product_id }}" style="display:flex;flex-wrap:wrap;gap:8px;">
     {% assign available_stores = 0 %}
