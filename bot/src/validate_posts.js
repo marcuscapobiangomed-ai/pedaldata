@@ -58,7 +58,7 @@ function logWarning(file, msg) {
 }
 
 function parseFrontmatter(content) {
-  const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fmMatch) return null;
   const fmText = fmMatch[1];
   const fm = {};
@@ -345,6 +345,10 @@ function main() {
   }
 
   console.log("=".repeat(60));
+
+  if (totalErrors > 0) {
+    process.exitCode = 1;
+  }
 }
 
 main();
