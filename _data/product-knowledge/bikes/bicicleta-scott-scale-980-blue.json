@@ -1,0 +1,80 @@
+{
+  "id": "bicicleta-scott-scale-980-blue",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Scale 980",
+  "modelYear": null,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-scott-scale-980-blue",
+      "name": "TheBiker — Bicicleta Scott Scale 980 Blue",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-blue/",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Scott Scale 980 Blue",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "store-verified-limited",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Página oficial do modelo não está disponível no catálogo Scott atual; limitar os fatos à página TheBiker."
+    },
+    "commercial.price": {
+      "value": 8999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-980-blue/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [
+    "modelYear",
+    "manufacturerExactPage",
+    "manufacturerSpecifications"
+  ],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

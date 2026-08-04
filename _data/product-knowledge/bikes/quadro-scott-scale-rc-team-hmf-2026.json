@@ -1,0 +1,97 @@
+{
+  "id": "quadro-scott-scale-rc-team-hmf-2026",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Scale RC Team HMF",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "mtb-cross-country-frame",
+  "sources": [
+    {
+      "id": "thebiker-quadro-scott-scale-rc-team-hmf-2026",
+      "name": "TheBiker — Quadro Scott Scale RC Team HMF 2026",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/quadro-scott-scale-rc-team-hmf-2026/",
+      "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "manufacturer-quadro-scott-scale-rc-team-hmf-2026",
+      "name": "Scott — página oficial do modelo",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-scale-rc-team-hmf-frame",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Quadro Scott Scale RC Team HMF 2026",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "manufacturer-verified-exact",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-quadro-scott-scale-rc-team-hmf-2026",
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Correspondência exata confirmada na página oficial do fabricante."
+    },
+    "commercial.price": {
+      "value": 13999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/quadro-scott-scale-rc-team-hmf-2026/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.officialUrl": {
+      "value": "https://www.scott-sports.com/global/en/product/scott-scale-rc-team-hmf-frame",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [
+    "manufacturerSpecifications"
+  ],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

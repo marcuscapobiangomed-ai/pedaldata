@@ -1,0 +1,97 @@
+{
+  "id": "bicicleta-scott-spark-rc-expert-2027",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Spark RC Expert",
+  "modelYear": 2027,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-scott-spark-rc-expert-2027",
+      "name": "TheBiker — Bicicleta Scott Spark RC Expert 2027",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "manufacturer-bicicleta-scott-spark-rc-expert-2027",
+      "name": "Scott — página oficial do modelo",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-spark-rc-expert-bike",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Scott Spark RC Expert 2027",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "manufacturer-verified-exact",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-spark-rc-expert-2027",
+        "manufacturer-bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Correspondência exata confirmada na página oficial do fabricante."
+    },
+    "commercial.price": {
+      "value": 57999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.officialUrl": {
+      "value": "https://www.scott-sports.com/global/en/product/scott-spark-rc-expert-bike",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [
+    "manufacturerSpecifications"
+  ],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

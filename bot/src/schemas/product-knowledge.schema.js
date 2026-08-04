@@ -25,7 +25,7 @@ export const ProductKnowledgeInputSchema = z.object({
   type: z.enum(["bike", "component", "accessory", "apparel"]),
   brand: z.string().min(1),
   model: z.string().min(1),
-  modelYear: z.number().int().min(2020).max(2035),
+  modelYear: z.number().int().min(2020).max(2035).nullable(),
   market: z.string().min(2),
   category: z.string().min(1),
   sources: z.array(KnowledgeSourceSchema).min(1),
