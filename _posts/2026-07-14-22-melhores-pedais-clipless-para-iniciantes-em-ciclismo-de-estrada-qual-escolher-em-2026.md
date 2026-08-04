@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Melhores Pedais Clipless para Iniciantes em Ciclismo de Estrada: Qual Escolher em 2026"
 description: "Descubra os melhores pedais clipless para iniciantes em 2026 e escolha o modelo ideal para sua bicicleta de estrada."
 date: 2026-07-14

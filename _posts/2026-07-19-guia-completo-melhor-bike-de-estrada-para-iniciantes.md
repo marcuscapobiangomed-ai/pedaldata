@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Guia Completo: A Melhor Bike de Estrada para Iniciantes"
 description: "Tudo que você precisa saber para comprar sua primeira bicicleta de estrada: orçamento, modelos reais no Brasil, nova vs usada e acessórios essenciais."
 date: 2026-07-19

@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Geometria de bikes de estrada 2026: endurance vs race — dados reais"
 description: "Comparativo real de stack, reach e relações geométricas entre 30 bikes do catálogo The Biker Blog. Entenda as diferenças entre perfis."
 date: 2026-07-19
@@ -9,7 +10,7 @@ content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/evolucao-geometria-endurance-vs-race/thumb-480.webp"
 image: "/assets/img/posts/evolucao-geometria-endurance-vs-race/hero.jpg"
 image_credit: "The Biker Blog"

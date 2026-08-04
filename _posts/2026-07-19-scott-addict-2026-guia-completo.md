@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Scott Addict 2026: Ficha Técnica, Preços e Para Quem é Indicada"
 description: "Guia completo da linha Scott Addict 2026: especificações, preços no exterior, diferenças entre Addict (endurance) e Addict RC (race) e dicas de compra."
 date: 2026-07-19

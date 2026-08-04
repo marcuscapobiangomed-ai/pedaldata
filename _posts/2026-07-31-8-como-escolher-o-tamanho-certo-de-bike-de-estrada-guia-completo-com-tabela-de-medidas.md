@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Como Escolher o Tamanho Certo de Bike de Estrada: Guia Completo com Tabela de Medidas"
 description: "Guia definitivo para escolher o tamanho certo de bike de estrada. Tabela por altura, reach, stack, geometria por marca e dicas de bike fit."
 date: 2026-07-31
@@ -40,7 +41,7 @@ sources:
     url: "https://www.trekbikes.com/us/en_US/bike-sizing/"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/tamanho-certo-bike-estrada/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** pesquisa em tabelas de geometria oficiais dos fabricantes (Specialized, Trek, Cervélo, Cannondale, Scott) e consulta a guias de bike fit. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

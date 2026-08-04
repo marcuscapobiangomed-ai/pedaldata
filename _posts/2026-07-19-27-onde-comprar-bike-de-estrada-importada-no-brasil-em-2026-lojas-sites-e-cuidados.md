@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Onde Comprar Bike de Estrada Importada no Brasil em 2026: Lojas, Sites e Cuidados"
 description: "Guia completo com as melhores lojas e distribuidores oficiais de bikes importadas no Brasil: Specialized, Trek, Scott, Cannondale, Cervélo e mais. Preços e cuidados atualizados em julho/2026."
 date: 2026-07-19
@@ -52,7 +53,7 @@ sources:
     url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/onde-comprar-bike-importada/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** análise documental baseada em sites oficiais de fabricantes e distribuidores, pesquisa de preços no mercado brasileiro em julho/2026 e consulta à legislação de importação vigente. Os produtos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

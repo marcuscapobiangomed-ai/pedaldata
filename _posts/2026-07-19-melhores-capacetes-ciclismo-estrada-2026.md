@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Melhores Capacetes de Ciclismo de Estrada 2026: de R$ 200 a R$ 3.000"
 description: "Guia completo dos melhores capacetes de ciclismo de estrada em 2026. Comparativo com MIPS, Kineticore, WaveCel e preços atualizados no Brasil."
 date: 2026-07-19

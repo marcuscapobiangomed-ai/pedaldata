@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Melhores Pedais Clipless para Bike de Estrada: Guia para Iniciantes 2026"
 description: "Guia completo de pedais clipless para iniciantes em 2026. Shimano SPD-SL vs Look Keo vs Time Xpresso. Preços, compatibilidade e dicas de uso."
 date: 2026-07-19

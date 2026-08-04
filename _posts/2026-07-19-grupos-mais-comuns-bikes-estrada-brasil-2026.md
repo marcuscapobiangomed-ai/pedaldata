@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Grupos de transmissão mais comuns em bikes de estrada no Brasil em 2026"
 description: "Análise de dados reais: 30 bikes catalogadas, 12 com Shimano 105 (mecânico ou Di2), grupos mais frequentes por faixa de preço."
 date: 2026-07-19
@@ -9,7 +10,7 @@ content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/thumb-480.webp"
 image: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/hero.jpg"
 image_credit: "The Biker Blog"

@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Melhores Rodas de Carbono para Bike de Estrada: Guia de Compra 2026"
 description: "Guia completo com as melhores rodas de carbono para bike de estrada em 2026: Zipp, Reynolds, Mavic, DT Swiss e ICANPI. Comparativo por preço, peso e perfil."
 date: 2026-07-19

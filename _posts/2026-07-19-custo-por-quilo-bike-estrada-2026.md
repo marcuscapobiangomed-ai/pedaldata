@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Quanto custa cada quilo de bike de estrada? Análise de custo por kg em 2026"
 description: "Comparamos 30 bikes do catálogo The Biker Blog para calcular quanto você paga por cada quilo — e onde o investimento vale mais a pena."
 date: 2026-07-19
@@ -9,7 +10,7 @@ content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/custo-por-quilo-bike-estrada/thumb-480.webp"
 image: "/assets/img/posts/custo-por-quilo-bike-estrada/hero.jpg"
 image_credit: "The Biker Blog"

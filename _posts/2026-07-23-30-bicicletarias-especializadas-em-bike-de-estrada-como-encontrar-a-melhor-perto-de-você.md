@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Bicicletarias Especializadas em Bike de Estrada: Como Encontrar a Melhor Perto de Você"
 description: "Dicas para encontrar bicicletarias especializadas em bikes de estrada: o que observar, marcas disponíveis e rede de assistência no Brasil."
 date: 2026-07-23
@@ -44,7 +45,7 @@ sources:
     url: "https://www.ciclobahia.com.br"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/bicicletarias-especializadas/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** pesquisa em lojas especializadas brasileiras e comunidades de ciclismo. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

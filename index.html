@@ -4,7 +4,7 @@ title: Início
 ---
 
 {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
-{% assign hero_post = published_posts | where_exp: "p", "p.title contains 'Tendências em Bikes'" | first %}
+{% assign hero_post = published_posts | where_exp: "p", "p.title contains 'conhecimento técnico'" | first %}
 {% assign carbon_post = published_posts | where_exp: "p", "p.title contains 'Carbono vs Alumínio'" | first %}
 {% assign wheels_post = published_posts | where_exp: "p", "p.title contains 'Rodas de Carbono Custo-Benefício'" | first %}
 {% assign routes_post = published_posts | where_exp: "p", "p.title contains 'Melhores Estradas e Rotas'" | first %}
@@ -18,11 +18,11 @@ title: Início
     <img class="brand-hero-media" src="{{ site.baseurl }}/assets/img/brand/hero-road-culture-1600x900.jpg" alt="Dois ciclistas de estrada descendo uma serra com vista para o litoral brasileiro" width="1600" height="900" fetchpriority="high">
     <div class="brand-hero-shade" aria-hidden="true"></div>
     <div class="container brand-hero-content">
-      <span class="brand-kicker">Destaques</span>
-      <h1 id="brand-hero-title">Tendências 2026:<br>aero está vencendo<br>as leves?</h1>
-      <p>O que mudou nas bikes de estrada e como essas escolhas afetam velocidade, conforto e desempenho.</p>
+      <span class="brand-kicker">Blog oficial TheBiker</span>
+      <h1 id="brand-hero-title">Conhecimento técnico<br>para quem leva<br>o ciclismo a sério.</h1>
+      <p>Reviews precisos, tecnologia, competição e equipamentos confirmados no portfólio da TheBiker.</p>
       {% if hero_post %}
-        <a class="brand-primary-link" href="{{ site.baseurl }}{{ hero_post.url }}">Ler matéria</a>
+        <a class="brand-primary-link" href="{{ site.baseurl }}{{ hero_post.url }}">Conhecer o compromisso editorial</a>
         <div class="brand-hero-meta">
           <time datetime="{{ hero_post.date | date_to_xmlschema }}">{{ hero_post.date | date: "%d.%m.%Y" }}</time>
           <span>Artigo</span>

@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Quadro de Carbono vs Alumínio em Bikes de Estrada: Vale a Pena Pagar Mais?"
 description: "Comparativo completo entre quadros de carbono e alumínio em 2026: pesos, preços reais no Brasil, conforto, durabilidade e recomendações por perfil de ciclista."
 date: 2026-07-28
@@ -48,7 +49,7 @@ sources:
     url: ""
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/quadro-carbono-vs-aluminio/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** análise documental baseada em especificações oficiais de fabricantes, pesquisa de preços no mercado brasileiro em julho/2026 e comparação entre modelos reais disponíveis no país. Os produtos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

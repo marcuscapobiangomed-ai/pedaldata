@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Endurance vs Race: comparativo completo com dados reais do mercado brasileiro em 2026"
 description: "Qual perfil de bike é ideal para você? Comparamos dados reais de geometria, peso, preço e componentes da base The Biker Blog."
 date: 2026-07-19
@@ -9,7 +10,7 @@ content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/endurance-vs-race-dados/thumb-480.webp"
 image: "/assets/img/posts/endurance-vs-race-dados/hero.jpg"
 image_credit: "The Biker Blog"

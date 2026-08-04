@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "O que as equipes do WorldTour estão usando em 2026: equipamentos, bikes e componentes"
 description: "Guia atualizado com as bikes e componentes usados pelas equipes do WorldTour em 2026: Visma, UAE, Lidl-Trek, INEOS e mais."
 date: 2026-07-10
@@ -48,7 +49,7 @@ sources:
     url: "https://www.pinarello.com/ineos-grenadiers"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/worldtour-equipes-2026/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** pesquisa em sites oficiais das equipes e fabricantes, com dados atualizados para a temporada 2026. Os equipamentos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

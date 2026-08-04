@@ -45,10 +45,15 @@ const rows = listMarkdown(postsDir).map((file) => {
   const beginnerSignals = (parsed.content.match(/\b(iniciante|primeira bike|começando|começar)\b/giu) || []).length;
   const isPublished = parsed.data.published !== false;
   const isInactiveDirectory = relative.includes("/archived/") || relative.includes("/drafts/");
+  const declaresDraft = parsed.data.status === "draft" || parsed.data.editorial_status === "draft";
+  const isRaceCoverage = ["previa-corrida", "resumo-corrida"].includes(String(parsed.data.content_type || ""));
+  const unsafeCompetitorMention = brands.mentionedCompetitors.length > 0 && !isRaceCoverage;
   let disposition = "reestruturar";
   const commercialList = /\b(melhor|melhores|onde comprar|vale o investimento|qual escolher)\b/iu.test(String(parsed.data.title || ""));
-  if (isInactiveDirectory && isPublished) disposition = "despublicar-diretorio-inativo";
+  if (declaresDraft && isPublished) disposition = "despublicar-status-inconsistente";
+  else if (isInactiveDirectory && isPublished) disposition = "despublicar-diretorio-inativo";
   else if (blockedPrimaryBrands.length > 0) disposition = isPublished ? "despublicar" : "despublicado";
+  else if (unsafeCompetitorMention && isPublished) disposition = "despublicar-mencao-concorrente";
   else if (commercialList && brands.mentionedCompetitors.length > 0) disposition = "reescrever-promocao";
   else if (brands.mentionedCompetitors.length > 0) disposition = "auditar-mencao-contextual";
   else if (beginnerSignals > 2) disposition = "reduzir-foco-iniciante";
@@ -60,12 +65,14 @@ const rows = listMarkdown(postsDir).map((file) => {
     contentType: String(parsed.data.content_type || "não informado"),
     published: isPublished,
     isInactiveDirectory,
+    declaresDraft,
     words: words(parsed.content),
     h2: headingCount,
     sourceLinks: sourceLinkCount,
     portfolioBrands,
     blockedPrimaryBrands,
     mentionedCompetitors: brands.mentionedCompetitors,
+    unsafeCompetitorMention,
     beginnerSignals,
     disposition,
   };
@@ -86,6 +93,8 @@ if (process.argv.includes("--json")) {
   }
 }
 
-if (rows.some((row) => row.published && (row.blockedPrimaryBrands.length > 0 || row.isInactiveDirectory))) {
+if (rows.some((row) => row.published && (
+  row.blockedPrimaryBrands.length > 0 || row.isInactiveDirectory || row.unsafeCompetitorMention || row.declaresDraft
+))) {
   process.exitCode = 1;
 }

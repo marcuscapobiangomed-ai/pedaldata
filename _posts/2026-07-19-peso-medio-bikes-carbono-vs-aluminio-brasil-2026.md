@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Peso médio de bikes de estrada no Brasil em 2026: carbono vs alumínio"
 description: "Análise baseada em dados reais de 30 bicicletas do catálogo The Biker Blog — compare pesos, materiais e encontre a melhor relação peso-preço."
 date: 2026-07-19
@@ -9,7 +10,7 @@ content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/peso-medio-bikes-carbono-vs-aluminio/thumb-480.webp"
 image: "/assets/img/posts/peso-medio-bikes-carbono-vs-aluminio/hero.jpg"
 image_credit: "The Biker Blog"

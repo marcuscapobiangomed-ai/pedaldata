@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Tendências em Bikes de Estrada: Aero Está Vencendo as Leves?"
 description: "Análise da tendência de bikes aerodinâmicas vs leves em 2026, com dados do mercado e exemplos reais."
 date: 2026-07-08
@@ -40,7 +41,7 @@ sources:
     url: "https://www.cervelo.com"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/tendencias-bikes-2026-aero-vs-leves/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** análise baseada em especificações oficiais de fabricantes e dados de mercado. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
