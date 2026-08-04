@@ -12,6 +12,9 @@ on:
       - "bot/**"
       - ".github/workflows/**"
       - "scripts/**"
+      - "api/**"
+      - "llms.txt"
+      - "robots.txt"
       - "_config.yml"
       - "_redirects.yml"
 
@@ -87,6 +90,9 @@ jobs:
 
       - name: Verificar taxonomia de tags
         run: npm run check:tags
+
+      - name: Verificar lotes e endpoints para máquinas
+        run: npm run check:machine-readable
 
       - name: Check for fictional authorship
         run: |

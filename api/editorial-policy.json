@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAt": "2026-08-04",
+  "publisher": "TheBiker Blog",
+  "language": "pt-BR",
+  "audience": "Ciclistas de média e alta experiência",
+  "sourcePriority": [
+    "Fabricante oficial",
+    "TheBiker Shop"
+  ],
+  "rules": [
+    "Não inferir especificações ausentes",
+    "Distinguir confirmado, aproximado, pendente e bloqueado",
+    "Revalidar preço e disponibilidade",
+    "Não publicar marcas concorrentes"
+  ]
+}

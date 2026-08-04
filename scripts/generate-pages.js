@@ -8,13 +8,13 @@ const ROOT = join(__dirname, '..')
 const catalog = JSON.parse(readFileSync(join(ROOT, '_data', 'catalog-public.json'), 'utf-8'))
 
 const descriptions = {
-  'road-entry': 'de entrada com excelente custo-benefício. Ideal para quem está começando no ciclismo de estrada.',
-  'road-endurance': 'endurance com geometria confortável para longas distâncias. Ideal para cicloturismo e pedalos prolongados.',
-  'road-race': 'race com geometria agressiva e foco em performance. Desenvolvida para velocidade e resposta imediata.',
-  'road-aero': 'aero com perfil aerodinâmico otimizado. Projetada para máxima eficiência em velocidade.',
-  'road-climbing': 'climber leve e responsiva. Otimizada para subidas e aceleração.',
-  'road-allround': 'versátil que combina características de race e endurance. Adequada para diferentes estilos de pedal.',
-  'gravel': 'gravel para uso misto asfalto e estrada de terra. Versátil para explorar diferentes terrenos.'
+  'road-entry': 'classificada no catálogo como road entry.',
+  'road-endurance': 'classificada no catálogo como road endurance.',
+  'road-race': 'classificada no catálogo como road race.',
+  'road-aero': 'classificada no catálogo como road aero.',
+  'road-climbing': 'classificada no catálogo como road climbing.',
+  'road-allround': 'classificada no catálogo como road all-round.',
+  'gravel': 'classificada no catálogo como gravel.'
 }
 
 let count = 0
@@ -37,7 +37,7 @@ category: ${bike.category}
 permalink: /bikes/${bike.slug}/
 ---
 
-<p>A ${bike.brand} ${bike.model} ${bike.year} é uma bike de estrada ${catDesc}</p>
+<p>A ${bike.brand} ${bike.model} ${bike.year} é ${catDesc} Consulte a ficha técnica e as fontes desta página para os dados confirmados.</p>
 `
 
   writeFileSync(join(basePath, 'index.html'), content)

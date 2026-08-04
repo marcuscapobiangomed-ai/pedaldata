@@ -15,6 +15,7 @@
 <link rel="preload" href="{{ site.baseurl }}{{ site.logo }}" as="image">
 
 {% seo %}
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
 {% if page.tags %}
@@ -37,7 +38,7 @@
   "headline": "{{ page.title | escape }}",
   "description": "{{ page.description | escape }}",
   "author": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "{{ page.author | default: site.author }}"
   },
   "publisher": {
@@ -50,6 +51,10 @@
   },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "inLanguage": "{{ site.lang }}",
+  "articleSection": {{ page.categories | first | default: "Artigos" | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  {% if page.sources %}"citation": {{ page.sources | jsonify }},{% endif %}
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
