@@ -78,11 +78,204 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425683",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "cumulus white/carbon black",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Addict RC HMX Carbon",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "fork.model": {
+      "value": "Addict RC HMX Flatmount Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.groupset": {
+      "value": "Shimano Dura-Ace Di2",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 24,
+      "unit": "velocidades totais",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.shifting": {
+      "value": "electronic",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano Dura-Ace RD-R9250",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano Dura-Ace FC-R9200 52x36",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano Dura-Ace CS-R9200-12, 11-34",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "Shimano BR-R9270 Hydraulic Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.rotors": {
+      "value": "Shimano RT-CL900 160 mm dianteiro / 140 mm traseiro",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.wheelset": {
+      "value": "Syncros Capital 1.0S 40 mm",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Schwalbe PRO ONE 700x30C TL-Easy",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 6.7,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Peso aproximado declarado pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 120,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
     }
   },
-  "unresolvedFields": [
-    "manufacturerSpecifications"
-  ],
+  "unresolvedFields": [],
   "schemaVersion": "1.0",
   "provenance": {
     "researchSlug": "thebiker-catalog-enrichment",
@@ -91,6 +284,10 @@
   "history": [
     {
       "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
       "syncedAt": "2026-08-04"
     }
   ]

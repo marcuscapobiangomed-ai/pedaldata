@@ -78,11 +78,215 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425685",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "reseda green",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Addict RC HMX Carbon",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "fork.model": {
+      "value": "Addict RC HMX Flatmount Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.groupset": {
+      "value": "Shimano Ultegra Di2",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 24,
+      "unit": "velocidades totais",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.shifting": {
+      "value": "electronic",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano Ultegra Di2 RD-R8150",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano Ultegra FC-R8100 52-36T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano Ultegra CS-R8100-12, 11-34",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "Shimano BR-R8170 Hydraulic Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.rotors": {
+      "value": "Shimano RT-CL800 160 mm dianteiro / 140 mm traseiro",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.wheelset": {
+      "value": "Syncros Capital 1.0 40 Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Continental Grand Prix TR 30x622",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 7.3,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Peso aproximado declarado pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 120,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "limits.maximumTireWidth": {
+      "value": 34,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
     }
   },
-  "unresolvedFields": [
-    "manufacturerSpecifications"
-  ],
+  "unresolvedFields": [],
   "schemaVersion": "1.0",
   "provenance": {
     "researchSlug": "thebiker-catalog-enrichment",
@@ -91,6 +295,10 @@
   "history": [
     {
       "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
       "syncedAt": "2026-08-04"
     }
   ]

@@ -59,6 +59,127 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": null
+    },
+    "identity.color": {
+      "value": "Blue",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Scale Alloy 6061 Custom Butted Tubing",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.fork": {
+      "value": "Suntour X1 32 RL-R",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.frontTravel": {
+      "value": 100,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano Deore RD-M6100",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 12,
+      "unit": "velocidades",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano FC-MT512-1",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "Shimano MT200",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Maxxis Rekon Race 29x2.4",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 14.3,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Configuração tubeless informada pela TheBiker"
+    },
+    "limits.maxSystemWeight": {
+      "value": 128,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-980-blue"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
     }
   },
   "unresolvedFields": [
@@ -74,6 +195,10 @@
   "history": [
     {
       "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
       "syncedAt": "2026-08-04"
     }
   ]

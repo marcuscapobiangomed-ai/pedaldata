@@ -78,11 +78,124 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "292046",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Scale Carbon HMF",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.headAngleAdjustment": {
+      "value": true,
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.cableIntegration": {
+      "value": "Syncros Cable Integration System",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.bottomBracket": {
+      "value": "BB92",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.derailleurHanger": {
+      "value": "UDH",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.rearAxle": {
+      "value": "12x148",
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.chainline": {
+      "value": 55,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "included.headset": {
+      "value": "Syncros - Acros Pro Headset System",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-quadro-scott-scale-rc-team-hmf-2026"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
     }
   },
-  "unresolvedFields": [
-    "manufacturerSpecifications"
-  ],
+  "unresolvedFields": [],
   "schemaVersion": "1.0",
   "provenance": {
     "researchSlug": "thebiker-catalog-enrichment",
@@ -91,6 +204,10 @@
   "history": [
     {
       "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
       "syncedAt": "2026-08-04"
     }
   ]
