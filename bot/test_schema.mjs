@@ -103,6 +103,7 @@ const validResearch = {
 assert.doesNotThrow(() => validateArticle(validArticle));
 const generatedMarkdown = generateMarkdown(validArticle);
 assert.match(generatedMarkdown, /editorial_scope: "portfolio"/);
+assert.match(generatedMarkdown, /published: false/);
 assert.match(generatedMarkdown, /promoted_brands: \["Scott"\]/);
 assert.match(generatedMarkdown, /portfolio_evidence_url: "https:\/\/www\.thebiker\.com\.br\/bikes\/estrada\/"/);
 assert.match(generatedMarkdown, /## De onde vêm os dados desta análise/);

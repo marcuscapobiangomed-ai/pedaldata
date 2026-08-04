@@ -148,3 +148,24 @@ Falha factual, promoção de concorrente ou ausência de evidência de portfóli
 2. Separar o pipeline em ficha, rascunho, crítica e edição; adicionar cache e telemetria.
 3. Executar três artigos-piloto e comparar qualidade, latência e consumo.
 4. Fixar os modelos por configuração, calibrar limites e liberar somente a geração de rascunhos.
+
+## Estado da implementação
+
+- Interface comum dos três provedores: implementada.
+- Groq em saída JSON: implementado e autenticado em probe controlado.
+- Gemini com modelo configurável e saída JSON: implementado.
+- DeepSeek com teto operacional de 80% do orçamento: implementado; chave local ainda necessária para probe.
+- Cache por hash de fontes, prompt, etapa, provedor e modelo: implementado.
+- Telemetria JSONL sem chaves: implementada.
+- Gates de extensão, fontes, seções e intertítulos: implementados.
+- Rascunhos com `published: false`: implementado.
+- Promoção condicionada a `editorial_status: approved` e `reviewed_by`: implementada.
+- Batch legado sem fichas: bloqueado no modo de três provedores.
+
+Diagnóstico sem chamadas:
+
+`npm --prefix bot run ai:doctor`
+
+Probe explícito de um provedor:
+
+`npm --prefix bot run ai:doctor -- --live --provider=groq`

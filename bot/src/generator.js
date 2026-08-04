@@ -43,6 +43,7 @@ export function generateMarkdown(article) {
   const frontmatter = [
     "---",
     'layout: post',
+    'published: false',
     `title: "${escapeYaml(data.title)}"`,
     `slug: "${escapeYaml(data.slug)}"`,
     `date: ${today}`,

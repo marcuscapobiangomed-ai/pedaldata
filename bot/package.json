@@ -2,7 +2,7 @@
   "name": "pedaldata-bot",
   "version": "1.0.0",
   "type": "module",
-  "description": "Bot WhatsApp + DeepSeek + Gemini + GitHub para blog de ciclismo automático",
+  "description": "Pipeline editorial TheBiker com Groq, Gemini e DeepSeek",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -11,14 +11,15 @@
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
     "lint": "node scripts/check-js.mjs",
-    "test": "node test_schema.mjs",
+    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs",
     "validate:research": "node src/validation/validate-research.js",
     "validate:posts": "node src/validate_posts.js",
     "validate:images": "node src/validation/validate-images.js",
     "check:claims": "node src/validation/check-claims.js",
     "audit:editorial": "node src/validation/audit-editorial-portfolio.js",
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
-    "generate": "node src/generator.js"
+    "generate": "node src/generator.js",
+    "ai:doctor": "node src/ai/doctor.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

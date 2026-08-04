@@ -7,6 +7,8 @@ import {
   inferContentType,
 } from "./editorial-prompt.js";
 import { getTemplate } from "./templates.js";
+import { ThreeProviderPipeline } from "./ai/three-provider-pipeline.js";
+import { assertEditorialPublicationGates } from "./validation/editorial-publication-gates.js";
 
 const CATEGORY_ALIASES = {
   review: "reviews",
@@ -89,10 +91,11 @@ function buildSlugFallback(topic) {
 }
 
 export class AIProvider {
-  constructor() {
+  constructor({ pipeline } = {}) {
     this.deepseekKey = process.env.DEEPSEEK_API_KEY;
     this.geminiKey = process.env.GEMINI_API_KEY;
     this.githubToken = process.env.GITHUB_TOKEN;
+    this.pipeline = pipeline || new ThreeProviderPipeline();
   }
 
   async generate(systemPrompt, userPrompt, options = {}) {
@@ -206,8 +209,9 @@ export class AIProvider {
     const genAI = new GoogleGenerativeAI(this.geminiKey);
     const models = [
       process.env.GEMINI_MODEL,
-      "gemini-2.0-flash",
-      "gemini-1.5-flash",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite",
+      "gemini-flash-latest",
     ].filter(Boolean);
 
     for (const modelName of models) {
@@ -376,6 +380,7 @@ export class AIProvider {
 
     const sanitized = this._sanitizeStructuredArticle(raw);
     const article = validateArticle(sanitized);
+    const editorialGate = assertEditorialPublicationGates(article);
     const markdown = generateMarkdown(article);
 
     return {
@@ -397,6 +402,7 @@ export class AIProvider {
       claims: article.claimsRequiringReview || [],
       methodologyNotice: article.methodologyNotice || "",
       rawJson: JSON.stringify({ ...article, generated_at: new Date().toISOString() }),
+      editorialGate,
     };
   }
 
@@ -412,16 +418,39 @@ export class AIProvider {
       today,
     });
 
-    const rawText = await this.generate(AIProvider.systemPrompt(), userPrompt, {
-      jsonMode: true,
-      maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
-    });
+    let rawText;
+    let pipelineMetadata = null;
+    if (process.env.AI_PIPELINE_MODE === "legacy") {
+      rawText = await this.generate(AIProvider.systemPrompt(), userPrompt, {
+        jsonMode: true,
+        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
+      });
+    } else {
+      const pipelineResult = await this.pipeline.run({
+        topic: descricaoCurta,
+        researchData,
+        contentType,
+        template,
+        systemPrompt: AIProvider.systemPrompt(),
+        draftPrompt: userPrompt,
+        priority: researchData?.editorialPriority || researchData?.editorial_priority || "P1",
+      });
+      rawText = pipelineResult.content;
+      pipelineMetadata = pipelineResult.metadata;
+    }
 
     try {
-      return this._parseStructuredResponse(rawText, descricaoCurta);
+      return {
+        ...this._parseStructuredResponse(rawText, descricaoCurta),
+        pipelineMetadata,
+      };
     } catch (err) {
       if (String(err.message || "").includes("STATUS: PESQUISA INSUFICIENTE")) {
         throw err;
+      }
+
+      if (process.env.AI_PIPELINE_MODE !== "legacy") {
+        throw new Error(`Rascunho bloqueado após o pipeline: ${err.message}`);
       }
 
       const repairPrompt = buildRepairPrompt({

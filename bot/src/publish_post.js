@@ -11,6 +11,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import matter from "gray-matter";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,6 +42,21 @@ function main() {
   }
 
   let content = fs.readFileSync(filePath, "utf8");
+  const parsed = matter(content);
+
+  if (parsed.data.ai_assisted === true) {
+    if (parsed.data.editorial_status !== "approved") {
+      console.error("❌ Publicação bloqueada: editorial_status precisa ser approved.");
+      process.exit(1);
+    }
+    if (!String(parsed.data.reviewed_by || "").trim()) {
+      console.error("❌ Publicação bloqueada: reviewed_by precisa identificar o revisor humano.");
+      process.exit(1);
+    }
+  }
+
+  content = content.replace(/^published:\s*false\s*$/m, "published: true");
+  content = content.replace(/^editorial_status:\s*["']?approved["']?\s*$/m, 'editorial_status: "published"');
 
   // Troca status: draft por status: published
   if (content.includes("status: draft")) {
