@@ -20,6 +20,13 @@
       "type": "manufacturer",
       "url": "https://asset-misc.scott-sports.com/Add/Addict_Manual_A4_2026_Scott-Sports_PT_2267136.pdf",
       "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "scott-addict-50-global-product",
+      "name": "Scott — Addict 50 Bike",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-addict-50-bike",
+      "accessedAt": "2026-08-04"
     }
   ],
   "facts": {
@@ -229,15 +236,15 @@
       "qualifier": "Bicicleta, ciclista, equipamento e bagagem"
     },
     "weight.declared": {
-      "value": 9,
+      "value": 8.9,
       "unit": "kg",
       "status": "approximate",
       "sourceIds": [
-        "thebiker-scott-addict-50-2026"
+        "scott-addict-50-global-product"
       ],
       "observedAt": "2026-08-04",
-      "market": "BR",
-      "qualifier": "Valor aproximado; tamanho e configuração de pesagem não informados"
+      "market": "global",
+      "qualifier": "Peso aproximado; tamanho e configuração de pesagem não informados"
     },
     "compatibility.frontAxle": {
       "value": "12x100",
@@ -304,6 +311,138 @@
       "observedAt": "2026-08-04",
       "market": "BR",
       "qualifier": "Limite, não configuração instalada"
+    },
+    "manufacturer.modelCode": {
+      "value": 425358,
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "frame.integratedStorage": {
+      "value": true,
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano 105 RD-R7100",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "drivetrain.frontDerailleur": {
+      "value": "Shimano 105 FD-R7100",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano 105 FC-R7100 50-34T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": "Configuração da página global; confirmar unidade brasileira antes de publicar"
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano CS-R7100 11-34",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": "Configuração da página global; confirmar unidade brasileira antes de publicar"
+    },
+    "brakes.frontRotorInstalled": {
+      "value": 160,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": "Shimano RT-CL700; configuração global"
+    },
+    "brakes.rearRotorInstalled": {
+      "value": 160,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": "Shimano RT-CL700; configuração global"
+    },
+    "cockpit.handlebar": {
+      "value": "Syncros HB-R100-AL",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "cockpit.stem": {
+      "value": "Syncros ST-R310-AL",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "cockpit.seatpost": {
+      "value": "Syncros SP-R101-CF",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
+    },
+    "cockpit.saddle": {
+      "value": "Syncros Tofino V 2.0 Cut Out",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-addict-50-global-product"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "global",
+      "qualifier": null
     }
   },
   "unresolvedFields": [

@@ -18,7 +18,7 @@
   "brakes": { "type": "hydraulic-disc", "brand": "Shimano", "model": "BR-R7170" },
   "wheels": { "brand": "Syncros", "model": "RP2.0 Disc", "material": null },
   "tires": { "brand": "Schwalbe", "model": "ONE", "widthMm": 34, "tubelessReady": null },
-  "declaredWeight": { "valueKg": 9, "approximate": true, "size": "não informado", "sourceId": "thebiker-scott-addict-50-2026" },
+  "declaredWeight": { "valueKg": 8.9, "approximate": true, "size": "não informado", "sourceId": "scott-addict-50-global-product" },
   "maxTireClearanceMm": { "value": 38, "sourceId": "scott-addict-manual-2026-pt" },
   "maximumSystemWeightKg": { "value": 120, "sourceId": "thebiker-scott-addict-50-2026" },
   "knowledgeRecord": "_data/product-knowledge/bikes/scott-addict-50-2026-thebiker-br.json",

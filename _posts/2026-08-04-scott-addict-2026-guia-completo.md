@@ -15,8 +15,8 @@ brand: "Scott"
 product_name: "Addict 50"
 model_year: 2026
 market: "Brasil"
-weight: "Não informado"
-weight_source: "Não informado"
+weight: "8.9 kg (aproximado; tamanho não informado)"
+weight_source: "Scott — página global do modelo"
 price_min: 28999
 price_max: 28999
 price_currency: "BRL"
@@ -51,6 +51,10 @@ sources:
     type: "manufacturer"
     url: "https://asset-misc.scott-sports.com/Add/Addict_Manual_A4_2026_Scott-Sports_PT_2267136.pdf"
     accessed_at: "2026-08-04"
+  - name: "Scott — Addict 50 Bike"
+    type: "manufacturer"
+    url: "https://www.scott-sports.com/global/en/product/scott-addict-50-bike"
+    accessed_at: "2026-08-04"
 ---
 Esta análise é baseada em documentação técnica oficial e especificações de catálogo. A equipe TheBiker não realizou testes dinâmicos com esta unidade.
 
@@ -60,7 +64,7 @@ A Scott Addict 50 2026 é apresentada no catálogo brasileiro da TheBiker como u
 
 ## Transmissão Shimano 105 e o veredito técnico sobre o grupo
 
-A montagem confirmada combina Shimano 105 mecânico em configuração 2x12 com freios hidráulicos Shimano BR-R7170. Essa descrição é suficientemente específica para separar esta unidade de versões eletrônicas, mas ainda não informa cassete, combinações efetivas de coroas, comprimento de pedivela ou diâmetro dos rotores instalados. O manual estabelece 52-36 como o máximo para uma configuração 2x; isso é um limite do quadro, não a confirmação de que a bicicleta anunciada sai exatamente com esse par. Pela mesma razão, os limites de rotores — até 180 mm na dianteira e 160 mm na traseira — não devem ser apresentados como medidas dos rotores montados. Para avaliar escalonamento, saltos entre marchas e adequação a uma altimetria específica, o ciclista ainda precisa confirmar a relação efetivamente entregue. O valor técnico do dado documental está em mostrar a classe da transmissão e o envelope permitido pela plataforma. Afirmações sobre precisão de troca, modulação, potência ou facilidade de reparo exigiriam teste do conjunto e informação operacional que as fontes consultadas não fornecem.
+A montagem confirmada combina Shimano 105 mecânico em configuração 2x12 com freios hidráulicos Shimano BR-R7170. A página global oficial do modelo detalha pedivela FC-R7100 com coroas 50-34T, cassete CS-R7100 11-34 e rotores RT-CL700 de 160 mm nos dois eixos. Esses campos descrevem a configuração global de referência; como a Scott ressalva que especificações podem mudar e a página brasileira da TheBiker não apresenta todos os códigos, eles devem ser confirmados na unidade comercializada no Brasil. O manual estabelece limites diferentes da montagem: até 52-36 para coroas 2x, 180 mm de rotor dianteiro e 160 mm traseiro. Limite de compatibilidade e componente instalado são dados distintos. Para avaliar escalonamento e adequação a uma altimetria específica, o ciclista pode partir da relação global 50-34/11-34, mas deve verificar a unidade antes da decisão. Afirmações sobre precisão de troca, modulação ou potência ainda exigiriam teste do conjunto.
 
 ## Especificações técnicas e compatibilidade de componentes
 
@@ -72,11 +76,11 @@ O perfil mais coerente é o ciclista que procura uma road bike de carbono com in
 
 ## Limitações e cenários de restrição
 
-As principais restrições são mais documentais do que dramáticas. A fonte consultada não fornece tabela completa de geometria, peso com tamanho e configuração identificados, relação exata de cassete e coroas, medidas dos rotores instalados ou detalhes construtivos das rodas. Sem esses campos, não há base para estimar aceleração, desempenho em subida, área frontal, rigidez, estabilidade ou resposta em sprint. Também não houve teste da unidade pela equipe TheBiker. O teto de 38 mm impede recomendar a plataforma quando o projeto do ciclista exige, desde o início, pneus nominalmente mais largos. O limite de 120 kg precisa acomodar o sistema completo, de modo que a margem deve ser calculada com bicicleta, ciclista, caramanholas, ferramentas e demais itens. Por fim, preço e estoque são fotografias do momento da consulta: R$ 28.999 e uma unidade observada em pré-venda em 4 de agosto de 2026. Esses dados precisam ser revalidados no dia da publicação e novamente antes de uma decisão comercial.
+As principais restrições são mais documentais do que dramáticas. A página global informa aproximadamente 8,9 kg, mas não associa o valor a tamanho e condições completas de pesagem; portanto, não se trata de massa exata garantida para a unidade brasileira. A configuração global detalha transmissão e rotores, enquanto a TheBiker não expõe todos esses códigos na ficha local. Sem confirmar equivalência por unidade, não há base para estimar aceleração, desempenho em subida, área frontal, rigidez, estabilidade ou resposta em sprint. Também não houve teste da bicicleta pela equipe TheBiker. O teto de 38 mm impede recomendar a plataforma quando o projeto exige pneus nominalmente mais largos. O limite de 120 kg precisa acomodar o sistema completo. Por fim, preço e estoque são fotografias do momento da consulta: R$ 28.999 e uma unidade observada em pré-venda em 4 de agosto de 2026. Esses dados precisam ser revalidados antes da publicação e da decisão comercial.
 
 ## O que ainda falta para um comparativo tecnicamente justo
 
-Este artigo não compara a Addict 50 com outra bicicleta porque o pacote de pesquisa foi construído para um único produto. Um comparativo responsável exigiria versões exatas, ano-modelo, mercado, preço verificado na mesma data, tamanhos equivalentes e campos técnicos medidos com o mesmo critério. Usar apenas nomes de linhas produziria uma falsa equivalência. Até o peso desta Addict 50 permanece “não informado” nesta análise porque a pesquisa não encontrou valor associado de forma inequívoca ao tamanho e à configuração examinados. A mesma disciplina vale para rodas e transmissão: sem massa, dimensões do aro e relações instaladas, não há como atribuir vantagem quantitativa. Quando houver outra opção confirmada no catálogo da TheBiker e uma ficha primária equivalente, a comparação poderá tratar de geometria, folga de pneu, transmissão, padrões de manutenção e investimento. Por ora, a decisão deve ser tomada contra os requisitos do próprio ciclista, e não contra um adversário editorial improvisado.
+Este artigo não compara a Addict 50 com outra bicicleta porque o pacote de pesquisa foi construído para um único produto. Um comparativo responsável exigiria versões exatas, ano-modelo, mercado, preço verificado na mesma data, tamanhos equivalentes e campos técnicos medidos com o mesmo critério. Usar apenas nomes de linhas produziria uma falsa equivalência. O peso global de aproximadamente 8,9 kg também não pode ser comparado com medições associadas a tamanho, pedais ou montagem diferentes. A mesma disciplina vale para rodas e transmissão: sem massa e dimensões completas do aro, não há como atribuir vantagem quantitativa ao conjunto. Quando houver outra opção confirmada no catálogo da TheBiker e uma ficha primária equivalente, a comparação poderá tratar de geometria, folga de pneu, transmissão, padrões de manutenção e investimento. Por ora, a decisão deve ser tomada contra os requisitos do próprio ciclista, e não contra um adversário editorial improvisado.
 
 ## Disponibilidade e investimento no mercado brasileiro
 
@@ -104,7 +108,7 @@ Para a oficina, os dados mais úteis desta pesquisa são objetivos: eixos de 12x
 
 ## Perguntas frequentes sobre a Scott Addict 50 2026
 
-**Qual é o peso confirmado desta configuração?** A pesquisa não encontrou um valor com tamanho e condições de medição suficientemente identificados; por isso, o campo permanece como não informado.
+**Qual é o peso declarado?** A Scott informa aproximadamente 8,9 kg na página global da Addict 50, sem identificar ali o tamanho e todas as condições de pesagem. O valor deve ser tratado como aproximado, não como garantia para cada unidade.
 
 **O grupo é eletrônico?** Não nesta especificação: a página consultada identifica Shimano 105 mecânico 2x12. A pesquisa não valida conversões futuras para outro sistema.
 
@@ -118,3 +122,4 @@ Para a oficina, os dados mais úteis desta pesquisa são objetivos: eixos de 12x
 
 - **TheBiker — Scott Addict 50 2026** (store) — https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/ — acessado em 2026-08-04
 - **Scott — manual oficial Addict 2026 em português** (manufacturer) — https://asset-misc.scott-sports.com/Add/Addict_Manual_A4_2026_Scott-Sports_PT_2267136.pdf — acessado em 2026-08-04
+- **Scott — Addict 50 Bike** (manufacturer) — https://www.scott-sports.com/global/en/product/scott-addict-50-bike — acessado em 2026-08-04

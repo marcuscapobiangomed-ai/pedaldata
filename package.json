@@ -23,6 +23,7 @@
     "catalog:public": "node scripts/build-public-catalog.js",
     "sync:product-knowledge": "node scripts/sync-product-knowledge.js",
     "discover:thebiker-catalog": "node scripts/discover-thebiker-catalog.js",
+    "queue:official-enrichment": "node scripts/build-official-enrichment-queue.js",
     "check:catalog-public": "node scripts/build-public-catalog.js --check",
     "normalize:tags": "node scripts/normalize-post-tags.js",
     "check:tags": "node scripts/normalize-post-tags.js --check",
