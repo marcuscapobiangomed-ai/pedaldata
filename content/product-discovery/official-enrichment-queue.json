@@ -2,8 +2,9 @@
   "schemaVersion": "1.0",
   "generatedAt": "2026-08-04",
   "total": 12,
-  "verifiedExact": 4,
-  "blocked": 8,
+  "verifiedExact": 9,
+  "storeVerifiedLimited": 3,
+  "blocked": 0,
   "queue": [
     {
       "productId": "bicicleta-scott-scale-940-black",
@@ -14,8 +15,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-scale-940-bike",
-      "verificationStatus": "verified-exact",
-      "knowledgeStatus": "ready-for-spec-extraction"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-scale-980-black",
@@ -25,9 +27,10 @@
       "storePrice": 8999,
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
-      "officialUrl": "https://www.scott-sports.com/global/en/product/scott-scale-980-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "officialUrl": null,
+      "verificationStatus": "store-verified-limited",
+      "knowledgeStatus": "ready-for-store-facts-only",
+      "verificationNote": "Página oficial do modelo não está disponível no catálogo Scott atual; limitar os fatos à página TheBiker."
     },
     {
       "productId": "bicicleta-scott-scale-980-blue",
@@ -37,9 +40,10 @@
       "storePrice": 8999,
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
-      "officialUrl": "https://www.scott-sports.com/global/en/product/scott-scale-980-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "officialUrl": null,
+      "verificationStatus": "store-verified-limited",
+      "knowledgeStatus": "ready-for-store-facts-only",
+      "verificationNote": "Página oficial do modelo não está disponível no catálogo Scott atual; limitar os fatos à página TheBiker."
     },
     {
       "productId": "bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo",
@@ -50,8 +54,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
       "officialUrl": null,
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "verificationStatus": "store-verified-limited",
+      "knowledgeStatus": "ready-for-store-facts-only",
+      "verificationNote": "Página oficial exata da Oggi não foi localizada; limitar os fatos à página TheBiker."
     },
     {
       "productId": "quadro-scott-scale-rc-team-hmf-2026",
@@ -61,9 +66,10 @@
       "storePrice": 13999,
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
-      "officialUrl": "https://www.scott-sports.com/global/en/product/scott-quadro-scott-scale-rc-team-hmf-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "officialUrl": "https://www.scott-sports.com/global/en/product/scott-scale-rc-team-hmf-frame",
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
@@ -74,8 +80,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P0",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-addict-rc-20-bike",
-      "verificationStatus": "verified-exact",
-      "knowledgeStatus": "ready-for-spec-extraction"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-addict-rc-pro-di2-2026-pre-venda",
@@ -86,8 +93,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P0",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-addict-rc-pro-bike",
-      "verificationStatus": "verified-exact",
-      "knowledgeStatus": "ready-for-spec-extraction"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
@@ -98,8 +106,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P0",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-addict-50-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-addict-50-2026-pre-venda-cumulus-white",
@@ -110,8 +119,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P0",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-addict-50-bike",
-      "verificationStatus": "verified-exact",
-      "knowledgeStatus": "ready-for-spec-extraction"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-spark-rc-world-cup-2027",
@@ -122,8 +132,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-spark-rc-team-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-spark-rc-expert-2027",
@@ -134,8 +145,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-spark-rc-expert-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     },
     {
       "productId": "bicicleta-scott-spark-rc-world-cup-20271",
@@ -146,8 +158,9 @@
       "storeCurrency": "BRL",
       "editorialPriority": "P1",
       "officialUrl": "https://www.scott-sports.com/global/en/product/scott-spark-rc-world-cup-bike",
-      "verificationStatus": "candidate-needs-verification",
-      "knowledgeStatus": "blocked"
+      "verificationStatus": "manufacturer-verified-exact",
+      "knowledgeStatus": "ready-for-spec-extraction",
+      "verificationNote": "Correspondência exata confirmada na página oficial do fabricante."
     }
   ]
 }
