@@ -2,13 +2,22 @@ import fs from "fs";
 import path from "path";
 
 export class GitHubPublisher {
-  constructor() {
-    this.token = process.env.GITHUB_TOKEN;
-    this.user = process.env.GITHUB_USER;
-    this.repo = process.env.GITHUB_REPO;
-    this.branch = process.env.GITHUB_BRANCH || "main";
-    this.baseUrl = process.env.BLOG_URL;
+  constructor({ env = process.env } = {}) {
+    this.token = env.GITHUB_TOKEN;
+    this.user = env.GITHUB_USER;
+    this.repo = env.GITHUB_REPO;
+    this.branch = env.GITHUB_BRANCH || "main";
+    this.baseUrl = env.BLOG_URL;
     this.apiBase = `https://api.github.com/repos/${this.user}/${this.repo}`;
+    if (!this.token || !this.user || !this.repo) {
+      throw new Error("GitHubPublisher exige GITHUB_TOKEN, GITHUB_USER e GITHUB_REPO");
+    }
+  }
+
+  async findOpenPullRequest(branchName) {
+    const head = encodeURIComponent(`${this.user}:${branchName}`);
+    const pulls = await this._api("GET", `/pulls?state=open&head=${head}&base=${encodeURIComponent(this.branch)}`);
+    return pulls[0] || null;
   }
 
   async _api(method, urlPath, body) {
@@ -64,6 +73,12 @@ export class GitHubPublisher {
     const today = new Date().toISOString().split("T")[0];
     const fileName = `${today}-${slug}.md`;
     const branchName = `content/${slug}`;
+
+    const openPullRequest = await this.findOpenPullRequest(branchName);
+    if (openPullRequest) {
+      console.log(`PR já existe: ${openPullRequest.html_url}`);
+      return openPullRequest.html_url;
+    }
 
     console.log(`🌿 Criando branch: ${branchName}`);
     await this._createBranch(branchName);

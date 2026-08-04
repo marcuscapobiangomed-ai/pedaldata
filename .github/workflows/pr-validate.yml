@@ -10,6 +10,7 @@ on:
       - "assets/img/posts/**"
       - "assets/js/**"
       - "bot/**"
+      - ".github/workflows/**"
       - "scripts/**"
       - "_config.yml"
       - "_redirects.yml"
@@ -48,6 +49,13 @@ jobs:
           node --check src/validation/validate-images.js
           node --check src/validation/check-claims.js
           node --check src/generator.js
+          node --check src/cron_post.js
+          node --check src/automation/queue.js
+          node --check src/automation/doctor.js
+        working-directory: bot
+
+      - name: Validar automação editorial
+        run: npm run automation:doctor
         working-directory: bot
 
       - name: Validar Fichas de Pesquisa

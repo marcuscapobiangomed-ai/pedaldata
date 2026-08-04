@@ -11,7 +11,7 @@
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
     "lint": "node scripts/check-js.mjs",
-    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs && node test_image_system.mjs",
+    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs && node test_image_system.mjs && node test_automation.mjs",
     "validate:research": "node src/validation/validate-research.js",
     "validate:posts": "node src/validate_posts.js",
     "validate:images": "node src/validation/validate-images.js",
@@ -21,7 +21,9 @@
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
     "generate": "node src/generator.js",
     "ai:doctor": "node src/ai/doctor.js",
-    "images:prepare": "node src/images/prepare-variants.js"
+    "images:prepare": "node src/images/prepare-variants.js",
+    "automation:doctor": "node src/automation/doctor.js",
+    "automation:run": "node src/cron_post.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
