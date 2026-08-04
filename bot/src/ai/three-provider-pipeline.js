@@ -29,6 +29,19 @@ function isPremiumRequired(contentType, priority) {
   return priority === "P0" || ["review", "comparativo", "previa-corrida", "resumo-corrida"].includes(contentType);
 }
 
+function minimumWordsFor(contentType) {
+  return {
+    review: 1800,
+    comparativo: 2000,
+    "guia-de-compra": 1800,
+    "guia-tecnico": 1600,
+    noticia: 900,
+    lancamento: 1200,
+    "previa-corrida": 1400,
+    "resumo-corrida": 1500,
+  }[contentType] || 900;
+}
+
 export class ThreeProviderPipeline {
   constructor({
     clients = new ProviderClients(),
@@ -113,6 +126,9 @@ export class ThreeProviderPipeline {
         "Você extrai fatos para o blog oficial da TheBiker.",
         "Use exclusivamente o pacote recebido. Responda somente em JSON.",
         "Não complete lacunas. Separe fatos, lacunas, conflitos e alegações proibidas.",
+        "Só registre conflito quando duas fontes afirmarem valores incompatíveis para o mesmo campo factual.",
+        "Nome ou número de modelo não representa medida técnica: Addict 50, RC 20, Foil 30 e nomes equivalentes são designações comerciais.",
+        "Ausência de dado, valor aproximado ou alegação sem validação independente são lacunas/limitações, não conflitos entre fontes.",
       ].join("\n"),
       user: JSON.stringify({
         topic,
@@ -147,7 +163,7 @@ export class ThreeProviderPipeline {
       sourceHash,
       system: systemPrompt,
       user: enrichedDraftPrompt,
-      options: { jsonMode: true, temperature: 0.2, maxTokens: 8192 },
+      options: { jsonMode: true, temperature: 0.2, maxTokens: 3800 },
     });
     const draft = extractJson(draftResult.content);
 
@@ -191,7 +207,10 @@ export class ThreeProviderPipeline {
       blockers.length > 0;
 
     let finalResult = draftResult;
-    if (requiresPremium) {
+    const premiumConfigured = this.clients.isConfigured("deepseek");
+    if (requiresPremium && premiumConfigured) {
+      const minimumWords = minimumWordsFor(contentType);
+      const generationTargetWords = Math.ceil(minimumWords * 1.2);
       finalResult = await this.callStep({
         step: "premium-edit",
         providers: ["deepseek"],
@@ -201,6 +220,8 @@ export class ThreeProviderPipeline {
         user: [
           "Edite o rascunho usando exclusivamente a pesquisa e a crítica fornecidas.",
           "Corrija todos os bloqueios. Preserve o schema completo e responda somente em JSON.",
+          `O corpo final deve ter pelo menos ${generationTargetWords} palavras reais para assegurar o gate local de ${minimumWords}, sem repetição ou conteúdo genérico.`,
+          "Conte as palavras dos campos content antes de responder e amplie os eixos técnicos mais relevantes caso o total esteja abaixo da meta.",
           "Não crie fatos, fontes, testes ou disponibilidade.",
           "",
           "PESQUISA:",
@@ -225,7 +246,8 @@ export class ThreeProviderPipeline {
         priority,
         scoreBeforePremium: score,
         blockersBeforePremium: blockers.length,
-        premiumEditUsed: requiresPremium,
+        premiumEditUsed: requiresPremium && premiumConfigured,
+        premiumEditPending: requiresPremium && !premiumConfigured,
         providers: {
           factSheet: factSheetResult.provider,
           draft: draftResult.provider,

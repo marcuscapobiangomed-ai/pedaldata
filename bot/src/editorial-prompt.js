@@ -99,6 +99,17 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
       : prettyJson(researchData);
 
   const requiredStructure = template.structure.map((step, index) => `${index + 1}. ${step}`).join("\n");
+  const minimumWords = {
+    review: 1800,
+    comparativo: 2000,
+    "guia-de-compra": 1800,
+    "guia-tecnico": 1600,
+    noticia: 900,
+    lancamento: 1200,
+    "previa-corrida": 1400,
+    "resumo-corrida": 1500,
+  }[contentType] || 900;
+  const minimumWordsPerSection = Math.ceil(minimumWords / Math.max(template.structure.length, 1));
 
   return [
     "## FICHA DE PESQUISA",
@@ -116,6 +127,9 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     "Crie para cada etapa um intertítulo editorial original e específico ao tema.",
     "",
     "### Saída esperada",
+    `O corpo do artigo deve ter no mínimo ${minimumWords} palavras, distribuídas em seções substanciais.`,
+    `Crie uma seção para cada um dos ${template.structure.length} eixos obrigatórios e escreva no mínimo ${minimumWordsPerSection} palavras no campo content de cada seção.`,
+    "Aprofunde relações entre especificações, compatibilidade, manutenção e decisão de uso sem inventar sensações de rodagem ou repetir ideias para atingir a extensão.",
     "Se a pesquisa e a confirmação de portfólio forem suficientes, retorne um único objeto JSON com estes campos:",
     "{",
     '  "status": "RASCUNHO GERADO",',
@@ -140,7 +154,7 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '  "affiliate_links": false,',
     '  "editorial_scope": "portfolio | race-coverage",',
     '  "promoted_brands": ["Marca confirmada no portfólio TheBiker"],',
-    '  "context_only_brands": ["Concorrente citado apenas por necessidade factual em corrida"],',
+    '  "context_only_brands": [],',
     '  "portfolio_evidence_url": "https://www.thebiker.com.br/caminho-do-produto-ou-categoria/",',
     '  "portfolio_verified_at": "YYYY-MM-DD",',
     '  "tags": ["ciclismo", "categoria", "assunto"],',
@@ -171,6 +185,8 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '{ "status": "PORTFÓLIO NÃO CONFIRMADO", "missing_info": ["URL oficial do produto ou categoria na TheBiker"] }',
     "",
     "Não inclua markdown fora dos campos JSON.",
+    "Em reviews, comparativos, guias, notícias e lançamentos, context_only_brands deve ser sempre um array vazio; não inclua ali as marcas factuais dos componentes do produto.",
+    "Somente prévias e resumos de corrida podem preencher context_only_brands, quando a menção factual for indispensável.",
     "Para produto exato, lançamento ou corrida real, aiGeneratedAllowed deve ser false.",
     "Fallback de sistema só pode usar editorialUse draft-only.",
   ].join("\n");

@@ -210,9 +210,10 @@ export class AIProvider {
     const genAI = new GoogleGenerativeAI(this.geminiKey);
     const models = [
       process.env.GEMINI_MODEL,
-      "gemini-2.5-flash",
-      "gemini-2.5-flash-lite",
+      "gemini-3.1-flash-lite",
+      "gemini-3.5-flash",
       "gemini-flash-latest",
+      "gemini-flash-lite-latest",
     ].filter(Boolean);
 
     for (const modelName of models) {
@@ -458,7 +459,38 @@ export class AIProvider {
       }
 
       if (process.env.AI_PIPELINE_MODE !== "legacy") {
-        throw new Error(`Rascunho bloqueado após o pipeline: ${err.message}`);
+        if (!this.pipeline.clients.isConfigured("deepseek")) {
+          throw new Error(`Rascunho bloqueado após o pipeline: ${err.message}`);
+        }
+
+        const repairPrompt = buildRepairPrompt({
+          topic: descricaoCurta,
+          rawText,
+          validationError: err.message,
+          contentType,
+          template,
+          today,
+        });
+        const repaired = await this.pipeline.callStep({
+          step: "final-repair",
+          providers: ["deepseek"],
+          sourceHash: pipelineMetadata?.sourceHash,
+          system: [
+            AIProvider.systemPrompt(),
+            "Repare somente os gates informados. Preserve todos os fatos, fontes, limitações e campos do JSON.",
+            "Não introduza novas especificações, sensações de teste, marcas ou disponibilidade.",
+          ].join("\n"),
+          user: repairPrompt,
+          options: { jsonMode: true, temperature: 0.1, maxTokens: 8192 },
+        });
+        return {
+          ...this._parseStructuredResponse(repaired.content, descricaoCurta),
+          pipelineMetadata: {
+            ...pipelineMetadata,
+            finalRepairUsed: true,
+            providers: { ...pipelineMetadata?.providers, finalRepair: repaired.provider },
+          },
+        };
       }
 
       const repairPrompt = buildRepairPrompt({

@@ -9,7 +9,8 @@ import fs from "node:fs";
 
 const args = process.argv.slice(2);
 const researchArg = args.find((arg) => arg.startsWith("--research="));
-const descricao = args.filter((arg) => !arg.startsWith("--research=")).join(" ");
+const outputArg = args.find((arg) => arg.startsWith("--output="));
+const descricao = args.filter((arg) => !arg.startsWith("--research=") && !arg.startsWith("--output=")).join(" ");
 
 if (!descricao) {
   console.log('Uso: node src/manual.js "tema do artigo" --research=caminho/para/ficha.json');
@@ -38,5 +39,11 @@ console.log(`Pipeline: ${JSON.stringify(post.pipelineMetadata?.providers || {})}
 console.log("-".repeat(40));
 console.log("\nConteúdo:\n");
 console.log(post.content);
+
+if (outputArg) {
+  const outputPath = outputArg.slice("--output=".length);
+  fs.writeFileSync(outputPath, post.content, "utf8");
+  console.log(`\nRascunho salvo em: ${outputPath}`);
+}
 
 console.log("\n🔒 Rascunho local. Nenhum PR foi criado e nada foi publicado.");

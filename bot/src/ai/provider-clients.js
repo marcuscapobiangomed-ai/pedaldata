@@ -31,6 +31,7 @@ async function openAICompatibleRequest({
     max_tokens: options.maxTokens || 8192,
   };
   if (options.jsonMode) payload.response_format = { type: "json_object" };
+  if (options.thinking === "disabled") payload.thinking = { type: "disabled" };
 
   const startedAt = Date.now();
   const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
@@ -98,6 +99,7 @@ export class ProviderClients {
         user,
         options: {
           ...options,
+          thinking: "disabled",
           maxTokens: numberFrom(this.env.DEEPSEEK_MAX_TOKENS, options.maxTokens || 8192),
         },
       });
@@ -109,9 +111,10 @@ export class ProviderClients {
       const client = new GoogleGenerativeAI(this.env.GEMINI_API_KEY);
       const models = [
         this.env.GEMINI_MODEL,
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite",
+        "gemini-3.1-flash-lite",
+        "gemini-3.5-flash",
         "gemini-flash-latest",
+        "gemini-flash-lite-latest",
       ].filter(Boolean);
       const errors = [];
       for (const modelName of [...new Set(models)]) {
@@ -129,6 +132,10 @@ export class ProviderClients {
           const result = await model.generateContent(user);
           const response = result.response;
           const metadata = response.usageMetadata || {};
+          const finishReason = response.candidates?.[0]?.finishReason || "";
+          if (finishReason === "MAX_TOKENS") {
+            throw new Error("resposta truncada ao atingir o limite de saída");
+          }
           return {
             provider,
             model: modelName,
@@ -139,7 +146,7 @@ export class ProviderClients {
               totalTokens: metadata.totalTokenCount || 0,
             },
             durationMs: Date.now() - startedAt,
-            finishReason: response.candidates?.[0]?.finishReason || "",
+            finishReason,
           };
         } catch (error) {
           errors.push(`${modelName}: ${error.message}`);
