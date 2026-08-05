@@ -19,6 +19,7 @@
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
       "postPath": "_posts/drafts/2026-08-10-sag-spark-rc-ajuste-preciso.md",
+      "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -30,8 +31,7 @@
           "finalRepair": "deepseek"
         },
         "generatedAt": "2026-08-05T14:12:03.400Z"
-      },
-      "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json"
+      }
     },
     {
       "day": 2,
@@ -41,8 +41,21 @@
       "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "scheduled",
+      "productIds": [],
+      "postPath": "_posts/drafts/2026-08-11-hmp-hmx-carbono-scott.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:17:30.907Z"
+      },
+      "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json"
     },
     {
       "day": 3,
