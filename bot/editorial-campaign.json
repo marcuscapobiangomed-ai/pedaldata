@@ -70,6 +70,7 @@
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
       "postPath": "_posts/drafts/2026-08-12-review-spark-rc-team-2027.md",
+      "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -81,8 +82,7 @@
           "finalRepair": "deepseek"
         },
         "generatedAt": "2026-08-05T14:23:15.916Z"
-      },
-      "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json"
+      }
     },
     {
       "day": 4,
@@ -116,8 +116,9 @@
       "summary": "Comparação interna entre as três Spark RC vendidas pela TheBiker, cobrindo carbono, suspensões, transmissão, rodas, peso e limite do sistema.",
       "category": "comparativo",
       "freshness": "revalidate-24h",
-      "status": "planned",
-      "productIds": []
+      "status": "blocked",
+      "productIds": [],
+      "blockReason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]"
     },
     {
       "day": 6,
