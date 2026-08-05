@@ -19,11 +19,11 @@ function allowedSource(url, raceCoverage) {
 }
 
 function compactEvidence(records) {
-  return records.slice(0, 6).map((record) => ({
+  return records.slice(0, 3).map((record) => ({
     id: record.id,
     name: record.name || record.title || record.productName,
-    facts: Object.fromEntries(Object.entries(record.facts || {}).slice(0, 10)),
-    sources: (record.sources || []).slice(0, 4).map((source) => ({ name: source.name, url: source.url })),
+    facts: Object.fromEntries(Object.entries(record.facts || {}).slice(0, 5)),
+    sources: (record.sources || []).slice(0, 2).map((source) => ({ name: source.name, url: source.url })),
   }))
 }
 
@@ -77,6 +77,7 @@ export class GroundedResearcher {
       'Priorize documentos oficiais, manuais dos fabricantes, TheBiker Shop e, em competições, organizadores oficiais.',
       'É proibido promover produtos ou marcas concorrentes. Não invente testes, medidas, resultados ou disponibilidade.',
       'Toda afirmação técnica deve aparecer em confirmed_facts e ter suporte em uma fonte URL permitida.',
+      'Seja conciso: retorne no máximo 8 fatos confirmados, 5 fontes e 3 limitações.',
       `Título: ${item.title}`,
       `Resumo editorial: ${item.summary}`,
       `Data: ${today}`,
@@ -89,7 +90,7 @@ export class GroundedResearcher {
     const response = await this.fetch(`${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 2000 })
+      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 2500 })
     })
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
