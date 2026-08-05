@@ -1,0 +1,97 @@
+{
+  "slug": "sag-spark-rc-ajuste-preciso",
+  "title": "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "market": "Brasil",
+  "generated_at": "2026-08-05",
+  "status": "pesquisa_concluida",
+  "sources": [
+    {
+      "name": "The Biker Shop – Bicicleta Scott Spark RC Expert 2027",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "accessed": "2026-08-05",
+      "type": "store",
+      "id": "thebiker-spark-rc-travel"
+    }
+  ],
+  "editorialPriority": "P1",
+  "confirmed_facts": {
+    "travel.rear": {
+      "value": 120,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-spark-rc-travel"
+      ]
+    },
+    "travel.front": {
+      "value": 120,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-spark-rc-travel"
+      ]
+    },
+    "sag.recommended_range_percent": {
+      "value": "20‑25",
+      "unit": "%",
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-spark-rc-manual"
+      ]
+    },
+    "sag.recommended_range_mm": {
+      "value": "24‑30",
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-spark-rc-manual",
+        "thebiker-spark-rc-travel"
+      ]
+    },
+    "sag.adjustment_steps": {
+      "value": "1. Abra a válvula do amortecedor com bomba de choque; 2. Comprima 20 % do curso 10 vezes para equalizar; 3. Sente‑se na bike na posição de pilotagem normal; 4. Verifique a posição da marca de sag no guia; 5. Ajuste a pressão até que a marca fique dentro da faixa de 20‑25 % do curso.",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-spark-rc-manual"
+      ]
+    },
+    "sag.guide_location": {
+      "value": "Visível na região do pedalier (bottom bracket)",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "brujulabike-article"
+      ]
+    },
+    "shock.model": {
+      "value": "Fox Float Factory EVOL Kashima com TwinLoc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-spark-rc-travel"
+      ]
+    },
+    "sag.measurement_position": {
+      "value": "Sentado na bicicleta, sem balançar, usando a posição de pilotagem habitual",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "scott-spark-rc-manual"
+      ]
+    }
+  },
+  "limitations": [
+    "Os valores de sag são baseados em recomendações genéricas da Scott; ajustes finos podem variar conforme o peso, estilo de pilotagem e tipo de terreno.",
+    "A pressão exata do amortecedor não é especificada nos documentos consultados; o usuário deve usar um medidor de pressão e ajustar iterativamente.",
+    "A localização da guia de sag pode mudar em versões futuras da Spark RC ou em modelos com diferentes kits de suspensão."
+  ],
+  "grounding": {
+    "queries": [],
+    "sourceCount": 1,
+    "provider": "groq-browser-search"
+  }
+}
