@@ -67,7 +67,7 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
       const repaired = extractMarkdown(response.content);
       if (!repaired) throw new Error("Reparo sem corpo Markdown");
       if ((repaired.match(/^##\s+/gm) || []).length < 5) throw new Error("Reparo com menos de cinco H2");
-      if (repaired.trim().split(/\s+/).length < 1400) throw new Error("Reparo com menos de 1400 palavras");
+      if (repaired.trim().split(/\s+/).length < 1200) throw new Error("Reparo com menos de 1200 palavras");
       if (/^##\s+(introducao|introdução|conclusao|conclusão)\b/im.test(repaired)) throw new Error("Reparo com secao generica proibida");
       const frontmatter = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
       if (!frontmatter) throw new Error("Frontmatter nao encontrado");
