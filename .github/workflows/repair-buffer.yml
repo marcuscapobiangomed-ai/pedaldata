@@ -1,0 +1,51 @@
+name: TheBiker — Reparo editorial do buffer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: thebiker-editorial-write
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment: editorial-automation
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+      - run: npm ci
+        working-directory: bot
+      - name: Reparar e reauditar textos bloqueados
+        id: repair
+        continue-on-error: true
+        env:
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: npm run campaign:repair-buffer
+        working-directory: bot
+      - name: Validar e persistir resultado
+        if: always()
+        run: |
+          npm run validate:posts
+          npm run check:claims
+          git config user.name "thebiker-editorial-bot"
+          git config user.email "thebiker-editorial-bot@users.noreply.github.com"
+          git add _posts/drafts bot/editorial-campaign.json bot/operational-state _data/editorial-calendar.json
+          git diff --cached --quiet || git commit -m "fix: reparar buffer editorial"
+          git pull --rebase origin main
+          git push
+      - name: Propagar resultado
+        if: steps.repair.outcome == 'failure'
+        run: exit 1

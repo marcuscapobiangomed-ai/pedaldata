@@ -1,0 +1,96 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import matter from "gray-matter";
+import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
+import { ThreeProviderPipeline } from "./ai/three-provider-pipeline.js";
+import { hashPayload } from "./ai/runtime.js";
+import { auditCampaignBuffer } from "./audit_campaign_buffer.js";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+
+function extractJson(text) {
+  const value = String(text || "").replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
+  try { return JSON.parse(value); } catch {
+    const start = value.indexOf("{");
+    const end = value.lastIndexOf("}");
+    if (start >= 0 && end > start) return JSON.parse(value.slice(start, end + 1));
+    throw new Error("Reparo editorial sem JSON valido");
+  }
+}
+
+async function persist(campaign) {
+  await fs.writeFile(path.join(root, "bot/editorial-campaign.json"), JSON.stringify(campaign, null, 2) + "\n");
+  await fs.writeFile(path.join(root, "_data/editorial-calendar.json"), JSON.stringify(publicCampaignSummary(campaign), null, 2) + "\n");
+}
+
+export async function repairCampaignBuffer({ env = process.env } = {}) {
+  const campaignFile = path.join(root, "bot/editorial-campaign.json");
+  const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
+  const blockedIds = campaign.items
+    .filter((item) => item.status === "blocked" && item.blockReason?.startsWith("Auditoria final:"))
+    .map((item) => item.id);
+  const pipeline = new ThreeProviderPipeline({ env });
+  const results = [];
+
+  for (const itemId of blockedIds) {
+    const latest = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
+    const item = latest.items.find((entry) => entry.id === itemId);
+    try {
+      const postFile = path.resolve(root, item.postPath);
+      const raw = await fs.readFile(postFile, "utf8");
+      const parsed = matter(raw);
+      const research = JSON.parse(await fs.readFile(path.join(root, "content/research/campaign", `${item.id}.json`), "utf8"));
+      const response = await pipeline.callStep({
+        step: "buffer-repair",
+        providers: ["deepseek"],
+        sourceHash: hashPayload({ research, article: parsed.content, reason: item.blockReason }),
+        options: { jsonMode: true, temperature: 0.1, maxTokens: 9000 },
+        system: [
+          "Voce e o editor tecnico senior do blog oficial da TheBiker.",
+          "Reescreva usando apenas a pesquisa fornecida e sem inventar testes, medidas ou disponibilidade.",
+          "Nao promova concorrentes. Escreva para ciclistas experientes, com subtitulos fortes.",
+          "Nao use secoes chamadas Introducao ou Conclusao. Responda somente em JSON.",
+        ].join("\n"),
+        user: JSON.stringify({
+          title: item.title,
+          summary: item.summary,
+          auditFailure: item.blockReason,
+          research,
+          currentArticle: parsed.content,
+          requirements: [
+            "minimo de 1400 palavras uteis",
+            "ao menos 5 subtitulos H2 em Markdown",
+            "corrigir todos os bloqueios",
+            "nao incluir frontmatter",
+            "preservar Perguntas Frequentes quando for util",
+          ],
+          output: { article_markdown: "## Subtitulo\n\nTexto..." },
+        }),
+      });
+      const repaired = extractJson(response.content).article_markdown;
+      if (typeof repaired !== "string") throw new Error("Reparo sem article_markdown");
+      if ((repaired.match(/^##\s+/gm) || []).length < 5) throw new Error("Reparo com menos de cinco H2");
+      if (repaired.trim().split(/\s+/).length < 1400) throw new Error("Reparo com menos de 1400 palavras");
+      if (/^##\s+(introducao|introdução|conclusao|conclusão)\b/im.test(repaired)) throw new Error("Reparo com secao generica proibida");
+      const frontmatter = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+      if (!frontmatter) throw new Error("Frontmatter nao encontrado");
+      await fs.writeFile(postFile, `${frontmatter[0]}\n${repaired.trim()}\n`);
+      item.status = "scheduled";
+      delete item.blockReason;
+      await persist(latest);
+      await auditCampaignBuffer({ env });
+      results.push({ itemId, status: "repaired-and-approved", provider: response.provider });
+    } catch (error) {
+      results.push({ itemId, status: "blocked", error: String(error.message || error).slice(0, 300) });
+    }
+  }
+  const failed = results.filter((result) => result.status === "blocked");
+  console.log(JSON.stringify({ repaired: results.length - failed.length, failed: failed.length, results }, null, 2));
+  if (failed.length > 0) throw new Error(`Reparo incompleto: ${failed.map((entry) => entry.itemId).join(", ")}`);
+  return results;
+}
+
+if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
+  repairCampaignBuffer().catch((error) => { console.error(error.stack || error.message); process.exitCode = 1; });
+}

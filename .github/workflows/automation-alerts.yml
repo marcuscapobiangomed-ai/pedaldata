@@ -6,6 +6,7 @@ on:
       - "TheBiker — Automação editorial"
       - "TheBiker — Publicação diária ao meio-dia"
       - "TheBiker — Auditoria final do buffer"
+      - "TheBiker — Reparo editorial do buffer"
       - "Deploy Blog"
     types: [completed]
 

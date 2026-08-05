@@ -27,7 +27,7 @@ export async function auditCampaignBuffer({ env = process.env, now = new Date() 
   const campaignFile = path.join(root, "bot/editorial-campaign.json");
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
   const pending = campaign.items.filter((item) =>
-    ["scheduled", "published"].includes(item.status) &&
+    item.status === "scheduled" &&
     ((item.aiReview?.finalScore ?? 0) < 90 || (item.aiReview?.finalBlockers ?? 0) > 0),
   );
   if (pending.length === 0) return { status: "idle", audited: 0 };
