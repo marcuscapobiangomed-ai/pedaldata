@@ -54,6 +54,8 @@ await fs.mkdir(path.join(finalizeRoot, "_data"), { recursive: true });
 await fs.mkdir(path.join(finalizeRoot, "_posts/drafts"), { recursive: true });
 const finalizeCampaign = structuredClone(campaign);
 finalizeCampaign.items[0].status = "validation";
+finalizeCampaign.items[0].aiReview.finalScore = 95;
+finalizeCampaign.items[0].aiReview.finalBlockers = 0;
 finalizeCampaign.items[0].postPath = `_posts/drafts/${finalizeCampaign.items[0].publishDate}-${finalizeCampaign.items[0].id}.md`;
 await fs.writeFile(path.join(finalizeRoot, "bot/editorial-campaign.json"), JSON.stringify(finalizeCampaign));
 const sections = Array.from({ length: 5 }, (_, index) => `## Seção técnica ${index + 1}\n\nConteúdo técnico sustentado pelas fontes editoriais.`).join("\n\n");
