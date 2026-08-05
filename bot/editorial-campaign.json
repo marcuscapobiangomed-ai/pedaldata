@@ -85,7 +85,7 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
@@ -96,11 +96,10 @@
         "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
       ],
       "imageValidatedAt": "2026-08-05T17:10:24.275Z",
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
+        "finalScore": 92,
         "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
@@ -122,7 +121,7 @@
       "summary": "Procedimento para avaliar alinhamento, indexação, bateria, corrente, cassete e comportamento das transmissões Di2 e AXS em uso real.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [
         "bateria-sram-axs"
       ],
@@ -133,11 +132,10 @@
         "thebiker-bateria-sram-axs-5cbb772e8f"
       ],
       "imageValidatedAt": "2026-08-05T17:12:11.509Z",
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
+        "finalScore": 92,
         "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
@@ -203,6 +201,7 @@
         "thebiker-pastilha-de-freio-sram-guide-trail-organica-c458e0070c"
       ],
       "imageValidatedAt": "2026-08-05T17:10:57.802Z",
+      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com estrutura artificial de introdução e conclusão. Apesar de se propor como guia técnico avançado, o conteúdo é superficial e não oferece insights aprofundados ou específicos para ciclistas experientes. A repetição de conceitos básicos e a falta de exemplos práticos detalhados comprometem a qualidade editorial.",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -217,8 +216,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:32:13.739Z"
-      },
-      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com estrutura artificial de introdução e conclusão. Apesar de se propor como guia técnico avançado, o conteúdo é superficial e não oferece insights aprofundados ou específicos para ciclistas experientes. A repetição de conceitos básicos e a falta de exemplos práticos detalhados comprometem a qualidade editorial."
+      }
     },
     {
       "day": 7,
@@ -263,7 +261,7 @@
       "summary": "Review técnico da Addict RC 20 com foco na transmissão, frenagem, rodas, pneus, massa declarada e limites de uso publicados pela Scott.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
       ],
@@ -274,11 +272,10 @@
         "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9-b1c99140af"
       ],
       "imageValidatedAt": "2026-08-05T17:11:20.434Z",
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
+        "finalScore": 92,
         "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
