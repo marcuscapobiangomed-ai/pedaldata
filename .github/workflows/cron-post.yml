@@ -78,7 +78,7 @@ jobs:
         run: |
           git config user.name "thebiker-editorial-bot"
           git config user.email "thebiker-editorial-bot@users.noreply.github.com"
-          git add bot/editorial-campaign.json _data/editorial-calendar.json content/research/campaign _posts/drafts assets/img/posts
+          git add -A
           git diff --cached --quiet || git commit -m "content: produzir próxima pauta da campanha"
           git push
       - name: Propagar falha da produção
