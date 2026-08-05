@@ -176,10 +176,23 @@
       "summary": "Review técnico da Addict RC 20 com foco na transmissão, frenagem, rodas, pneus, massa declarada e limites de uso publicados pela Scott.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "planned",
+      "status": "scheduled",
       "productIds": [
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
-      ]
+      ],
+      "postPath": "_posts/drafts/2026-08-17-review-addict-rc-20.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T15:14:55.775Z"
+      },
+      "imageManifestPath": "assets/img/posts/review-addict-rc-20/image-manifest.json"
     },
     {
       "day": 9,
