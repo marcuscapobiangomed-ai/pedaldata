@@ -6,4 +6,6 @@ _generated/
 .ai-cache/
 .ai-telemetry/
 .ai-state/
+.playwright-cli/
+output/
 data/price-audit-log.json
