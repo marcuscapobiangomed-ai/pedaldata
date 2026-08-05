@@ -14,11 +14,10 @@
       "summary": "Método técnico para definir pressão, SAG, retorno e modos de suspensão conforme massa do ciclista e característica do percurso.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "planned",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
-      ],
-      "blockReason": "Groq grounded research: 413 - {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 12271, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+      ]
     },
     {
       "day": 2,
@@ -28,9 +27,8 @@
       "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "blocked",
-      "productIds": [],
-      "blockReason": "Groq grounded research: 413 - {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8584, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+      "status": "planned",
+      "productIds": []
     },
     {
       "day": 3,
@@ -40,11 +38,10 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "blocked",
+      "status": "planned",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
-      ],
-      "blockReason": "Expected ',' or '}' after property value in JSON at position 5944"
+      ]
     },
     {
       "day": 4,
@@ -57,6 +54,7 @@
       "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-13-cambio-eletronico-ajuste-diagnostico.md",
+      "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -67,8 +65,7 @@
           "final": "deepseek"
         },
         "generatedAt": "2026-08-05T13:26:00.968Z"
-      },
-      "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json"
+      }
     },
     {
       "day": 5,
