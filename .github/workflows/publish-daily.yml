@@ -1,0 +1,53 @@
+name: TheBiker — Publicação diária ao meio-dia
+
+on:
+  schedule:
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Apenas verificar o post agendado"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: thebiker-daily-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ vars.AUTOMATION_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    environment: editorial-automation
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+      - run: npm ci
+        working-directory: bot
+      - name: Publicar somente o conteúdo aprovado para hoje
+        env:
+          AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+        run: node src/publish_scheduled.js
+        working-directory: bot
+      - name: Validar conteúdo e calendário
+        run: |
+          npm run check:machine-readable
+          npm run validate:posts
+      - name: Registrar publicação
+        if: ${{ github.event_name == 'schedule' || !inputs.dry_run }}
+        run: |
+          git config user.name "thebiker-editorial-bot"
+          git config user.email "thebiker-editorial-bot@users.noreply.github.com"
+          git add _posts bot/editorial-campaign.json _data/editorial-calendar.json
+          git diff --cached --quiet || git commit -m "publish: artigo diário $(date -u +%F)"
+          git push

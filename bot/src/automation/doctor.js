@@ -2,6 +2,8 @@ import "dotenv/config";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadQueue } from "./queue.js";
+import fs from "node:fs/promises";
+import { CampaignSchema } from "./campaign.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "../../..");
@@ -9,6 +11,12 @@ const queuePath = path.resolve(root, process.env.AUTOMATION_QUEUE_PATH || "bot/a
 
 const errors = [];
 const warnings = [];
+let campaign;
+try {
+  campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(path.join(root, "bot/editorial-campaign.json"), "utf8")));
+} catch (error) {
+  errors.push(`campanha editorial inválida: ${error.message}`);
+}
 let queue;
 try {
   queue = await loadQueue(queuePath, root);
@@ -23,6 +31,10 @@ if (process.env.AUTOMATION_ENABLED === "true") {
   if (!process.env.DEEPSEEK_API_KEY) warnings.push("DEEPSEEK_API_KEY ausente: edição premium ficará indisponível");
 }
 if (queue && queue.items.length === 0) warnings.push("fila editorial vazia");
+if (campaign) {
+  const approvedBuffer = campaign.items.filter((item) => ["approved", "scheduled"].includes(item.status)).length;
+  if (approvedBuffer < campaign.minimumApprovedBuffer) warnings.push(`estoque aprovado abaixo do mínimo: ${approvedBuffer}/${campaign.minimumApprovedBuffer}`);
+}
 
-console.log(JSON.stringify({ ok: errors.length === 0, queueItems: queue?.items.length || 0, errors, warnings }, null, 2));
+console.log(JSON.stringify({ ok: errors.length === 0, queueItems: queue?.items.length || 0, campaignItems: campaign?.items.length || 0, errors, warnings }, null, 2));
 if (errors.length) process.exitCode = 1;

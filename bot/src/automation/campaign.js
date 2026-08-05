@@ -1,0 +1,54 @@
+import { z } from 'zod'
+
+const CampaignItemSchema = z.object({
+  day: z.number().int().min(1).max(30),
+  publishDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  id: z.string().regex(/^[a-z0-9][a-z0-9-]{2,79}$/),
+  title: z.string().min(20).max(140),
+  summary: z.string().min(40).max(260),
+  category: z.enum(['manutencao-ajustes', 'engenharia', 'review', 'comparativo', 'componentes', 'lancamentos', 'competicoes']),
+  freshness: z.enum(['evergreen', 'revalidate-24h', 'event-driven']),
+  status: z.enum(['planned', 'researching', 'research-ready', 'drafting', 'validation', 'approved', 'scheduled', 'published', 'blocked', 'replaced']),
+  productIds: z.array(z.string()).default([]),
+  postPath: z.string().regex(/^_posts\/drafts\/.+\.md$/).optional(),
+  publishedAt: z.string().datetime().optional(),
+})
+
+export const CampaignSchema = z.object({
+  version: z.literal(1),
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  timezone: z.literal('America/Sao_Paulo'),
+  publishLocalTime: z.literal('12:00'),
+  startsOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  minimumApprovedBuffer: z.number().int().min(3).max(14),
+  items: z.array(CampaignItemSchema).length(30),
+  reserves: z.array(z.object({ id: z.string(), title: z.string(), summary: z.string(), category: CampaignItemSchema.shape.category })).min(3),
+}).superRefine((campaign, context) => {
+  const ids = new Set()
+  for (const [index, item] of campaign.items.entries()) {
+    if (ids.has(item.id)) context.addIssue({ code: 'custom', path: ['items', index, 'id'], message: 'id duplicado' })
+    ids.add(item.id)
+    if (item.day !== index + 1) context.addIssue({ code: 'custom', path: ['items', index, 'day'], message: 'dias precisam ser sequenciais' })
+    const expected = new Date(`${campaign.startsOn}T12:00:00-03:00`)
+    expected.setDate(expected.getDate() + index)
+    const expectedDate = new Intl.DateTimeFormat('en-CA', { timeZone: campaign.timezone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(expected)
+    if (item.publishDate !== expectedDate) context.addIssue({ code: 'custom', path: ['items', index, 'publishDate'], message: `data esperada: ${expectedDate}` })
+  }
+})
+
+export function selectProductionCandidate(campaign) {
+  return campaign.items.find((item) => ['planned', 'blocked'].includes(item.status)) || null
+}
+
+export function selectPublicationCandidate(campaign, localDate) {
+  return campaign.items.find((item) => item.publishDate === localDate && item.status === 'scheduled') || null
+}
+
+export function publicCampaignSummary(campaign) {
+  return {
+    campaignId: campaign.id,
+    timezone: campaign.timezone,
+    publishLocalTime: campaign.publishLocalTime,
+    items: campaign.items.map(({ day, publishDate, title, summary, category, status }) => ({ day, publishDate, title, summary, category, status })),
+  }
+}

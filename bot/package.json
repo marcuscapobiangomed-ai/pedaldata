@@ -24,6 +24,7 @@
     "images:prepare": "node src/images/prepare-variants.js",
     "automation:doctor": "node src/automation/doctor.js",
     "automation:run": "node src/cron_post.js"
+    ,"publish:scheduled": "node src/publish_scheduled.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

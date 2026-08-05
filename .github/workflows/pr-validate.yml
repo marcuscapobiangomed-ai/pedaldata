@@ -13,6 +13,8 @@ on:
       - ".github/workflows/**"
       - "scripts/**"
       - "api/**"
+      - "bot/editorial-campaign.json"
+      - "_data/editorial-calendar.json"
       - "llms.txt"
       - "robots.txt"
       - "_config.yml"
@@ -57,6 +59,8 @@ jobs:
           node --check src/cron_post.js
           node --check src/automation/queue.js
           node --check src/automation/doctor.js
+          node --check src/automation/campaign.js
+          node --check src/publish_scheduled.js
         working-directory: bot
 
       - name: Validar automação editorial

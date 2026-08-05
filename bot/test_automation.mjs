@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { loadQueue, selectReadyItem } from "./src/automation/queue.js";
+import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, publicCampaignSummary } from "./src/automation/campaign.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -15,5 +16,14 @@ await fs.writeFile(queuePath, JSON.stringify({ version: 1, items: [
 const queue = await loadQueue(queuePath, root);
 assert.equal(selectReadyItem(queue, new Date("2026-08-04T12:00:00Z")).id, "ready-topic");
 assert.equal(selectReadyItem({ items: [] }), null);
+const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(new URL('./editorial-campaign.json', import.meta.url), 'utf8')));
+assert.equal(campaign.items.length, 30);
+assert.equal(selectProductionCandidate(campaign).day, 1);
+assert.equal(selectPublicationCandidate(campaign, '2026-08-10'), null);
+const scheduled = structuredClone(campaign);
+scheduled.items[0].status = 'scheduled';
+scheduled.items[0].postPath = '_posts/drafts/2026-08-10-sag.md';
+assert.equal(selectPublicationCandidate(scheduled, '2026-08-10').day, 1);
+assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
 await fs.rm(root, { recursive: true, force: true });
 console.log("Automation queue tests passed.");
