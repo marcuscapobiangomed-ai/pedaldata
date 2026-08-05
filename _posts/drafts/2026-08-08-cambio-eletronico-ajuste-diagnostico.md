@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca"
 slug: "cambio-eletronico-ajuste-diagnostico"
-date: 2026-08-13
+date: 2026-08-08
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

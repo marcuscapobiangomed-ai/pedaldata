@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Rolamentos sob carga: como localizar folga e contaminação"
 slug: "rolamentos-sob-carga-diagnostico"
-date: 2026-08-14
+date: 2026-08-09
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

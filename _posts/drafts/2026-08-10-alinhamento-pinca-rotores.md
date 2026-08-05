@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Pinça, rotor e contato de pastilha: como eliminar atrito sem perder potência de frenagem"
 slug: "alinhamento-pinca-rotores"
-date: 2026-08-15
+date: 2026-08-10
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

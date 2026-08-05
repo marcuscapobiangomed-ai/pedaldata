@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "HMF ou HMX: o que realmente muda na engenharia dos quadros Scott"
 slug: "hmf-hmx-carbono-scott"
-date: 2026-08-11
+date: 2026-08-06
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

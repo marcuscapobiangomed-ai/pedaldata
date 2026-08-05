@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão"
 slug: "sag-spark-rc-ajuste-preciso"
-date: 2026-08-10
+date: 2026-08-05
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

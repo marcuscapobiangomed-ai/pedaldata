@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa"
 slug: "engenharia-suspensao-integrada-spark"
-date: 2026-08-16
+date: 2026-08-11
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

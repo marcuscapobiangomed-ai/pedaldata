@@ -24,11 +24,11 @@ const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';
 assert.equal(selectProductionCandidate(campaignWithHistory).day, 4);
-assert.equal(selectPublicationCandidate(campaignWithHistory, '2026-08-10'), null);
+assert.equal(selectPublicationCandidate(campaignWithHistory, campaign.items[0].publishDate), null);
 const scheduled = structuredClone(campaign);
 scheduled.items[0].status = 'scheduled';
-scheduled.items[0].postPath = '_posts/drafts/2026-08-10-sag.md';
-assert.equal(selectPublicationCandidate(scheduled, '2026-08-10').day, 1);
+scheduled.items[0].postPath = `_posts/drafts/${scheduled.items[0].publishDate}-sag.md`;
+assert.equal(selectPublicationCandidate(scheduled, scheduled.items[0].publishDate).day, 1);
 assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
 const groundedPayload = {
   candidates: [{ content: { parts: [{ text: JSON.stringify({ confirmed_facts: { material: 'Carbono HMF' }, limitations: [], sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessed: '2026-08-04' }] }) }] }, groundingMetadata: { webSearchQueries: ['site:scott-sports.com teste'] } }]

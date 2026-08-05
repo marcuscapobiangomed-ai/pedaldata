@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Spark RC Team 2027: leitura técnica da plataforma de 120 mm e transmissão AXS"
 slug: "review-spark-rc-team-2027"
-date: 2026-08-12
+date: 2026-08-07
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"

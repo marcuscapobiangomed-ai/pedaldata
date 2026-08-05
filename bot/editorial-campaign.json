@@ -3,12 +3,12 @@
   "id": "thebiker-30-dias-01",
   "timezone": "America/Sao_Paulo",
   "publishLocalTime": "12:00",
-  "startsOn": "2026-08-10",
+  "startsOn": "2026-08-05",
   "minimumApprovedBuffer": 7,
   "items": [
     {
       "day": 1,
-      "publishDate": "2026-08-10",
+      "publishDate": "2026-08-05",
       "id": "sag-spark-rc-ajuste-preciso",
       "title": "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão",
       "summary": "Método técnico para definir pressão, SAG, retorno e modos de suspensão conforme massa do ciclista e característica do percurso.",
@@ -18,7 +18,7 @@
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
-      "postPath": "_posts/drafts/2026-08-10-sag-spark-rc-ajuste-preciso.md",
+      "postPath": "_posts/drafts/2026-08-05-sag-spark-rc-ajuste-preciso.md",
       "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -35,7 +35,7 @@
     },
     {
       "day": 2,
-      "publishDate": "2026-08-11",
+      "publishDate": "2026-08-06",
       "id": "hmp-hmx-carbono-scott",
       "title": "HMF ou HMX: o que realmente muda na engenharia dos quadros Scott",
       "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
@@ -43,7 +43,7 @@
       "freshness": "evergreen",
       "status": "scheduled",
       "productIds": [],
-      "postPath": "_posts/drafts/2026-08-11-hmp-hmx-carbono-scott.md",
+      "postPath": "_posts/drafts/2026-08-06-hmp-hmx-carbono-scott.md",
       "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -59,7 +59,7 @@
     },
     {
       "day": 3,
-      "publishDate": "2026-08-12",
+      "publishDate": "2026-08-07",
       "id": "review-spark-rc-team-2027",
       "title": "Spark RC Team 2027: leitura técnica da plataforma de 120 mm e transmissão AXS",
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
@@ -69,7 +69,7 @@
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
-      "postPath": "_posts/drafts/2026-08-12-review-spark-rc-team-2027.md",
+      "postPath": "_posts/drafts/2026-08-07-review-spark-rc-team-2027.md",
       "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -86,7 +86,7 @@
     },
     {
       "day": 4,
-      "publishDate": "2026-08-13",
+      "publishDate": "2026-08-08",
       "id": "cambio-eletronico-ajuste-diagnostico",
       "title": "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca",
       "summary": "Procedimento para avaliar alinhamento, indexação, bateria, corrente, cassete e comportamento das transmissões Di2 e AXS em uso real.",
@@ -94,7 +94,7 @@
       "freshness": "evergreen",
       "status": "scheduled",
       "productIds": [],
-      "postPath": "_posts/drafts/2026-08-13-cambio-eletronico-ajuste-diagnostico.md",
+      "postPath": "_posts/drafts/2026-08-08-cambio-eletronico-ajuste-diagnostico.md",
       "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -110,7 +110,7 @@
     },
     {
       "day": 5,
-      "publishDate": "2026-08-14",
+      "publishDate": "2026-08-09",
       "id": "reserva-rolamentos-diagnostico",
       "title": "Rolamentos sob carga: como localizar folga e contaminação",
       "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
@@ -118,7 +118,7 @@
       "freshness": "evergreen",
       "status": "scheduled",
       "productIds": [],
-      "postPath": "_posts/drafts/2026-08-14-reserva-rolamentos-diagnostico.md",
+      "postPath": "_posts/drafts/2026-08-09-reserva-rolamentos-diagnostico.md",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -134,7 +134,7 @@
     },
     {
       "day": 6,
-      "publishDate": "2026-08-15",
+      "publishDate": "2026-08-10",
       "id": "alinhamento-pinca-rotores",
       "title": "Pinça, rotor e contato de pastilha: como eliminar atrito sem perder potência de frenagem",
       "summary": "Diagnóstico de alinhamento, empeno, recuo de pistões, contaminação e compatibilidade de rotores nas montagens de estrada e XC.",
@@ -142,7 +142,7 @@
       "freshness": "evergreen",
       "status": "scheduled",
       "productIds": [],
-      "postPath": "_posts/drafts/2026-08-15-alinhamento-pinca-rotores.md",
+      "postPath": "_posts/drafts/2026-08-10-alinhamento-pinca-rotores.md",
       "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -158,7 +158,7 @@
     },
     {
       "day": 7,
-      "publishDate": "2026-08-16",
+      "publishDate": "2026-08-11",
       "id": "engenharia-suspensao-integrada-spark",
       "title": "Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa",
       "summary": "Análise da arquitetura Spark RC, do posicionamento do amortecedor, do Flex Pivot e dos efeitos mecânicos da integração no quadro.",
@@ -166,7 +166,7 @@
       "freshness": "evergreen",
       "status": "scheduled",
       "productIds": [],
-      "postPath": "_posts/drafts/2026-08-16-engenharia-suspensao-integrada-spark.md",
+      "postPath": "_posts/drafts/2026-08-11-engenharia-suspensao-integrada-spark.md",
       "imageManifestPath": "assets/img/posts/engenharia-suspensao-integrada-spark/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -182,7 +182,7 @@
     },
     {
       "day": 8,
-      "publishDate": "2026-08-17",
+      "publishDate": "2026-08-12",
       "id": "review-addict-rc-20",
       "title": "Addict RC 20: Ultegra Di2, rodas de 40 mm e o equilíbrio da montagem",
       "summary": "Review técnico da Addict RC 20 com foco na transmissão, frenagem, rodas, pneus, massa declarada e limites de uso publicados pela Scott.",
@@ -192,7 +192,7 @@
       "productIds": [
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
       ],
-      "postPath": "_posts/drafts/2026-08-17-review-addict-rc-20.md",
+      "postPath": "_posts/drafts/2026-08-12-review-addict-rc-20.md",
       "imageManifestPath": "assets/img/posts/review-addict-rc-20/image-manifest.json",
       "aiReview": {
         "score": 0,
@@ -208,7 +208,7 @@
     },
     {
       "day": 9,
-      "publishDate": "2026-08-18",
+      "publishDate": "2026-08-13",
       "id": "tubeless-xc-pressao-vedacao",
       "title": "Tubeless em XC: pressão, vedação e assentamento sem depender de tentativa e erro",
       "summary": "Critérios para montagem, volume de selante, inspeção de fita, assentamento do talão e ajuste de pressão em pneus 29x2.4.",
@@ -219,7 +219,7 @@
     },
     {
       "day": 10,
-      "publishDate": "2026-08-19",
+      "publishDate": "2026-08-14",
       "id": "geometria-addict-rc-endurance",
       "title": "Geometria Addict e Addict RC: como stack, reach e proposta alteram a posição",
       "summary": "Explicação técnica das diferenças entre endurance e race usando geometria e configuração, sem reduzir a escolha a conforto contra velocidade.",
@@ -230,7 +230,7 @@
     },
     {
       "day": 11,
-      "publishDate": "2026-08-20",
+      "publishDate": "2026-08-15",
       "id": "review-spark-rc-expert-2027",
       "title": "Spark RC Expert 2027: suspensão Fox Factory e XT Di2 sob análise",
       "summary": "Leitura detalhada da plataforma Gen5, curso de 120 mm, transmissão sem fio, freios de quatro pistões e conjunto de rodas e pneus.",
@@ -243,7 +243,7 @@
     },
     {
       "day": 12,
-      "publishDate": "2026-08-21",
+      "publishDate": "2026-08-16",
       "id": "torque-carbono-pre-carga",
       "title": "Torque em componentes de carbono: pré-carga, atrito e aperto sem falsa precisão",
       "summary": "Como interpretar valores de torque, preparar interfaces, usar pasta de montagem e reconhecer fatores que alteram a força de fixação.",
@@ -254,7 +254,7 @@
     },
     {
       "day": 13,
-      "publishDate": "2026-08-22",
+      "publishDate": "2026-08-17",
       "id": "addict-rc-20-vs-pro",
       "title": "Addict RC 20 ou RC Pro: onde estão as diferenças que importam na montagem",
       "summary": "Comparação entre Ultegra e Dura-Ace Di2, rodas, cockpit, pneus, peso declarado e custo observado na TheBiker.",
@@ -265,7 +265,7 @@
     },
     {
       "day": 14,
-      "publishDate": "2026-08-23",
+      "publishDate": "2026-08-18",
       "id": "hierarquia-shimano-road-thebiker",
       "title": "105, Ultegra e Dura-Ace nas Addict: hierarquia técnica sem simplificação comercial",
       "summary": "Análise de arquitetura, acionamento, relações e componentes instalados nas bicicletas Scott disponíveis na TheBiker.",
@@ -276,7 +276,7 @@
     },
     {
       "day": 15,
-      "publishDate": "2026-08-24",
+      "publishDate": "2026-08-19",
       "id": "cockpit-altura-alcance",
       "title": "Cockpit: como altura, alcance e rotação do guidão mudam controle e distribuição de carga",
       "summary": "Procedimento técnico para ajustar espaçadores, mesa, manetes e rotação sem confundir adaptação de posição com correção de tamanho.",
@@ -287,7 +287,7 @@
     },
     {
       "day": 16,
-      "publishDate": "2026-08-25",
+      "publishDate": "2026-08-20",
       "id": "rodas-massa-rotacional-perfil",
       "title": "Rodas, massa rotacional e perfil: o que muda de verdade entre as montagens Scott",
       "summary": "Discussão de aro, material, largura, perfil e sistema tubeless usando os conjuntos Syncros presentes no catálogo ativo.",
@@ -298,7 +298,7 @@
     },
     {
       "day": 17,
-      "publishDate": "2026-08-26",
+      "publishDate": "2026-08-21",
       "id": "review-spark-rc-world-cup-2027",
       "title": "Spark RC World Cup 2027: carbono HMX e montagem de 10,9 kg em perspectiva",
       "summary": "Review documental da estrutura HMX, suspensão RockShox, transmissão AXS, rodas de carbono e condições do peso declarado.",
@@ -311,7 +311,7 @@
     },
     {
       "day": 18,
-      "publishDate": "2026-08-27",
+      "publishDate": "2026-08-22",
       "id": "desgaste-corrente-cassete-coroa",
       "title": "Corrente, cassete e coroa: como medir desgaste antes que a transmissão cobre a conta",
       "summary": "Rotina de medição e diagnóstico para transmissões de 12 velocidades, incluindo sintomas sob carga e decisões de substituição.",
@@ -322,7 +322,7 @@
     },
     {
       "day": 19,
-      "publishDate": "2026-08-28",
+      "publishDate": "2026-08-23",
       "id": "scale-940-vs-980",
       "title": "Scale 940 ou Scale 980: comparação técnica entre as hardtails da TheBiker",
       "summary": "Comparação de quadro, suspensão, transmissão, freios, pneus e peso informado, respeitando os diferentes níveis de evidência das fichas.",
@@ -333,7 +333,7 @@
     },
     {
       "day": 20,
-      "publishDate": "2026-08-29",
+      "publishDate": "2026-08-24",
       "id": "largura-pneu-clearance-real",
       "title": "Largura nominal, largura real e clearance: por que o pneu não termina na medida impressa",
       "summary": "Como aro, pressão e carcaça alteram a largura montada e por que a folga do quadro deve ser tratada como limite técnico.",
@@ -344,7 +344,7 @@
     },
     {
       "day": 21,
-      "publishDate": "2026-08-30",
+      "publishDate": "2026-08-25",
       "id": "review-scale-940",
       "title": "Scale 940: quadro de alumínio, Deore 12 velocidades e hardtail de uso XC",
       "summary": "Review técnico baseado na ficha oficial da Scott e na oferta da TheBiker, com atenção ao eixo traseiro, suspensão, rodas e peso.",
@@ -357,7 +357,7 @@
     },
     {
       "day": 22,
-      "publishDate": "2026-08-31",
+      "publishDate": "2026-08-26",
       "id": "inspecao-pre-prova-xc-road",
       "title": "Inspeção pré-prova: o protocolo mecânico que deve terminar antes da largada",
       "summary": "Checklist avançado de fixações, transmissão, pneus, freios, suspensão e itens de contingência para estrada e XC.",
@@ -368,7 +368,7 @@
     },
     {
       "day": 23,
-      "publishDate": "2026-09-01",
+      "publishDate": "2026-08-27",
       "id": "rotores-140-160-180",
       "title": "Rotores de 140, 160 e 180 mm: torque de frenagem, temperatura e compatibilidade",
       "summary": "Critérios para interpretar os diâmetros instalados nas Addict, Scale e Spark e os limites publicados para cada plataforma.",
@@ -379,7 +379,7 @@
     },
     {
       "day": 24,
-      "publishDate": "2026-09-02",
+      "publishDate": "2026-08-28",
       "id": "rigidez-quadro-comportamento",
       "title": "Rigidez de quadro: por que mais rígido não significa automaticamente mais rápido",
       "summary": "Análise de rigidez lateral, vertical e torsional, distribuição de material e interação entre quadro, pneus e posição do ciclista.",
@@ -390,7 +390,7 @@
     },
     {
       "day": 25,
-      "publishDate": "2026-09-03",
+      "publishDate": "2026-08-29",
       "id": "linha-road-scott-thebiker",
       "title": "Linha road Scott na TheBiker: como Addict e Addict RC ocupam propostas diferentes",
       "summary": "Panorama técnico atualizado das bicicletas de estrada ativas, organizado por geometria, montagem e aplicação declarada.",
@@ -401,7 +401,7 @@
     },
     {
       "day": 26,
-      "publishDate": "2026-09-04",
+      "publishDate": "2026-08-30",
       "id": "addict-50-cores-configuracao",
       "title": "Addict 50 Carbon Grey e Cumulus White: o que é configuração e o que é variação comercial",
       "summary": "Comparação das duas ofertas da Addict 50, separando cor, tamanhos e condição comercial das especificações compartilhadas do modelo.",
@@ -412,7 +412,7 @@
     },
     {
       "day": 27,
-      "publishDate": "2026-09-05",
+      "publishDate": "2026-08-31",
       "id": "rodas-syncros-catalogo-ativo",
       "title": "Rodas Syncros no catálogo ativo: largura, perfil e aplicação em road e XC",
       "summary": "Guia técnico dos conjuntos instalados nas Scott da TheBiker, com atenção a material, tubeless, perfil e compatibilidade.",
@@ -423,7 +423,7 @@
     },
     {
       "day": 28,
-      "publishDate": "2026-09-06",
+      "publishDate": "2026-09-01",
       "id": "linha-xc-scott-thebiker",
       "title": "Linha XC Scott na TheBiker: Scale e Spark RC organizadas por arquitetura e montagem",
       "summary": "Visão atualizada do catálogo de cross-country, distinguindo hardtail, suspensão integral, carbono, transmissão e posicionamento técnico.",
@@ -434,7 +434,7 @@
     },
     {
       "day": 29,
-      "publishDate": "2026-09-07",
+      "publishDate": "2026-09-02",
       "id": "preparacao-xco-percurso",
       "title": "Preparação para XCO: como percurso, duração e terreno devem orientar o acerto da bike",
       "summary": "Método para transformar características da prova em decisões de suspensão, pneus, pressão, transmissão e itens de contingência.",
@@ -445,7 +445,7 @@
     },
     {
       "day": 30,
-      "publishDate": "2026-09-08",
+      "publishDate": "2026-09-03",
       "id": "analise-tecnica-campeonatos-semana",
       "title": "Campeonatos da semana: leitura técnica das provas, decisões e condições de corrida",
       "summary": "Análise factual dos principais eventos recentes, com foco em dinâmica de prova e contexto esportivo, sem promoção de produtos concorrentes.",

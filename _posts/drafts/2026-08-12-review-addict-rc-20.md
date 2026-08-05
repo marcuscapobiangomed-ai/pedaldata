@@ -3,7 +3,7 @@ layout: post
 published: false
 title: "Addict RC 20: Ultegra Di2, rodas de 40 mm e o equilíbrio da montagem"
 slug: "review-addict-rc-20"
-date: 2026-08-17
+date: 2026-08-12
 last_modified_at: 2026-08-05
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"
