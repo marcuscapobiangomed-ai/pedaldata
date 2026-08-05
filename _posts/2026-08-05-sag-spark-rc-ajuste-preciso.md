@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão"
 slug: "sag-spark-rc-ajuste-preciso"
 date: 2026-08-05
@@ -40,7 +40,7 @@ promoted_brands: ["Scott"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/"
 portfolio_verified_at: "2026-08-05"
-editorial_status: "reviewed"
+editorial_status: "published"
 status: "scheduled"
 sources:
   - name: "The Biker Shop – Bicicleta Scott Spark RC Expert 2027"

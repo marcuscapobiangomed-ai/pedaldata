@@ -14,7 +14,7 @@
       "summary": "Método técnico para definir pressão, SAG, retorno e modos de suspensão conforme massa do ciclista e característica do percurso.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "published",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
@@ -31,7 +31,8 @@
           "finalRepair": "deepseek"
         },
         "generatedAt": "2026-08-05T14:12:03.400Z"
-      }
+      },
+      "publishedAt": "2026-08-05T15:41:49.964Z"
     },
     {
       "day": 2,
@@ -119,6 +120,7 @@
       "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-09-reserva-rolamentos-diagnostico.md",
+      "imageManifestPath": "assets/img/posts/reserva-rolamentos-diagnostico/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -129,8 +131,7 @@
           "final": "deepseek"
         },
         "generatedAt": "2026-08-05T15:25:40.344Z"
-      },
-      "imageManifestPath": "assets/img/posts/reserva-rolamentos-diagnostico/image-manifest.json"
+      }
     },
     {
       "day": 6,
