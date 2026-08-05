@@ -128,8 +128,21 @@
       "summary": "Diagnóstico de alinhamento, empeno, recuo de pistões, contaminação e compatibilidade de rotores nas montagens de estrada e XC.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "scheduled",
+      "productIds": [],
+      "postPath": "_posts/drafts/2026-08-15-alinhamento-pinca-rotores.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:32:13.739Z"
+      },
+      "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json"
     },
     {
       "day": 7,
