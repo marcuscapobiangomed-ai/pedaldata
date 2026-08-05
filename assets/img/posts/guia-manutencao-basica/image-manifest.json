@@ -1,21 +1,77 @@
 {
-  "hero": {
-    "file": "hero.jpg",
-    "source": "Unsplash",
-    "sourceUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
-    "license": "Unsplash Free",
-    "credit": "Mike B",
-    "alt": "Manutenção básica de bicicleta de estrada",
-    "width": 1200,
-    "height": 675
+  "schemaVersion": 2,
+  "status": "approved",
+  "editorialUse": "publishable",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
+  "editorialScope": "portfolio",
+  "purpose": "Ilustrar Guia de Manutenção Básica para Bike de Estrada com produto real do catálogo TheBiker.",
+  "alt": "Kit de Escovas Muc Off em fotografia oficial da TheBiker Shop",
+  "caption": "Kit de Escovas Muc Off, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
+  "aiGenerated": false,
+  "assetId": "thebiker-kit-de-escovas-muc-off-f48d4f03e6",
+  "sha256": "f48d4f03e621d7f6d0b03364254c7e597f4b3468aa8e9d66068c2f53057b9019",
+  "perceptualHash": "1111111110111111100001111000010110100001101000011111111111111111",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "kit-de-escovas-muc-off",
+    "name": "Kit de Escovas Muc Off",
+    "sku": "206",
+    "matchLevel": "exact-id"
   },
-  "variants": {
-    "thumb-480": {
-      "file": "thumb-480.webp",
-      "width": 480,
-      "height": 320,
-      "sizeKB": 17,
-      "quality": 82
+  "depictedBrands": [
+    "Muc-Off"
+  ],
+  "depictedProducts": [
+    "Kit de Escovas Muc Off"
+  ],
+  "focalPoint": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "source": {
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/kit-de-escovas-muc-off/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/web_206_5x_premium_brush_kit_2021_x550_crop_center2x-jpg-42ed50bb4f3b9f9fc417430222645524-640-0.webp",
+    "obtainedAt": "2026-08-05",
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
+  },
+  "files": {
+    "hero": {
+      "file": "hero-1600.webp",
+      "width": 1600,
+      "height": 900,
+      "maxKB": 300
+    },
+    "mobile": {
+      "file": "hero-800.webp",
+      "width": 800,
+      "height": 450,
+      "maxKB": 160
+    },
+    "card": {
+      "file": "card-640.webp",
+      "width": 640,
+      "height": 360,
+      "maxKB": 100
     }
+  },
+  "approval": {
+    "reviewedBy": "TheBiker deterministic image gate",
+    "approvedAt": "2026-08-05",
+    "method": "automated-editorial-gate",
+    "checks": [
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
+    ]
   }
 }

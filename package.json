@@ -42,6 +42,7 @@
     "generate:placeholders": "node ../medblog-automation/src/generate-placeholders.js && node ../medblog-automation/src/generate-data-placeholders.js",
     "pipeline:images": "npm run generate:placeholders && npm run generate:thumbnails && npm run validate:images"
     ,"media:recalibrate-campaign": "node scripts/recalibrate-campaign-images.js"
+    ,"media:recalibrate-active": "node scripts/recalibrate-active-legacy-images.js"
     ,"campaign:simulate": "npm --prefix bot run campaign:simulate"
   },
   "devDependencies": {

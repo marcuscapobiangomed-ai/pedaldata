@@ -18,7 +18,11 @@ export function hammingDistance(left, right) {
   return distance;
 }
 
-export function assertNotDuplicate(candidate, assets, { perceptualThreshold = 5, windowDays = 60, now = new Date(), excludePostId = null } = {}) {
+// Average-hash is intentionally conservative here: bicycle packshots share a
+// large white background and a similar silhouette. A threshold above 3 was
+// rejecting distinct models and forcing the selector onto arbitrary detail
+// shots later in the gallery.
+export function assertNotDuplicate(candidate, assets, { perceptualThreshold = 3, windowDays = 60, now = new Date(), excludePostId = null } = {}) {
   const cutoff = new Date(now);
   cutoff.setUTCDate(cutoff.getUTCDate() - windowDays);
   for (const asset of assets) {

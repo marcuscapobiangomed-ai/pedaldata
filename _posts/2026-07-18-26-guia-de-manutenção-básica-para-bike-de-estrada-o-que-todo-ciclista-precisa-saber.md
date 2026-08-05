@@ -21,11 +21,11 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-tecnico"
 tags: [manutencao, bike-de-estrada, ciclismo, cuidados]
-image: "/assets/img/posts/guia-manutencao-basica/hero.jpg"
-image_alt: "Manutenção básica de bicicleta de estrada"
-image_caption: "Ferramentas essenciais para manutenção básica de bike de estrada."
-image_credit: "Divulgação"
-image_license: "Uso editorial autorizado pelo fabricante"
+image: "/assets/img/posts/guia-manutencao-basica/hero-1600.webp"
+image_alt: "Kit de Escovas Muc Off em fotografia oficial da TheBiker Shop"
+image_caption: "Kit de Escovas Muc Off, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 sources:
   - name: "Shimano — Manutenção de transmissão"
     type: "manufacturer"
@@ -41,7 +41,11 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
-thumbnail: "/assets/img/posts/guia-manutencao-basica/thumb-480.webp"
+thumbnail: "/assets/img/posts/guia-manutencao-basica/card-640.webp"
+image_mobile: "/assets/img/posts/guia-manutencao-basica/hero-800.webp"
+image_manifest_version: 2
+image_asset_type: "official-product-photo"
+image_status: "approved"
 ---
 > **Como este artigo foi produzido:** pesquisa em guias técnicos de fabricantes (Shimano, SRAM, Park Tool) e consenso de mecânicos especializados. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 

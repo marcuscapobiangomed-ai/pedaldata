@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-05T18:15:15.964Z",
+  "updatedAt": "2026-08-05T18:35:55.790Z",
   "assets": [
     {
       "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
@@ -133,6 +133,74 @@
       "uses": [
         {
           "postId": "sag-spark-rc-ajuste-preciso",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-rolo-de-treino-elite-novo-force-b1278e3e3f",
+      "sha256": "b1278e3e3f5129306caed410ed597a120b1c862053a25ac51624c0479af7e0d8",
+      "perceptualHash": "1111111111111111111010011100110110000001100100000000011111100111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/rolo-de-treino-elite-novo-force/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/90d26126a51-77cf6ec5e7369f842615736744449048-640-0.webp",
+      "productId": "rolo-de-treino-elite-novo-force",
+      "productName": "Rolo de Treino Elite Novo Force",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "melhores-apps-treino-ciclismo-2026",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-kit-de-escovas-muc-off-f48d4f03e6",
+      "sha256": "f48d4f03e621d7f6d0b03364254c7e597f4b3468aa8e9d66068c2f53057b9019",
+      "perceptualHash": "1111111110111111100001111000010110100001101000011111111111111111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/kit-de-escovas-muc-off/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/web_206_5x_premium_brush_kit_2021_x550_crop_center2x-jpg-42ed50bb4f3b9f9fc417430222645524-640-0.webp",
+      "productId": "kit-de-escovas-muc-off",
+      "productName": "Kit de Escovas Muc Off",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "guia-manutencao-basica",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-foil-rc-hmx-sl-bicicleta-aero-24v-sram-red-axs-dda2d64617",
+      "sha256": "dda2d646179e317e4a4ce377aeb48192087d71b47d246fe5402bff29ef70a657",
+      "perceptualHash": "1111111111111111110110010001000000000000000010001111111111111111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/foil-rc-hmx-sl-bicicleta-aero-24v-sram-red-axs/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/55a0756a-eb06-11f0-9677-5e507c77730f-657ccfaf19d99bda8b17794468695494-640-0.webp",
+      "productId": "foil-rc-hmx-sl-bicicleta-aero-24v-sram-red-axs",
+      "productName": "Bicicleta Scott Foil RC Ultimate 2026",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "bem-vindo-pedal-data",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-bicicleta-scott-addict-50-2026-pre-venda-cumulus-white-2a0d5d704e",
+      "sha256": "2a0d5d704e3e90d9d1bd6f23df62c7226a38e3b38462dd0afcb25f6d6160d87b",
+      "perceptualHash": "0000000000000000000111000111111011111111111101110000000000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4253588087_2223062_4-c5743f8f2acaad1e3a17761939225164-640-0.webp",
+      "productId": "bicicleta-scott-addict-50-2026-pre-venda-cumulus-white",
+      "productName": "Bicicleta Scott Addict 50 2026 - Pré Venda",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "melhores-estradas-rotas-brasil",
           "position": "hero",
           "usedAt": "2026-08-05T12:00:00.000Z"
         }

@@ -21,14 +21,20 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
   for (const [name, config] of Object.entries(VARIANTS)) {
     const output = path.join(outputDirectory, config.file);
     const preserveFullProduct = manifest.preserveFullProduct === true;
-    await sharp(input)
+    let pipeline = sharp(input)
       .rotate()
       .resize(config.width, config.height, {
         fit: preserveFullProduct ? "contain" : "cover",
         position: gravity,
         withoutEnlargement: preserveFullProduct,
         background: preserveFullProduct ? { r: 246, g: 246, b: 246, alpha: 1 } : undefined,
-      })
+      });
+    if (preserveFullProduct) {
+      // Product PNG/WebP files commonly carry transparency. Flatten it so cards
+      // never inherit a black or inconsistent background from the renderer.
+      pipeline = pipeline.flatten({ background: { r: 246, g: 246, b: 246 } });
+    }
+    await pipeline
       .webp({ quality: config.quality, effort: 6 })
       .toFile(output);
     const stats = await fs.stat(output);
@@ -75,7 +81,7 @@ async function main() {
   });
   await fs.writeFile(
     path.join(path.resolve(args.out), "image-manifest.json"),
-    JSON.stringify(prepared, null, 2),
+    JSON.stringify(prepared, null, 2) + "\n",
     "utf8",
   );
   console.log(`Variantes preparadas em ${path.resolve(args.out)}`);

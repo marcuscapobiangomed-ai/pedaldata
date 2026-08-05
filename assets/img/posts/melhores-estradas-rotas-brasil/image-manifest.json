@@ -1,21 +1,77 @@
 {
-  "hero": {
-    "file": "hero.jpg",
-    "source": "Unsplash",
-    "sourceUrl": "https://images.unsplash.com/photo-1485965120184-e220f721d03e",
-    "license": "Unsplash Free",
-    "credit": "Mike B",
-    "alt": "Melhores estradas e rotas para ciclismo no Brasil",
-    "width": 1200,
-    "height": 675
+  "schemaVersion": 2,
+  "status": "approved",
+  "editorialUse": "publishable",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
+  "editorialScope": "portfolio",
+  "purpose": "Ilustrar Melhores Estradas e Rotas para Ciclismo de Estrada no Brasil com produto real do catálogo TheBiker.",
+  "alt": "Bicicleta Scott Addict 50 2026 - Pré Venda em fotografia oficial da TheBiker Shop",
+  "caption": "Bicicleta Scott Addict 50 2026 - Pré Venda, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
+  "aiGenerated": false,
+  "assetId": "thebiker-bicicleta-scott-addict-50-2026-pre-venda-cumulus-white-2a0d5d704e",
+  "sha256": "2a0d5d704e3e90d9d1bd6f23df62c7226a38e3b38462dd0afcb25f6d6160d87b",
+  "perceptualHash": "0000000000000000000111000111111011111111111101110000000000000000",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "bicicleta-scott-addict-50-2026-pre-venda-cumulus-white",
+    "name": "Bicicleta Scott Addict 50 2026 - Pré Venda",
+    "sku": null,
+    "matchLevel": "exact-id"
   },
-  "variants": {
-    "thumb-480": {
-      "file": "thumb-480.webp",
-      "width": 480,
-      "height": 320,
-      "sizeKB": 17,
-      "quality": 82
+  "depictedBrands": [
+    "Scott"
+  ],
+  "depictedProducts": [
+    "Bicicleta Scott Addict 50 2026 - Pré Venda"
+  ],
+  "focalPoint": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "source": {
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-cumulus-white/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4253588087_2223062_4-c5743f8f2acaad1e3a17761939225164-640-0.webp",
+    "obtainedAt": "2026-08-05",
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
+  },
+  "files": {
+    "hero": {
+      "file": "hero-1600.webp",
+      "width": 1600,
+      "height": 900,
+      "maxKB": 300
+    },
+    "mobile": {
+      "file": "hero-800.webp",
+      "width": 800,
+      "height": 450,
+      "maxKB": 160
+    },
+    "card": {
+      "file": "card-640.webp",
+      "width": 640,
+      "height": 360,
+      "maxKB": 100
     }
+  },
+  "approval": {
+    "reviewedBy": "TheBiker deterministic image gate",
+    "approvedAt": "2026-08-05",
+    "method": "automated-editorial-gate",
+    "checks": [
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
+    ]
   }
 }

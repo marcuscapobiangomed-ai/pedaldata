@@ -21,11 +21,11 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "guia-turistico"
 tags: [rotas, ciclismo, estrada, brasil, guia-turistico]
-image: "/assets/img/posts/melhores-estradas-rotas-brasil/hero.jpg"
-image_alt: "Estradas e rotas para ciclismo no Brasil"
-image_caption: "Serra do Rio do Rastro (SC) — uma das rotas mais desafiadoras do ciclismo brasileiro."
-image_credit: "Divulgação"
-image_license: "Uso editorial autorizado pelo fabricante"
+image: "/assets/img/posts/melhores-estradas-rotas-brasil/hero-1600.webp"
+image_alt: "Bicicleta Scott Addict 50 2026 - Pré Venda em fotografia oficial da TheBiker Shop"
+image_caption: "Bicicleta Scott Addict 50 2026 - Pré Venda, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 sources:
   - name: "Strava — Segmentos populares Brasil"
     type: "third-party"
@@ -37,7 +37,11 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
-thumbnail: "/assets/img/posts/melhores-estradas-rotas-brasil/thumb-480.webp"
+thumbnail: "/assets/img/posts/melhores-estradas-rotas-brasil/card-640.webp"
+image_mobile: "/assets/img/posts/melhores-estradas-rotas-brasil/hero-800.webp"
+image_manifest_version: 2
+image_asset_type: "official-product-photo"
+image_status: "approved"
 ---
 > **Como este artigo foi produzido:** pesquisa em comunidades de ciclismo, Strava e guias de cicloturismo. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 

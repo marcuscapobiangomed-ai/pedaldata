@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import { fileURLToPath } from "url";
+import { hammingDistance } from "../bot/src/images/dedupe.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -10,6 +12,7 @@ const DRAFTS_DIR = path.join(POSTS_DIR, "drafts");
 
 const errors = [];
 const warnings = [];
+const activeImages = [];
 
 function parseFrontmatter(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
@@ -54,21 +57,25 @@ function validatePost(postPath) {
   const credit = getField(fm, "image_credit");
   const license = getField(fm, "image_license");
   const status = getField(fm, "editorial_status");
-  const isPublished = !status || status === "published";
+  const published = getField(fm, "published");
+  const isArchived = postPath.startsWith(`${ARCHIVED_DIR}${path.sep}`);
+  const isActive = !isArchived && (
+    status === "scheduled" || published === "true" || (published !== "false" && status === "published")
+  );
 
   if (!image) {
-    if (isPublished) errors.push(`${rel}: campo "image" obrigatório`);
+    if (isActive) errors.push(`${rel}: campo "image" obrigatório`);
     return;
   }
 
   if (image === "/assets/img/logo.svg") {
-    if (isPublished) warnings.push(`${rel}: usando logo padrão — sem imagem real`);
+    if (isActive) errors.push(`${rel}: usando logo padrão — sem imagem real`);
     return;
   }
 
   const imgPath = resolvePath(image);
   if (!imgPath) {
-    if (isPublished) errors.push(`${rel}: imagem não encontrada: ${image}`);
+    if (isActive) errors.push(`${rel}: imagem não encontrada: ${image}`);
     return;
   }
 
@@ -80,11 +87,11 @@ function validatePost(postPath) {
   }
 
   if (!credit) {
-    if (isPublished) errors.push(`${rel}: image_credit obrigatório`);
+    if (isActive) errors.push(`${rel}: image_credit obrigatório`);
   }
 
   if (!license) {
-    if (isPublished) errors.push(`${rel}: image_license obrigatório`);
+    if (isActive) errors.push(`${rel}: image_license obrigatório`);
   }
 
   if (!thumbnail) {
@@ -100,6 +107,25 @@ function validatePost(postPath) {
       }
     }
   }
+
+  if (isActive) {
+    const manifestPath = path.join(path.dirname(imgPath), "image-manifest.json");
+    let manifest;
+    try {
+      manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    } catch {
+      errors.push(`${rel}: manifesto de imagem ausente ou inválido`);
+      return;
+    }
+    if (manifest.schemaVersion !== 2 || manifest.status !== "approved" || manifest.editorialUse !== "publishable") {
+      errors.push(`${rel}: imagem ativa exige manifesto v2 aprovado e publicável`);
+    }
+    if (!manifest.source || !["thebiker", "official-brand"].includes(manifest.source.type)) {
+      errors.push(`${rel}: fonte visual ativa não autorizada (${manifest.source?.type || "indefinida"})`);
+    }
+    const digest = crypto.createHash("sha256").update(fs.readFileSync(imgPath)).digest("hex");
+    activeImages.push({ rel, digest, assetId: manifest.assetId, perceptualHash: manifest.perceptualHash });
+  }
 }
 
 function main() {
@@ -111,6 +137,20 @@ function main() {
 
   for (const postPath of allPosts) {
     validatePost(postPath);
+  }
+
+  for (let left = 0; left < activeImages.length; left += 1) {
+    for (let right = left + 1; right < activeImages.length; right += 1) {
+      if (activeImages[left].digest === activeImages[right].digest) {
+        errors.push(`${activeImages[left].rel} e ${activeImages[right].rel}: imagem ativa duplicada`);
+      }
+      if (activeImages[left].assetId && activeImages[left].assetId === activeImages[right].assetId) {
+        errors.push(`${activeImages[left].rel} e ${activeImages[right].rel}: asset visual ativo reutilizado`);
+      }
+      if (hammingDistance(activeImages[left].perceptualHash, activeImages[right].perceptualHash) <= 3) {
+        errors.push(`${activeImages[left].rel} e ${activeImages[right].rel}: composição visual ativa repetida`);
+      }
+    }
   }
 
   if (errors.length) {
