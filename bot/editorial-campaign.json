@@ -111,14 +111,13 @@
     {
       "day": 5,
       "publishDate": "2026-08-14",
-      "id": "spark-rc-team-expert-world-cup",
-      "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas",
-      "summary": "Comparação interna entre as três Spark RC vendidas pela TheBiker, cobrindo carbono, suspensões, transmissão, rodas, peso e limite do sistema.",
-      "category": "comparativo",
-      "freshness": "revalidate-24h",
-      "status": "blocked",
-      "productIds": [],
-      "blockReason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]"
+      "id": "reserva-rolamentos-diagnostico",
+      "title": "Rolamentos sob carga: como localizar folga e contaminação",
+      "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
+      "category": "manutencao-ajustes",
+      "freshness": "evergreen",
+      "status": "planned",
+      "productIds": []
     },
     {
       "day": 6,
@@ -445,10 +444,10 @@
   ],
   "reserves": [
     {
-      "id": "reserva-rolamentos-diagnostico",
-      "title": "Rolamentos sob carga: como localizar folga e contaminação",
-      "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
-      "category": "manutencao-ajustes"
+      "id": "spark-rc-team-expert-world-cup",
+      "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas",
+      "summary": "Comparação interna entre as três Spark RC vendidas pela TheBiker, cobrindo carbono, suspensões, transmissão, rodas, peso e limite do sistema.",
+      "category": "comparativo"
     },
     {
       "id": "reserva-canote-retratil",
