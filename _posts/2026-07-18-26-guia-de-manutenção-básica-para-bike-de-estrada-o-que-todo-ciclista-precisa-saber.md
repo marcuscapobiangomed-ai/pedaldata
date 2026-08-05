@@ -51,15 +51,15 @@ image_status: "approved"
 
 ## Introdução
 
-Manter sua bike de estrada em boas condições não exige ser mecânico — mas exige consistência. Uma manutenção preventiva simples, feita a cada 200-300 km, aumenta a vida útil dos componentes, melhora o desempenho e, acima de tudo, garante sua segurança.
+Manter sua <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a> em boas condições não exige ser mecânico — mas exige consistência. Uma manutenção preventiva simples, feita a cada 200-300 km, aumenta a vida útil dos componentes, melhora o desempenho e, acima de tudo, garante sua segurança.
 
-Este guia cobre o essencial: limpeza, lubrificação, pneus, freios e transmissão.
+Este guia cobre o essencial: limpeza, lubrificação, <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a>, freios e transmissão.
 
 ## Periodicidade Recomendada
 
 | Tarefa | Frequência |
 |--------|-----------|
-| Limpeza e lubrificação da corrente | A cada 200-300 km ou após pedal na chuva |
+| Limpeza e lubrificação da <a href="https://thebikershop.com.br/componentes/corrente/" class="thebiker-product-link" target="_blank" rel="noopener">corrente</a> | A cada 200-300 km ou após pedal na chuva |
 | Verificação de pressão dos pneus | Antes de cada pedal |
 | Inspeção de freios (pastilhas/desgaste) | Mensal ou a cada 500 km |
 | Ajuste de câmbio | Sempre que notar troca ruidosa ou imprecisa |
@@ -70,17 +70,17 @@ Este guia cobre o essencial: limpeza, lubrificação, pneus, freios e transmiss�
 Manter a bike limpa não é estética — sujeira acumulada na corrente e no câmbio funciona como lixa, desgastando prematuramente a transmissão.
 
 **Como fazer:**
-- Use água com sabão neutro e uma esponja macia. Evite lavadoras de alta pressão, que podem forçar água para dentro de rolamentos e componentes eletrônicos (Di2, baterias)
+- Use água com sabão neutro e uma esponja macia. Evite lavadoras de alta pressão, que podem forçar água para dentro de <a href="https://thebikershop.com.br/componentes/rolamentos/" class="thebiker-product-link" target="_blank" rel="noopener">rolamentos</a> e componentes eletrônicos (Di2, baterias)
 - Escove a corrente com escova específica ou escova de dentes velha
 - Seque com pano limpo antes de lubrificar
 
 ## 2. Lubrificação da Corrente
 
-A corrente é o componente que mais sofre desgaste. Uma corrente seca reduz a eficiência da pedalada e acelera o desgaste do cassete e das coroas.
+A corrente é o componente que mais sofre desgaste. Uma corrente seca reduz a eficiência da pedalada e acelera o desgaste do <a href="https://thebikershop.com.br/componentes/cassetes/" class="thebiker-product-link" target="_blank" rel="noopener">cassete</a> e das coroas.
 
 **Como fazer:**
 - Limpe a corrente com desengraxante antes de aplicar novo lubrificante
-- Aplique o lubrificante (específico para bicicletas — seco para clima seco/poeira, úmido para chuva/lama) no lado interno da corrente enquanto gira a pedivela
+- Aplique o lubrificante (específico para bicicletas — seco para clima seco/poeira, úmido para chuva/lama) no lado interno da corrente enquanto gira a <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivela</a>
 - Após aplicar, passe o pano para remover excesso (o lubrificante age entre os pinos e roletes, não na superfície externa)
 
 **Produtos recomendados:** Muc-Off, WD-40 Bike, Finish Line, Silca. Preços entre R$ 35 e R$ 80.
@@ -152,7 +152,7 @@ Não. Use lubrificante específico para bicicletas. WD-40 original é desengraxa
 **3. Qual a pressão ideal dos pneus?**
 Depende do seu peso. Veja a tabela na seção 3. Pneus 25-28 mm: 70-95 PSI na maioria dos casos.
 
-**4. Como sei se a pastilha de freio a disco está gasta?**
+**4. Como sei se a <a href="https://thebikershop.com.br/componentes/pastilhas-de-freio/" class="thebiker-product-link" target="_blank" rel="noopener">pastilha de freio</a> a disco está gasta?**
 Olhe pelo lado da pinça: a pastilha tem uma camada de material de fricção. Quando estiver abaixo de 1 mm, substitua. Pastilhas resinadas gastam mais rápido que sinterizadas.
 
 ### Fontes consultadas

@@ -70,9 +70,9 @@ O quadro está disponível em dois carbonos:
 
 ### Conforto e integração
 
-A Foil RC usa o **canote Duncan SL Aero CFT** (Compliance Fork Technology), que adiciona conforto sem comprometer a aerodinâmica. O guidão **Syncros Creston iC SL Aero** é integrado (combo mesa/guidão) e foi projetado no túnel de vento.
+A Foil RC usa o **<a href="https://thebikershop.com.br/componentes/canotes/" class="thebiker-product-link" target="_blank" rel="noopener">canote</a> Duncan SL Aero CFT** (Compliance Fork Technology), que adiciona conforto sem comprometer a aerodinâmica. O <a href="https://thebikershop.com.br/componentes/guidao/" class="thebiker-product-link" target="_blank" rel="noopener">guidão</a> **Syncros Creston iC SL Aero** é integrado (combo mesa/guidão) e foi projetado no túnel de vento.
 
-Os pneus dianteiros são 700x28c e o quadro permite até 30mm.
+Os <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> dianteiros são 700x28c e o quadro permite até 30mm.
 
 ## Linha completa e preços
 

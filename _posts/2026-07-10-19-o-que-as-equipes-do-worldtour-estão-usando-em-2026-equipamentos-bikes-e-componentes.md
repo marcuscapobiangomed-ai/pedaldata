@@ -116,7 +116,7 @@ A INEOS segue com a Pinarello:
 - **SRAM Red eTap AXS (12v, wireless):** Visma, Lidl-Trek, Movistar, EF Education
 - **Campagnolo Super Record EPS Wireless:** Equipes patrocinadas pela Campagnolo (AG2R Citroën, Cofidis)
 
-Tendência 2026: SRAM Red ganha participação, especialmente em equipes que priorizam integração com medidores de potência Quarq. Shimano mantém a maioria.
+Tendência 2026: SRAM Red ganha participação, especialmente em equipes que priorizam integração com <a href="https://thebikershop.com.br/componentes/medidor-de-potencia/" class="thebiker-product-link" target="_blank" rel="noopener">medidores de potência</a> Quarq. Shimano mantém a maioria.
 
 ### Rodas
 
@@ -144,12 +144,12 @@ Pressão típica: 65-80 PSI (dianteiro) e 70-85 PSI (traseiro) — muito abaixo 
 | **GPS** | Garmin Edge 1050 (lançado 2025) ou Wahoo ELEMNT ROAM v2 | R$ 3.500 - R$ 5.000 |
 | **Medidor de potência** | SRAM Quarq (Visma) / Shimano FC-R9200P (Soudal) / Stages (INEOS) | R$ 3.000 - R$ 8.000 |
 | **Capacete** | Specialized S-Works Prevail 3 / Evade 3 / Giro Aries | R$ 1.500 - R$ 3.000 |
-| **Sapatilha** | S-Works Torch / Shimano RC903 / Lake CX403 | R$ 2.000 - R$ 4.000 |
+| **<a href="https://thebikershop.com.br/vestuario/sapatilhas/" class="thebiker-product-link" target="_blank" rel="noopener">Sapatilha</a>** | S-Works Torch / Shimano RC903 / Lake CX403 | R$ 2.000 - R$ 4.000 |
 | **Computador** | Garmin Edge 1050 / 840 Solar | R$ 2.500 - R$ 5.000 |
 
 ## Tabela Resumo
 
-| Equipe | Bike | Grupo | Rodas | Pneus |
+| Equipe | Bike | Grupo | Rodas | <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">Pneus</a> |
 |--------|------|-------|-------|-------|
 | **Visma-Lease a Bike** | Cervélo R5/S5 | SRAM Red AXS | Reserve 40/44 | Vittoria Corsa Pro |
 | **UAE Emirates** | Colnago V4Rs | Dura-Ace Di2 | ENVE SES | GP5000 S TR |

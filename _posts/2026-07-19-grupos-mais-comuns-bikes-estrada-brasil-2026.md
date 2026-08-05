@@ -24,7 +24,7 @@ sources:
     accessed_at: "2026-07-19"
 ---
 
-Analisamos as **30 bicicletas de estrada** do catálogo do The Biker Blog para identificar quais grupos de transmissão são mais comuns no mercado brasileiro em 2026.
+Analisamos as **30 <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bicicletas de estrada</a>** do catálogo do The Biker Blog para identificar quais grupos de transmissão são mais comuns no mercado brasileiro em 2026.
 
 ## Distribuição geral
 

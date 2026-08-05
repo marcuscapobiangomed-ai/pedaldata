@@ -54,7 +54,7 @@ thumbnail: "/assets/img/posts/shimano-105-vs-ultegra/thumb-480.webp"
 
 ## Introdução
 
-A resposta curta: para 90% dos ciclistas, o **Shimano 105 é suficiente**. A diferença de preço (US$ 500-600 entre grupos completos) é melhor investida em rodas, pneus ou um bike fit.
+A resposta curta: para 90% dos ciclistas, o **Shimano 105 é suficiente**. A diferença de preço (US$ 500-600 entre grupos completos) é melhor investida em rodas, <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> ou um bike fit.
 
 ## Dados técnicos (medições reais)
 
@@ -83,12 +83,12 @@ No mecânico: o Ultegra tem um clique mais preciso. No Di2: a diferença é quas
 
 ### Durabilidade
 
-Ao contrário do que muitos pensam, o Ultegra **não é menos durável** que o 105. Os materiais são de maior qualidade (eixos de liga mais resistentes, carbono nos manetes). A corrente do Ultegra pode durar mais (4.000-5.000 km vs 3.000-4.000 km da 105).
+Ao contrário do que muitos pensam, o Ultegra **não é menos durável** que o 105. Os materiais são de maior qualidade (eixos de liga mais resistentes, carbono nos manetes). A <a href="https://thebikershop.com.br/componentes/corrente/" class="thebiker-product-link" target="_blank" rel="noopener">corrente</a> do Ultegra pode durar mais (4.000-5.000 km vs 3.000-4.000 km da 105).
 
 ### Recursos exclusivos do Ultegra
 
 - Hyperglide+: engrenagens com perfil otimizado para trocas mais suaves sob carga
-- Power meter de fábrica (opcional no pedivela)
+- Power meter de fábrica (opcional no <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivela</a>)
 - Compatibilidade com shifters satélite (útil em barras de triathlon)
 - Terceiro botão nos manetes (para head unit ou modo de treino)
 - Disponível em versão rim brake (105 Di2 é apenas disco)
@@ -109,7 +109,7 @@ O Shimano 105 R7100/R7150 entrega 90-95% da performance do Ultegra por ~70% do p
 Para 90% dos ciclistas, não. O dinheiro é melhor gasto em rodas, pneus e bike fit.
 
 **2. 105 e Ultegra são compatíveis entre si?**
-Sim. Cassetes, correntes e pedivelas são intercambiáveis. Muita gente usa pedivela Ultegra com câmbio 105.
+Sim. <a href="https://thebikershop.com.br/componentes/cassetes/" class="thebiker-product-link" target="_blank" rel="noopener">Cassetes</a>, correntes e pedivelas são intercambiáveis. Muita gente usa pedivela Ultegra com câmbio 105.
 
 **3. 105 ou Ultegra Di2?**
 A versão Di2 do 105 é a melhor porta de entrada para electronic shifting. O Ultegra Di2 adiciona Hyperglide+ e power meter opcional.

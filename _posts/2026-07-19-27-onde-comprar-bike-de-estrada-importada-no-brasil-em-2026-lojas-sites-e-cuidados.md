@@ -60,7 +60,7 @@ thumbnail: "/assets/img/posts/onde-comprar-bike-importada/thumb-480.webp"
 
 ## Introdução
 
-Comprar uma bicicleta de estrada importada no Brasil em 2026 exige mais do que escolher o modelo certo — é preciso saber onde comprar com segurança, garantia e preço justo. A alta carga tributária (que pode chegar a 60-80% do valor do produto) e as flutuações cambiais tornam a pesquisa essencial.
+Comprar uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bicicleta de estrada</a> importada no Brasil em 2026 exige mais do que escolher o modelo certo — é preciso saber onde comprar com segurança, garantia e preço justo. A alta carga tributária (que pode chegar a 60-80% do valor do produto) e as flutuações cambiais tornam a pesquisa essencial.
 
 Neste guia, mapeamos os distribuidores oficiais e lojas autorizadas das principais marcas no Brasil, com preços pesquisados em julho/2026 e os cuidados indispensáveis para uma compra segura.
 

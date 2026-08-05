@@ -53,7 +53,7 @@ thumbnail: "/assets/img/posts/melhores-rodas-de-carbono/thumb-480.webp"
 
 ## Introdução
 
-Rodas de carbono são o upgrade mais impactante que você pode fazer na sua bike de estrada. Elas reduzem peso, melhoram a aerodinâmica e transformam a resposta da bike em acelerações e subidas.
+<a href="https://thebikershop.com.br/componentes/rodas-para-ciclismo/rodas-road/" class="thebiker-product-link" target="_blank" rel="noopener">Rodas de carbono</a> são o upgrade mais impactante que você pode fazer na sua <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a>. Elas reduzem peso, melhoram a aerodinâmica e transformam a resposta da bike em acelerações e subidas.
 
 Este guia cobre os fatores essenciais de escolha e os melhores modelos disponíveis no Brasil em 2026, do custo-benefício ao topo de linha.
 
@@ -70,12 +70,12 @@ Este guia cobre os fatores essenciais de escolha e os melhores modelos disponív
 
 ### Largura interna
 
-Aros modernos têm 21-25 mm internos. Isso permite usar pneus de 28-32 mm com pressão reduzida (65-85 PSI), combinando conforto e aerodinâmica. Aros estreitos (<19 mm) são tecnologia de 5+ anos atrás.
+Aros modernos têm 21-25 mm internos. Isso permite usar <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> de 28-32 mm com pressão reduzida (65-85 PSI), combinando conforto e aerodinâmica. Aros estreitos (<19 mm) são tecnologia de 5+ anos atrás.
 
 ### Compatibilidade
 
 - **Freios:** todas as rodas de carbono novas são apenas disco (Center Lock). Rodas com freio de aro estão em extinção
-- **Cassete:** todas as rodas listadas aceitam 11 e 12 velocidades (Shimano HG e SRAM XDR)
+- **<a href="https://thebikershop.com.br/componentes/cassetes/" class="thebiker-product-link" target="_blank" rel="noopener">Cassete</a>:** todas as rodas listadas aceitam 11 e 12 velocidades (Shimano HG e SRAM XDR)
 - **Tubeless:** todas as rodas desta lista são tubeless ready (sem câmara)
 
 ## Melhores modelos disponíveis no Brasil em 2026
@@ -110,7 +110,7 @@ Rodas suíças de construção impecável e durabilidade lendária. O perfil 45 
 - **Preço:** ~R$ 8.000-10.000
 - **Peso:** 1.450 g (par)
 - **Profundidade:** 45 mm
-- **Tecnologia:** Aero+ III, cubos 240 DICUT com rolamentos de aço selados
+- **Tecnologia:** Aero+ III, cubos 240 DICUT com <a href="https://thebikershop.com.br/componentes/rolamentos/" class="thebiker-product-link" target="_blank" rel="noopener">rolamentos</a> de aço selados
 - **Ideal para:** ciclistas que priorizam durabilidade e versatilidade
 
 ### ICANPI 50C (importação direta)

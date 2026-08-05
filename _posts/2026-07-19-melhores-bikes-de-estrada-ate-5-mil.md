@@ -59,7 +59,7 @@ thumbnail: "/assets/img/posts/comparativo-5-melhores-bikes-ate-5000/thumb-480.we
 
 ## Introdução
 
-Escolher uma bike de estrada com orçamento de até R$ 5.000 em 2026 exige saber onde cada modelo realmente se posiciona. Nesta faixa, você encontra grupos de entrada (Shimano Claris) e já começa a ver garfo de carbono em alguns modelos.
+Escolher uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a> com orçamento de até R$ 5.000 em 2026 exige saber onde cada modelo realmente se posiciona. Nesta faixa, você encontra grupos de entrada (Shimano Claris) e já começa a ver garfo de carbono em alguns modelos.
 
 Selecionamos 5 modelos disponíveis no Brasil com preços verificados em lojas online em julho de 2026.
 
@@ -123,7 +123,7 @@ Marca tradicional brasileira, grupo Shimano Claris 16v, quadro de alumínio 6061
 
 ### 5. Oggi Velloce Disc 2026 — R$ 4.999
 
-A única da lista com garfo de carbono e freio a disco. Grupo Shimano Claris 16v, pneus 700x32c para mais conforto em asfalto irregular.
+A única da lista com garfo de carbono e freio a disco. Grupo Shimano Claris 16v, <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> 700x32c para mais conforto em asfalto irregular.
 
 **Para quem é:** a melhor opção geral até R$ 5.000.
 

@@ -76,7 +76,7 @@ Um sensor de potência usa extensionetros (strain gauges) que medem a deformaç�
 | Tipo | Onde mede | Preço médio | Transferível entre bikes? |
 |------|----------|------------|--------------------------|
 | **Pedal** | No pedal | R$ 4.200-7.500 | Sim |
-| **Eixo de movimento central (spider)** | No pedivela | R$ 3.000-5.000 | Não (específico do pedivela) |
+| **Eixo de <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> (spider)** | No <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivela</a> | R$ 3.000-5.000 | Não (específico do pedivela) |
 | **Pedivela** | Braço do pedivela | R$ 3.500-7.000 | Parcial (troca o braço) |
 | **Cubo traseiro** | Na roda | R$ 3.000-5.000 | Não (específico da roda) |
 

@@ -65,7 +65,7 @@ De Barreirinhas (MA) a Jericoacoara (CE) passando pelos Lençóis Maranhenses e 
 ## Região Centro-Oeste
 
 **Estradas do Pantanal — MS**
-Pedalar no Pantanal é experiência única: fauna abundante, planície infinita e estradas de terra batida. Recomendado na estação seca (maio-setembro). Prefira bikes de gravel ou estrada com pneus 30 mm+.
+Pedalar no Pantanal é experiência única: fauna abundante, planície infinita e estradas de terra batida. Recomendado na estação seca (maio-setembro). Prefira bikes de gravel ou estrada com <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> 30 mm+.
 
 **Brasília — Eixão e Estrada Parque**
 Brasília tem ciclovias extensas e o Eixão é fechado para carros aos domingos e feriados. A Estrada Parque (DF-001) oferece um circuito de ~75 km com asfalto novo.

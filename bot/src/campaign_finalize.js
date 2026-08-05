@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
 import { produceOfficialCampaignImage } from "./images/official-campaign-image.js";
+import { linkTheBikerProducts, loadTheBikerLinkData } from "./editorial/product-linker.js";
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -54,6 +55,15 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
     content = setField(content, "reviewed_by", '"TheBiker AI Editorial Gate"');
     content = setField(content, "editorial_status", '"reviewed"');
     content = setField(content, "status", '"scheduled"');
+    let linkData;
+    try {
+      linkData = loadTheBikerLinkData(root);
+    } catch (error) {
+      if (root === defaultRoot || error?.code !== "ENOENT") throw error;
+      linkData = loadTheBikerLinkData(defaultRoot);
+    }
+    const linkResult = linkTheBikerProducts(content, linkData);
+    content = linkResult.content;
     if (/\/assets\/img\/system\/covers\//.test(content.split("---", 3)[1] || "")) throw new Error("Fallback de imagem ainda presente no frontmatter");
     await fs.writeFile(absolutePost, content);
     item.imageManifestPath = `assets/img/posts/${item.id}/image-manifest.json`;
@@ -63,7 +73,7 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
     item.status = "scheduled";
     delete item.blockReason;
     await persist(root, campaign);
-    return { status: "scheduled", itemId: item.id, publishDate: item.publishDate, imageManifestPath: item.imageManifestPath };
+    return { status: "scheduled", itemId: item.id, publishDate: item.publishDate, imageManifestPath: item.imageManifestPath, theBikerLinks: linkResult.links.length };
   } catch (error) {
     item.status = "blocked";
     item.blockReason = `Validação final: ${String(error.message || error).slice(0, 650)}`;

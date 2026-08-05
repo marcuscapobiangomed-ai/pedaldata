@@ -56,7 +56,7 @@ thumbnail: "/assets/img/posts/quadro-carbono-vs-aluminio/thumb-480.webp"
 
 ## Introdução
 
-Carbono ou alumínio? Esta é uma das decisões mais comuns — e mais difíceis — para quem compra uma bike de estrada. O alumínio oferece o melhor custo-benefício; o carbono, o melhor desempenho. Mas a diferença de preço é grande: uma bike de alumínio de entrada custa a partir de R$ 8.999, enquanto uma de carbono começa na faixa dos R$ 23.000.
+Carbono ou alumínio? Esta é uma das decisões mais comuns — e mais difíceis — para quem compra uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a>. O alumínio oferece o melhor custo-benefício; o carbono, o melhor desempenho. Mas a diferença de preço é grande: uma bike de alumínio de entrada custa a partir de R$ 8.999, enquanto uma de carbono começa na faixa dos R$ 23.000.
 
 Neste guia, comparamos os dois materiais com dados de 2026 e modelos reais disponíveis no Brasil.
 
@@ -89,7 +89,7 @@ O alumínio é o material predominante em bikes de entrada e intermediárias. Os
 
 ### Características
 
-O carbono domina o ciclismo de competição. A fibra de carbono permite que os engenheiros orientem as fibras conforme a necessidade: mais rígida no movimento central, mais flexível no espigão e nas garfos para absorver vibrações.
+O carbono domina o ciclismo de competição. A fibra de carbono permite que os engenheiros orientem as fibras conforme a necessidade: mais rígida no <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a>, mais flexível no espigão e nas garfos para absorver vibrações.
 
 **Vantagens:**
 - Peso muito baixo (bikes completas de 6,6 a 7,7 kg)

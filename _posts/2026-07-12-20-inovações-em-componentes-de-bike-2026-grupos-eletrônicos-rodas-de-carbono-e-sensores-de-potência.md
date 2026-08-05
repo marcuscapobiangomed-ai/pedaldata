@@ -56,7 +56,7 @@ thumbnail: "/assets/img/posts/inovacoes-componentes-2026/thumb-480.webp"
 
 ## Introdução
 
-O mercado de componentes de bike em 2026 está consolidado em três grandes revoluções: grupos eletrônicos se tornaram o padrão mesmo em bikes intermediárias (Shimano 105 Di2), rodas de carbono oferecem perfis para todos os terrenos, e sensores de potência ficaram mais acessíveis.
+O mercado de componentes de bike em 2026 está consolidado em três grandes revoluções: grupos eletrônicos se tornaram o padrão mesmo em bikes intermediárias (Shimano 105 Di2), <a href="https://thebikershop.com.br/componentes/rodas-para-ciclismo/rodas-road/" class="thebiker-product-link" target="_blank" rel="noopener">rodas de carbono</a> oferecem perfis para todos os terrenos, e sensores de potência ficaram mais acessíveis.
 
 Este artigo atualiza o panorama com preços reais — em USD (mercado global) e BRL (estimativa de importação) — e tecnologias atuais.
 
@@ -72,7 +72,7 @@ A Shimano completou a migração para 12 velocidades em toda a linha de estrada.
 | **Ultegra Di2 R8170** | Ultegra | 12 | ~2.770 g | ~US$ 1.800 | R$ 10.800 |
 | **Dura-Ace Di2 R9270** | Dura-Ace | 12 | ~2.470 g | ~US$ 3.800 | R$ 22.800 |
 
-**Novidades 2025-2026:** Shimano expandiu a conectividade Bluetooth para todos os grupos Di2 (antes era exclusiva Dura-Ace/Ultegra), permitindo ajuste fino via app E-Tube. O 105 Di2 agora compartilha o mesmo câmbio traseiro e bateria do Ultegra.
+**Novidades 2025-2026:** Shimano expandiu a conectividade Bluetooth para todos os grupos Di2 (antes era exclusiva Dura-Ace/Ultegra), permitindo ajuste fino via app E-Tube. O 105 Di2 agora compartilha o mesmo <a href="https://thebikershop.com.br/componentes/cambio-traseiro/" class="thebiker-product-link" target="_blank" rel="noopener">câmbio traseiro</a> e bateria do Ultegra.
 
 ### SRAM eTap AXS
 
@@ -84,7 +84,7 @@ A SRAM mantém a arquitetura sem fio (wireless total) como diferencial. A linha 
 | **Force eTap AXS** | 12 | ~2.760 g | ~US$ 1.900 | R$ 11.500 |
 | **Red eTap AXS** | 12 | ~2.510 g | ~US$ 3.400 | R$ 20.400 |
 
-**Diferencial SRAM:** todos os grupos AXS usam baterias intercambiáveis e pilhas CR2032 nos câmbios. O eco-sistema AXS permite pareamento com medidores de potência Quarq e amortecedores de mesa Reverb AXS (para gravel).
+**Diferencial SRAM:** todos os grupos AXS usam baterias intercambiáveis e pilhas CR2032 nos câmbios. O eco-sistema AXS permite pareamento com <a href="https://thebikershop.com.br/componentes/medidor-de-potencia/" class="thebiker-product-link" target="_blank" rel="noopener">medidores de potência</a> Quarq e amortecedores de mesa Reverb AXS (para gravel).
 
 ### Campagnolo Super Record EPS
 
@@ -111,7 +111,7 @@ A Campagnolo mantém presença nichada. O Super Record EPS Wireless (lançado 20
 - **Mavic Cosmic SL 45**: all-round carbono, 1.490 g, ~R$ 8.500 (importado)
 - **Reynolds BlackLabel 60**: aero, 1.645 g, ~R$ 9.000
 
-**Tendência 2026:** rodas sem câmara (tubeless) se tornaram padrão na média. Aros mais largos (21-23 mm internos) permitem pneus 28-30 mm com pressão reduzida, melhorando conforto sem perder aerodinâmica.
+**Tendência 2026:** rodas sem câmara (tubeless) se tornaram padrão na média. Aros mais largos (21-23 mm internos) permitem <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> 28-30 mm com pressão reduzida, melhorando conforto sem perder aerodinâmica.
 
 ## Sensores de Potência
 
@@ -122,9 +122,9 @@ A Campagnolo mantém presença nichada. O Super Record EPS Wireless (lançado 20
 - **Garmin Rally RK200**: Keo, bilateral. ~US$ 1.000 (R$ 6.000)
 - **Favero Assioma Duo**: unilateral, ampla compatibilidade de sapatas, boa relação custo-benefício. ~US$ 700 (R$ 4.200)
 
-**Eixo de movimento central (spider):**
+**Eixo de <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> (spider):**
 - **SRAM Quarq DZero**: padrão 4-braços, ±1,5%. ~US$ 500 (R$ 3.000)
-- **Shimano FC-RX810**: integrado ao pedivela 105/Ultegra. ~US$ 650 (R$ 3.900)
+- **Shimano FC-RX810**: integrado ao <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivela</a> 105/Ultegra. ~US$ 650 (R$ 3.900)
 
 **Pedivela completo:**
 - **SRAM Red AXS Power Meter**: integrado, ±1,5%. ~US$ 1.200 (R$ 7.200)

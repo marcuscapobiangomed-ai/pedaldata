@@ -24,7 +24,7 @@ sources:
     accessed_at: "2026-07-19"
 ---
 
-Com base no catálogo do The Biker Blog, analisamos os pesos declarados de **30 bicicletas de estrada** vendidas no Brasil em 2026 para entender como material, faixa de preço e categoria influenciam o peso.
+Com base no catálogo do The Biker Blog, analisamos os pesos declarados de **30 <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bicicletas de estrada</a>** vendidas no Brasil em 2026 para entender como material, faixa de preço e categoria influenciam o peso.
 
 ## Metodologia
 

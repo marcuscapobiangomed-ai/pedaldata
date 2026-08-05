@@ -51,7 +51,7 @@ thumbnail: "/assets/img/posts/melhores-capacetes-2026/thumb-480.webp"
 
 ## Introdução
 
-Escolher um capacete para ciclismo em 2026 envolve mais do que cor e design. As tecnologias de segurança evoluíram: MIPS, Kineticore e WaveCel são sistemas que reduzem as forças rotacionais no cérebro em caso de impacto.
+Escolher um <a href="https://thebikershop.com.br/vestuario/capacetes/" class="thebiker-product-link" target="_blank" rel="noopener">capacete</a> para ciclismo em 2026 envolve mais do que cor e design. As tecnologias de segurança evoluíram: MIPS, Kineticore e WaveCel são sistemas que reduzem as forças rotacionais no cérebro em caso de impacto.
 
 Este guia organiza os melhores modelos por faixa de preço e categoria, com base em reviews e testes independentes.
 

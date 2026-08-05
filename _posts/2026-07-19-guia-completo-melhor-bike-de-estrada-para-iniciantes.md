@@ -59,7 +59,7 @@ thumbnail: "/assets/img/posts/guia-completo-melhor-bike-iniciantes/thumb-480.web
 
 ## Introdução
 
-Comprar a primeira bicicleta de estrada é uma decisão que mistura empolgação e dúvida. Qual o orçamento ideal? Vale mais comprar nova ou usada? Quais marcas estão disponíveis no Brasil?
+Comprar a primeira <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bicicleta de estrada</a> é uma decisão que mistura empolgação e dúvida. Qual o orçamento ideal? Vale mais comprar nova ou usada? Quais marcas estão disponíveis no Brasil?
 
 Este guia reúne o que você precisa saber para tomar essa decisão com informação concreta — preços verificados em lojas brasileiras em julho de 2026, especificações reais e critérios claros de escolha.
 
@@ -74,7 +74,7 @@ O orçamento para uma bike de estrada de entrada no Brasil em 2026 varia de R$ 2
 | R$ 5.000 - R$ 7.000 | Grupo Shimano Sora, garfo de carbono, freio a disco | Triban RC500, CAAD Optimo 3 |
 | R$ 7.000 - R$ 10.000 | Grupo Tiagra ou 105, quadro premium, disco | Van Rysel EDR AF, Caloi Strada Racing, Trek Domane AL 2 |
 
-**Regra prática:** sua primeira bike deve custar entre 60% e 70% do orçamento total. O restante vai para equipamentos de segurança (capacete, luzes) e manutenção básica.
+**Regra prática:** sua primeira bike deve custar entre 60% e 70% do orçamento total. O restante vai para equipamentos de segurança (<a href="https://thebikershop.com.br/vestuario/capacetes/" class="thebiker-product-link" target="_blank" rel="noopener">capacete</a>, luzes) e manutenção básica.
 
 ## O que considerar ao escolher
 
@@ -115,7 +115,7 @@ Grupo Microshift 3x8, quadro de alumínio, garantia vitalícia do quadro. Vantag
 ### De R$ 3.500 a R$ 5.000
 
 **Oggi Velloce Disc 2026 — R$ 4.999**
-Grupo Shimano Claris 16v, garfo de carbono, freio a disco, pneus 700x32c. É a opção mais completa da faixa pelo garfo de carbono e freio a disco. Peso de 11,7 kg.
+Grupo Shimano Claris 16v, garfo de carbono, freio a disco, <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> 700x32c. É a opção mais completa da faixa pelo garfo de carbono e freio a disco. Peso de 11,7 kg.
 
 **Caloi Strada — R$ 4.850 a R$ 5.399**
 Grupo Shimano Claris 16v, quadro de alumínio 6061. Marca tradicional com assistência em todo o Brasil. Fica na fronteira dos R$ 5.000.
@@ -131,7 +131,7 @@ Grupo Shimano Sora 18v, quadro SmartForm de alumínio, garfo de carbono. A quali
 ### De R$ 7.000 a R$ 10.000
 
 **Caloi Strada Racing — R$ 7.550 a R$ 8.399**
-Grupo Shimano Tiagra 20v, garfo de carbono, quadro com movimento central BB30. É a opção nacional com o melhor grupo pelo menor preço.
+Grupo Shimano Tiagra 20v, garfo de carbono, quadro com <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> BB30. É a opção nacional com o melhor grupo pelo menor preço.
 
 **Trek Domane AL 2 Gen 4 — R$ 8.999**
 Grupo Shimano Claris 16v, garfo de carbono, freio a disco, garantia vitalícia do quadro. O grupo Claris é básico para o preço, mas a qualidade do quadro e o suporte Trek justificam para quem prioriza a marca.
