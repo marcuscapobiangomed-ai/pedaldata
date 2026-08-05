@@ -54,8 +54,21 @@
       "summary": "Procedimento para avaliar alinhamento, indexação, bateria, corrente, cassete e comportamento das transmissões Di2 e AXS em uso real.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "scheduled",
+      "productIds": [],
+      "postPath": "_posts/drafts/2026-08-13-cambio-eletronico-ajuste-diagnostico.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T13:26:00.968Z"
+      },
+      "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json"
     },
     {
       "day": 5,

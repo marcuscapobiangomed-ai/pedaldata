@@ -1,0 +1,95 @@
+{
+  "slug": "cambio-eletronico-ajuste-diagnostico",
+  "title": "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "market": "Brasil",
+  "generated_at": "2026-08-05",
+  "status": "pesquisa_concluida",
+  "sources": [
+    {
+      "name": "Shimano Di2 Rear Derailleur Dealer's Manual (PDF)",
+      "url": "https://si.shimano.com/en/pdfs/dm/RARD010/DM-RARD010-04-ENG.pdf",
+      "accessed": "2026-08-05",
+      "type": "manufacturer",
+      "id": "shimano-di2-rear-manual"
+    },
+    {
+      "name": "Shimano E‑TUBE Project – Software de Configuração e Firmware",
+      "url": "https://bike.shimano.com/e-tube/project.html",
+      "accessed": "2026-08-05",
+      "type": "manufacturer",
+      "id": "shimano-etube-project"
+    },
+    {
+      "name": "The Biker Shop – Como Otimizar as Baterias do Seu Câmbio Eletrônico",
+      "url": "https://thebikershop.com.br/blog/posts/como-otimizar-as-baterias-do-seu-cmbio-eletrnico-2a1b0c6ff5fa",
+      "accessed": "2026-08-05",
+      "type": "store",
+      "id": "thebiker-bateria-cambio"
+    }
+  ],
+  "editorialPriority": "P1",
+  "confirmed_facts": {
+    "fact1": {
+      "description": "Para entrar no modo de ajuste do câmbio traseiro Di2, pressione e segure o botão de função por 2‑5 s; o LED muda para amarelo indicando que o sistema está em modo de ajuste.",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact2": {
+      "description": "O ajuste do parafuso B (B‑screw) deve ser feito com a corrente na menor coroa e maior pinhão; aperte o parafuso até eliminar qualquer interferência entre o pinhão e a gaiola do câmbio.",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact3": {
+      "description": "Os limites alto e baixo são ajustados girando os parafusos de limite após posicionar o câmbio no maior ou menor pinhão, respectivamente, e deixando um pequeno folga de sobre‑carga (um giro anti‑horário no limite alto).",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact4": {
+      "description": "O aplicativo E‑TUBE PROJECT permite atualizar firmware, configurar parâmetros (ex.: intervalo de troca, modo sincronizado) e diagnosticar códigos de erro do sistema Di2.",
+      "sourceIds": [
+        "shimano-di2-rear-manual",
+        "shimano-etube-project"
+      ]
+    },
+    "fact5": {
+      "description": "O LED do câmbio indica o nível de carga da bateria: verde = 51‑100 %, verde piscante = 26‑50 %, vermelho = 1‑25 %.",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact6": {
+      "description": "Se o câmbio parar de mudar de marcha, verifique o emparelhamento (system pairing), a carga da bateria e a conexão do cabo elétrico conforme a tabela de solução de problemas.",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact7": {
+      "description": "Após um impacto forte, o recurso de proteção RD pode desativar temporariamente o motor; para resetá‑lo, gire o pedal e troque da maior para a menor coroa (ou vice‑versa) enquanto o câmbio está em modo de ajuste.",
+      "sourceIds": [
+        "shimano-di2-rear-manual"
+      ]
+    },
+    "fact8": {
+      "description": "Baterias de íons de lítio usadas nos grupos Di2 não têm efeito memória; carregá‑las a qualquer momento e armazená‑las com carga intermediária prolonga sua vida útil.",
+      "sourceIds": [
+        "thebiker-bateria-cambio"
+      ]
+    }
+  },
+  "limitations": [
+    "O guia foca exclusivamente no sistema Shimano Di2; procedimentos específicos de SRAM eTap AXS não foram abordados.",
+    "As recomendações de ajuste são baseadas nos manuais de 2023‑2024; versões posteriores podem alterar valores de torque ou procedimentos.",
+    "Condições reais de uso (ex.: sujeira, desgaste de corrente, temperatura extrema) podem exigir ajustes adicionais não cobertos pelos documentos oficiais."
+  ],
+  "grounding": {
+    "queries": [],
+    "sourceCount": 3,
+    "provider": "groq-browser-search"
+  }
+}
