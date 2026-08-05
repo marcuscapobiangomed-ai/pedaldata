@@ -18,6 +18,38 @@ function allowedSource(url, raceCoverage) {
   return [...PRODUCT_DOMAINS, ...(raceCoverage ? SPORT_DOMAINS : [])].some((domain) => host === domain || host.endsWith(`.${domain}`))
 }
 
+function internalResearch({ item, internalEvidence, today, contentType, reason }) {
+  const sourceMap = new Map()
+  for (const record of internalEvidence) {
+    for (const source of record.sources || []) {
+      if (!source.url || !allowedSource(source.url, false)) continue
+      sourceMap.set(source.url, {
+        name: source.name,
+        type: source.type || 'official-website',
+        url: source.url,
+        accessed: source.accessedAt || today,
+      })
+    }
+  }
+  const sources = [...sourceMap.values()]
+  if (sources.length === 0) throw new Error('Fallback interno bloqueado: nenhuma fonte oficial permitida')
+  return validateResearch({
+    slug: item.id,
+    title: item.title,
+    content_type: contentType,
+    review_method: 'desk-research',
+    tested_by_pedaldata: false,
+    market: 'Brasil',
+    generated_at: today,
+    status: 'pesquisa_concluida',
+    editorialPriority: 'P1',
+    confirmed_facts: Object.fromEntries(internalEvidence.map((record) => [record.id, record.facts || {}])),
+    limitations: [`Pesquisa web indisponível nesta execução (${reason}); conteúdo limitado à base interna com fontes oficiais.`],
+    sources,
+    grounding: { queries: [], sourceCount: sources.length, fallback: 'internal-product-knowledge' },
+  })
+}
+
 export class GroundedResearcher {
   constructor(env = process.env, fetchImpl = fetch) {
     this.env = env
@@ -48,7 +80,13 @@ export class GroundedResearcher {
       headers: { 'x-goog-api-key': this.env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0, responseMimeType: 'application/json', maxOutputTokens: 6000 } })
     })
-    if (!response.ok) throw new Error(`Gemini grounded research: ${response.status} - ${(await response.text()).slice(0, 700)}`)
+    if (!response.ok) {
+      const detail = (await response.text()).slice(0, 700)
+      if (!raceCoverage && [403, 404, 429].includes(response.status)) {
+        return internalResearch({ item, internalEvidence, today, contentType, reason: `Gemini ${response.status}` })
+      }
+      throw new Error(`Gemini grounded research: ${response.status} - ${detail}`)
+    }
     const payload = await response.json()
     const text = payload.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('')
     const research = extractJson(text)

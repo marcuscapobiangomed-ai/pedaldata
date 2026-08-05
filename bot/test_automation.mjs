@@ -34,6 +34,14 @@ const researcher = new GroundedResearcher({ GEMINI_API_KEY: 'test', GEMINI_RESEA
 const grounded = await researcher.research({ item: campaign.items[0], internalEvidence: [], today: '2026-08-04' });
 assert.equal(grounded.status, 'pesquisa_concluida');
 assert.equal(grounded.sources.length, 1);
+const fallbackResearcher = new GroundedResearcher({ GEMINI_API_KEY: 'test' }, async () => ({ ok: false, status: 429, text: async () => 'quota' }));
+const fallbackGrounded = await fallbackResearcher.research({
+  item: campaign.items[0],
+  internalEvidence: [{ id: 'spark', facts: { suspension: '120 mm' }, sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessedAt: '2026-08-04' }] }],
+  today: '2026-08-05',
+});
+assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
+assert.equal(fallbackGrounded.sources.length, 1);
 
 const finalizeRoot = path.join(root, "finalize");
 await fs.mkdir(path.join(finalizeRoot, "bot"), { recursive: true });
