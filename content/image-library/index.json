@@ -1,24 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-05T17:12:11.852Z",
+  "updatedAt": "2026-08-05T18:15:15.964Z",
   "assets": [
-    {
-      "assetId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7",
-      "sha256": "85b96f62f7d152996b173a6fd0f6bea6f679df8d6dc9d43c93e00d357ec61202",
-      "perceptualHash": "0000000000000000001011001111111111111111111001110000000000000000",
-      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
-      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585-01767c407eabe639a917812049642571-640-0.webp",
-      "productId": "bicicleta-scott-spark-rc-world-cup-2027",
-      "productName": "Bicicleta Scott Spark RC Team 2027",
-      "rightsPolicyId": "thebiker-official-editorial-v1",
-      "uses": [
-        {
-          "postId": "sag-spark-rc-ajuste-preciso",
-          "position": "hero",
-          "usedAt": "2026-08-05T12:00:00.000Z"
-        }
-      ]
-    },
     {
       "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
       "sha256": "def10da96a6308be01d2e869b59096d0e3454e8cbc2068d5095c15196d740a85",
@@ -133,6 +116,23 @@
       "uses": [
         {
           "postId": "reserva-rolamentos-diagnostico",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-bicicleta-scott-spark-rc-expert-2027-6ae107de42",
+      "sha256": "6ae107de42c2ab5bebcc0852e22a2bb277bac9445dd620bf821996305b8ce419",
+      "perceptualHash": "0000000000000000001011001111111111111111111001110000000000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275478350-71a59ea5d65db517c217812055658644-640-0.webp",
+      "productId": "bicicleta-scott-spark-rc-expert-2027",
+      "productName": "Bicicleta Scott Spark RC Expert 2027",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "sag-spark-rc-ajuste-preciso",
           "position": "hero",
           "usedAt": "2026-08-05T12:00:00.000Z"
         }

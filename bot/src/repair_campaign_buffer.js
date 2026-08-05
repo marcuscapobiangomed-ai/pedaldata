@@ -62,7 +62,6 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
           summary: item.summary,
           auditFailure: item.blockReason,
           research,
-          currentArticle: parsed.content,
           requirements: [
             "entre 1600 e 2200 palavras uteis; conte antes de responder",
             "ao menos 5 subtitulos H2 em Markdown",

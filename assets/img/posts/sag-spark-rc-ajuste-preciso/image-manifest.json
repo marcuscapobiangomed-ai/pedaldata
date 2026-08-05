@@ -6,18 +6,18 @@
   "factualSubject": "exact-product",
   "editorialScope": "portfolio",
   "purpose": "Ilustrar SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão com produto real do catálogo TheBiker.",
-  "alt": "Bicicleta Scott Spark RC Team 2027 em fotografia oficial da TheBiker Shop",
-  "caption": "Bicicleta Scott Spark RC Team 2027, conforme catálogo oficial da TheBiker Shop.",
+  "alt": "Bicicleta Scott Spark RC Expert 2027 em fotografia oficial da TheBiker Shop",
+  "caption": "Bicicleta Scott Spark RC Expert 2027, conforme catálogo oficial da TheBiker Shop.",
   "credit": "TheBiker Shop",
   "containsText": false,
   "aiGenerated": false,
-  "assetId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7",
-  "sha256": "85b96f62f7d152996b173a6fd0f6bea6f679df8d6dc9d43c93e00d357ec61202",
+  "assetId": "thebiker-bicicleta-scott-spark-rc-expert-2027-6ae107de42",
+  "sha256": "6ae107de42c2ab5bebcc0852e22a2bb277bac9445dd620bf821996305b8ce419",
   "perceptualHash": "0000000000000000001011001111111111111111111001110000000000000000",
   "preserveFullProduct": true,
   "matchedProduct": {
-    "id": "bicicleta-scott-spark-rc-world-cup-2027",
-    "name": "Bicicleta Scott Spark RC Team 2027",
+    "id": "bicicleta-scott-spark-rc-expert-2027",
+    "name": "Bicicleta Scott Spark RC Expert 2027",
     "sku": null,
     "matchLevel": "exact-id"
   },
@@ -25,7 +25,7 @@
     "Scott"
   ],
   "depictedProducts": [
-    "Bicicleta Scott Spark RC Team 2027"
+    "Bicicleta Scott Spark RC Expert 2027"
   ],
   "focalPoint": {
     "x": 0.5,
@@ -34,8 +34,8 @@
   "source": {
     "type": "thebiker",
     "name": "TheBiker Shop",
-    "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
-    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585-01767c407eabe639a917812049642571-640-0.webp",
+    "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275478350-71a59ea5d65db517c217812055658644-640-0.webp",
     "obtainedAt": "2026-08-05",
     "license": "Uso editorial no blog oficial TheBiker",
     "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",

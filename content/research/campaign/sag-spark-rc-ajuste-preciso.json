@@ -14,6 +14,13 @@
       "accessed": "2026-08-05",
       "type": "store",
       "id": "thebiker-spark-rc-travel"
+    },
+    {
+      "name": "Scott Spark RC 2027 — Manual oficial",
+      "url": "https://static.scott-sports.com/image/upload/v1781076414/Spark_RC_Manual_A4_2027_Scott-Sports_EN.pdf",
+      "accessed": "2026-08-05",
+      "type": "manufacturer",
+      "id": "scott-spark-rc-manual"
     }
   ],
   "editorialPriority": "P1",
@@ -35,7 +42,7 @@
       ]
     },
     "sag.recommended_range_percent": {
-      "value": "20‑25",
+      "value": 25,
       "unit": "%",
       "status": "confirmed",
       "sourceIds": [
@@ -43,7 +50,7 @@
       ]
     },
     "sag.recommended_range_mm": {
-      "value": "24‑30",
+      "value": 30,
       "unit": "mm",
       "status": "confirmed",
       "sourceIds": [
@@ -52,7 +59,7 @@
       ]
     },
     "sag.adjustment_steps": {
-      "value": "1. Abra a válvula do amortecedor com bomba de choque; 2. Comprima 20 % do curso 10 vezes para equalizar; 3. Sente‑se na bike na posição de pilotagem normal; 4. Verifique a posição da marca de sag no guia; 5. Ajuste a pressão até que a marca fique dentro da faixa de 20‑25 % do curso.",
+      "value": "1. Alinhe a bieleta do movimento central e o anel de SAG na marca de 0%; 2. Sente-se suavemente em posição neutra, sem balançar, usando todo o equipamento habitual; 3. Levante-se sem comprimir nem provocar retorno brusco; 4. Compare a posição retida pelo anel com a escala; 5. Ajuste a pressão do amortecedor até atingir os 25% recomendados.",
       "unit": null,
       "status": "confirmed",
       "sourceIds": [
@@ -60,11 +67,11 @@
       ]
     },
     "sag.guide_location": {
-      "value": "Visível na região do pedalier (bottom bracket)",
+      "value": "Bieleta e anel de SAG localizados na região do movimento central",
       "unit": null,
       "status": "confirmed",
       "sourceIds": [
-        "brujulabike-article"
+        "scott-spark-rc-manual"
       ]
     },
     "shock.model": {
@@ -85,13 +92,13 @@
     }
   },
   "limitations": [
-    "Os valores de sag são baseados em recomendações genéricas da Scott; ajustes finos podem variar conforme o peso, estilo de pilotagem e tipo de terreno.",
-    "A pressão exata do amortecedor não é especificada nos documentos consultados; o usuário deve usar um medidor de pressão e ajustar iterativamente.",
-    "A localização da guia de sag pode mudar em versões futuras da Spark RC ou em modelos com diferentes kits de suspensão."
+    "O manual 2027 recomenda 25% de SAG, mas não fornece uma pressão universal em PSI.",
+    "A pressão deve ser ajustada iterativamente porque massa total e equipamento alteram a carga estática.",
+    "O procedimento documentado vale para a arquitetura Spark RC 2027 e não deve ser transferido automaticamente para outras gerações."
   ],
   "grounding": {
     "queries": [],
-    "sourceCount": 1,
+    "sourceCount": 2,
     "provider": "groq-browser-search"
   }
 }

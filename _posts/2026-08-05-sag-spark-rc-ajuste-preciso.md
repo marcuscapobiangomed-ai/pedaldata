@@ -30,8 +30,8 @@ thumbnail: "/assets/img/posts/sag-spark-rc-ajuste-preciso/card-640.webp"
 image_manifest_version: 2
 image_asset_type: "official-product-photo"
 image_status: "approved"
-image_alt: "Bicicleta Scott Spark RC Team 2027 em fotografia oficial da TheBiker Shop"
-image_caption: "Bicicleta Scott Spark RC Team 2027, conforme catálogo oficial da TheBiker Shop."
+image_alt: "Bicicleta Scott Spark RC Expert 2027 em fotografia oficial da TheBiker Shop"
+image_caption: "Bicicleta Scott Spark RC Expert 2027, conforme catálogo oficial da TheBiker Shop."
 image_credit: "TheBiker Shop"
 image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
@@ -41,11 +41,15 @@ context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/"
 portfolio_verified_at: "2026-08-05"
 editorial_status: "published"
-status: "scheduled"
+status: "published"
 sources:
   - name: "The Biker Shop – Bicicleta Scott Spark RC Expert 2027"
     type: "store"
     url: "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/"
+    accessed_at: "2026-08-05"
+  - name: "Scott Spark RC 2027 — Manual oficial"
+    type: "manufacturer"
+    url: "https://static.scott-sports.com/image/upload/v1781076414/Spark_RC_Manual_A4_2027_Scott-Sports_EN.pdf"
     accessed_at: "2026-08-05"
 ---
 Análise baseada em documentação oficial da Scott e especificações do produto confirmadas no portfólio TheBiker. Nenhum teste prático foi realizado.

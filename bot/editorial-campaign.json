@@ -16,15 +16,15 @@
       "freshness": "evergreen",
       "status": "published",
       "productIds": [
-        "bicicleta-scott-spark-rc-world-cup-2027"
+        "bicicleta-scott-spark-rc-expert-2027"
       ],
       "postPath": "_posts/2026-08-05-sag-spark-rc-ajuste-preciso.md",
       "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json",
       "imageStatus": "approved",
       "imageAssetIds": [
-        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7"
+        "thebiker-bicicleta-scott-spark-rc-expert-2027-6ae107de42"
       ],
-      "imageValidatedAt": "2026-08-05T17:09:27.077Z",
+      "imageValidatedAt": "2026-08-05T18:15:15.973Z",
       "publishedAt": "2026-08-05T15:41:49.964Z",
       "attempts": 0,
       "aiReview": {
