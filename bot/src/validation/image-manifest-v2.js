@@ -55,6 +55,15 @@ export const ImageManifestV2Schema = z.object({
   sha256: z.string().regex(/^[a-f0-9]{64}$/).optional(),
   perceptualHash: z.string().regex(/^[01]{64}$/).optional(),
   preserveFullProduct: z.boolean().default(false),
+  composition: z.object({
+    strategy: z.literal("trim-contain-safe-area"),
+    safeArea: z.number().min(0.8).max(0.95),
+    trimThreshold: z.number().int().min(1).max(50),
+    sourceWidth: z.number().int().positive(),
+    sourceHeight: z.number().int().positive(),
+    subjectWidth: z.number().int().positive(),
+    subjectHeight: z.number().int().positive(),
+  }).optional(),
   matchedProduct: z.object({
     id: z.string().min(3),
     name: z.string().min(3),
@@ -80,6 +89,13 @@ export const ImageManifestV2Schema = z.object({
     checks: z.array(z.string()).default([]),
   }).optional(),
 }).superRefine((manifest, ctx) => {
+  if (manifest.preserveFullProduct && !manifest.composition) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["composition"],
+      message: "Foto de produto precisa registrar o reenquadramento e a área segura.",
+    });
+  }
   if (manifest.aiGenerated && ["exact-product", "real-event"].includes(manifest.factualSubject)) {
     ctx.addIssue({
       code: "custom",

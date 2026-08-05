@@ -15,6 +15,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: "npm"
+          cache-dependency-path: bot/package-lock.json
+
+      - name: Install image validation dependencies
+        run: npm ci
+        working-directory: bot
 
       - name: Validate post images
         run: node scripts/validate-images.js

@@ -26,7 +26,12 @@ async function productImageUrls(product, config, fetchImpl) {
   }
   const response = await fetchImpl(page, { headers: { "user-agent": "TheBikerBlogMediaBot/1.0" }, signal: AbortSignal.timeout(20000) });
   if (!response.ok) throw new Error(`Página do produto: HTTP ${response.status}`);
-  return [...new Set([...product.images.map(preferLargestStoreImage), ...galleryUrls(await response.text())])];
+  const gallery = galleryUrls(await response.text());
+  const withLargestFirst = (urls) => urls.flatMap((url) => {
+    const largest = preferLargestStoreImage(url);
+    return largest === url ? [url] : [largest, url];
+  });
+  return [...new Set([...withLargestFirst(gallery), ...withLargestFirst(product.images)])];
 }
 
 export async function produceOfficialCampaignImage({ root, item, approvedAt, fetchImpl = fetch, force = false }) {

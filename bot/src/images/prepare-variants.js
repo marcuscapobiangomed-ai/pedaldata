@@ -9,6 +9,10 @@ const VARIANTS = {
   card: { file: "card-640.webp", width: 640, height: 360, maxKB: 100, quality: 80 },
 };
 
+const PRODUCT_BACKGROUND = { r: 246, g: 246, b: 246, alpha: 1 };
+const PRODUCT_SAFE_AREA = 0.9;
+const PRODUCT_TRIM_THRESHOLD = 16;
+
 function gravityFrom(point = { x: 0.5, y: 0.5 }) {
   const horizontal = point.x < 0.34 ? "left" : point.x > 0.66 ? "right" : "";
   const vertical = point.y < 0.34 ? "top" : point.y > 0.66 ? "bottom" : "";
@@ -17,22 +21,64 @@ function gravityFrom(point = { x: 0.5, y: 0.5 }) {
 
 export async function prepareImageVariants({ input, outputDirectory, manifest }) {
   const gravity = gravityFrom(manifest.focalPoint);
+  const preserveFullProduct = manifest.preserveFullProduct === true;
+  let productSource = null;
+  let composition = null;
+
+  if (preserveFullProduct) {
+    const normalized = await sharp(input)
+      .rotate()
+      .flatten({ background: PRODUCT_BACKGROUND })
+      .toBuffer({ resolveWithObject: true });
+    const trimmed = await sharp(normalized.data)
+      .trim({ threshold: PRODUCT_TRIM_THRESHOLD })
+      .toBuffer({ resolveWithObject: true });
+    const trimIsUsable = trimmed.info.width >= 64 && trimmed.info.height >= 64;
+    productSource = trimIsUsable ? trimmed.data : normalized.data;
+    const productInfo = trimIsUsable ? trimmed.info : normalized.info;
+    composition = {
+      strategy: "trim-contain-safe-area",
+      safeArea: PRODUCT_SAFE_AREA,
+      trimThreshold: PRODUCT_TRIM_THRESHOLD,
+      sourceWidth: normalized.info.width,
+      sourceHeight: normalized.info.height,
+      subjectWidth: productInfo.width,
+      subjectHeight: productInfo.height,
+    };
+  }
+
   await fs.mkdir(outputDirectory, { recursive: true });
   for (const [name, config] of Object.entries(VARIANTS)) {
     const output = path.join(outputDirectory, config.file);
-    const preserveFullProduct = manifest.preserveFullProduct === true;
-    let pipeline = sharp(input)
-      .rotate()
-      .resize(config.width, config.height, {
-        fit: preserveFullProduct ? "contain" : "cover",
-        position: gravity,
-        withoutEnlargement: preserveFullProduct,
-        background: preserveFullProduct ? { r: 246, g: 246, b: 246, alpha: 1 } : undefined,
-      });
+    let pipeline;
     if (preserveFullProduct) {
-      // Product PNG/WebP files commonly carry transparency. Flatten it so cards
-      // never inherit a black or inconsistent background from the renderer.
-      pipeline = pipeline.flatten({ background: { r: 246, g: 246, b: 246 } });
+      const innerWidth = Math.round(config.width * PRODUCT_SAFE_AREA);
+      const innerHeight = Math.round(config.height * PRODUCT_SAFE_AREA);
+      const left = Math.floor((config.width - innerWidth) / 2);
+      const top = Math.floor((config.height - innerHeight) / 2);
+      pipeline = sharp(productSource)
+        .resize(innerWidth, innerHeight, {
+          fit: "contain",
+          position: gravity,
+          kernel: sharp.kernel.lanczos3,
+          withoutEnlargement: false,
+          background: PRODUCT_BACKGROUND,
+        })
+        .extend({
+          left,
+          right: config.width - innerWidth - left,
+          top,
+          bottom: config.height - innerHeight - top,
+          background: PRODUCT_BACKGROUND,
+        })
+        .sharpen({ sigma: 0.65, m1: 0.45, m2: 0.2 });
+    } else {
+      pipeline = sharp(input)
+        .rotate()
+        .resize(config.width, config.height, {
+          fit: "cover",
+          position: gravity,
+        });
     }
     await pipeline
       .webp({ quality: config.quality, effort: 6 })
@@ -46,6 +92,7 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
 
   return {
     ...manifest,
+    ...(composition ? { composition } : {}),
     files: Object.fromEntries(
       Object.entries(VARIANTS).map(([name, config]) => [
         name,
