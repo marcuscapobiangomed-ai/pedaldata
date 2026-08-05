@@ -48,7 +48,7 @@ thumbnail: "/assets/img/posts/tamanho-certo-bike-estrada/thumb-480.webp"
 
 ## Introdução
 
-Escolher o tamanho certo do quadro é a decisão mais importante na compra de uma bike de estrada. Um quadro inadequado causa dores nas costas, joelhos e pescoço, além de comprometer a eficiência da pedalada e o controle da bike.
+Escolher o tamanho certo do quadro é a decisão mais importante na compra de uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a>. Um quadro inadequado causa dores nas costas, joelhos e pescoço, além de comprometer a eficiência da pedalada e o controle da bike.
 
 Diferente de roupas ou tênis, o "tamanho" da bike varia entre fabricantes — uma 54 da Specialized pode ter geometria diferente de uma 54 da Cervélo. Por isso, altura do ciclista é um guia inicial, mas não deve ser o único critério.
 
@@ -69,7 +69,7 @@ Esta tabela é um ponto de partida. Consulte sempre a tabela de geometria do fab
 
 A altura por si só não define o tamanho ideal. Dois ciclistas de 1,75 m podem precisar de tamanhos diferentes dependendo da proporção entre tronco e pernas. As medidas mais importantes em uma geometria moderna são:
 
-- **Stack (altura empilhada):** distância vertical do movimento central ao topo do tubo da caixa de direção. Quanto maior o stack, mais ereta (confortável) a posição.
+- **Stack (altura empilhada):** distância vertical do <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> ao topo do tubo da caixa de direção. Quanto maior o stack, mais ereta (confortável) a posição.
 - **Reach (alcance):** distância horizontal do movimento central ao topo do caixa de direção. Quanto maior o reach, mais alongada (agressiva) a posição.
 
 ### Como interpretar
@@ -86,7 +86,7 @@ Um ciclista de 1,78 m com pernas longas e tronco curto pode precisar de um quadr
 
 ## Como Medir seu Inseam
 
-O inseam (altura da virilha ao chão) é usado para calcular a altura ideal do selim e, indiretamente, o tamanho do quadro:
+O inseam (altura da virilha ao chão) é usado para calcular a altura ideal do <a href="https://thebikershop.com.br/componentes/selim/" class="thebiker-product-link" target="_blank" rel="noopener">selim</a> e, indiretamente, o tamanho do quadro:
 
 1. Fique descalço, de costas para a parede, com as pernas afastadas ~15 cm
 2. Use um livro ou bloco entre as pernas, subindo até sentir pressão na virilha (simulando a pressão do selim)
@@ -117,7 +117,7 @@ Cada marca tem sua filosofia de geometria. Uma "54" pode ser mais agressiva ou m
 
 **Test ride:** Sempre que possível, pedale a bike antes de comprar. Lojas como Bert Bike Store (BH), AllSports (SP) e Demarchi (SC) oferecem test ride.
 
-**Bike fit profissional:** Para quem pedala mais de 5 horas por semana, um bike fit profissional (R$ 300-800) é o melhor investimento depois da bike. Ajusta altura e recuo do selim, altura e inclinação do guidão, posição das manetes e até o comprimento da mesa.
+**Bike fit profissional:** Para quem pedala mais de 5 horas por semana, um bike fit profissional (R$ 300-800) é o melhor investimento depois da bike. Ajusta altura e recuo do selim, altura e inclinação do <a href="https://thebikershop.com.br/componentes/guidao/" class="thebiker-product-link" target="_blank" rel="noopener">guidão</a>, posição das manetes e até o comprimento da mesa.
 
 ## Erros Comuns ao Escolher Tamanho
 

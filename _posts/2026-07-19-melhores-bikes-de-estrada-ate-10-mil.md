@@ -117,7 +117,7 @@ Grupo Shimano Sora, quadro de alumínio 6069 hidroformado (mais rígido que o 60
 
 ### 4. Caloi Strada Racing — de R$ 7.550 a R$ 8.399
 
-Grupo Shimano Tiagra 20v (2x10), garfo de carbono, quadro com movimento central BB30. É a opção nacional mais acessível com grupo Tiagra.
+Grupo Shimano Tiagra 20v (2x10), garfo de carbono, quadro com <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> BB30. É a opção nacional mais acessível com grupo Tiagra.
 
 **Para quem é:** quem quer Tiagra pelo menor preço possível.
 

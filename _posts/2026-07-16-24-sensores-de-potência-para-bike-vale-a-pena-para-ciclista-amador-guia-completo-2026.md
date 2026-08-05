@@ -59,7 +59,7 @@ Com o crescente avanço da tecnologia e a busca por otimização no desempenho, 
 
 Um sensor de potência é um dispositivo que mede a força que o ciclista aplica aos pedais, convertendo essa força em uma leitura de watts. Com essas informações, ciclistas podem monitorar seu desempenho, ajustar treinos e melhorar a eficiência das pedaladas.
 
-Os sensores podem ser integrados em pedais, pedivelas ou outras partes da bicicleta, oferecendo diferentes maneiras de medir a potência.
+Os sensores podem ser integrados em pedais, <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivelas</a> ou outras partes da bicicleta, oferecendo diferentes maneiras de medir a potência.
 
 ## Como Funciona um Sensor de Potência?
 

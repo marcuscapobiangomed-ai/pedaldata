@@ -55,7 +55,7 @@ sources:
 
 ## Por que o SAG de fábrica não é um número mágico
 
-A recomendação de 25% de SAG que aparece no manual da Spark RC 2027 é um ponto de partida sólido, não um destino imutável. Esse valor foi calibrado para preservar a geometria de pedivela baixo e manter a suspensão operando na faixa mais sensível do amortecedor Fox Float Factory EVOL Kashima. Quando você senta na bicicleta com todo o equipamento habitual e o anel de SAG estaciona exatamente nos 30 mm de curso consumido, a suspensão traseira entrega o compromisso projetado entre tração e eficiência de pedalada.
+A recomendação de 25% de SAG que aparece no manual da Spark RC 2027 é um ponto de partida sólido, não um destino imutável. Esse valor foi calibrado para preservar a geometria de <a href="https://thebikershop.com.br/componentes/pedivela/" class="thebiker-product-link" target="_blank" rel="noopener">pedivela</a> baixo e manter a <a href="https://thebikershop.com.br/componentes/suspensao/" class="thebiker-product-link" target="_blank" rel="noopener">suspensão</a> operando na faixa mais sensível do amortecedor Fox Float Factory EVOL Kashima. Quando você senta na bicicleta com todo o equipamento habitual e o anel de SAG estaciona exatamente nos 30 mm de curso consumido, a suspensão traseira entrega o compromisso projetado entre tração e eficiência de pedalada.
 
 O que o manual não entrega — e nenhum fabricante entrega — é a pressão exata em PSI. A massa total do conjunto ciclista mais equipamento altera a carga estática de forma imprevisível. Dois ciclistas com o mesmo peso corporal podem exigir pressões diferentes por causa de mochila de hidratação, ferramentas, vestimenta ou simplesmente pela distribuição de massa sobre a bike. Por isso o procedimento documentado é iterativo: você ajusta, mede, ajusta de novo até o anel coincidir com a marca de 25%.
 
@@ -63,11 +63,11 @@ Ignorar essa etapa e copiar a pressão de outro ciclista é o caminho mais curto
 
 ## O procedimento de cinco passos que elimina achismos
 
-O manual da Scott para a linha Spark RC 2027 descreve uma sequência que parece simples, mas cada etapa esconde detalhes que fazem diferença no resultado final. A bieleta e o anel de SAG estão posicionados na região do movimento central, um local que exige que você se agache ou peça ajuda para fazer a leitura sem desmontar da bike.
+O manual da Scott para a linha Spark RC 2027 descreve uma sequência que parece simples, mas cada etapa esconde detalhes que fazem diferença no resultado final. A bieleta e o anel de SAG estão posicionados na região do <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a>, um local que exige que você se agache ou peça ajuda para fazer a leitura sem desmontar da bike.
 
 **Primeiro passo: zerar a referência.** Alinhe o anel de borracha com a marca de 0% na escala da bieleta. Faça isso com a suspensão completamente estendida, sem peso algum sobre a bicicleta. Se o anel estiver gasto ou frouxo, substitua antes de começar — um anel que desliza sozinho durante a pedalada invalida qualquer medição posterior.
 
-**Segundo passo: sentar com suavidade.** A posição de pilotagem habitual é o que importa aqui. Sente-se no selim exatamente como você pedala, com as mãos no guidão e os pés nos pedais na posição neutra. O manual é enfático: sem balançar, sem quicar, sem provocar compressão artificial. Qualquer movimento brusco empurra o anel além do ponto real de SAG estático e você estará ajustando para uma condição que nunca se repete na trilha.
+**Segundo passo: sentar com suavidade.** A posição de pilotagem habitual é o que importa aqui. Sente-se no <a href="https://thebikershop.com.br/componentes/selim/" class="thebiker-product-link" target="_blank" rel="noopener">selim</a> exatamente como você pedala, com as mãos no <a href="https://thebikershop.com.br/componentes/guidao/" class="thebiker-product-link" target="_blank" rel="noopener">guidão</a> e os pés nos pedais na posição neutra. O manual é enfático: sem balançar, sem quicar, sem provocar compressão artificial. Qualquer movimento brusco empurra o anel além do ponto real de SAG estático e você estará ajustando para uma condição que nunca se repete na trilha.
 
 **Terceiro passo: desmontar sem contaminar a leitura.** Levante-se da bicicleta sem comprimir a suspensão e sem permitir que ela retorne de forma brusca. Um retorno violento pode deslocar o anel para uma posição que não reflete o SAG real. Se você tem dúvida sobre a suavidade do movimento, peça para alguém segurar a bike enquanto você sai do selim com cuidado.
 
@@ -77,7 +77,7 @@ O manual da Scott para a linha Spark RC 2027 descreve uma sequência que parece 
 
 ## Pressão do amortecedor: a variável que o manual não revela
 
-O Fox Float Factory EVOL Kashima que equipa a Spark RC Expert 2027 trabalha com câmara de ar positiva e negativa que exigem equalização após cada ajuste de pressão. Toda vez que você adiciona ou remove ar, comprima lentamente a suspensão algumas vezes para que as câmaras se equilibrem. Sem essa equalização, a leitura de SAG será falsa e a suspensão se comportará de forma imprevisível nos primeiros impactos.
+O Fox Float Factory EVOL Kashima que equipa a <a href="https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/" class="thebiker-product-link" target="_blank" rel="noopener">Spark RC Expert 2027</a> trabalha com câmara de ar positiva e negativa que exigem equalização após cada ajuste de pressão. Toda vez que você adiciona ou remove ar, comprima lentamente a suspensão algumas vezes para que as câmaras se equilibrem. Sem essa equalização, a leitura de SAG será falsa e a suspensão se comportará de forma imprevisível nos primeiros impactos.
 
 A ausência de uma tabela pressão-peso no manual não é omissão — é reconhecimento de que a relação entre PSI e SAG depende de fatores que vão além da massa corporal. A posição do ciclista sobre a bike, o comprimento da mesa, a altura do selim e até a inclinação do terreno onde você faz a medição influenciam o resultado. Um ciclista que pedala mais recuado transfere mais massa para a traseira e precisa de pressão ligeiramente maior para atingir o mesmo SAG que um ciclista de peso idêntico com posição mais avançada.
 

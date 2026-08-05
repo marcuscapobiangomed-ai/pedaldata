@@ -13,6 +13,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import matter from "gray-matter";
 import { validateImageManifestV2 } from "./validation/image-manifest-v2.js";
+import { linkTheBikerProducts, loadTheBikerLinkData } from "./editorial/product-linker.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,6 +93,8 @@ function main() {
     }
   }
 
+  const linkResult = linkTheBikerProducts(content, loadTheBikerLinkData(ROOT_DIR));
+  content = linkResult.content;
   content = content.replace(/^published:\s*false\s*$/m, "published: true");
   content = content.replace(/^editorial_status:\s*["']?approved["']?\s*$/m, 'editorial_status: "published"');
 
@@ -99,7 +102,7 @@ function main() {
   if (content.includes("status: draft")) {
     content = content.replace("status: draft", "status: published");
     fs.writeFileSync(filePath, content, "utf8");
-    console.log(`✅ Post promovido para published: ${path.basename(filePath)}`);
+    console.log(`✅ Post promovido para published: ${path.basename(filePath)} (${linkResult.links.length} links TheBiker)`);
   } else if (content.includes("status: published")) {
     console.log(`ℹ️  Post já está published: ${path.basename(filePath)}`);
   } else {

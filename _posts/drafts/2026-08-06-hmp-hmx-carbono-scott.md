@@ -89,7 +89,7 @@ A ausência de dados técnicos públicos — como módulo de elasticidade, resis
 
 Na prática, o que sabemos é que o HMF é empregado no Addict 50, um modelo endurance com geometria relaxada, enquanto o HMX está nos Addict RC 20 e RC Pró, ambos com geometria de competição. Essa associação não é casual: a Scott projeta cada quadro para um propósito específico, e o tipo de carbono é selecionado para atender às demandas de rigidez, peso e conforto daquela aplicação.
 
-O HMF, por exemplo, aparece em um quadro que aceita pneus de até 38 mm, sugerindo uma construção que prioriza versatilidade e absorção de vibrações. Já o HMX, com limite de 34 mm, indica um foco em eficiência aerodinâmica e transferência de potência. Outro ponto importante: a Scott não usa HMF ou HMX em suas mountain bikes de alumínio, como a Scale 940 e 980, que são construídas em liga 6061. Isso reforça que as siglas são exclusivas da linha de carbono para estrada.
+O HMF, por exemplo, aparece em um quadro que aceita <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">pneus</a> de até 38 mm, sugerindo uma construção que prioriza versatilidade e absorção de vibrações. Já o HMX, com limite de 34 mm, indica um foco em eficiência aerodinâmica e transferência de potência. Outro ponto importante: a Scott não usa HMF ou HMX em suas <a href="https://thebikershop.com.br/bikes/bicicletas-mountain-bike/" class="thebiker-product-link" target="_blank" rel="noopener">mountain bikes</a> de alumínio, como a Scale 940 e 980, que são construídas em liga 6061. Isso reforça que as siglas são exclusivas da linha de carbono para estrada.
 
 Para o ciclista, entender HMF e HMX é menos sobre decifrar uma fórmula química e mais sobre reconhecer o posicionamento de cada quadro: HMF é a porta de entrada para o carbono Scott, com foco em conforto e uso misto; HMX é o material de alto desempenho, voltado para quem busca o menor peso possível e uma posição de pilotagem mais agressiva. A falta de dados técnicos não impede uma análise criteriosa: podemos cruzar informações de peso, geometria e limites estruturais para traçar um perfil claro de cada opção.
 
@@ -99,11 +99,11 @@ Para avaliar as diferenças entre HMF e HMX, é essencial compreender alguns con
 
 Outro termo é **laminação**, o processo de sobrepor camadas de carbono com orientações específicas para otimizar rigidez, conforto e resistência em cada região do quadro. Um quadro HMX pode ter uma laminação mais complexa, com menos camadas nas áreas de baixa tensão, economizando peso.
 
-A **geometria** também é crucial: o stack (altura do movimento central ao topo do tubo de direção) e o reach (distância horizontal do movimento central ao centro do tubo de direção) definem a posição do ciclista. O Addict HMF tem geometria endurance, com stack maior e reach menor, enquanto o Addict RC HMX tem geometria de competição, mais baixa e alongada.
+A **geometria** também é crucial: o stack (altura do <a href="https://thebikershop.com.br/componentes/movimento-central/" class="thebiker-product-link" target="_blank" rel="noopener">movimento central</a> ao topo do tubo de direção) e o reach (distância horizontal do movimento central ao centro do tubo de direção) definem a posição do ciclista. O Addict HMF tem geometria endurance, com stack maior e reach menor, enquanto o Addict RC HMX tem geometria de competição, mais baixa e alongada.
 
 O **peso do sistema** é o limite máximo suportado pelo quadro, incluindo ciclista, bicicleta e equipamento. Tanto HMF quanto HMX suportam 120 kg, indicando que a resistência estrutural é similar. A **largura máxima de pneu** é outro fator: 38 mm no HMF contra 34 mm no HMX. Isso afeta a capacidade de absorver vibrações e a versatilidade para terrenos irregulares.
 
-Por fim, o **escalonamento de marchas**: o Addict 50 (HMF) usa coroa 50-34 e cassete 11-34, enquanto os RC (HMX) vêm com 52-36 e 11-34. Essa diferença não é determinada pelo carbono, mas reflete o uso pretendido: marchas mais leves para endurance, mais pesadas para competição. Dominar esses termos permite ir além do marketing e entender como cada escolha de engenharia afeta a experiência de pedalada.
+Por fim, o **escalonamento de marchas**: o Addict 50 (HMF) usa coroa 50-34 e <a href="https://thebikershop.com.br/componentes/cassetes/" class="thebiker-product-link" target="_blank" rel="noopener">cassete</a> 11-34, enquanto os RC (HMX) vêm com 52-36 e 11-34. Essa diferença não é determinada pelo carbono, mas reflete o uso pretendido: marchas mais leves para endurance, mais pesadas para competição. Dominar esses termos permite ir além do marketing e entender como cada escolha de engenharia afeta a experiência de pedalada.
 
 ## Dissecando as diferenças: peso, geometria e compatibilidade em cada carbono
 
@@ -143,7 +143,7 @@ A manutenção também é um ponto de atenção: quadros de carbono exigem inspe
 
 A diferença entre HMF e HMX vai além do material: envolve geometria e propósito. Se você está em dúvida sobre qual linha escolher, um bike fit profissional é o primeiro passo. Um fitter qualificado pode analisar sua flexibilidade, histórico de lesões e objetivos para recomendar a geometria mais adequada. Muitas vezes, um Addict HMF com ajustes finos pode ser mais rápido e confortável do que um Addict RC HMX mal ajustado.
 
-Além disso, a montagem de uma bicicleta nova exige atenção a detalhes como aperto de parafusos, instalação de pedais e ajuste de suspensão (no caso de mountain bikes). Se você não tem experiência, procure uma oficina especializada. A TheBiker oferece montagem profissional para todas as bicicletas vendidas, garantindo que sua bike saia pronta para rodar com segurança.
+Além disso, a montagem de uma bicicleta nova exige atenção a detalhes como aperto de parafusos, instalação de pedais e ajuste de <a href="https://thebikershop.com.br/componentes/suspensao/" class="thebiker-product-link" target="_blank" rel="noopener">suspensão</a> (no caso de mountain bikes). Se você não tem experiência, procure uma oficina especializada. A TheBiker oferece montagem profissional para todas as bicicletas vendidas, garantindo que sua bike saia pronta para rodar com segurança.
 
 Outro ponto é a personalização: você pode querer trocar rodas, pneus ou até o grupo. Nesse caso, um mecânico experiente pode orientar sobre compatibilidade e ganhos reais de desempenho. Lembre-se de que a garantia da Scott exige que a montagem e manutenção sejam feitas por profissionais autorizados.
 
@@ -155,7 +155,7 @@ O conforto em longas distâncias depende de três fatores principais: geometria,
 
 Já o Addict RC HMX tem geometria de competição, mais baixa e alongada, que exige maior flexibilidade do ciclista. Os pneus são limitados a 34 mm, e a construção do quadro provavelmente prioriza a transferência de potência, o que pode resultar em uma pedalada mais rígida e menos indulgente. No entanto, o conforto não é determinado apenas pelo quadro: um bike fit adequado e a escolha de pneus de alta qualidade (como os Schwalbe Pro One do RC Pró) podem mitigar a aspereza.
 
-Para ciclistas que priorizam conforto em audaxes ou gran fondos, o HMF é a escolha mais lógica. Mas se você está disposto a investir em ajustes e prefere a leveza do HMX, é possível alcançar um bom nível de conforto com a pressão correta dos pneus e uma fita de guidão mais espessa. A decisão final deve considerar seu condicionamento físico e a distância típica dos seus pedais.
+Para ciclistas que priorizam conforto em audaxes ou gran fondos, o HMF é a escolha mais lógica. Mas se você está disposto a investir em ajustes e prefere a leveza do HMX, é possível alcançar um bom nível de conforto com a pressão correta dos pneus e uma <a href="https://thebikershop.com.br/componentes/fita-de-guidao/" class="thebiker-product-link" target="_blank" rel="noopener">fita de guidão</a> mais espessa. A decisão final deve considerar seu condicionamento físico e a distância típica dos seus pedais.
 
 ## O HMX realmente faz diferença na subida e no sprint?
 

@@ -48,7 +48,7 @@ thumbnail: "/assets/img/posts/guia-importacao-bike/thumb-480.webp"
 
 ## Introdução
 
-Importar uma bicicleta de estrada para o Brasil em 2026 é legal, mas raramente compensa financeiramente. Com os impostos e a burocracia envolvidos, o custo final geralmente supera o preço de um modelo equivalente comprado em loja nacional.
+Importar uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bicicleta de estrada</a> para o Brasil em 2026 é legal, mas raramente compensa financeiramente. Com os impostos e a burocracia envolvidos, o custo final geralmente supera o preço de um modelo equivalente comprado em loja nacional.
 
 Este guia detalha as regras atuais (MP 1.357/2026, em vigor desde maio de 2026) e apresenta cenários reais de custo.
 

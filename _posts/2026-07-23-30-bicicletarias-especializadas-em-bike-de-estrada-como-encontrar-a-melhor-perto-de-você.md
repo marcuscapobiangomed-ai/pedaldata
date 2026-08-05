@@ -73,7 +73,7 @@ Bicicletarias especializadas oferecem:
 - Revisão de transmissão eletrônica (Di2, AXS)
 - Sangria de freio a disco (Shimano mineral oil / SRAM DOT)
 - Central de rodas (raiação, centralização)
-- Bike fit básico (ajuste de selim, guidão, manetes)
+- Bike fit básico (ajuste de <a href="https://thebikershop.com.br/componentes/selim/" class="thebiker-product-link" target="_blank" rel="noopener">selim</a>, <a href="https://thebikershop.com.br/componentes/guidao/" class="thebiker-product-link" target="_blank" rel="noopener">guidão</a>, manetes)
 
 ## Bicicletarias de Referência no Brasil
 

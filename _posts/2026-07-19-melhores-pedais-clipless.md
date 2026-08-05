@@ -49,13 +49,13 @@ thumbnail: "/assets/img/posts/melhores-pedais-clipless/thumb-480.webp"
 
 ## Introdução
 
-Pedais clipless são o primeiro upgrade sério que todo ciclista de estrada faz. Eles fixam o pé ao pedal, permitindo que você empurre **e** puxe durante a pedalada, o que aumenta a eficiência em 10-15% comparado a pedais plataforma.
+<a href="https://thebikershop.com.br/componentes/pedal/pedais-road/" class="thebiker-product-link" target="_blank" rel="noopener">Pedais clipless</a> são o primeiro upgrade sério que todo ciclista de estrada faz. Eles fixam o pé ao pedal, permitindo que você empurre **e** puxe durante a pedalada, o que aumenta a eficiência em 10-15% comparado a pedais plataforma.
 
 Este guia cobre os melhores modelos para iniciantes disponíveis no Brasil, com preços reais e dicas de adaptação.
 
 ## O que são pedais clipless?
 
-O nome é contraintuitivo: "clipless" significa "sem clip", referindo-se ao fato de que substituíram os antigos pedais com clip e alça (toe clips). Os modernos usam um sistema de encaixe (cleat) na sola da sapatilha que trava no pedal.
+O nome é contraintuitivo: "clipless" significa "sem clip", referindo-se ao fato de que substituíram os antigos pedais com clip e alça (toe clips). Os modernos usam um sistema de encaixe (cleat) na sola da <a href="https://thebikershop.com.br/vestuario/sapatilhas/" class="thebiker-product-link" target="_blank" rel="noopener">sapatilha</a> que trava no pedal.
 
 **Benefícios:**
 - Eficiência: você usa os músculos em 360° do giro
@@ -140,16 +140,16 @@ Os cleats (tacos) são tão importantes quanto os pedais. Eles definem o **float
 2. **Ajuste a tensão da mola no mínimo** (pedais novos vêm no máximo) e aumente gradualmente
 3. **Solte o pedal com antecedência** — ao se aproximar de um cruzamento ou semáforo, solte um pé antes de parar
 4. **Não force o desencaixe lateral** — o movimento é rotacional (gire o calcanhar para fora)
-5. **Queda de iniciante é normal** — todo ciclista cai pelo menos uma vez preso ao pedal. Use capacete.
+5. **Queda de iniciante é normal** — todo ciclista cai pelo menos uma vez preso ao pedal. Use <a href="https://thebikershop.com.br/vestuario/capacetes/" class="thebiker-product-link" target="_blank" rel="noopener">capacete</a>.
 
 ## Para quem é indicado
 
-Este guia é indicado a ciclistas iniciantes no sistema clipless. Quem usa a bicicleta em deslocamentos com muitas paradas ou precisa caminhar pode preferir pedais e sapatilhas de MTB; para treinos de estrada, sistemas com plataforma maior oferecem apoio mais estável. Faça a adaptação em local seguro e procure ajuste profissional se houver dor persistente.
+Este guia é indicado a ciclistas iniciantes no sistema clipless. Quem usa a bicicleta em deslocamentos com muitas paradas ou precisa caminhar pode preferir pedais e <a href="https://thebikershop.com.br/vestuario/sapatilhas/sapatilhas-mtb/" class="thebiker-product-link" target="_blank" rel="noopener">sapatilhas de MTB</a>; para treinos de estrada, sistemas com plataforma maior oferecem apoio mais estável. Faça a adaptação em local seguro e procure ajuste profissional se houver dor persistente.
 
 ## Perguntas Frequentes
 
 **1. Preciso comprar sapatilhas específicas?**
-Sim. Sapatilhas de estrada têm sola rígida com 3 furos (SPD-SL, KEO, Time). Sapatilhas de MTB têm 2 furos (SPD).
+Sim. <a href="https://thebikershop.com.br/vestuario/sapatilhas/sapatilha-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">Sapatilhas de estrada</a> têm sola rígida com 3 furos (SPD-SL, KEO, Time). Sapatilhas de MTB têm 2 furos (SPD).
 
 **2. Qual a durabilidade dos cleats?**
 Um par de cleats Shimano ou Look dura 3.000-5.000 km e custa ~R$ 50-80. Não ande com cleats gastos — você pode não conseguir soltar o pé.

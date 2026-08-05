@@ -24,7 +24,7 @@ sources:
     accessed_at: "2026-07-19"
 ---
 
-A escolha entre uma bike endurance e uma race é uma das decisões mais importantes para quem compra uma bike de estrada. Com base na base de dados do The Biker Blog, comparamos as opções disponíveis no mercado brasileiro em 2026.
+A escolha entre uma bike endurance e uma race é uma das decisões mais importantes para quem compra uma <a href="https://thebikershop.com.br/bikes/bicicletas-estrada/" class="thebiker-product-link" target="_blank" rel="noopener">bike de estrada</a>. Com base na base de dados do The Biker Blog, comparamos as opções disponíveis no mercado brasileiro em 2026.
 
 ## O que dizem os dados
 
@@ -37,7 +37,7 @@ A escolha entre uma bike endurance e uma race é uma das decisões mais importan
 | Quadro | Carbono HMF | Carbono FACT 10r |
 | Grupo | 105 Di2 (12v) | 105 Di2 (12v) |
 | Transmissão | Eletrônico | Eletrônico |
-| Pneus | 30 mm | 26 mm |
+| <a href="https://thebikershop.com.br/componentes/pneus-para-ciclismo/" class="thebiker-product-link" target="_blank" rel="noopener">Pneus</a> | 30 mm | 26 mm |
 | Stack (M) | 566 mm | 544 mm |
 | Reach (M) | 384 mm | 385 mm |
 | Stack/Reach | 1,47 | 1,41 |

@@ -48,7 +48,7 @@ A relação stack/reach é o indicador mais objetivo da posição que a bike pro
 
 ## O que isso significa na prática
 
-- **+22 mm de stack** significa que o guidão fica cerca de 2 cm mais alto — suficiente para reduzir significativamente a pressão nas costas e pescoço
+- **+22 mm de stack** significa que o <a href="https://thebikershop.com.br/componentes/guidao/" class="thebiker-product-link" target="_blank" rel="noopener">guidão</a> fica cerca de 2 cm mais alto — suficiente para reduzir significativamente a pressão nas costas e pescoço
 - **+9 mm de chainstay** proporciona mais estabilidade em alta velocidade, mas resposta um pouco menos ágil em curvas
 - A diferença de reach é praticamente nula entre os perfis no tamanho M
 
