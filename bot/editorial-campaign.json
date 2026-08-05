@@ -152,9 +152,8 @@
       "summary": "Análise da arquitetura Spark RC, do posicionamento do amortecedor, do Flex Pivot e dos efeitos mecânicos da integração no quadro.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "blocked",
-      "productIds": [],
-      "blockReason": "Expected ',' or ']' after array element in JSON at position 49991"
+      "status": "planned",
+      "productIds": []
     },
     {
       "day": 8,
@@ -164,11 +163,10 @@
       "summary": "Review técnico da Addict RC 20 com foco na transmissão, frenagem, rodas, pneus, massa declarada e limites de uso publicados pela Scott.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "blocked",
+      "status": "planned",
       "productIds": [
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
-      ],
-      "blockReason": "Expected ',' or ']' after array element in JSON at position 47958"
+      ]
     },
     {
       "day": 9,

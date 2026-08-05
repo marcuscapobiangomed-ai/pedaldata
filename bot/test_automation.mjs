@@ -24,7 +24,7 @@ const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';
 assert.equal(selectProductionCandidate(campaignWithHistory).day, 4);
-assert.equal(selectPublicationCandidate(campaign, '2026-08-10'), null);
+assert.equal(selectPublicationCandidate(campaignWithHistory, '2026-08-10'), null);
 const scheduled = structuredClone(campaign);
 scheduled.items[0].status = 'scheduled';
 scheduled.items[0].postPath = '_posts/drafts/2026-08-10-sag.md';

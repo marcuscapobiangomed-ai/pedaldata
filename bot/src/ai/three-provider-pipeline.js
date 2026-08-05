@@ -221,6 +221,8 @@ export class ThreeProviderPipeline {
           "Edite o rascunho usando exclusivamente a pesquisa e a crítica fornecidas.",
           "Corrija todos os bloqueios. Preserve o schema completo e responda somente em JSON.",
           `O corpo final deve ter pelo menos ${generationTargetWords} palavras reais para assegurar o gate local de ${minimumWords}, sem repetição ou conteúdo genérico.`,
+          `Mantenha o corpo entre ${generationTargetWords} e ${generationTargetWords + 300} palavras; nenhuma seção deve ultrapassar 250 palavras.`,
+          "O JSON completo deve ter menos de 32000 caracteres para não ser truncado pelo provedor.",
           "Conte as palavras dos campos content antes de responder e amplie os eixos técnicos mais relevantes caso o total esteja abaixo da meta.",
           "Não crie fatos, fontes, testes ou disponibilidade.",
           "",

@@ -478,6 +478,7 @@ export class AIProvider {
           system: [
             AIProvider.systemPrompt(),
             "Repare somente os gates informados. Preserve todos os fatos, fontes, limitações e campos do JSON.",
+            "Responda com JSON completo de no máximo 32000 caracteres; compacte repetições e limite cada seção a 250 palavras.",
             "Não introduza novas especificações, sensações de teste, marcas ou disponibilidade.",
           ].join("\n"),
           user: repairPrompt,
