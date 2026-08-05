@@ -40,10 +40,11 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
-      ]
+      ],
+      "blockReason": "Expected ',' or '}' after property value in JSON at position 5944"
     },
     {
       "day": 4,
