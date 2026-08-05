@@ -152,8 +152,21 @@
       "summary": "Análise da arquitetura Spark RC, do posicionamento do amortecedor, do Flex Pivot e dos efeitos mecânicos da integração no quadro.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "scheduled",
+      "productIds": [],
+      "postPath": "_posts/drafts/2026-08-16-engenharia-suspensao-integrada-spark.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T15:03:08.085Z"
+      },
+      "imageManifestPath": "assets/img/posts/engenharia-suspensao-integrada-spark/image-manifest.json"
     },
     {
       "day": 8,
