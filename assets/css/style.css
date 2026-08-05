@@ -1668,6 +1668,8 @@ body.menu-open { overflow: hidden; }
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 24px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 .calculator-form h3 {
   font-family: var(--font-heading);
@@ -1721,6 +1723,8 @@ body.menu-open { overflow: hidden; }
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 24px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 .calculator-result h3 {
   font-family: var(--font-heading);
@@ -1750,6 +1754,33 @@ body.menu-open { overflow: hidden; }
   color: var(--text-muted);
   line-height: 1.5;
 }
+.calculator-empty-state {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-muted);
+}
+.calculator-empty-state strong {
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+.calculator-error {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  color: #8f111d;
+  background: #fff0f1;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.calculator-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
 
 /* ── Size Calculator Specific ─────────────────────────────── */
 .size-result-box {
@@ -1760,6 +1791,12 @@ body.menu-open { overflow: hidden; }
   margin-bottom: 12px;
   color: var(--text);
 }
+.size-reference {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
 .size-stack-reach {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1768,6 +1805,15 @@ body.menu-open { overflow: hidden; }
   background: var(--bg);
   border-radius: var(--radius);
   font-size: 0.85rem;
+}
+.size-stack-reach div { display: grid; gap: 4px; }
+.size-stack-reach span { color: var(--text-muted); }
+.size-position-guidance { grid-column: span 2; }
+.table-scroll-hint {
+  display: none;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  margin: -4px 0 8px;
 }
 .size-models ul {
   list-style: none;
@@ -1794,7 +1840,7 @@ body.menu-open { overflow: hidden; }
   color: var(--text-muted);
   text-align: left;
 }
-.gear-speed-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.8rem; }
+.gear-speed-table { width: 100%; min-width: 520px; border-collapse: collapse; margin: 12px 0; font-size: 0.8rem; }
 .gear-speed-table th,
 .gear-speed-table td { padding: 6px 10px; border-bottom: 1px solid var(--border-card); text-align: center; }
 .gear-speed-table th {
@@ -1807,6 +1853,56 @@ body.menu-open { overflow: hidden; }
   color: var(--text-muted);
 }
 .gear-speed-table tr:nth-child(even) { background: var(--bg); }
+
+/* ── Calculators Hub ───────────────────────────────────── */
+.tools-section { padding: 32px 0 56px; }
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 26px;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tool-card:hover,
+.tool-card:focus-visible {
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.tool-card-kicker {
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.tool-card h3 {
+  margin: 14px 0 10px;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+.tool-card p { color: var(--text-muted); line-height: 1.6; }
+.tool-card-action {
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
 
 /* ── Product Page ──────────────────────────────────────────── */
 .product-layout { padding: 28px 0 48px; }
@@ -1876,6 +1972,10 @@ body.menu-open { overflow: hidden; }
   .form-row { flex-direction: column; }
   .size-stack-reach { grid-template-columns: 1fr; }
   .catalog-grid { grid-template-columns: 1fr; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .tool-card { min-height: 205px; }
+  .size-position-guidance { grid-column: auto; }
+  .table-scroll-hint { display: block; }
 }
 @media (max-width: 600px) {
   .news-item {

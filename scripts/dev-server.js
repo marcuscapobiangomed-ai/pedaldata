@@ -65,6 +65,15 @@ async function renderHome() {
   return engine.parseAndRender(layout, { ...context, content });
 }
 
+async function renderPage(relativePath, url) {
+  const document = parseDocument(read(relativePath));
+  const currentPage = { ...document.data, url };
+  const content = await engine.parseAndRender(document.body, { ...context, page: currentPage });
+  let layout = expandIncludes(read("_layouts/default.html"));
+  layout = layout.replace(/{%\s*seo\s*%}/g, "");
+  return engine.parseAndRender(layout, { ...context, page: currentPage, content });
+}
+
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -76,11 +85,21 @@ const mimeTypes = {
 };
 
 const homeHtml = await renderHome();
+const pageRoutes = new Map([
+  ["/calculadoras/", await renderPage("calculadoras.html", "/calculadoras/")],
+  ["/calculadoras/tamanho-road-bike/", await renderPage("calculadora-tamanho.html", "/calculadoras/tamanho-road-bike/")],
+  ["/calculadoras/relacao-marchas/", await renderPage("calculadora-marchas.html", "/calculadoras/relacao-marchas/")],
+]);
 const server = http.createServer((request, response) => {
   const requestPath = decodeURIComponent(new URL(request.url, `http://${request.headers.host}`).pathname);
   if (requestPath === "/" || requestPath === "/index.html") {
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     response.end(homeHtml);
+    return;
+  }
+  if (pageRoutes.has(requestPath)) {
+    response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+    response.end(pageRoutes.get(requestPath));
     return;
   }
   const absolutePath = path.resolve(projectRoot, `.${requestPath}`);

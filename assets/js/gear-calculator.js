@@ -3,80 +3,53 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('calc-gear-btn')
-    if (!btn) return
-
+    if (!btn || !window.PedalDataCalculators) return
     const resultDiv = document.getElementById('calc-gear-result')
     const resultsEl = document.getElementById('gear-results')
     const speedTableEl = document.getElementById('gear-speed-table')
+    const errorEl = document.getElementById('gear-error')
 
-    function parseCSV(str) {
-      return str.split(',').map(s => parseFloat(s.trim())).filter(n => !isNaN(n) && n > 0)
+    function showError(message) {
+      errorEl.textContent = message
+      errorEl.hidden = false
     }
 
     btn.addEventListener('click', function() {
-      const chainrings = parseCSV(document.getElementById('gear-chainring1').value)
-      const cassette = parseCSV(document.getElementById('gear-cassette').value)
-      const wheelDiameter = parseInt(document.getElementById('gear-wheel').value)
-      const tireWidth = parseInt(document.getElementById('gear-tire').value)
-      const cadence = parseInt(document.getElementById('gear-cadence').value)
+      errorEl.hidden = true
+      try {
+        const result = window.PedalDataCalculators.calculateGears({
+          chainrings: document.getElementById('gear-chainring1').value,
+          cassette: document.getElementById('gear-cassette').value,
+          wheelDiameter: document.getElementById('gear-wheel').value,
+          tireWidth: document.getElementById('gear-tire').value,
+          cadence: document.getElementById('gear-cadence').value,
+        })
+        const high = result.highest
+        const low = result.lowest
+        resultsEl.classList.remove('calculator-empty-state')
+        resultsEl.innerHTML = `<div class="calculator-table-scroll"><table class="gear-results-table">
+          <thead><tr><th scope="col">Relação</th><th scope="col">Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Relação mínima</td><td><strong>${low.ratio.toFixed(2)}</strong> (${low.chainring}×${low.cog})</td></tr>
+            <tr><td>Relação máxima</td><td><strong>${high.ratio.toFixed(2)}</strong> (${high.chainring}×${high.cog})</td></tr>
+            <tr><td>Desenvolvimento mínimo</td><td>${low.development.toFixed(2)} m</td></tr>
+            <tr><td>Desenvolvimento máximo</td><td>${high.development.toFixed(2)} m</td></tr>
+            <tr><td>Velocidade a ${result.cadence} rpm (mín.)</td><td>${low.speed.toFixed(1)} km/h</td></tr>
+            <tr><td>Velocidade a ${result.cadence} rpm (máx.)</td><td>${high.speed.toFixed(1)} km/h</td></tr>
+          </tbody>
+        </table></div>`
 
-      if (chainrings.length === 0 || cassette.length === 0) {
-        alert('Informe coroas e cassete válidos.')
-        return
-      }
-
-      if (typeof PedalData.track === 'function') {
-        PedalData.track('tool', 'gear_calculator_start', null, null, { chainrings: chainrings.join(','), cassette: cassette.join(','), cadence: cadence })
-      }
-
-      const wheelCircumference = (wheelDiameter + (tireWidth * 2)) * Math.PI
-
-      let minRatio = Infinity
-      let maxRatio = -Infinity
-      const ratios = []
-
-      for (const chainring of chainrings) {
-        for (const cog of cassette) {
-          const ratio = chainring / cog
-          const development = ratio * wheelCircumference / 1000
-          const speed = development * cadence * 60 / 1000
-
-          if (ratio < minRatio) minRatio = ratio
-          if (ratio > maxRatio) maxRatio = ratio
-
-          ratios.push({
-            chainring,
-            cog,
-            ratio,
-            development: development.toFixed(2),
-            speed: speed.toFixed(1)
-          })
+        const rows = result.ratios.map(r => `<tr><td>${r.chainring}</td><td>${r.cog}</td><td>${r.ratio.toFixed(2)}</td><td>${r.development.toFixed(2)} m</td><td>${r.speed.toFixed(1)} km/h</td></tr>`).join('')
+        speedTableEl.innerHTML = `<h4>Velocidade por relação (${result.cadence} rpm)</h4><p class="table-scroll-hint">Deslize horizontalmente para consultar todas as colunas.</p><div class="calculator-table-scroll"><table class="gear-speed-table">
+          <thead><tr><th scope="col">Coroa</th><th scope="col">Cassete</th><th scope="col">Relação</th><th scope="col">Desenvolvimento</th><th scope="col">km/h</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>`
+        resultDiv.focus()
+        if (window.PedalData && typeof window.PedalData.track === 'function') {
+          window.PedalData.track('tool', 'gear_calculator_complete', null, null, { combinations: result.ratios.length })
         }
-      }
-
-      ratios.sort((a, b) => b.ratio - a.ratio)
-
-      let html = '<table class="gear-results-table"><tr><th>Relação</th><th>Valor</th></tr>'
-      html += `<tr><td>Relação mínima</td><td><strong>${minRatio.toFixed(2)}</strong> (${chainrings.slice().sort((a,b) => a-b)[0]}×${cassette.slice().sort((a,b) => b-a)[0]})</td></tr>`
-      html += `<tr><td>Relação máxima</td><td><strong>${maxRatio.toFixed(2)}</strong> (${chainrings.slice().sort((a,b) => b-a)[0]}×${cassette.slice().sort((a,b) => a-b)[0]})</td></tr>`
-      html += `<tr><td>Desenvolvimento mínimo</td><td>${ratios[ratios.length-1].development} m</td></tr>`
-      html += `<tr><td>Desenvolvimento máximo</td><td>${ratios[0].development} m</td></tr>`
-      html += `<tr><td>Velocidade a ${cadence} rpm (máx)</td><td>${ratios[0].speed} km/h</td></tr>`
-      html += `<tr><td>Velocidade a ${cadence} rpm (mín)</td><td>${ratios[ratios.length-1].speed} km/h</td></tr>`
-      html += '</table>'
-      resultsEl.innerHTML = html
-
-      let speedHtml = '<h4>Velocidade por relação (90 rpm)</h4><table class="gear-speed-table"><tr><th>Coroa</th><th>Cassete</th><th>Relação</th><th>Desenvolvimento</th><th>km/h</th></tr>'
-      ratios.slice(0, 20).forEach(r => {
-        speedHtml += `<tr><td>${r.chainring}</td><td>${r.cog}</td><td>${r.ratio.toFixed(2)}</td><td>${r.development} m</td><td>${r.speed} km/h</td></tr>`
-      })
-      speedHtml += '</table>'
-      speedTableEl.innerHTML = speedHtml
-
-      resultDiv.style.display = 'block'
-
-      if (typeof PedalData.track === 'function') {
-        PedalData.track('tool', 'gear_calculator_complete', null, null, { minRatio: minRatio.toFixed(2), maxRatio: maxRatio.toFixed(2), combinations: chainrings.length * cassette.length })
+      } catch (error) {
+        showError(error.message)
       }
     })
   })
