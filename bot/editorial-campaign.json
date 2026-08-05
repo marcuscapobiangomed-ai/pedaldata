@@ -20,24 +20,28 @@
       ],
       "postPath": "_posts/2026-08-05-sag-spark-rc-ajuste-preciso.md",
       "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7"
+      ],
+      "imageValidatedAt": "2026-08-05T17:09:27.077Z",
+      "publishedAt": "2026-08-05T15:41:49.964Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 85,
+        "finalBlockers": 2,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
           "final": "deepseek",
-          "finalRepair": "deepseek"
+          "finalRepair": "deepseek",
+          "bufferFinalAudit": "groq"
         },
         "generatedAt": "2026-08-05T14:12:03.400Z"
-      },
-      "publishedAt": "2026-08-05T15:41:49.964Z",
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7"
-      ],
-      "imageValidatedAt": "2026-08-05T17:09:27.077Z"
+      }
     },
     {
       "day": 2,
@@ -47,26 +51,31 @@
       "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-06-hmp-hmx-carbono-scott.md",
       "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
+      ],
+      "imageValidatedAt": "2026-08-05T17:09:52.760Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:17:30.907Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
-      ],
-      "imageValidatedAt": "2026-08-05T17:09:52.760Z"
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
     },
     {
       "day": 3,
@@ -76,29 +85,34 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
       "postPath": "_posts/drafts/2026-08-07-review-spark-rc-team-2027.md",
       "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
+      ],
+      "imageValidatedAt": "2026-08-05T17:10:24.275Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
           "final": "deepseek",
-          "finalRepair": "deepseek"
+          "finalRepair": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:23:15.916Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
-      ],
-      "imageValidatedAt": "2026-08-05T17:10:24.275Z"
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
     },
     {
       "day": 4,
@@ -108,28 +122,33 @@
       "summary": "Procedimento para avaliar alinhamento, indexação, bateria, corrente, cassete e comportamento das transmissões Di2 e AXS em uso real.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [
         "bateria-sram-axs"
       ],
       "postPath": "_posts/drafts/2026-08-08-cambio-eletronico-ajuste-diagnostico.md",
       "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bateria-sram-axs-5cbb772e8f"
+      ],
+      "imageValidatedAt": "2026-08-05T17:12:11.509Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 3,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T13:26:00.968Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-bateria-sram-axs-5cbb772e8f"
-      ],
-      "imageValidatedAt": "2026-08-05T17:12:11.509Z"
+      "blockReason": "Auditoria final: nota 0; O artigo afirma que 'o modo de ajuste, acessível ao pressionar o botão de função por 2 a 5 segundos até o LED ficar amarelo, é a porta de entrada para esse refinamento'. Embora o manual confirme o modo de ajuste, a descrição de '2 a 5 segundos' não é explicitamente mencionada nas fontes fornecidas. O manual indica pressionar o botão de função até o LED mudar para amarelo, mas não especifica a duração exata. Isso pode ser uma imprecisão factual.; O artigo menciona que 'o E-TUBE PROJECT permite salvar configurações de ajuste'. As fontes fornecidas (manual e site do E-TUBE PROJECT) não confirmam explicitamente a funcionalidade de salvar configurações de ajuste. O manual"
     },
     {
       "day": 5,
@@ -139,28 +158,33 @@
       "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [
         "kit-de-rolamentos-direcao-scott-foil"
       ],
       "postPath": "_posts/drafts/2026-08-09-reserva-rolamentos-diagnostico.md",
       "imageManifestPath": "assets/img/posts/reserva-rolamentos-diagnostico/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc"
+      ],
+      "imageValidatedAt": "2026-08-05T17:12:11.856Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 1,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T15:25:40.344Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc"
-      ],
-      "imageValidatedAt": "2026-08-05T17:12:11.856Z"
+      "blockReason": "Auditoria final: nota 0; O artigo é genérico e repetitivo, com estrutura artificial de introdução e conclusão. O conteúdo é orientado a iniciantes, sem profundidade técnica esperada para um guia técnico de diagnóstico de rolamentos. Subtítulos fracos e falta de especificidade técnica."
     },
     {
       "day": 6,
@@ -170,26 +194,31 @@
       "summary": "Diagnóstico de alinhamento, empeno, recuo de pistões, contaminação e compatibilidade de rotores nas montagens de estrada e XC.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-10-alinhamento-pinca-rotores.md",
       "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-pastilha-de-freio-sram-guide-trail-organica-c458e0070c"
+      ],
+      "imageValidatedAt": "2026-08-05T17:10:57.802Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 5,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:32:13.739Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-pastilha-de-freio-sram-guide-trail-organica-c458e0070c"
-      ],
-      "imageValidatedAt": "2026-08-05T17:10:57.802Z"
+      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com várias seções que reafirmam os mesmos conceitos sem aprofundamento técnico específico. A linguagem é mais adequada para iniciantes do que para o público-alvo de ciclistas avançados, conforme indicado no frontmatter. Exemplos: repetição sobre centralização da pinça, atrito residual e erros comuns.; Várias alegações factuais não são suportadas pelas fontes listadas. Por exemplo: 'Esse arrasto pode consumir de 2 a 5 watts por roda em bicicletas de estrada, segundo estimativas da indústria' - nenhuma fonte é citada para essa estimativa. 'acelerar o desgaste das pastilhas em até 30%' - sem fonte. 'folga especificada pel"
     },
     {
       "day": 7,
@@ -205,22 +234,26 @@
       ],
       "postPath": "_posts/drafts/2026-08-11-engenharia-suspensao-integrada-spark.md",
       "imageManifestPath": "assets/img/posts/engenharia-suspensao-integrada-spark/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant-69b0b793fd"
+      ],
+      "imageValidatedAt": "2026-08-05T17:11:19.430Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 95,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "groq"
         },
         "generatedAt": "2026-08-05T15:03:08.085Z"
-      },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant-69b0b793fd"
-      ],
-      "imageValidatedAt": "2026-08-05T17:11:19.430Z"
+      }
     },
     {
       "day": 8,
@@ -230,28 +263,33 @@
       "summary": "Review técnico da Addict RC 20 com foco na transmissão, frenagem, rodas, pneus, massa declarada e limites de uso publicados pela Scott.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "scheduled",
+      "status": "blocked",
       "productIds": [
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
       ],
       "postPath": "_posts/drafts/2026-08-12-review-addict-rc-20.md",
       "imageManifestPath": "assets/img/posts/review-addict-rc-20/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9-b1c99140af"
+      ],
+      "imageValidatedAt": "2026-08-05T17:11:20.434Z",
+      "attempts": 0,
       "aiReview": {
         "score": 0,
+        "finalScore": 0,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
           "draft": "deepseek",
           "critique": "deepseek",
-          "final": "deepseek"
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T15:14:55.775Z"
       },
-      "imageStatus": "approved",
-      "imageAssetIds": [
-        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9-b1c99140af"
-      ],
-      "imageValidatedAt": "2026-08-05T17:11:20.434Z"
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
     },
     {
       "day": 9,
@@ -262,7 +300,9 @@
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 10,
@@ -273,7 +313,9 @@
       "category": "engenharia",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 11,
@@ -286,7 +328,9 @@
       "status": "planned",
       "productIds": [
         "bicicleta-scott-spark-rc-expert-2027"
-      ]
+      ],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 12,
@@ -297,7 +341,9 @@
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 13,
@@ -308,7 +354,9 @@
       "category": "comparativo",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 14,
@@ -319,7 +367,9 @@
       "category": "componentes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 15,
@@ -330,7 +380,9 @@
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 16,
@@ -341,7 +393,9 @@
       "category": "engenharia",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 17,
@@ -354,7 +408,9 @@
       "status": "planned",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-20271"
-      ]
+      ],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 18,
@@ -365,7 +421,9 @@
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 19,
@@ -376,7 +434,9 @@
       "category": "comparativo",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 20,
@@ -387,7 +447,9 @@
       "category": "engenharia",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 21,
@@ -400,7 +462,9 @@
       "status": "planned",
       "productIds": [
         "bicicleta-scott-scale-940-black"
-      ]
+      ],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 22,
@@ -411,7 +475,9 @@
       "category": "manutencao-ajustes",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 23,
@@ -422,7 +488,9 @@
       "category": "componentes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 24,
@@ -433,7 +501,9 @@
       "category": "engenharia",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 25,
@@ -444,7 +514,9 @@
       "category": "lancamentos",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 26,
@@ -455,7 +527,9 @@
       "category": "comparativo",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 27,
@@ -466,7 +540,9 @@
       "category": "componentes",
       "freshness": "evergreen",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 28,
@@ -477,7 +553,9 @@
       "category": "lancamentos",
       "freshness": "revalidate-24h",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 29,
@@ -488,7 +566,9 @@
       "category": "competicoes",
       "freshness": "event-driven",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     },
     {
       "day": 30,
@@ -499,7 +579,9 @@
       "category": "competicoes",
       "freshness": "event-driven",
       "status": "planned",
-      "productIds": []
+      "productIds": [],
+      "imageAssetIds": [],
+      "attempts": 0
     }
   ],
   "reserves": [
