@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BOT_ROOT = path.resolve(__dirname, "../..");
 const CACHE_DIR = path.join(BOT_ROOT, ".ai-cache");
 const TELEMETRY_DIR = path.join(BOT_ROOT, ".ai-telemetry");
-const STATE_DIR = path.join(BOT_ROOT, ".ai-state");
+const DEFAULT_STATE_DIR = path.join(BOT_ROOT, "operational-state");
 
 function stable(value) {
   if (Array.isArray(value)) return value.map(stable);
@@ -24,6 +24,7 @@ export function hashPayload(value) {
 export class AIRuntime {
   constructor(env = process.env) {
     this.env = env;
+    this.stateDir = env.AI_STATE_PATH ? path.resolve(env.AI_STATE_PATH) : DEFAULT_STATE_DIR;
   }
 
   async readCache(key) {
@@ -61,7 +62,7 @@ export class AIRuntime {
     const limit = Number(this.env.AI_MONTHLY_BUDGET_USD || 1.60);
     const month = new Date().toISOString().slice(0, 7);
     try {
-      const state = JSON.parse(await fs.readFile(path.join(STATE_DIR, "budget.json"), "utf8"));
+      const state = JSON.parse(await fs.readFile(path.join(this.stateDir, "budget.json"), "utf8"));
       if (state.month === month) return { limit, month, spent: Number(state.spent || 0) };
     } catch {
       // Primeiro uso.
@@ -83,8 +84,8 @@ export class AIRuntime {
     const budget = await this.getBudget();
     const cost = this.estimateDeepSeekCost(usage);
     const next = { ...budget, spent: budget.spent + cost, updatedAt: new Date().toISOString() };
-    await fs.mkdir(STATE_DIR, { recursive: true });
-    await fs.writeFile(path.join(STATE_DIR, "budget.json"), JSON.stringify(next, null, 2), "utf8");
+    await fs.mkdir(this.stateDir, { recursive: true });
+    await fs.writeFile(path.join(this.stateDir, "budget.json"), JSON.stringify(next, null, 2) + "\n", "utf8");
     return { cost, budget: next };
   }
 }

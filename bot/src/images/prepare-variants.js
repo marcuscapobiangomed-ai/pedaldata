@@ -20,12 +20,14 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
   await fs.mkdir(outputDirectory, { recursive: true });
   for (const [name, config] of Object.entries(VARIANTS)) {
     const output = path.join(outputDirectory, config.file);
+    const preserveFullProduct = manifest.preserveFullProduct === true;
     await sharp(input)
       .rotate()
       .resize(config.width, config.height, {
-        fit: "cover",
+        fit: preserveFullProduct ? "contain" : "cover",
         position: gravity,
-        withoutEnlargement: false,
+        withoutEnlargement: preserveFullProduct,
+        background: preserveFullProduct ? { r: 246, g: 246, b: 246, alpha: 1 } : undefined,
       })
       .webp({ quality: config.quality, effort: 6 })
       .toFile(output);

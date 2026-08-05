@@ -10,11 +10,23 @@ const CampaignItemSchema = z.object({
   freshness: z.enum(['evergreen', 'revalidate-24h', 'event-driven']),
   status: z.enum(['planned', 'researching', 'research-ready', 'drafting', 'validation', 'approved', 'scheduled', 'published', 'blocked', 'replaced']),
   productIds: z.array(z.string()).default([]),
-  postPath: z.string().regex(/^_posts\/drafts\/.+\.md$/).optional(),
+  postPath: z.string().regex(/^_posts\/(?:drafts\/)?[^/]+\.md$/).optional(),
   imageManifestPath: z.string().regex(/^assets\/img\/posts\/.+\/image-manifest\.json$/).optional(),
+  imageStatus: z.enum(['missing', 'candidate', 'approved', 'blocked']).optional(),
+  imageAssetIds: z.array(z.string()).default([]),
+  imageValidatedAt: z.string().datetime().optional(),
   publishedAt: z.string().datetime().optional(),
   blockReason: z.string().optional(),
-  aiReview: z.object({ score: z.number().nullable(), premiumEditUsed: z.boolean(), providers: z.record(z.string(), z.string()), generatedAt: z.string().datetime() }).optional(),
+  attempts: z.number().int().min(0).default(0),
+  lastAttemptAt: z.string().datetime().optional(),
+  aiReview: z.object({
+    score: z.number().nullable(),
+    finalScore: z.number().nullable().default(null),
+    finalBlockers: z.number().int().min(0).default(0),
+    premiumEditUsed: z.boolean(),
+    providers: z.record(z.string(), z.string()),
+    generatedAt: z.string().datetime(),
+  }).optional(),
 })
 
 export const CampaignSchema = z.object({

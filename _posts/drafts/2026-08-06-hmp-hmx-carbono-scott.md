@@ -28,12 +28,12 @@ image: "/assets/img/posts/hmp-hmx-carbono-scott/hero-1600.webp"
 image_mobile: "/assets/img/posts/hmp-hmx-carbono-scott/hero-800.webp"
 thumbnail: "/assets/img/posts/hmp-hmx-carbono-scott/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "technical-diagram"
+image_asset_type: "official-product-photo"
 image_status: "approved"
-image_alt: "Capa técnica TheBiker para o artigo HMF ou HMX: o que realmente muda na engenharia dos quadros Scott"
-image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
-image_credit: "TheBiker"
-image_license: "Propriedade editorial TheBiker"
+image_alt: "Quadro Scott Addict RC Pró HMX 2026 em fotografia oficial da TheBiker Shop"
+image_caption: "Quadro Scott Addict RC Pró HMX 2026, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["Scott"]

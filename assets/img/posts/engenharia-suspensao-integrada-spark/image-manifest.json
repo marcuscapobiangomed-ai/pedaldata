@@ -2,28 +2,44 @@
   "schemaVersion": 2,
   "status": "approved",
   "editorialUse": "publishable",
-  "assetType": "technical-diagram",
-  "factualSubject": "conceptual",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
   "editorialScope": "portfolio",
-  "purpose": "Identificar visualmente a pauta técnica Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa.",
-  "alt": "Capa técnica TheBiker para o artigo Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa",
-  "caption": "Capa técnica produzida para o conteúdo editorial TheBiker.",
-  "credit": "TheBiker",
-  "containsText": true,
+  "purpose": "Ilustrar Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa com produto real do catálogo TheBiker.",
+  "alt": "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant em fotografia oficial da TheBiker Shop",
+  "caption": "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
   "aiGenerated": false,
-  "depictedBrands": [],
-  "depictedProducts": [],
+  "assetId": "thebiker-quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant-69b0b793fd",
+  "sha256": "69b0b793fd96694f06213bdd9372b2a3bad0fd47a695c2ce4a7cf56dae6b4f9e",
+  "perceptualHash": "0000000000000100000011100001111000011011111110111111000000000000",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant",
+    "name": "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant",
+    "sku": null,
+    "matchLevel": "exact-id"
+  },
+  "depictedBrands": [
+    "Scott"
+  ],
+  "depictedProducts": [
+    "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant"
+  ],
   "focalPoint": {
     "x": 0.5,
     "y": 0.5
   },
   "source": {
-    "type": "own-production",
-    "name": "TheBiker",
-    "url": "",
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4257103020_2226523_4-e8366bdefdb54b360817630384958429-640-0.webp",
     "obtainedAt": "2026-08-05",
-    "license": "Propriedade editorial TheBiker",
-    "licenseEvidence": "Arte técnica original produzida pelo pipeline editorial do repositório."
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
   },
   "files": {
     "hero": {
@@ -46,14 +62,16 @@
     }
   },
   "approval": {
-    "reviewedBy": "TheBiker AI Editorial Gate",
+    "reviewedBy": "TheBiker deterministic image gate",
     "approvedAt": "2026-08-05",
     "method": "automated-editorial-gate",
     "checks": [
-      "origem-própria",
-      "sem-marca-concorrente",
-      "dimensões",
-      "peso-do-arquivo"
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
     ]
   }
 }

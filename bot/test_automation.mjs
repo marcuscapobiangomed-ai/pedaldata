@@ -6,6 +6,7 @@ import { loadQueue, selectReadyItem } from "./src/automation/queue.js";
 import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, publicCampaignSummary } from "./src/automation/campaign.js";
 import { GroundedResearcher } from "./src/automation/grounded-research.js";
 import { finalizeCampaignItem } from "./src/campaign_finalize.js";
+import { produceCampaignCover } from "./src/images/campaign-cover.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -57,7 +58,11 @@ finalizeCampaign.items[0].postPath = `_posts/drafts/${finalizeCampaign.items[0].
 await fs.writeFile(path.join(finalizeRoot, "bot/editorial-campaign.json"), JSON.stringify(finalizeCampaign));
 const sections = Array.from({ length: 5 }, (_, index) => `## Seção técnica ${index + 1}\n\nConteúdo técnico sustentado pelas fontes editoriais.`).join("\n\n");
 await fs.writeFile(path.join(finalizeRoot, finalizeCampaign.items[0].postPath), `---\nlayout: post\npublished: false\ndate: 2026-08-04\nlast_modified_at: 2026-08-04\nimage: "/assets/img/system/covers/guia-tecnico-v2/hero-1600.webp"\nimage_mobile: "/assets/img/system/covers/guia-tecnico-v2/hero-800.webp"\nthumbnail: "/assets/img/system/covers/guia-tecnico-v2/card-640.webp"\nimage_asset_type: "system-fallback"\nimage_status: "draft"\nimage_alt: "Capa"\nimage_caption: "Capa"\nimage_credit: "TheBiker"\nimage_license: "Interno"\nreviewed_by: ""\neditorial_status: "draft"\nstatus: "draft"\nsources:\n  - name: "Scott"\n    url: "https://www.scott-sports.com/"\n---\n\n${sections}\n`);
-const finalized = await finalizeCampaignItem({ root: finalizeRoot, now: new Date("2026-08-05T10:00:00Z") });
+const finalized = await finalizeCampaignItem({
+  root: finalizeRoot,
+  now: new Date("2026-08-05T10:00:00Z"),
+  imageProducer: produceCampaignCover,
+});
 assert.equal(finalized.status, "scheduled");
 const finalizedCampaign = JSON.parse(await fs.readFile(path.join(finalizeRoot, "bot/editorial-campaign.json"), "utf8"));
 assert.equal(finalizedCampaign.items[0].status, "scheduled");

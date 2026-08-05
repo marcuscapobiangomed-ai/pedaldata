@@ -207,6 +207,7 @@ export class ThreeProviderPipeline {
       blockers.length > 0;
 
     let finalResult = draftResult;
+    let finalAudit = critique;
     const premiumConfigured = this.clients.isConfigured("deepseek");
     if (requiresPremium && premiumConfigured) {
       const minimumWords = minimumWordsFor(contentType);
@@ -239,6 +240,40 @@ export class ThreeProviderPipeline {
           JSON.stringify(critique, null, 2),
         ].join("\n"),
       });
+      const finalAuditResult = await this.callStep({
+        step: "final-audit",
+        providers: ["groq", "deepseek"],
+        sourceHash,
+        options: { jsonMode: true, temperature: 0, maxTokens: 2200 },
+        system: [
+          "Você é o gate editorial final do blog oficial da TheBiker.",
+          "Audite o texto já editado contra a pesquisa. Não reescreva. Responda somente em JSON.",
+          "Nota abaixo de 90 ou qualquer bloqueador impede agendamento.",
+        ].join("\n"),
+        user: JSON.stringify({
+          topic,
+          researchData,
+          factSheet,
+          finalArticle: extractJson(finalResult.content),
+          checks: [
+            "alegações sem fonte",
+            "promoção de concorrentes",
+            "produto, versão ou medida incompatível",
+            "teste prático não realizado",
+            "texto genérico ou repetitivo",
+            "plano visual incompatível",
+          ],
+          output: { score: 0, blockers: [{ type: "...", detail: "..." }], warnings: [] },
+        }),
+      });
+      finalAudit = extractJson(finalAuditResult.content);
+      finalResult.finalAuditProvider = finalAuditResult.provider;
+    }
+
+    const finalScore = Number(finalAudit.score || 0);
+    const finalBlockers = Array.isArray(finalAudit.blockers) ? finalAudit.blockers : [];
+    if (finalScore < Number(this.env.AI_FINAL_SCORE_THRESHOLD || 90) || finalBlockers.length > 0) {
+      throw new Error(`STATUS: REVISÃO FINAL REPROVADA\nNota ${finalScore}; bloqueadores: ${finalBlockers.map((item) => item.detail || item.type).join("; ") || "nota abaixo do mínimo"}`);
     }
 
     return {
@@ -248,6 +283,8 @@ export class ThreeProviderPipeline {
         priority,
         scoreBeforePremium: score,
         blockersBeforePremium: blockers.length,
+        finalScore,
+        finalBlockers: finalBlockers.length,
         premiumEditUsed: requiresPremium && premiumConfigured,
         premiumEditPending: requiresPremium && !premiumConfigured,
         providers: {
@@ -255,6 +292,7 @@ export class ThreeProviderPipeline {
           draft: draftResult.provider,
           critique: critiqueResult.provider,
           final: finalResult.provider,
+          finalAudit: finalResult.finalAuditProvider || critiqueResult.provider,
         },
       },
     };

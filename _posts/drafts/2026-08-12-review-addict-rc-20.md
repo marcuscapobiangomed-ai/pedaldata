@@ -28,12 +28,12 @@ image: "/assets/img/posts/review-addict-rc-20/hero-1600.webp"
 image_mobile: "/assets/img/posts/review-addict-rc-20/hero-800.webp"
 thumbnail: "/assets/img/posts/review-addict-rc-20/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "technical-diagram"
+image_asset_type: "official-product-photo"
 image_status: "approved"
-image_alt: "Capa técnica TheBiker para o artigo Addict RC 20: Ultegra Di2, rodas de 40 mm e o equilíbrio da montagem"
-image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
-image_credit: "TheBiker"
-image_license: "Propriedade editorial TheBiker"
+image_alt: "Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda em fotografia oficial da TheBiker Shop"
+image_caption: "Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["Scott"]

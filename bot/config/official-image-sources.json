@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "catalogPages": [
+    { "category": "bikes", "url": "https://thebikershop.com.br/bikes/" },
+    { "category": "componentes", "url": "https://thebikershop.com.br/componentes/" },
+    { "category": "acessorios", "url": "https://thebikershop.com.br/acessorios/" },
+    { "category": "vestuario", "url": "https://thebikershop.com.br/vestuario/" }
+  ],
+  "allowedPageHosts": ["thebikershop.com.br"],
+  "allowedAssetHosts": ["acdn-us.mitiendanube.com", "thebikershop.com.br"],
+  "rightsPolicyId": "thebiker-official-editorial-v1",
+  "maximumDownloadBytes": 12582912,
+  "minimumSourceWidth": 360,
+  "minimumSourceHeight": 280
+}

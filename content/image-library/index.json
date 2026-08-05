@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-05T17:12:11.852Z",
+  "assets": [
+    {
+      "assetId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7",
+      "sha256": "85b96f62f7d152996b173a6fd0f6bea6f679df8d6dc9d43c93e00d357ec61202",
+      "perceptualHash": "0000000000000000001011001111111111111111111001110000000000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585-01767c407eabe639a917812049642571-640-0.webp",
+      "productId": "bicicleta-scott-spark-rc-world-cup-2027",
+      "productName": "Bicicleta Scott Spark RC Team 2027",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "sag-spark-rc-ajuste-preciso",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
+      "sha256": "def10da96a6308be01d2e869b59096d0e3454e8cbc2068d5095c15196d740a85",
+      "perceptualHash": "0000000000100100001111100010011000101111010110111101000000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/scott-addict-rc-pro-hmx-frame-set/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4257198086_2222553_4-7a28217979d6d53d3f17779844088851-640-0.webp",
+      "productId": "scott-addict-rc-pro-hmx-frame-set",
+      "productName": "Quadro Scott Addict RC Pró HMX 2026",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "hmp-hmx-carbono-scott",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-pastilha-de-freio-sram-guide-trail-organica-c458e0070c",
+      "sha256": "c458e0070c0e8b0a5d4612b6bbab07f38d6f6806abe7f30fb42e896332e29b6a",
+      "perceptualHash": "1111111111111111111111011000011100000011101100111100011111111111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/pastilha-de-freio-sram-guide-trail-organica/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/yzoqcmcjgs0w8xiriquo-jpg-24200ad5f0da1ae80117213319205890-640-0.webp",
+      "productId": "pastilha-de-freio-sram-guide-trail-organica",
+      "productName": "Pastilha de Freio Sram Medium Orgânica - Level 4 Pistões",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "alinhamento-pinca-rotores",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant-69b0b793fd",
+      "sha256": "69b0b793fd96694f06213bdd9372b2a3bad0fd47a695c2ce4a7cf56dae6b4f9e",
+      "perceptualHash": "0000000000000100000011100001111000011011111110111111000000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4257103020_2226523_4-e8366bdefdb54b360817630384958429-640-0.webp",
+      "productId": "quadro-suspensao-spark-rc-world-cup-hmx-2026-flight-attendant",
+      "productName": "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "engenharia-suspensao-integrada-spark",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9-b1c99140af",
+      "sha256": "b1c99140aff5a5e48a0e5969ba4a499e23937c0e98f165547982f4c7fd91b1cc",
+      "perceptualHash": "1111111111111111111110010000000000000000000000001011111111111111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/9f3f43d0-7451-11f0-bced-76750ea50910-a2888ac5d4430128d917751629729740-640-0.webp",
+      "productId": "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+      "productName": "Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "review-addict-rc-20",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21",
+      "sha256": "586601ca21bcc99093b8c7aa55787142753d6417d74b3a8f0cd8ececf351e168",
+      "perceptualHash": "0000000000101100011011001111111111111111111011110000011000000000",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585a-cb1ff18eded17bd25a17812049729199-1024-1024.webp",
+      "productId": "bicicleta-scott-spark-rc-world-cup-2027",
+      "productName": "Bicicleta Scott Spark RC Team 2027",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "review-spark-rc-team-2027",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-bateria-sram-axs-5cbb772e8f",
+      "sha256": "5cbb772e8fee59d156ec1ae7f251baf573845f9eea165a56e60525688b4d6b93",
+      "perceptualHash": "1111111111100111110001111000010111000001111000111111111111111111",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/bateria-sram-axs/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/abbf6440991-9b6cf23d3673cab21215735899547332-640-0.webp",
+      "productId": "bateria-sram-axs",
+      "productName": "Bateria Sram AXS",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "cambio-eletronico-ajuste-diagnostico",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc",
+      "sha256": "510894cafce46d08769435f667af53943b9f8a6c4b6771ad965b09a33f457038",
+      "perceptualHash": "1110111111000011111111111110011111000111110001111100000110000100",
+      "sourcePageUrl": "https://thebikershop.com.br/produtos/kit-de-rolamentos-direcao-scott-foil/",
+      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/a9aa963b4b1-3c7f8b50585137f08c15723674547450-640-0.webp",
+      "productId": "kit-de-rolamentos-direcao-scott-foil",
+      "productName": "Kit de Rolamentos Direção Scott FOIL",
+      "rightsPolicyId": "thebiker-official-editorial-v1",
+      "uses": [
+        {
+          "postId": "reserva-rolamentos-diagnostico",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}

@@ -41,6 +41,8 @@
     "generate:thumbnails": "node ../medblog-automation/src/generate-thumbnails.js",
     "generate:placeholders": "node ../medblog-automation/src/generate-placeholders.js && node ../medblog-automation/src/generate-data-placeholders.js",
     "pipeline:images": "npm run generate:placeholders && npm run generate:thumbnails && npm run validate:images"
+    ,"media:recalibrate-campaign": "node scripts/recalibrate-campaign-images.js"
+    ,"campaign:simulate": "npm --prefix bot run campaign:simulate"
   },
   "devDependencies": {
     "js-yaml": "^5.2.3",

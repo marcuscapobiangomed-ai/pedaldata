@@ -26,6 +26,8 @@ const SourceSchema = z.object({
   obtainedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   license: z.string().min(3),
   licenseEvidence: z.string().min(3),
+  fileUrl: z.string().url().optional(),
+  rightsPolicyId: z.string().min(3).optional(),
 });
 
 export const ImageManifestV2Schema = z.object({
@@ -49,6 +51,16 @@ export const ImageManifestV2Schema = z.object({
   credit: z.string().min(2),
   containsText: z.boolean(),
   aiGenerated: z.boolean(),
+  assetId: z.string().min(8).optional(),
+  sha256: z.string().regex(/^[a-f0-9]{64}$/).optional(),
+  perceptualHash: z.string().regex(/^[01]{64}$/).optional(),
+  preserveFullProduct: z.boolean().default(false),
+  matchedProduct: z.object({
+    id: z.string().min(3),
+    name: z.string().min(3),
+    sku: z.string().nullable().optional(),
+    matchLevel: z.enum(["exact-id", "deterministic-topic"]),
+  }).optional(),
   depictedBrands: z.array(z.string()).default([]),
   depictedProducts: z.array(z.string()).default([]),
   focalPoint: z.object({

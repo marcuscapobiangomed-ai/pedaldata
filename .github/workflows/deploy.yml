@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -52,3 +52,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verificar site publicado
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            body="$(curl --fail --silent --show-error --location --max-time 20 "$SITE_URL" || true)"
+            if echo "$body" | grep -qi "thebiker"; then
+              echo "Site publicado e identidade TheBiker encontrada em $SITE_URL"
+              exit 0
+            fi
+            sleep $((attempt * 10))
+          done
+          echo "Deploy concluido, mas o health check publico falhou: $SITE_URL" >&2
+          exit 1

@@ -27,6 +27,9 @@
     ,"publish:scheduled": "node src/publish_scheduled.js"
     ,"campaign:produce": "node src/campaign_producer.js"
     ,"campaign:finalize": "node src/campaign_finalize.js"
+    ,"media:discover": "node src/images/discover-candidates.js"
+    ,"campaign:audit-buffer": "node src/audit_campaign_buffer.js"
+    ,"campaign:simulate": "node src/automation/simulate-campaign.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

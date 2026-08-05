@@ -28,12 +28,12 @@ image: "/assets/img/posts/reserva-rolamentos-diagnostico/hero-1600.webp"
 image_mobile: "/assets/img/posts/reserva-rolamentos-diagnostico/hero-800.webp"
 thumbnail: "/assets/img/posts/reserva-rolamentos-diagnostico/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "technical-diagram"
+image_asset_type: "official-product-photo"
 image_status: "approved"
-image_alt: "Capa técnica TheBiker para o artigo Rolamentos sob carga: como localizar folga e contaminação"
-image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
-image_credit: "TheBiker"
-image_license: "Propriedade editorial TheBiker"
+image_alt: "Kit de Rolamentos Direção Scott FOIL em fotografia oficial da TheBiker Shop"
+image_caption: "Kit de Rolamentos Direção Scott FOIL, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["TheBiker"]

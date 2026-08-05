@@ -3,6 +3,28 @@ const numberFrom = (value, fallback) => {
   return Number.isFinite(parsed) ? parsed : fallback;
 };
 
+const RETRYABLE_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
+
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+async function fetchWithRetry(url, init, { attempts = 3 } = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      if (!RETRYABLE_STATUS.has(response.status) || attempt === attempts) return response;
+      const retryAfter = Number(response.headers.get("retry-after"));
+      await response.text();
+      await wait(Number.isFinite(retryAfter) ? Math.min(retryAfter * 1000, 30000) : 750 * (2 ** (attempt - 1)));
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts) throw error;
+      await wait(750 * (2 ** (attempt - 1)));
+    }
+  }
+  throw lastError || new Error("Falha de rede sem resposta");
+}
+
 function usageFromOpenAI(data) {
   return {
     inputTokens: data.usage?.prompt_tokens || 0,
@@ -34,14 +56,14 @@ async function openAICompatibleRequest({
   if (options.thinking === "disabled") payload.thinking = { type: "disabled" };
 
   const startedAt = Date.now();
-  const response = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
+  const response = await fetchWithRetry(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
-  });
+  }, { attempts: numberFrom(process.env.AI_HTTP_RETRY_ATTEMPTS, 3) });
 
   if (!response.ok) {
     const detail = (await response.text()).slice(0, 1000);

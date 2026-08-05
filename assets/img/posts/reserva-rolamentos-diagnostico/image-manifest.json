@@ -2,28 +2,44 @@
   "schemaVersion": 2,
   "status": "approved",
   "editorialUse": "publishable",
-  "assetType": "technical-diagram",
-  "factualSubject": "conceptual",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
   "editorialScope": "portfolio",
-  "purpose": "Identificar visualmente a pauta técnica Rolamentos sob carga: como localizar folga e contaminação.",
-  "alt": "Capa técnica TheBiker para o artigo Rolamentos sob carga: como localizar folga e contaminação",
-  "caption": "Capa técnica produzida para o conteúdo editorial TheBiker.",
-  "credit": "TheBiker",
-  "containsText": true,
+  "purpose": "Ilustrar Rolamentos sob carga: como localizar folga e contaminação com produto real do catálogo TheBiker.",
+  "alt": "Kit de Rolamentos Direção Scott FOIL em fotografia oficial da TheBiker Shop",
+  "caption": "Kit de Rolamentos Direção Scott FOIL, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
   "aiGenerated": false,
-  "depictedBrands": [],
-  "depictedProducts": [],
+  "assetId": "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc",
+  "sha256": "510894cafce46d08769435f667af53943b9f8a6c4b6771ad965b09a33f457038",
+  "perceptualHash": "1110111111000011111111111110011111000111110001111100000110000100",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "kit-de-rolamentos-direcao-scott-foil",
+    "name": "Kit de Rolamentos Direção Scott FOIL",
+    "sku": "245452",
+    "matchLevel": "exact-id"
+  },
+  "depictedBrands": [
+    "Scott"
+  ],
+  "depictedProducts": [
+    "Kit de Rolamentos Direção Scott FOIL"
+  ],
   "focalPoint": {
     "x": 0.5,
     "y": 0.5
   },
   "source": {
-    "type": "own-production",
-    "name": "TheBiker",
-    "url": "",
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/kit-de-rolamentos-direcao-scott-foil/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/a9aa963b4b1-3c7f8b50585137f08c15723674547450-640-0.webp",
     "obtainedAt": "2026-08-05",
-    "license": "Propriedade editorial TheBiker",
-    "licenseEvidence": "Arte técnica original produzida pelo pipeline editorial do repositório."
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
   },
   "files": {
     "hero": {
@@ -46,14 +62,16 @@
     }
   },
   "approval": {
-    "reviewedBy": "TheBiker AI Editorial Gate",
+    "reviewedBy": "TheBiker deterministic image gate",
     "approvedAt": "2026-08-05",
     "method": "automated-editorial-gate",
     "checks": [
-      "origem-própria",
-      "sem-marca-concorrente",
-      "dimensões",
-      "peso-do-arquivo"
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
     ]
   }
 }

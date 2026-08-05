@@ -28,12 +28,12 @@ image: "/assets/img/posts/review-spark-rc-team-2027/hero-1600.webp"
 image_mobile: "/assets/img/posts/review-spark-rc-team-2027/hero-800.webp"
 thumbnail: "/assets/img/posts/review-spark-rc-team-2027/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "technical-diagram"
+image_asset_type: "official-product-photo"
 image_status: "approved"
-image_alt: "Capa técnica TheBiker para o artigo Spark RC Team 2027: leitura técnica da plataforma de 120 mm e transmissão AXS"
-image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
-image_credit: "TheBiker"
-image_license: "Propriedade editorial TheBiker"
+image_alt: "Bicicleta Scott Spark RC Team 2027 em fotografia oficial da TheBiker Shop"
+image_caption: "Bicicleta Scott Spark RC Team 2027, conforme catálogo oficial da TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["Scott"]

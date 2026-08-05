@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "thebiker-official-editorial-v1",
+  "status": "approved",
+  "owner": "TheBiker",
+  "scope": "Imagens publicadas no catálogo oficial da TheBiker Shop para uso editorial no blog oficial TheBiker.",
+  "allowedHosts": ["thebikershop.com.br", "acdn-us.mitiendanube.com"],
+  "allowedTransformations": ["resize", "crop", "format-conversion", "metadata-removal"],
+  "credit": "TheBiker Shop",
+  "authorizationBasis": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+  "verifiedAt": "2026-08-05",
+  "reviewAfter": "2027-08-05"
+}

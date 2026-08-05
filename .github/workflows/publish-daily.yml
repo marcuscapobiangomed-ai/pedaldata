@@ -2,7 +2,10 @@ name: TheBiker — Publicação diária ao meio-dia
 
 on:
   schedule:
+    # 11:55, 12:00 e 12:10 em Brasilia; publicar e idempotente.
+    - cron: "55 14 * * *"
     - cron: "0 15 * * *"
+    - cron: "10 15 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -13,9 +16,10 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
-  group: thebiker-daily-publication
+  group: thebiker-editorial-write
   cancel-in-progress: false
 
 jobs:
@@ -29,7 +33,7 @@ jobs:
           ref: main
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
           cache-dependency-path: bot/package-lock.json
       - run: npm ci
@@ -51,4 +55,9 @@ jobs:
           git config user.email "thebiker-editorial-bot@users.noreply.github.com"
           git add _posts bot/editorial-campaign.json _data/editorial-calendar.json
           git diff --cached --quiet || git commit -m "publish: artigo diário $(date -u +%F)"
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 5))
+          done
+          exit 1

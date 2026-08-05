@@ -30,6 +30,8 @@ export async function runCampaignProducer({ root = defaultRoot, env = process.en
   if (env.AUTOMATION_DRY_RUN === 'true') return { status: 'ready', itemId: item.id }
   const today = now.toISOString().slice(0, 10)
   try {
+    item.attempts = (item.attempts || 0) + 1
+    item.lastAttemptAt = now.toISOString()
     item.status = 'researching'
     await persist(root, campaign)
     const evidence = await knowledgeEvidence(root, item)
@@ -51,6 +53,8 @@ export async function runCampaignProducer({ root = defaultRoot, env = process.en
     item.status = 'validation'
     item.aiReview = {
       score: post.pipelineMetadata?.scoreBeforePremium ?? null,
+      finalScore: post.pipelineMetadata?.finalScore ?? null,
+      finalBlockers: post.pipelineMetadata?.finalBlockers ?? 0,
       premiumEditUsed: post.pipelineMetadata?.premiumEditUsed === true,
       providers: post.pipelineMetadata?.providers || {},
       generatedAt: now.toISOString(),

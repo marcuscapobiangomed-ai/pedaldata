@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
-import { produceCampaignCover } from "./images/campaign-cover.js";
+import { produceOfficialCampaignImage } from "./images/official-campaign-image.js";
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -19,7 +19,7 @@ function setField(content, field, value) {
   return content.replace(pattern, line);
 }
 
-export async function finalizeCampaignItem({ root = defaultRoot, now = new Date() } = {}) {
+export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(), imageProducer = produceOfficialCampaignImage } = {}) {
   const campaignPath = path.join(root, "bot/editorial-campaign.json");
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, "utf8")));
   const item = campaign.items.find((candidate) => candidate.status === "validation") || null;
@@ -35,24 +35,31 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
     if (parsed.data.published !== false) throw new Error("Rascunho precisa permanecer com published: false");
     if (!Array.isArray(parsed.data.sources) || parsed.data.sources.length === 0) throw new Error("Post sem fontes editoriais");
     if ((parsed.content.match(/^##\s+/gm) || []).length < 5) throw new Error("Post com menos de cinco seções");
-    const cover = await produceCampaignCover({ root, item, approvedAt });
+    if (item.aiReview?.finalScore !== null && item.aiReview?.finalScore !== undefined && item.aiReview.finalScore < 90) {
+      throw new Error(`Nota editorial final insuficiente: ${item.aiReview.finalScore}`);
+    }
+    if ((item.aiReview?.finalBlockers || 0) > 0) throw new Error("Auditoria editorial final ainda possui bloqueadores");
+    const cover = await imageProducer({ root, item, approvedAt });
     content = setField(content, "date", item.publishDate);
     content = setField(content, "last_modified_at", approvedAt);
     content = setField(content, "image", `"${cover.publicBase}/hero-1600.webp"`);
     content = setField(content, "image_mobile", `"${cover.publicBase}/hero-800.webp"`);
     content = setField(content, "thumbnail", `"${cover.publicBase}/card-640.webp"`);
-    content = setField(content, "image_asset_type", '"technical-diagram"');
+    content = setField(content, "image_asset_type", `"${cover.manifest.assetType}"`);
     content = setField(content, "image_status", '"approved"');
     content = setField(content, "image_alt", `"${cover.manifest.alt.replace(/"/g, '\\"')}"`);
     content = setField(content, "image_caption", `"${cover.manifest.caption}"`);
-    content = setField(content, "image_credit", '"TheBiker"');
-    content = setField(content, "image_license", '"Propriedade editorial TheBiker"');
+    content = setField(content, "image_credit", `"${cover.manifest.credit.replace(/"/g, '\\"')}"`);
+    content = setField(content, "image_license", `"${cover.manifest.source.license.replace(/"/g, '\\"')}"`);
     content = setField(content, "reviewed_by", '"TheBiker AI Editorial Gate"');
     content = setField(content, "editorial_status", '"reviewed"');
     content = setField(content, "status", '"scheduled"');
     if (/\/assets\/img\/system\/covers\//.test(content.split("---", 3)[1] || "")) throw new Error("Fallback de imagem ainda presente no frontmatter");
     await fs.writeFile(absolutePost, content);
     item.imageManifestPath = `assets/img/posts/${item.id}/image-manifest.json`;
+    item.imageStatus = "approved";
+    item.imageAssetIds = cover.manifest.assetId ? [cover.manifest.assetId] : [];
+    item.imageValidatedAt = now.toISOString();
     item.status = "scheduled";
     delete item.blockReason;
     await persist(root, campaign);

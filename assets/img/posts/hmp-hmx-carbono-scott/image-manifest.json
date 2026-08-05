@@ -2,28 +2,44 @@
   "schemaVersion": 2,
   "status": "approved",
   "editorialUse": "publishable",
-  "assetType": "technical-diagram",
-  "factualSubject": "conceptual",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
   "editorialScope": "portfolio",
-  "purpose": "Identificar visualmente a pauta técnica HMF ou HMX: o que realmente muda na engenharia dos quadros Scott.",
-  "alt": "Capa técnica TheBiker para o artigo HMF ou HMX: o que realmente muda na engenharia dos quadros Scott",
-  "caption": "Capa técnica produzida para o conteúdo editorial TheBiker.",
-  "credit": "TheBiker",
-  "containsText": true,
+  "purpose": "Ilustrar HMF ou HMX: o que realmente muda na engenharia dos quadros Scott com produto real do catálogo TheBiker.",
+  "alt": "Quadro Scott Addict RC Pró HMX 2026 em fotografia oficial da TheBiker Shop",
+  "caption": "Quadro Scott Addict RC Pró HMX 2026, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
   "aiGenerated": false,
-  "depictedBrands": [],
-  "depictedProducts": [],
+  "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
+  "sha256": "def10da96a6308be01d2e869b59096d0e3454e8cbc2068d5095c15196d740a85",
+  "perceptualHash": "0000000000100100001111100010011000101111010110111101000000000000",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "scott-addict-rc-pro-hmx-frame-set",
+    "name": "Quadro Scott Addict RC Pró HMX 2026",
+    "sku": null,
+    "matchLevel": "deterministic-topic"
+  },
+  "depictedBrands": [
+    "Scott"
+  ],
+  "depictedProducts": [
+    "Quadro Scott Addict RC Pró HMX 2026"
+  ],
   "focalPoint": {
     "x": 0.5,
     "y": 0.5
   },
   "source": {
-    "type": "own-production",
-    "name": "TheBiker",
-    "url": "",
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/scott-addict-rc-pro-hmx-frame-set/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4257198086_2222553_4-7a28217979d6d53d3f17779844088851-640-0.webp",
     "obtainedAt": "2026-08-05",
-    "license": "Propriedade editorial TheBiker",
-    "licenseEvidence": "Arte técnica original produzida pelo pipeline editorial do repositório."
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
   },
   "files": {
     "hero": {
@@ -46,14 +62,16 @@
     }
   },
   "approval": {
-    "reviewedBy": "TheBiker AI Editorial Gate",
+    "reviewedBy": "TheBiker deterministic image gate",
     "approvedAt": "2026-08-05",
     "method": "automated-editorial-gate",
     "checks": [
-      "origem-própria",
-      "sem-marca-concorrente",
-      "dimensões",
-      "peso-do-arquivo"
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
     ]
   }
 }

@@ -2,28 +2,44 @@
   "schemaVersion": 2,
   "status": "approved",
   "editorialUse": "publishable",
-  "assetType": "technical-diagram",
-  "factualSubject": "conceptual",
+  "assetType": "official-product-photo",
+  "factualSubject": "exact-product",
   "editorialScope": "portfolio",
-  "purpose": "Identificar visualmente a pauta técnica SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão.",
-  "alt": "Capa técnica TheBiker para o artigo SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão",
-  "caption": "Capa técnica produzida para o conteúdo editorial TheBiker.",
-  "credit": "TheBiker",
-  "containsText": true,
+  "purpose": "Ilustrar SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão com produto real do catálogo TheBiker.",
+  "alt": "Bicicleta Scott Spark RC Team 2027 em fotografia oficial da TheBiker Shop",
+  "caption": "Bicicleta Scott Spark RC Team 2027, conforme catálogo oficial da TheBiker Shop.",
+  "credit": "TheBiker Shop",
+  "containsText": false,
   "aiGenerated": false,
-  "depictedBrands": [],
-  "depictedProducts": [],
+  "assetId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027-85b96f62f7",
+  "sha256": "85b96f62f7d152996b173a6fd0f6bea6f679df8d6dc9d43c93e00d357ec61202",
+  "perceptualHash": "0000000000000000001011001111111111111111111001110000000000000000",
+  "preserveFullProduct": true,
+  "matchedProduct": {
+    "id": "bicicleta-scott-spark-rc-world-cup-2027",
+    "name": "Bicicleta Scott Spark RC Team 2027",
+    "sku": null,
+    "matchLevel": "exact-id"
+  },
+  "depictedBrands": [
+    "Scott"
+  ],
+  "depictedProducts": [
+    "Bicicleta Scott Spark RC Team 2027"
+  ],
   "focalPoint": {
     "x": 0.5,
     "y": 0.5
   },
   "source": {
-    "type": "own-production",
-    "name": "TheBiker",
-    "url": "",
+    "type": "thebiker",
+    "name": "TheBiker Shop",
+    "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/",
+    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4275488585-01767c407eabe639a917812049642571-640-0.webp",
     "obtainedAt": "2026-08-05",
-    "license": "Propriedade editorial TheBiker",
-    "licenseEvidence": "Arte técnica original produzida pelo pipeline editorial do repositório."
+    "license": "Uso editorial no blog oficial TheBiker",
+    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
+    "rightsPolicyId": "thebiker-official-editorial-v1"
   },
   "files": {
     "hero": {
@@ -46,14 +62,16 @@
     }
   },
   "approval": {
-    "reviewedBy": "TheBiker AI Editorial Gate",
+    "reviewedBy": "TheBiker deterministic image gate",
     "approvedAt": "2026-08-05",
     "method": "automated-editorial-gate",
     "checks": [
-      "origem-própria",
-      "sem-marca-concorrente",
-      "dimensões",
-      "peso-do-arquivo"
+      "fonte-thebiker",
+      "direitos",
+      "produto-relacionado",
+      "sha256",
+      "hash-perceptual",
+      "sem-concorrente"
     ]
   }
 }
