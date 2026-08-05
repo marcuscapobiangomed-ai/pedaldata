@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: thebiker-editorial-automation
@@ -66,6 +65,7 @@ jobs:
       - name: Validar artefatos produzidos
         if: always()
         run: |
+          npm run security:secrets
           npm run check:machine-readable
           npm run validate:posts
       - name: Persistir estado, pesquisa e rascunho

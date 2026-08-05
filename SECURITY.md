@@ -6,6 +6,11 @@
 - Todos os tokens são usados exclusivamente via header `Authorization: Bearer`
 - Arquivos `.env` estão no `.gitignore` e **nunca** são commitados
 - `.env.example` contém apenas placeholders
+- As chaves das APIs existem somente como **GitHub Environment Secrets** no ambiente `editorial-automation`; nunca como variáveis Jekyll, JavaScript do navegador ou arquivos em `_data`
+- O site público não chama Groq, Gemini ou DeepSeek: somente workflows privados fazem essas chamadas
+- O deploy verifica o conteúdo final de `_site` e falha se reconhecer uma credencial
+- Logs e artefatos nunca devem imprimir headers, valores de secrets ou dumps de `process.env`
+- Chaves expostas em chat, log ou commit devem ser revogadas e substituídas antes da ativação
 
 ## Automação
 

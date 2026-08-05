@@ -41,6 +41,7 @@ jobs:
         working-directory: bot
       - name: Validar conteúdo e calendário
         run: |
+          npm run security:secrets
           npm run check:machine-readable
           npm run validate:posts
       - name: Registrar publicação

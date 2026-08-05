@@ -34,9 +34,9 @@ A ficha deve existir, passar pelo schema e estar como `pesquisa_concluida`. O `i
 
 ## Configuração no GitHub
 
-No ambiente `editorial-automation`, cadastre os secrets `GROQ_API_KEY`, `GEMINI_API_KEY`, `DEEPSEEK_API_KEY` e `THEBIKER_GITHUB_TOKEN`.
+No ambiente protegido `editorial-automation`, cadastre somente os secrets `GROQ_API_KEY`, `GEMINI_API_KEY` e `DEEPSEEK_API_KEY`. As chaves não entram em `_config.yml`, `_data`, JavaScript, arquivos `.env` versionados ou variáveis do site.
 
-`THEBIKER_GITHUB_TOKEN` deve ser um token de acesso refinado, limitado somente a este repositório, com acesso de leitura e escrita a **Contents** e **Pull requests**. Não usamos o token automático do workflow porque PRs criados por ele podem deixar os checks aguardando aprovação manual; o token dedicado permite que a validação do PR comece normalmente.
+Os workflows usam o `GITHUB_TOKEN` efêmero fornecido pelo GitHub com permissão mínima. Não é necessário armazenar um token pessoal para a campanha de 30 dias.
 
 Defina as variáveis do repositório:
 
@@ -54,5 +54,6 @@ Antes de habilitar, execute manualmente com `dry_run=true`. Depois, execute uma 
 - PR existente impede cobrança e conteúdo duplicados.
 - DeepSeek para automaticamente no limite orçamentário configurado.
 - Sem imagem aprovada, o artigo permanece rascunho.
+- `npm run security:secrets` bloqueia credenciais no repositório; `npm run security:public` repete a verificação sobre o site Jekyll efetivamente gerado antes do upload ao Pages.
 
 Após o merge do PR editorial, remova manualmente o item concluído da fila. Essa remoção explícita preserva trilha de auditoria e evita que a automação modifique a fila principal fora da revisão.

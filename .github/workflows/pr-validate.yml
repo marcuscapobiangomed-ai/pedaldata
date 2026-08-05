@@ -22,7 +22,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
   group: pr-validate-${{ github.head_ref }}
@@ -45,6 +44,9 @@ jobs:
       - name: Instalar Dependências
         run: npm ci
         working-directory: bot
+
+      - name: Bloquear credenciais no repositorio
+        run: npm run security:secrets
 
       - name: Lint (JS)
         run: |
@@ -122,3 +124,6 @@ jobs:
         run: bundle exec jekyll build --baseurl ""
         env:
           JEKYLL_ENV: production
+
+      - name: Bloquear credenciais no site gerado
+        run: npm run security:public

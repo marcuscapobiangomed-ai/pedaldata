@@ -20,6 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
@@ -34,6 +38,9 @@ jobs:
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+
+      - name: Security gate for public artifact
+        run: npm run security:public
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
