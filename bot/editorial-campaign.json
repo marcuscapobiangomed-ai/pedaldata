@@ -44,6 +44,7 @@
       "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-11-hmp-hmx-carbono-scott.md",
+      "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -54,8 +55,7 @@
           "final": "deepseek"
         },
         "generatedAt": "2026-08-05T14:17:30.907Z"
-      },
-      "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json"
+      }
     },
     {
       "day": 3,
@@ -65,10 +65,24 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "planned",
+      "status": "scheduled",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
-      ]
+      ],
+      "postPath": "_posts/drafts/2026-08-12-review-spark-rc-team-2027.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalRepair": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:23:15.916Z"
+      },
+      "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json"
     },
     {
       "day": 4,
