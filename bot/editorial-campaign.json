@@ -293,10 +293,12 @@
       "summary": "Critérios para montagem, volume de selante, inspeção de fita, assentamento do talão e ajuste de pressão em pneus 29x2.4.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-05T18:24:35.692Z",
+      "blockReason": "The operation was aborted due to timeout"
     },
     {
       "day": 10,
