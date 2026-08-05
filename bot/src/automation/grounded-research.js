@@ -57,13 +57,15 @@ export class GroundedResearcher {
   }
 
   async research({ item, internalEvidence, today }) {
-    if (!this.env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY é obrigatória para pesquisa fundamentada')
-    const model = this.env.GEMINI_RESEARCH_MODEL || 'gemini-3.6-flash'
+    const provider = this.env.RESEARCH_PROVIDER || 'groq'
     const contentType = {
       'manutencao-ajustes': 'guia-tecnico', engenharia: 'guia-tecnico', componentes: 'guia-tecnico', review: 'review',
       comparativo: 'comparativo', lancamentos: 'lancamento', competicoes: item.id.includes('preparacao') ? 'previa-corrida' : 'resumo-corrida'
     }[item.category]
     const raceCoverage = item.category === 'competicoes'
+    if (item.freshness === 'evergreen' && internalEvidence.length > 0) {
+      return internalResearch({ item, internalEvidence, today, contentType, reason: 'estratégia evergreen sem chamada externa' })
+    }
     const prompt = [
       'Pesquise para o blog oficial da TheBiker. Responda somente em JSON válido.',
       'Priorize documentos oficiais, manuais dos fabricantes, TheBiker Shop e, em competições, organizadores oficiais.',
@@ -75,20 +77,23 @@ export class GroundedResearcher {
       `Conteúdo interno já validado: ${JSON.stringify(internalEvidence)}`,
       `Retorne: {"slug":"${item.id}","title":"${item.title}","content_type":"${contentType}","review_method":"desk-research","tested_by_pedaldata":false,"market":"Brasil","generated_at":"${today}","status":"pesquisa_concluida","editorialPriority":"P1","confirmed_facts":{},"limitations":[],"sources":[{"name":"...","type":"manufacturer|store|official-website","url":"https://...","accessed":"${today}"}]}`
     ].join('\n')
-    const response = await this.fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+    if (provider !== 'groq') throw new Error(`Provedor de pesquisa não suportado: ${provider}`)
+    if (!this.env.GROQ_API_KEY) throw new Error('GROQ_API_KEY é obrigatória para pesquisa atual')
+    const model = this.env.GROQ_RESEARCH_MODEL || this.env.GROQ_MODEL || 'openai/gpt-oss-120b'
+    const response = await this.fetch(`${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
       method: 'POST',
-      headers: { 'x-goog-api-key': this.env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], tools: [{ google_search: {} }], generationConfig: { temperature: 0, responseMimeType: 'application/json', maxOutputTokens: 6000 } })
+      headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], response_format: { type: 'json_object' }, temperature: 0, max_tokens: 6000 })
     })
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
       if (!raceCoverage && [403, 404, 429].includes(response.status)) {
-        return internalResearch({ item, internalEvidence, today, contentType, reason: `Gemini ${response.status}` })
+        return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq ${response.status}` })
       }
-      throw new Error(`Gemini grounded research: ${response.status} - ${detail}`)
+      throw new Error(`Groq grounded research: ${response.status} - ${detail}`)
     }
     const payload = await response.json()
-    const text = payload.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('')
+    const text = payload.choices?.[0]?.message?.content
     const research = extractJson(text)
     research.sources = (research.sources || []).filter((source) => source.url && allowedSource(source.url, raceCoverage))
     if (research.sources.length === 0) throw new Error('Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada')
@@ -102,8 +107,9 @@ export class GroundedResearcher {
     research.status = 'pesquisa_concluida'
     research.editorialPriority = 'P1'
     research.grounding = {
-      queries: payload.candidates?.[0]?.groundingMetadata?.webSearchQueries || [],
+      queries: [],
       sourceCount: research.sources.length,
+      provider: 'groq-browser-search',
     }
     return validateResearch(research)
   }

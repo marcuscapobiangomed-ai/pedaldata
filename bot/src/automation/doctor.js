@@ -25,10 +25,9 @@ try {
 }
 
 if (process.env.AUTOMATION_ENABLED === "true") {
-  for (const name of ["GROQ_API_KEY", "GEMINI_API_KEY", "GITHUB_TOKEN", "GITHUB_USER", "GITHUB_REPO"]) {
+  for (const name of ["GROQ_API_KEY", "DEEPSEEK_API_KEY"]) {
     if (!process.env[name]) errors.push(`${name} não configurado`);
   }
-  if (!process.env.DEEPSEEK_API_KEY) warnings.push("DEEPSEEK_API_KEY ausente: edição premium ficará indisponível");
 }
 if (queue && queue.items.length === 0) warnings.push("fila editorial vazia");
 if (campaign) {

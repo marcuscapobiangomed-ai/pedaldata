@@ -119,7 +119,7 @@ export class ThreeProviderPipeline {
     const sourceHash = hashPayload(researchData);
     const factSheetResult = await this.callStep({
       step: "fact-sheet",
-      providers: ["groq", "gemini"],
+      providers: ["groq", "deepseek"],
       sourceHash,
       options: { jsonMode: true, temperature: 0, maxTokens: 2500 },
       system: [
@@ -159,7 +159,7 @@ export class ThreeProviderPipeline {
     ].join("\n");
     const draftResult = await this.callStep({
       step: "draft",
-      providers: ["gemini", "groq"],
+      providers: ["groq", "deepseek"],
       sourceHash,
       system: systemPrompt,
       user: enrichedDraftPrompt,
@@ -169,7 +169,7 @@ export class ThreeProviderPipeline {
 
     const critiqueResult = await this.callStep({
       step: "critique",
-      providers: ["groq", "gemini"],
+      providers: ["groq", "deepseek"],
       sourceHash,
       options: { jsonMode: true, temperature: 0, maxTokens: 3000 },
       system: [
