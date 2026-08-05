@@ -21,10 +21,10 @@ price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "comparativo"
 tags: [comparativos, ciclismo, aplicativos, treino, zwift, trainerroad]
-image: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/hero-1600.webp"
-image_alt: "Rolo de Treino Elite Novo Force em fotografia oficial da TheBiker Shop"
-image_caption: "Rolo de Treino Elite Novo Force, conforme catálogo oficial da TheBiker Shop."
-image_credit: "TheBiker Shop"
+image: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/hero-1600.png"
+image_alt: "Rolo de Treino Elite Novo Force em fotografia oficial de Elite"
+image_caption: "Rolo de Treino Elite Novo Force, em fotografia oficial de Elite."
+image_credit: "Elite"
 image_license: "Uso editorial no blog oficial TheBiker"
 sources:
   - name: "Zwift — Preços"
@@ -49,8 +49,8 @@ sources:
     accessed_at: "2026-07-19"
 affiliate_links: false
 editorial_status: "published"
-thumbnail: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/card-640.webp"
-image_mobile: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/hero-800.webp"
+thumbnail: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/card-640.png"
+image_mobile: "/assets/img/posts/melhores-apps-treino-ciclismo-2026/hero-800.png"
 image_manifest_version: 2
 image_asset_type: "official-product-photo"
 image_status: "approved"

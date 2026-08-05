@@ -19,29 +19,47 @@ function galleryUrls(html) {
     .filter((url) => /\.(?:webp|jpe?g|png)(?:\?|$)/i.test(url));
 }
 
-async function productImageUrls(product, config, fetchImpl) {
+async function productImageCandidates(product, config, fetchImpl) {
   const page = new URL(product.productUrl);
   if (!config.allowedPageHosts.some((host) => page.hostname === host || page.hostname.endsWith(`.${host}`))) {
     throw new Error(`Página de produto fora da allowlist: ${page.hostname}`);
   }
-  const response = await fetchImpl(page, { headers: { "user-agent": "TheBikerBlogMediaBot/1.0" }, signal: AbortSignal.timeout(20000) });
-  if (!response.ok) throw new Error(`Página do produto: HTTP ${response.status}`);
-  const gallery = galleryUrls(await response.text());
+  let gallery = [];
+  if (!(product.officialImages || []).length) {
+    const response = await fetchImpl(page, { headers: { "user-agent": "TheBikerBlogMediaBot/1.0" }, signal: AbortSignal.timeout(20000) });
+    if (!response.ok) throw new Error(`Página do produto: HTTP ${response.status}`);
+    gallery = galleryUrls(await response.text());
+  }
   const withLargestFirst = (urls) => urls.flatMap((url) => {
     const largest = preferLargestStoreImage(url);
     return largest === url ? [url] : [largest, url];
   });
-  return [...new Set([...withLargestFirst(gallery), ...withLargestFirst(product.images)])];
+  const manufacturer = (product.officialImages || []).map((url) => ({
+    url,
+    sourceType: "manufacturer",
+    sourceName: product.brand,
+    sourcePageUrl: product.officialPageUrl,
+  }));
+  const store = [...new Set([...withLargestFirst(gallery), ...withLargestFirst(product.images)])].map((url) => ({
+    url,
+    sourceType: "thebiker",
+    sourceName: "TheBiker Shop",
+    sourcePageUrl: product.productUrl,
+  }));
+  return [...manufacturer, ...store];
 }
 
 export async function produceOfficialCampaignImage({ root, item, approvedAt, fetchImpl = fetch, force = false }) {
-  const [config, catalog, rights, library] = await Promise.all([
+  const [config, catalog, storeRights, brandRights, library] = await Promise.all([
     fs.readFile(path.join(root, "bot/config/official-image-sources.json"), "utf8").then(JSON.parse),
     fs.readFile(path.join(root, "content/product-discovery/thebiker-media-catalog.json"), "utf8").then(JSON.parse),
     fs.readFile(path.join(root, "content/image-rights/thebiker-official-editorial-v1.json"), "utf8").then(JSON.parse),
+    fs.readFile(path.join(root, "content/image-rights/official-brand-editorial-v1.json"), "utf8").then(JSON.parse),
     loadAssetLibrary(root),
   ]);
-  if (rights.status !== "approved") throw new Error(`Política visual não aprovada: ${rights.id}`);
+  for (const rights of [storeRights, brandRights]) {
+    if (rights.status !== "approved") throw new Error(`Política visual não aprovada: ${rights.id}`);
+  }
   const existingDirectory = path.join(root, "assets/img/posts", item.id);
   const existingManifestPath = path.join(existingDirectory, "image-manifest.json");
   try {
@@ -59,15 +77,20 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
   }
   const selected = selectImageCandidate(item, catalog, library.data);
   if (!selected) throw new Error(`Nenhuma imagem real compatível para ${item.id}`);
-  const urls = await productImageUrls(selected.product, config, fetchImpl);
+  const candidates = await productImageCandidates(selected.product, config, fetchImpl);
   let downloaded;
   let identity;
+  let selectedImage;
   const rejected = [];
-  for (const imageUrl of urls) {
+  for (const image of candidates) {
     try {
-      const candidate = await secureDownloadImage(imageUrl, config, { fetchImpl });
+      const candidate = await secureDownloadImage(image.url, config, { fetchImpl });
       const metadata = await sharp(candidate.buffer).metadata();
-      if ((metadata.width || 0) < config.minimumSourceWidth || (metadata.height || 0) < config.minimumSourceHeight) throw new Error(`resolução ${metadata.width || 0}x${metadata.height || 0}`);
+      const longEdge = Math.max(metadata.width || 0, metadata.height || 0);
+      const shortEdge = Math.min(metadata.width || 0, metadata.height || 0);
+      if (longEdge < config.minimumPublishableLongEdge || shortEdge < config.minimumPublishableShortEdge) {
+        throw new Error(`resolução insuficiente para HD: ${metadata.width || 0}x${metadata.height || 0}`);
+      }
       const hashes = { sha256: sha256(candidate.buffer), perceptualHash: await perceptualHash(candidate.buffer) };
       assertNotDuplicate(hashes, library.data.assets, {
         now: new Date(`${approvedAt}T12:00:00Z`),
@@ -75,13 +98,15 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
       });
       downloaded = candidate;
       identity = hashes;
+      selectedImage = image;
       break;
     } catch (error) {
       rejected.push(error.message);
     }
   }
-  if (!downloaded || !identity) throw new Error(`Galeria oficial sem imagem inédita válida: ${rejected.slice(0, 4).join(" | ")}`);
-  const assetId = `thebiker-${selected.product.id}-${identity.sha256.slice(0, 10)}`;
+  if (!downloaded || !identity || !selectedImage) throw new Error(`Galeria oficial sem imagem HD inédita válida: ${rejected.slice(0, 4).join(" | ")}`);
+  const rights = selectedImage.sourceType === "manufacturer" ? brandRights : storeRights;
+  const assetId = `${selectedImage.sourceType}-${selected.product.id}-${identity.sha256.slice(0, 10)}`;
   const directory = path.join(root, "assets/img/posts", item.id);
   await fs.mkdir(directory, { recursive: true });
   const source = path.join(directory, `source${extensionFor(downloaded.contentType)}`);
@@ -95,25 +120,28 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
     factualSubject: "exact-product",
     editorialScope: "portfolio",
     purpose: `Ilustrar ${item.title} com produto real do catálogo TheBiker.`,
-    alt: `${selected.product.name} em fotografia oficial da TheBiker Shop`,
-    caption: `${selected.product.name}, conforme catálogo oficial da TheBiker Shop.`,
-    credit: rights.credit,
+    alt: `${selected.product.name} em fotografia oficial de ${selectedImage.sourceName}`,
+    caption: `${selected.product.name}, em fotografia oficial de ${selectedImage.sourceName}.`,
+    credit: selectedImage.sourceName,
     containsText: false,
     aiGenerated: false,
     assetId,
     ...identity,
     preserveFullProduct: true,
+    outputFormat: "png",
+    qualityTier: "high-definition",
     matchedProduct: { id: selected.product.id, name: selected.product.name, sku: selected.product.sku || null, matchLevel: selected.matchLevel },
     depictedBrands: brand ? [brand] : [],
     depictedProducts: [selected.product.name],
     focalPoint: { x: 0.5, y: 0.5 },
     source: {
-      type: "thebiker",
-      name: "TheBiker Shop",
-      url: selected.product.productUrl,
+      type: selectedImage.sourceType,
+      name: selectedImage.sourceName,
+      url: selectedImage.sourcePageUrl,
       fileUrl: downloaded.finalUrl,
+      localFile: path.basename(source),
       obtainedAt: approvedAt,
-      license: "Uso editorial no blog oficial TheBiker",
+      license: rights.license || "Uso editorial no blog oficial TheBiker",
       licenseEvidence: rights.authorizationBasis,
       rightsPolicyId: rights.id,
     },
@@ -122,7 +150,7 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
       reviewedBy: "TheBiker deterministic image gate",
       approvedAt,
       method: "automated-editorial-gate",
-      checks: ["fonte-thebiker", "direitos", "produto-relacionado", "sha256", "hash-perceptual", "sem-concorrente"],
+      checks: ["fonte-oficial", "alta-resolucao", "png-sem-perdas", "direitos", "produto-relacionado", "sha256", "hash-perceptual", "sem-concorrente"],
     },
   };
   const manifest = await prepareImageVariants({ input: source, outputDirectory: directory, manifest: baseManifest });
@@ -132,7 +160,7 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
     assetId,
     sha256: identity.sha256,
     perceptualHash: identity.perceptualHash,
-    sourcePageUrl: selected.product.productUrl,
+    sourcePageUrl: selectedImage.sourcePageUrl,
     sourceFileUrl: downloaded.finalUrl,
     productId: selected.product.id,
     productName: selected.product.name,

@@ -82,8 +82,9 @@ function validatePost(postPath) {
   // File exists
   const sizeKB = getFileSize(imgPath);
 
-  if (sizeKB !== null && sizeKB > 300) {
-    warnings.push(`${rel}: imagem muito grande (${sizeKB}KB > 300KB): ${image}`);
+  const heroLimitKB = path.extname(imgPath).toLowerCase() === ".png" ? 1800 : 300;
+  if (sizeKB !== null && sizeKB > heroLimitKB) {
+    warnings.push(`${rel}: imagem muito grande (${sizeKB}KB > ${heroLimitKB}KB): ${image}`);
   }
 
   if (!credit) {
@@ -120,7 +121,7 @@ function validatePost(postPath) {
     if (manifest.schemaVersion !== 2 || manifest.status !== "approved" || manifest.editorialUse !== "publishable") {
       errors.push(`${rel}: imagem ativa exige manifesto v2 aprovado e publicável`);
     }
-    if (!manifest.source || !["thebiker", "official-brand"].includes(manifest.source.type)) {
+    if (!manifest.source || !["thebiker", "manufacturer"].includes(manifest.source.type)) {
       errors.push(`${rel}: fonte visual ativa não autorizada (${manifest.source?.type || "indefinida"})`);
     }
     const digest = crypto.createHash("sha256").update(fs.readFileSync(imgPath)).digest("hex");

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "official-brand-editorial-v1",
+  "status": "approved",
+  "owner": "TheBiker",
+  "scope": "Imagens de produtos do portfólio TheBiker publicadas nos sites oficiais das respectivas fabricantes.",
+  "allowedHosts": ["elite-it.com", "api.elite-it.com"],
+  "allowedTransformations": ["resize", "trim", "format-conversion", "metadata-removal"],
+  "license": "Uso editorial no blog oficial TheBiker",
+  "authorizationBasis": "Diretriz editorial do responsável pelo blog permitindo imagens dos sites oficiais das marcas vendidas pela TheBiker.",
+  "verifiedAt": "2026-08-05",
+  "reviewAfter": "2027-08-05"
+}

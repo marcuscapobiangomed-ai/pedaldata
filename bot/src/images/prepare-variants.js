@@ -4,12 +4,12 @@ import path from "node:path";
 import sharp from "sharp";
 
 const VARIANTS = {
-  hero: { file: "hero-1600.webp", width: 1600, height: 900, maxKB: 300, quality: 84 },
-  mobile: { file: "hero-800.webp", width: 800, height: 450, maxKB: 160, quality: 82 },
-  card: { file: "card-640.webp", width: 640, height: 360, maxKB: 100, quality: 80 },
+  hero: { stem: "hero-1600", width: 1600, height: 900, webpMaxKB: 300, pngMaxKB: 1800, quality: 84 },
+  mobile: { stem: "hero-800", width: 800, height: 450, webpMaxKB: 160, pngMaxKB: 700, quality: 82 },
+  card: { stem: "card-640", width: 640, height: 360, webpMaxKB: 100, pngMaxKB: 450, quality: 80 },
 };
 
-const PRODUCT_BACKGROUND = { r: 246, g: 246, b: 246, alpha: 1 };
+const PRODUCT_BACKGROUND = { r: 255, g: 255, b: 255, alpha: 1 };
 const PRODUCT_SAFE_AREA = 0.9;
 const PRODUCT_TRIM_THRESHOLD = 16;
 
@@ -22,6 +22,7 @@ function gravityFrom(point = { x: 0.5, y: 0.5 }) {
 export async function prepareImageVariants({ input, outputDirectory, manifest }) {
   const gravity = gravityFrom(manifest.focalPoint);
   const preserveFullProduct = manifest.preserveFullProduct === true;
+  const outputFormat = manifest.outputFormat || "webp";
   let productSource = null;
   let composition = null;
 
@@ -49,7 +50,9 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
 
   await fs.mkdir(outputDirectory, { recursive: true });
   for (const [name, config] of Object.entries(VARIANTS)) {
-    const output = path.join(outputDirectory, config.file);
+    const file = `${config.stem}.${outputFormat}`;
+    const maxKB = outputFormat === "png" ? config.pngMaxKB : config.webpMaxKB;
+    const output = path.join(outputDirectory, file);
     let pipeline;
     if (preserveFullProduct) {
       const innerWidth = Math.round(config.width * PRODUCT_SAFE_AREA);
@@ -80,12 +83,13 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
           position: gravity,
         });
     }
-    await pipeline
-      .webp({ quality: config.quality, effort: 6 })
-      .toFile(output);
+    pipeline = outputFormat === "png"
+      ? pipeline.png({ compressionLevel: 9, adaptiveFiltering: true, effort: 10 })
+      : pipeline.webp({ quality: config.quality, effort: 6 });
+    await pipeline.toFile(output);
     const stats = await fs.stat(output);
     const sizeKB = stats.size / 1024;
-    if (sizeKB > config.maxKB) {
+    if (sizeKB > maxKB) {
       throw new Error(`${name} excedeu o limite após otimização: ${sizeKB.toFixed(1)} KB`);
     }
   }
@@ -97,10 +101,10 @@ export async function prepareImageVariants({ input, outputDirectory, manifest })
       Object.entries(VARIANTS).map(([name, config]) => [
         name,
         {
-          file: config.file,
+          file: `${config.stem}.${outputFormat}`,
           width: config.width,
           height: config.height,
-          maxKB: config.maxKB,
+          maxKB: outputFormat === "png" ? config.pngMaxKB : config.webpMaxKB,
         },
       ]),
     ),
