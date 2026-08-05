@@ -10,11 +10,24 @@
       <a href="https://thebikershop.com.br/" target="_blank" rel="noopener">Acesse a loja</a>
     </div>
   </div>
-  <nav class="site-nav">
-    <div class="container site-nav-inner">
+  <header class="site-header">
+  <div class="brand-masthead">
+    <div class="container brand-masthead-inner">
       <a href="{{ site.baseurl }}/" class="site-logo" aria-label="TheBiker Blog — início">
-        <img src="{{ site.baseurl }}{{ site.logo }}" alt="TheBiker Blog" width="210" height="60">
+        <img src="{{ site.baseurl }}/assets/img/brand/the-biker-blog-logo-light.png" alt="TheBiker Blog" width="320" height="92">
       </a>
+      <div class="masthead-copy" aria-hidden="true">
+        <span>Blog oficial</span>
+        <strong>Ciclismo vivido, testado e explicado</strong>
+      </div>
+      <div class="masthead-actions">
+        <a class="masthead-search" href="{{ site.baseurl }}/search" aria-label="Buscar"><i class="bi bi-search" aria-hidden="true"></i></a>
+        <a class="masthead-shop" href="https://thebikershop.com.br/" target="_blank" rel="noopener">Acessar a loja</a>
+      </div>
+    </div>
+  </div>
+  <nav class="site-nav" aria-label="Navegação principal">
+    <div class="container site-nav-inner">
       <ul class="nav-links">
         <li><a href="{{ site.baseurl }}/categorias">Artigos</a></li>
         <li><a href="{{ site.baseurl }}/categorias#reviews">Reviews</a></li>
@@ -22,15 +35,20 @@
         <li><a href="{{ site.baseurl }}/categorias#guia-de-compra">Guias</a></li>
         <li><a href="{{ site.baseurl }}/bikes/">Bikes</a></li>
       </ul>
+      <div class="mobile-nav-summary" aria-hidden="true">
+        <span class="mobile-nav-label">Navegar</span>
+        <span class="mobile-nav-shortcuts">Artigos <b>·</b> Reviews <b>·</b> Guias</span>
+      </div>
       <div class="nav-actions">
         <a class="nav-search" href="{{ site.baseurl }}/search" aria-label="Buscar"><i class="bi bi-search" aria-hidden="true"></i></a>
         <a class="nav-shop" href="https://thebikershop.com.br/" target="_blank" rel="noopener">Ir para a loja</a>
       </div>
-      <button class="menu-btn" id="menuToggle" aria-label="Menu">
+      <button class="menu-btn" id="menuToggle" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
         <i class="bi bi-list" aria-hidden="true"></i>
       </button>
     </div>
   </nav>
+  </header>
 
   {% include header.html %}
 

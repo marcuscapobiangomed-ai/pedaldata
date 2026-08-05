@@ -20,7 +20,10 @@ assert.equal(selectReadyItem(queue, new Date("2026-08-04T12:00:00Z")).id, "ready
 assert.equal(selectReadyItem({ items: [] }), null);
 const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(new URL('./editorial-campaign.json', import.meta.url), 'utf8')));
 assert.equal(campaign.items.length, 30);
-assert.equal(selectProductionCandidate(campaign).day, 1);
+const campaignWithHistory = structuredClone(campaign);
+for (const item of campaignWithHistory.items) item.status = 'blocked';
+campaignWithHistory.items[3].status = 'planned';
+assert.equal(selectProductionCandidate(campaignWithHistory).day, 4);
 assert.equal(selectPublicationCandidate(campaign, '2026-08-10'), null);
 const scheduled = structuredClone(campaign);
 scheduled.items[0].status = 'scheduled';

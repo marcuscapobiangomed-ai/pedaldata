@@ -1,29 +1,43 @@
-# Design QA — The Biker Blog, Opção 1
+# Design QA — navegação responsiva, opção 2
 
-## Target and implementation
+## Evidências
 
-- Reference: `/workspace/scratch/31ab43fa6112/generated_images/exec-1de6ca71-2fd5-4407-bd9c-c4299a4ff53e.png`
-- Browser capture: `/workspace/scratch/the-biker-blog-option-1-final.jpg`
-- Route checked: homepage (`/`)
-- Desktop viewport: 1348 × 926
+- Verdade visual: `screenshots/navigation-option-2-reference.png`.
+- Implementação tablet: `screenshots/navigation-option-2-implementation-tablet.png`.
+- Implementação mobile: `screenshots/navigation-option-2-implementation-mobile.png`.
+- Comparação normalizada: `screenshots/navigation-option-2-comparison.png`.
+- Viewports: 768 × 900 e 390 × 844 CSS px, densidade padrão.
+- Estado: homepage no topo, menu lateral fechado.
 
-## Visual comparison
+## Comparação
 
-The reference and browser capture were normalized to the same desktop width and compared side by side. The implementation preserves the selected Option 1 hierarchy: red announcement strip, white brand navigation, full-width editorial hero, three featured stories, four buying guides, and a compact store call to action.
+A implementação preserva o tratamento escolhido: masthead vinho, segunda faixa em vinho profundo `#741827`, tipografia branca em caixa alta e separação superior sutil. Em 768 px aparecem “Navegar”, “Artigos · Reviews · Guias” e um único botão de menu à direita. Em 390 px os atalhos são ocultados para manter toque, alinhamento e leitura confortáveis.
 
-The content and photography were adapted to the live article inventory while retaining the reference's typography, spacing, sharp corners, red/white/black palette, and image density.
+A referência gerada mostrou dois ícones de menu; a implementação usa somente o botão funcional à direita, eliminando a duplicidade sem alterar a direção visual escolhida.
 
-## Checks
+## Superfícies de fidelidade
 
-- P0 blockers: none
-- P1 layout or interaction defects: none
-- P2 visual defects: none
-- Images: 11/11 loaded with valid natural dimensions and descriptive alternative text
-- Navigation: all visible links have non-empty destinations; store CTAs point to the official shop
-- Browser console: no application errors or warnings; only an unrelated browser-extension metadata error was present
-- Automated project validation: passed with 0 post errors, 0 post warnings, and 0 image errors
-- Whitespace validation: passed
+- Tipografia: Inter existente, peso 800, caixa alta e espaçamento coerentes com a referência.
+- Layout: faixa de 58 px no tablet e 52 px no celular; alinhamento vertical consistente e nenhum overflow horizontal.
+- Cores: fundo `#741827`, texto branco e divisória superior translúcida.
+- Imagens: logo existente preservado, sem novos ativos ou substituições.
+- Conteúdo: atalhos editoriais reais e rótulo “Navegar”; nenhum recurso fictício.
 
-## Result
+## Interações
+
+- Botão de menu continua funcional e abre a navegação lateral.
+- Atalhos visíveis no tablet; versão compacta no celular.
+- Console: nenhum erro ou aviso na aba validada.
+
+## Findings
+
+- Nenhum P0, P1 ou P2 restante.
+- Nenhum P3 necessário para esta alteração.
+
+## Histórico
+
+- Estado anterior: faixa branca com baixo encaixe visual entre o masthead e o conteúdo.
+- Correção: aplicação da direção vinho profundo e conteúdo responsivo.
+- Evidência pós-correção: comparação combinada confirma cor, hierarquia e densidade; testes em 768 px e 390 px confirmam responsividade.
 
 final result: passed
