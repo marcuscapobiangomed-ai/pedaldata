@@ -116,8 +116,21 @@
       "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "scheduled",
+      "productIds": [],
+      "postPath": "_posts/drafts/2026-08-14-reserva-rolamentos-diagnostico.md",
+      "aiReview": {
+        "score": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek"
+        },
+        "generatedAt": "2026-08-05T15:25:40.344Z"
+      },
+      "imageManifestPath": "assets/img/posts/reserva-rolamentos-diagnostico/image-manifest.json"
     },
     {
       "day": 6,
@@ -180,6 +193,7 @@
         "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
       ],
       "postPath": "_posts/drafts/2026-08-17-review-addict-rc-20.md",
+      "imageManifestPath": "assets/img/posts/review-addict-rc-20/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -190,8 +204,7 @@
           "final": "deepseek"
         },
         "generatedAt": "2026-08-05T15:14:55.775Z"
-      },
-      "imageManifestPath": "assets/img/posts/review-addict-rc-20/image-manifest.json"
+      }
     },
     {
       "day": 9,
