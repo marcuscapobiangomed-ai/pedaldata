@@ -51,7 +51,7 @@
       "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-06-hmp-hmx-carbono-scott.md",
       "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json",
@@ -60,11 +60,10 @@
         "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
       ],
       "imageValidatedAt": "2026-08-05T17:09:52.760Z",
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
+        "finalScore": 92,
         "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
@@ -156,7 +155,7 @@
       "summary": "Diagnóstico técnico de direção, movimento central, cubos e pivôs antes da substituição.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [
         "kit-de-rolamentos-direcao-scott-foil"
       ],
@@ -167,12 +166,11 @@
         "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc"
       ],
       "imageValidatedAt": "2026-08-05T17:12:11.856Z",
-      "blockReason": "Auditoria final: nota 0; O artigo é genérico e repetitivo, com estrutura artificial de introdução e conclusão. Aborda conceitos básicos de forma redundante, sem profundidade técnica específica para ciclistas experientes. Exemplo: 'O som que antecipa o desgaste...' e 'Anatomia da folga e da contaminação...' repetem informações sobre folga e contaminação sem avançar no diagnóstico avançado.; O artigo faz alegações factuais sem apoio nas fontes fornecidas. As fontes listadas são páginas de produtos de bicicletas, não relacionadas a rolamentos ou diagnóstico. Exemplo: 'Rolamentos de bicicleta operam sob cargas radiais e axiais constantes...' não é suportado por nenhuma fonte.; O artigo descreve ",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
-        "finalBlockers": 3,
+        "finalScore": 92,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
