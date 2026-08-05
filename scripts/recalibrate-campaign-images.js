@@ -38,9 +38,9 @@ async function main() {
       const image = await produceOfficialCampaignImage({ root, item, approvedAt, force: true });
       const postPath = await postPathFor(item);
       let content = await fs.readFile(postPath, "utf8");
-      content = setField(content, "image", `"${image.publicBase}/hero-1600.webp"`);
-      content = setField(content, "image_mobile", `"${image.publicBase}/hero-800.webp"`);
-      content = setField(content, "thumbnail", `"${image.publicBase}/card-640.webp"`);
+      content = setField(content, "image", `"${image.publicBase}/${image.manifest.files.hero.file}"`);
+      content = setField(content, "image_mobile", `"${image.publicBase}/${image.manifest.files.mobile.file}"`);
+      content = setField(content, "thumbnail", `"${image.publicBase}/${image.manifest.files.card.file}"`);
       content = setField(content, "image_asset_type", `"${image.manifest.assetType}"`);
       content = setField(content, "image_status", '"approved"');
       content = setField(content, "image_alt", `"${image.manifest.alt.replace(/"/g, '\\"')}"`);

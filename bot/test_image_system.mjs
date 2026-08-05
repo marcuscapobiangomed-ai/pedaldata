@@ -55,6 +55,26 @@ assert.throws(
   /não pode representar produto exato ou evento real/i,
 );
 
+assert.throws(
+  () => ImageManifestV2Schema.parse({
+    ...base,
+    aiGenerated: false,
+    preserveFullProduct: true,
+    outputFormat: "png",
+    qualityTier: "high-definition",
+    composition: {
+      strategy: "trim-contain-safe-area",
+      safeArea: 0.9,
+      trimThreshold: 16,
+      sourceWidth: 380,
+      sourceHeight: 380,
+      subjectWidth: 364,
+      subjectHeight: 272,
+    },
+  }),
+  /Fonte insuficiente para imagem HD/i,
+);
+
 const framingDirectory = await fsPromises.mkdtemp(path.join(os.tmpdir(), "thebiker-framing-"));
 try {
   const source = path.join(framingDirectory, "source.png");

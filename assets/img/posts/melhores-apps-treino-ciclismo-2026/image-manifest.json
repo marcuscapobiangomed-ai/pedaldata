@@ -6,15 +6,17 @@
   "factualSubject": "exact-product",
   "editorialScope": "portfolio",
   "purpose": "Ilustrar Melhores Apps de Treino para Ciclismo 2026 com produto real do catálogo TheBiker.",
-  "alt": "Rolo de Treino Elite Novo Force em fotografia oficial da TheBiker Shop",
-  "caption": "Rolo de Treino Elite Novo Force, conforme catálogo oficial da TheBiker Shop.",
-  "credit": "TheBiker Shop",
+  "alt": "Rolo de Treino Elite Novo Force em fotografia oficial de Elite",
+  "caption": "Rolo de Treino Elite Novo Force, em fotografia oficial de Elite.",
+  "credit": "Elite",
   "containsText": false,
   "aiGenerated": false,
-  "assetId": "thebiker-rolo-de-treino-elite-novo-force-b1278e3e3f",
-  "sha256": "b1278e3e3f5129306caed410ed597a120b1c862053a25ac51624c0479af7e0d8",
-  "perceptualHash": "1111111111111111111010011100110110000001100100000000011111100111",
+  "assetId": "manufacturer-rolo-de-treino-elite-novo-force-c232804de2",
+  "sha256": "c232804de21fae58d7068e7d608f1aba5026792905424bcdaef779983a28b5be",
+  "perceptualHash": "1111111111111111111010011100100110000001100000011110011111111111",
   "preserveFullProduct": true,
+  "outputFormat": "png",
+  "qualityTier": "high-definition",
   "matchedProduct": {
     "id": "rolo-de-treino-elite-novo-force",
     "name": "Rolo de Treino Elite Novo Force",
@@ -32,33 +34,34 @@
     "y": 0.5
   },
   "source": {
-    "type": "thebiker",
-    "name": "TheBiker Shop",
-    "url": "https://thebikershop.com.br/produtos/rolo-de-treino-elite-novo-force/",
-    "fileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/90d26126a51-77cf6ec5e7369f842615736744449048-640-0.webp",
+    "type": "manufacturer",
+    "name": "Elite",
+    "url": "https://www.elite-it.com/en/home-trainers/classic-trainers/novo-force",
+    "fileUrl": "https://api.elite-it.com/assets/products/0111303_Novo-Force_2025-11-20-081458_rcnh.jpg",
+    "localFile": "source.jpg",
     "obtainedAt": "2026-08-05",
     "license": "Uso editorial no blog oficial TheBiker",
-    "licenseEvidence": "Diretriz editorial registrada pelo responsável do blog oficial TheBiker.",
-    "rightsPolicyId": "thebiker-official-editorial-v1"
+    "licenseEvidence": "Diretriz editorial do responsável pelo blog permitindo imagens dos sites oficiais das marcas vendidas pela TheBiker.",
+    "rightsPolicyId": "official-brand-editorial-v1"
   },
   "files": {
     "hero": {
-      "file": "hero-1600.webp",
+      "file": "hero-1600.png",
       "width": 1600,
       "height": 900,
-      "maxKB": 300
+      "maxKB": 1800
     },
     "mobile": {
-      "file": "hero-800.webp",
+      "file": "hero-800.png",
       "width": 800,
       "height": 450,
-      "maxKB": 160
+      "maxKB": 700
     },
     "card": {
-      "file": "card-640.webp",
+      "file": "card-640.png",
       "width": 640,
       "height": 360,
-      "maxKB": 100
+      "maxKB": 450
     }
   },
   "approval": {
@@ -66,7 +69,9 @@
     "approvedAt": "2026-08-05",
     "method": "automated-editorial-gate",
     "checks": [
-      "fonte-thebiker",
+      "fonte-oficial",
+      "alta-resolucao",
+      "png-sem-perdas",
       "direitos",
       "produto-relacionado",
       "sha256",
@@ -78,9 +83,9 @@
     "strategy": "trim-contain-safe-area",
     "safeArea": 0.9,
     "trimThreshold": 16,
-    "sourceWidth": 380,
-    "sourceHeight": 380,
-    "subjectWidth": 364,
-    "subjectHeight": 272
+    "sourceWidth": 2048,
+    "sourceHeight": 2048,
+    "subjectWidth": 1465,
+    "subjectHeight": 1129
   }
 }

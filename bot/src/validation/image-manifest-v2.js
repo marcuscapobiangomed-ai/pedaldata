@@ -27,6 +27,7 @@ const SourceSchema = z.object({
   license: z.string().min(3),
   licenseEvidence: z.string().min(3),
   fileUrl: z.string().url().optional(),
+  localFile: z.string().regex(/^source\.(?:avif|jpe?g|png|webp)$/i).optional(),
   rightsPolicyId: z.string().min(3).optional(),
 });
 
@@ -55,6 +56,8 @@ export const ImageManifestV2Schema = z.object({
   sha256: z.string().regex(/^[a-f0-9]{64}$/).optional(),
   perceptualHash: z.string().regex(/^[01]{64}$/).optional(),
   preserveFullProduct: z.boolean().default(false),
+  outputFormat: z.enum(["webp", "png"]).default("webp"),
+  qualityTier: z.enum(["standard", "high-definition"]).default("standard"),
   composition: z.object({
     strategy: z.literal("trim-contain-safe-area"),
     safeArea: z.number().min(0.8).max(0.95),
@@ -95,6 +98,20 @@ export const ImageManifestV2Schema = z.object({
       path: ["composition"],
       message: "Foto de produto precisa registrar o reenquadramento e a área segura.",
     });
+  }
+  if (manifest.qualityTier === "high-definition") {
+    const longEdge = Math.max(manifest.composition?.sourceWidth || 0, manifest.composition?.sourceHeight || 0);
+    const subjectLongEdge = Math.max(manifest.composition?.subjectWidth || 0, manifest.composition?.subjectHeight || 0);
+    if (manifest.outputFormat !== "png") {
+      ctx.addIssue({ code: "custom", path: ["outputFormat"], message: "Imagem HD de produto deve usar PNG sem perdas." });
+    }
+    if (longEdge < 1600 || subjectLongEdge < 1000) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["composition"],
+        message: "Fonte insuficiente para imagem HD: exigidos 1600 px na fonte e 1000 px no produto útil.",
+      });
+    }
   }
   if (manifest.aiGenerated && ["exact-product", "real-event"].includes(manifest.factualSubject)) {
     ctx.addIssue({

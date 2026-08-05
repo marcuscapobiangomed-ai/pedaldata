@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-05T18:35:55.790Z",
+  "updatedAt": "2026-08-05T20:23:11.249Z",
   "assets": [
     {
       "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
@@ -139,23 +139,6 @@
       ]
     },
     {
-      "assetId": "thebiker-rolo-de-treino-elite-novo-force-b1278e3e3f",
-      "sha256": "b1278e3e3f5129306caed410ed597a120b1c862053a25ac51624c0479af7e0d8",
-      "perceptualHash": "1111111111111111111010011100110110000001100100000000011111100111",
-      "sourcePageUrl": "https://thebikershop.com.br/produtos/rolo-de-treino-elite-novo-force/",
-      "sourceFileUrl": "https://acdn-us.mitiendanube.com/stores/001/062/247/products/90d26126a51-77cf6ec5e7369f842615736744449048-640-0.webp",
-      "productId": "rolo-de-treino-elite-novo-force",
-      "productName": "Rolo de Treino Elite Novo Force",
-      "rightsPolicyId": "thebiker-official-editorial-v1",
-      "uses": [
-        {
-          "postId": "melhores-apps-treino-ciclismo-2026",
-          "position": "hero",
-          "usedAt": "2026-08-05T12:00:00.000Z"
-        }
-      ]
-    },
-    {
       "assetId": "thebiker-kit-de-escovas-muc-off-f48d4f03e6",
       "sha256": "f48d4f03e621d7f6d0b03364254c7e597f4b3468aa8e9d66068c2f53057b9019",
       "perceptualHash": "1111111110111111100001111000010110100001101000011111111111111111",
@@ -201,6 +184,23 @@
       "uses": [
         {
           "postId": "melhores-estradas-rotas-brasil",
+          "position": "hero",
+          "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "manufacturer-rolo-de-treino-elite-novo-force-c232804de2",
+      "sha256": "c232804de21fae58d7068e7d608f1aba5026792905424bcdaef779983a28b5be",
+      "perceptualHash": "1111111111111111111010011100100110000001100000011110011111111111",
+      "sourcePageUrl": "https://www.elite-it.com/en/home-trainers/classic-trainers/novo-force",
+      "sourceFileUrl": "https://api.elite-it.com/assets/products/0111303_Novo-Force_2025-11-20-081458_rcnh.jpg",
+      "productId": "rolo-de-treino-elite-novo-force",
+      "productName": "Rolo de Treino Elite Novo Force",
+      "rightsPolicyId": "official-brand-editorial-v1",
+      "uses": [
+        {
+          "postId": "melhores-apps-treino-ciclismo-2026",
           "position": "hero",
           "usedAt": "2026-08-05T12:00:00.000Z"
         }

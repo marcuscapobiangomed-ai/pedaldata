@@ -8,7 +8,12 @@ import { validateImageManifestV2 } from "../bot/src/validation/image-manifest-v2
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const postsDirectory = path.join(root, "assets/img/posts");
 
-async function sourceFor(directory) {
+async function sourceFor(directory, manifest) {
+  if (manifest.source?.localFile) {
+    const declared = path.join(directory, manifest.source.localFile);
+    await fs.access(declared);
+    return declared;
+  }
   const entries = await fs.readdir(directory, { withFileTypes: true });
   const source = entries.find((entry) => entry.isFile() && /^source\.(?:avif|jpe?g|png|webp)$/i.test(entry.name));
   return source ? path.join(directory, source.name) : null;
@@ -26,7 +31,7 @@ async function main() {
     try {
       const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
       if (manifest.schemaVersion !== 2 || manifest.preserveFullProduct !== true) continue;
-      const source = await sourceFor(directory);
+      const source = await sourceFor(directory, manifest);
       if (!source) throw new Error("arquivo-fonte oficial ausente");
       const prepared = await prepareImageVariants({ input: source, outputDirectory: directory, manifest });
       await fs.writeFile(manifestPath, `${JSON.stringify(prepared, null, 2)}\n`, "utf8");

@@ -7,9 +7,11 @@
     { "category": "vestuario", "url": "https://thebikershop.com.br/vestuario/" }
   ],
   "allowedPageHosts": ["thebikershop.com.br"],
-  "allowedAssetHosts": ["acdn-us.mitiendanube.com", "thebikershop.com.br"],
+  "allowedAssetHosts": ["acdn-us.mitiendanube.com", "thebikershop.com.br", "api.elite-it.com"],
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "maximumDownloadBytes": 12582912,
   "minimumSourceWidth": 360,
-  "minimumSourceHeight": 280
+  "minimumSourceHeight": 280,
+  "minimumPublishableLongEdge": 1600,
+  "minimumPublishableShortEdge": 900
 }

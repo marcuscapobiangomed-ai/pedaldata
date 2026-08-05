@@ -42,9 +42,9 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
     const cover = await imageProducer({ root, item, approvedAt });
     content = setField(content, "date", item.publishDate);
     content = setField(content, "last_modified_at", approvedAt);
-    content = setField(content, "image", `"${cover.publicBase}/hero-1600.webp"`);
-    content = setField(content, "image_mobile", `"${cover.publicBase}/hero-800.webp"`);
-    content = setField(content, "thumbnail", `"${cover.publicBase}/card-640.webp"`);
+    content = setField(content, "image", `"${cover.publicBase}/${cover.manifest.files.hero.file}"`);
+    content = setField(content, "image_mobile", `"${cover.publicBase}/${cover.manifest.files.mobile.file}"`);
+    content = setField(content, "thumbnail", `"${cover.publicBase}/${cover.manifest.files.card.file}"`);
     content = setField(content, "image_asset_type", `"${cover.manifest.assetType}"`);
     content = setField(content, "image_status", '"approved"');
     content = setField(content, "image_alt", `"${cover.manifest.alt.replace(/"/g, '\\"')}"`);

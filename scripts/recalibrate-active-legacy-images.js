@@ -58,9 +58,9 @@ for (const target of targets) {
   const base = generated.publicBase;
   const manifest = generated.manifest;
   const fields = {
-    image: quote(`${base}/hero-1600.webp`),
-    image_mobile: quote(`${base}/hero-800.webp`),
-    thumbnail: quote(`${base}/card-640.webp`),
+    image: quote(`${base}/${manifest.files.hero.file}`),
+    image_mobile: quote(`${base}/${manifest.files.mobile.file}`),
+    thumbnail: quote(`${base}/${manifest.files.card.file}`),
     image_manifest_version: "2",
     image_asset_type: quote(manifest.assetType),
     image_status: quote("approved"),
