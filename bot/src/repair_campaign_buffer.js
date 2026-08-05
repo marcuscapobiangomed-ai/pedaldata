@@ -25,7 +25,10 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
   const campaignFile = path.join(root, "bot/editorial-campaign.json");
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
   const blockedIds = campaign.items
-    .filter((item) => item.status === "blocked" && item.blockReason?.startsWith("Auditoria final:"))
+    .filter((item) =>
+      (item.status === "blocked" && item.blockReason?.startsWith("Auditoria final:")) ||
+      (item.status === "published" && ((item.aiReview?.finalScore ?? 0) < 90 || (item.aiReview?.finalBlockers ?? 0) > 0)),
+    )
     .map((item) => item.id);
   const pipeline = new ThreeProviderPipeline({ env });
   const results = [];
@@ -33,9 +36,14 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
   for (const itemId of blockedIds) {
     const latest = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
     const item = latest.items.find((entry) => entry.id === itemId);
+    const originalStatus = item.status;
+    const originalReview = structuredClone(item.aiReview);
+    let postFile;
+    let originalRaw;
     try {
-      const postFile = path.resolve(root, item.postPath);
+      postFile = path.resolve(root, item.postPath);
       const raw = await fs.readFile(postFile, "utf8");
+      originalRaw = raw;
       const parsed = matter(raw);
       const research = JSON.parse(await fs.readFile(path.join(root, "content/research/campaign", `${item.id}.json`), "utf8"));
       const response = await pipeline.callStep({
@@ -76,8 +84,23 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
       delete item.blockReason;
       await persist(latest);
       await auditCampaignBuffer({ env });
+      if (originalStatus === "published") {
+        const promoted = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
+        const promotedItem = promoted.items.find((entry) => entry.id === itemId);
+        promotedItem.status = "published";
+        await persist(promoted);
+      }
       results.push({ itemId, status: "repaired-and-approved", provider: response.provider });
     } catch (error) {
+      if (originalStatus === "published") {
+        if (postFile && originalRaw) await fs.writeFile(postFile, originalRaw);
+        const rollback = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignFile, "utf8")));
+        const rollbackItem = rollback.items.find((entry) => entry.id === itemId);
+        rollbackItem.status = "published";
+        rollbackItem.aiReview = originalReview;
+        delete rollbackItem.blockReason;
+        await persist(rollback);
+      }
       results.push({ itemId, status: "blocked", error: String(error.message || error).slice(0, 300) });
     }
   }
