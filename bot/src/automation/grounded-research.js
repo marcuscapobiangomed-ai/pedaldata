@@ -26,7 +26,7 @@ export class GroundedResearcher {
 
   async research({ item, internalEvidence, today }) {
     if (!this.env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY é obrigatória para pesquisa fundamentada')
-    const model = this.env.GEMINI_RESEARCH_MODEL || 'gemini-2.5-flash'
+    const model = this.env.GEMINI_RESEARCH_MODEL || 'gemini-3.6-flash'
     const contentType = {
       'manutencao-ajustes': 'guia-tecnico', engenharia: 'guia-tecnico', componentes: 'guia-tecnico', review: 'review',
       comparativo: 'comparativo', lancamentos: 'lancamento', competicoes: item.id.includes('preparacao') ? 'previa-corrida' : 'resumo-corrida'
