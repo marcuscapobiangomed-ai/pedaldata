@@ -27,6 +27,28 @@ function compactEvidence(records) {
   }))
 }
 
+const RETRYABLE_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504])
+
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds))
+
+async function fetchGrounded(fetchImpl, url, init, env) {
+  const attempts = Math.max(1, Number(env.AI_HTTP_RETRY_ATTEMPTS || 2))
+  const timeoutMs = Math.max(1000, Number(env.AI_HTTP_TIMEOUT_MS || 120000))
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetchImpl(url, { ...init, signal: AbortSignal.timeout(timeoutMs) })
+      if (!RETRYABLE_STATUS.has(response.status) || attempt === attempts) return response
+      await response.text()
+    } catch (error) {
+      lastError = error
+      if (attempt === attempts) throw error
+    }
+    await wait(750 * (2 ** (attempt - 1)))
+  }
+  throw lastError || new Error('Pesquisa oficial sem resposta')
+}
+
 function internalResearch({ item, internalEvidence, today, contentType, reason }) {
   const sourceMap = new Map()
   for (const record of internalEvidence) {
@@ -87,15 +109,22 @@ export class GroundedResearcher {
     if (provider !== 'groq') throw new Error(`Provedor de pesquisa não suportado: ${provider}`)
     if (!this.env.GROQ_API_KEY) throw new Error('GROQ_API_KEY é obrigatória para pesquisa atual')
     const model = this.env.GROQ_RESEARCH_MODEL || this.env.GROQ_MODEL || 'openai/gpt-oss-120b'
-    const response = await this.fetch(`${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 2500 }),
-      signal: AbortSignal.timeout(Number(this.env.AI_HTTP_TIMEOUT_MS || 90000)),
-    })
+    let response
+    try {
+      response = await fetchGrounded(this.fetch, `${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 2500 }),
+      }, this.env)
+    } catch (error) {
+      if (!raceCoverage) {
+        return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq indisponível: ${error.name || error.message}` })
+      }
+      throw error
+    }
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
-      if (!raceCoverage && [403, 404, 429].includes(response.status)) {
+      if (!raceCoverage && [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status)) {
         return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq ${response.status}` })
       }
       throw new Error(`Groq grounded research: ${response.status} - ${detail}`)

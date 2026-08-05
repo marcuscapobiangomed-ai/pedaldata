@@ -72,6 +72,8 @@ jobs:
           AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
           AI_PIPELINE_MODE: three-provider
           AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          AI_HTTP_TIMEOUT_MS: ${{ vars.AI_HTTP_TIMEOUT_MS || '120000' }}
+          AI_HTTP_RETRY_ATTEMPTS: ${{ vars.AI_HTTP_RETRY_ATTEMPTS || '2' }}
           DEEPSEEK_MAX_TOKENS: ${{ vars.DEEPSEEK_MAX_TOKENS || '14000' }}
           RESEARCH_PROVIDER: groq
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}

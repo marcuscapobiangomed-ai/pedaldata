@@ -47,6 +47,24 @@ const fallbackGrounded = await fallbackResearcher.research({
 });
 assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
 assert.equal(fallbackGrounded.sources.length, 1);
+let timeoutAttempts = 0;
+const timeoutResearcher = new GroundedResearcher({
+  GROQ_API_KEY: 'test',
+  AI_HTTP_RETRY_ATTEMPTS: '2',
+  AI_HTTP_TIMEOUT_MS: '1000',
+}, async () => {
+  timeoutAttempts += 1;
+  const error = new Error('timeout');
+  error.name = 'TimeoutError';
+  throw error;
+});
+const timeoutFallback = await timeoutResearcher.research({
+  item: campaign.items[0],
+  internalEvidence: [{ id: 'spark', facts: { suspension: '120 mm' }, sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessedAt: '2026-08-04' }] }],
+  today: '2026-08-05',
+});
+assert.equal(timeoutAttempts, 2);
+assert.equal(timeoutFallback.grounding.fallback, 'internal-product-knowledge');
 
 const finalizeRoot = path.join(root, "finalize");
 await fs.mkdir(path.join(finalizeRoot, "bot"), { recursive: true });
