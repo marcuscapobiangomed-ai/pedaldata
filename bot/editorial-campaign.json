@@ -131,6 +131,7 @@
       "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-15-alinhamento-pinca-rotores.md",
+      "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json",
       "aiReview": {
         "score": 0,
         "premiumEditUsed": true,
@@ -141,8 +142,7 @@
           "final": "deepseek"
         },
         "generatedAt": "2026-08-05T14:32:13.739Z"
-      },
-      "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json"
+      }
     },
     {
       "day": 7,
@@ -152,8 +152,9 @@
       "summary": "Análise da arquitetura Spark RC, do posicionamento do amortecedor, do Flex Pivot e dos efeitos mecânicos da integração no quadro.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "planned",
-      "productIds": []
+      "status": "blocked",
+      "productIds": [],
+      "blockReason": "Expected ',' or ']' after array element in JSON at position 49991"
     },
     {
       "day": 8,
