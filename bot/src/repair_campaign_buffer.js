@@ -9,14 +9,11 @@ import { auditCampaignBuffer } from "./audit_campaign_buffer.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
-function extractJson(text) {
-  const value = String(text || "").replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "").trim();
-  try { return JSON.parse(value); } catch {
-    const start = value.indexOf("{");
-    const end = value.lastIndexOf("}");
-    if (start >= 0 && end > start) return JSON.parse(value.slice(start, end + 1));
-    throw new Error("Reparo editorial sem JSON valido");
-  }
+function extractMarkdown(text) {
+  return String(text || "")
+    .replace(/^```(?:markdown|md)?\s*/i, "")
+    .replace(/```\s*$/i, "")
+    .trim();
 }
 
 async function persist(campaign) {
@@ -45,12 +42,12 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
         step: "buffer-repair",
         providers: ["deepseek"],
         sourceHash: hashPayload({ research, article: parsed.content, reason: item.blockReason }),
-        options: { jsonMode: true, temperature: 0.1, maxTokens: 9000 },
+        options: { jsonMode: false, temperature: 0.1, maxTokens: 12000 },
         system: [
           "Voce e o editor tecnico senior do blog oficial da TheBiker.",
           "Reescreva usando apenas a pesquisa fornecida e sem inventar testes, medidas ou disponibilidade.",
           "Nao promova concorrentes. Escreva para ciclistas experientes, com subtitulos fortes.",
-          "Nao use secoes chamadas Introducao ou Conclusao. Responda somente em JSON.",
+          "Nao use secoes chamadas Introducao ou Conclusao. Responda somente com o corpo em Markdown, sem JSON e sem frontmatter.",
         ].join("\n"),
         user: JSON.stringify({
           title: item.title,
@@ -65,11 +62,10 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
             "nao incluir frontmatter",
             "preservar Perguntas Frequentes quando for util",
           ],
-          output: { article_markdown: "## Subtitulo\n\nTexto..." },
         }),
       });
-      const repaired = extractJson(response.content).article_markdown;
-      if (typeof repaired !== "string") throw new Error("Reparo sem article_markdown");
+      const repaired = extractMarkdown(response.content);
+      if (!repaired) throw new Error("Reparo sem corpo Markdown");
       if ((repaired.match(/^##\s+/gm) || []).length < 5) throw new Error("Reparo com menos de cinco H2");
       if (repaired.trim().split(/\s+/).length < 1400) throw new Error("Reparo com menos de 1400 palavras");
       if (/^##\s+(introducao|introdução|conclusao|conclusão)\b/im.test(repaired)) throw new Error("Reparo com secao generica proibida");

@@ -193,7 +193,7 @@ export class ThreeProviderPipeline {
           "plano visual incompatível com produto real, corrida real ou política de imagens",
         ],
         output: {
-          score: 0,
+          score: "calcule um inteiro de 0 a 100",
           blockers: [{ type: "...", detail: "...", section: "..." }],
           warnings: [{ type: "...", detail: "...", section: "..." }],
         },
@@ -263,7 +263,7 @@ export class ThreeProviderPipeline {
             "texto genérico ou repetitivo",
             "plano visual incompatível",
           ],
-          output: { score: 0, blockers: [{ type: "...", detail: "..." }], warnings: [] },
+          output: { score: "calcule um inteiro de 0 a 100", blockers: [{ type: "...", detail: "..." }], warnings: [] },
         }),
       });
       finalAudit = extractJson(finalAuditResult.content);

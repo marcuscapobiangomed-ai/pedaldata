@@ -59,11 +59,12 @@ export async function auditCampaignBuffer({ env = process.env, now = new Date() 
           "conteudo generico, repetitivo ou orientado a iniciante",
           "subtitulos fracos ou estrutura artificial de introducao/conclusao",
         ],
-        output: { score: 0, blockers: [{ type: "...", detail: "..." }], warnings: [] },
+        output: { score: "calcule um inteiro de 0 a 100", blockers: [{ type: "...", detail: "..." }], warnings: [] },
       }),
     });
     const audit = extractJson(response.content);
-    const score = Number(audit.score || 0);
+    const score = Number(audit.score);
+    if (!Number.isFinite(score) || score < 0 || score > 100) throw new Error("Auditoria final retornou nota invalida");
     const blockers = Array.isArray(audit.blockers) ? audit.blockers : [];
     item.aiReview = {
       ...(item.aiReview || {}),
