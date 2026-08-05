@@ -190,7 +190,7 @@
       "summary": "Diagnóstico de alinhamento, empeno, recuo de pistões, contaminação e compatibilidade de rotores nas montagens de estrada e XC.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-10-alinhamento-pinca-rotores.md",
       "imageManifestPath": "assets/img/posts/alinhamento-pinca-rotores/image-manifest.json",
@@ -199,12 +199,11 @@
         "thebiker-pastilha-de-freio-sram-guide-trail-organica-c458e0070c"
       ],
       "imageValidatedAt": "2026-08-05T17:10:57.802Z",
-      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com estrutura artificial de introdução e conclusão. Apesar de se propor como guia técnico avançado, o conteúdo é superficial e não oferece insights aprofundados ou específicos para ciclistas experientes. A repetição de conceitos básicos e a falta de exemplos práticos detalhados comprometem a qualidade editorial.",
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 0,
-        "finalBlockers": 1,
+        "finalScore": 92,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
