@@ -52,7 +52,6 @@ sources:
     url: "https://www.scott-sports.com/global/en/product/scott-spark-rc-team-bike"
     accessed_at: "2026-08-04"
 ---
-Análise documental baseada em especificações oficiais do fabricante e dados de portfólio da TheBiker, sem teste de campo.
 
 ## O que muda com 120 mm e AXS na plataforma Spark RC
 
@@ -129,4 +128,3 @@ Sim, a Spark RC Team 2027 é compatível com espigões telescópicos. O quadro p
 ## Fontes e metodologia: como esta análise foi construída
 
 Esta análise documental foi baseada exclusivamente em informações oficiais do fabricante Scott e nos dados de portfólio da TheBiker, verificados em 04/08/2026. As fontes incluem as páginas oficiais dos modelos Spark RC Team, Expert e World Cup no site global da Scott, e as respectivas páginas de produto na loja online da TheBiker. Nenhum teste de campo foi realizado, e todas as avaliações de desempenho são inferidas a partir das especificações técnicas e do conhecimento acumulado sobre a linha Spark RC. As limitações desta abordagem incluem a ausência de dados de geometria detalhada, medições de peso reais e impressões de pilotagem. As comparações com outros modelos são baseadas em critérios objetivos como peso declarado, tipo de suspensão, transmissão e preço. O preço da Team foi verificado na TheBiker na data indicada e pode sofrer alterações. Recomenda-se ao leitor que consulte o site da TheBiker para informações atualizadas de preço, disponibilidade e condições de compra. Esta análise segue as diretrizes editoriais da TheBiker, que priorizam a precisão técnica e a transparência sobre as fontes e métodos utilizados.
-

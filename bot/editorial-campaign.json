@@ -60,6 +60,7 @@
         "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
       ],
       "imageValidatedAt": "2026-08-05T17:09:52.760Z",
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -74,8 +75,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:17:30.907Z"
-      },
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
+      }
     },
     {
       "day": 3,
@@ -96,6 +96,7 @@
         "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
       ],
       "imageValidatedAt": "2026-08-05T17:10:24.275Z",
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -111,8 +112,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:23:15.916Z"
-      },
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
+      }
     },
     {
       "day": 4,
@@ -133,11 +133,12 @@
         "thebiker-bateria-sram-axs-5cbb772e8f"
       ],
       "imageValidatedAt": "2026-08-05T17:12:11.509Z",
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
         "finalScore": 0,
-        "finalBlockers": 3,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
@@ -147,8 +148,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T13:26:00.968Z"
-      },
-      "blockReason": "Auditoria final: nota 0; O artigo afirma que 'o modo de ajuste, acessível ao pressionar o botão de função por 2 a 5 segundos até o LED ficar amarelo, é a porta de entrada para esse refinamento'. Embora o manual confirme o modo de ajuste, a descrição de '2 a 5 segundos' não é explicitamente mencionada nas fontes fornecidas. O manual indica pressionar o botão de função até o LED mudar para amarelo, mas não especifica a duração exata. Isso pode ser uma imprecisão factual.; O artigo menciona que 'o E-TUBE PROJECT permite salvar configurações de ajuste'. As fontes fornecidas (manual e site do E-TUBE PROJECT) não confirmam explicitamente a funcionalidade de salvar configurações de ajuste. O manual"
+      }
     },
     {
       "day": 5,
@@ -169,11 +169,12 @@
         "thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc"
       ],
       "imageValidatedAt": "2026-08-05T17:12:11.856Z",
+      "blockReason": "Auditoria final: nota 0; O artigo é genérico e repetitivo, com estrutura artificial de introdução e conclusão. Aborda conceitos básicos de forma redundante, sem profundidade técnica específica para ciclistas experientes. Exemplo: 'O som que antecipa o desgaste...' e 'Anatomia da folga e da contaminação...' repetem informações sobre folga e contaminação sem avançar no diagnóstico avançado.; O artigo faz alegações factuais sem apoio nas fontes fornecidas. As fontes listadas são páginas de produtos de bicicletas, não relacionadas a rolamentos ou diagnóstico. Exemplo: 'Rolamentos de bicicleta operam sob cargas radiais e axiais constantes...' não é suportado por nenhuma fonte.; O artigo descreve ",
       "attempts": 0,
       "aiReview": {
         "score": 0,
         "finalScore": 0,
-        "finalBlockers": 1,
+        "finalBlockers": 3,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
@@ -183,8 +184,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T15:25:40.344Z"
-      },
-      "blockReason": "Auditoria final: nota 0; O artigo é genérico e repetitivo, com estrutura artificial de introdução e conclusão. O conteúdo é orientado a iniciantes, sem profundidade técnica esperada para um guia técnico de diagnóstico de rolamentos. Subtítulos fracos e falta de especificidade técnica."
+      }
     },
     {
       "day": 6,
@@ -207,7 +207,7 @@
       "aiReview": {
         "score": 0,
         "finalScore": 0,
-        "finalBlockers": 5,
+        "finalBlockers": 1,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
@@ -218,7 +218,7 @@
         },
         "generatedAt": "2026-08-05T14:32:13.739Z"
       },
-      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com várias seções que reafirmam os mesmos conceitos sem aprofundamento técnico específico. A linguagem é mais adequada para iniciantes do que para o público-alvo de ciclistas avançados, conforme indicado no frontmatter. Exemplos: repetição sobre centralização da pinça, atrito residual e erros comuns.; Várias alegações factuais não são suportadas pelas fontes listadas. Por exemplo: 'Esse arrasto pode consumir de 2 a 5 watts por roda em bicicletas de estrada, segundo estimativas da indústria' - nenhuma fonte é citada para essa estimativa. 'acelerar o desgaste das pastilhas em até 30%' - sem fonte. 'folga especificada pel"
+      "blockReason": "Auditoria final: nota 0; O artigo é excessivamente genérico e repetitivo, com estrutura artificial de introdução e conclusão. Apesar de se propor como guia técnico avançado, o conteúdo é superficial e não oferece insights aprofundados ou específicos para ciclistas experientes. A repetição de conceitos básicos e a falta de exemplos práticos detalhados comprometem a qualidade editorial."
     },
     {
       "day": 7,
@@ -274,6 +274,7 @@
         "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9-b1c99140af"
       ],
       "imageValidatedAt": "2026-08-05T17:11:20.434Z",
+      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -288,8 +289,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T15:14:55.775Z"
-      },
-      "blockReason": "Auditoria final: nota 0; nota abaixo do minimo"
+      }
     },
     {
       "day": 9,
