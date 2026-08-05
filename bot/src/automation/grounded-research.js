@@ -18,6 +18,15 @@ function allowedSource(url, raceCoverage) {
   return [...PRODUCT_DOMAINS, ...(raceCoverage ? SPORT_DOMAINS : [])].some((domain) => host === domain || host.endsWith(`.${domain}`))
 }
 
+function compactEvidence(records) {
+  return records.slice(0, 6).map((record) => ({
+    id: record.id,
+    name: record.name || record.title || record.productName,
+    facts: Object.fromEntries(Object.entries(record.facts || {}).slice(0, 10)),
+    sources: (record.sources || []).slice(0, 4).map((source) => ({ name: source.name, url: source.url })),
+  }))
+}
+
 function internalResearch({ item, internalEvidence, today, contentType, reason }) {
   const sourceMap = new Map()
   for (const record of internalEvidence) {
@@ -71,7 +80,7 @@ export class GroundedResearcher {
       `Título: ${item.title}`,
       `Resumo editorial: ${item.summary}`,
       `Data: ${today}`,
-      `Conteúdo interno já validado: ${JSON.stringify(internalEvidence)}`,
+      `Conteúdo interno já validado: ${JSON.stringify(compactEvidence(internalEvidence))}`,
       `Retorne: {"slug":"${item.id}","title":"${item.title}","content_type":"${contentType}","review_method":"desk-research","tested_by_pedaldata":false,"market":"Brasil","generated_at":"${today}","status":"pesquisa_concluida","editorialPriority":"P1","confirmed_facts":{},"limitations":[],"sources":[{"name":"...","type":"manufacturer|store|official-website","url":"https://...","accessed":"${today}"}]}`
     ].join('\n')
     if (provider !== 'groq') throw new Error(`Provedor de pesquisa não suportado: ${provider}`)
@@ -80,7 +89,7 @@ export class GroundedResearcher {
     const response = await this.fetch(`${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 6000 })
+      body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 3000 })
     })
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
