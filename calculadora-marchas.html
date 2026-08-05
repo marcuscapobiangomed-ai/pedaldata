@@ -18,13 +18,13 @@ permalink: /calculadoras/relacao-marchas/
       <div class="form-row">
         <div class="form-group">
           <label for="gear-chainring1">Coroas</label>
-          <input type="text" id="gear-chainring1" value="50,34" placeholder="Ex: 50,34">
-          <small>Separados por vírgula</small>
+          <input type="text" id="gear-chainring1" value="50,34" placeholder="Ex: 50,34" inputmode="numeric" aria-describedby="chainring-help gear-error">
+          <small id="chainring-help">1 a 3 coroas, entre 20 e 70 dentes, separadas por vírgula</small>
         </div>
         <div class="form-group">
           <label for="gear-cassette">Cassete</label>
-          <input type="text" id="gear-cassette" value="11,12,13,14,15,17,19,21,24,27,30,34" placeholder="Ex: 11,12,13,14,15,17,19,21,24,27,30,34">
-          <small>Separados por vírgula</small>
+          <input type="text" id="gear-cassette" value="11,12,13,14,15,17,19,21,24,27,30,34" placeholder="Ex: 11,12,13,14,15,17,19,21,24,27,30,34" inputmode="numeric" aria-describedby="cassette-help gear-error">
+          <small id="cassette-help">1 a 18 pinhões, entre 9 e 60 dentes, separados por vírgula</small>
         </div>
       </div>
       <div class="form-group">
@@ -36,25 +36,29 @@ permalink: /calculadoras/relacao-marchas/
       </div>
       <div class="form-group">
         <label for="gear-tire">Largura do pneu (mm)</label>
-        <input type="number" id="gear-tire" value="28" min="23" max="60" step="1">
+        <input type="number" id="gear-tire" value="28" min="18" max="80" step="1" inputmode="numeric" aria-describedby="gear-error">
       </div>
       <div class="form-group">
         <label for="gear-cadence">Cadência (rpm)</label>
-        <input type="number" id="gear-cadence" value="90" min="60" max="120" step="5">
+        <input type="number" id="gear-cadence" value="90" min="30" max="180" step="5" inputmode="numeric" aria-describedby="gear-error">
       </div>
-      <button id="calc-gear-btn" class="btn btn-primary">Calcular</button>
+      <p id="gear-error" class="calculator-error" role="alert" hidden></p>
+      <button id="calc-gear-btn" class="btn btn-primary" type="button">Calcular</button>
     </div>
 
-    <div id="calc-gear-result" class="calculator-result" style="display:none;">
+    <div id="calc-gear-result" class="calculator-result" tabindex="-1" aria-live="polite">
       <h3>Resultados</h3>
-      <div id="gear-results"></div>
+      <div id="gear-results" class="calculator-empty-state">
+        <strong>Configure sua transmissão</strong>
+        <p>O resultado mostrará relações, desenvolvimento e velocidade estimada.</p>
+      </div>
       <div id="gear-speed-table"></div>
       <div class="calculator-disclaimer">
-        <p><strong>Aviso:</strong> Os valores são aproximados. A velocidade real depende de fatores como vento, inclinação e eficiência do ciclista.</p>
+        <p><strong>Aviso:</strong> Os valores são aproximados. A velocidade real depende da circunferência medida do pneu, pressão, carga e condições de rodagem.</p>
       </div>
     </div>
   </div>
 </section>
 
-<script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
+<script src="{{ site.baseurl }}/assets/js/calculator-core.js"></script>
 <script src="{{ site.baseurl }}/assets/js/gear-calculator.js"></script>
