@@ -416,7 +416,7 @@ export class AIProvider {
   }
 
   async processCase(descricaoCurta, researchData = null) {
-    const contentType = inferContentType(descricaoCurta);
+    const contentType = researchData?.content_type || inferContentType(descricaoCurta);
     const template = getTemplate(resolveTemplateKey(contentType, researchData));
     const today = new Date().toISOString().split("T")[0];
     const userPrompt = buildUserPrompt({

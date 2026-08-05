@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { loadQueue, selectReadyItem } from "./src/automation/queue.js";
 import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, publicCampaignSummary } from "./src/automation/campaign.js";
+import { GroundedResearcher } from "./src/automation/grounded-research.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -25,5 +26,12 @@ scheduled.items[0].status = 'scheduled';
 scheduled.items[0].postPath = '_posts/drafts/2026-08-10-sag.md';
 assert.equal(selectPublicationCandidate(scheduled, '2026-08-10').day, 1);
 assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
+const groundedPayload = {
+  candidates: [{ content: { parts: [{ text: JSON.stringify({ confirmed_facts: { material: 'Carbono HMF' }, limitations: [], sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessed: '2026-08-04' }] }) }] }, groundingMetadata: { webSearchQueries: ['site:scott-sports.com teste'] } }]
+};
+const researcher = new GroundedResearcher({ GEMINI_API_KEY: 'test', GEMINI_RESEARCH_MODEL: 'test' }, async () => ({ ok: true, json: async () => groundedPayload }));
+const grounded = await researcher.research({ item: campaign.items[0], internalEvidence: [], today: '2026-08-04' });
+assert.equal(grounded.status, 'pesquisa_concluida');
+assert.equal(grounded.sources.length, 1);
 await fs.rm(root, { recursive: true, force: true });
 console.log("Automation queue tests passed.");

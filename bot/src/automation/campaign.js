@@ -12,6 +12,8 @@ const CampaignItemSchema = z.object({
   productIds: z.array(z.string()).default([]),
   postPath: z.string().regex(/^_posts\/drafts\/.+\.md$/).optional(),
   publishedAt: z.string().datetime().optional(),
+  blockReason: z.string().optional(),
+  aiReview: z.object({ score: z.number().nullable(), premiumEditUsed: z.boolean(), providers: z.record(z.string(), z.string()), generatedAt: z.string().datetime() }).optional(),
 })
 
 export const CampaignSchema = z.object({
@@ -37,7 +39,7 @@ export const CampaignSchema = z.object({
 })
 
 export function selectProductionCandidate(campaign) {
-  return campaign.items.find((item) => ['planned', 'blocked'].includes(item.status)) || null
+  return campaign.items.find((item) => item.status === 'planned') || null
 }
 
 export function selectPublicationCandidate(campaign, localDate) {

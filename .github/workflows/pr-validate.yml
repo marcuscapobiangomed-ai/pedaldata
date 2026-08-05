@@ -61,6 +61,8 @@ jobs:
           node --check src/automation/doctor.js
           node --check src/automation/campaign.js
           node --check src/publish_scheduled.js
+          node --check src/automation/grounded-research.js
+          node --check src/campaign_producer.js
         working-directory: bot
 
       - name: Validar automação editorial
