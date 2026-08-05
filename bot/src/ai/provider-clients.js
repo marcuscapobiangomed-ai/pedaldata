@@ -7,11 +7,11 @@ const RETRYABLE_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
 
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-async function fetchWithRetry(url, init, { attempts = 3 } = {}) {
+async function fetchWithRetry(url, init, { attempts = 3, timeoutMs = 90000 } = {}) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, init);
+      const response = await fetch(url, { ...init, signal: init.signal || AbortSignal.timeout(timeoutMs) });
       if (!RETRYABLE_STATUS.has(response.status) || attempt === attempts) return response;
       const retryAfter = Number(response.headers.get("retry-after"));
       await response.text();
@@ -63,7 +63,10 @@ async function openAICompatibleRequest({
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
-  }, { attempts: numberFrom(process.env.AI_HTTP_RETRY_ATTEMPTS, 3) });
+  }, {
+    attempts: numberFrom(process.env.AI_HTTP_RETRY_ATTEMPTS, 3),
+    timeoutMs: numberFrom(process.env.AI_HTTP_TIMEOUT_MS, 90000),
+  });
 
   if (!response.ok) {
     const detail = (await response.text()).slice(0, 1000);
