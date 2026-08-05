@@ -74,7 +74,7 @@ export async function auditCampaignBuffer({ env = process.env, now = new Date() 
       providers: { ...(item.aiReview?.providers || {}), bufferFinalAudit: response.provider },
       generatedAt: item.aiReview?.generatedAt || now.toISOString(),
     };
-    if (score < Number(env.AI_FINAL_SCORE_THRESHOLD || 90) || blockers.length > 0) {
+    if (item.status !== "published" && (score < Number(env.AI_FINAL_SCORE_THRESHOLD || 90) || blockers.length > 0)) {
       item.status = "blocked";
       item.blockReason = `Auditoria final: nota ${score}; ${blockers.map((entry) => entry.detail || entry.type).join("; ") || "nota abaixo do minimo"}`.slice(0, 700);
     }

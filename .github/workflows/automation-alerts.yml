@@ -5,6 +5,7 @@ on:
     workflows:
       - "TheBiker — Automação editorial"
       - "TheBiker — Publicação diária ao meio-dia"
+      - "TheBiker — Auditoria final do buffer"
       - "Deploy Blog"
     types: [completed]
 
