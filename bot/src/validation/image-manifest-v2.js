@@ -64,6 +64,8 @@ export const ImageManifestV2Schema = z.object({
   approval: z.object({
     reviewedBy: z.string().min(2),
     approvedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    method: z.enum(["human", "automated-editorial-gate"]).default("human"),
+    checks: z.array(z.string()).default([]),
   }).optional(),
 }).superRefine((manifest, ctx) => {
   if (manifest.aiGenerated && ["exact-product", "real-event"].includes(manifest.factualSubject)) {
@@ -85,7 +87,7 @@ export const ImageManifestV2Schema = z.object({
       ctx.addIssue({
         code: "custom",
         path: ["approval"],
-        message: "Imagem publicável precisa de aprovação humana.",
+        message: "Imagem publicável precisa de aprovação editorial rastreável.",
       });
     }
     if (manifest.assetType === "system-fallback") {
@@ -96,7 +98,7 @@ export const ImageManifestV2Schema = z.object({
       });
     }
   }
-  if (manifest.source.type !== "generated" && !manifest.source.url) {
+  if (["manufacturer", "thebiker", "photographer", "organizer", "agency"].includes(manifest.source.type) && !manifest.source.url) {
     ctx.addIssue({
       code: "custom",
       path: ["source", "url"],

@@ -26,6 +26,7 @@
     "automation:run": "node src/cron_post.js"
     ,"publish:scheduled": "node src/publish_scheduled.js"
     ,"campaign:produce": "node src/campaign_producer.js"
+    ,"campaign:finalize": "node src/campaign_finalize.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",

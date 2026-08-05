@@ -11,6 +11,7 @@ const CampaignItemSchema = z.object({
   status: z.enum(['planned', 'researching', 'research-ready', 'drafting', 'validation', 'approved', 'scheduled', 'published', 'blocked', 'replaced']),
   productIds: z.array(z.string()).default([]),
   postPath: z.string().regex(/^_posts\/drafts\/.+\.md$/).optional(),
+  imageManifestPath: z.string().regex(/^assets\/img\/posts\/.+\/image-manifest\.json$/).optional(),
   publishedAt: z.string().datetime().optional(),
   blockReason: z.string().optional(),
   aiReview: z.object({ score: z.number().nullable(), premiumEditUsed: z.boolean(), providers: z.record(z.string(), z.string()), generatedAt: z.string().datetime() }).optional(),

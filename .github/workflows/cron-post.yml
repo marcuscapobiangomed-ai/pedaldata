@@ -62,6 +62,10 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: npm run campaign:produce
         working-directory: bot
+      - name: Produzir imagem e agendar pauta validada
+        if: steps.automation.outcome == 'success'
+        run: npm run campaign:finalize
+        working-directory: bot
       - name: Validar artefatos produzidos
         if: always()
         run: |
@@ -73,7 +77,7 @@ jobs:
         run: |
           git config user.name "thebiker-editorial-bot"
           git config user.email "thebiker-editorial-bot@users.noreply.github.com"
-          git add bot/editorial-campaign.json _data/editorial-calendar.json content/research/campaign _posts/drafts
+          git add bot/editorial-campaign.json _data/editorial-calendar.json content/research/campaign _posts/drafts assets/img/posts
           git diff --cached --quiet || git commit -m "content: produzir próxima pauta da campanha"
           git push
       - name: Propagar falha da produção

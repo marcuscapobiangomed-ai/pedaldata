@@ -1,0 +1,70 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import matter from "gray-matter";
+import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
+import { produceCampaignCover } from "./images/campaign-cover.js";
+
+const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+
+async function persist(root, campaign) {
+  await fs.writeFile(path.join(root, "bot/editorial-campaign.json"), JSON.stringify(campaign, null, 2) + "\n");
+  await fs.writeFile(path.join(root, "_data/editorial-calendar.json"), JSON.stringify(publicCampaignSummary(campaign), null, 2) + "\n");
+}
+
+function setField(content, field, value) {
+  const line = `${field}: ${value}`;
+  const pattern = new RegExp(`^${field}:.*$`, "m");
+  if (!pattern.test(content)) throw new Error(`Frontmatter obrigatório ausente: ${field}`);
+  return content.replace(pattern, line);
+}
+
+export async function finalizeCampaignItem({ root = defaultRoot, now = new Date() } = {}) {
+  const campaignPath = path.join(root, "bot/editorial-campaign.json");
+  const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, "utf8")));
+  const item = campaign.items.find((candidate) => candidate.status === "validation") || null;
+  if (!item) return { status: "idle", message: "Nenhuma pauta aguardando validação final" };
+  if (!item.postPath) throw new Error(`Pauta ${item.id} sem postPath`);
+  const approvedAt = now.toISOString().slice(0, 10);
+  try {
+    const absolutePost = path.resolve(root, item.postPath);
+    const draftRoot = path.resolve(root, "_posts/drafts") + path.sep;
+    if (!absolutePost.startsWith(draftRoot)) throw new Error(`postPath inseguro: ${item.postPath}`);
+    let content = await fs.readFile(absolutePost, "utf8");
+    const parsed = matter(content);
+    if (parsed.data.published !== false) throw new Error("Rascunho precisa permanecer com published: false");
+    if (!Array.isArray(parsed.data.sources) || parsed.data.sources.length === 0) throw new Error("Post sem fontes editoriais");
+    if ((parsed.content.match(/^##\s+/gm) || []).length < 5) throw new Error("Post com menos de cinco seções");
+    const cover = await produceCampaignCover({ root, item, approvedAt });
+    content = setField(content, "date", item.publishDate);
+    content = setField(content, "last_modified_at", approvedAt);
+    content = setField(content, "image", `"${cover.publicBase}/hero-1600.webp"`);
+    content = setField(content, "image_mobile", `"${cover.publicBase}/hero-800.webp"`);
+    content = setField(content, "thumbnail", `"${cover.publicBase}/card-640.webp"`);
+    content = setField(content, "image_asset_type", '"technical-diagram"');
+    content = setField(content, "image_status", '"approved"');
+    content = setField(content, "image_alt", `"${cover.manifest.alt.replace(/"/g, '\\"')}"`);
+    content = setField(content, "image_caption", `"${cover.manifest.caption}"`);
+    content = setField(content, "image_credit", '"TheBiker"');
+    content = setField(content, "image_license", '"Propriedade editorial TheBiker"');
+    content = setField(content, "reviewed_by", '"TheBiker AI Editorial Gate"');
+    content = setField(content, "editorial_status", '"reviewed"');
+    content = setField(content, "status", '"scheduled"');
+    if (/\/assets\/img\/system\/covers\//.test(content.split("---", 3)[1] || "")) throw new Error("Fallback de imagem ainda presente no frontmatter");
+    await fs.writeFile(absolutePost, content);
+    item.imageManifestPath = `assets/img/posts/${item.id}/image-manifest.json`;
+    item.status = "scheduled";
+    delete item.blockReason;
+    await persist(root, campaign);
+    return { status: "scheduled", itemId: item.id, publishDate: item.publishDate, imageManifestPath: item.imageManifestPath };
+  } catch (error) {
+    item.status = "blocked";
+    item.blockReason = `Validação final: ${String(error.message || error).slice(0, 650)}`;
+    await persist(root, campaign);
+    throw error;
+  }
+}
+
+if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
+  finalizeCampaignItem().then((result) => console.log(JSON.stringify(result))).catch((error) => { console.error(error.stack || error.message); process.exitCode = 1; });
+}
