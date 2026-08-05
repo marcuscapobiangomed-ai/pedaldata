@@ -78,5 +78,5 @@ export function selectImageCandidate(item, catalog, library) {
 }
 
 export function preferLargestStoreImage(url) {
-  return String(url).replace(/-480-0(?=\.[^.]+$)/, "-640-0");
+  return String(url).replace(/-(?:240|320|480|640)-0(?=\.[^.]+$)/, "-1024-0");
 }

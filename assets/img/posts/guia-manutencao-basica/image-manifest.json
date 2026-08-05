@@ -73,5 +73,14 @@
       "hash-perceptual",
       "sem-concorrente"
     ]
+  },
+  "composition": {
+    "strategy": "trim-contain-safe-area",
+    "safeArea": 0.9,
+    "trimThreshold": 16,
+    "sourceWidth": 640,
+    "sourceHeight": 640,
+    "subjectWidth": 511,
+    "subjectHeight": 380
   }
 }
