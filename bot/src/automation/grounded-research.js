@@ -63,9 +63,6 @@ export class GroundedResearcher {
       comparativo: 'comparativo', lancamentos: 'lancamento', competicoes: item.id.includes('preparacao') ? 'previa-corrida' : 'resumo-corrida'
     }[item.category]
     const raceCoverage = item.category === 'competicoes'
-    if (item.freshness === 'evergreen' && internalEvidence.length > 0) {
-      return internalResearch({ item, internalEvidence, today, contentType, reason: 'estratégia evergreen sem chamada externa' })
-    }
     const prompt = [
       'Pesquise para o blog oficial da TheBiker. Responda somente em JSON válido.',
       'Priorize documentos oficiais, manuais dos fabricantes, TheBiker Shop e, em competições, organizadores oficiais.',

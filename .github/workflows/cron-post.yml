@@ -74,7 +74,7 @@ jobs:
           npm run check:machine-readable
           npm run validate:posts
       - name: Persistir estado, pesquisa e rascunho
-        if: always() && github.event_name == 'schedule'
+        if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == false))
         run: |
           git config user.name "thebiker-editorial-bot"
           git config user.email "thebiker-editorial-bot@users.noreply.github.com"
