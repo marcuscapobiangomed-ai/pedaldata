@@ -56,6 +56,14 @@ function toText(value, fallback = "") {
   return String(value);
 }
 
+function truncateAtWordBoundary(value, maxLength) {
+  const text = toText(value).trim();
+  if (text.length <= maxLength) return text;
+  const shortened = text.slice(0, maxLength + 1);
+  const boundary = shortened.lastIndexOf(" ");
+  return shortened.slice(0, boundary >= 100 ? boundary : maxLength).trimEnd();
+}
+
 function toNumber(value, fallback = null) {
   if (value === undefined || value === null || value === "") return fallback;
   const numeric = Number(value);
@@ -279,7 +287,7 @@ export class AIProvider {
     const next = JSON.parse(JSON.stringify(parsed));
 
     next.title = this._sanitizeHtml(next.title);
-    next.description = this._sanitizeHtml(next.description);
+    next.description = truncateAtWordBoundary(this._sanitizeHtml(next.description), 200);
     next.slug = this._sanitizeHtml(next.slug);
     next.category = this._normalizeCategory(next.category);
     next.content_type = this._normalizeContentType(next.content_type);
