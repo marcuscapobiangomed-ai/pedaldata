@@ -29,8 +29,8 @@
       "attempts": 0,
       "aiReview": {
         "score": 0,
-        "finalScore": 85,
-        "finalBlockers": 2,
+        "finalScore": 95,
+        "finalBlockers": 0,
         "premiumEditUsed": true,
         "providers": {
           "factSheet": "deepseek",
@@ -38,7 +38,7 @@
           "critique": "deepseek",
           "final": "deepseek",
           "finalRepair": "deepseek",
-          "bufferFinalAudit": "groq"
+          "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:12:03.400Z"
       }
