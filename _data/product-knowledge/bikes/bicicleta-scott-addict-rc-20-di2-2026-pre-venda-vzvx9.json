@@ -1,0 +1,305 @@
+{
+  "id": "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Addict RC 20 Di2",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+      "name": "TheBiker — Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+      "name": "Scott — página oficial do modelo",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-addict-rc-20-bike",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Scott Addict RC 20 Di2 2026 - Pré Venda",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "manufacturer-verified-exact",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Correspondência exata confirmada na página oficial do fabricante."
+    },
+    "commercial.price": {
+      "value": 67999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.officialUrl": {
+      "value": "https://www.scott-sports.com/global/en/product/scott-addict-rc-20-bike",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425685",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "reseda green",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Addict RC HMX Carbon",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "fork.model": {
+      "value": "Addict RC HMX Flatmount Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.groupset": {
+      "value": "Shimano Ultegra Di2",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 24,
+      "unit": "velocidades totais",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.shifting": {
+      "value": "electronic",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano Ultegra Di2 RD-R8150",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano Ultegra FC-R8100 52-36T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano Ultegra CS-R8100-12, 11-34",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "Shimano BR-R8170 Hydraulic Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.rotors": {
+      "value": "Shimano RT-CL800 160 mm dianteiro / 140 mm traseiro",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.wheelset": {
+      "value": "Syncros Capital 1.0 40 Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Continental Grand Prix TR 30x622",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 7.3,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Peso aproximado declarado pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 120,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "limits.maximumTireWidth": {
+      "value": 34,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

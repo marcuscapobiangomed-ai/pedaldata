@@ -5,38 +5,48 @@
  */
 import "dotenv/config";
 import { AIProvider } from "./gemini.js";
-import { GitHubPublisher } from "./publisher.js";
+import fs from "node:fs";
+import { syncProductKnowledge } from "./knowledge/product-knowledge.js";
 
 const args = process.argv.slice(2);
-const descricao = args.join(" ");
+const researchArg = args.find((arg) => arg.startsWith("--research="));
+const outputArg = args.find((arg) => arg.startsWith("--output="));
+const descricao = args.filter((arg) => !arg.startsWith("--research=") && !arg.startsWith("--output=")).join(" ");
 
 if (!descricao) {
-  console.log("Uso: node src/manual.js \"descrição do caso clínico\"");
-  console.log('Ex: node src/manual.js "Masculino 45a, dor torácica em aperto há 2h, supra ST V1-V4"');
+  console.log('Uso: node src/manual.js "tema do artigo" --research=caminho/para/ficha.json');
   process.exit(1);
 }
 
-console.log("🤖 Processando caso com DeepSeek/Gemini...\n");
+if (!researchArg) {
+  console.error("A geração exige --research=<arquivo.json>. Nenhuma API foi chamada.");
+  process.exit(1);
+}
+
+const researchPath = researchArg.slice("--research=".length);
+const researchData = JSON.parse(fs.readFileSync(researchPath, "utf8"));
+
+console.log("🤖 Processando artigo com Groq, Gemini e DeepSeek...\n");
 console.log(`📝 Descrição: "${descricao}"\n`);
 
 const ai = new AIProvider();
-const post = await ai.processCase(descricao);
+const post = await ai.processCase(descricao, researchData);
+const knowledge = await syncProductKnowledge(researchData);
 
 console.log("📄 Artigo gerado:");
 console.log("-".repeat(40));
 console.log(`Título: ${post.title}`);
-console.log(`Tags: ${post.tags.join(", ")}`);
 console.log(`Slug: ${post.slug}`);
+console.log(`Pipeline: ${JSON.stringify(post.pipelineMetadata?.providers || {})}`);
+console.log(`Base técnica: ${knowledge?.repositoryPath || "sem produto estruturado"}`);
 console.log("-".repeat(40));
 console.log("\nConteúdo:\n");
 console.log(post.content);
 
-const publisher = new GitHubPublisher();
-console.log("\n🔀 Criando PR no GitHub...\n");
-try {
-  const url = await publisher.publishPost(post.content, post.slug, post);
-  console.log(`✅ PR criado: ${url}`);
-} catch (err) {
-  console.error("❌ Erro ao criar PR:", err.message);
-  console.log("\nO conteúdo acima foi salvo localmente. Publique manualmente no GitHub.");
+if (outputArg) {
+  const outputPath = outputArg.slice("--output=".length);
+  fs.writeFileSync(outputPath, post.content, "utf8");
+  console.log(`\nRascunho salvo em: ${outputPath}`);
 }
+
+console.log("\n🔒 Rascunho local. Nenhum PR foi criado e nada foi publicado.");

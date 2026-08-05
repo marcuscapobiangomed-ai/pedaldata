@@ -1,58 +1,97 @@
-name: Publicação Automática de Posts (Cron)
+name: TheBiker — Automação editorial
 
 on:
-  # CRON SUSPENSO — reativar apenas após revisão editorial
-  # schedule:
-  #   - cron: '0 9 * * *'    # 06:00 BRT
-  #   - cron: '0 15 * * *'   # 12:00 BRT
-  #   - cron: '0 21 * * *'   # 18:00 BRT
+  schedule:
+    - cron: "5 9,13,17 * * *"
   workflow_dispatch:
     inputs:
-      topic:
-        description: "Tópico específico (deixe vazio para pegar da fila)"
+      dry_run:
+        description: "Validar a próxima pauta sem chamar as APIs"
         required: false
-        type: string
+        default: true
+        type: boolean
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
-  group: pedaldata-auto-publisher
+  group: thebiker-editorial-automation
   cancel-in-progress: false
 
 jobs:
-  generate-post:
+  preflight:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: npm
           cache-dependency-path: bot/package-lock.json
-
-      - name: Instalar Dependências
-        run: npm ci
+      - run: npm ci
+        working-directory: bot
+      - name: Validar fila e configuração estrutural
+        run: npm run automation:doctor
         working-directory: bot
 
-      - name: Gerar Post e Criar PR
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MANUAL_TOPIC: ${{ inputs.topic || '' }}
-        run: node src/cron_post.js
-        working-directory: bot
-
-      - name: Validar Build Jekyll
-        uses: ruby/setup-ruby@v1
+  generate-draft:
+    needs: preflight
+    if: ${{ vars.AUTOMATION_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: editorial-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          ruby-version: "3.3"
-          bundler-cache: true
-      - run: bundle exec jekyll build --baseurl ""
+          node-version: 20
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+      - run: npm ci
+        working-directory: bot
+      - name: Pesquisar, produzir e revisar no máximo uma pauta
+        id: automation
+        continue-on-error: true
         env:
-          JEKYLL_ENV: production
+          AUTOMATION_ENABLED: "true"
+          AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+          AI_PIPELINE_MODE: three-provider
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: npm run campaign:produce
+        working-directory: bot
+      - name: Produzir imagem e agendar pauta validada
+        if: steps.automation.outcome == 'success'
+        run: npm run campaign:finalize
+        working-directory: bot
+      - name: Validar artefatos produzidos
+        if: always()
+        run: |
+          npm run security:secrets
+          npm run check:machine-readable
+          npm run validate:posts
+      - name: Persistir estado, pesquisa e rascunho
+        if: always() && github.event_name == 'schedule'
+        run: |
+          git config user.name "thebiker-editorial-bot"
+          git config user.email "thebiker-editorial-bot@users.noreply.github.com"
+          git add bot/editorial-campaign.json _data/editorial-calendar.json content/research/campaign _posts/drafts assets/img/posts
+          git diff --cached --quiet || git commit -m "content: produzir próxima pauta da campanha"
+          git push
+      - name: Propagar falha da produção
+        if: steps.automation.outcome == 'failure'
+        run: exit 1
+      - name: Resumo operacional
+        if: always()
+        run: |
+          echo "### Automação editorial TheBiker" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Resultado: ${{ steps.automation.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+
+  disabled-notice:
+    needs: preflight
+    if: ${{ vars.AUTOMATION_ENABLED != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Automação editorial validada, porém pausada pela variável AUTOMATION_ENABLED."

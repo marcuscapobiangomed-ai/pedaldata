@@ -1,10 +1,12 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Lançamentos de Bikes de Estrada 2026: O Que Esperar das Principais Marcas"
 description: "Descubra o que as principais marcas de bicicletas de estrada estão preparando para 2026 e quais tendências você não pode perder."
 date: 2026-07-07
 last_modified_at: 2026-07-07
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "noticia"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -38,7 +40,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/lancamentos-bikes-2026/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 
 

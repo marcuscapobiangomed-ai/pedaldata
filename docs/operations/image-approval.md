@@ -16,33 +16,35 @@ Editorial (EDI) com suporte técnico (TEC).
 - Contexto de uso (produto, review, guia)
 
 ## Etapas
-1. Verificar licença: própria, cedida, creative commons, banco pago
-2. Confirmar que não há violação de direitos autorais
-3. Verificar qualidade mínima (resolução, foco, exposição)
-4. Otimizar para web (comprimir, redimensionar)
-5. Atribuir créditos conforme licença
-6. Nomear arquivo conforme padrão: `{produto}-{descricao}-{ano}.{ext}`
-7. Registrar no metadado do conteúdo
+1. Classificar a imagem conforme o Sistema Editorial de Imagens v2.
+2. Verificar licença: própria, cedida, fabricante, agência ou geração conceitual.
+3. Registrar URL, data de obtenção e evidência de licença.
+4. Confirmar produto, versão, marcas, atleta e evento retratados.
+5. Rejeitar IA para produto exato, atleta identificável ou evento real.
+6. Verificar qualidade mínima, foco e ponto focal.
+7. Gerar hero 1600×900, mobile 800×450 e card 640×360.
+8. Preencher o manifesto v2.
+9. Executar os validadores.
+10. Registrar nome e data do aprovador.
 
 ## Critérios de aprovação
 - Licença clara e permitida para uso comercial
+- Produto ou evento visualmente correspondente ao conteúdo
 - Qualidade adequada para o contexto
 - Otimizada para web
 - Créditos atribuídos
+- Manifesto v2 aprovado
 
 ## Evidências
 - Registro de licença ou autorização
 - Metadados da imagem
-
-## Prazo
-48 horas úteis.
 
 ## Exceções
 - Imagens enviadas por usuários: exigir autorização explícita por escrito
 - Imagens de fabricantes: permitido uso editorial com atribuição
 
 ## Forma de registrar
-Arquivo no diretório de mídia com metadados. Referência no artigo.
+Arquivos e `image-manifest.json` no diretório de mídia do post. O rascunho referencia o plano de produção; a publicação referencia somente o manifesto aprovado.
 
 ## Resultado esperado
 Imagem aprovada, otimizada e licenciada, pronta para publicação.

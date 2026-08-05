@@ -32,22 +32,30 @@ export function generateMarkdown(article) {
   const thumbnail = data.frontmatter?.thumbnail && data.frontmatter.thumbnail !== "/assets/img/logo.svg"
     ? data.frontmatter.thumbnail
     : preset.thumbnail;
+  const isFallbackImage = image.startsWith("/assets/img/system/covers/");
   const imageAlt = data.frontmatter?.image_alt || data.description;
-  const imageCaption = data.frontmatter?.image_caption || "";
-  const imageCredit = data.frontmatter?.image_credit || "Pedal Data";
-  const imageLicense = data.frontmatter?.image_license || "Uso editorial do Pedal Data";
+  const imageCaption = data.frontmatter?.image_caption || (isFallbackImage
+    ? "Imagem conceitual temporária; será substituída por material editorial aprovado."
+    : "");
+  const imageCredit = isFallbackImage
+    ? "TheBiker com geração assistida por IA"
+    : (data.frontmatter?.image_credit || "TheBiker");
+  const imageLicense = isFallbackImage
+    ? "Uso editorial interno TheBiker"
+    : (data.frontmatter?.image_license || "Uso editorial da TheBiker");
   const methodologyNotice = data.methodologyNotice || (data.review_method === "hands-on-test"
-    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe Pedal Data."
-    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
+    ? "> **Como testamos:** o produto foi testado presencialmente pela equipe TheBiker."
+    : "> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, catálogo TheBiker e comparação com alternativas vendidas pela loja. O produto não foi testado presencialmente pela equipe TheBiker. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.");
 
   const frontmatter = [
     "---",
     'layout: post',
+    'published: false',
     `title: "${escapeYaml(data.title)}"`,
     `slug: "${escapeYaml(data.slug)}"`,
     `date: ${today}`,
     `last_modified_at: ${today}`,
-    'author: "Equipe Pedal Data"',
+    'author: "Equipe TheBiker"',
     'reviewed_by: ""',
     `content_type: "${escapeYaml(data.content_type)}"`,
     `review_method: "${escapeYaml(data.review_method)}"`,
@@ -67,12 +75,21 @@ export function generateMarkdown(article) {
     `tags: ${yamlList(data.tags)}`,
     `description: "${escapeYaml(data.description)}"`,
     `image: "${escapeYaml(image)}"`,
+    `image_mobile: "${escapeYaml(isFallbackImage ? (preset.mobile || image) : image)}"`,
     `thumbnail: "${escapeYaml(thumbnail)}"`,
+    'image_manifest_version: 2',
+    `image_asset_type: "${isFallbackImage ? "system-fallback" : "unverified"}"`,
+    `image_status: "${isFallbackImage ? "draft" : "pending-approval"}"`,
     `image_alt: "${escapeYaml(imageAlt)}"`,
     `image_caption: "${escapeYaml(imageCaption)}"`,
     `image_credit: "${escapeYaml(imageCredit)}"`,
     `image_license: "${escapeYaml(imageLicense)}"`,
     `affiliate_links: ${data.affiliate_links === true}`,
+    `editorial_scope: "${escapeYaml(data.editorial_scope)}"`,
+    `promoted_brands: ${yamlList(data.promoted_brands)}`,
+    `context_only_brands: ${yamlList(data.context_only_brands)}`,
+    `portfolio_evidence_url: "${escapeYaml(data.portfolio_evidence_url)}"`,
+    `portfolio_verified_at: "${escapeYaml(data.portfolio_verified_at)}"`,
     `editorial_status: "draft"`,
     `status: "draft"`,
     "sources:",
@@ -92,8 +109,8 @@ export function generateMarkdown(article) {
     body += `## ${section.heading}\n\n${section.content}\n\n`;
   }
 
-  if (!body.match(/##\s*(Fontes|Fontes e metodologia|Referências)/i)) {
-    body += "## Fontes e metodologia\n\n";
+  if (!body.match(/##\s*(Fontes|Fontes e metodologia|Referências|De onde vêm os dados)/i)) {
+    body += "## De onde vêm os dados desta análise\n\n";
     for (const source of sources) {
       body += `- **${source.name}** (${source.type})${source.url ? ` — ${source.url}` : ""} — acessado em ${source.accessed_at}\n`;
     }

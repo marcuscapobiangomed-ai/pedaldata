@@ -5,15 +5,23 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - "_posts/**"
-      - "data/**"
+      - "_data/**"
       - "content/research/**"
       - "assets/img/posts/**"
+      - "assets/js/**"
+      - "bot/**"
+      - ".github/workflows/**"
+      - "scripts/**"
+      - "api/**"
+      - "bot/editorial-campaign.json"
+      - "_data/editorial-calendar.json"
+      - "llms.txt"
+      - "robots.txt"
       - "_config.yml"
       - "_redirects.yml"
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
   group: pr-validate-${{ github.head_ref }}
@@ -37,14 +45,32 @@ jobs:
         run: npm ci
         working-directory: bot
 
+      - name: Bloquear credenciais no repositorio
+        run: npm run security:secrets
+
       - name: Lint (JS)
         run: |
           node --check src/schemas/research.schema.js
+          node --check src/schemas/product-knowledge.schema.js
+          node --check src/knowledge/product-knowledge.js
           node --check src/schemas/article.schema.js
           node --check src/validation/validate-research.js
           node --check src/validation/validate-images.js
           node --check src/validation/check-claims.js
           node --check src/generator.js
+          node --check src/cron_post.js
+          node --check src/automation/queue.js
+          node --check src/automation/doctor.js
+          node --check src/automation/campaign.js
+          node --check src/publish_scheduled.js
+          node --check src/automation/grounded-research.js
+          node --check src/campaign_producer.js
+          node --check src/campaign_finalize.js
+          node --check src/images/campaign-cover.js
+        working-directory: bot
+
+      - name: Validar automação editorial
+        run: npm run automation:doctor
         working-directory: bot
 
       - name: Validar Fichas de Pesquisa
@@ -55,12 +81,28 @@ jobs:
         run: node src/validation/check-claims.js
         working-directory: bot
 
+      - name: Validar Posts
+        run: node src/validate_posts.js
+        working-directory: bot
+
       - name: Validar Imagens
         run: node src/validation/validate-images.js
         working-directory: bot
 
       - name: Validar Base de Dados (schemas)
-        run: node data/schemas/validate-all.js
+        run: node _data/schemas/validate-all.js
+
+      - name: Verificar sincronização das páginas de produto
+        run: npm run check:product-pages
+
+      - name: Verificar catálogo público TheBiker
+        run: npm run check:catalog-public
+
+      - name: Verificar taxonomia de tags
+        run: npm run check:tags
+
+      - name: Verificar lotes e endpoints para máquinas
+        run: npm run check:machine-readable
 
       - name: Check for fictional authorship
         run: |
@@ -84,3 +126,6 @@ jobs:
         run: bundle exec jekyll build --baseurl ""
         env:
           JEKYLL_ENV: production
+
+      - name: Bloquear credenciais no site gerado
+        run: npm run security:public

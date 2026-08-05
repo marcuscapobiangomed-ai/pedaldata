@@ -1,0 +1,205 @@
+{
+  "id": "bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo",
+  "type": "bike",
+  "brand": "Oggi",
+  "model": "Hacker 24 - Cinza e Amarelo",
+  "modelYear": null,
+  "market": "BR",
+  "category": "kids-bike",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo",
+      "name": "TheBiker — Bicicleta Infantil Oggi Hacker 24 - Cinza e Amarelo",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo/",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Infantil Oggi Hacker 24 - Cinza e Amarelo",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "store-verified-limited",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Página oficial exata da Oggi não foi localizada; limitar os fatos à página TheBiker."
+    },
+    "commercial.price": {
+      "value": 2299,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "Cinza e amarelo",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.size": {
+      "value": 24,
+      "unit": "pol",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "commercial.unitsObserved": {
+      "value": 1,
+      "unit": "unidade",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Estoque observado; revalidar antes de publicar"
+    },
+    "frame.material": {
+      "value": "Alumínio 6061 T6",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.fork": {
+      "value": "Oggi 24",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.frontTravel": {
+      "value": 50,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 21,
+      "unit": "marchas",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.brand": {
+      "value": "Shimano",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.type": {
+      "value": "disco",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Kenda MTB 24",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 12.8,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "thebiker-bicicleta-infantil-oggi-hacker-24-cinza-e-amarelo"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Peso aproximado informado pela TheBiker"
+    }
+  },
+  "unresolvedFields": [
+    "modelYear",
+    "manufacturerExactPage",
+    "manufacturerSpecifications"
+  ],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

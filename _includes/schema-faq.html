@@ -1,26 +1,26 @@
-<script>
-document.addEventListener('DOMContentLoaded', async function() {
-  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-  const el = document.querySelector('[data-product-id]')
-  if (!el) return
-  const productId = el.dataset.productId
-  try {
-    const r = await fetch(BASE + '/data/products/bikes/' + productId + '.json')
-    if (!r.ok) return
-    const b = await r.json()
-    const w = b.declaredWeight ? `${b.declaredWeight.valueKg} kg (tam. ${b.declaredWeight.size})` : 'consulte'
-    const g = b.drivetrain ? `${b.drivetrain.brand} ${b.drivetrain.groupset} (${b.drivetrain.speeds}v)` : 'consulte'
-    const entry = (b.category||'').includes('entry')
-    const p = entry ? 'Sim, é uma bike de entrada.' : `É uma bike ${(b.category||'').replace(/-/g,' ')}, para ciclistas experientes.`
-    const faq = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":`Peso da ${b.brand} ${b.model}?`,"acceptedAnswer":{"@type":"Answer","text":`${w}.`}},
-      {"@type":"Question","name":`Grupo da ${b.brand} ${b.model}?`,"acceptedAnswer":{"@type":"Answer","text":`${g}.`}},
-      {"@type":"Question","name":`${b.brand} ${b.model} é para iniciantes?`,"acceptedAnswer":{"@type":"Answer","text":p}}
-    ]}
-    const s = document.createElement('script')
-    s.type = 'application/ld+json'
-    s.textContent = JSON.stringify(faq)
-    document.head.appendChild(s)
-  } catch(e) {}
-})
+{% assign faq_product = site.data.products.bikes[page.product_id] %}
+{% if faq_product %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": {{ "Peso da " | append: faq_product.brand | append: " " | append: faq_product.model | append: "?" | jsonify }},
+      "acceptedAnswer": {"@type": "Answer", "text": {% if faq_product.declaredWeight %}{{ faq_product.declaredWeight.valueKg | append: " kg (tam. " | append: faq_product.declaredWeight.size | append: ")." | jsonify }}{% else %}"Consulte o fabricante."{% endif %}}
+    },
+    {
+      "@type": "Question",
+      "name": {{ "Grupo da " | append: faq_product.brand | append: " " | append: faq_product.model | append: "?" | jsonify }},
+      "acceptedAnswer": {"@type": "Answer", "text": {{ faq_product.drivetrain.brand | append: " " | append: faq_product.drivetrain.groupset | append: " (" | append: faq_product.drivetrain.speeds | append: " velocidades)." | jsonify }}}
+    },
+    {
+      "@type": "Question",
+      "name": {{ faq_product.brand | append: " " | append: faq_product.model | append: " é para iniciantes?" | jsonify }},
+      "acceptedAnswer": {"@type": "Answer", "text": {% if faq_product.category contains "entry" %}"Sim, é uma bicicleta da categoria de entrada."{% else %}{{ "É uma bicicleta da categoria " | append: faq_product.category | replace: "-", " " | append: "." | jsonify }}{% endif %}}
+    }
+  ]
+}
 </script>
+{% endif %}

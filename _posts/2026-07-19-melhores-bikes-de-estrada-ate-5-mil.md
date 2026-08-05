@@ -1,10 +1,11 @@
 ---
 layout: post
+published: false
 title: "Melhores Bikes de Estrada até R$ 5.000 em 2026"
 description: "Comparativo com 5 modelos reais de bicicletas de estrada até R$ 5.000 no Brasil. Preços verificados em lojas em julho de 2026."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -14,7 +15,7 @@ model_year: 2026
 market: "Brasil"
 weight: "Não informado"
 weight_source: "Fabricante"
-price_min: 2500
+price_min: 2890
 price_max: 5000
 price_currency: "BRL"
 price_checked_at: "2026-07-19"

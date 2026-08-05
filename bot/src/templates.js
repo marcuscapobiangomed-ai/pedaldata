@@ -1,6 +1,6 @@
 /**
  * Templates editoriais por tipo de publicação
- * Conforme o Manual Editorial do Pedal Data (seções 3.1 a 3.6)
+ * Conforme o Manual Editorial do The Biker Blog (seções 3.1 a 3.6)
  */
 
 export const TEMPLATES = {
@@ -30,21 +30,20 @@ export const TEMPLATES = {
       "Após X quilômetros de uso…",
     ],
     structure: [
-      "Aviso de metodologia (como testamos)",
-      "Resumo inicial",
-      "Veredito rápido",
+      "Abrir pela descoberta técnica central, incorporando como testamos sem usar rótulo genérico",
+      "Entregar cedo o veredito técnico com um intertítulo específico",
       "Ficha técnica",
-      "Contexto do teste (quem, onde, quando, condições)",
+      "Explicar quem, onde, quando e em quais condições o teste ocorreu",
       "Análise por critérios",
       "Para quem é indicado",
       "Para quem pode não ser indicado",
       "Pontos fortes específicos",
       "Limitações específicas",
-      "Comparação com alternativas",
+      "Comparação com alternativas autorizadas do portfólio TheBiker",
       "Preço e disponibilidade no Brasil",
-      "Conclusão",
-      "Perguntas frequentes",
-      "Fontes e metodologia",
+      "Fechar com a decisão por perfil, usando um intertítulo específico",
+      "Responder dúvidas avançadas com perguntas usadas como intertítulos",
+      "Apresentar fontes e metodologia sob um intertítulo editorial específico",
     ],
   },
 
@@ -70,21 +69,20 @@ export const TEMPLATES = {
       accessory: ["segurança", "conforto", "ajuste", "materiais", "certificações", "durabilidade", "facilidade de uso", "garantia", "preço"],
     },
     structure: [
-      "Aviso de metodologia",
-      "Resumo inicial",
-      "Veredito rápido",
+      "Abrir pela questão técnica central e incorporar a metodologia sem rótulo genérico",
+      "Entregar cedo o veredito técnico com um intertítulo específico",
       "Ficha técnica com fontes",
-      "Contexto do produto",
+      "Posicionar o produto na linha, na geração e no uso pretendido",
       "Análise por critérios",
       "Para quem é indicado",
       "Para quem pode não ser indicado",
       "Pontos fortes",
       "Limitações",
-      "Comparação com alternativas (mínimo 2)",
+      "Comparação com alternativas do portfólio TheBiker (mínimo 2)",
       "Preço e disponibilidade no Brasil",
-      "Conclusão",
-      "Perguntas frequentes",
-      "Fontes e metodologia",
+      "Fechar com a decisão por perfil, usando um intertítulo específico",
+      "Responder dúvidas avançadas com perguntas usadas como intertítulos",
+      "Apresentar fontes e metodologia sob um intertítulo editorial específico",
     ],
   },
 
@@ -112,16 +110,15 @@ export const TEMPLATES = {
       "melhor para manutenção simples",
     ],
     structure: [
-      "Aviso de metodologia",
-      "Resumo inicial",
-      "Veredito rápido",
+      "Abrir pelo conflito técnico que realmente separa os produtos e incorporar a metodologia",
+      "Entregar cedo o veredito por cenário com um intertítulo específico",
       "Tabela comparativa com os mesmos critérios",
       "Análise individual de cada produto",
       "Comparação critério a critério",
       "Vencedor por categoria",
-      "Conclusão por tipo de ciclista",
+      "Fechar com a decisão por tipo de ciclista, sem usar o rótulo conclusão",
       "Tabela de especificações",
-      "Fontes e metodologia",
+      "Apresentar fontes e metodologia sob um intertítulo editorial específico",
     ],
   },
 
@@ -137,15 +134,15 @@ export const TEMPLATES = {
       "produtos excluídos e por quê",
     ],
     structure: [
-      "Aviso de metodologia",
+      "Incorporar a metodologia à abertura sem criar um intertítulo burocrático",
       "Definição do público e orçamento",
       "Critérios de seleção",
       "Metodologia da pesquisa",
       "Lista de produtos recomendados (com justificativa)",
       "Comparativo entre as opções",
       "Para quem cada opção é melhor",
-      "FAQ",
-      "Fontes e metodologia",
+      "Responder dúvidas decisivas com perguntas usadas como intertítulos",
+      "Apresentar fontes e metodologia sob um intertítulo editorial específico",
     ],
   },
 
@@ -161,15 +158,15 @@ export const TEMPLATES = {
       "referências utilizadas",
     ],
     structure: [
-      "Aviso de metodologia",
+      "Incorporar a metodologia à abertura sem criar um intertítulo burocrático",
       "O que é / Para que serve",
       "Termos técnicos essenciais",
       "Passo a passo ou explicação detalhada",
       "Erros comuns e como evitá-los",
       "Alertas de segurança",
       "Quando procurar ajuda profissional",
-      "FAQ",
-      "Fontes e referências",
+      "Responder dúvidas técnicas com perguntas usadas como intertítulos",
+      "Apresentar fontes e referências sob um intertítulo editorial específico",
     ],
   },
 
@@ -190,14 +187,65 @@ export const TEMPLATES = {
       "Sem confirmação, usar título como 'Possível novo Produto X: o que já sabemos e o que ainda é rumor'",
     ],
     structure: [
-      "Aviso de metodologia",
+      "Incorporar a metodologia à abertura sem criar um intertítulo burocrático",
       "O que foi anunciado (com fonte)",
       "O que é confirmado vs. o que é especulação",
       "Contexto e relevância para o mercado brasileiro",
       "Preço e disponibilidade (quando confirmados)",
       "Expectativas editoriais (claramente identificadas)",
-      "FAQ",
-      "Fontes",
+      "Responder dúvidas relevantes com perguntas usadas como intertítulos",
+      "Apresentar fontes sob um intertítulo editorial específico",
+    ],
+  },
+
+  "lancamento": {
+    label: "Lançamento de marca do portfólio (3.7)",
+    required_distinctions: [
+      "anúncio oficial da marca",
+      "produto confirmado no portfólio TheBiker",
+      "versão e mercado",
+      "mudanças para a geração anterior",
+      "disponibilidade confirmada",
+      "preço confirmado ou não informado",
+    ],
+    structure: [
+      "O que foi lançado",
+      "O que mudou tecnicamente",
+      "Comparação com a geração anterior",
+      "Impacto em desempenho, compatibilidade e manutenção",
+      "Para qual ciclista faz sentido",
+      "Disponibilidade na TheBiker",
+      "Fechar com a decisão editorial por perfil, sem usar o rótulo conclusão",
+      "Apresentar fontes sob um intertítulo editorial específico",
+    ],
+  },
+
+  "previa-corrida": {
+    label: "Prévia de corrida (3.8)",
+    structure: [
+      "Contexto da prova e posição no calendário",
+      "Percurso, altimetria e setores decisivos",
+      "Condições previstas e impacto tático",
+      "Favoritos e forma recente",
+      "Equipes, funções e cenários táticos",
+      "Equipamentos de marcas do portfólio TheBiker em destaque",
+      "Onde e quando acompanhar",
+      "Apresentar fontes oficiais sob um intertítulo editorial específico",
+    ],
+  },
+
+  "resumo-corrida": {
+    label: "Resumo e análise de corrida (3.9)",
+    structure: [
+      "Resultado confirmado",
+      "Como a corrida foi decidida",
+      "Momentos e setores determinantes",
+      "Leitura tática das equipes",
+      "Desempenho dos principais atletas",
+      "Equipamentos de marcas do portfólio TheBiker em destaque",
+      "Impacto na classificação e na temporada",
+      "Próximas provas",
+      "Apresentar fontes oficiais sob um intertítulo editorial específico",
     ],
   },
 };
@@ -211,6 +259,9 @@ export function getTemplate(type) {
     "guia-de-compra": "guia-de-compra",
     "guia-tecnico": "guia-tecnico",
     noticia: "noticia",
+    lancamento: "lancamento",
+    "previa-corrida": "previa-corrida",
+    "resumo-corrida": "resumo-corrida",
   };
 
   const key = aliases[type] || type;

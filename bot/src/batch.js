@@ -58,6 +58,12 @@ async function sleep(ms) {
 }
 
 async function main() {
+  if (process.env.AI_PIPELINE_MODE !== "legacy") {
+    throw new Error(
+      "O batch legado não contém fichas por tópico e está bloqueado no pipeline de três provedores. Use post:manual com --research ou implemente uma fila de fichas validadas.",
+    );
+  }
+
   console.log("=".repeat(50));
   console.log("🚴 Batch Generator — 30 Posts de Ciclismo");
   console.log("=".repeat(50));
@@ -87,9 +93,16 @@ async function main() {
 
       console.log(`   ✅ Salvo: ${filePath}`);
 
-      if (process.env.GITHUB_TOKEN) {
+      if (process.env.AUTO_CREATE_PR === "true" && process.env.GITHUB_TOKEN) {
         try {
-          const url = await publisher.publishPost(post.content, `${num}-${post.slug}`);
+          const url = await publisher.publishPost({
+            postContent: post.content,
+            slug: `${num}-${post.slug}`,
+            researchData: null,
+            imageManifest: null,
+            imageProductionPlan: post.imageProductionPlan,
+            checklist: post.claims || [],
+          });
           console.log(`   🔀 PR criado: ${url}`);
         } catch (pubErr) {
           console.log(`   ⚠️  Erro ao publicar: ${pubErr.message} (salvo localmente)`);

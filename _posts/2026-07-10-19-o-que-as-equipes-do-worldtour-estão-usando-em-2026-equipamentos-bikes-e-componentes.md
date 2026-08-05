@@ -1,11 +1,12 @@
 ---
 layout: post
+published: false
 title: "O que as equipes do WorldTour estão usando em 2026: equipamentos, bikes e componentes"
 description: "Guia atualizado com as bikes e componentes usados pelas equipes do WorldTour em 2026: Visma, UAE, Lidl-Trek, INEOS e mais."
 date: 2026-07-10
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "noticia"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +21,7 @@ price_max: 0
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "noticia"
-tags: [ciclismo, worldtour, equipamentos, bikes, componentes]
+tags: [ciclismo, worldtour, equipamentos, bike-de-estrada, componentes]
 image: "/assets/img/posts/worldtour-equipes-2026/hero.jpg"
 image_alt: "Pelotão do WorldTour em 2026 — bikes e equipamentos profissionais"
 image_caption: "Cervélo S5 (Visma), Specialized Tarmac SL8 (Soudal-QuickStep), Colnago V4Rs (UAE) — as bikes do WorldTour 2026."
@@ -48,10 +49,10 @@ sources:
     url: "https://www.pinarello.com/ineos-grenadiers"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/worldtour-equipes-2026/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** pesquisa em sites oficiais das equipes e fabricantes, com dados atualizados para a temporada 2026. Os equipamentos não foram testados presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** pesquisa em sites oficiais das equipes e fabricantes, com dados atualizados para a temporada 2026. Os equipamentos não foram testados presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 ## Introdução
 

@@ -1,28 +1,19 @@
-# Conflito de Interesses — Pedal Data
+# Vínculo comercial e conflito de interesse — TheBiker
 
 ## Declaração
-O Pedal Data mantém separação clara entre interesses comerciais e editoriais.
+
+O blog é propriedade e canal oficial da TheBiker. A pauta prioriza as marcas, categorias e produtos comercializados pela loja.
 
 ## Obrigações
-- Todo colaborador deve declarar relações com marcas, lojas ou fabricantes
-- Decisões editoriais são tomadas sem influência de parceiros
-- Conteúdo patrocinado é sempre identificado
-- Afiliados são divulgados de forma clara
 
-## Conflitos reais
-- Um parceiro não pode pagar para:
-  - Alterar dados ou preços
-  - Remover concorrente de comparação
-  - Garantir resultado favorável
-  - Suprimir informação negativa
+- Declarar publicamente o vínculo com a TheBiker.
+- Verificar no catálogo oficial cada produto promovido.
+- Não anunciar nem promover marcas concorrentes.
+- Não incluir links, preços ou CTA de concorrentes.
+- Limitar concorrentes a menções factuais indispensáveis em cobertura esportiva.
+- Não inventar testes, dados, disponibilidade ou superioridade técnica.
+- Manter revisão humana e fontes rastreáveis.
 
-## Conflitos potenciais
-- Colaborador que trabalha em loja ou marca
-- Amostras de produtos recebidas
-- Convites para eventos pagos
-- Relações pessoais com marcas
+## Princípio de persuasão
 
-## Resolução
-- Conflitos declarados são documentados
-- A pessoa com conflito não participa da decisão editorial
-- Leitores são informados quando há conflito potencial
+Produtos da TheBiker devem ser valorizados por características verificáveis, adequação ao perfil, integração, desempenho esperado e comparação justa com outras opções do próprio portfólio.

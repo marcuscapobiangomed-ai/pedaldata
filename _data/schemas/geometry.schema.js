@@ -9,6 +9,11 @@ const SIZE_FIELDS = ['stack', 'reach', 'effectiveTopTube', 'seatTube', 'headTube
 const ANGLE_FIELDS = ['headAngle', 'seatAngle']
 const ALL_SIZES = ['XXS', 'XS', 'S', 'M', 'ML', 'M-L', 'M/L', 'L', 'XL', 'XXL']
 
+function isValidSize(value) {
+  if (ALL_SIZES.includes(value)) return true
+  return typeof value === 'string' && /^\d{2}$/.test(value) && Number(value) >= 40 && Number(value) <= 65
+}
+
 const PLAUSIBLE_RANGES = {
   stack: [400, 700],
   reach: [300, 450],
@@ -42,8 +47,8 @@ export function validateGeometry(geometry) {
   for (let i = 0; i < geometry.sizes.length; i++) {
     const size = geometry.sizes[i]
 
-    if (!size.size || !ALL_SIZES.includes(size.size)) {
-      errors.push({ field: `sizes[${i}].size`, message: `Tamanho inválido: ${size.size}. Permitidos: ${ALL_SIZES.join(', ')}`, level: 'error' })
+    if (!size.size || !isValidSize(size.size)) {
+      errors.push({ field: `sizes[${i}].size`, message: `Tamanho inválido: ${size.size}. Use ${ALL_SIZES.join(', ')} ou numeração entre 40 e 65`, level: 'error' })
       continue
     }
 

@@ -7,6 +7,9 @@ import {
   inferContentType,
 } from "./editorial-prompt.js";
 import { getTemplate } from "./templates.js";
+import { ThreeProviderPipeline } from "./ai/three-provider-pipeline.js";
+import { assertEditorialPublicationGates } from "./validation/editorial-publication-gates.js";
+import { buildImageProductionPlan } from "./image-manifest.js";
 
 const CATEGORY_ALIASES = {
   review: "reviews",
@@ -19,6 +22,13 @@ const CATEGORY_ALIASES = {
   guia_tecnico: "guia-tecnico",
   noticia: "noticias",
   noticias: "noticias",
+  lancamento: "lancamentos",
+  lancamentos: "lancamentos",
+  corrida: "corridas",
+  corridas: "corridas",
+  campeonato: "campeonatos",
+  campeonatos: "campeonatos",
+  mercado: "mercado",
 };
 
 const CONTENT_TYPE_ALIASES = {
@@ -34,6 +44,11 @@ const CONTENT_TYPE_ALIASES = {
   guia_tecnico: "guia-tecnico",
   noticia: "noticia",
   noticias: "noticia",
+  lancamento: "lancamento",
+  lancamentos: "lancamento",
+  "previa-corrida": "previa-corrida",
+  "prévia-corrida": "previa-corrida",
+  "resumo-corrida": "resumo-corrida",
 };
 
 function toText(value, fallback = "") {
@@ -77,17 +92,21 @@ function buildSlugFallback(topic) {
 }
 
 export class AIProvider {
-  constructor() {
+  constructor({ pipeline } = {}) {
     this.deepseekKey = process.env.DEEPSEEK_API_KEY;
     this.geminiKey = process.env.GEMINI_API_KEY;
     this.githubToken = process.env.GITHUB_TOKEN;
+    this.pipeline = pipeline || new ThreeProviderPipeline();
   }
 
   async generate(systemPrompt, userPrompt, options = {}) {
+    const providerErrors = [];
+
     if (this.deepseekKey) {
       try {
         return await this._tryDeepSeek(systemPrompt, userPrompt, options);
       } catch (err) {
+        providerErrors.push(`DeepSeek: ${err.message}`);
         console.warn("⚠️ Falha ao usar DeepSeek, tentando fallback:", err.message);
       }
     }
@@ -96,17 +115,29 @@ export class AIProvider {
       try {
         return await this._tryGemini(systemPrompt, userPrompt, options);
       } catch (err) {
+        providerErrors.push(`Gemini: ${err.message}`);
         console.warn("⚠️ Falha ao usar Gemini, tentando fallback:", err.message);
       }
     }
 
-    return this._tryGitHubModels(systemPrompt, userPrompt, options);
+    if (this.githubToken) {
+      try {
+        return await this._tryGitHubModels(systemPrompt, userPrompt, options);
+      } catch (err) {
+        providerErrors.push(`GitHub Models: ${err.message}`);
+      }
+    }
+
+    const details = providerErrors.length > 0 ? ` Detalhes: ${providerErrors.join(" | ")}` : "";
+    throw new Error(
+      `Nenhum provedor de IA respondeu. Configure DEEPSEEK_API_KEY, GEMINI_API_KEY ou GITHUB_TOKEN.${details}`,
+    );
   }
 
   async _tryDeepSeek(system, user, options = {}) {
     const baseUrl = process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com";
     const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro";
-    const maxTokens = toNumber(process.env.DEEPSEEK_MAX_TOKENS || options.maxTokens, 4096);
+    const maxTokens = toNumber(process.env.DEEPSEEK_MAX_TOKENS || options.maxTokens, 8192);
 
     const payload = {
       model,
@@ -115,7 +146,7 @@ export class AIProvider {
         { role: "user", content: user },
       ],
       temperature: options.temperature ?? 0.2,
-      max_tokens: maxTokens ?? 4096,
+      max_tokens: maxTokens ?? 8192,
     };
 
     if (options.jsonMode) {
@@ -142,12 +173,13 @@ export class AIProvider {
 
   async _tryGitHubModels(system, user, options = {}) {
     const payload = {
-      model: "gpt-4o-mini",
+      model: process.env.GITHUB_MODELS_MODEL || "gpt-4o-mini",
       messages: [
         { role: "system", content: system },
         { role: "user", content: user },
       ],
-      max_tokens: options.maxTokens || 4096,
+      temperature: options.temperature ?? 0.2,
+      max_tokens: options.maxTokens || 8192,
     };
 
     if (options.jsonMode) {
@@ -172,17 +204,28 @@ export class AIProvider {
     return data.choices?.[0]?.message?.content || "";
   }
 
-  async _tryGemini(system, user) {
+  async _tryGemini(system, user, options = {}) {
     if (!this.geminiKey) throw new Error("Sem Gemini API Key");
     const { GoogleGenerativeAI } = await import("@google/generative-ai");
     const genAI = new GoogleGenerativeAI(this.geminiKey);
-    const models = ["gemini-2.0-flash", "gemini-1.5-flash"];
+    const models = [
+      process.env.GEMINI_MODEL,
+      "gemini-3.1-flash-lite",
+      "gemini-3.5-flash",
+      "gemini-flash-latest",
+      "gemini-flash-lite-latest",
+    ].filter(Boolean);
 
     for (const modelName of models) {
       try {
         const model = genAI.getGenerativeModel({
           model: modelName,
           systemInstruction: system,
+          generationConfig: {
+            temperature: options.temperature ?? 0.2,
+            maxOutputTokens: options.maxTokens || 8192,
+            ...(options.jsonMode ? { responseMimeType: "application/json" } : {}),
+          },
         });
         const result = await model.generateContent(user);
         return result.response.text();
@@ -229,7 +272,7 @@ export class AIProvider {
   }
 
   _normalizeContentType(value) {
-    return CONTENT_TYPE_ALIASES[toText(value, "").trim().toLowerCase()] || "guia-de-compra";
+    return CONTENT_TYPE_ALIASES[toText(value, "").trim().toLowerCase()] || "review";
   }
 
   _sanitizeStructuredArticle(parsed) {
@@ -262,6 +305,15 @@ export class AIProvider {
       delete next.price_checked_at;
     }
     next.affiliate_links = toBoolean(next.affiliate_links, false);
+    next.editorial_scope = toText(next.editorial_scope, "portfolio").trim();
+    next.promoted_brands = normalizeList(next.promoted_brands)
+      .map((brand) => this._sanitizeHtml(brand).trim())
+      .filter(Boolean);
+    next.context_only_brands = normalizeList(next.context_only_brands)
+      .map((brand) => this._sanitizeHtml(brand).trim())
+      .filter(Boolean);
+    next.portfolio_evidence_url = this._sanitizeHtml(next.portfolio_evidence_url || "").trim();
+    next.portfolio_verified_at = this._sanitizeHtml(next.portfolio_verified_at || "").trim();
 
     next.tags = normalizeList(next.tags)
       .map((tag) => this._sanitizeHtml(tag).toLowerCase().trim())
@@ -283,6 +335,12 @@ export class AIProvider {
     next.imagePlan = normalizeList(next.imagePlan).map((item) => ({
       position: this._sanitizeHtml(item.position || "hero"),
       purpose: this._sanitizeHtml(item.purpose || ""),
+      assetType: this._sanitizeHtml(item.assetType || "system-fallback"),
+      editorialUse: this._sanitizeHtml(item.editorialUse || "draft-only"),
+      factualSubject: this._sanitizeHtml(item.factualSubject || "not-applicable"),
+      brief: this._sanitizeHtml(item.brief || item.purpose || ""),
+      sourceRequired: toBoolean(item.sourceRequired, true),
+      avoid: normalizeList(item.avoid).map((value) => this._sanitizeHtml(value)),
       aspectRatio: this._sanitizeHtml(item.aspectRatio || "16:9"),
       altSuggestion: this._sanitizeHtml(item.altSuggestion || ""),
       allowedSource: this._sanitizeHtml(item.allowedSource || "manufacturer-authorized"),
@@ -292,13 +350,13 @@ export class AIProvider {
     next.claimsRequiringReview = normalizeList(next.claimsRequiringReview).map((item) => this._sanitizeHtml(item));
 
     next.frontmatter = next.frontmatter || {};
-    next.frontmatter.author = this._sanitizeHtml(next.frontmatter.author || "Equipe Pedal Data");
+    next.frontmatter.author = this._sanitizeHtml(next.frontmatter.author || "Equipe TheBiker");
     next.frontmatter.image = this._sanitizeHtml(next.frontmatter.image || "/assets/img/logo.svg");
     next.frontmatter.thumbnail = this._sanitizeHtml(next.frontmatter.thumbnail || "");
     next.frontmatter.image_alt = this._sanitizeHtml(next.frontmatter.image_alt || next.description || "");
     next.frontmatter.image_caption = this._sanitizeHtml(next.frontmatter.image_caption || "");
-    next.frontmatter.image_credit = this._sanitizeHtml(next.frontmatter.image_credit || "Pedal Data");
-    next.frontmatter.image_license = this._sanitizeHtml(next.frontmatter.image_license || "Uso editorial do Pedal Data");
+    next.frontmatter.image_credit = this._sanitizeHtml(next.frontmatter.image_credit || "TheBiker");
+    next.frontmatter.image_license = this._sanitizeHtml(next.frontmatter.image_license || "Uso editorial da TheBiker");
 
     return next;
   }
@@ -319,8 +377,18 @@ export class AIProvider {
       throw new Error(msg);
     }
 
+    if (raw?.status === "PORTFÓLIO NÃO CONFIRMADO") {
+      const msg = [
+        "STATUS: PORTFÓLIO NÃO CONFIRMADO",
+        "",
+        ...normalizeList(raw.missing_info).map((item) => `- ${item}`),
+      ].join("\n");
+      throw new Error(msg);
+    }
+
     const sanitized = this._sanitizeStructuredArticle(raw);
     const article = validateArticle(sanitized);
+    const editorialGate = assertEditorialPublicationGates(article);
     const markdown = generateMarkdown(article);
 
     return {
@@ -332,6 +400,7 @@ export class AIProvider {
       review_method: article.review_method,
       tested_by_pedaldata: article.tested_by_pedaldata === true,
       imagePlan: article.imagePlan,
+      imageProductionPlan: buildImageProductionPlan(article),
       sources: article.sources || [],
       brand: article.brand,
       product_name: article.product_name,
@@ -342,11 +411,12 @@ export class AIProvider {
       claims: article.claimsRequiringReview || [],
       methodologyNotice: article.methodologyNotice || "",
       rawJson: JSON.stringify({ ...article, generated_at: new Date().toISOString() }),
+      editorialGate,
     };
   }
 
   async processCase(descricaoCurta, researchData = null) {
-    const contentType = inferContentType(descricaoCurta);
+    const contentType = researchData?.content_type || inferContentType(descricaoCurta);
     const template = getTemplate(resolveTemplateKey(contentType, researchData));
     const today = new Date().toISOString().split("T")[0];
     const userPrompt = buildUserPrompt({
@@ -357,16 +427,70 @@ export class AIProvider {
       today,
     });
 
-    const rawText = await this.generate(AIProvider.systemPrompt(), userPrompt, {
-      jsonMode: true,
-      maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 4096),
-    });
+    let rawText;
+    let pipelineMetadata = null;
+    if (process.env.AI_PIPELINE_MODE === "legacy") {
+      rawText = await this.generate(AIProvider.systemPrompt(), userPrompt, {
+        jsonMode: true,
+        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
+      });
+    } else {
+      const pipelineResult = await this.pipeline.run({
+        topic: descricaoCurta,
+        researchData,
+        contentType,
+        template,
+        systemPrompt: AIProvider.systemPrompt(),
+        draftPrompt: userPrompt,
+        priority: researchData?.editorialPriority || researchData?.editorial_priority || "P1",
+      });
+      rawText = pipelineResult.content;
+      pipelineMetadata = pipelineResult.metadata;
+    }
 
     try {
-      return this._parseStructuredResponse(rawText, descricaoCurta);
+      return {
+        ...this._parseStructuredResponse(rawText, descricaoCurta),
+        pipelineMetadata,
+      };
     } catch (err) {
       if (String(err.message || "").includes("STATUS: PESQUISA INSUFICIENTE")) {
         throw err;
+      }
+
+      if (process.env.AI_PIPELINE_MODE !== "legacy") {
+        if (!this.pipeline.clients.isConfigured("deepseek")) {
+          throw new Error(`Rascunho bloqueado após o pipeline: ${err.message}`);
+        }
+
+        const repairPrompt = buildRepairPrompt({
+          topic: descricaoCurta,
+          rawText,
+          validationError: err.message,
+          contentType,
+          template,
+          today,
+        });
+        const repaired = await this.pipeline.callStep({
+          step: "final-repair",
+          providers: ["deepseek"],
+          sourceHash: pipelineMetadata?.sourceHash,
+          system: [
+            AIProvider.systemPrompt(),
+            "Repare somente os gates informados. Preserve todos os fatos, fontes, limitações e campos do JSON.",
+            "Não introduza novas especificações, sensações de teste, marcas ou disponibilidade.",
+          ].join("\n"),
+          user: repairPrompt,
+          options: { jsonMode: true, temperature: 0.1, maxTokens: 8192 },
+        });
+        return {
+          ...this._parseStructuredResponse(repaired.content, descricaoCurta),
+          pipelineMetadata: {
+            ...pipelineMetadata,
+            finalRepairUsed: true,
+            providers: { ...pipelineMetadata?.providers, finalRepair: repaired.provider },
+          },
+        };
       }
 
       const repairPrompt = buildRepairPrompt({
@@ -381,7 +505,7 @@ export class AIProvider {
       const repairedText = await this.generate(AIProvider.systemPrompt(), repairPrompt, {
         jsonMode: true,
         temperature: 0,
-        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 4096),
+        maxTokens: Number(process.env.DEEPSEEK_MAX_TOKENS || 8192),
       });
 
       return this._parseStructuredResponse(repairedText, descricaoCurta);

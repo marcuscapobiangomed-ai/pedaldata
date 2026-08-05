@@ -3,4 +3,7 @@ node_modules/
 .gitignore
 repo/
 _generated/
+.ai-cache/
+.ai-telemetry/
+.ai-state/
 data/price-audit-log.json

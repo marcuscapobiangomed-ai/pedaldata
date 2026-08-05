@@ -3,289 +3,122 @@ layout: default
 title: Início
 ---
 
-<!-- ── Hero Destaque ─────────────────────────────────────── -->
 {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
-{% assign featured = published_posts | first %}
-<section class="home-hero">
-  <div class="container">
-    {% if featured.category %}
-      {% case featured.category %}
-        {% when "reviews" %}
-          {% assign featured_label = "Reviews" %}
-        {% when "comparativo" %}
-          {% assign featured_label = "Comparativos" %}
-        {% when "guia-de-compra" %}
-          {% assign featured_label = "Guias de Compra" %}
-        {% when "guia-tecnico" %}
-          {% assign featured_label = "Guias Técnicos" %}
-        {% when "noticia", "noticias" %}
-          {% assign featured_label = "Notícias" %}
-        {% else %}
-          {% assign featured_label = featured.category | replace: "-", " " | capitalize %}
-      {% endcase %}
-      <span class="hero-label">{{ featured_label }}</span>
-    {% endif %}
-    <h1 class="hero-title">
-      <a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.title }}</a>
-    </h1>
-    <div class="hero-meta">
-      <span class="hero-meta-item">
-        <span class="hero-meta-dot"></span>
-        {{ featured.author | default: site.author }}
-      </span>
-      <span class="hero-meta-item">
-        <span class="hero-meta-dot"></span>
-        <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%d %b %Y" | downcase }}</time>
-      </span>
-      {% assign words = featured.content | number_of_words %}
-      {% assign rt = words | divided_by: 200 %}
-      {% if rt < 1 %}{% assign rt = 1 %}{% endif %}
-      <span class="hero-meta-item">
-        <span class="hero-meta-dot"></span>
-        {{ rt }} min de leitura
-      </span>
-    </div>
-  </div>
-</section>
+{% assign hero_post = published_posts | where_exp: "p", "p.title contains 'conhecimento técnico'" | first %}
+{% assign carbon_post = published_posts | where_exp: "p", "p.title contains 'Carbono vs Alumínio'" | first %}
+{% assign wheels_post = published_posts | where_exp: "p", "p.title contains 'Rodas de Carbono Custo-Benefício'" | first %}
+{% assign routes_post = published_posts | where_exp: "p", "p.title contains 'Melhores Estradas e Rotas'" | first %}
+{% assign pedals_post = published_posts | where_exp: "p", "p.title contains 'Pedais Clipless para Iniciantes'" | first %}
+{% assign groups_post = published_posts | where_exp: "p", "p.title contains 'Shimano 105 vs Ultegra'" | first %}
+{% assign helmets_post = published_posts | where_exp: "p", "p.title contains 'Melhores Capacetes'" | first %}
+{% assign maintenance_post = published_posts | where_exp: "p", "p.title contains 'Manutenção Básica'" | first %}
 
-<!-- ── Conteúdo principal ────────────────────────────────── -->
-<div class="home-main">
-  <div class="container home-grid">
-    <div class="home-content">
-
-      <!-- Guias de Compra -->
-      {% assign guias = published_posts | where_exp: "p", "p.tags contains 'guia-de-compra' or p.tags contains 'guias-de-compra'" | limit: 3 %}
-      {% if guias.size > 0 %}
-      <div class="section-header">
-        <span class="section-title">Guias de Compra</span>
-        <a href="{{ site.baseurl }}/categorias#guia-de-compra" class="section-link">ver todos →</a>
-      </div>
-      <div class="cards-grid">
-        {% for post in guias %}
-          <article class="post-card">
-            {% assign preview_image = post.thumbnail | default: post.image %}
-            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
-              <div class="post-card-thumb">
-                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
-              </div>
-            {% endif %}
-            {% if post.category %}
-              {% case post.category %}
-                {% when "reviews" %}
-                  {% assign card_label = "Reviews" %}
-                {% when "comparativo" %}
-                  {% assign card_label = "Comparativos" %}
-                {% when "guia-de-compra" %}
-                  {% assign card_label = "Guias de Compra" %}
-                {% when "guia-tecnico" %}
-                  {% assign card_label = "Guias Técnicos" %}
-                {% when "noticia", "noticias" %}
-                  {% assign card_label = "Notícias" %}
-                {% else %}
-                  {% assign card_label = post.category | replace: "-", " " | capitalize %}
-              {% endcase %}
-              <span class="card-tag">{{ card_label }}</span>
-            {% elsif post.tags.first %}
-              <span class="card-tag">{{ post.tags.first }}</span>
-            {% endif %}
-            <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-            {% if post.description %}
-              <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      <!-- Fallback: se não houver guias suficientes, mostra últimos posts em cards -->
-      {% assign guias_count = guias.size %}
-      {% if guias_count < 3 %}
-      {% unless guias_count > 0 %}
-      <div class="section-header">
-        <span class="section-title">Artigos em Destaque</span>
-        <a href="{{ site.baseurl }}/categorias" class="section-link">ver todos →</a>
-      </div>
-      <div class="cards-grid">
-        {% for post in published_posts limit: 3 %}
-          <article class="post-card">
-            {% assign preview_image = post.thumbnail | default: post.image %}
-            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
-              <div class="post-card-thumb">
-                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
-              </div>
-            {% endif %}
-            {% if post.category %}
-              {% case post.category %}
-                {% when "reviews" %}
-                  {% assign card_label = "Reviews" %}
-                {% when "comparativo" %}
-                  {% assign card_label = "Comparativos" %}
-                {% when "guia-de-compra" %}
-                  {% assign card_label = "Guias de Compra" %}
-                {% when "guia-tecnico" %}
-                  {% assign card_label = "Guias Técnicos" %}
-                {% when "noticia", "noticias" %}
-                  {% assign card_label = "Notícias" %}
-                {% else %}
-                  {% assign card_label = post.category | replace: "-", " " | capitalize %}
-              {% endcase %}
-              <span class="card-tag">{{ card_label }}</span>
-            {% elsif post.tags.first %}
-              <span class="card-tag">{{ post.tags.first }}</span>
-            {% endif %}
-            <h3 class="card-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-            {% if post.description %}
-              <p class="card-excerpt">{{ post.description | truncate: 90 }}</p>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </div>
-      {% endunless %}
-      {% endif %}
-
-      <hr class="section-divider">
-
-      <!-- Últimas Notícias / Posts recentes -->
-      <div class="section-header">
-        <span class="section-title">Últimas Notícias</span>
-        <a href="{{ site.baseurl }}/categorias" class="section-link">ver todos →</a>
-      </div>
-      <div class="news-list">
-        {% for post in paginator.posts | where_exp: "p", "p.status != 'draft'" limit: 5 %}
-        <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
-          <div class="news-thumb">
-            {% assign preview_image = post.thumbnail | default: post.image %}
-            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
-              <img
-                src="{{ site.baseurl }}{{ preview_image }}"
-                alt=""
-                width="176"
-                height="120"
-                loading="lazy"
-                decoding="async"
-              >
-            {% else %}
-              {% case post.category %}
-                {% when "reviews" %}
-                  {% assign fb = "reviews" %}
-                {% when "comparativo" %}
-                  {% assign fb = "comparativos" %}
-                {% when "guias-de-compra" %}
-                  {% assign fb = "guias" %}
-                {% when "guia-tecnico" %}
-                  {% assign fb = "guias" %}
-                {% else %}
-                  {% assign fb = "default" %}
-              {% endcase %}
-              <div class="news-thumb-fallback" aria-hidden="true">
-                <img src="{{ site.baseurl }}/assets/img/fallbacks/{{ fb }}.svg" alt="" loading="lazy">
-              </div>
-            {% endif %}
-          </div>
-          <div>
-            <div class="news-title">{{ post.title }}</div>
-            <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-
-      <hr class="section-divider">
-
-      <!-- Reviews em Destaque -->
-      {% assign reviews = published_posts | where_exp: "p", "p.category == 'reviews'" | limit: 4 %}
-      {% if reviews.size > 0 %}
-      <div class="section-header">
-        <span class="section-title">Reviews em Destaque</span>
-        <a href="{{ site.baseurl }}/categorias#reviews" class="section-link">ver todos →</a>
-      </div>
-      <div class="reviews-grid">
-        {% for post in reviews %}
-          {% assign preview_image = post.thumbnail | default: post.image %}
-          {% assign has_img = false %}
-          {% if preview_image and preview_image != "/assets/img/logo.svg" %}
-            {% assign has_img = true %}
-          {% endif %}
-          <a href="{{ site.baseurl }}{{ post.url }}" class="review-card">
-            {% if has_img %}
-              <div class="review-card-thumb">
-                <img src="{{ site.baseurl }}{{ preview_image }}" alt="" width="352" height="200" loading="lazy" decoding="async">
-              </div>
-            {% endif %}
-            <div class="review-card-body">
-              <div class="review-card-title">{{ post.title }}</div>
-              <div class="review-card-specs">
-                {% if post.weight %}<span class="review-spec">{{ post.weight }}</span>{% endif %}
-                {% if post.price %}<span class="review-spec">{{ post.price }}</span>{% endif %}
-                {% unless post.weight or post.price %}
-                  <span class="review-spec">{{ post.date | date: "%d %b %Y" | downcase }}</span>
-                {% endunless %}
-              </div>
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-
-      <!-- Posts mais recentes (paginados) - listagem completa -->
-      <div class="section-header" style="margin-top:32px;">
-        <span class="section-title">Todos os Artigos</span>
-      </div>
-      <div class="news-list">
-        {% for post in paginator.posts | where_exp: "p", "p.status != 'draft'" %}
-        <a href="{{ site.baseurl }}{{ post.url }}" class="news-item">
-          <div class="news-thumb">
-            {% assign preview_image = post.thumbnail | default: post.image %}
-            {% if preview_image and preview_image != "/assets/img/logo.svg" %}
-              <img
-                src="{{ site.baseurl }}{{ preview_image }}"
-                alt=""
-                width="176"
-                height="120"
-                loading="lazy"
-                decoding="async"
-              >
-            {% else %}
-              {% case post.category %}
-                {% when "reviews" %}
-                  {% assign fb = "reviews" %}
-                {% when "comparativo" %}
-                  {% assign fb = "comparativos" %}
-                {% when "guias-de-compra" %}
-                  {% assign fb = "guias" %}
-                {% when "guia-tecnico" %}
-                  {% assign fb = "guias" %}
-                {% else %}
-                  {% assign fb = "default" %}
-              {% endcase %}
-              <div class="news-thumb-fallback" aria-hidden="true">
-                <img src="{{ site.baseurl }}/assets/img/fallbacks/{{ fb }}.svg" alt="" loading="lazy">
-              </div>
-            {% endif %}
-          </div>
-          <div>
-            <div class="news-title">{{ post.title }}</div>
-            <div class="news-date">{{ post.date | date: "%d %b %Y" | downcase }}</div>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-
-      {% include pagination.html %}
-
-      <!-- CTA Newsletter (em breve) -->
-      <!--
-      <div class="newsletter-cta">
-        <div class="newsletter-text">
-          <strong>Receba os melhores guias de compra por e-mail</strong>
-          <span>Sem spam, um resumo por semana</span>
+<div class="brand-home">
+  <section class="brand-hero" aria-labelledby="brand-hero-title">
+    <img class="brand-hero-media" src="{{ site.baseurl }}/assets/img/brand/hero-road-culture-1600x900.jpg" alt="Dois ciclistas de estrada descendo uma serra com vista para o litoral brasileiro" width="1600" height="900" fetchpriority="high">
+    <div class="brand-hero-shade" aria-hidden="true"></div>
+    <div class="container brand-hero-content">
+      <span class="brand-kicker">Blog oficial TheBiker</span>
+      <h1 id="brand-hero-title">Conhecimento técnico<br>para quem leva<br>o ciclismo a sério.</h1>
+      <p>Reviews precisos, tecnologia, competição e equipamentos confirmados no portfólio da TheBiker.</p>
+      {% if hero_post %}
+        <a class="brand-primary-link" href="{{ site.baseurl }}{{ hero_post.url }}">Conhecer o compromisso editorial</a>
+        <div class="brand-hero-meta">
+          <time datetime="{{ hero_post.date | date_to_xmlschema }}">{{ hero_post.date | date: "%d.%m.%Y" }}</time>
+          <span>Artigo</span>
         </div>
-        <a href="#" class="newsletter-btn" onclick="return false;">Assinar</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="brand-featured container" aria-label="Artigos em destaque">
+    <div class="brand-feature-grid">
+      {% if carbon_post %}
+      <article class="brand-story-card">
+        <a class="brand-story-image" href="{{ site.baseurl }}{{ carbon_post.url }}">
+          <img src="{{ site.baseurl }}/assets/img/brand/story-aero-bike-1200x675.jpg" alt="Bicicleta de estrada preta em um mirante de montanha" width="1200" height="675" loading="lazy">
+        </a>
+        <div class="brand-story-meta"><time datetime="{{ carbon_post.date | date_to_xmlschema }}">{{ carbon_post.date | date: "%d.%m.%Y" }}</time><span>Guia</span></div>
+        <h2><a href="{{ site.baseurl }}{{ carbon_post.url }}">Carbono ou alumínio: onde o investimento realmente aparece</a></h2>
+        <p>Entenda as diferenças de peso, conforto, durabilidade e custo antes de escolher o quadro.</p>
+        <a class="brand-text-link" href="{{ site.baseurl }}{{ carbon_post.url }}">Ler artigo <span aria-hidden="true">→</span></a>
+      </article>
+      {% endif %}
+
+      {% if wheels_post %}
+      <article class="brand-story-card">
+        <a class="brand-story-image" href="{{ site.baseurl }}{{ wheels_post.url }}">
+          <img src="{{ site.baseurl }}/assets/img/brand/card-carbon-wheel-1200x675.jpg" alt="Detalhe de roda de carbono e freio a disco de uma bicicleta de estrada" width="1200" height="675" loading="lazy">
+        </a>
+        <div class="brand-story-meta"><time datetime="{{ wheels_post.date | date_to_xmlschema }}">{{ wheels_post.date | date: "%d.%m.%Y" }}</time><span>Equipamentos</span></div>
+        <h2><a href="{{ site.baseurl }}{{ wheels_post.url }}">Rodas de carbono: aerodinâmica e controle na prática</a></h2>
+        <p>Perfil, largura, peso e manutenção: o que realmente muda a experiência sobre a bike.</p>
+        <a class="brand-text-link" href="{{ site.baseurl }}{{ wheels_post.url }}">Ler artigo <span aria-hidden="true">→</span></a>
+      </article>
+      {% endif %}
+
+      {% if routes_post %}
+      <article class="brand-story-card">
+        <a class="brand-story-image" href="{{ site.baseurl }}{{ routes_post.url }}">
+          <img src="{{ site.baseurl }}/assets/img/brand/card-winter-training-1200x675.jpg" alt="Ciclista treinando em uma estrada de serra próxima ao litoral" width="1200" height="675" loading="lazy">
+        </a>
+        <div class="brand-story-meta"><time datetime="{{ routes_post.date | date_to_xmlschema }}">{{ routes_post.date | date: "%d.%m.%Y" }}</time><span>Rotas</span></div>
+        <h2><a href="{{ site.baseurl }}{{ routes_post.url }}">Estradas brasileiras para viver um grande dia de pedal</a></h2>
+        <p>Rotas selecionadas para quem procura asfalto, paisagens marcantes e uma experiência memorável.</p>
+        <a class="brand-text-link" href="{{ site.baseurl }}{{ routes_post.url }}">Ler artigo <span aria-hidden="true">→</span></a>
+      </article>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="brand-guides container" aria-labelledby="guides-title">
+    <div class="brand-section-heading">
+      <h2 id="guides-title">Guias de compra</h2>
+      <a href="{{ site.baseurl }}/categorias#guia-de-compra">Ver todos os guias <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="brand-guide-grid">
+      {% if pedals_post %}
+      <article class="brand-guide-card">
+        <a href="{{ site.baseurl }}{{ pedals_post.url }}"><img src="{{ site.baseurl }}/assets/img/brand/guide-cycling-shoe-900x600.jpg" alt="Sapatilha branca para ciclismo de estrada" width="900" height="600" loading="lazy"></a>
+        <time datetime="{{ pedals_post.date | date_to_xmlschema }}">{{ pedals_post.date | date: "%d.%m.%Y" }}</time>
+        <h3><a href="{{ site.baseurl }}{{ pedals_post.url }}">Como escolher pedais e sapatilhas para começar</a></h3>
+        <p>Encaixe, ajuste e conforto para uma transição segura ao pedal clipless.</p>
+      </article>
+      {% endif %}
+      {% if groups_post %}
+      <article class="brand-guide-card">
+        <a href="{{ site.baseurl }}{{ groups_post.url }}"><img src="{{ site.baseurl }}/assets/img/brand/guide-drivetrain-900x600.jpg" alt="Transmissão de bicicleta de estrada com cassete e câmbio traseiro" width="900" height="600" loading="lazy"></a>
+        <time datetime="{{ groups_post.date | date_to_xmlschema }}">{{ groups_post.date | date: "%d.%m.%Y" }}</time>
+        <h3><a href="{{ site.baseurl }}{{ groups_post.url }}">Shimano 105 ou Ultegra: qual faz mais sentido?</a></h3>
+        <p>As diferenças que importam em funcionamento, peso, preço e manutenção.</p>
+      </article>
+      {% endif %}
+      {% if helmets_post %}
+      <article class="brand-guide-card">
+        <a href="{{ site.baseurl }}{{ helmets_post.url }}"><img src="{{ site.baseurl }}/assets/img/brand/guide-road-helmets-900x600.jpg" alt="Capacetes para ciclismo de estrada em fundo escuro" width="900" height="600" loading="lazy"></a>
+        <time datetime="{{ helmets_post.date | date_to_xmlschema }}">{{ helmets_post.date | date: "%d.%m.%Y" }}</time>
+        <h3><a href="{{ site.baseurl }}{{ helmets_post.url }}">Capacetes de estrada: segurança e desempenho</a></h3>
+        <p>Ventilação, ajuste, certificações e tecnologias de proteção explicadas.</p>
+      </article>
+      {% endif %}
+      {% if maintenance_post %}
+      <article class="brand-guide-card">
+        <a href="{{ site.baseurl }}{{ maintenance_post.url }}"><img src="{{ site.baseurl }}/assets/img/brand/guide-bike-lights-900x600.jpg" alt="Conjunto de luzes dianteira e traseira para bicicleta" width="900" height="600" loading="lazy"></a>
+        <time datetime="{{ maintenance_post.date | date_to_xmlschema }}">{{ maintenance_post.date | date: "%d.%m.%Y" }}</time>
+        <h3><a href="{{ site.baseurl }}{{ maintenance_post.url }}">Equipamentos essenciais para pedalar com segurança</a></h3>
+        <p>Itens e cuidados que ajudam você a sair mais preparado em qualquer horário.</p>
+      </article>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="brand-shop-cta">
+    <div class="container brand-shop-cta-inner">
+      <div>
+        <strong>Equipamentos escolhidos por quem vive o ciclismo.</strong>
+        <span>Encontre bikes, componentes e acessórios na loja oficial.</span>
       </div>
-      -->
-
-    </div><!-- /.home-content -->
-
-    {% include sidebar.html %}
-  </div><!-- /.home-grid -->
-</div><!-- /.home-main -->
+      <a href="https://thebikershop.com.br/" target="_blank" rel="noopener">Ir para a loja <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</div>

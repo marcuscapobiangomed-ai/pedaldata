@@ -1,11 +1,16 @@
-# Guia de Imagens — Pedal Data
+# Guia de Imagens — TheBiker Blog
+
+> O contrato atual é o Sistema Editorial de Imagens v2, documentado em
+> `docs/editorial/image-system-v2.md`. A estrutura abaixo descreve o acervo
+> legado e não autoriza novas publicações no formato v1.
 
 ## Estrutura
 
 ```
 assets/img/posts/<slug>/
-├── hero.jpg
-├── thumb-480.webp
+├── hero-1600.webp
+├── hero-800.webp
+├── card-640.webp
 └── image-manifest.json
 
 assets/img/system/covers/<tipo>/
@@ -14,50 +19,28 @@ assets/img/system/covers/<tipo>/
 └── image-manifest.json
 ```
 
-## image-manifest.json
-
-```json
-{
-  "hero": {
-    "file": "hero.jpg",
-    "source": "Scott Sports",
-    "sourceUrl": "https://...",
-    "license": "Uso editorial autorizado",
-    "credit": "Scott Sports",
-    "alt": "Scott Addict 20 2026 vista lateral",
-    "width": 1200,
-    "height": 675
-  },
-  "variants": {
-    "thumb-480": {
-      "file": "thumb-480.webp",
-      "width": 480,
-      "height": 320,
-      "sizeKB": 17,
-      "quality": 82
-    }
-  }
-}
-```
+O manifesto v2 registra arquivos, origem, licença, fidelidade factual, uso de IA,
+marcas e produtos retratados, ponto focal e aprovação humana.
 
 ## Requisitos
 
-- **Hero**: 1200×675px, JPG ou WebP, < 300 KB, `loading="eager"` + `fetchpriority="high"`
-- **Thumbnail**: 480×320px, WebP, < 150 KB, `loading="lazy"`
+- **Hero**: 1600×900px, WebP, < 300 KB
+- **Mobile**: 800×450px, WebP, < 160 KB
+- **Card**: 640×360px, WebP, < 100 KB
 - **Alt text**: descritivo, ≥ 10 caracteres, sem "imagem de" ou "foto de"
 - **Licença**: sempre registrada no hero do manifest
 - **Crédito**: obrigatório para imagens de terceiros
-- **sourceUrl**: recomendado quando houver URL pública de referência; opcional em imagens internas ou geradas pela equipe
+- **sourceUrl**: obrigatório para imagem externa
 
 ## Fallback visual do site
 
-Quando um post não tiver imagem própria, o bot usa um cover editorial padrão por tipo:
+Quando um rascunho não tiver imagem própria, o bot usa um cover editorial temporário por tipo:
 
 - `comparativo` → capa com duas bikes em composição comparativa
 - `review` → capa com uma bike em destaque técnico
 - `guia-de-compra`, `guia-tecnico` e `noticia` → capa de estrada/guia editorial
 
-Esses covers ficam em `assets/img/system/covers/` e podem ser reaproveitados em novos posts, páginas especiais e rascunhos automáticos.
+Esses covers ficam em `assets/img/system/covers/` e não podem permanecer em posts publicados.
 
 ## Bloqueios
 

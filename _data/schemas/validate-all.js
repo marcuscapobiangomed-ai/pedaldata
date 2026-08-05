@@ -9,6 +9,7 @@ import { validateFeedback } from './feedback.schema.js'
 import { validatePartner, calculatePartnerScore } from './partner.schema.js'
 import { validateIncident } from './incident.schema.js'
 import { validateQuality, calculateQualityScore, determineBadge } from './quality.schema.js'
+import { validateProductKnowledgeRecord } from '../../bot/src/schemas/product-knowledge.schema.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = join(__dirname, '..')
@@ -96,6 +97,24 @@ function validateAll() {
     }
 
     console.log(`\n  Total: ${bikesLoaded} bicicletas carregadas\n`)
+  }
+
+  console.log('--- Conhecimento de produtos ---')
+  const knowledgeDir = join(DATA_DIR, 'product-knowledge', 'bikes')
+  if (existsSync(knowledgeDir)) {
+    const knowledgeFiles = readdirSync(knowledgeDir).filter(f => f.endsWith('.json'))
+    for (const file of knowledgeFiles) {
+      try {
+        const record = validateProductKnowledgeRecord(loadJSON(join(knowledgeDir, file)))
+        console.log(`  ✓ ${record.brand} ${record.model}: ${Object.keys(record.facts).length} fatos rastreáveis`)
+      } catch (error) {
+        console.log(`  [ERRO] ${file}: ${error.message}`)
+        totalErrors++
+      }
+    }
+    console.log(`  ${knowledgeFiles.length} registro(s) de conhecimento\n`)
+  } else {
+    console.log('  Nenhum registro de conhecimento encontrado\n')
   }
 
   // 3. Validate geometries

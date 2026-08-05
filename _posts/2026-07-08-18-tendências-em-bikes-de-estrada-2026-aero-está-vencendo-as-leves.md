@@ -1,11 +1,12 @@
 ---
 layout: post
+published: false
 title: "Tendências em Bikes de Estrada: Aero Está Vencendo as Leves?"
 description: "Análise da tendência de bikes aerodinâmicas vs leves em 2026, com dados do mercado e exemplos reais."
 date: 2026-07-08
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "noticia"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -20,7 +21,7 @@ price_max: 0
 price_currency: "BRL"
 price_checked_at: "2026-07-19"
 category: "noticia"
-tags: [ciclismo, bicicletas, tendências, aero, leve]
+tags: [ciclismo, bike-de-estrada, tendencias, aero, leve]
 image: "/assets/img/posts/tendencias-bikes-2026-aero-vs-leves/hero.jpg"
 image_alt: "Bike aero vs bike leve — tendências 2026"
 image_caption: "Trek Madone Gen 8 (795 g) vs Specialized Tarmac SL8 (685 g): a divisão entre aero e leve está cada vez mais tênue."
@@ -40,7 +41,7 @@ sources:
     url: "https://www.cervelo.com"
     accessed_at: "2026-07-19"
 affiliate_links: false
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/tendencias-bikes-2026-aero-vs-leves/thumb-480.webp"
 ---
 > **Como este artigo foi produzido:** análise baseada em especificações oficiais de fabricantes e dados de mercado. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.

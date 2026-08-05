@@ -1,7 +1,7 @@
-# Sistema Visual — Pedal Data
+# Sistema Visual — TheBiker Blog
 
 ## Identidade visual
-Cores, tipografia e estilo visual a serem definidos com designer especializado.
+Base grafite e preta, cinza metálico e amarelo discreto, em continuidade com a identidade atual da TheBiker. A imagem deve transmitir alta performance, precisão e sobriedade.
 
 ## Estilo de fotografia
 - Produtos em fundo limpo
@@ -52,9 +52,6 @@ Direção visual comum:
 - Data de publicação e validade
 - Licença de uso especificada
 
-## A definir com designer
-- Paleta de cores primárias e secundárias
-- Tipografia principal e secundária
-- Variações de logo
-- Ícone de aplicativo e favicon
-- Template de stories e posts
+## Governança
+
+O contrato técnico, a política de origem e os gates de publicação estão definidos em `docs/editorial/image-system-v2.md`.

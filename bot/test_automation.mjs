@@ -1,0 +1,54 @@
+import assert from "node:assert/strict";
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { loadQueue, selectReadyItem } from "./src/automation/queue.js";
+import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, publicCampaignSummary } from "./src/automation/campaign.js";
+import { GroundedResearcher } from "./src/automation/grounded-research.js";
+import { finalizeCampaignItem } from "./src/campaign_finalize.js";
+
+const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
+await fs.mkdir(path.join(root, "content/research"), { recursive: true });
+await fs.writeFile(path.join(root, "content/research/a.json"), "{}");
+const queuePath = path.join(root, "queue.json");
+await fs.writeFile(queuePath, JSON.stringify({ version: 1, items: [
+  { id: "later-topic", topic: "Uma pauta técnica futura válida", researchPath: "content/research/a.json", priority: "P0", notBefore: "2099-01-01T00:00:00.000Z" },
+  { id: "ready-topic", topic: "Uma pauta técnica pronta e válida", researchPath: "content/research/a.json", priority: "P1" }
+] }));
+const queue = await loadQueue(queuePath, root);
+assert.equal(selectReadyItem(queue, new Date("2026-08-04T12:00:00Z")).id, "ready-topic");
+assert.equal(selectReadyItem({ items: [] }), null);
+const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(new URL('./editorial-campaign.json', import.meta.url), 'utf8')));
+assert.equal(campaign.items.length, 30);
+assert.equal(selectProductionCandidate(campaign).day, 1);
+assert.equal(selectPublicationCandidate(campaign, '2026-08-10'), null);
+const scheduled = structuredClone(campaign);
+scheduled.items[0].status = 'scheduled';
+scheduled.items[0].postPath = '_posts/drafts/2026-08-10-sag.md';
+assert.equal(selectPublicationCandidate(scheduled, '2026-08-10').day, 1);
+assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
+const groundedPayload = {
+  candidates: [{ content: { parts: [{ text: JSON.stringify({ confirmed_facts: { material: 'Carbono HMF' }, limitations: [], sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessed: '2026-08-04' }] }) }] }, groundingMetadata: { webSearchQueries: ['site:scott-sports.com teste'] } }]
+};
+const researcher = new GroundedResearcher({ GEMINI_API_KEY: 'test', GEMINI_RESEARCH_MODEL: 'test' }, async () => ({ ok: true, json: async () => groundedPayload }));
+const grounded = await researcher.research({ item: campaign.items[0], internalEvidence: [], today: '2026-08-04' });
+assert.equal(grounded.status, 'pesquisa_concluida');
+assert.equal(grounded.sources.length, 1);
+
+const finalizeRoot = path.join(root, "finalize");
+await fs.mkdir(path.join(finalizeRoot, "bot"), { recursive: true });
+await fs.mkdir(path.join(finalizeRoot, "_data"), { recursive: true });
+await fs.mkdir(path.join(finalizeRoot, "_posts/drafts"), { recursive: true });
+const finalizeCampaign = structuredClone(campaign);
+finalizeCampaign.items[0].status = "validation";
+finalizeCampaign.items[0].postPath = `_posts/drafts/${finalizeCampaign.items[0].publishDate}-${finalizeCampaign.items[0].id}.md`;
+await fs.writeFile(path.join(finalizeRoot, "bot/editorial-campaign.json"), JSON.stringify(finalizeCampaign));
+const sections = Array.from({ length: 5 }, (_, index) => `## Seção técnica ${index + 1}\n\nConteúdo técnico sustentado pelas fontes editoriais.`).join("\n\n");
+await fs.writeFile(path.join(finalizeRoot, finalizeCampaign.items[0].postPath), `---\nlayout: post\npublished: false\ndate: 2026-08-04\nlast_modified_at: 2026-08-04\nimage: "/assets/img/system/covers/guia-tecnico-v2/hero-1600.webp"\nimage_mobile: "/assets/img/system/covers/guia-tecnico-v2/hero-800.webp"\nthumbnail: "/assets/img/system/covers/guia-tecnico-v2/card-640.webp"\nimage_asset_type: "system-fallback"\nimage_status: "draft"\nimage_alt: "Capa"\nimage_caption: "Capa"\nimage_credit: "TheBiker"\nimage_license: "Interno"\nreviewed_by: ""\neditorial_status: "draft"\nstatus: "draft"\nsources:\n  - name: "Scott"\n    url: "https://www.scott-sports.com/"\n---\n\n${sections}\n`);
+const finalized = await finalizeCampaignItem({ root: finalizeRoot, now: new Date("2026-08-05T10:00:00Z") });
+assert.equal(finalized.status, "scheduled");
+const finalizedCampaign = JSON.parse(await fs.readFile(path.join(finalizeRoot, "bot/editorial-campaign.json"), "utf8"));
+assert.equal(finalizedCampaign.items[0].status, "scheduled");
+assert.ok(await fs.stat(path.join(finalizeRoot, finalizedCampaign.items[0].imageManifestPath)));
+await fs.rm(root, { recursive: true, force: true });
+console.log("Automation queue tests passed.");

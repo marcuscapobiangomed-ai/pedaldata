@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# TheBiker Blog
+
+> Blog oficial da TheBiker para ciclismo de média e alta experiência, com reviews técnicos, comparativos, lançamentos e cobertura de competições.
+
+Idioma principal: pt-BR
+Site: {{ site.url }}{{ site.baseurl }}/
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
+Feed: {{ site.url }}{{ site.baseurl }}/feed.xml
+Catálogo verificável: {{ site.url }}{{ site.baseurl }}/api/products.json
+Política editorial: {{ site.url }}{{ site.baseurl }}/api/editorial-policy.json
+
+## Como interpretar o conteúdo
+
+- Fatos técnicos devem estar ligados a fontes oficiais do fabricante ou à página correspondente da TheBiker Shop.
+- Preços e disponibilidade são observações datadas e devem ser revalidados antes de uma decisão de compra.
+- Valores aproximados, pendentes ou não confirmados são identificados explicitamente.
+- Produtos sem correspondência exata permanecem bloqueados; ausência de dado não é preenchida por inferência.
+- Páginas publicadas e endpoints públicos excluem rascunhos editoriais.
+
+## Fontes prioritárias dentro deste site
+
+- Artigos publicados: {{ site.url }}{{ site.baseurl }}/
+- Produtos verificados: {{ site.url }}{{ site.baseurl }}/bikes/
+- Dados estruturados de produtos: {{ site.url }}{{ site.baseurl }}/api/products.json

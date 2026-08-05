@@ -1,0 +1,61 @@
+{
+  "brand": "TheBiker",
+  "policy_effective_at": "2026-08-04",
+  "verified_at": "2026-08-04",
+  "source": "https://www.thebiker.com.br/",
+  "catalog_sources": [
+    "https://thebikershop.com.br/bikes/",
+    "https://thebikershop.com.br/componentes/",
+    "https://thebikershop.com.br/vestuario/",
+    "https://thebikershop.com.br/acessorios/"
+  ],
+  "category_scopes": {
+    "bikes": {
+      "source": "https://thebikershop.com.br/bikes/",
+      "verified_at": "2026-08-04",
+      "brands": ["Oggi", "Scott", "TSW"],
+      "product_url_required": true,
+      "maximum_evidence_age_days": 7
+    }
+  },
+  "policy": {
+    "portfolio_promotion_only": true,
+    "competitor_promotion_forbidden": true,
+    "competitor_factual_mentions_in_race_coverage": true,
+    "competitor_calls_to_action_forbidden": true
+  },
+  "brands": [
+    "100%", "Abus", "Alquimia da Saúde", "ASW", "Blackburn", "Blackline",
+    "BOA", "CamelBak", "Castelli", "CeramicSpeed", "Continental", "Corima",
+    "Crankbrothers", "Dobro", "DT Swiss", "Elite", "Enduro", "Exustar",
+    "Fizik", "Formula", "Fox", "Free Force", "Garmin", "Giro", "GU Energy",
+    "Hammerhead", "HB", "Hutchinson", "iGPSPORT", "Ictus", "Jagwire", "Kask",
+    "Kenda", "Knog", "KOO", "Lazer", "Lezyne", "Look", "Magicshine", "Magura",
+    "Manitou", "Marcio May", "Mauro Ribeiro", "Mavic", "Maxxis", "MET", "Morgan Blue",
+    "Motul", "Muc-Off", "Notubes", "Oggi", "Park Tool", "Pirelli", "Race Face",
+    "Ride Concepts", "RockShox", "Rotor", "Santini", "Schwalbe", "Scicon", "Scott",
+    "Session", "Shimano", "Shimano PRO", "Shimano S-Phyre", "Shokz", "SiS", "Sidi",
+    "Sledgehammer", "SRAM", "Supacaz", "Syncros", "Tacx", "TheBiker", "Thule",
+    "Time", "Token", "Topeak", "TreeFrog", "Tripeak", "Truvativ", "TSW", "USWE",
+    "Vittoria", "Wahoo", "X-Fusion", "XCadey", "Zipp", "Z2"
+  ],
+  "aliases": {
+    "the biker": "TheBiker",
+    "the biker shop": "TheBiker",
+    "tbkr": "TheBiker",
+    "black burn": "Blackburn",
+    "ceramicspeed": "CeramicSpeed",
+    "crank brothers": "Crankbrothers",
+    "dt swiss": "DT Swiss",
+    "igpsport": "iGPSPORT",
+    "igpsports": "iGPSPORT",
+    "muc off": "Muc-Off",
+    "parktool": "Park Tool",
+    "rock shox": "RockShox",
+    "shimano pro": "Shimano PRO",
+    "shimano pró": "Shimano PRO",
+    "stans notubes": "Notubes",
+    "stan's notubes": "Notubes",
+    "sycnros": "Syncros"
+  }
+}

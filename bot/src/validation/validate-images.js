@@ -6,6 +6,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { validateImageManifestV2 } from "./image-manifest-v2.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const IMG_DIR = path.resolve(__dirname, "../../../assets/img/posts");
@@ -71,6 +72,17 @@ function validateManifest(manifestPath) {
   } catch {
     console.log(`    ❌ JSON inválido no manifest`);
     return false;
+  }
+
+  if (manifest.schemaVersion === 2) {
+    try {
+      validateImageManifestV2(manifest, path.dirname(manifestPath));
+      console.log("    ✅ Manifesto v2 válido");
+      return true;
+    } catch (error) {
+      console.log(`    ❌ ${error.message}`);
+      return false;
+    }
   }
 
   const hero = manifest.hero;

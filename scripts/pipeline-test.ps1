@@ -64,7 +64,7 @@ layout: post
 title: "$($bike.brand) $($bike.model) $($bike.modelYear) — Ficha Técnica"
 description: "Ficha técnica completa da $($bike.brand) $($bike.model) $($bike.modelYear): especificações, preço no Brasil e para quem é indicada."
 date: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: $($bike.testedByPedaldata.ToString().ToLower())

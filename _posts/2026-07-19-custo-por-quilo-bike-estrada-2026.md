@@ -1,26 +1,32 @@
 ---
 layout: post
+published: false
 title: "Quanto custa cada quilo de bike de estrada? Análise de custo por kg em 2026"
-description: "Comparamos 30 bikes do catálogo Pedal Data para calcular quanto você paga por cada quilo — e onde o investimento vale mais a pena."
+description: "Comparamos 30 bikes do catálogo The Biker Blog para calcular quanto você paga por cada quilo — e onde o investimento vale mais a pena."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
 tested_by_pedaldata: false
 ai_assisted: true
-editorial_status: "published"
+editorial_status: "draft"
 thumbnail: "/assets/img/posts/custo-por-quilo-bike-estrada/thumb-480.webp"
 image: "/assets/img/posts/custo-por-quilo-bike-estrada/hero.jpg"
-image_credit: "Pedal Data"
-image_license: "Uso editorial do Pedal Data"
-tags: [guia-de-compra, dados]
+image_credit: "The Biker Blog"
+image_license: "Uso editorial do The Biker Blog"
+tags: [guias-de-compra, dados]
 reading_time: 6
+sources:
+  - name: "Base estruturada The Biker Blog"
+    type: "editorial-dataset"
+    url: "https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/"
+    accessed_at: "2026-07-19"
 ---
 
 Uma métrica pouco discutida mas muito reveladora é o **custo por quilograma**. Quanto mais leve a bike, maior o investimento necessário. Mas a relação não é linear.
 
-Analisamos as 30 bicicletas do catálogo Pedal Data para traçar essa relação.
+Analisamos as 30 bicicletas do catálogo The Biker Blog para traçar essa relação.
 
 ## Custo por kg por faixa de preço
 
@@ -45,4 +51,8 @@ Analisamos as 30 bicicletas do catálogo Pedal Data para traçar essa relação.
 
 3. **O ponto ideal está entre R$ 15.000 e R$ 25.000:** É onde você encontra carbono com bom peso (8,4-8,8 kg) sem pagar o prêmio dos modelos topo de linha.
 
-> *Análise baseada em dados do catálogo Pedal Data (julho/2026). Pesos declarados pelos fabricantes.*
+> *Análise baseada em dados do catálogo The Biker Blog (julho/2026). Pesos declarados pelos fabricantes.*
+
+## Fontes
+
+- The Biker Blog. Base estruturada de bicicletas e preços, versão consultada em 19 de julho de 2026. Os cálculos refletem o conjunto de dados daquela data e devem ser recalculados após a revisão de preços.

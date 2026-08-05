@@ -1,10 +1,12 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Marca fora do portfólio TheBiker verificado em 2026-08-04"
 title: "Specialized Tarmac SL8 2026: Ficha Técnica, Preços e Vale o Investimento?"
 description: "Review completo da Specialized Tarmac SL8 2026: especificações dos 3 tiers (S-Works, Pro, Comp), preços (US$ 4.699 a US$ 13.499) e para quem é indicada."
 date: 2026-07-19
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -96,6 +98,12 @@ A Specialized não tem distribuidora oficial no Brasil (a Soul Cycles Brasil imp
 A Tarmac SL8 é uma bicicleta race, indicada para ciclistas que buscam performance em competições, treinos avançados e eventos de estrada. Ela não é recomendada para iniciantes — a geometria é agressiva e o preço elevado.
 
 O modelo Comp (US$ 4.699) oferece o mesmo quadro aero que o S-Works, com grupo 105 Di2 e rodas de alumínio. É a melhor opção custo-benefício para quem quer performance sem pagar o preço do carbono mais exótico.
+
+> Valores históricos consultados em 19 de julho de 2026. A oferta brasileira e as configurações foram atualizadas posteriormente; confirme os dados na ficha oficial da Specialized antes da compra.
+
+## Alternativas
+
+Compare a Tarmac SL8 com outras bicicletas race do catálogo, como Cannondale SuperSix Evo, Scott Addict e Trek Madone. Geometria, tamanho disponível, suporte local e configuração completa devem pesar mais na decisão que diferenças pequenas de peso declarado.
 
 ## Perguntas frequentes
 

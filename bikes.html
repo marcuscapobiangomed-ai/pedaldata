@@ -14,17 +14,14 @@ permalink: /bikes/
 <section class="comparator-section">
   <div class="container">
     <div class="catalog-controls">
+      <label class="visually-hidden" for="catalog-filter-brand">Filtrar por marca</label>
       <select id="catalog-filter-brand" class="catalog-filter">
         <option value="">Todas as marcas</option>
-        <option value="Caloi">Caloi</option>
-        <option value="Cannondale">Cannondale</option>
-        <option value="Cervélo">Cervélo</option>
         <option value="Oggi">Oggi</option>
         <option value="Scott">Scott</option>
-        <option value="Sense">Sense</option>
-        <option value="Specialized">Specialized</option>
-        <option value="Trek">Trek</option>
+        <option value="TSW">TSW</option>
       </select>
+      <label class="visually-hidden" for="catalog-filter-category">Filtrar por categoria</label>
       <select id="catalog-filter-category" class="catalog-filter">
         <option value="">Todas as categorias</option>
         <option value="road-entry">Entrada</option>
@@ -35,12 +32,13 @@ permalink: /bikes/
         <option value="road-allround">All-Round</option>
         <option value="gravel">Gravel</option>
       </select>
+      <label class="visually-hidden" for="catalog-search">Buscar por modelo ou marca</label>
       <input type="text" id="catalog-search" placeholder="Buscar modelo ou marca...">
     </div>
 
     <div id="catalog-grid" class="catalog-grid"></div>
 
-    <div id="catalog-status" class="comparator-empty" style="display:none;">
+    <div id="catalog-status" class="comparator-empty" role="status" aria-live="polite" style="display:none;">
       <p>Nenhuma bicicleta encontrada com os filtros selecionados.</p>
     </div>
   </div>
@@ -58,7 +56,16 @@ permalink: /bikes/
     const catFilter = document.getElementById('catalog-filter-category')
     const searchInput = document.getElementById('catalog-search')
 
-    const catalog = await PedalData.utils.loadCatalog()
+    let catalog
+    try {
+      catalog = await PedalData.utils.loadCatalog()
+      if (!catalog || !Array.isArray(catalog.bikes)) throw new Error('Catálogo inválido')
+    } catch (error) {
+      console.error(error)
+      statusEl.innerHTML = '<p>Não foi possível carregar o catálogo. Tente novamente mais tarde.</p>'
+      statusEl.style.display = 'block'
+      return
+    }
 
     function render() {
       const brand = brandFilter.value
@@ -80,7 +87,7 @@ permalink: /bikes/
       statusEl.style.display = 'none'
 
       grid.innerHTML = filtered.map(b => {
-        const price = b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : ''
+        const price = PedalData.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : ''
         const catName = (b.category || '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
         const shiftIcon = b.shifting === 'electronic' || b.shifting === 'wireless' ? '⚡' : '🔧'
         return `<a href="${BASE}/bikes/${b.slug}/" class="catalog-card">

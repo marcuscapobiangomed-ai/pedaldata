@@ -1,0 +1,293 @@
+{
+  "id": "bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Addict 50",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
+      "name": "TheBiker — Bicicleta Scott Addict 50 2026 - Pré Venda",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-1bxzy/",
+      "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
+      "name": "Scott — página oficial do modelo",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-addict-50-bike",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Scott Addict 50 2026 - Pré Venda",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "manufacturer-verified-exact",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy",
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Correspondência exata confirmada na página oficial do fabricante."
+    },
+    "commercial.price": {
+      "value": 28999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-1bxzy/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.officialUrl": {
+      "value": "https://www.scott-sports.com/global/en/product/scott-addict-50-bike",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425358",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Addict HMF Carbon",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.derailleurHanger": {
+      "value": "UDH",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "fork.model": {
+      "value": "Addict HMF Flatmount Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "geometry.intent": {
+      "value": "endurance",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.groupset": {
+      "value": "Shimano 105",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearSpeeds": {
+      "value": 12,
+      "unit": "velocidades",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano 105 FC-R7100 50-34T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano CS-R7100 11-34",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.model": {
+      "value": "Shimano BR-R7170",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.model": {
+      "value": "Syncros RP2.0 Disc",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires.model": {
+      "value": "Schwalbe ONE 700x34C",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "limits.maximumTireWidth": {
+      "value": 38,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 8.9,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Peso aproximado declarado pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 120,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "Carbon Grey",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "commercial.sizesListed": {
+      "value": [
+        47,
+        49,
+        52,
+        54,
+        56,
+        58
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-addict-50-2026-pre-venda-1bxzy"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}

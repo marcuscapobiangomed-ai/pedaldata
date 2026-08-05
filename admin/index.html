@@ -6,8 +6,8 @@ permalink: /admin/
 
 <section class="page-header">
   <div class="container">
-    <h1>Painel Interno — Pedal Data</h1>
-    <p class="page-subtitle">Gerenciamento da base de dados e monitoramento (acesso restrito)</p>
+    <h1>Painel Interno — The Biker Blog</h1>
+    <p class="page-subtitle">Resumo público da base de dados e métricas armazenadas neste navegador</p>
   </div>
 </section>
 
@@ -46,13 +46,13 @@ permalink: /admin/
       <h3>🛠️ Ações</h3>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
         <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
-          ✏️ Cadastro de produtos → via JSON em <code style="font-family:var(--font-mono);">data/products/bikes/</code>
+          ✏️ Cadastro de produtos → via JSON em <code style="font-family:var(--font-mono);">_data/products/bikes/</code>
         </span>
         <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
           🔄 Atualizar via Pull Request no GitHub
         </span>
         <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
-          🧪 Validar: <code style="font-family:var(--font-mono);">cd data && node schemas/validate-all.js</code>
+          🧪 Validar: <code style="font-family:var(--font-mono);">node _data/schemas/validate-all.js</code>
         </span>
         <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
           🗑️ Limpar eventos: <code style="font-family:var(--font-mono);" onclick="if(typeof PedalData.clearEvents==='function'){PedalData.clearEvents();alert('Eventos limpos!');location.reload()}" style="cursor:pointer;">clearEvents()</code>
@@ -62,21 +62,12 @@ permalink: /admin/
   </div>
 </section>
 
+<script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
 <script>
 ;(async function() {
   const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-
-  async function loadJSON(path) {
-    try {
-      const r = await fetch(BASE + path)
-      return r.ok ? await r.json() : null
-    } catch { return null }
-  }
-
-  const [catalog, sources] = await Promise.all([
-    loadJSON('/data/catalog-index.json'),
-    loadJSON('/data/sources/sources.json')
-  ])
+  const catalog = await PedalData.utils.loadCatalog()
+  const sources = {{ site.data.sources.sources | jsonify }}
 
   // Summary
   if (catalog) {

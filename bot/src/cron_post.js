@@ -1,81 +1,68 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { AIProvider } from "./gemini.js";
 import { GitHubPublisher } from "./publisher.js";
+import { loadQueue, selectReadyItem } from "./automation/queue.js";
+import { validateResearch } from "./schemas/research.schema.js";
+import { syncProductKnowledge } from "./knowledge/product-knowledge.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repositoryRoot = path.resolve(__dirname, "../..");
+const queuePath = path.resolve(repositoryRoot, process.env.AUTOMATION_QUEUE_PATH || "bot/automation-queue.json");
 
-const BOT_DIR = path.resolve(__dirname, "..");
-const TOPICS_FILE = path.join(BOT_DIR, "topics.txt");
-const POSTED_FILE = path.join(BOT_DIR, "posted_topics.txt");
+export async function runAutomation({ env = process.env, ai, publisher, now = new Date() } = {}) {
+  if (env.AUTOMATION_ENABLED !== "true") {
+    return { status: "disabled", message: "AUTOMATION_ENABLED não está ativo" };
+  }
+
+  const queue = await loadQueue(queuePath, repositoryRoot);
+  const item = selectReadyItem(queue, now);
+  if (!item) return { status: "idle", message: "Nenhuma pauta elegível na fila" };
+
+  const researchData = validateResearch(JSON.parse(await fs.readFile(item.researchFile, "utf8")));
+  if (researchData.status && researchData.status !== "pesquisa_concluida") {
+    throw new Error(`Pesquisa de ${item.id} ainda não está concluída`);
+  }
+
+  const github = publisher || new GitHubPublisher({ env });
+  const existing = await github.findOpenPullRequest(`content/${item.id}`);
+  if (existing) {
+    return { status: "waiting-review", itemId: item.id, prUrl: existing.html_url };
+  }
+
+  if (env.AUTOMATION_DRY_RUN === "true") {
+    return { status: "ready", itemId: item.id, researchPath: item.researchPath };
+  }
+
+  const provider = ai || new AIProvider();
+  const post = await provider.processCase(item.topic, { ...researchData, editorialPriority: item.priority });
+  const knowledgeSync = await syncProductKnowledge(researchData, { root: repositoryRoot, syncedAt: now.toISOString().slice(0, 10) });
+  const productKnowledge = knowledgeSync?.record || null;
+  const prUrl = await github.publishPost({
+    postContent: post.content,
+    slug: item.id,
+    researchData,
+    productKnowledge,
+    imageManifest: null,
+    imageProductionPlan: post.imageProductionPlan,
+    checklist: post.claims || [],
+  });
+  return { status: "pr-created", itemId: item.id, prUrl };
+}
 
 async function main() {
-  console.log("=".repeat(50));
-  console.log("🚴 Pedal Data — Post Automático via PR");
-  console.log("=".repeat(50));
-
-  // CRON CONTROL: publicação automática desativada por segurança
-  // Para executar manualmente: CRON_ENABLED=true node src/cron_post.js
-  if (process.env.CRON_ENABLED !== "true") {
-    console.log("🔒 Publicação automática desativada (CRON_ENABLED != true).");
-    console.log("   Execute manualmente com: CRON_ENABLED=true node src/cron_post.js");
-    console.log("   Ou use: node src/manual.js <tópico>");
-    return;
-  }
-
-  if (!fs.existsSync(TOPICS_FILE)) {
-    console.log("❌ topics.txt não encontrado.");
-    return;
-  }
-
-  const topicsContent = fs.readFileSync(TOPICS_FILE, "utf-8").trim();
-  if (!topicsContent) {
-    console.log("📭 Fila vazia.");
-    return;
-  }
-
-  const lines = topicsContent.split("\n").map(l => l.trim()).filter(Boolean);
-  if (lines.length === 0) {
-    console.log("📭 Nenhum tópico na fila.");
-    return;
-  }
-
-  // Suporte a tópico específico via env (workflow_dispatch)
-  const manualTopic = process.env.MANUAL_TOPIC?.trim();
-  const currentTopic = manualTopic || lines[0];
-  console.log(`📝 Tópico: "${currentTopic}"`);
-
-  const ai = new AIProvider();
-
-  try {
-    console.log("⏳ Gerando artigo...");
-    const post = await ai.processCase(currentTopic);
-
-    console.log("🚀 Publicando via PR no GitHub...");
-    const publisher = new GitHubPublisher();
-    const prUrl = await publisher.publishPost(post.content, post.slug, post);
-
-    // Remove da fila (apenas se não for execução manual)
-    if (!manualTopic) {
-      const remainingLines = lines.slice(1);
-      fs.writeFileSync(TOPICS_FILE, remainingLines.join("\n") + "\n", "utf-8");
-      console.log("♻️ Tópico removido de topics.txt");
-    }
-
-    const today = new Date().toISOString().split("T")[0];
-    fs.appendFileSync(POSTED_FILE, `${today} - ${currentTopic}\n`, "utf-8");
-    console.log("📂 Histórico atualizado em posted_topics.txt");
-
-    console.log(`\n✅ PR criado: ${prUrl}`);
-    console.log("👀 Revise e faça merge para publicar.");
-
-  } catch (err) {
-    console.error("❌ Falha:", err.message);
-    process.exit(1);
+  const result = await runAutomation();
+  console.log(JSON.stringify(result));
+  if (process.env.GITHUB_OUTPUT) {
+    await fs.appendFile(process.env.GITHUB_OUTPUT, `status=${result.status}\npr_url=${result.prUrl || ""}\n`);
   }
 }
 
-main().catch(console.error);
+if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error.stack || error.message);
+    process.exitCode = 1;
+  });
+}

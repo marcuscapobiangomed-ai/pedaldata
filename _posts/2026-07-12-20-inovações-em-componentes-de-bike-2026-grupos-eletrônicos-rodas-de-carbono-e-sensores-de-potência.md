@@ -1,11 +1,12 @@
 ---
 layout: post
+published: false
 title: "Inovações em Componentes de Bike: Grupos Eletrônicos, Rodas de Carbono e Sensores de Potência"
 description: "Panorama 2026 dos componentes de bike: grupos eletrônicos Shimano/SRAM, rodas de carbono e sensores de potência. Preços e tecnologias atuais."
 date: 2026-07-12
 last_modified_at: 2026-07-19
-author: "Equipe Pedal Data"
-reviewed_by: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
+reviewed_by: "Equipe The Biker Blog"
 content_type: "noticia"
 review_method: "desk-research"
 tested_by_pedaldata: false

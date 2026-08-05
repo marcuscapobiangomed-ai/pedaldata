@@ -1,10 +1,12 @@
 ---
 layout: post
+published: false
+unpublished_reason: "Arquivo editorial legado; fora da publicação ativa desde a auditoria TheBiker de 2026-08-04"
 title: "Trek Madone vs Trek Émonda: diferenças entre as linhas aero e leve da Trek"
 description: "Comparativo entre Trek Madone (aero) e Trek Émonda (leve): diferenças de desempenho, preços no Brasil e para quem cada modelo é indicado."
 date: 2026-07-05
 last_modified_at: 2026-07-05
-author: "Equipe Pedal Data"
+author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
 tested_by_pedaldata: false
@@ -39,7 +41,7 @@ affiliate_links: false
 editorial_status: "published"
 thumbnail: "/assets/img/posts/trek-madone-vs-emonda/thumb-480.webp"
 ---
-> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo Pedal Data. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
+> **Como este artigo foi produzido:** análise documental baseada em especificações oficiais, pesquisa de preços no mercado brasileiro e comparação com modelos concorrentes. O produto não foi testado presencialmente pelo The Biker Blog. O conteúdo foi elaborado com auxílio de IA e revisado editorialmente.
 
 
 No portfólio da Trek, a divisão sempre foi clara: a **Madone** é a máquina aerodinâmica para velocidade pura no plano, enquanto a **Émonda** é o modelo peso-pena feito para escalar montanhas. Mas qual delas faz mais sentido para o ciclista amador no Brasil?

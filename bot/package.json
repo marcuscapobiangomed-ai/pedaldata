@@ -2,7 +2,7 @@
   "name": "pedaldata-bot",
   "version": "1.0.0",
   "type": "module",
-  "description": "Bot WhatsApp + DeepSeek + Gemini + GitHub para blog de ciclismo automático",
+  "description": "Pipeline editorial TheBiker com Groq, Gemini e DeepSeek",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -11,23 +11,34 @@
     "batch:30": "node src/batch.js 1 30",
     "publish": "node src/publish_post.js",
     "lint": "node scripts/check-js.mjs",
-    "test": "node test_schema.mjs",
+    "test": "node test_schema.mjs && node test_three_provider_pipeline.mjs && node test_image_system.mjs && node test_automation.mjs",
     "validate:research": "node src/validation/validate-research.js",
     "validate:posts": "node src/validate_posts.js",
     "validate:images": "node src/validation/validate-images.js",
+    "validate:images-v2": "node src/validation/validate-images-v2.js",
     "check:claims": "node src/validation/check-claims.js",
+    "audit:editorial": "node src/validation/audit-editorial-portfolio.js",
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
-    "generate": "node src/generator.js"
+    "generate": "node src/generator.js",
+    "ai:doctor": "node src/ai/doctor.js",
+    "images:prepare": "node src/images/prepare-variants.js",
+    "automation:doctor": "node src/automation/doctor.js",
+    "automation:run": "node src/cron_post.js"
+    ,"publish:scheduled": "node src/publish_scheduled.js"
+    ,"campaign:produce": "node src/campaign_producer.js"
+    ,"campaign:finalize": "node src/campaign_finalize.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.0",
     "gray-matter": "^4.0.3",
-    "puppeteer": "^23.0.0",
-    "qrcode-terminal": "^0.12.0",
+    "image-size": "^2.0.2",
     "sanitize-html": "^2.17.6",
+    "sharp": "^0.35.3",
     "simple-git": "^3.27.0",
-    "whatsapp-web.js": "^1.26.0",
     "zod": "^4.4.3"
+  },
+  "overrides": {
+    "postcss": "8.5.25"
   }
 }

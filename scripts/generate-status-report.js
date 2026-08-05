@@ -158,7 +158,7 @@ import { writeFileSync } from 'fs'
 writeFileSync(outputPath, JSON.stringify(report, null, 2))
 
 // Also generate markdown summary
-const md = `# Status Report — Pedal Data 90 Dias
+const md = `# Status Report — The Biker Blog 90 Dias
 
 **Gerado em:** ${report.generatedAt}
 **Progresso geral:** ${report.overallProgress}%

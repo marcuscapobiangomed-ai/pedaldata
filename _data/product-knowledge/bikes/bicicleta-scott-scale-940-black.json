@@ -1,0 +1,293 @@
+{
+  "id": "bicicleta-scott-scale-940-black",
+  "type": "bike",
+  "brand": "Scott",
+  "model": "Scale 940",
+  "modelYear": null,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "sources": [
+    {
+      "id": "thebiker-bicicleta-scott-scale-940-black",
+      "name": "TheBiker — Bicicleta Scott Scale 940 - Black",
+      "type": "store",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-black/",
+      "accessedAt": "2026-08-04"
+    },
+    {
+      "id": "manufacturer-bicicleta-scott-scale-940-black",
+      "name": "Scott — página oficial do modelo",
+      "type": "manufacturer",
+      "url": "https://www.scott-sports.com/global/en/product/scott-scale-940-bike",
+      "accessedAt": "2026-08-04"
+    }
+  ],
+  "facts": {
+    "identity.storeName": {
+      "value": "Bicicleta Scott Scale 940 - Black",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.verificationLevel": {
+      "value": "manufacturer-verified-exact",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-940-black",
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Correspondência exata confirmada na página oficial do fabricante."
+    },
+    "commercial.price": {
+      "value": 19999,
+      "unit": "BRL",
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Preço observado; revalidar antes da publicação"
+    },
+    "commercial.storeUrl": {
+      "value": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-940-black/",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "thebiker-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.officialUrl": {
+      "value": "https://www.scott-sports.com/global/en/product/scott-scale-940-bike",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.manufacturerModelCode": {
+      "value": "425466",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.color": {
+      "value": "black",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "identity.sizes": {
+      "value": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.material": {
+      "value": "Scale Alloy 6061 Custom Butted Tubing",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "frame.rearAxle": {
+      "value": "5x141",
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.fork": {
+      "value": "RockShox Judy Silver TK Coil",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "suspension.frontTravel": {
+      "value": 100,
+      "unit": "mm",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.rearDerailleur": {
+      "value": "Shimano Deore RD-M6100 SGS",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.speeds": {
+      "value": 12,
+      "unit": "velocidades",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.crankset": {
+      "value": "Shimano FC-MT512-1, 32T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "drivetrain.cassette": {
+      "value": "Shimano Deore CS-M6100-12, 10-51T",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.calipers": {
+      "value": "Shimano MT200 Disc Brake",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "brakes.rotors": {
+      "value": "Shimano SM-RT10 CL 180 mm dianteiro / 160 mm traseiro",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "wheels.rims": {
+      "value": "Alex X-25, 25 mm, tubeless ready",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "tires": {
+      "value": "Maxxis Rekon Race 29x2.4, EXO, tubeless ready",
+      "unit": null,
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    },
+    "weight.approximate": {
+      "value": 13.9,
+      "unit": "kg",
+      "status": "approximate",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": "Configuração tubeless sem pedais declarada pelo fabricante"
+    },
+    "limits.maxSystemWeight": {
+      "value": 130,
+      "unit": "kg",
+      "status": "confirmed",
+      "sourceIds": [
+        "manufacturer-bicicleta-scott-scale-940-black"
+      ],
+      "observedAt": "2026-08-04",
+      "market": "BR",
+      "qualifier": null
+    }
+  },
+  "unresolvedFields": [],
+  "schemaVersion": "1.0",
+  "provenance": {
+    "researchSlug": "thebiker-catalog-enrichment",
+    "syncedAt": "2026-08-04"
+  },
+  "history": [
+    {
+      "researchSlug": "thebiker-catalog-enrichment",
+      "syncedAt": "2026-08-04"
+    },
+    {
+      "researchSlug": "remaining-catalog-specifications",
+      "syncedAt": "2026-08-04"
+    }
+  ]
+}
