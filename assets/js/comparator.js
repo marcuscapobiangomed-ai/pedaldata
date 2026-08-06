@@ -61,6 +61,20 @@
       return price ? `R$ ${Number(price).toLocaleString('pt-BR')}` : 'Preço não informado'
     }
 
+    function confirmedText(value) {
+      if (!value) return 'Não informado'
+      const normalized = String(value).toLowerCase()
+      return normalized.includes('não confirmado') || normalized.includes('pendente')
+        ? 'Não informado'
+        : value
+    }
+
+    function translateValue(value, translations) {
+      const confirmed = confirmedText(value)
+      if (confirmed === 'Não informado') return confirmed
+      return translations[String(confirmed).toLowerCase()] || confirmed
+    }
+
     function formatDate(date) {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) return 'Data de verificação não informada'
       return `Dados conferidos em ${new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`))}`
@@ -180,11 +194,11 @@
 
     const LABELS = {
       category: { label: 'Categoria', fn: bike => categoryLabel(bike.category) },
-      frameMaterial: { label: 'Material do quadro', fn: bike => bike.frameMaterial ? bike.frameMaterial.charAt(0).toUpperCase() + bike.frameMaterial.slice(1) : 'Não informado' },
-      groupset: { label: 'Grupo', fn: bike => bike.groupset || 'Não informado' },
+      frameMaterial: { label: 'Material do quadro', fn: bike => translateValue(bike.frameMaterial, { carbon: 'Carbono', aluminum: 'Alumínio', aluminium: 'Alumínio' }) },
+      groupset: { label: 'Grupo', fn: bike => confirmedText(bike.groupset) },
       speeds: { label: 'Velocidades', fn: bike => bike.speeds ? `${bike.speeds}v` : 'Não informado' },
-      shifting: { label: 'Transmissão', fn: bike => bike.shifting ? bike.shifting.replace(/-/g, ' ') : 'Não informado' },
-      brakeType: { label: 'Freios', fn: bike => bike.brakeType ? bike.brakeType.replace(/-/g, ' ') : 'Não informado' },
+      shifting: { label: 'Transmissão', fn: bike => translateValue(bike.shifting, { mechanical: 'Mecânica', electronic: 'Eletrônica', wireless: 'Eletrônica sem fio' }) },
+      brakeType: { label: 'Freios', fn: bike => translateValue(bike.brakeType, { 'hydraulic-disc': 'Disco hidráulico', 'mechanical-disc': 'Disco mecânico', rim: 'Aro' }) },
       weightKg: { label: 'Peso declarado', fn: bike => bike.weightKg ? `${bike.weightKg} kg` : 'Não informado' },
       price: { label: 'Preço observado', fn: bike => formatPrice(bike.priceLowest) }
     }
@@ -201,7 +215,7 @@
       conclusionEl.innerHTML = `<div class="veredict-container"><i class="bi bi-info-circle" aria-hidden="true"></i><div><h3>Leitura responsável</h3><p>As diferenças acima usam somente dados confirmados no catálogo. “Não informado” significa que a informação ainda não foi integrada ou validada — não representa ausência do componente.</p></div></div>`
       resultsEl.hidden = false
       resultsEl.focus({ preventScroll: true })
-      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      resultsEl.scrollIntoView({ behavior: 'auto', block: 'start' })
       if (typeof PedalData.trackCompareComplete === 'function') PedalData.trackCompareComplete(selected.map(bike => bike.id))
     }
 
