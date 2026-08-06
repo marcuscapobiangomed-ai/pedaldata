@@ -296,9 +296,9 @@
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
+      "blockReason": "The operation was aborted due to timeout",
       "attempts": 1,
-      "lastAttemptAt": "2026-08-05T18:24:35.692Z",
-      "blockReason": "The operation was aborted due to timeout"
+      "lastAttemptAt": "2026-08-05T18:24:35.692Z"
     },
     {
       "day": 10,
@@ -308,10 +308,12 @@
       "summary": "Explicação técnica das diferenças entre endurance e race usando geometria e configuração, sem reduzir a escolha a conforto contra velocidade.",
       "category": "engenharia",
       "freshness": "evergreen",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-06T11:26:23.119Z",
+      "blockReason": "Artigo inválido:\nsections.12.heading: Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos."
     },
     {
       "day": 11,

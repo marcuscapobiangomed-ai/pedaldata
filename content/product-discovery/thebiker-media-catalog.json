@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-05T18:24:35.195Z",
+  "discoveredAt": "2026-08-06T11:26:22.618Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 483,
   "products": [
@@ -1271,6 +1271,17 @@
       "sku": "254092"
     },
     {
+      "id": "pack-2-unidades-camara-de-ar-blackline-tpu-ultralight-road",
+      "name": "Pack 2 Unidades Câmara de Ar Blackline TPU Ultralight Road",
+      "brand": "Blackline",
+      "category": "componentes",
+      "productUrl": "https://thebikershop.com.br/produtos/pack-2-unidades-camara-de-ar-blackline-tpu-ultralight-road/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/less-weight-more-speed-ce100f70e05c03488e17552059042976-480-0-c32bbc01c32a117bda17556276277869-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "abracadeira-de-canote-scott-spark-e-scale-2023",
       "name": "Abraçadeira de Canote Scott Spark e Scale 2023",
       "brand": "Scott",
@@ -1302,17 +1313,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/34843964dd-jpg-efe0a87b68e8d875e317156109280860-480-0.webp"
       ],
       "sku": "COMP-416-32-dentes"
-    },
-    {
-      "id": "pack-2-unidades-camara-de-ar-blackline-tpu-ultralight-road",
-      "name": "Pack 2 Unidades Câmara de Ar Blackline TPU Ultralight Road",
-      "brand": "Blackline",
-      "category": "componentes",
-      "productUrl": "https://thebikershop.com.br/produtos/pack-2-unidades-camara-de-ar-blackline-tpu-ultralight-road/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/less-weight-more-speed-ce100f70e05c03488e17552059042976-480-0-c32bbc01c32a117bda17556276277869-480-0.webp"
-      ],
-      "sku": null
     },
     {
       "id": "controle-sram-axs-para-canotes-rock-shox-reverb-axs",
@@ -1645,6 +1645,17 @@
       "sku": "11.6218.054.004"
     },
     {
+      "id": "corrente-sram-x0-eagle-t-type",
+      "name": "Corrente Sram X0 Eagle T-Type",
+      "brand": "Sram",
+      "category": "componentes",
+      "productUrl": "https://thebikershop.com.br/produtos/corrente-sram-x0-eagle-t-type/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sram-chain-x0-t-type-eagle-12s-126-links-black-power-lock1-6576296d446ec8a03b16917758000162-480-0.webp"
+      ],
+      "sku": "00.2518.055.010"
+    },
+    {
       "id": "corrente-shimano-hg701-11v-ultegra-138l",
       "name": "Corrente Shimano HG701 11v Ultegra 138L",
       "brand": null,
@@ -1764,17 +1775,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/6774d130-0667-11ef-9f27-6af1f59da284-658e85b8e67af9d0f517235787887661-480-0.webp"
       ],
       "sku": "294277"
-    },
-    {
-      "id": "corrente-sram-x0-eagle-t-type",
-      "name": "Corrente Sram X0 Eagle T-Type",
-      "brand": "Sram",
-      "category": "componentes",
-      "productUrl": "https://thebikershop.com.br/produtos/corrente-sram-x0-eagle-t-type/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sram-chain-x0-t-type-eagle-12s-126-links-black-power-lock1-6576296d446ec8a03b16917758000162-480-0.webp"
-      ],
-      "sku": "00.2518.055.010"
     },
     {
       "id": "mesa-syncros-mtb-xr-2-0",
@@ -1962,6 +1962,17 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/5150171-1a2de33afed599359816917759318932-480-0.webp"
       ],
       "sku": "00.2518.054.010"
+    },
+    {
+      "id": "manopla-sram-red-force-axs-12v",
+      "name": "Manopla Sram Red/Force AXS 12v",
+      "brand": "Sram",
+      "category": "componentes",
+      "productUrl": "https://thebikershop.com.br/produtos/manopla-sram-red-force-axs-12v/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/00-7918-083-000-f7a39bd5c870bd8ecc17724788960183-480-0.webp"
+      ],
+      "sku": "00.7918.083.000"
     },
     {
       "id": "taco-de-pedal-shimano-mtb-spd-sh56",
@@ -2204,17 +2215,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/600x600-158823_154348403484111-6300bce57bb0cc63c816204027948647-480-0.webp"
       ],
       "sku": "V3740101"
-    },
-    {
-      "id": "roldana-de-cambio-shimano-xt-m8100",
-      "name": "Roldana de Câmbio Shimano XT M8100",
-      "brand": "Shimano",
-      "category": "componentes",
-      "productUrl": "https://thebikershop.com.br/produtos/roldana-de-cambio-shimano-xt-m8100/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/d_nq_np_2x_821635-mlb41189199029_032020-f1-4a2a0b700c5f5cc7e416146231228149-480-0.webp"
-      ],
-      "sku": null
     },
     {
       "id": "2-caramanholas-elite-fly-tex-550ml-preto",
@@ -2884,10 +2884,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/rolo-de-treino-elite-novo-force/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/90d26126a51-77cf6ec5e7369f842615736744449048-480-0.webp"
-      ],
-      "officialPageUrl": "https://www.elite-it.com/en/home-trainers/classic-trainers/novo-force",
-      "officialImages": [
-        "https://api.elite-it.com/assets/products/0111303_Novo-Force_2025-11-20-081458_rcnh.jpg"
       ],
       "sku": "ACS-063"
     },
@@ -4564,6 +4560,17 @@
       "sku": null
     },
     {
+      "id": "sapatilha-mtb-shimano-xc302",
+      "name": "Sapatilha MTB Shimano XC302",
+      "brand": "Shimano",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-mtb-shimano-xc302/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sh-xc302-shic6-primary_1_750_750-365f699475637331bf17562180165100-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "camisa-sidi-dare-black",
       "name": "Camisa Sidi Dare Black",
       "brand": "Sidi",
@@ -4850,17 +4857,6 @@
       "sku": "246391"
     },
     {
-      "id": "sapatilha-mtb-shimano-xc302",
-      "name": "Sapatilha MTB Shimano XC302",
-      "brand": "Shimano",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-mtb-shimano-xc302/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sh-xc302-shic6-primary_1_750_750-365f699475637331bf17562180165100-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
       "id": "limpador-para-sapatilhas-muc-off-250ml",
       "name": "Limpador para Sapatilhas Muc Off 250ml",
       "brand": "Muc Off",
@@ -5066,6 +5062,17 @@
       "productUrl": "https://thebikershop.com.br/produtos/sapatilha-shimano-gravel-rx910-s-phyre/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sh-rx910-shic165-primary_1_750_750-6c25df8c75a59b54b617564183743812-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
+      "id": "jaqueta-inverno-shimano-s-phyre",
+      "name": "Jaqueta Inverno Shimano S-Phyre",
+      "brand": "Shimano S-Phyre",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/jaqueta-inverno-shimano-s-phyre/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1253823-1_1160x_crop_center-jpg-4e5fafa603da4e5f6417483826224063-480-0.webp"
       ],
       "sku": null
     },
@@ -5286,17 +5293,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/sapatilha-road-supacaz-suave-carbon/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/supacaz-suave-shoes-white-1-946b07f38ce6df2e3e17526977016217-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "jaqueta-inverno-shimano-s-phyre",
-      "name": "Jaqueta Inverno Shimano S-Phyre",
-      "brand": "Shimano S-Phyre",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/jaqueta-inverno-shimano-s-phyre/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1253823-1_1160x_crop_center-jpg-4e5fafa603da4e5f6417483826224063-480-0.webp"
       ],
       "sku": null
     },
