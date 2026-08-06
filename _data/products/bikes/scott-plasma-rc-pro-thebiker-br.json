@@ -1,0 +1,40 @@
+{
+  "id": "scott-plasma-rc-pro-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Plasma RC Pro",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "triathlon",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-plasma-rc-pro/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-plasma-rc-pro/",
+  "image": "/assets/img/products/comparator/scott-plasma-rc-pro.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 99999,
+  "frame": {
+    "material": "não informado"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "Ultegra Di2",
+    "speeds": null,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "hydraulic-disc"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-scott-plasma-rc-pro"
+}

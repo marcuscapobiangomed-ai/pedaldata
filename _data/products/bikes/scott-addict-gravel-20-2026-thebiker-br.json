@@ -1,0 +1,40 @@
+{
+  "id": "scott-addict-gravel-20-2026-thebiker-br",
+  "type": "bike",
+  "status": "pre-release",
+  "brand": "Scott",
+  "model": "Addict Gravel 20",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "gravel",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm/",
+  "image": "/assets/img/products/comparator/scott-addict-gravel-20-2026.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 43999,
+  "frame": {
+    "material": "não informado"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "SRAM Rival",
+    "speeds": null,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-scott-addict-gravel-20-2026"
+}

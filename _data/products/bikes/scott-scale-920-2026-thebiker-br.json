@@ -1,0 +1,40 @@
+{
+  "id": "scott-scale-920-2026-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Scale 920",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-920-2026-white/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-scale-920-2026-white/",
+  "image": "/assets/img/products/comparator/scott-scale-920-2026.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 19499,
+  "frame": {
+    "material": "carbon"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "Shimano Deore",
+    "speeds": null,
+    "shifting": "electronic"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-scott-scale-920-2026"
+}

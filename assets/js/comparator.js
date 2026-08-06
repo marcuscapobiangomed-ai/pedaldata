@@ -5,7 +5,11 @@
   const CATEGORY_LABELS = {
     'road-endurance': 'Estrada endurance',
     'road-race': 'Estrada performance',
-    'mtb-cross-country': 'MTB cross-country'
+    'mtb-cross-country': 'MTB cross-country',
+    'mtb-trail': 'MTB trail',
+    'e-mtb': 'E-MTB',
+    gravel: 'Gravel',
+    triathlon: 'Triathlon'
   }
 
   document.addEventListener('DOMContentLoaded', async function() {
@@ -64,7 +68,7 @@
     function confirmedText(value) {
       if (!value) return 'Não informado'
       const normalized = String(value).toLowerCase()
-      return normalized.includes('não confirmado') || normalized.includes('pendente')
+    return normalized.includes('não confirmado') || normalized.includes('não informado') || normalized.includes('pendente')
         ? 'Não informado'
         : value
     }

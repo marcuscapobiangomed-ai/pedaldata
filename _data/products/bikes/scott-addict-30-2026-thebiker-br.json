@@ -1,0 +1,40 @@
+{
+  "id": "scott-addict-30-2026-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Addict 30 2026",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "road-endurance",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-30-2026-pre-venda/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-30-2026-pre-venda/",
+  "image": "/assets/img/products/comparator/scott-addict-30-2026.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 44999,
+  "frame": {
+    "material": "carbon"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "105 Di2",
+    "speeds": null,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-scott-addict-30-2026"
+}

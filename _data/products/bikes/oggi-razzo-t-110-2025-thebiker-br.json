@@ -1,0 +1,40 @@
+{
+  "id": "oggi-razzo-t-110-2025-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Razzo T 110",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "e-mtb",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-razzo-t-110-2025/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-razzo-t-110-2025/",
+  "image": "/assets/img/products/comparator/oggi-razzo-t-110-2025.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 29999,
+  "frame": {
+    "material": "aluminum"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "Shimano Deore",
+    "speeds": null,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "hydraulic-disc"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-oggi-razzo-t-110-2025"
+}

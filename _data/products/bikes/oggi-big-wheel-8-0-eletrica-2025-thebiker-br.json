@@ -1,0 +1,40 @@
+{
+  "id": "oggi-big-wheel-8-0-eletrica-2025-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Big Wheel 8.0 Elétrica",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "e-mtb",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-big-wheel-8-0-2025/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-oggi-big-wheel-8-0-2025/",
+  "image": "/assets/img/products/comparator/oggi-big-wheel-8-0-eletrica-2025.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 9999,
+  "frame": {
+    "material": "aluminum"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "SRAM Rival",
+    "speeds": null,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "hydraulic-disc"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-oggi-big-wheel-8-0-eletrica-2025"
+}

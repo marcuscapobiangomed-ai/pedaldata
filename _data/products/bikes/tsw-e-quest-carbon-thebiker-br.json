@@ -1,0 +1,40 @@
+{
+  "id": "tsw-e-quest-carbon-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "TSW",
+  "model": "E-Quest Carbon",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "e-mtb",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-tsw-e-quest-carbon/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-eletrica-tsw-e-quest-carbon/",
+  "image": "/assets/img/products/comparator/tsw-e-quest-carbon.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 35999,
+  "frame": {
+    "material": "carbon"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "não informado",
+    "speeds": null,
+    "shifting": "não informado"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-tsw-e-quest-carbon"
+}

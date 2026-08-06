@@ -1,0 +1,40 @@
+{
+  "id": "oggi-big-wheel-7-1-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Big Wheel 7.1",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-1/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-1/",
+  "image": "/assets/img/products/comparator/oggi-big-wheel-7-1.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 4499,
+  "frame": {
+    "material": "aluminum"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "não informado",
+    "speeds": 10,
+    "shifting": "não informado"
+  },
+  "brakes": {
+    "type": "hydraulic-disc"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-oggi-big-wheel-7-1"
+}

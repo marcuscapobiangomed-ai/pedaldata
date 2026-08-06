@@ -1,0 +1,40 @@
+{
+  "id": "oggi-big-wheel-7-2-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Oggi",
+  "model": "Big Wheel 7.2",
+  "modelYear": 2025,
+  "market": "BR",
+  "category": "mtb-cross-country",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-2/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-oggi-big-wheel-7-2/",
+  "image": "/assets/img/products/comparator/oggi-big-wheel-7-2.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 6499,
+  "frame": {
+    "material": "não informado"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "Shimano Deore",
+    "speeds": 12,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-oggi-big-wheel-7-2"
+}

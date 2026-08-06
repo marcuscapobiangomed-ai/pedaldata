@@ -1,0 +1,40 @@
+{
+  "id": "scott-patron-eride-910-2026-thebiker-br",
+  "type": "bike",
+  "status": "active",
+  "brand": "Scott",
+  "model": "Patron eRIDE 910",
+  "modelYear": 2026,
+  "market": "BR",
+  "category": "e-mtb",
+  "officialUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-patron-eride-910-2026/",
+  "storeProductUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-patron-eride-910-2026/",
+  "image": "/assets/img/products/comparator/scott-patron-eride-910-2026.webp",
+  "portfolioStatus": "verified",
+  "portfolioVerifiedAt": "2026-08-05",
+  "theBikerPrice": 74999,
+  "frame": {
+    "material": "carbon"
+  },
+  "fork": {
+    "material": "não informado"
+  },
+  "drivetrain": {
+    "brand": "não informado",
+    "groupset": "S1000 Eagle AXS",
+    "speeds": 12,
+    "shifting": "wireless"
+  },
+  "brakes": {
+    "type": "não informado"
+  },
+  "wheels": {
+    "material": "não informado"
+  },
+  "tires": {},
+  "testedByPedalData": false,
+  "createdAt": "2026-08-05",
+  "updatedAt": "2026-08-05",
+  "reviewStatus": "verified",
+  "sourceId": "thebiker-scott-patron-eride-910-2026"
+}
