@@ -1,41 +1,38 @@
-# Design QA — Comparador mobile
+# Design QA — Imagens dos cards do comparador mobile
 
-- Source visual: `screenshots/comparator-option-1-mobile.png`
-- Target viewport: 390 x 844 CSS px
-- Published checkpoint: `https://marcuscapobiangomed-ai.github.io/pedaldata/comparar/`
-- Build artifact: GitHub Pages run `31099476096`
+- Source visual truth: `screenshots/comparator-card-overlap-source-01.jpg` and `screenshots/comparator-card-overlap-source-02.jpg`
+- Implementation URL: `https://marcuscapobiangomed-ai.github.io/pedaldata/comparar/`
+- Implementation screenshot: unavailable; no browser surface is connected in this session
+- Source pixels: 591 x 1280 px per iPhone capture
+- Target CSS viewport: approximately 390 px wide mobile viewport
+- Density normalization: not performed because the revised rendered capture is unavailable
+- State: catalog grid with mixed portrait, landscape and transparent product images
 
-## Implemented scope
+## Findings and comparison history
 
-- Compact horizontal selection shelf for two required bikes and one optional bike.
-- Search kept visible while advanced filters collapse behind a mobile filter control.
-- Catalog limited to ten initial cards with progressive `Mostrar mais` pagination.
-- Two-column compact product grid below 600 px.
-- Fixed bottom comparison bar after the first selection.
-- Mobile comparison cards by criterion instead of a 720 px horizontal table.
-- 44 px minimum remove target and larger filter input text.
+- P1 — Product images with tall intrinsic proportions expanded their flex item beyond the intended mobile image rail, causing title, metadata and price to overlap the image.
+  - Evidence: the source captures show overlap on Oggi Cattura Sport, Scott Spark RC World Cup and Oggi Razzo T 110.
+  - Fix applied: `.catalog-image` now has fixed flex bases of 126 px on desktop and 92 px on mobile, `min-height: 0` and `overflow: hidden`; child images have explicit block sizing and zero intrinsic minimums while retaining `object-fit: contain`.
+  - Cache control: the global stylesheet URL was advanced to `style.css?v=7`.
+  - Post-fix visual evidence: blocked because the in-app Browser and external browser surfaces are unavailable.
 
-## Automated evidence
+## Required fidelity surfaces
 
-- Full repository validation passed after the implementation.
-- Production Jekyll artifact contains the new markup, CSS and JavaScript contracts.
-- GitHub Pages build and deployment completed successfully.
-- Published HTML exposes the comparator script, mobile selection bar and progressive catalog control.
+- Fonts and typography: unchanged; the fix prevents product titles from occupying the image rail.
+- Spacing and layout rhythm: image rails now have deterministic heights across every card.
+- Colors and visual tokens: unchanged.
+- Image quality and asset fidelity: original product assets remain in use with `object-fit: contain`; excess intrinsic size is constrained without stretching.
+- Copy and content: unchanged.
 
-## Visual comparison evidence
+## Primary interactions and console
 
-Real iPhone captures supplied by the user on 2026-08-06:
+- Repository validation: passed.
+- GitHub Pages deployment for commit `40a8a5c`: passed.
+- Production HTTP and CSS v7 contract: passed.
+- Browser interaction and console checks: blocked because no browser surface is connected.
 
-- `screenshots/comparator-mobile-01-one-selected.jpg`: one selected bike, disabled CTA and two empty slots.
-- `screenshots/comparator-mobile-02-two-selected.jpg`: two selected bikes, enabled CTA and optional third slot.
-- `screenshots/comparator-mobile-03-results.jpg`: three-bike comparison rendered as criterion cards without horizontal overflow.
+## Remaining blocker
 
-The captures confirm the compact three-slot shelf, visible search, collapsed advanced filters, two-column catalog, fixed selection summary and mobile criterion cards. They also exposed a redundant fixed `Comparar 3` action over the completed result; the bar is now hidden when the result opens.
+A fresh rendered mobile screenshot of the mixed-image catalog is required to confirm that no visual overlap remains. Code, build and production checks do not replace that visual evidence.
 
-## Remaining verification gaps
-
-- The captures prove the 1-, 2- and 3-bike visual states, but not keyboard, screen-reader or zoom behavior.
-- Filter disclosure, search and `Mostrar mais` progression were not captured.
-- Browser console warnings and errors cannot be checked from phone screenshots.
-
-final result: passed with named interaction limits
+final result: blocked
