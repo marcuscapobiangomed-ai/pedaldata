@@ -30,7 +30,12 @@ permalink: /comparar/
 
     <div id="comparison-slots" class="comparison-slots" aria-label="Bicicletas selecionadas"></div>
 
-    <div class="catalog-toolbar" aria-label="Filtros do catálogo">
+    <button id="filter-toggle" class="filter-toggle" type="button" aria-expanded="false" aria-controls="catalog-filters">
+      <i class="bi bi-sliders" aria-hidden="true"></i>
+      Filtrar modelos
+      <span id="active-filter-count" hidden></span>
+    </button>
+    <div id="catalog-filters" class="catalog-toolbar" aria-label="Filtros do catálogo">
       <label class="catalog-search">
         <span class="sr-only">Buscar por marca ou modelo</span>
         <i class="bi bi-search" aria-hidden="true"></i>
@@ -55,6 +60,7 @@ permalink: /comparar/
       <button id="clear-comparison" class="text-button" type="button" hidden>Limpar seleção</button>
     </div>
     <div id="comparison-catalog" class="comparison-catalog" aria-live="polite"></div>
+    <button id="show-more-bikes" class="show-more-bikes" type="button" hidden>Mostrar mais modelos</button>
 
     <div class="comparison-action">
       <button id="compare-button" class="compare-button" type="button" disabled>
@@ -77,6 +83,7 @@ permalink: /comparar/
           <tbody id="comparison-body"></tbody>
         </table>
       </div>
+      <div id="comparison-mobile-cards" class="comparison-mobile-cards" aria-label="Comparação por critério"></div>
       <div id="comparison-veredict" class="comparison-veredict"></div>
     </div>
 
@@ -84,5 +91,14 @@ permalink: /comparar/
   </div>
 </section>
 
+<div id="mobile-comparison-bar" class="mobile-comparison-bar" aria-label="Resumo da seleção" hidden>
+  <div id="mobile-selected-bikes" class="mobile-selected-bikes" aria-hidden="true"></div>
+  <div class="mobile-comparison-copy">
+    <strong id="mobile-selection-count">0 de 3</strong>
+    <span id="mobile-selection-status">Selecione duas bicicletas</span>
+  </div>
+  <button id="mobile-compare-button" type="button" disabled>Comparar</button>
+</div>
+
 <script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
-<script src="{{ site.baseurl }}/assets/js/comparator.js?v=2"></script>
+<script src="{{ site.baseurl }}/assets/js/comparator.js?v=3"></script>

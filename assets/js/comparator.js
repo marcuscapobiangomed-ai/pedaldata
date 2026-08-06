@@ -31,10 +31,21 @@
     const bodyEl = document.getElementById('comparison-body')
     const conclusionEl = document.getElementById('comparison-veredict')
     const errorEl = document.getElementById('comparator-error')
+    const filterToggleEl = document.getElementById('filter-toggle')
+    const filtersEl = document.getElementById('catalog-filters')
+    const activeFilterCountEl = document.getElementById('active-filter-count')
+    const showMoreEl = document.getElementById('show-more-bikes')
+    const mobileBarEl = document.getElementById('mobile-comparison-bar')
+    const mobileSelectedEl = document.getElementById('mobile-selected-bikes')
+    const mobileCountEl = document.getElementById('mobile-selection-count')
+    const mobileStatusEl = document.getElementById('mobile-selection-status')
+    const mobileCompareEl = document.getElementById('mobile-compare-button')
+    const mobileResultsEl = document.getElementById('comparison-mobile-cards')
 
     let catalog
     const selectedIds = [null, null, null]
     let activeSlot = 0
+    let visibleLimit = 10
 
     try {
       catalog = await PedalData.utils.loadCatalog()
@@ -147,11 +158,14 @@
     function renderCatalog() {
       const visible = filteredBikes()
       countEl.textContent = `(${visible.length})`
+      const rendered = visible.slice(0, visibleLimit)
+      showMoreEl.hidden = visible.length <= rendered.length
+      showMoreEl.textContent = `Mostrar mais modelos (${visible.length - rendered.length})`
       if (!visible.length) {
         catalogEl.innerHTML = '<p class="catalog-no-results">Nenhum modelo corresponde aos filtros escolhidos.</p>'
         return
       }
-      catalogEl.innerHTML = visible.map(bike => {
+      catalogEl.innerHTML = rendered.map(bike => {
         const selectedIndex = selectedIds.indexOf(bike.id)
         const selected = selectedIndex >= 0
         return `<article class="catalog-bike-card${selected ? ' is-selected' : ''}">
@@ -190,10 +204,17 @@
 
     function updateAction() {
       const count = selectedIds.filter(Boolean).length
+      const selected = selectedIds.map(bikeById).filter(Boolean)
       clearEl.hidden = count === 0
       compareEl.disabled = count < 2
       compareEl.textContent = count < 2 ? 'Selecione duas bicicletas' : `Comparar ${count} bicicletas selecionadas`
       statusEl.textContent = count === 0 ? 'Nenhuma bicicleta selecionada.' : count === 1 ? 'Selecione mais uma bicicleta para comparar.' : `${count} bicicletas prontas para comparação.`
+      mobileBarEl.hidden = count === 0
+      mobileCountEl.textContent = `${count} de 3 selecionadas`
+      mobileStatusEl.textContent = count < 2 ? 'Escolha mais uma bike' : 'Pronto para comparar'
+      mobileCompareEl.disabled = count < 2
+      mobileCompareEl.textContent = count < 2 ? 'Comparar' : `Comparar ${count}`
+      mobileSelectedEl.innerHTML = selected.map(bike => `<img src="${escapeHtml(imageUrl(bike))}" alt="" width="42" height="42" loading="lazy">`).join('')
     }
 
     const LABELS = {
@@ -216,6 +237,14 @@
         const different = new Set(values).size > 1
         return `<tr><th scope="row" class="criteria-col">${escapeHtml(spec.label)}</th>${values.map(value => `<td${different ? ' class="diff-cell"' : ''}>${escapeHtml(value)}</td>`).join('')}</tr>`
       }).join('')
+      mobileResultsEl.innerHTML = Object.values(LABELS).map(spec => {
+        const values = selected.map(spec.fn)
+        const different = new Set(values).size > 1
+        return `<section class="mobile-criteria-card${different ? ' has-difference' : ''}">
+          <h3>${escapeHtml(spec.label)}</h3>
+          <div>${selected.map((bike, index) => `<p><span>${escapeHtml(bike.brand)} ${escapeHtml(bike.model)}</span><strong>${escapeHtml(values[index])}</strong></p>`).join('')}</div>
+        </section>`
+      }).join('')
       conclusionEl.innerHTML = `<div class="veredict-container"><i class="bi bi-info-circle" aria-hidden="true"></i><div><h3>Leitura responsável</h3><p>As diferenças acima usam somente dados confirmados no catálogo. “Não informado” significa que a informação ainda não foi integrada ou validada — não representa ausência do componente.</p></div></div>`
       resultsEl.hidden = false
       resultsEl.focus({ preventScroll: true })
@@ -236,7 +265,24 @@
     document.getElementById('verified-count').textContent = `${catalog.totalBikes || bikes.length} modelos verificados`
     document.getElementById('verified-date').textContent = formatDate(catalog.verifiedAt)
 
-    ;[searchEl, brandEl, categoryEl, yearEl].forEach(control => control.addEventListener(control === searchEl ? 'input' : 'change', renderCatalog))
+    function refreshFilters() {
+      visibleLimit = 10
+      const activeCount = [brandEl.value, categoryEl.value, yearEl.value].filter(Boolean).length
+      activeFilterCountEl.hidden = activeCount === 0
+      activeFilterCountEl.textContent = activeCount
+      renderCatalog()
+    }
+
+    searchEl.addEventListener('input', refreshFilters)
+    ;[brandEl, categoryEl, yearEl].forEach(control => control.addEventListener('change', refreshFilters))
+    filterToggleEl.addEventListener('click', () => {
+      const open = filtersEl.classList.toggle('is-open')
+      filterToggleEl.setAttribute('aria-expanded', String(open))
+    })
+    showMoreEl.addEventListener('click', () => {
+      visibleLimit += 10
+      renderCatalog()
+    })
     clearEl.addEventListener('click', () => {
       selectedIds.fill(null)
       activeSlot = 0
@@ -244,6 +290,7 @@
       renderAll()
     })
     compareEl.addEventListener('click', buildComparison)
+    mobileCompareEl.addEventListener('click', buildComparison)
     renderAll()
   })
 })()

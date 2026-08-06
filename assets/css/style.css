@@ -2024,6 +2024,9 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
 .catalog-toolbar select { padding: 0 34px 0 12px; }
 .catalog-search i { position: absolute; z-index: 1; top: 13px; left: 15px; color: var(--text-muted); }
 .catalog-toolbar input:focus, .catalog-toolbar select:focus, .comparison-slot:focus-visible, .catalog-bike-card button:focus-visible, .compare-button:focus-visible, .text-button:focus-visible { outline: 3px solid rgba(153,0,0,.28); outline-offset: 2px; }
+.filter-toggle, .mobile-comparison-bar, .comparison-mobile-cards { display: none; }
+.show-more-bikes { display: block; min-height: 44px; margin: 22px auto 0; padding: 10px 24px; border: 1px solid var(--text); border-radius: 3px; background: var(--bg-card); color: var(--text); font: 700 .78rem var(--font-body); text-transform: uppercase; cursor: pointer; }
+.show-more-bikes[hidden] { display: none; }
 .catalog-heading-row { margin-bottom: 10px; }
 .catalog-heading-row h3 { font-family: var(--font-heading); font-size: 1rem; letter-spacing: .4px; text-transform: uppercase; }
 .catalog-heading-row h3 span { color: var(--text-muted); }
@@ -2086,9 +2089,63 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
   .compare-button { width: 100%; min-width: 0; }
 }
 @media (max-width:600px) {
-  .comparison-catalog { grid-template-columns: 1fr; }
-  .catalog-bike-card button { min-height: 260px; }
-  .catalog-image { height: 145px; }
+  body { padding-bottom: 88px; }
+  .comparator-page-header { padding: 26px 0; }
+  .comparator-page-header h1 { font-size: 2rem; }
+  .comparator-section { padding-top: 26px; }
+  .comparator-intro { margin-bottom: 14px; }
+  .comparator-intro h2 { font-size: 1.55rem; }
+  .comparison-slots { display: flex; gap: 8px; margin: 0 -2px 18px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .comparison-slot { min-width: 104px; min-height: 112px; padding: 9px; scroll-snap-align: start; }
+  .slot-label { position: static; display: block; font-size: .58rem; white-space: nowrap; }
+  .slot-label b { display: block; margin: 2px 0 0; font-size: .52rem; }
+  .slot-empty-content { min-height: 74px; gap: 2px; }
+  .slot-empty-content i { width: 30px; height: 30px; margin: 2px 0; }
+  .slot-empty-content strong { font-size: .68rem; }
+  .slot-empty-content small { display: none; }
+  .comparison-slot-selected { display: flex; min-height: 92px; padding-top: 4px; align-items: flex-start; flex-direction: column; gap: 2px; }
+  .comparison-slot-selected img { width: 100%; height: 45px; order: 0; }
+  .comparison-slot-selected>strong { width: 100%; overflow: hidden; font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
+  .comparison-slot-selected>small { display: none; }
+  .comparison-slot-selected .product-brand { font-size: .52rem; }
+  .slot-remove { top: 4px; right: 4px; width: 44px; height: 44px; text-align: right; }
+  .filter-toggle { display: flex; width: 100%; min-height: 46px; margin-bottom: 10px; padding: 0 14px; align-items: center; gap: 9px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card); color: var(--text); font: 700 .8rem var(--font-body); text-transform: uppercase; }
+  .filter-toggle span { display: grid; width: 22px; height: 22px; margin-left: auto; place-items: center; border-radius: 50%; background: var(--accent-dark); color: #fff; font-size: .68rem; }
+  .catalog-toolbar { display: grid; margin-bottom: 14px; }
+  .catalog-toolbar label:not(.catalog-search) { display: none; }
+  .catalog-toolbar.is-open { margin-bottom: 18px; }
+  .catalog-toolbar.is-open label { display: block; }
+  .catalog-toolbar input, .catalog-toolbar select { min-height: 48px; font-size: .9rem; }
+  .catalog-heading-row { align-items: center; gap: 10px; }
+  .comparison-catalog { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+  .catalog-bike-card button { min-height: 226px; padding: 9px; }
+  .catalog-image { height: 92px; margin-bottom: 5px; }
+  .catalog-bike-card strong { min-height: 34px; font-size: .82rem; }
+  .catalog-meta { font-size: .68rem; line-height: 1.3; }
+  .verified-label { margin-top: 6px; font-size: .62rem; }
+  .catalog-price { padding-top: 6px; font-size: .88rem; }
+  .catalog-price small { font-size: .68rem; }
+  .catalog-card-check { width: 32px; height: 32px; }
+  .comparison-action { display: none; }
+  .mobile-comparison-bar { position: fixed; z-index: 90; right: 8px; bottom: 8px; left: 8px; display: grid; min-height: 68px; padding: 9px 10px; grid-template-columns: auto 1fr auto; align-items: center; gap: 9px; border: 1px solid #333; border-radius: 5px; background: #111; color: #fff; box-shadow: 0 8px 28px rgba(0,0,0,.28); }
+  .mobile-comparison-bar[hidden] { display: none; }
+  .mobile-selected-bikes { display: flex; }
+  .mobile-selected-bikes img { width: 38px; height: 38px; margin-left: -8px; border: 2px solid #fff; border-radius: 50%; background: #fff; object-fit: contain; }
+  .mobile-selected-bikes img:first-child { margin-left: 0; }
+  .mobile-comparison-copy { display: grid; min-width: 0; gap: 1px; }
+  .mobile-comparison-copy strong { font-size: .72rem; }
+  .mobile-comparison-copy span { overflow: hidden; color: #bbb; font-size: .64rem; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-comparison-bar>button { min-width: 88px; min-height: 46px; padding: 0 12px; border: 0; border-radius: 3px; background: var(--accent-dark); color: #fff; font: 700 .72rem var(--font-body); text-transform: uppercase; }
+  .mobile-comparison-bar>button:disabled { background: #555; color: #bbb; }
+  .comparison-table-scroll { display: none; }
+  .comparison-mobile-cards { display: grid; gap: 10px; }
+  .mobile-criteria-card { overflow: hidden; border: 1px solid var(--border-card); border-radius: 3px; background: var(--bg-card); }
+  .mobile-criteria-card h3 { padding: 10px 12px; background: var(--bg-dark); color: #fff; font-family: var(--font-heading); font-size: .84rem; text-transform: uppercase; }
+  .mobile-criteria-card p { display: grid; padding: 10px 12px; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 10px; border-top: 1px solid var(--border-card); }
+  .mobile-criteria-card p span { overflow: hidden; color: var(--text-muted); font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-criteria-card p strong { max-width: 155px; font-size: .78rem; text-align: right; }
+  .mobile-criteria-card.has-difference p { box-shadow: inset 3px 0 0 rgba(153,0,0,.45); }
+  .comparator-results { margin-top: 36px; }
 }
 
 .visually-hidden {
