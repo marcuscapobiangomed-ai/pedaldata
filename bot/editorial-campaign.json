@@ -311,9 +311,9 @@
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
+      "blockReason": "Artigo inválido:\nsections.12.heading: Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos.",
       "attempts": 1,
-      "lastAttemptAt": "2026-08-06T11:26:23.119Z",
-      "blockReason": "Artigo inválido:\nsections.12.heading: Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos."
+      "lastAttemptAt": "2026-08-06T11:26:23.119Z"
     },
     {
       "day": 11,
@@ -323,12 +323,14 @@
       "summary": "Leitura detalhada da plataforma Gen5, curso de 120 mm, transmissão sem fio, freios de quatro pistões e conjunto de rodas e pneus.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [
         "bicicleta-scott-spark-rc-expert-2027"
       ],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-06T15:18:40.648Z",
+      "blockReason": "Etapa draft falhou. groq: groq API: 429 - {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199832, Requested 7288. Please try again in 51m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n | deepseek: The operation was aborted due to timeout"
     },
     {
       "day": 12,

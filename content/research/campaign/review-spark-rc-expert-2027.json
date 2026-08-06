@@ -1,0 +1,45 @@
+{
+  "slug": "review-spark-rc-expert-2027",
+  "title": "Spark RC Expert 2027: suspensão Fox Factory e XT Di2 sob análise",
+  "content_type": "review",
+  "review_method": "desk-research",
+  "tested_by_pedaldata": false,
+  "market": "Brasil",
+  "generated_at": "2026-08-06",
+  "status": "pesquisa_concluida",
+  "sources": [
+    {
+      "name": "The Biker Shop – página do produto Scott Spark RC Expert 2027",
+      "url": "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-expert-2027/",
+      "accessed": "2026-08-06",
+      "type": "store"
+    },
+    {
+      "name": "Scott – página oficial do modelo Spark RC Expert 2027",
+      "url": "https://www.scott-sports.com/global/en/product/scott-spark-rc-expert-bike",
+      "accessed": "2026-08-06",
+      "type": "manufacturer"
+    }
+  ],
+  "editorialPriority": "P1",
+  "confirmed_facts": {
+    "travel": "120 mm de curso dianteiro e traseiro【10†L85-L88】",
+    "suspension": "Fox 34SL Factory Grip SL com tratamento Kashima na dianteira e Fox Float Factory EVOL Kashima no amortecedor traseiro【10†L91-L98】",
+    "twinloc": "Controle remoto SCOTT TwinLoc com três modos de suspensão【10†L100-L103】",
+    "drivetrain": "Transmissão eletrônica sem fio Shimano XT Di2 de 12 velocidades【10†L106-L110】",
+    "brakes": "Freios Shimano Deore de quatro pistões【10†L132-L135】",
+    "wheelset": "Rodas Syncros Silverton AL2, tubeless‑ready, 30 mm de largura【10†L165-L168】",
+    "tires": "Pneus Maxxis Aspen 29×2.4 in, EXO, tubeless‑ready【10†L170-L176】",
+    "weight": "Peso aproximado de 11,8 kg (configuração tubeless)【10†L186-L188】"
+  },
+  "limitations": [
+    "Especificações podem ser alteradas pelo fabricante sem aviso prévio.",
+    "Preço e disponibilidade podem variar entre lojas e regiões.",
+    "Os dados de peso referem‑se à configuração padrão tubeless; acessórios adicionais alteram o valor."
+  ],
+  "grounding": {
+    "queries": [],
+    "sourceCount": 2,
+    "provider": "groq-browser-search"
+  }
+}
