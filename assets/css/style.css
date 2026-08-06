@@ -2409,7 +2409,8 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
   text-transform: uppercase;
 }
 
-.brand-featured { padding-top: 72px; padding-bottom: 74px; }
+.brand-latest { padding-top: 72px; padding-bottom: 74px; }
+.brand-featured { padding-top: 70px; padding-bottom: 74px; border-top: 1px solid #dedede; }
 .brand-feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .brand-story-image { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #eee; }
 .brand-story-image img,
@@ -2545,7 +2546,8 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
   .brand-hero h1 { margin-top: 15px; font-size: clamp(2.7rem, 13vw, 4rem); }
   .brand-hero p { max-width: 94%; font-size: 0.9rem; }
   .brand-hero-meta { position: static; margin-top: 18px; }
-  .brand-featured { padding-top: 48px; padding-bottom: 52px; }
+  .brand-latest { padding-top: 48px; padding-bottom: 52px; }
+  .brand-featured { padding-top: 50px; padding-bottom: 52px; }
   .brand-feature-grid { grid-template-columns: 1fr; gap: 42px; }
   .brand-story-card:last-child { grid-column: auto; max-width: none; }
   .brand-guides { padding-top: 50px; padding-bottom: 60px; }

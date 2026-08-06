@@ -4,6 +4,7 @@ title: Início
 ---
 
 {% assign published_posts = site.posts | where_exp: "p", "p.status != 'draft'" %}
+{% assign recent_posts = published_posts | slice: 0, 4 %}
 {% assign hero_post = published_posts | where_exp: "p", "p.title contains 'conhecimento técnico'" | first %}
 {% assign carbon_post = published_posts | where_exp: "p", "p.title contains 'Carbono vs Alumínio'" | first %}
 {% assign wheels_post = published_posts | where_exp: "p", "p.title contains 'Rodas de Carbono Custo-Benefício'" | first %}
@@ -28,6 +29,25 @@ title: Início
           <span>Artigo</span>
         </div>
       {% endif %}
+    </div>
+  </section>
+
+  <section class="brand-latest container" aria-labelledby="latest-title">
+    <div class="brand-section-heading">
+      <h2 id="latest-title">Posts mais recentes</h2>
+      <a href="{{ site.baseurl }}/categorias">Ver todos os posts <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="brand-guide-grid">
+      {% for post in recent_posts %}
+      <article class="brand-guide-card">
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <img src="{{ site.baseurl }}{{ post.thumbnail | default: post.image }}" alt="{{ post.image_alt | default: post.title | escape }}" width="900" height="600" loading="lazy">
+        </a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+        <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      </article>
+      {% endfor %}
     </div>
   </section>
 

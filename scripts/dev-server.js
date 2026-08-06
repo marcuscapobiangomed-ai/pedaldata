@@ -36,6 +36,7 @@ const page = { ...parseDocument(read("index.html")).data, url: "/" };
 const context = {
   site,
   page,
+  recent_posts: posts.slice(0, 4),
   hero_post: findPost("Tendências em Bikes"),
   carbon_post: findPost("Carbono vs Alumínio"),
   wheels_post: findPost("Rodas de Carbono Custo-Benefício"),
