@@ -247,6 +247,7 @@
       }).join('')
       conclusionEl.innerHTML = `<div class="veredict-container"><i class="bi bi-info-circle" aria-hidden="true"></i><div><h3>Leitura responsável</h3><p>As diferenças acima usam somente dados confirmados no catálogo. “Não informado” significa que a informação ainda não foi integrada ou validada — não representa ausência do componente.</p></div></div>`
       resultsEl.hidden = false
+      mobileBarEl.hidden = true
       resultsEl.focus({ preventScroll: true })
       resultsEl.scrollIntoView({ behavior: 'auto', block: 'start' })
       if (typeof PedalData.trackCompareComplete === 'function') PedalData.trackCompareComplete(selected.map(bike => bike.id))

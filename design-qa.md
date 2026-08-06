@@ -2,7 +2,7 @@
 
 - Source visual: `screenshots/comparator-option-1-mobile.png`
 - Target viewport: 390 x 844 CSS px
-- Published checkpoint: `https://marcuscapobiangomed-ai.github.io/pedaldata/comparar/?v=6a9a252-final`
+- Published checkpoint: `https://marcuscapobiangomed-ai.github.io/pedaldata/comparar/`
 - Build artifact: GitHub Pages run `31099476096`
 
 ## Implemented scope
@@ -20,18 +20,22 @@
 - Full repository validation passed after the implementation.
 - Production Jekyll artifact contains the new markup, CSS and JavaScript contracts.
 - GitHub Pages build and deployment completed successfully.
-- Published HTML exposes the v4 comparator script, mobile selection bar and progressive catalog control.
+- Published HTML exposes the comparator script, mobile selection bar and progressive catalog control.
 
 ## Visual comparison evidence
 
-Blocked. The Codex in-app browser and Chrome surface are unavailable in this session, so a current rendered mobile screenshot could not be captured and compared with the source image. HTTP checks and deployment success do not replace visual verification.
+Real iPhone captures supplied by the user on 2026-08-06:
 
-## Interaction verification gaps
+- `screenshots/comparator-mobile-01-one-selected.jpg`: one selected bike, disabled CTA and two empty slots.
+- `screenshots/comparator-mobile-02-two-selected.jpg`: two selected bikes, enabled CTA and optional third slot.
+- `screenshots/comparator-mobile-03-results.jpg`: three-bike comparison rendered as criterion cards without horizontal overflow.
 
-- Confirm the compact slots at 390 x 844.
-- Confirm filter disclosure, ten-card initial limit and `Mostrar mais` progression.
-- Confirm first and second selections update the fixed bar and enable its CTA.
-- Confirm completed comparison renders criterion cards without horizontal overflow.
-- Check browser console warnings and errors during the full flow.
+The captures confirm the compact three-slot shelf, visible search, collapsed advanced filters, two-column catalog, fixed selection summary and mobile criterion cards. They also exposed a redundant fixed `Comparar 3` action over the completed result; the bar is now hidden when the result opens.
 
-final result: blocked
+## Remaining verification gaps
+
+- The captures prove the 1-, 2- and 3-bike visual states, but not keyboard, screen-reader or zoom behavior.
+- Filter disclosure, search and `Mostrar mais` progression were not captured.
+- Browser console warnings and errors cannot be checked from phone screenshots.
+
+final result: passed with named interaction limits
