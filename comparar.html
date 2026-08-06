@@ -4,54 +4,83 @@ title: Comparador de Bicicletas
 permalink: /comparar/
 ---
 
-<section class="page-header">
-  <div class="container">
-    <h1>Comparador de Bicicletas</h1>
-    <p class="page-subtitle">Compare até 3 bicicletas lado a lado com dados da base The Biker Blog</p>
+<section class="page-header comparator-page-header">
+  <div class="container comparator-heading-row">
+    <div>
+      <h1>Comparador de Bicicletas</h1>
+      <p class="page-subtitle">Escolha 2 ou 3 modelos e compare os dados confirmados lado a lado.</p>
+    </div>
+    <div class="comparator-trust" aria-label="Situação dos dados do catálogo">
+      <strong><i class="bi bi-shield-check" aria-hidden="true"></i> <span id="verified-count">Modelos verificados</span></strong>
+      <span id="verified-date">Dados verificados recentemente</span>
+      <small>Preços e disponibilidade podem mudar.</small>
+    </div>
   </div>
 </section>
 
-<section class="comparator-section">
+<section class="comparator-section" aria-labelledby="selection-title">
   <div class="container">
-    <div class="comparator-controls">
-      <div class="comparator-selectors">
-        <div class="comparator-slot" data-slot="0">
-          <label for="bike-select-1">Bicicleta 1</label>
-          <select id="bike-select-1" class="bike-select" data-slot="0">
-            <option value="">Selecione uma bicicleta</option>
-          </select>
-        </div>
-        <div class="comparator-slot" data-slot="1">
-          <label for="bike-select-2">Bicicleta 2</label>
-          <select id="bike-select-2" class="bike-select" data-slot="1">
-            <option value="">Selecione uma bicicleta</option>
-          </select>
-        </div>
-        <div class="comparator-slot" data-slot="2">
-          <label for="bike-select-3">Bicicleta 3 (opcional)</label>
-          <select id="bike-select-3" class="bike-select" data-slot="2">
-            <option value="">Selecione uma bicicleta</option>
-          </select>
-        </div>
+    <div class="comparator-intro">
+      <div>
+        <span class="comparator-kicker">Monte sua comparação</span>
+        <h2 id="selection-title">Selecione as bicicletas</h2>
       </div>
+      <p>Os dois primeiros campos são obrigatórios. A terceira bicicleta é opcional.</p>
     </div>
 
-    <div id="comparator-results" class="comparator-results" style="display:none;">
-      <table class="comparison-table">
-        <thead id="comparison-header">
-          <tr>
-            <th class="criteria-col">Critério</th>
-          </tr>
-        </thead>
-        <tbody id="comparison-body">
-        </tbody>
-      </table>
+    <div id="comparison-slots" class="comparison-slots" aria-label="Bicicletas selecionadas"></div>
+
+    <div class="catalog-toolbar" aria-label="Filtros do catálogo">
+      <label class="catalog-search">
+        <span class="sr-only">Buscar por marca ou modelo</span>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input id="catalog-search" type="search" placeholder="Buscar por marca ou modelo..." autocomplete="off">
+      </label>
+      <label>
+        <span class="sr-only">Filtrar por marca</span>
+        <select id="brand-filter"><option value="">Marca: Todas</option></select>
+      </label>
+      <label>
+        <span class="sr-only">Filtrar por categoria</span>
+        <select id="category-filter"><option value="">Categoria: Todas</option></select>
+      </label>
+      <label>
+        <span class="sr-only">Filtrar por ano</span>
+        <select id="year-filter"><option value="">Ano: Todos</option></select>
+      </label>
+    </div>
+
+    <div class="catalog-heading-row">
+      <h3>Modelos disponíveis <span id="catalog-result-count"></span></h3>
+      <button id="clear-comparison" class="text-button" type="button" hidden>Limpar seleção</button>
+    </div>
+    <div id="comparison-catalog" class="comparison-catalog" aria-live="polite"></div>
+
+    <div class="comparison-action">
+      <button id="compare-button" class="compare-button" type="button" disabled>
+        Selecione duas bicicletas
+      </button>
+      <p id="selection-status" role="status" aria-live="polite">Nenhuma bicicleta selecionada.</p>
+    </div>
+
+    <div id="comparator-results" class="comparator-results" hidden tabindex="-1">
+      <div class="comparison-results-heading">
+        <div>
+          <span class="comparator-kicker">Comparação técnica</span>
+          <h2>Diferenças entre os modelos</h2>
+        </div>
+        <p>Campos sem confirmação aparecem como “Não informado”.</p>
+      </div>
+      <div class="comparison-table-scroll">
+        <table class="comparison-table">
+          <thead id="comparison-header"></thead>
+          <tbody id="comparison-body"></tbody>
+        </table>
+      </div>
       <div id="comparison-veredict" class="comparison-veredict"></div>
     </div>
 
-    <div id="comparator-empty" class="comparator-empty" role="status" aria-live="polite">
-      <p>Selecione pelo menos duas bicicletas para comparar.</p>
-    </div>
+    <div id="comparator-error" class="comparator-empty" role="alert" hidden></div>
   </div>
 </section>
 

@@ -23,6 +23,7 @@ const bikes = fs.readdirSync(productsDir).filter((name) => name.endsWith('.json'
     frameMaterial: product.frame?.material || null,
     groupset: product.drivetrain?.groupset || null, speeds: product.drivetrain?.speeds || null,
     shifting: product.drivetrain?.shifting || null, brakeType: product.brakes?.type || null,
+    image: product.image || null,
     slug: `${product.brand.toLowerCase()}/${product.id.replace(/-br$/, '')}`,
     storeProductUrl: product.storeProductUrl, portfolioVerifiedAt: product.portfolioVerifiedAt }))
   .sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`, 'pt-BR'))

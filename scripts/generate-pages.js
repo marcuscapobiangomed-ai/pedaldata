@@ -14,7 +14,8 @@ const descriptions = {
   'road-aero': 'classificada no catálogo como road aero.',
   'road-climbing': 'classificada no catálogo como road climbing.',
   'road-allround': 'classificada no catálogo como road all-round.',
-  'gravel': 'classificada no catálogo como gravel.'
+  'gravel': 'classificada no catálogo como gravel.',
+  'mtb-cross-country': 'classificada no catálogo como mountain bike cross-country.'
 }
 
 let count = 0
@@ -24,7 +25,7 @@ for (const bike of catalog.bikes) {
     mkdirSync(basePath, { recursive: true })
   }
 
-  const catDesc = descriptions[bike.category] || ''
+  const catDesc = descriptions[bike.category] || `classificada no catálogo como ${String(bike.category).replace(/-/g, ' ')}.`
 
   const content = `---
 layout: product/bike

@@ -2,147 +2,230 @@
   'use strict'
 
   const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+  const CATEGORY_LABELS = {
+    'road-endurance': 'Estrada endurance',
+    'road-race': 'Estrada performance',
+    'mtb-cross-country': 'MTB cross-country'
+  }
 
   document.addEventListener('DOMContentLoaded', async function() {
     const container = document.querySelector('.comparator-section')
     if (!container) return
 
-    const selects = container.querySelectorAll('.bike-select')
-    const resultsDiv = document.getElementById('comparator-results')
-    const emptyDiv = document.getElementById('comparator-empty')
-    const headerRow = document.getElementById('comparison-header')
+    const slotsEl = document.getElementById('comparison-slots')
+    const catalogEl = document.getElementById('comparison-catalog')
+    const searchEl = document.getElementById('catalog-search')
+    const brandEl = document.getElementById('brand-filter')
+    const categoryEl = document.getElementById('category-filter')
+    const yearEl = document.getElementById('year-filter')
+    const countEl = document.getElementById('catalog-result-count')
+    const clearEl = document.getElementById('clear-comparison')
+    const compareEl = document.getElementById('compare-button')
+    const statusEl = document.getElementById('selection-status')
+    const resultsEl = document.getElementById('comparator-results')
+    const headerEl = document.getElementById('comparison-header')
     const bodyEl = document.getElementById('comparison-body')
-    const veredictEl = document.getElementById('comparison-veredict')
+    const conclusionEl = document.getElementById('comparison-veredict')
+    const errorEl = document.getElementById('comparator-error')
 
     let catalog
+    const selectedIds = [null, null, null]
+    let activeSlot = 0
+
     try {
       catalog = await PedalData.utils.loadCatalog()
       if (!catalog || !Array.isArray(catalog.bikes)) throw new Error('Catálogo inválido')
     } catch (error) {
       console.error(error)
-      emptyDiv.innerHTML = '<p>Não foi possível carregar os dados do comparador. Tente novamente mais tarde.</p>'
+      errorEl.hidden = false
+      errorEl.textContent = 'Não foi possível carregar os dados do comparador. Tente novamente mais tarde.'
       return
     }
 
-    function populateSelects() {
-      const sorted = catalog.bikes.slice().sort((a, b) => {
-        if (a.brand !== b.brand) return a.brand.localeCompare(b.brand)
-        return a.model.localeCompare(b.model)
+    const bikes = catalog.bikes.slice().sort((a, b) => `${a.brand} ${a.model}`.localeCompare(`${b.brand} ${b.model}`, 'pt-BR'))
+
+    function escapeHtml(value) {
+      return String(value == null ? '' : value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char])
+    }
+
+    function imageUrl(bike) {
+      if (!bike.image) return ''
+      return bike.image.startsWith('http') ? bike.image : `${BASE}${bike.image}`
+    }
+
+    function categoryLabel(category) {
+      return CATEGORY_LABELS[category] || String(category || 'Categoria não informada').replace(/-/g, ' ')
+    }
+
+    function formatPrice(price) {
+      return price ? `R$ ${Number(price).toLocaleString('pt-BR')}` : 'Preço não informado'
+    }
+
+    function formatDate(date) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) return 'Data de verificação não informada'
+      return `Dados conferidos em ${new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`))}`
+    }
+
+    function bikeById(id) {
+      return bikes.find(bike => bike.id === id)
+    }
+
+    function populateFilter(select, values, prefix) {
+      values.forEach(value => {
+        const option = document.createElement('option')
+        option.value = value
+        option.textContent = `${prefix}: ${value}`
+        select.appendChild(option)
       })
-      selects.forEach(sel => {
-        sel.innerHTML = '<option value="">Selecione uma bicicleta</option>'
-        sorted.forEach(b => {
-          const opt = document.createElement('option')
-          opt.value = b.id
-          opt.textContent = `${b.brand} ${b.model} (${b.year})`
-          sel.appendChild(opt)
+    }
+
+    function renderSlots() {
+      slotsEl.innerHTML = selectedIds.map((id, index) => {
+        const bike = bikeById(id)
+        const optional = index === 2
+        const active = activeSlot === index ? ' is-active' : ''
+        if (!bike) {
+          return `<button class="comparison-slot comparison-slot-empty${active}" type="button" data-slot="${index}" aria-label="Selecionar bicicleta ${index + 1}${optional ? ', opcional' : ''}">
+            <span class="slot-label">Bicicleta ${index + 1} <b>${optional ? 'Opcional' : 'Obrigatória'}</b></span>
+            <span class="slot-empty-content"><i class="bi bi-plus-lg" aria-hidden="true"></i><strong>Selecionar bicicleta</strong><small>${optional ? 'Adicione se quiser comparar três modelos' : 'Escolha um modelo no catálogo abaixo'}</small></span>
+          </button>`
+        }
+        return `<article class="comparison-slot comparison-slot-selected${active}" data-slot="${index}">
+          <span class="slot-label">Bicicleta ${index + 1} <b>${optional ? 'Opcional' : 'Selecionada'}</b></span>
+          <button class="slot-remove" type="button" data-remove-slot="${index}" aria-label="Remover ${escapeHtml(bike.brand)} ${escapeHtml(bike.model)}"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+          <img src="${escapeHtml(imageUrl(bike))}" alt="${escapeHtml(bike.brand)} ${escapeHtml(bike.model)}" width="320" height="200">
+          <span class="product-brand">${escapeHtml(bike.brand)}</span>
+          <strong>${escapeHtml(bike.model)}</strong>
+          <small>${escapeHtml(bike.year)} · ${escapeHtml(categoryLabel(bike.category))}</small>
+        </article>`
+      }).join('')
+
+      slotsEl.querySelectorAll('[data-slot]').forEach(slot => {
+        slot.addEventListener('click', event => {
+          if (event.target.closest('[data-remove-slot]')) return
+          activeSlot = Number(slot.dataset.slot)
+          renderSlots()
+        })
+      })
+      slotsEl.querySelectorAll('[data-remove-slot]').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = Number(button.dataset.removeSlot)
+          selectedIds[index] = null
+          activeSlot = index
+          resultsEl.hidden = true
+          renderAll()
         })
       })
     }
 
-    const LABELS = {
-      brand: { label: 'Marca', fn: b => b.brand },
-      model: { label: 'Modelo', fn: b => b.model },
-      category: { label: 'Categoria', fn: b => b.category ? b.category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '-' },
-      frameMaterial: { label: 'Material do quadro', fn: b => b.frameMaterial ? (b.frameMaterial.charAt(0).toUpperCase() + b.frameMaterial.slice(1)) : '-' },
-      groupset: { label: 'Grupo', fn: b => b.groupset || '-' },
-      speeds: { label: 'Velocidades', fn: b => b.speeds ? `${b.speeds}v` : '-' },
-      shifting: { label: 'Transmissão', fn: b => b.shifting ? b.shifting.charAt(0).toUpperCase() + b.shifting.slice(1) : '-' },
-      brakeType: { label: 'Freios', fn: b => b.brakeType ? b.brakeType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '-' },
-      weightKg: { label: 'Peso declarado', fn: b => b.weightKg ? `${b.weightKg} kg` : '-' },
-      price: { label: 'Menor preço', fn: b => PedalData.commerceEnabled && b.priceLowest ? `R$ ${b.priceLowest.toLocaleString('pt-BR')}` : 'Em revisão' }
+    function filteredBikes() {
+      const term = searchEl.value.trim().toLocaleLowerCase('pt-BR')
+      return bikes.filter(bike => {
+        const matchesTerm = !term || `${bike.brand} ${bike.model}`.toLocaleLowerCase('pt-BR').includes(term)
+        return matchesTerm && (!brandEl.value || bike.brand === brandEl.value) && (!categoryEl.value || bike.category === categoryEl.value) && (!yearEl.value || String(bike.year) === yearEl.value)
+      })
     }
 
-    function getValue(bike, key) {
-      return LABELS[key].fn(bike)
-    }
-
-    function buildComparison(selectedIds) {
-      const bikes = selectedIds.map(id => catalog.bikes.find(b => b.id === id)).filter(Boolean)
-      if (bikes.length < 2) {
-        resultsDiv.style.display = 'none'
-        emptyDiv.style.display = 'block'
+    function renderCatalog() {
+      const visible = filteredBikes()
+      countEl.textContent = `(${visible.length})`
+      if (!visible.length) {
+        catalogEl.innerHTML = '<p class="catalog-no-results">Nenhum modelo corresponde aos filtros escolhidos.</p>'
         return
       }
-
-      resultsDiv.style.display = 'block'
-      emptyDiv.style.display = 'none'
-
-      const headerCells = bikes.map((b, i) => `<th class="bike-col bike-col-${i}">${b.brand}<br><small>${b.model}</small></th>`).join('')
-      headerRow.innerHTML = `<tr><th class="criteria-col">Critério</th>${headerCells}</tr>`
-
-      let bodyHtml = ''
-      for (const [key, spec] of Object.entries(LABELS)) {
-        const values = bikes.map(b => getValue(b, key))
-        const isDifferent = new Set(values).size > 1
-        const cells = values.map((v, i) => {
-          const highlight = isDifferent ? ' class="diff-cell"' : ''
-          return `<td${highlight}>${v}</td>`
-        }).join('')
-        bodyHtml += `<tr><td class="criteria-col">${spec.label}</td>${cells}</tr>`
-      }
-
-      bodyEl.innerHTML = bodyHtml
-
-      buildVeredict(bikes)
+      catalogEl.innerHTML = visible.map(bike => {
+        const selectedIndex = selectedIds.indexOf(bike.id)
+        const selected = selectedIndex >= 0
+        return `<article class="catalog-bike-card${selected ? ' is-selected' : ''}">
+          <button type="button" data-bike-id="${escapeHtml(bike.id)}" aria-pressed="${selected}" aria-label="${selected ? 'Remover' : 'Selecionar'} ${escapeHtml(bike.brand)} ${escapeHtml(bike.model)}">
+            <span class="catalog-card-check"><i class="bi ${selected ? 'bi-check-lg' : 'bi-plus-lg'}" aria-hidden="true"></i></span>
+            <span class="catalog-image"><img src="${escapeHtml(imageUrl(bike))}" alt="" width="360" height="220" loading="lazy"></span>
+            <span class="product-brand">${escapeHtml(bike.brand)}</span>
+            <strong>${escapeHtml(bike.model)}</strong>
+            <span class="catalog-meta">${escapeHtml(bike.year)} · ${escapeHtml(categoryLabel(bike.category))}</span>
+            <span class="verified-label"><i class="bi bi-check-circle" aria-hidden="true"></i> Dados verificados</span>
+            <span class="catalog-price">${escapeHtml(formatPrice(bike.priceLowest))}<small>Preço observado</small></span>
+          </button>
+        </article>`
+      }).join('')
+      catalogEl.querySelectorAll('[data-bike-id]').forEach(button => {
+        button.addEventListener('click', () => toggleBike(button.dataset.bikeId))
+      })
     }
 
-    function buildVeredict(bikes) {
-      const lowestWeight = Math.min(...bikes.map(b => b.weightKg || Infinity))
-      const highestWeight = Math.max(...bikes.map(b => b.weightKg || 0))
-      const cheapest = PedalData.commerceEnabled ? Math.min(...bikes.map(b => b.priceLowest || Infinity)) : Infinity
-      const electronic = bikes.filter(b => b.shifting === 'electronic' || b.shifting === 'wireless')
-      const mechanical = bikes.filter(b => b.shifting === 'mechanical')
-
-      let html = '<div class="veredict-container"><h4>Conclusão por perfil</h4><ul>'
-
-      const lightest = bikes.find(b => b.weightKg === lowestWeight)
-      if (lightest) html += `<li><strong>Melhor para baixo peso:</strong> ${lightest.brand} ${lightest.model} — ${lightest.weightKg} kg</li>`
-
-      const bestValue = PedalData.commerceEnabled ? bikes.find(b => b.priceLowest === cheapest) : null
-      if (bestValue) html += `<li><strong>Melhor custo-benefício:</strong> ${bestValue.brand} ${bestValue.model} — menor preço da comparação</li>`
-
-      if (electronic.length > 0) {
-        html += `<li><strong>Melhor transmissão:</strong> ${electronic.map(b => `${b.brand} ${b.model} (${b.shifting})`).join(', ')}</li>`
-      }
-
-      if (bikes.some(b => b.category === 'road-endurance')) {
-        const endurance = bikes.filter(b => b.category === 'road-endurance')
-        html += `<li><strong>Melhor para conforto:</strong> ${endurance.map(b => `${b.brand} ${b.model}`).join(', ')} — geometria endurance</li>`
-      }
-
-      html += '</ul>'
-      html += '<p class="veredict-note">Conclusão baseada nos dados disponíveis na base The Biker Blog. Consulte sempre um especialista.</p>'
-      html += '</div>'
-      veredictEl.innerHTML = html
-    }
-
-    function onSelectChange() {
-      const selected = Array.from(selects).map(s => s.value).filter(v => v)
-      if (selected.length >= 2) {
-        buildComparison(selected)
-        if (typeof PedalData.trackCompareComplete === 'function') {
-          PedalData.trackCompareComplete(selected)
-        }
+    function toggleBike(id) {
+      const existing = selectedIds.indexOf(id)
+      if (existing >= 0) {
+        selectedIds[existing] = null
+        activeSlot = existing
       } else {
-        resultsDiv.style.display = 'none'
-        emptyDiv.style.display = 'block'
+        let target = selectedIds[activeSlot] ? selectedIds.indexOf(null) : activeSlot
+        if (target < 0) target = activeSlot
+        selectedIds[target] = id
+        activeSlot = Math.min(selectedIds.indexOf(null) >= 0 ? selectedIds.indexOf(null) : target, 2)
+        const bike = bikeById(id)
+        if (bike && typeof PedalData.trackCompareAdd === 'function') PedalData.trackCompareAdd(bike.id, bike.brand, bike.model)
       }
+      resultsEl.hidden = true
+      renderAll()
     }
 
-    function onSelectFocus(e) {
-      if (e.target.value && typeof PedalData.trackCompareAdd === 'function') {
-        const bike = catalog.bikes.find(b => b.id === e.target.value)
-        if (bike) {
-          PedalData.trackCompareAdd(bike.id, bike.brand, bike.model)
-        }
-      }
+    function updateAction() {
+      const count = selectedIds.filter(Boolean).length
+      clearEl.hidden = count === 0
+      compareEl.disabled = count < 2
+      compareEl.textContent = count < 2 ? 'Selecione duas bicicletas' : `Comparar ${count} bicicletas selecionadas`
+      statusEl.textContent = count === 0 ? 'Nenhuma bicicleta selecionada.' : count === 1 ? 'Selecione mais uma bicicleta para comparar.' : `${count} bicicletas prontas para comparação.`
     }
 
-    populateSelects()
-    selects.forEach(s => {
-      s.addEventListener('change', onSelectChange)
-      s.addEventListener('focus', onSelectFocus)
+    const LABELS = {
+      category: { label: 'Categoria', fn: bike => categoryLabel(bike.category) },
+      frameMaterial: { label: 'Material do quadro', fn: bike => bike.frameMaterial ? bike.frameMaterial.charAt(0).toUpperCase() + bike.frameMaterial.slice(1) : 'Não informado' },
+      groupset: { label: 'Grupo', fn: bike => bike.groupset || 'Não informado' },
+      speeds: { label: 'Velocidades', fn: bike => bike.speeds ? `${bike.speeds}v` : 'Não informado' },
+      shifting: { label: 'Transmissão', fn: bike => bike.shifting ? bike.shifting.replace(/-/g, ' ') : 'Não informado' },
+      brakeType: { label: 'Freios', fn: bike => bike.brakeType ? bike.brakeType.replace(/-/g, ' ') : 'Não informado' },
+      weightKg: { label: 'Peso declarado', fn: bike => bike.weightKg ? `${bike.weightKg} kg` : 'Não informado' },
+      price: { label: 'Preço observado', fn: bike => formatPrice(bike.priceLowest) }
+    }
+
+    function buildComparison() {
+      const selected = selectedIds.map(bikeById).filter(Boolean)
+      if (selected.length < 2) return
+      headerEl.innerHTML = `<tr><th class="criteria-col">Critério</th>${selected.map(bike => `<th><img src="${escapeHtml(imageUrl(bike))}" alt="" width="160" height="100"><span>${escapeHtml(bike.brand)}</span><strong>${escapeHtml(bike.model)}</strong></th>`).join('')}</tr>`
+      bodyEl.innerHTML = Object.values(LABELS).map(spec => {
+        const values = selected.map(spec.fn)
+        const different = new Set(values).size > 1
+        return `<tr><th scope="row" class="criteria-col">${escapeHtml(spec.label)}</th>${values.map(value => `<td${different ? ' class="diff-cell"' : ''}>${escapeHtml(value)}</td>`).join('')}</tr>`
+      }).join('')
+      conclusionEl.innerHTML = `<div class="veredict-container"><i class="bi bi-info-circle" aria-hidden="true"></i><div><h3>Leitura responsável</h3><p>As diferenças acima usam somente dados confirmados no catálogo. “Não informado” significa que a informação ainda não foi integrada ou validada — não representa ausência do componente.</p></div></div>`
+      resultsEl.hidden = false
+      resultsEl.focus({ preventScroll: true })
+      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (typeof PedalData.trackCompareComplete === 'function') PedalData.trackCompareComplete(selected.map(bike => bike.id))
+    }
+
+    function renderAll() {
+      renderSlots()
+      renderCatalog()
+      updateAction()
+    }
+
+    populateFilter(brandEl, [...new Set(bikes.map(bike => bike.brand))].sort(), 'Marca')
+    populateFilter(categoryEl, [...new Set(bikes.map(bike => bike.category))].sort(), 'Categoria')
+    Array.from(categoryEl.options).slice(1).forEach(option => { option.textContent = `Categoria: ${categoryLabel(option.value)}` })
+    populateFilter(yearEl, [...new Set(bikes.map(bike => String(bike.year)))].sort().reverse(), 'Ano')
+    document.getElementById('verified-count').textContent = `${catalog.totalBikes || bikes.length} modelos verificados`
+    document.getElementById('verified-date').textContent = formatDate(catalog.verifiedAt)
+
+    ;[searchEl, brandEl, categoryEl, yearEl].forEach(control => control.addEventListener(control === searchEl ? 'input' : 'change', renderCatalog))
+    clearEl.addEventListener('click', () => {
+      selectedIds.fill(null)
+      activeSlot = 0
+      resultsEl.hidden = true
+      renderAll()
     })
+    compareEl.addEventListener('click', buildComparison)
+    renderAll()
   })
 })()
