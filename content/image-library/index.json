@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-05T20:23:11.249Z",
+  "updatedAt": "2026-08-07T14:42:10.707Z",
   "assets": [
     {
       "assetId": "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a",
@@ -203,6 +203,23 @@
           "postId": "melhores-apps-treino-ciclismo-2026",
           "position": "hero",
           "usedAt": "2026-08-05T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "assetId": "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda-3089622e12",
+      "sha256": "3089622e123d7e3c5cf1edf0888c74c9df6672134cc2b35f4e5f923846e23d8d",
+      "perceptualHash": "1111111100111111111111111100111111000000100000001111111111111111",
+      "sourcePageUrl": "https://www.scott-sports.com/global/en/product/scott-addict-rc-pro-bike",
+      "sourceFileUrl": "https://static.scott-sports.com/image/upload/v1779976553/2217847.png",
+      "productId": "bicicleta-scott-addict-rc-pro-di2-2026-pre-venda",
+      "productName": "Bicicleta Scott Addict RC Pró Di2 2026 - Pré Venda",
+      "rightsPolicyId": "official-brand-editorial-v1",
+      "uses": [
+        {
+          "postId": "addict-rc-20-vs-pro",
+          "position": "hero",
+          "usedAt": "2026-08-07T12:00:00.000Z"
         }
       ]
     }

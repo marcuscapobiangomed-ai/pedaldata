@@ -1,0 +1,14 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "searchConsoleSiteUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/",
+  "contentIndexUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json",
+  "githubOwner": "marcuscapobiangomed-ai",
+  "githubRepository": "thebikerblog",
+  "youtubeQuery": "ciclismo|mountain bike|MTB|bike fit|suspensão bike|Scott bike|Shimano bike|SRAM bike",
+  "portfolioBrands": ["Scott", "Shimano", "SRAM", "Syncros", "Fox", "RockShox"],
+  "blockedPromotionBrands": ["Trek", "Specialized", "Cannondale", "Cervélo", "Giant", "BMC", "Pinarello"],
+  "minimumImpressions": 5,
+  "weeklyMaximumBriefs": 8,
+  "monthlyMaximumBriefs": 15,
+  "monthlyRefreshAfterDays": 90
+}

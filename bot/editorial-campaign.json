@@ -355,10 +355,15 @@
       "summary": "Comparação entre Ultegra e Dura-Ace Di2, rodas, cockpit, pneus, peso declarado e custo observado na TheBiker.",
       "category": "comparativo",
       "freshness": "revalidate-24h",
-      "status": "blocked",
-      "productIds": [],
+      "status": "scheduled",
+      "productIds": [
+        "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
+        "bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
+      ],
       "postPath": "_posts/drafts/2026-08-17-addict-rc-20-vs-pro.md",
-      "imageAssetIds": [],
+      "imageAssetIds": [
+        "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda-3089622e12"
+      ],
       "attempts": 1,
       "lastAttemptAt": "2026-08-07T14:14:33.779Z",
       "aiReview": {
@@ -376,7 +381,9 @@
         },
         "generatedAt": "2026-08-07T14:14:33.779Z"
       },
-      "blockReason": "Validação final: Nenhuma imagem real compatível para addict-rc-20-vs-pro"
+      "imageManifestPath": "assets/img/posts/addict-rc-20-vs-pro/image-manifest.json",
+      "imageStatus": "approved",
+      "imageValidatedAt": "2026-08-07T14:42:06.848Z"
     },
     {
       "day": 14,

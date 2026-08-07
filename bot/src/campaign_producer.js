@@ -7,14 +7,36 @@ import { GroundedResearcher } from './automation/grounded-research.js'
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
+function normalize(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR')
+}
+
+export function selectKnowledgeEvidence(records, item) {
+  const text = normalize(`${item.title} ${item.summary}`)
+  const explicit = records.filter((record) => item.productIds.includes(record.id))
+  const mentioned = records.filter((record) => {
+    const model = normalize(record.model)
+    const tokens = model.split(/[^a-z0-9]+/).filter(Boolean)
+    const distinctiveSuffix = tokens.slice(-2).join(' ')
+    return model.length >= 5 && (text.includes(model) || (distinctiveSuffix.length >= 5 && text.includes(distinctiveSuffix)))
+  })
+  const selected = explicit.length > 0 ? explicit : mentioned
+  const fallback = selected.length > 0 ? selected : records
+  return {
+    records: fallback.slice(0, 6),
+    inferredProductIds: explicit.length === 0 ? mentioned.map((record) => record.id) : [],
+  }
+}
+
 async function knowledgeEvidence(root, item) {
   const directory = path.join(root, '_data/product-knowledge/bikes')
   const files = await fs.readdir(directory)
   const records = await Promise.all(files.filter((name) => name.endsWith('.json')).map(async (name) => JSON.parse(await fs.readFile(path.join(directory, name), 'utf8'))))
-  const words = `${item.title} ${item.summary}`.toLocaleLowerCase('pt-BR')
-  const selected = records.filter((record) => item.productIds.includes(record.id) || words.includes(record.model.toLocaleLowerCase('pt-BR')) || words.includes(record.model.split(' ')[0].toLocaleLowerCase('pt-BR')))
-  const fallback = selected.length > 0 ? selected : records
-  return fallback.map((record) => ({ id: record.id, brand: record.brand, model: record.model, modelYear: record.modelYear, facts: record.facts, sources: record.sources })).slice(0, 6)
+  const selected = selectKnowledgeEvidence(records, item)
+  return {
+    evidence: selected.records.map((record) => ({ id: record.id, brand: record.brand, model: record.model, modelYear: record.modelYear, facts: record.facts, sources: record.sources })),
+    inferredProductIds: selected.inferredProductIds,
+  }
 }
 
 async function persist(root, campaign) {
@@ -30,12 +52,13 @@ export async function runCampaignProducer({ root = defaultRoot, env = process.en
   if (env.AUTOMATION_DRY_RUN === 'true') return { status: 'ready', itemId: item.id }
   const today = now.toISOString().slice(0, 10)
   try {
+    const knowledge = await knowledgeEvidence(root, item)
+    if (item.productIds.length === 0 && knowledge.inferredProductIds.length > 0) item.productIds = knowledge.inferredProductIds
     item.attempts = (item.attempts || 0) + 1
     item.lastAttemptAt = now.toISOString()
     item.status = 'researching'
     await persist(root, campaign)
-    const evidence = await knowledgeEvidence(root, item)
-    const research = await researcher.research({ item, internalEvidence: evidence, today })
+    const research = await researcher.research({ item, internalEvidence: knowledge.evidence, today })
     const researchDir = path.join(root, 'content/research/campaign')
     await fs.mkdir(researchDir, { recursive: true })
     await fs.writeFile(path.join(researchDir, `${item.id}.json`), JSON.stringify(research, null, 2) + '\n')

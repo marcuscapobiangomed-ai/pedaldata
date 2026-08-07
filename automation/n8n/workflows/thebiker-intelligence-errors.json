@@ -1,0 +1,108 @@
+{
+  "name": "TheBiker — Erros da inteligência editorial",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "31000000-0000-4000-8000-000000000001",
+      "name": "Erro do workflow",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const data=$input.first().json; const execution=data.execution||{}; const workflow=data.workflow||{}; const day=new Date().toISOString().slice(0,10); return [{json:{title:'[N8N] Falha de inteligência editorial '+day,body:'Falha no workflow **'+(workflow.name||'desconhecido')+'**.\\n\\n- Execução: '+(execution.url||execution.id||'não informada')+'\\n- Último nó: '+(execution.lastNodeExecuted||'não informado')+'\\n- Erro: '+(execution.error?.message||data.error?.message||'não informado')+'\\n\\nA execução fica bloqueada; nenhum conteúdo é publicado automaticamente.'}}];"
+      },
+      "id": "31000000-0000-4000-8000-000000000002",
+      "name": "Formatar incidente",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.github.com/repos/marcuscapobiangomed-ai/thebikerblog/issues",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify({ title: $json.title, body: $json.body }) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "options": {
+          "timeout": 45000,
+          "response": {
+            "response": {
+              "neverError": false,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "31000000-0000-4000-8000-000000000003",
+      "name": "Criar incidente no GitHub",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Erro do workflow": {
+      "main": [
+        [
+          {
+            "node": "Formatar incidente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatar incidente": {
+      "main": [
+        [
+          {
+            "node": "Criar incidente no GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "saveManualExecutions": true
+  },
+  "versionId": "21000000-0000-4000-8000-000000000002",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}

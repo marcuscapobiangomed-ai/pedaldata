@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-07T14:14:33.264Z",
+  "discoveredAt": "2026-08-07T14:41:44.043Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 483,
   "products": [
@@ -124,7 +124,11 @@
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/c0f2bd34-cb92-11f0-976b-421ea7c02475-2d80f052373a210bbd17751631326786-480-0.webp"
       ],
-      "sku": null
+      "sku": null,
+      "officialPageUrl": "https://www.scott-sports.com/global/en/product/scott-addict-rc-pro-bike",
+      "officialImages": [
+        "https://static.scott-sports.com/image/upload/v1779976553/2217847.png"
+      ]
     },
     {
       "id": "bicicleta-scott-addict-rc-20-di2-2026-pre-venda-vzvx9",
@@ -135,7 +139,11 @@
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/9f3f43d0-7451-11f0-bced-76750ea50910-a2888ac5d4430128d917751629729740-480-0.webp"
       ],
-      "sku": null
+      "sku": null,
+      "officialPageUrl": "https://www.scott-sports.com/global/en/product/scott-addict-rc-20-bike",
+      "officialImages": [
+        "https://static.scott-sports.com/image/upload/v1779982198/2290581.png"
+      ]
     },
     {
       "id": "bicicleta-scott-addict-gravel-30-2026-pre-venda",
@@ -3603,17 +3611,6 @@
       "sku": "RSKJ3Q557"
     },
     {
-      "id": "suporte-de-caramanhola-syncros-tailor-3-0-black",
-      "name": "Suporte de Caramanhola Syncros Tailor 3.0 - Black",
-      "brand": "Syncros",
-      "category": "acessorios",
-      "productUrl": "https://thebikershop.com.br/produtos/suporte-de-caramanhola-syncros-tailor-3-0-black/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2803020001_1697353_png_zoom_1-876196ae1c05564d0617797407519666-480-0.webp"
-      ],
-      "sku": "280302"
-    },
-    {
       "id": "garrafa-camelbak-podium-chill-inox-650ml-prata",
       "name": "Garrafa CamelBak Podium Chill Inox 650ml Prata",
       "brand": "CamelBak",
@@ -3744,6 +3741,17 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1511340-2af42eaa387416820317352212613104-480-0.webp"
       ],
       "sku": "3205309"
+    },
+    {
+      "id": "garrafa-termica-elite-nano-fly-500ml-cinza-claro",
+      "name": "Garrafa Térmica Elite Nano Fly 500ml - Cinza Claro",
+      "brand": "Elite",
+      "category": "acessorios",
+      "productUrl": "https://thebikershop.com.br/produtos/garrafa-termica-elite-nano-fly-500ml-cinza-claro/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1010733-1-84d14b000ff9e8b2b517340344182189-480-0.webp"
+      ],
+      "sku": null
     },
     {
       "id": "espuma-interna-capacete-giro-agilis",

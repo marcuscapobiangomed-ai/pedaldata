@@ -59,6 +59,10 @@ function requiredMatches(item, product) {
   if (active.length === 0) return true;
   const modelGroups = active.filter(([key]) => ["spark", "addict", "scale", "foil"].includes(key));
   if (modelGroups.length > 0 && !modelGroups.some(([, values]) => values.some((value) => hasTerm(productText, value)))) return false;
+  // O nome/URL do produto identifica o modelo, mas normalmente não enumera rodas,
+  // pneus ou cockpit. Depois de confirmar o modelo, esses conceitos não podem
+  // excluir uma imagem exata do próprio produto.
+  if (modelGroups.length > 0) return true;
   const conceptGroups = active.filter(([key]) => !["spark", "addict", "scale", "foil"].includes(key));
   return conceptGroups.length === 0 || conceptGroups.some(([, values]) => values.some((value) => hasTerm(productText, value)));
 }

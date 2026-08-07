@@ -11,8 +11,23 @@ import { prepareImageVariants } from "./src/images/prepare-variants.js";
 import fsPromises from "node:fs/promises";
 import os from "node:os";
 import sharp from "sharp";
+import { selectImageCandidate } from "./src/images/select-image.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const comparisonCandidate = selectImageCandidate({
+  id: "addict-rc-20-vs-pro",
+  title: "Addict RC 20 ou RC Pro: rodas e pneus em comparação",
+  summary: "Comparação técnica de rodas, pneus e cockpit das duas Addict.",
+  productIds: [],
+}, { products: [{
+  id: "addict-rc-pro",
+  name: "Bicicleta Scott Addict RC Pro Di2 2026",
+  brand: "Scott",
+  category: "bikes",
+  productUrl: "https://thebikershop.com.br/produtos/addict-rc-pro/",
+}] }, { assets: [] });
+assert.equal(comparisonCandidate?.product.id, "addict-rc-pro", "o modelo exato não pode ser descartado por termos de componentes");
+
 for (const category of ["corrida-v2", "lancamento-v2"]) {
   const directory = path.resolve(__dirname, `../assets/img/system/covers/${category}`);
   const manifest = JSON.parse(fs.readFileSync(path.join(directory, "image-manifest.json"), "utf8"));

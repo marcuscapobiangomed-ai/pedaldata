@@ -47,7 +47,14 @@ export async function discoverTheBikerMedia({
       if (!response.ok) throw new Error(`Catálogo visual ${url}: HTTP ${response.status}`);
       const found = productsFromJsonLd(await response.text(), source.category, url.href);
       if (found.length === 0) break;
-      for (const product of found) products.set(product.id, product);
+      for (const product of found) {
+        const official = config.officialProductImages?.[product.id];
+        products.set(product.id, official ? {
+          ...product,
+          officialPageUrl: official.officialPageUrl,
+          officialImages: official.images,
+        } : product);
+      }
     }
   }
   return {

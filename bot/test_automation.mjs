@@ -7,6 +7,7 @@ import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, 
 import { GroundedResearcher } from "./src/automation/grounded-research.js";
 import { finalizeCampaignItem } from "./src/campaign_finalize.js";
 import { produceCampaignCover } from "./src/images/campaign-cover.js";
+import { selectKnowledgeEvidence } from "./src/campaign_producer.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -21,6 +22,16 @@ assert.equal(selectReadyItem(queue, new Date("2026-08-04T12:00:00Z")).id, "ready
 assert.equal(selectReadyItem({ items: [] }), null);
 const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(new URL('./editorial-campaign.json', import.meta.url), 'utf8')));
 assert.equal(campaign.items.length, 30);
+const inferred = selectKnowledgeEvidence([
+  { id: 'addict-rc-20', model: 'Addict RC 20' },
+  { id: 'addict-rc-pro', model: 'Addict RC Pro' },
+  { id: 'spark-rc', model: 'Spark RC' },
+], {
+  title: 'Addict RC 20 ou RC Pro: diferenças de montagem',
+  summary: 'Comparação técnica entre as duas bicicletas.',
+  productIds: [],
+});
+assert.deepEqual(inferred.inferredProductIds, ['addict-rc-20', 'addict-rc-pro']);
 const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';
