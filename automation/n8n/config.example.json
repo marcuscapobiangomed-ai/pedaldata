@@ -9,6 +9,6 @@
   "blockedPromotionBrands": ["Trek", "Specialized", "Cannondale", "Cervélo", "Giant", "BMC", "Pinarello"],
   "minimumImpressions": 5,
   "weeklyMaximumBriefs": 8,
-  "monthlyMaximumBriefs": 15,
+  "monthlyMaximumBriefs": 30,
   "monthlyRefreshAfterDays": 90
 }

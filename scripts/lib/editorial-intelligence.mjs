@@ -102,7 +102,7 @@ function briefFrom(opportunity, articles, config) {
       'fontes primárias verificadas',
       'nenhuma experiência ou especificação inventada',
       'produto e CTA somente com inventário TheBiker verificado',
-      'revisão humana antes de publicar',
+      'gates determinísticos obrigatórios; revisão humana apenas para exceções',
     ],
     allowedBrands: config.portfolioBrands || [],
   };
@@ -155,7 +155,9 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
     marketSignals: videoSignals.slice(0, 20),
     governance: {
       autoPublish: false,
-      requiresHumanApproval: true,
+      autoScheduleAfterGates: context.cadence === 'monthly',
+      requiresHumanApproval: false,
+      exceptionReviewRequired: true,
       competitorPromotionBlocked: true,
       staleCommercialDataFailClosed: true,
     },
@@ -183,6 +185,6 @@ export function intelligenceMarkdown(report) {
   lines.push('', '## Atualizações do acervo', '');
   if (report.refreshQueue.length === 0) lines.push('- Nenhuma página atingiu o limiar nesta execução.');
   for (const item of report.refreshQueue) lines.push(`- [${item.title}](${item.url}) — ${item.ageDays} dias; score de oportunidade ${item.searchOpportunity}`);
-  lines.push('', '## Gate editorial', '', '- O fluxo cria inteligência e briefing; não publica automaticamente.', '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.', '- Marcas concorrentes podem servir apenas como sinal de mercado; não viram promoção nem CTA.', '', '<details><summary>Payload estruturado</summary>', '', '```json', JSON.stringify(report, null, 2), '```', '', '</details>');
+  lines.push('', '## Gate editorial', '', report.cadence === 'monthly' ? '- O relatório mensal renova automaticamente a janela de 30 dias; a publicação só ocorre depois dos gates do repositório.' : '- O relatório semanal atualiza a inteligência e não altera sozinho a campanha.', '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.', '- Exceções ficam bloqueadas para revisão; conteúdo aprovado pelos gates pode ser agendado sem intervenção no Codex.', '- Marcas concorrentes podem servir apenas como sinal de mercado; não viram promoção nem CTA.', '', '<details><summary>Payload estruturado</summary>', '', '```json', JSON.stringify(report, null, 2), '```', '', '</details>');
   return lines.join('\n');
 }

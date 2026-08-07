@@ -53,6 +53,9 @@ jobs:
       - name: Atualizar catálogo visual oficial da TheBiker
         run: npm run media:discover
         working-directory: bot
+      - name: Recuperar ou substituir a próxima pauta bloqueada
+        run: npm run campaign:recover
+        working-directory: bot
       - name: Auditar buffer legado ainda sem nota final
         id: buffer_audit
         continue-on-error: true

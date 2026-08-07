@@ -28,6 +28,8 @@ const report = buildEditorialIntelligence({
 });
 
 assert.equal(report.governance.autoPublish, false);
+assert.equal(report.governance.requiresHumanApproval, false);
+assert.equal(report.governance.exceptionReviewRequired, true);
 assert.ok(report.briefs.some((brief) => brief.action === 'refresh'));
 assert.ok(report.briefs.every((brief) => !/^Trek lançamento/.test(brief.topic)));
 assert.ok(report.briefs.every((brief) => brief.audienceSegment === 'core_technical_cyclists'));

@@ -31,6 +31,7 @@ assert.ok(main.nodes.some((node) => node.name === 'YouTube busca por visualizaç
 assert.ok(main.nodes.some((node) => node.name === 'YouTube populares em esportes'));
 assert.ok(main.nodes.some((node) => node.name === 'Gerar relatório e pautas'));
 assert.match(JSON.stringify(main), /autoPublish/);
+assert.match(JSON.stringify(main), /autoScheduleAfterGates/);
 assert.match(JSON.stringify(main), /competitorPromotionBlocked/);
 
 const errors = JSON.parse(await fs.readFile(path.join(directory, 'thebiker-intelligence-errors.json'), 'utf8'));

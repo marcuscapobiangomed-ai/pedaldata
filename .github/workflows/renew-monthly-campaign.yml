@@ -1,0 +1,91 @@
+name: TheBiker — Renovação mensal de 30 dias
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Número da issue mensal [INTEL]"
+        required: true
+        type: number
+      dry_run:
+        description: "Simular sem alterar a campanha"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+  models: read
+
+concurrency:
+  group: thebiker-editorial-write
+  cancel-in-progress: false
+
+jobs:
+  renew:
+    if: ${{ github.event_name == 'workflow_dispatch' || (startsWith(github.event.issue.title, '[INTEL] monthly-') && github.event.issue.author_association == 'OWNER') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: editorial-automation
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: bot/package-lock.json
+      - run: npm ci
+        working-directory: bot
+      - name: Obter relatório mensal selecionado
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}" --jq .body > "${RUNNER_TEMP}/monthly-intelligence.md"
+      - name: Renovar janela editorial de 30 dias
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MAX_TOKENS: ${{ vars.DEEPSEEK_MAX_TOKENS || '7000' }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL || 'gpt-4o-mini' }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node src/renew_monthly_campaign.js --report "${RUNNER_TEMP}/monthly-intelligence.md" ${{ inputs.dry_run && '--dry-run' || '' }}
+          else
+            node src/renew_monthly_campaign.js
+          fi
+        working-directory: bot
+      - name: Validar campanha renovada
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
+        run: |
+          npm run automation:doctor
+          npm run campaign:simulate
+          npm run validate:posts
+          npm run check:machine-readable
+      - name: Persistir campanha e fila de atualização
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
+        run: |
+          git config user.name "thebiker-editorial-bot"
+          git config user.email "thebiker-editorial-bot@users.noreply.github.com"
+          git add bot/editorial-campaign.json bot/operational-state _data/editorial-calendar.json _data/editorial-refresh-queue.json
+          git diff --cached --quiet || git commit -m "content: renovar campanha editorial de 30 dias"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 5))
+          done
+          exit 1
+      - name: Iniciar produção do novo buffer
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run cron-post.yml --ref main -f dry_run=false

@@ -6,7 +6,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const targetDirectory = path.join(root, 'automation/n8n/workflows');
 const check = process.argv.includes('--check');
 const enginePath = path.join(root, 'scripts/lib/editorial-intelligence.mjs');
-const engineSource = (await fs.readFile(enginePath, 'utf8')).replaceAll('export function ', 'function ');
+const engineSource = (await fs.readFile(enginePath, 'utf8')).replace(/\r\n/g, '\n').replaceAll('export function ', 'function ');
 
 const ids = {
   weekly: '11000000-0000-4000-8000-000000000001', monthly: '11000000-0000-4000-8000-000000000002',
@@ -82,7 +82,7 @@ return [{ json: {
     portfolioBrands: ['Scott', 'Shimano', 'SRAM', 'Syncros', 'Fox', 'RockShox'],
     blockedPromotionBrands: ['Trek', 'Specialized', 'Cannondale', 'Cervélo', 'Giant', 'BMC', 'Pinarello'],
     minimumImpressions: 5,
-    maximumBriefs: input.cadence === 'monthly' ? 15 : 8,
+    maximumBriefs: input.cadence === 'monthly' ? 30 : 8,
     refreshAfterDays: input.cadence === 'monthly' ? 90 : 150,
   },
 } }];`;

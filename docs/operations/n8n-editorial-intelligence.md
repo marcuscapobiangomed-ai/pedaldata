@@ -4,13 +4,14 @@
 
 O pacote transforma sinais semanais e mensais em uma fila priorizada de pautas e atualizações. Ele consulta Search Console, vídeos mais vistos relacionados a ciclismo, o ranking `mostPopular` de esportes no Brasil e o índice público do blog. Depois compara demanda, desempenho e cobertura existente, cria briefings rastreáveis e registra o relatório em uma issue do GitHub.
 
-O n8n não publica artigos. A issue alimenta a decisão editorial; o pipeline existente pesquisa fontes, produz o rascunho, valida imagem e texto e só agenda conteúdo aprovado. Essa separação impede que popularidade de vídeo seja tratada como prova factual.
+O n8n não publica artigos diretamente. A issue semanal alimenta a inteligência; a issue mensal aciona a renovação automática da janela editorial de 30 dias. O pipeline existente pesquisa fontes, produz o rascunho, valida imagem e texto e só agenda conteúdo aprovado. Essa separação impede que popularidade de vídeo seja tratada como prova factual.
 
 ## Arquivos importáveis
 
 - `automation/n8n/workflows/thebiker-seo-youtube-intelligence.json`: coleta, normalização, score, deduplicação e relatório.
 - `automation/n8n/workflows/thebiker-intelligence-errors.json`: incidente fail-closed no GitHub.
 - `automation/n8n/config.example.json`: valores sem segredo usados como referência.
+- `.github/workflows/renew-monthly-campaign.yml`: transforma a issue mensal em uma campanha rolante de 30 dias.
 
 Os JSONs são gerados por `npm run build:n8n` e verificados por `npm run check:n8n`. Não edite somente o artefato gerado; altere o gerador ou o motor em `scripts/lib/editorial-intelligence.mjs`.
 
@@ -21,7 +22,7 @@ Os JSONs são gerados por `npm run build:n8n` e verificados por `npm run check:n
 - atraso de três dias no Search Console para evitar decisões com dados ainda incompletos;
 - uma busca `order=viewCount` por execução e uma leitura de métricas em lote, além do ranking de esportes do Brasil.
 
-O SLO operacional é ter o relatório mensal concluído até o dia 3. Falha gera incidente e não cria publicação.
+O SLO operacional é ter o relatório mensal concluído e a janela renovada até o dia 3. Falha gera incidente e não aprova publicação.
 
 ## Credenciais necessárias
 
@@ -38,7 +39,7 @@ Associe a mesma credencial Google aos cinco nós Google. Se a instância separar
 
 ### GitHub
 
-Use uma credencial com acesso apenas ao repositório `marcuscapobiangomed-ai/thebikerblog` e permissão de leitura de metadados e escrita de issues. Ela não precisa escrever conteúdo nem Actions.
+Use uma credencial com acesso apenas ao repositório `marcuscapobiangomed-ai/thebikerblog` e permissão de leitura de metadados e escrita de issues. Ela não precisa escrever conteúdo nem Actions: a própria issue mensal dispara o workflow GitHub protegido.
 
 ## Instalação
 
@@ -60,7 +61,10 @@ Use uma credencial com acesso apenas ao repositório `marcuscapobiangomed-ai/the
 4. O título e as tags do índice público indicam se a resposta já existe. Nesse caso, a ação é `refresh`; caso contrário, `new-content`.
 5. Sinal que cita concorrente pode informar tendência de categoria, mas o briefing não autoriza promoção, link ou CTA para concorrente.
 6. Cada briefing registra evidência, URL, ângulo, página-alvo, score e gates de publicação.
-7. O editor aprova a pauta na issue e a transfere para a campanha editorial. A geração final continua no pipeline GitHub/IA já protegido.
+7. A issue semanal permanece como relatório. A issue mensal é reconhecida por `[INTEL] monthly-` e renova automaticamente a campanha rolante.
+8. O renovador preserva itens futuros já em produção ou agendados, remove dias publicados, substitui bloqueios e completa exatamente 30 datas consecutivas.
+9. Briefings `refresh` não viram artigos duplicados: são gravados em `_data/editorial-refresh-queue.json` para o fluxo de atualização do acervo.
+10. A geração final continua no pipeline GitHub/IA protegido; revisão humana passa a ser exigida somente para exceções bloqueadas.
 
 ## Revisão mensal obrigatória
 
@@ -78,7 +82,8 @@ Use uma credencial com acesso apenas ao repositório `marcuscapobiangomed-ai/the
 - resposta vazia: manter o relatório com zero sinal e investigar configuração, sem inventar tendência.
 - 429/timeout: usar retry limitado do n8n e tratar a execução como falha se todas as tentativas acabarem.
 - erro GitHub: o relatório permanece nos dados da execução; repetir depois de corrigir a credencial.
-- qualquer falha: nenhum post é aprovado ou publicado automaticamente.
+- qualquer falha: nenhum post é aprovado; o incidente fica disponível para revisão e uma pauta bloqueada pode ser substituída por reserva na renovação seguinte.
+- timeout, 429 ou falha transitória: `campaign:recover` libera uma tentativa adicional; na reincidência, ou em erro permanente, preserva a exceção no ledger e ocupa a mesma data com uma pauta-reserva.
 
 ## Métricas do próprio fluxo
 
