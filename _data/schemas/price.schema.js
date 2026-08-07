@@ -1,6 +1,7 @@
 export const PRICE_SCHEMA = {
   productId: { required: true, type: 'string', description: 'ID do produto associado' },
-  currency: { required: true, type: 'string', values: ['BRL', 'USD', 'EUR'], description: 'Moeda' }
+  currency: { required: true, type: 'string', values: ['BRL', 'USD', 'EUR'], description: 'Moeda' },
+  integrationStatus: { required: true, type: 'string', values: ['verified', 'not_integrated'], description: 'Estado da integração comercial' }
 }
 
 const VALID_STORES = ['Mercado Livre', 'Amazon', 'Centauro', 'Decathlon', 'BikeExpress', 'SoulCycles', 'PedalMais', 'Outras']
@@ -11,6 +12,17 @@ export function validatePrice(priceData) {
 
   if (!priceData.productId) {
     errors.push({ field: 'productId', message: 'productId é obrigatório', level: 'error' })
+  }
+
+  if (!['verified', 'not_integrated'].includes(priceData.integrationStatus)) {
+    errors.push({ field: 'integrationStatus', message: 'integrationStatus deve ser verified ou not_integrated', level: 'error' })
+  }
+
+  if (priceData.integrationStatus === 'not_integrated') {
+    if (!Array.isArray(priceData.observations) || priceData.observations.length !== 0) {
+      errors.push({ field: 'observations', message: 'Registro não integrado não pode publicar observações de preço', level: 'error' })
+    }
+    return { valid: errors.length === 0, errors, warnings }
   }
 
   if (!priceData.observations || !Array.isArray(priceData.observations) || priceData.observations.length === 0) {

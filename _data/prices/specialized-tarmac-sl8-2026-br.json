@@ -1,17 +1,8 @@
 {
   "productId": "specialized-tarmac-sl8-2026-br",
   "currency": "BRL",
-  "observations": [
-    {
-      "store": "Specialized Brasil",
-      "price": 42990,
-      "regularPrice": 42990,
-      "installments": null,
-      "shippingIncluded": false,
-      "availability": "out-of-stock",
-      "url": "https://www.specialized.com/br/pt/tarmac-sl8-comp-sram-rival-axs/p/4292996",
-      "checkedAt": "2026-08-03",
-      "sourceId": "specialized-br-2026"
-    }
-  ]
+  "integrationStatus": "not_integrated",
+  "reviewedAt": "2026-08-07",
+  "reviewNote": "Registro sintético removido; preço e disponibilidade aguardam fonte comercial verificada.",
+  "observations": []
 }

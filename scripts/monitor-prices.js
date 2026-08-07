@@ -4,8 +4,8 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
-const PRICES_DIR = join(ROOT, 'data', 'prices')
-const LOG_FILE = join(ROOT, 'data', 'price-audit-log.json')
+const PRICES_DIR = join(ROOT, '_data', 'prices')
+const LOG_FILE = join(ROOT, '_data', 'price-audit-log.json')
 
 const ALERT_DAYS = {
   'high-frequency': 7,
@@ -29,6 +29,7 @@ function monitorPrices() {
   let totalObs = 0
   let staleCount = 0
   let okCount = 0
+  let notIntegratedCount = 0
 
   for (const file of files) {
     const priceData = loadJSON(join(PRICES_DIR, file))
@@ -37,6 +38,19 @@ function monitorPrices() {
     const productId = priceData.productId
     let productAlerts = []
     let newestDate = null
+    okCount++
+
+    if (priceData.integrationStatus === 'not_integrated') {
+      notIntegratedCount++
+      log.products.push({
+        id: productId,
+        integrationStatus: 'not_integrated',
+        observationCount: 0,
+        lastUpdate: null,
+        stale: false
+      })
+      continue
+    }
 
     for (const obs of priceData.observations) {
       totalObs++
@@ -66,8 +80,6 @@ function monitorPrices() {
     if (productAlerts.length > 0) {
       log.alerts.push({ productId, alerts: productAlerts })
     }
-    okCount++
-
     log.products.push({
       id: productId,
       observationCount: priceData.observations.length,
@@ -81,6 +93,7 @@ function monitorPrices() {
   console.log(`  Produtos monitorados: ${okCount}`)
   console.log(`  Total de observações: ${totalObs}`)
   console.log(`  Preços desatualizados: ${staleCount}`)
+  console.log(`  Fontes comerciais não integradas: ${notIntegratedCount}`)
   console.log(`  Produtos com alertas: ${staleProducts.length}\n`)
 
   if (staleProducts.length > 0) {
@@ -96,7 +109,7 @@ function monitorPrices() {
 
   // Save audit log
   writeFileSync(LOG_FILE, JSON.stringify(log, null, 2))
-  console.log(`  Log salvo em: data/price-audit-log.json`)
+  console.log(`  Log salvo em: _data/price-audit-log.json`)
 
   const staleCountTotal = staleProducts.length + staleCount
   console.log(`\n  Status: ${staleCountTotal > 0 ? `${staleCountTotal} alerta(s) encontrado(s)` : '✓ Tudo atualizado'}`)

@@ -159,6 +159,9 @@ function validateAll() {
       const result = validatePrice(priceData)
       if (result.valid && result.warnings.length === 0) {
         console.log(`  ✓ ${priceData.productId}`)
+        if (priceData.integrationStatus === 'not_integrated') {
+          console.log('    Fonte comercial ainda não integrada; nenhum preço publicado')
+        }
         priceOk++
       } else {
         console.log(`  ~ ${priceData.productId}`)

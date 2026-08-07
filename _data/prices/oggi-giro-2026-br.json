@@ -1,26 +1,8 @@
 {
   "productId": "oggi-giro-2026-br",
   "currency": "BRL",
-  "observations": [
-    {
-      "store": "SoulCycles",
-      "price": 15760,
-      "regularPrice": 17110,
-      "installments": 12,
-      "shippingIncluded": false,
-      "availability": "in-stock",
-      "url": "https://www.soulcycles.com.br/oggi-giro-2026-br",
-      "checkedAt": "2026-07-19"
-    },
-    {
-      "store": "Mercado Livre",
-      "price": 15330,
-      "regularPrice": null,
-      "installments": null,
-      "shippingIncluded": true,
-      "availability": "in-stock",
-      "url": "https://produto.mercadolivre.com.br/oggi-giro-2026-br",
-      "checkedAt": "2026-07-06"
-    }
-  ]
+  "integrationStatus": "not_integrated",
+  "reviewedAt": "2026-08-07",
+  "reviewNote": "Registro sintético removido; preço e disponibilidade aguardam fonte comercial verificada.",
+  "observations": []
 }

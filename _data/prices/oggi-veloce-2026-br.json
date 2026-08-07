@@ -1,36 +1,8 @@
 {
   "productId": "oggi-veloce-2026-br",
   "currency": "BRL",
-  "observations": [
-    {
-      "store": "Oggi Bikes",
-      "price": 4299,
-      "regularPrice": 4599,
-      "installments": 12,
-      "shippingIncluded": false,
-      "availability": "in-stock",
-      "url": "https://www.oggi.com.br/veloce",
-      "checkedAt": "2026-07-19"
-    },
-    {
-      "store": "Mercado Livre",
-      "price": 4990,
-      "regularPrice": 4990,
-      "installments": 12,
-      "shippingIncluded": true,
-      "availability": "in-stock",
-      "url": "https://produto.mercadolivre.com.br/oggi-veloce",
-      "checkedAt": "2026-07-18"
-    },
-    {
-      "store": "PedalMais",
-      "price": 4599,
-      "regularPrice": 4890,
-      "installments": 10,
-      "shippingIncluded": false,
-      "availability": "in-stock",
-      "url": "https://www.pedalmais.com.br/oggi-veloce",
-      "checkedAt": "2026-07-19"
-    }
-  ]
+  "integrationStatus": "not_integrated",
+  "reviewedAt": "2026-08-07",
+  "reviewNote": "Registro sintético removido; preço e disponibilidade aguardam fonte comercial verificada.",
+  "observations": []
 }
