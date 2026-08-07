@@ -24,6 +24,30 @@
         "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas"
       },
       "reason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Parsing failed. The model generated output that could not be parsed. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"output_parse_failed\",\"failed_generation\":\"Scrolling near bottom shows pagination link with \\\"?page=2\\\". Let's open that.\"}}\n"
+    },
+    {
+      "recordedAt": "2026-08-07T20:46:20.109Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "youtube-full-off-roading-with-new-dirt-bikes",
+        "title": "Full Off-Roading With New Dirt Bikes - पहाड़ की चोटी पर पहुँच गए 😱",
+        "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 4.516.745 visualizações; 773.654 por dia.",
+        "category": "engenharia",
+        "freshness": "event-driven",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Please reduce the length of the messages or completion.\",\"type\":\"invalid_request_error\",\"param\":\"messages\",\"code\":\"context_length_exceeded\"}}\n",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-07T20:39:14.335Z"
+      },
+      "replacement": {
+        "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
+        "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store"
+      },
+      "reason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Please reduce the length of the messages or completion.\",\"type\":\"invalid_request_error\",\"param\":\"messages\",\"code\":\"context_length_exceeded\"}}\n"
     }
   ]
 }

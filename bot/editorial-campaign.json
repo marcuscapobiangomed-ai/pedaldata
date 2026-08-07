@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "youtube-full-off-roading-with-new-dirt-bikes",
-      "title": "Full Off-Roading With New Dirt Bikes - पहाड़ की चोटी पर पहुँच गए 😱",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 4.516.745 visualizações; 773.654 por dia.",
+      "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
+      "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store",
+      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 603.451 visualizações; 28.051 por dia.",
       "category": "engenharia",
-      "freshness": "event-driven",
+      "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-07T20:39:14.335Z",
-      "blockReason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Please reduce the length of the messages or completion.\",\"type\":\"invalid_request_error\",\"param\":\"messages\",\"code\":\"context_length_exceeded\"}}\n"
+      "lastAttemptAt": "2026-08-07T20:46:20.911Z",
+      "blockReason": "Expected ',' or ']' after array element in JSON at position 16600 (line 407 column 6)"
     },
     {
       "day": 8,
@@ -562,12 +562,6 @@
   ],
   "reserves": [
     {
-      "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
-      "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 603.451 visualizações; 28.051 por dia.",
-      "category": "engenharia"
-    },
-    {
       "id": "youtube-20-to-29-inch-fat-bikes-available-kids-to-adults-electric-fat-bi",
       "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩",
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 564.055 visualizações; 42.396 por dia.",
@@ -632,6 +626,12 @@
       "title": "The Easiest 5-Minute Clean For Bike Shoes",
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 60.078 visualizações; 5.359 por dia.",
       "category": "engenharia"
+    },
+    {
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes"
     }
   ]
 }
