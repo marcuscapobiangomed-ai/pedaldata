@@ -1,13 +1,121 @@
 {
   "version": 1,
-  "id": "thebiker-rolling-2026-08-08",
+  "id": "thebiker-30-dias-01",
   "timezone": "America/Sao_Paulo",
   "publishLocalTime": "12:00",
-  "startsOn": "2026-08-08",
+  "startsOn": "2026-08-05",
   "minimumApprovedBuffer": 7,
   "items": [
     {
       "day": 1,
+      "publishDate": "2026-08-05",
+      "id": "sag-spark-rc-ajuste-preciso",
+      "title": "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão",
+      "summary": "Método técnico para definir pressão, SAG, retorno e modos de suspensão conforme massa do ciclista e característica do percurso.",
+      "category": "manutencao-ajustes",
+      "freshness": "evergreen",
+      "status": "published",
+      "productIds": [
+        "bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "postPath": "_posts/2026-08-05-sag-spark-rc-ajuste-preciso.md",
+      "imageManifestPath": "assets/img/posts/sag-spark-rc-ajuste-preciso/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bicicleta-scott-spark-rc-expert-2027-6ae107de42"
+      ],
+      "imageValidatedAt": "2026-08-05T18:15:15.973Z",
+      "publishedAt": "2026-08-05T15:41:49.964Z",
+      "attempts": 0,
+      "aiReview": {
+        "score": 0,
+        "finalScore": 95,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalRepair": "deepseek",
+          "bufferFinalAudit": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:12:03.400Z"
+      }
+    },
+    {
+      "day": 2,
+      "publishDate": "2026-08-06",
+      "id": "hmp-hmx-carbono-scott",
+      "title": "HMF ou HMX: o que realmente muda na engenharia dos quadros Scott",
+      "summary": "Leitura técnica das construções de carbono presentes nas linhas Scale, Spark e Addict, sem transformar peso isolado em conclusão de desempenho.",
+      "category": "engenharia",
+      "freshness": "evergreen",
+      "status": "published",
+      "productIds": [],
+      "postPath": "_posts/2026-08-07-hmp-hmx-carbono-scott.md",
+      "imageManifestPath": "assets/img/posts/hmp-hmx-carbono-scott/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
+      ],
+      "imageValidatedAt": "2026-08-05T17:09:52.760Z",
+      "publishedAt": "2026-08-07T19:14:39.371Z",
+      "attempts": 0,
+      "aiReview": {
+        "score": 0,
+        "finalScore": 92,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "bufferFinalAudit": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:17:30.907Z"
+      }
+    },
+    {
+      "day": 3,
+      "publishDate": "2026-08-07",
+      "id": "review-spark-rc-team-2027",
+      "title": "Spark RC Team 2027: plataforma de 120 mm e transmissão AXS",
+      "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
+      "category": "review",
+      "freshness": "revalidate-24h",
+      "status": "published",
+      "productIds": [
+        "bicicleta-scott-spark-rc-world-cup-2027"
+      ],
+      "postPath": "_posts/2026-08-07-review-spark-rc-team-2027.md",
+      "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json",
+      "imageStatus": "approved",
+      "imageAssetIds": [
+        "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
+      ],
+      "imageValidatedAt": "2026-08-05T17:10:24.275Z",
+      "publishedAt": "2026-08-07T15:40:11.822Z",
+      "attempts": 0,
+      "aiReview": {
+        "score": 0,
+        "finalScore": 92,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalRepair": "deepseek",
+          "bufferFinalAudit": "deepseek"
+        },
+        "generatedAt": "2026-08-05T14:23:15.916Z"
+      }
+    },
+    {
+      "day": 4,
       "publishDate": "2026-08-08",
       "id": "cambio-eletronico-ajuste-diagnostico",
       "title": "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca",
@@ -42,7 +150,7 @@
       }
     },
     {
-      "day": 2,
+      "day": 5,
       "publishDate": "2026-08-09",
       "id": "reserva-rolamentos-diagnostico",
       "title": "Rolamentos sob carga: como localizar folga e contaminação",
@@ -77,7 +185,7 @@
       }
     },
     {
-      "day": 3,
+      "day": 6,
       "publishDate": "2026-08-10",
       "id": "alinhamento-pinca-rotores",
       "title": "Pinça, rotor e contato de pastilha: como eliminar atrito sem perder potência de frenagem",
@@ -110,7 +218,7 @@
       }
     },
     {
-      "day": 4,
+      "day": 7,
       "publishDate": "2026-08-11",
       "id": "engenharia-suspensao-integrada-spark",
       "title": "Dentro da Spark RC: por que a suspensão integrada muda estrutura, serviço e distribuição de massa",
@@ -145,7 +253,7 @@
       }
     },
     {
-      "day": 5,
+      "day": 8,
       "publishDate": "2026-08-12",
       "id": "review-addict-rc-20",
       "title": "Addict RC 20: Ultegra Di2, rodas de 40 mm e o equilíbrio da montagem",
@@ -180,7 +288,7 @@
       }
     },
     {
-      "day": 6,
+      "day": 9,
       "publishDate": "2026-08-13",
       "id": "spark-rc-team-expert-world-cup",
       "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas",
@@ -193,12 +301,9 @@
         "bicicleta-scott-spark-rc-world-cup-20271"
       ],
       "postPath": "_posts/drafts/2026-08-13-spark-rc-team-expert-world-cup.md",
-      "imageManifestPath": "assets/img/posts/spark-rc-team-expert-world-cup/image-manifest.json",
-      "imageStatus": "approved",
       "imageAssetIds": [
         "thebiker-bicicleta-scott-spark-rc-world-cup-20271-078d5ce90f"
       ],
-      "imageValidatedAt": "2026-08-07T19:30:36.256Z",
       "attempts": 1,
       "lastAttemptAt": "2026-08-07T19:17:24.628Z",
       "aiReview": {
@@ -214,49 +319,60 @@
           "finalAudit": "deepseek"
         },
         "generatedAt": "2026-08-07T19:17:24.628Z"
-      }
-    },
-    {
-      "day": 7,
-      "publishDate": "2026-08-14",
-      "id": "youtube-full-off-roading-with-new-dirt-bikes",
-      "title": "Full Off-Roading With New Dirt Bikes - पहाड़ की चोटी पर पहुँच गए 😱",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 4.516.745 visualizações; 773.654 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
-    },
-    {
-      "day": 8,
-      "publishDate": "2026-08-15",
-      "id": "youtube-how-i-ride-mountain-bikes-with-my-2-year-old",
-      "title": "How I ride mountain bikes with my 2-year-old",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 13.990.029 visualizações; 1.250.375 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
-    },
-    {
-      "day": 9,
-      "publishDate": "2026-08-16",
-      "id": "youtube-i-might-never-ride-my-gravel-bike-again",
-      "title": "I Might Never Ride My Gravel Bike Again",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 47.858 visualizações; 46.646 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
+      },
+      "imageManifestPath": "assets/img/posts/spark-rc-team-expert-world-cup/image-manifest.json",
+      "imageStatus": "approved",
+      "imageValidatedAt": "2026-08-07T19:30:36.256Z"
     },
     {
       "day": 10,
+      "publishDate": "2026-08-14",
+      "id": "geometria-addict-rc-endurance",
+      "title": "Geometria Addict e Addict RC: como stack, reach e proposta alteram a posição",
+      "summary": "Explicação técnica das diferenças entre endurance e race usando geometria e configuração, sem reduzir a escolha a conforto contra velocidade.",
+      "category": "engenharia",
+      "freshness": "evergreen",
+      "status": "blocked",
+      "productIds": [],
+      "imageAssetIds": [],
+      "blockReason": "Artigo inválido:\nsections.12.heading: Use um intertítulo específico e atraente; rótulos genéricos como Introdução, Conclusão, Resumo e Análise não são aceitos.",
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-06T11:26:23.119Z"
+    },
+    {
+      "day": 11,
+      "publishDate": "2026-08-15",
+      "id": "review-spark-rc-expert-2027",
+      "title": "Spark RC Expert 2027: suspensão Fox Factory e XT Di2 sob análise",
+      "summary": "Leitura detalhada da plataforma Gen5, curso de 120 mm, transmissão sem fio, freios de quatro pistões e conjunto de rodas e pneus.",
+      "category": "review",
+      "freshness": "revalidate-24h",
+      "status": "blocked",
+      "productIds": [
+        "bicicleta-scott-spark-rc-expert-2027"
+      ],
+      "imageAssetIds": [],
+      "blockReason": "Etapa draft falhou. groq: groq API: 429 - {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199832, Requested 7288. Please try again in 51m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n | deepseek: The operation was aborted due to timeout",
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-06T15:18:40.648Z"
+    },
+    {
+      "day": 12,
+      "publishDate": "2026-08-16",
+      "id": "torque-carbono-pre-carga",
+      "title": "Torque em componentes de carbono: pré-carga, atrito e aperto sem falsa precisão",
+      "summary": "Como interpretar valores de torque, preparar interfaces, usar pasta de montagem e reconhecer fatores que alteram a força de fixação.",
+      "category": "manutencao-ajustes",
+      "freshness": "evergreen",
+      "status": "blocked",
+      "productIds": [],
+      "imageAssetIds": [],
+      "blockReason": "Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada",
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-07T10:04:04.393Z"
+    },
+    {
+      "day": 13,
       "publishDate": "2026-08-17",
       "id": "addict-rc-20-vs-pro",
       "title": "Addict RC 20 ou RC Pro: onde estão as diferenças que importam na montagem",
@@ -294,7 +410,7 @@
       }
     },
     {
-      "day": 11,
+      "day": 14,
       "publishDate": "2026-08-18",
       "id": "hierarquia-shimano-road-thebiker",
       "title": "105, Ultegra e Dura-Ace nas Addict: hierarquia técnica sem simplificação comercial",
@@ -307,7 +423,7 @@
       "attempts": 0
     },
     {
-      "day": 12,
+      "day": 15,
       "publishDate": "2026-08-19",
       "id": "cockpit-altura-alcance",
       "title": "Cockpit: como altura, alcance e rotação do guidão mudam controle e distribuição de carga",
@@ -320,7 +436,7 @@
       "attempts": 0
     },
     {
-      "day": 13,
+      "day": 16,
       "publishDate": "2026-08-20",
       "id": "rodas-massa-rotacional-perfil",
       "title": "Rodas, massa rotacional e perfil: o que muda de verdade entre as montagens Scott",
@@ -333,7 +449,7 @@
       "attempts": 0
     },
     {
-      "day": 14,
+      "day": 17,
       "publishDate": "2026-08-21",
       "id": "review-spark-rc-world-cup-2027",
       "title": "Spark RC World Cup 2027: carbono HMX e montagem de 10,9 kg em perspectiva",
@@ -348,7 +464,7 @@
       "attempts": 0
     },
     {
-      "day": 15,
+      "day": 18,
       "publishDate": "2026-08-22",
       "id": "desgaste-corrente-cassete-coroa",
       "title": "Corrente, cassete e coroa: como medir desgaste antes que a transmissão cobre a conta",
@@ -361,7 +477,7 @@
       "attempts": 0
     },
     {
-      "day": 16,
+      "day": 19,
       "publishDate": "2026-08-23",
       "id": "scale-940-vs-980",
       "title": "Scale 940 ou Scale 980: comparação técnica entre as hardtails da TheBiker",
@@ -374,7 +490,7 @@
       "attempts": 0
     },
     {
-      "day": 17,
+      "day": 20,
       "publishDate": "2026-08-24",
       "id": "largura-pneu-clearance-real",
       "title": "Largura nominal, largura real e clearance: por que o pneu não termina na medida impressa",
@@ -387,7 +503,7 @@
       "attempts": 0
     },
     {
-      "day": 18,
+      "day": 21,
       "publishDate": "2026-08-25",
       "id": "review-scale-940",
       "title": "Scale 940: quadro de alumínio, Deore 12 velocidades e hardtail de uso XC",
@@ -402,7 +518,7 @@
       "attempts": 0
     },
     {
-      "day": 19,
+      "day": 22,
       "publishDate": "2026-08-26",
       "id": "inspecao-pre-prova-xc-road",
       "title": "Inspeção pré-prova: o protocolo mecânico que deve terminar antes da largada",
@@ -415,7 +531,7 @@
       "attempts": 0
     },
     {
-      "day": 20,
+      "day": 23,
       "publishDate": "2026-08-27",
       "id": "rotores-140-160-180",
       "title": "Rotores de 140, 160 e 180 mm: torque de frenagem, temperatura e compatibilidade",
@@ -428,7 +544,7 @@
       "attempts": 0
     },
     {
-      "day": 21,
+      "day": 24,
       "publishDate": "2026-08-28",
       "id": "rigidez-quadro-comportamento",
       "title": "Rigidez de quadro: por que mais rígido não significa automaticamente mais rápido",
@@ -441,7 +557,7 @@
       "attempts": 0
     },
     {
-      "day": 22,
+      "day": 25,
       "publishDate": "2026-08-29",
       "id": "linha-road-scott-thebiker",
       "title": "Linha road Scott na TheBiker: como Addict e Addict RC ocupam propostas diferentes",
@@ -454,7 +570,7 @@
       "attempts": 0
     },
     {
-      "day": 23,
+      "day": 26,
       "publishDate": "2026-08-30",
       "id": "addict-50-cores-configuracao",
       "title": "Addict 50 Carbon Grey e Cumulus White: o que é configuração e o que é variação comercial",
@@ -467,7 +583,7 @@
       "attempts": 0
     },
     {
-      "day": 24,
+      "day": 27,
       "publishDate": "2026-08-31",
       "id": "rodas-syncros-catalogo-ativo",
       "title": "Rodas Syncros no catálogo ativo: largura, perfil e aplicação em road e XC",
@@ -480,7 +596,7 @@
       "attempts": 0
     },
     {
-      "day": 25,
+      "day": 28,
       "publishDate": "2026-09-01",
       "id": "linha-xc-scott-thebiker",
       "title": "Linha XC Scott na TheBiker: Scale e Spark RC organizadas por arquitetura e montagem",
@@ -493,7 +609,7 @@
       "attempts": 0
     },
     {
-      "day": 26,
+      "day": 29,
       "publishDate": "2026-09-02",
       "id": "preparacao-xco-percurso",
       "title": "Preparação para XCO: como percurso, duração e terreno devem orientar o acerto da bike",
@@ -506,7 +622,7 @@
       "attempts": 0
     },
     {
-      "day": 27,
+      "day": 30,
       "publishDate": "2026-09-03",
       "id": "analise-tecnica-campeonatos-semana",
       "title": "Campeonatos da semana: leitura técnica das provas, decisões e condições de corrida",
@@ -517,119 +633,38 @@
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 0
-    },
-    {
-      "day": 28,
-      "publishDate": "2026-09-04",
-      "id": "youtube-i-built-a-mini-surron-mtb-short-bike-bmx-surron-ebike",
-      "title": "I built a mini SurRon #mtb #short￼ #bike #bmx #surron #ebike",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 2.086.051 visualizações; 111.599 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
-    },
-    {
-      "day": 29,
-      "publishDate": "2026-09-05",
-      "id": "youtube-the-best-downhill-frame-fork-combos",
-      "title": "The Best Downhill Frame & Fork Combos",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 125.725 visualizações; 18.329 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
-    },
-    {
-      "day": 30,
-      "publishDate": "2026-09-06",
-      "id": "youtube-the-best-downhill-suspensions",
-      "title": "The Best Downhill Suspensions",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 896.409 visualizações; 30.041 por dia.",
-      "category": "engenharia",
-      "freshness": "event-driven",
-      "status": "planned",
-      "productIds": [],
-      "imageAssetIds": [],
-      "attempts": 0
     }
   ],
   "reserves": [
     {
-      "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
-      "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 603.451 visualizações; 28.051 por dia.",
+      "id": "reserva-canote-retratil",
+      "title": "Canote retrátil: curso, inserção e manutenção nas Spark RC",
+      "summary": "Compatibilidade, regulagem e sinais de serviço nos canotes das montagens XC.",
+      "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-udh-chainline",
+      "title": "UDH e chainline: interfaces pequenas com grande impacto na transmissão",
+      "summary": "Como gancheira, eixo e linha de corrente afetam alinhamento e funcionamento.",
       "category": "engenharia"
     },
     {
-      "id": "youtube-20-to-29-inch-fat-bikes-available-kids-to-adults-electric-fat-bi",
-      "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 564.055 visualizações; 42.396 por dia.",
+      "id": "reserva-hacker-24-tecnica",
+      "title": "Oggi Hacker 24: leitura técnica da montagem juvenil",
+      "summary": "Quadro, suspensão, transmissão, freios e limites da ficha disponível na TheBiker.",
+      "category": "review"
+    },
+    {
+      "id": "reserva-scale-rc-frame",
+      "title": "Scale RC Team HMF: o quadro como ponto de partida de um projeto XC",
+      "summary": "Interfaces, carbono HMF, headset, UDH e decisões necessárias para uma montagem coerente.",
       "category": "engenharia"
     },
     {
-      "id": "youtube-what-if-you-had-to-choose-between-bmx-and-mtb",
-      "title": "What If You Had to Choose Between BMX and MTB",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 317.360 visualizações; 13.550 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-how-i-modified-my-road-bike-for-extra-speed-ollie-s-new-bike",
-      "title": "How I Modified My Road Bike For Extra Speed | Ollie's New Bike",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 81.992 visualizações; 12.645 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-disc-brake-not-working-fix-it-in-minutes-mahavir-cycle-store",
-      "title": "Disc Brake Not Working?😢🤯Fix It in Minutes! | Mahavir cycle store",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 785.688 visualizações; 33.428 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-how-to-start-mountain-biking-for-under-500",
-      "title": "How To Start Mountain Biking For Under $500 💰",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 518.417 visualizações; 19.147 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-the-3-worst-mtb-helmets-you-should-never-buy",
-      "title": "The 3 Worst MTB Helmets You Should Never Buy ❌",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 106.665 visualizações; 8.854 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-fox-vs-x-fusion-suspension-test-mtb-downhill-cycle-mountainbike",
-      "title": "FOX vs X-FUSION‼️- suspension test #mtb #downhill #cycle #mountainbike #fyp",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 235.744 visualizações; 8.325 por dia.",
-      "category": "comparativo"
-    },
-    {
-      "id": "youtube-29-full-brering-cycle-corrado-best-bicycle",
-      "title": "29” Full Brering Cycle Corrado Best Bicycle",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 143.630 visualizações; 21.727 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-how-to-oil-your-bicycle-properly-easy-cycle-maintenance-at-home",
-      "title": "How to Oil Your Bicycle Properly 🤩| Easy Cycle Maintenance At Home",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 336.994 visualizações; 23.233 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-why-i-swapped-to-an-endurance-bike-alex-s-canyon-endurace-cfr",
-      "title": "Why I Swapped To An Endurance Bike | Alex’s Canyon Endurace CFR",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 128.535 visualizações; 6.583 por dia.",
-      "category": "engenharia"
-    },
-    {
-      "id": "youtube-the-easiest-5-minute-clean-for-bike-shoes",
-      "title": "The Easiest 5-Minute Clean For Bike Shoes",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 60.078 visualizações; 5.359 por dia.",
-      "category": "engenharia"
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes"
     }
   ]
 }
