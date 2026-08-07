@@ -3,6 +3,7 @@ import path from 'node:path'
 import { CampaignSchema, publicCampaignSummary } from './campaign.js'
 
 const TRANSIENT = /timeout|timed out|aborted|429|rate limit|temporar|econnreset|fetch failed/i
+const FINALIZATION = /^Valida(?:ção|cao) final:/i
 
 const RECOVERY_RESERVES = [
   { id: 'reserva-diagnostico-ruidos-bike', title: 'Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface', summary: 'Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.', category: 'manutencao-ajustes' },
@@ -43,6 +44,15 @@ export function recoverBlockedCampaign(campaignInput, { now = new Date(), maximu
   const blocked = campaign.items.find((item) => item.status === 'blocked' && item.publishDate >= today)
   if (!blocked) return { campaign, result: { status: 'idle' }, exception: null }
   const reason = blocked.blockReason || 'Motivo não informado'
+  if (FINALIZATION.test(reason) && blocked.postPath) {
+    blocked.status = 'validation'
+    delete blocked.blockReason
+    return {
+      campaign: CampaignSchema.parse(campaign),
+      result: { status: 'retry-finalization', itemId: blocked.id, attempts: blocked.attempts || 0 },
+      exception: null,
+    }
+  }
   if (TRANSIENT.test(reason) && (blocked.attempts || 0) < maximumTransientAttempts) {
     blocked.status = 'planned'
     delete blocked.blockReason

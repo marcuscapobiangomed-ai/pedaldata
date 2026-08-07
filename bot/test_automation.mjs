@@ -7,6 +7,7 @@ import { CampaignSchema, selectProductionCandidate, selectPublicationCandidate, 
 import { GroundedResearcher } from "./src/automation/grounded-research.js";
 import { finalizeCampaignItem } from "./src/campaign_finalize.js";
 import { produceCampaignCover } from "./src/images/campaign-cover.js";
+import { classifyOfficialImageQuality } from "./src/images/official-campaign-image.js";
 import { selectKnowledgeEvidence } from "./src/campaign_producer.js";
 import { selectScheduledPublication } from "./src/publish_scheduled.js";
 
@@ -43,6 +44,24 @@ scheduled.items[0].status = 'scheduled';
 scheduled.items[0].postPath = `_posts/drafts/${scheduled.items[0].publishDate}-sag.md`;
 assert.equal(selectPublicationCandidate(scheduled, scheduled.items[0].publishDate).day, 1);
 assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
+const imageConfig = {
+  minimumSourceWidth: 360,
+  minimumSourceHeight: 280,
+  minimumPublishableLongEdge: 1600,
+  minimumPublishableShortEdge: 800,
+};
+assert.deepEqual(classifyOfficialImageQuality({ width: 2000, height: 1200 }, imageConfig), {
+  qualityTier: "high-definition",
+  outputFormat: "png",
+});
+assert.deepEqual(classifyOfficialImageQuality({ width: 1024, height: 1024 }, imageConfig), {
+  qualityTier: "standard",
+  outputFormat: "webp",
+});
+assert.throws(
+  () => classifyOfficialImageQuality({ width: 320, height: 200 }, imageConfig),
+  /resolução insuficiente/,
+);
 const catchUpCampaign = structuredClone(campaign);
 for (const item of catchUpCampaign.items) item.status = 'planned';
 catchUpCampaign.items[0].status = 'scheduled';

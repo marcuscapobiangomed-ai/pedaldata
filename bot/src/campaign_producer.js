@@ -47,6 +47,15 @@ async function persist(root, campaign) {
 export async function runCampaignProducer({ root = defaultRoot, env = process.env, researcher = new GroundedResearcher(env), ai = new AIProvider(), now = new Date() } = {}) {
   const campaignPath = path.join(root, 'bot/editorial-campaign.json')
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, 'utf8')))
+  const pendingValidation = campaign.items.find((candidate) => candidate.status === 'validation')
+  if (pendingValidation) {
+    return {
+      status: 'validation',
+      itemId: pendingValidation.id,
+      postPath: pendingValidation.postPath,
+      resumed: true,
+    }
+  }
   const item = selectProductionCandidate(campaign)
   if (!item) return { status: 'idle', message: 'Nenhuma pauta planejada aguardando produção' }
   if (env.AUTOMATION_DRY_RUN === 'true') return { status: 'ready', itemId: item.id }

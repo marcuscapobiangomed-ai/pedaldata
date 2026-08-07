@@ -13,6 +13,23 @@ function extensionFor(contentType) {
   return { "image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp", "image/avif": ".avif" }[contentType];
 }
 
+export function classifyOfficialImageQuality(metadata, config) {
+  const width = metadata.width || 0;
+  const height = metadata.height || 0;
+  const longEdge = Math.max(width, height);
+  const shortEdge = Math.min(width, height);
+  const minimumLongEdge = Math.max(config.minimumSourceWidth || 0, config.minimumSourceHeight || 0);
+  const minimumShortEdge = Math.min(config.minimumSourceWidth || 0, config.minimumSourceHeight || 0);
+  if (longEdge < minimumLongEdge || shortEdge < minimumShortEdge) {
+    throw new Error(`resolução insuficiente para o padrão editorial: ${width}x${height}`);
+  }
+  const highDefinition = longEdge >= config.minimumPublishableLongEdge && shortEdge >= config.minimumPublishableShortEdge;
+  return {
+    qualityTier: highDefinition ? "high-definition" : "standard",
+    outputFormat: highDefinition ? "png" : "webp",
+  };
+}
+
 function galleryUrls(html) {
   return [...new Set([...String(html).matchAll(/<a\s+href=["'](?:https?:)?(\/\/acdn-us\.mitiendanube\.com\/stores\/001\/062\/247\/products\/[^"']+)["'][^>]*data-fancybox=["']product-gallery["']/gi)]
     .map((match) => `https:${match[1]}`.replace(/&amp;/g, "&")))]
@@ -81,16 +98,13 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
   let downloaded;
   let identity;
   let selectedImage;
+  let imageQuality;
   const rejected = [];
   for (const image of candidates) {
     try {
       const candidate = await secureDownloadImage(image.url, config, { fetchImpl });
       const metadata = await sharp(candidate.buffer).metadata();
-      const longEdge = Math.max(metadata.width || 0, metadata.height || 0);
-      const shortEdge = Math.min(metadata.width || 0, metadata.height || 0);
-      if (longEdge < config.minimumPublishableLongEdge || shortEdge < config.minimumPublishableShortEdge) {
-        throw new Error(`resolução insuficiente para HD: ${metadata.width || 0}x${metadata.height || 0}`);
-      }
+      const quality = classifyOfficialImageQuality(metadata, config);
       const hashes = { sha256: sha256(candidate.buffer), perceptualHash: await perceptualHash(candidate.buffer) };
       assertNotDuplicate(hashes, library.data.assets, {
         now: new Date(`${approvedAt}T12:00:00Z`),
@@ -99,12 +113,13 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
       downloaded = candidate;
       identity = hashes;
       selectedImage = image;
+      imageQuality = quality;
       break;
     } catch (error) {
       rejected.push(error.message);
     }
   }
-  if (!downloaded || !identity || !selectedImage) throw new Error(`Galeria oficial sem imagem HD inédita válida: ${rejected.slice(0, 4).join(" | ")}`);
+  if (!downloaded || !identity || !selectedImage || !imageQuality) throw new Error(`Galeria oficial sem imagem inédita válida: ${rejected.slice(0, 4).join(" | ")}`);
   const rights = selectedImage.sourceType === "manufacturer" ? brandRights : storeRights;
   const assetId = `${selectedImage.sourceType}-${selected.product.id}-${identity.sha256.slice(0, 10)}`;
   const directory = path.join(root, "assets/img/posts", item.id);
@@ -128,8 +143,8 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
     assetId,
     ...identity,
     preserveFullProduct: true,
-    outputFormat: "png",
-    qualityTier: "high-definition",
+    outputFormat: imageQuality.outputFormat,
+    qualityTier: imageQuality.qualityTier,
     matchedProduct: { id: selected.product.id, name: selected.product.name, sku: selected.product.sku || null, matchLevel: selected.matchLevel },
     depictedBrands: brand ? [brand] : [],
     depictedProducts: [selected.product.name],
@@ -150,7 +165,16 @@ export async function produceOfficialCampaignImage({ root, item, approvedAt, fet
       reviewedBy: "TheBiker deterministic image gate",
       approvedAt,
       method: "automated-editorial-gate",
-      checks: ["fonte-oficial", "alta-resolucao", "png-sem-perdas", "direitos", "produto-relacionado", "sha256", "hash-perceptual", "sem-concorrente"],
+      checks: [
+        "fonte-oficial",
+        imageQuality.qualityTier === "high-definition" ? "alta-resolucao" : "resolucao-padrao-declarada",
+        imageQuality.outputFormat === "png" ? "png-sem-perdas" : "webp-otimizado",
+        "direitos",
+        "produto-relacionado",
+        "sha256",
+        "hash-perceptual",
+        "sem-concorrente",
+      ],
     },
   };
   const manifest = await prepareImageVariants({ input: source, outputDirectory: directory, manifest: baseManifest });

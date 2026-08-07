@@ -97,6 +97,9 @@ jobs:
         if: steps.automation.outcome == 'success'
         run: npm run campaign:finalize
         working-directory: bot
+      - name: Aplicar links TheBiker antes do gate
+        if: always()
+        run: npm run links:thebiker
       - name: Validar artefatos produzidos
         if: always()
         run: npm run validate
