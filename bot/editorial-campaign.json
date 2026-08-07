@@ -60,6 +60,7 @@
         "thebiker-scott-addict-rc-pro-hmx-frame-set-def10da96a"
       ],
       "imageValidatedAt": "2026-08-05T17:09:52.760Z",
+      "publishedAt": "2026-08-07T19:14:39.371Z",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -74,8 +75,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:17:30.907Z"
-      },
-      "publishedAt": "2026-08-07T19:14:39.371Z"
+      }
     },
     {
       "day": 3,
@@ -290,17 +290,35 @@
     {
       "day": 9,
       "publishDate": "2026-08-13",
-      "id": "tubeless-xc-pressao-vedacao",
-      "title": "Tubeless em XC: pressão, vedação e assentamento sem depender de tentativa e erro",
-      "summary": "Critérios para montagem, volume de selante, inspeção de fita, assentamento do talão e ajuste de pressão em pneus 29x2.4.",
-      "category": "manutencao-ajustes",
-      "freshness": "evergreen",
+      "id": "spark-rc-team-expert-world-cup",
+      "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas",
+      "summary": "Comparação interna entre as três Spark RC vendidas pela TheBiker, cobrindo carbono, suspensões, transmissão, rodas, peso e limite do sistema.",
+      "category": "comparativo",
+      "freshness": "revalidate-24h",
       "status": "blocked",
-      "productIds": [],
+      "productIds": [
+        "bicicleta-scott-spark-rc-world-cup-2027",
+        "bicicleta-scott-spark-rc-world-cup-20271"
+      ],
+      "postPath": "_posts/drafts/2026-08-13-spark-rc-team-expert-world-cup.md",
       "imageAssetIds": [],
-      "blockReason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Parsing failed. The model generated output that could not be parsed. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"output_parse_failed\",\"failed_generation\":\"Scrolling near bottom shows pagination link with \\\"?page=2\\\". Let's open that.\"}}\n",
-      "attempts": 2,
-      "lastAttemptAt": "2026-08-07T17:51:39.758Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-07T19:17:24.628Z",
+      "aiReview": {
+        "score": 85,
+        "finalScore": 95,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalAudit": "deepseek"
+        },
+        "generatedAt": "2026-08-07T19:17:24.628Z"
+      },
+      "blockReason": "Validação final: Galeria oficial sem imagem HD inédita válida: resolução insuficiente para HD: 1024x1024 | resolução insuficiente para HD: 1024x1024 | resolução insuficiente para HD: 1024x1024 | resolução insuficiente para HD: 1024x1024"
     },
     {
       "day": 10,
@@ -615,12 +633,6 @@
   ],
   "reserves": [
     {
-      "id": "spark-rc-team-expert-world-cup",
-      "title": "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas",
-      "summary": "Comparação interna entre as três Spark RC vendidas pela TheBiker, cobrindo carbono, suspensões, transmissão, rodas, peso e limite do sistema.",
-      "category": "comparativo"
-    },
-    {
       "id": "reserva-canote-retratil",
       "title": "Canote retrátil: curso, inserção e manutenção nas Spark RC",
       "summary": "Compatibilidade, regulagem e sinais de serviço nos canotes das montagens XC.",
@@ -643,6 +655,12 @@
       "title": "Scale RC Team HMF: o quadro como ponto de partida de um projeto XC",
       "summary": "Interfaces, carbono HMF, headset, UDH e decisões necessárias para uma montagem coerente.",
       "category": "engenharia"
+    },
+    {
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes"
     }
   ]
 }
