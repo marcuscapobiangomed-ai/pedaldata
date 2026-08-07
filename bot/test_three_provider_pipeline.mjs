@@ -69,4 +69,31 @@ assert.throws(
   /Gates editoriais não atendidos/,
 );
 
+let malformedCalls = 0;
+const malformedClients = {
+  isConfigured: () => true,
+  async generate(provider) {
+    malformedCalls += 1;
+    return {
+      provider,
+      model: "test",
+      content: malformedCalls === 1 ? '{"sections":[' : JSON.stringify({ sections: [] }),
+      usage: {},
+      durationMs: 1,
+    };
+  },
+};
+const malformedPipeline = new ThreeProviderPipeline({ clients: malformedClients, runtime, env: {} });
+const recoveredJson = await malformedPipeline.callStep({
+  step: "json-recovery",
+  providers: ["deepseek", "deepseek", "gemini"],
+  system: "Sistema",
+  user: "JSON",
+  options: { jsonMode: true },
+  sourceHash: "test",
+});
+assert.equal(malformedCalls, 2);
+assert.equal(recoveredJson.provider, "deepseek");
+assert.deepEqual(JSON.parse(recoveredJson.content), { sections: [] });
+
 console.log("Pipeline de três provedores validado com sucesso.");

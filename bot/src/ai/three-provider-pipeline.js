@@ -75,6 +75,15 @@ export class ThreeProviderPipeline {
           const tracked = await this.runtime.addDeepSeekCost(result.usage, result.model);
           financial = { estimatedCostUsd: tracked.cost, budgetSpentUsd: tracked.budget.spent };
         }
+        if (options.jsonMode) {
+          try {
+            extractJson(result.content);
+          } catch (error) {
+            const invalidJson = new Error(`${provider}: resposta JSON inválida (${error.message})`);
+            invalidJson.code = "INVALID_PROVIDER_JSON";
+            throw invalidJson;
+          }
+        }
         const stored = { ...result, ...financial };
         await this.runtime.writeCache(cacheKey, stored);
         await this.runtime.record({
@@ -231,7 +240,7 @@ export class ThreeProviderPipeline {
       const generationTargetWords = Math.ceil(minimumWords * 1.2);
       finalResult = await this.callStep({
         step: "premium-edit",
-        providers: ["deepseek"],
+        providers: ["deepseek", "deepseek", "gemini"],
         sourceHash,
         system: systemPrompt,
         options: {
