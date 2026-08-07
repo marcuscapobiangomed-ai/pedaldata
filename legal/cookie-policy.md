@@ -1,26 +1,34 @@
-# Política de Cookies — TheBikerBlog
+---
+layout: default
+title: "Política de cookies"
+description: "Cookies e armazenamento utilizados pelo TheBiker Blog e como alterar as preferências de analytics."
+permalink: /legal/cookies/
+last_modified_at: 2026-08-07
+---
 
-## O que são cookies
-Arquivos armazenados no navegador para melhorar a experiência.
+# Política de Cookies — TheBiker Blog
 
-## Cookies utilizados
+Última atualização: 7 de agosto de 2026.
 
-| Tipo | Finalidade | Armazenamento |
+## Categorias utilizadas
+
+| Categoria | Finalidade | Estado inicial |
 |---|---|---|
-| Essenciais | Autenticação, sessão | Sessão |
-| Preferências | Idioma, configurações | 1 ano |
-| Analytics | Comportamento de uso | 2 anos |
-| Marketing | Anúncios relevantes | 90 dias |
+| Essencial | Memorizar a escolha de privacidade e manter funções solicitadas pelo visitante | Ativa |
+| Analytics | Medir audiência, origem, engajamento e conversões no Google Analytics 4 | Desativada |
+| Experiência | Produzir mapas de calor e gravações de interação no Microsoft Clarity, quando configurado | Desativada |
+| Publicidade personalizada | Remarketing e personalização de anúncios | Não utilizada |
 
-## Cookies de terceiros
-- Google Analytics
-- Redes sociais (compartilhamento)
+## Ferramentas
 
-## Gerenciamento
-Usuários podem:
-- Configurar preferências no banner de cookies
-- Bloquear cookies no navegador
-- Limpar cookies existentes
+O Google Analytics 4 é carregado somente após autorização para analytics. O Microsoft Clarity também permanece sem carregamento até a autorização e a configuração de um projeto válido.
 
-## Consentimento
-O consentimento é obtido no primeiro acesso e pode ser revogado a qualquer momento.
+O código define armazenamento de publicidade, dados de usuário para anúncios e personalização de anúncios como negados. A autorização oferecida pelo site cobre somente analytics e melhoria de experiência.
+
+## Como alterar a escolha
+
+Use o botão **Preferências de analytics** no rodapé. É possível aceitar ou continuar sem analytics com o mesmo nível de destaque e alterar a decisão posteriormente.
+
+Também é possível limpar o armazenamento e os cookies nas configurações do navegador. Nesse caso, o site solicitará uma nova escolha no próximo acesso.
+
+Consulte também a [Política de privacidade]({{ '/legal/privacidade/' | relative_url }}).

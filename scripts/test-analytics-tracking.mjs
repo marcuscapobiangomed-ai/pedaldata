@@ -1,0 +1,65 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import process from 'node:process'
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const failures = []
+
+function read(relativePath) {
+  return fs.readFileSync(path.join(ROOT, relativePath), 'utf8')
+}
+
+function expect(condition, message) {
+  if (!condition) failures.push(message)
+}
+
+const config = read('_config.yml')
+const analyticsInclude = read('_includes/analytics.html')
+const defaultLayout = read('_layouts/default.html')
+const footer = read('_includes/footer.html')
+const consent = read('assets/js/privacy-consent.js')
+const events = read('assets/js/analytics-events.js')
+const affiliateLinks = read('_includes/affiliate-links.html')
+const newsletter = read('newsletter.html')
+const search = read('search.html')
+const privacyPolicy = read('legal/privacy-policy.md')
+const cookiePolicy = read('legal/cookie-policy.md')
+
+expect(/google_analytics:\s*G-[A-Z0-9]+/i.test(config), 'Measurement ID GA4 ausente')
+expect(/clarity_project_id:\s*""/.test(config), 'Clarity deve iniciar sem ID fictício')
+for (const consentType of ['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage']) {
+  expect(new RegExp(`${consentType}:\\s*'denied'`).test(analyticsInclude), `Consentimento padrão não negado: ${consentType}`)
+}
+expect(defaultLayout.includes('{% include consent-banner.html %}'), 'Banner de consentimento não incluído no layout')
+expect(footer.includes('data-open-privacy-preferences'), 'Rodapé não reabre preferências')
+expect(consent.includes('thebiker:consent-change'), 'Evento de alteração de consentimento ausente')
+expect(consent.includes("analytics_Storage: granted ? 'granted' : 'denied'"), 'Clarity Consent API v2 ausente')
+expect(!events.includes('G-DHD86P6XDZ'), 'Measurement ID não deve estar duplicado no coletor de eventos')
+expect(!events.includes('localStorage'), 'Eventos de navegação não devem persistir no navegador')
+expect(!affiliateLinks.includes('onclick='), 'Clique de afiliado possui tracking inline duplicado')
+expect(newsletter.includes("'newsletter_interest'"), 'Evento de interesse em newsletter ausente')
+expect(!/TheBikerBlog\.track\([\s\S]{0,300}(email:|name:)/.test(newsletter), 'Newsletter envia PII ao analytics')
+expect(newsletter.includes('data-clarity-mask="true"'), 'Formulário sensível sem máscara explícita do Clarity')
+expect(search.includes("'search_results'"), 'Busca interna sem evento agregado')
+expect(!search.includes('search_term:'), 'Termo digitado não deve ser enviado ao analytics')
+expect(consent.includes("page_location: window.location.origin + window.location.pathname"), 'GA4 pode receber parâmetros sensíveis da URL')
+expect(consent.includes('(admin|search|login|conta)'), 'Clarity não exclui páginas sensíveis')
+for (const eventName of ['content_view', 'scroll_depth', 'view_item', 'comparison_complete', 'store_click']) {
+  expect(events.includes(`'${eventName}'`), `Evento obrigatório ausente: ${eventName}`)
+}
+expect(privacyPolicy.includes('Microsoft Clarity'), 'Política de privacidade não declara Clarity')
+expect(cookiePolicy.includes('Desativada'), 'Política de cookies não informa estado inicial')
+
+for (const file of ['assets/js/privacy-consent.js', 'assets/js/analytics-events.js']) {
+  const result = spawnSync(process.execPath, ['--check', path.join(ROOT, file)], { encoding: 'utf8' })
+  if (result.status !== 0) failures.push(`${file}: JavaScript inválido\n${result.stderr}`)
+}
+
+if (failures.length > 0) {
+  failures.forEach((failure) => console.error(`ERRO: ${failure}`))
+  process.exit(1)
+}
+
+console.log('✓ Analytics, consentimento, eventos e políticas validados')

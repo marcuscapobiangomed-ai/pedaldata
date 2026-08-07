@@ -1,57 +1,86 @@
 ;(function() {
   'use strict'
 
-  if (window.TheBikerBlog && window.TheBikerBlog.track) return
-
   window.TheBikerBlog = window.TheBikerBlog || {}
+  if (window.TheBikerBlog.track) return
 
-  var EVENT_STORE_KEY = 'thebikerblog_events'
-  var MAX_STORED = 500
+  var config = window.TheBikerTrackingConfig || {}
+  var sessionEvents = []
+  var maxSessionEvents = 200
+  var contextTracked = false
 
-  function getStored() {
-    try {
-      return JSON.parse(localStorage.getItem(EVENT_STORE_KEY)) || []
-    } catch { return [] }
+  function hasConsent() {
+    return Boolean(window.TheBikerConsent && window.TheBikerConsent.hasAnalyticsConsent())
   }
 
-  function storeEvent(event) {
-    var events = getStored()
-    events.push(event)
-    if (events.length > MAX_STORED) events = events.slice(-MAX_STORED)
-    try { localStorage.setItem(EVENT_STORE_KEY, JSON.stringify(events)) } catch {}
+  function safeKey(key) {
+    return String(key)
+      .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+      .replace(/[^a-zA-Z0-9_]/g, '_')
+      .toLowerCase()
+      .slice(0, 40)
+  }
+
+  function safeMeta(meta) {
+    var result = {}
+    var blockedKeys = /email|e_mail|name|nome|phone|telefone|address|endereco|cpf|document/i
+    Object.keys(meta || {}).forEach(function(key) {
+      if (blockedKeys.test(key)) return
+      var value = meta[key]
+      if (value === undefined || value === null || value === '') return
+      var normalizedKey = safeKey(key)
+      if (Array.isArray(value)) {
+        if (normalizedKey === 'items') result[normalizedKey] = value
+        else result[normalizedKey] = value.join('|').slice(0, 500)
+      } else if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+        result[normalizedKey] = typeof value === 'string' ? value.slice(0, 500) : value
+      }
+    })
+    return result
+  }
+
+  function pageContext() {
+    return {
+      page_path: window.location.pathname,
+      page_type: config.pageType || 'page',
+      content_id: config.contentId || window.location.pathname,
+      content_type: config.contentType || config.pageType || 'page',
+      content_category: config.contentCategory || 'sem-categoria'
+    }
   }
 
   function track(category, action, label, value, meta) {
+    if (!hasConsent()) return false
+
+    var params = Object.assign({}, pageContext(), safeMeta(meta), {
+      event_category: category,
+      event_label: label || ''
+    })
+    if (value !== undefined && value !== null) params.value = value
+
+    if (typeof window.gtag === 'function') {
+      try { window.gtag('event', action, params) } catch {}
+    }
+    if (typeof window.clarity === 'function') {
+      try { window.clarity('event', action) } catch {}
+    }
+
     var event = {
       category: category,
       action: action,
       label: label || '',
-      value: value || null,
-      meta: meta || {},
+      value: value === undefined ? null : value,
+      meta: safeMeta(meta),
       timestamp: new Date().toISOString(),
-      page: window.location.pathname,
-      referrer: document.referrer || ''
+      page: window.location.pathname
     }
+    sessionEvents.push(event)
+    if (sessionEvents.length > maxSessionEvents) sessionEvents = sessionEvents.slice(-maxSessionEvents)
 
-    if (typeof gtag === 'function') {
-      try {
-        gtag('event', action, {
-          event_category: category,
-          event_label: label,
-          value: value,
-          page_path: window.location.pathname,
-          send_to: 'G-DHD86P6XDZ'
-        })
-      } catch {}
-    }
-
-    storeEvent(event)
-
-    if (window.TheBikerBlog._eventListeners) {
-      window.TheBikerBlog._eventListeners.forEach(function(fn) {
-        try { fn(event) } catch {}
-      })
-    }
+    ;(window.TheBikerBlog._eventListeners || []).forEach(function(listener) {
+      try { listener(event) } catch {}
+    })
+    return true
   }
 
   function onTrack(callback) {
@@ -60,99 +89,145 @@
   }
 
   function getEvents(options) {
-    var events = getStored()
+    var events = sessionEvents.slice()
     if (!options) return events
-    if (options.category) events = events.filter(function(e) { return e.category === options.category })
-    if (options.action) events = events.filter(function(e) { return e.action === options.action })
-    if (options.since) events = events.filter(function(e) { return new Date(e.timestamp) >= new Date(options.since) })
+    if (options.category) events = events.filter(function(event) { return event.category === options.category })
+    if (options.action) events = events.filter(function(event) { return event.action === options.action })
+    if (options.since) events = events.filter(function(event) { return new Date(event.timestamp) >= new Date(options.since) })
     if (options.limit) events = events.slice(-options.limit)
     return events
   }
 
   function getSummary() {
-    var events = getStored()
-    var summary = {
-      total: events.length,
-      byCategory: {},
-      byAction: {},
-      uniqueUsers: new Set(),
-      today: 0,
-      todayEvents: []
-    }
+    var summary = { total: sessionEvents.length, byCategory: {}, byAction: {}, today: 0, todayEvents: [] }
     var today = new Date().toISOString().slice(0, 10)
-    events.forEach(function(e) {
-      summary.byCategory[e.category] = (summary.byCategory[e.category] || 0) + 1
-      summary.byAction[e.action] = (summary.byAction[e.action] || 0) + 1
-      if (e.timestamp && e.timestamp.slice(0, 10) === today) {
+    sessionEvents.forEach(function(event) {
+      summary.byCategory[event.category] = (summary.byCategory[event.category] || 0) + 1
+      summary.byAction[event.action] = (summary.byAction[event.action] || 0) + 1
+      if (event.timestamp.slice(0, 10) === today) {
         summary.today++
-        summary.todayEvents.push(e)
+        summary.todayEvents.push(event)
       }
     })
-    summary.uniqueUsers = summary.uniqueUsers.size
     return summary
   }
 
   function clearEvents() {
-    try { localStorage.removeItem(EVENT_STORE_KEY) } catch {}
+    sessionEvents = []
   }
 
-  function trackAffiliateClick(partner, productId, placement, url) {
-    track('affiliate', 'affiliate_click', partner + ':' + productId, null, {
-      partner: partner,
-      productId: productId,
-      placement: placement,
-      url: url
+  function trackAffiliateClick(partner, productId, placement) {
+    return track('conversion', 'store_click', partner || 'TheBiker Shop', null, {
+      partner: partner || 'TheBiker Shop',
+      product_id: productId || 'nao-informado',
+      placement: placement || 'nao-informado'
     })
   }
 
   function trackProductView(productId, brand, model) {
-    track('product', 'product_view', brand + ' ' + model, null, {
-      productId: productId,
-      brand: brand,
-      model: model
+    return track('product', 'view_item', [brand, model].filter(Boolean).join(' '), null, {
+      product_id: productId,
+      product_brand: brand,
+      product_model: model,
+      items: [{ item_id: productId, item_name: model, item_brand: brand }]
     })
   }
 
   function trackCompareAdd(productId, brand, model) {
-    track('product', 'product_compare_add', brand + ' ' + model, null, {
-      productId: productId,
-      brand: brand,
-      model: model
+    return track('product', 'comparison_add', [brand, model].filter(Boolean).join(' '), null, {
+      product_id: productId,
+      product_brand: brand,
+      product_model: model
     })
   }
 
   function trackCompareComplete(ids) {
-    track('product', 'product_compare_complete', ids.join(' vs '), ids.length, {
-      productIds: ids
+    return track('product', 'comparison_complete', ids.join(' vs '), ids.length, {
+      product_ids: ids,
+      product_count: ids.length
     })
+  }
+
+  function placementFor(link) {
+    if (link.dataset.placement) return link.dataset.placement
+    if (link.closest('.site-header')) return 'site_header'
+    if (link.closest('.site-footer')) return 'site_footer'
+    if (link.closest('.brand-shop-cta')) return 'home_shop_cta'
+    if (link.closest('.post-content')) return 'article_body'
+    return 'page'
+  }
+
+  function isStoreLink(link) {
+    try {
+      return /(^|\.)thebikershop\.com\.br$/i.test(new URL(link.href, window.location.href).hostname)
+    } catch {
+      return false
+    }
+  }
+
+  function decorateStoreLink(link) {
+    if (!isStoreLink(link)) return
+    try {
+      var url = new URL(link.href, window.location.href)
+      if (!url.searchParams.has('utm_source')) url.searchParams.set('utm_source', 'thebikerblog')
+      if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', 'referral')
+      if (!url.searchParams.has('utm_campaign')) url.searchParams.set('utm_campaign', 'editorial')
+      if (!url.searchParams.has('utm_content')) url.searchParams.set('utm_content', placementFor(link))
+      link.href = url.toString()
+    } catch {}
+  }
+
+  function trackContentContext() {
+    if (contextTracked || !hasConsent()) return
+    contextTracked = true
+    if (config.pageType === 'post') {
+      track('content', 'content_view', config.contentTitle || document.title, null, {
+        content_id: config.contentId,
+        content_type: config.contentType,
+        content_category: config.contentCategory
+      })
+    } else if (config.pageType === 'product/bike') {
+      trackProductView(config.contentId, config.productBrand, config.productModel)
+    }
+  }
+
+  function initScrollTracking() {
+    if (config.pageType !== 'post') return
+    var reached = {}
+    window.addEventListener('scroll', function() {
+      if (!hasConsent()) return
+      var available = document.documentElement.scrollHeight - window.innerHeight
+      if (available <= 0) return
+      var percent = Math.round(window.scrollY / available * 100)
+      ;[25, 50, 75, 90].forEach(function(threshold) {
+        if (percent >= threshold && !reached[threshold]) {
+          reached[threshold] = true
+          track('engagement', 'scroll_depth', String(threshold), threshold, { percent_scrolled: threshold })
+        }
+      })
+    }, { passive: true })
   }
 
   function initGlobalTracking() {
-    document.addEventListener('click', function(e) {
-      var el = e.target.closest('[data-affiliate="true"]')
-      if (!el) return
-      var partner = el.getAttribute('data-partner') || ''
-      var productId = el.getAttribute('data-product') || ''
-      var placement = el.getAttribute('data-placement') || 'unknown'
-      track('affiliate', 'affiliate_click', partner + ':' + productId, null, {
-        partner: partner,
-        productId: productId,
-        placement: placement,
-        url: el.href || ''
-      })
-      var partnerName = partner || 'loja'
-      track('product', 'store_click', partnerName, null, {
-        store: partner,
-        productId: productId,
-        placement: placement
-      })
-    })
-  }
+    document.querySelectorAll('a[href]').forEach(decorateStoreLink)
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initGlobalTracking)
-  } else {
-    initGlobalTracking()
+    document.addEventListener('click', function(event) {
+      var link = event.target.closest('a[href]')
+      if (!link || !isStoreLink(link)) return
+      decorateStoreLink(link)
+      trackAffiliateClick(
+        link.getAttribute('data-partner') || 'TheBiker Shop',
+        link.getAttribute('data-product') || config.contentId || 'sitewide',
+        placementFor(link)
+      )
+    })
+
+    trackContentContext()
+    initScrollTracking()
+
+    window.addEventListener('thebiker:consent-change', function(event) {
+      if (event.detail && event.detail.analytics) trackContentContext()
+    })
   }
 
   window.TheBikerBlog.track = track
@@ -164,4 +239,7 @@
   window.TheBikerBlog.trackProductView = trackProductView
   window.TheBikerBlog.trackCompareAdd = trackCompareAdd
   window.TheBikerBlog.trackCompareComplete = trackCompareComplete
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initGlobalTracking)
+  else initGlobalTracking()
 })()

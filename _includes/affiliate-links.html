@@ -11,7 +11,7 @@
       {% for observation in affiliate_prices.observations %}
         {% if observation.availability == "in-stock" %}
           {% assign available_stores = available_stores | plus: 1 %}
-          <a href="{{ observation.url }}" rel="nofollow sponsored" target="_blank" data-affiliate="true" data-partner="{{ observation.store | escape }}" data-product="{{ include.product_id }}" data-placement="affiliate-links" onclick="if(typeof TheBikerBlog.trackAffiliateClick==='function'){TheBikerBlog.trackAffiliateClick('{{ observation.store | escape }}','{{ include.product_id }}','affiliate-links',this.href)}" style="display:inline-block;background:var(--accent);color:var(--bg-dark);padding:8px 16px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:0.82rem;">{{ observation.store }} — R$ {{ observation.price | number_with_delimiter: ".", "," }}</a>
+          <a href="{{ observation.url }}" rel="nofollow sponsored" target="_blank" data-affiliate="true" data-partner="{{ observation.store | escape }}" data-product="{{ include.product_id }}" data-placement="affiliate-links" style="display:inline-block;background:var(--accent);color:var(--bg-dark);padding:8px 16px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:0.82rem;">{{ observation.store }} — R$ {{ observation.price | number_with_delimiter: ".", "," }}</a>
         {% endif %}
       {% endfor %}
     {% endif %}

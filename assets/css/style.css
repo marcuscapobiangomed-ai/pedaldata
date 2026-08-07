@@ -1245,7 +1245,7 @@ body.menu-open { overflow: hidden; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr repeat(3, 1fr);
   gap: 32px;
   margin-bottom: 28px;
 }
@@ -1280,6 +1280,18 @@ body.menu-open { overflow: hidden; }
   transition: color 0.2s;
 }
 .footer-col a:hover { color: rgba(255,255,255,0.85); }
+.footer-privacy-button {
+  display: block;
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  font: inherit;
+  font-size: 0.82rem;
+  text-align: left;
+  cursor: pointer;
+}
+.footer-privacy-button:hover { color: rgba(255,255,255,0.85); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.07);
   padding-top: 18px;
@@ -2456,6 +2468,8 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
 .footer-col h4 { color: #111; }
 .footer-col a { color: #666; }
 .footer-col a:hover { color: var(--accent); }
+.footer-privacy-button { color: #666; }
+.footer-privacy-button:hover { color: var(--accent); }
 .footer-bottom { color: #999; border-top-color: #e8e8e8; }
 .tag { color: var(--accent-dark); background: rgba(200, 0, 0, 0.08); }
 .post-title,
@@ -2557,4 +2571,63 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
   .brand-shop-cta-inner { align-items: flex-start; flex-direction: column; }
   .brand-shop-cta strong { font-size: 1.42rem; }
   .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* Consentimento de analytics e mapas de calor. */
+.privacy-banner {
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border: 1px solid #343434;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+}
+.privacy-banner[hidden] { display: none !important; }
+.privacy-banner__copy { max-width: 700px; }
+.privacy-banner__copy strong {
+  display: block;
+  margin-bottom: 5px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.privacy-banner__copy p { margin: 0 0 5px; color: #d2d2d2; font-size: 0.78rem; line-height: 1.5; }
+.privacy-banner__copy a { color: #fff; font-size: 0.72rem; text-underline-offset: 3px; }
+.privacy-banner__actions { display: flex; flex: 0 0 auto; gap: 10px; }
+.privacy-button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #fff;
+  font: 800 0.68rem var(--font-body);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.privacy-button--primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.privacy-button--primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.privacy-button--secondary { background: transparent; color: #fff; }
+.privacy-button--secondary:hover { background: #fff; color: #111; }
+
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .privacy-banner { align-items: stretch; flex-direction: column; gap: 16px; }
+  .privacy-banner__actions { width: 100%; }
+  .privacy-button { flex: 1; }
+}
+
+@media (max-width: 520px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .privacy-banner { right: 10px; bottom: 10px; left: 10px; padding: 17px; }
+  .privacy-banner__actions { flex-direction: column-reverse; }
 }

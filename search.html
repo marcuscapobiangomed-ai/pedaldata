@@ -10,7 +10,7 @@ title: Busca
       <div class="page-title-underline"></div>
 
       <div style="margin-bottom: 24px;">
-        <form action="{{ site.baseurl }}/search" method="get" style="display: flex; gap: 8px; max-width: 480px;">
+        <form action="{{ site.baseurl }}/search" method="get" data-clarity-mask="true" style="display: flex; gap: 8px; max-width: 480px;">
           <label class="visually-hidden" for="search-input">Buscar artigos</label>
           <input type="text" id="search-input" name="q" placeholder="Buscar artigos..." style="flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; background: var(--bg-card); color: var(--text); outline: none;">
           <button type="submit" class="btn">Buscar</button>
@@ -57,6 +57,13 @@ document.addEventListener("DOMContentLoaded", async function() {
       
       return title.includes(cleanQuery) || desc.includes(cleanQuery) || tags.includes(cleanQuery);
     });
+
+    if (window.TheBikerBlog && typeof window.TheBikerBlog.track === 'function') {
+      window.TheBikerBlog.track('discovery', 'search_results', 'busca-interna', results.length, {
+        results_count: results.length,
+        has_results: results.length > 0
+      });
+    }
 
     if (results.length === 0) {
       searchStatus.textContent = `Nenhum resultado encontrado para "${query}".`;

@@ -22,7 +22,7 @@ permalink: /newsletter/
         • Variações de preço do mercado<br>
         • Guias de compra e dicas exclusivas
       </p>
-      <form id="newsletter-form" action="#" method="post" style="display:flex;flex-direction:column;gap:14px;">
+      <form id="newsletter-form" action="#" method="post" data-clarity-mask="true" style="display:flex;flex-direction:column;gap:14px;">
         <div class="form-group">
           <label for="newsletter-name">Seu nome</label>
           <input type="text" id="newsletter-name" placeholder="Ex: João Silva" required>
@@ -72,14 +72,11 @@ permalink: /newsletter/
 document.getElementById('newsletter-form').addEventListener('submit', function(e) {
   e.preventDefault()
 
-  var name = document.getElementById('newsletter-name').value
   var email = document.getElementById('newsletter-email').value
   var profile = document.getElementById('newsletter-profile').value
 
   if (typeof TheBikerBlog.track === 'function') {
-    TheBikerBlog.track('newsletter', 'newsletter_submit', email, null, {
-      name: name,
-      email: email,
+    TheBikerBlog.track('newsletter', 'newsletter_interest', 'formulario-newsletter', null, {
       profile: profile
     })
   }

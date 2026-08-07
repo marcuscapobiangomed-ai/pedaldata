@@ -25,6 +25,8 @@ webmaster_verifications:
   google: googleae077bce8e335daa
 
 google_analytics: G-DHD86P6XDZ
+clarity_project_id: ""
+analytics_consent_version: 1
 
 markdown: kramdown
 highlighter: rouge
