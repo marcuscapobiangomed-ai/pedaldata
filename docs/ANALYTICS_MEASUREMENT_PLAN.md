@@ -9,7 +9,9 @@ Transformar audiência em decisões editoriais e comerciais verificáveis. O sis
 - **UTMs:** atribuição dos acessos enviados para a loja;
 - **Search Console e Bing Webmaster:** demanda orgânica e indexação, analisadas separadamente do comportamento no site.
 
-A propriedade GA4 existente usa `G-DHD86P6XDZ`. O Clarity permanece desligado até `clarity_project_id` receber o ID real em `_config.yml`.
+A propriedade GA4 existente usa `G-DHD86P6XDZ`. O projeto Clarity `xyo6bi7k8g` está configurado em `_config.yml`; ambos carregam somente após consentimento de analytics.
+
+O contrato de público, a taxonomia e os três KPIs primários ficam em `docs/AUDIENCE_OPERATING_SYSTEM.md` e `_data/audience.json`.
 
 ## Funil principal
 
@@ -23,6 +25,7 @@ Aquisição → Conteúdo consumido → Intenção de produto → Clique para a 
 | Entrada | `page_view` | Quantas páginas e sessões foram vistas? |
 | Conteúdo | `content_view` | Quais artigos atraem leitores? |
 | Qualidade | `scroll_depth` | O leitor chegou a 25%, 50%, 75% ou 90%? |
+| Leitura qualificada | `qualified_read` | O leitor chegou a 75% do artigo? |
 | Produto | `view_item` | Qual produto despertou intenção? |
 | Comparação | `comparison_add` | Quais modelos entram na consideração? |
 | Comparação | `comparison_complete` | Quantas comparações foram concluídas? |
@@ -48,10 +51,14 @@ Aquisição → Conteúdo consumido → Intenção de produto → Clique para a 
 - `product_count`
 - `placement`
 - `profile`
+- `audience_intent`
+- `experience_level_target`
 
 Nome, e-mail, telefone, CPF, endereço e conteúdo de formulários são bloqueados pelo coletor e não podem ser parâmetros de analytics.
 
-## Configuração necessária no GA4
+## Configuração no GA4
+
+As oito dimensões abaixo, o evento principal `store_click` e os públicos **Alta intenção TheBiker** e **Leitores técnicos engajados** foram configurados em 7 de agosto de 2026. A evidência operacional está em `docs/operations/analytics-audience-configuration-2026-08-07.md`.
 
 Em **Administrador → Definições personalizadas**, cadastrar como dimensões de evento:
 
@@ -61,6 +68,10 @@ Em **Administrador → Definições personalizadas**, cadastrar como dimensões 
 4. `product_id`
 5. `placement`
 6. `percent_scrolled`
+7. `audience_intent`
+8. `experience_level_target`
+
+Todas têm escopo **Evento**. `audience_intent` e `experience_level_target` são dimensões de baixa cardinalidade que descrevem a página; não representam uma inferência sobre a identidade do visitante. Os dados podem levar de 24 a 48 horas para aparecer nos relatórios após coleta e cadastro.
 
 Em **Administrador → Eventos principais**, marcar `store_click` como evento principal. `newsletter_interest` só deve virar evento principal quando a inscrição for real.
 
@@ -71,6 +82,7 @@ Em **Administrador → Eventos principais**, marcar `store_click` como evento pr
 3. **Produtos:** `view_item`, comparações, `store_click` e taxa produto → loja.
 4. **Aquisição:** source/medium/campaign, landing page, engajamento e conversões.
 5. **Tecnologia:** dispositivo, navegador, resolução e páginas com perda de engajamento.
+6. **Público editorial:** intenção, nível-alvo, origem, leitura qualificada e saída para a loja.
 
 Taxas operacionais:
 
@@ -79,13 +91,22 @@ Taxas operacionais:
 - intenção comercial = usuários com `store_click` / usuários com `view_item`;
 - uso do comparador = usuários com `comparison_complete` / usuários com `comparison_add`.
 
+### Públicos comportamentais
+
+1. **Leitores técnicos engajados (28 dias):** usuários que acionaram `qualified_read` ao chegar a 75% do artigo.
+2. **Alta intenção TheBiker (30 dias):** usuários que acionaram `store_click`; `view_item` e `comparison_complete` permanecem como drivers de intenção nos relatórios.
+3. **Audiência recorrente qualificada (90 dias):** duas ou mais sessões engajadas; ativar apenas depois de validar volume e disponibilidade da condição no construtor.
+
+Não criar público por profissão presumida, poder aquisitivo inferido ou “nível do ciclista” deduzido da navegação. Perfil declarado só entra com consentimento e integração real do formulário.
+
 ## Configuração necessária no Clarity
 
 1. Criar um projeto para a URL pública final do blog.
 2. Copiar somente o Project ID para `clarity_project_id` em `_config.yml`.
 3. Manter a exigência de consentimento habilitada.
-4. Criar segmentos para `post`, `product/bike`, mobile e visitantes vindos de busca orgânica.
-5. Revisar semanalmente click maps, scroll maps, dead clicks, rage clicks e gravações de páginas com abandono.
+4. Usar custom tags para `page_type`, `content_type`, `content_category`, `audience_intent` e `experience_level_target`.
+5. Salvar segmentos para artigos técnicos engajados, intenção TheBiker, mobile e busca orgânica.
+6. Revisar semanalmente click maps, scroll maps, attention maps, dead clicks, rage clicks e gravações de páginas com abandono.
 
 Clarity é carregado somente após autorização. A integração envia Consent API v2 com anúncios negados e analytics autorizado.
 
@@ -134,7 +155,7 @@ Posições atuais: `site_header`, `site_footer`, `home_shop_cta`, `article_body`
 
 ## Limites atuais
 
-- o repositório não concede acesso aos relatórios da propriedade GA4, portanto números históricos e coleta ao vivo ainda não foram auditados;
-- o Clarity não produzirá mapas de calor até a criação do projeto e configuração do ID;
+- a propriedade e os IDs foram confirmados, mas dimensões, públicos e coleta recente precisam ser validados no painel e aguardam a janela normal de processamento;
+- mapas de calor dependem de tráfego real com consentimento; ausência de sessões não é falha de instalação;
 - páginas de busca, administração, login e conta são excluídas das gravações; campos de formulário também recebem máscara explícita;
 - atribuição de venda exige que a loja preserve UTMs e, para receita real, implemente medição cross-domain ou integração de conversão na própria loja.

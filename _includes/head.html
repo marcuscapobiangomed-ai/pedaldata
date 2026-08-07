@@ -52,6 +52,10 @@
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
   "inLanguage": "{{ site.lang }}",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": {{ page.experience_level_target | default: site.data.audience.defaults.experienceLevelTarget | jsonify }}
+  },
   "articleSection": {{ page.categories | first | default: "Artigos" | jsonify }},
   "url": "{{ page.url | absolute_url }}",
   {% if page.sources %}"citation": {{ page.sources | jsonify }},{% endif %}

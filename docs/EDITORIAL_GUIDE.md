@@ -24,6 +24,8 @@ O conteúdo tem objetivo editorial e comercial: demonstrar autoridade, valorizar
 
 Conteúdo básico para iniciantes deve ser excepcional e não dominar a home, o calendário ou as recomendações.
 
+Cada briefing novo deve declarar `audience_segment`, `audience_intent` e `experience_level_target` conforme `docs/AUDIENCE_OPERATING_SYSTEM.md`. Esses campos descrevem o alvo editorial da pauta e alimentam GA4, Clarity, o índice público para IAs e o fluxo n8n.
+
 ## Distribuição editorial
 
 | Pilar | Participação de referência |

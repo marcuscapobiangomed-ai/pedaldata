@@ -30,6 +30,29 @@ export const ALLOWED_CONTENT_TYPES = [
   "resumo-corrida",
 ];
 
+export const ALLOWED_AUDIENCE_SEGMENTS = [
+  "core_technical_cyclists",
+  "professional_reference_users",
+  "committed_progression_cyclists",
+];
+
+export const ALLOWED_AUDIENCE_INTENTS = [
+  "technical_learning",
+  "solve_problem",
+  "compare_products",
+  "purchase_consideration",
+  "follow_market_competition",
+  "plan_ride",
+];
+
+export const ALLOWED_EXPERIENCE_LEVELS = [
+  "intermediate",
+  "advanced",
+  "professional",
+  "intermediate_advanced",
+  "mixed_progression",
+];
+
 export const ALLOWED_TAGS = [
   "scott", "specialized", "trek", "cervélo", "cannondale",
   "road-bike", "endurance", "aero",
@@ -82,6 +105,9 @@ export const ArticleSchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "slug inválido"),
   category: z.enum(ALLOWED_CATEGORIES),
   content_type: z.enum(ALLOWED_CONTENT_TYPES),
+  audience_segment: z.enum(ALLOWED_AUDIENCE_SEGMENTS).default("core_technical_cyclists"),
+  audience_intent: z.enum(ALLOWED_AUDIENCE_INTENTS).default("technical_learning"),
+  experience_level_target: z.enum(ALLOWED_EXPERIENCE_LEVELS).default("intermediate_advanced"),
   review_method: z.enum(["desk-research", "hands-on-test"]),
   tested_by_thebikerblog: z.boolean().default(false),
   methodologyNotice: z.string().optional(),

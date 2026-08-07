@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAt": "2026-08-07",
+  "market": "Brasil",
+  "language": "pt-BR",
+  "positioning": "Canal editorial oficial da TheBiker para decisões técnicas, esportivas e de compra de ciclistas exigentes.",
+  "defaults": {
+    "audienceIntent": "technical_learning",
+    "experienceLevelTarget": "intermediate_advanced"
+  },
+  "segments": [
+    {
+      "id": "core_technical_cyclists",
+      "priority": "primary",
+      "name": "Ciclistas técnicos e competitivos",
+      "description": "Ciclistas brasileiros intermediários ou avançados, atletas amadores e entusiastas que buscam performance, ajuste, manutenção e decisões de equipamento baseadas em evidências.",
+      "needs": [
+        "entender efeitos práticos de geometria e componentes",
+        "comparar produtos do portfólio TheBiker",
+        "resolver problemas técnicos e melhorar performance"
+      ]
+    },
+    {
+      "id": "professional_reference_users",
+      "priority": "secondary",
+      "name": "Profissionais de referência técnica",
+      "description": "Mecânicos, bike fitters, treinadores, lojistas e especialistas que usam conteúdo verificável como referência de trabalho.",
+      "needs": [
+        "dados rastreáveis e especificações exatas",
+        "compatibilidade, manutenção e limitações declaradas",
+        "fontes oficiais e data de verificação"
+      ]
+    },
+    {
+      "id": "committed_progression_cyclists",
+      "priority": "growth",
+      "name": "Ciclistas em evolução comprometida",
+      "description": "Leitores que já pedalam e estão migrando do nível iniciante para decisões mais técnicas, sem transformar o blog em um portal generalista para iniciantes.",
+      "needs": [
+        "explicações progressivas sem superficialidade",
+        "critérios claros para primeiro upgrade relevante",
+        "pontes para conteúdos intermediários"
+      ]
+    }
+  ],
+  "intentTaxonomy": [
+    "technical_learning",
+    "solve_problem",
+    "compare_products",
+    "purchase_consideration",
+    "follow_market_competition",
+    "plan_ride"
+  ],
+  "experienceLevelTaxonomy": [
+    "intermediate",
+    "advanced",
+    "professional",
+    "intermediate_advanced",
+    "mixed_progression"
+  ],
+  "analyticsAudiences": [
+    {
+      "id": "qualified_technical_readers",
+      "name": "Leitores técnicos engajados",
+      "membershipDays": 28,
+      "definition": "Usuários que acionaram qualified_read ao chegar a 75% de um artigo."
+    },
+    {
+      "id": "thebiker_high_intent",
+      "name": "Alta intenção TheBiker",
+      "membershipDays": 30,
+      "definition": "Usuários que acionaram store_click e saíram do blog para a TheBiker Shop. Interações de produto e comparador permanecem como drivers nos relatórios."
+    },
+    {
+      "id": "qualified_returning_readers",
+      "name": "Audiência recorrente qualificada",
+      "membershipDays": 90,
+      "definition": "Usuários recorrentes com pelo menos duas sessões engajadas; validar o volume antes de ativar a condição."
+    }
+  ],
+  "privacy": {
+    "inferOccupation": false,
+    "inferPersonalExperienceLevel": false,
+    "declaredProfileRequiresConsent": true,
+    "notes": "Os parâmetros descrevem o conteúdo e a ação observada, não atributos sensíveis ou identidade do visitante."
+  }
+}

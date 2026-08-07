@@ -26,6 +26,8 @@ const newsletter = read('newsletter.html')
 const search = read('search.html')
 const privacyPolicy = read('legal/privacy-policy.md')
 const cookiePolicy = read('legal/cookie-policy.md')
+const audience = JSON.parse(read('_data/audience.json'))
+const audiencePlan = read('docs/AUDIENCE_OPERATING_SYSTEM.md')
 
 expect(/google_analytics:\s*G-[A-Z0-9]+/i.test(config), 'Measurement ID GA4 ausente')
 expect(/clarity_project_id:\s*"[a-z0-9]+"/i.test(config), 'Project ID real do Clarity ausente')
@@ -46,9 +48,18 @@ expect(search.includes("'search_results'"), 'Busca interna sem evento agregado')
 expect(!search.includes('search_term:'), 'Termo digitado não deve ser enviado ao analytics')
 expect(consent.includes("page_location: window.location.origin + window.location.pathname"), 'GA4 pode receber parâmetros sensíveis da URL')
 expect(consent.includes('(admin|search|login|conta)'), 'Clarity não exclui páginas sensíveis')
-for (const eventName of ['content_view', 'scroll_depth', 'view_item', 'comparison_complete', 'store_click']) {
+for (const eventName of ['content_view', 'scroll_depth', 'qualified_read', 'view_item', 'comparison_complete', 'store_click']) {
   expect(events.includes(`'${eventName}'`), `Evento obrigatório ausente: ${eventName}`)
 }
+for (const parameter of ['audience_intent', 'experience_level_target']) {
+  expect(events.includes(parameter), `Parâmetro de público ausente: ${parameter}`)
+  expect(analyticsInclude.includes(parameter.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())), `Configuração Liquid ausente: ${parameter}`)
+}
+expect(events.includes("window.clarity('set'"), 'Custom tags do Clarity ausentes')
+expect(audience.segments.length === 3, 'Contrato precisa ter três segmentos de público')
+expect(audience.privacy.inferOccupation === false, 'Ocupação não pode ser inferida')
+expect(audience.privacy.inferPersonalExperienceLevel === false, 'Nível pessoal não pode ser inferido')
+expect(audiencePlan.includes('Três KPIs primários'), 'Plano de público sem KPIs primários')
 expect(privacyPolicy.includes('Microsoft Clarity'), 'Política de privacidade não declara Clarity')
 expect(cookiePolicy.includes('Desativada'), 'Política de cookies não informa estado inicial')
 

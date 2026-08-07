@@ -291,6 +291,9 @@ export class AIProvider {
     next.slug = this._sanitizeHtml(next.slug);
     next.category = this._normalizeCategory(next.category);
     next.content_type = this._normalizeContentType(next.content_type);
+    next.audience_segment = this._sanitizeHtml(next.audience_segment || "core_technical_cyclists");
+    next.audience_intent = this._sanitizeHtml(next.audience_intent || "technical_learning");
+    next.experience_level_target = this._sanitizeHtml(next.experience_level_target || "intermediate_advanced");
     const requestedHandsOn =
       toText(next.review_method, "").trim() === "hands-on-test" ||
       toBoolean(next.tested_by_thebikerblog, false);

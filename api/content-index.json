@@ -14,15 +14,18 @@ sitemap: false
   },
   "language": {{ site.lang | jsonify }},
   "editorialPolicy": {{ '/api/editorial-policy.json' | absolute_url | jsonify }},
+  "audiencePolicy": {{ '/api/audience.json' | absolute_url | jsonify }},
   "sitemap": {{ '/sitemap.xml' | absolute_url | jsonify }},
   "feed": {{ '/feed.xml' | absolute_url | jsonify }},
   "articles": [
-    {% assign public_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}{% for post in public_posts %}{
+    {% assign public_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}{% for post in public_posts %}{% assign post_audience_intent = post.audience_intent %}{% unless post_audience_intent %}{% case post.content_type %}{% when 'comparativo' %}{% assign post_audience_intent = 'compare_products' %}{% when 'review', 'guia-de-compra' %}{% assign post_audience_intent = 'purchase_consideration' %}{% when 'noticia', 'lancamento', 'previa-corrida', 'resumo-corrida' %}{% assign post_audience_intent = 'follow_market_competition' %}{% when 'guia-turistico' %}{% assign post_audience_intent = 'plan_ride' %}{% when 'guia-tecnico' %}{% assign post_audience_intent = 'solve_problem' %}{% else %}{% assign post_audience_intent = site.data.audience.defaults.audienceIntent %}{% endcase %}{% endunless %}{
       "title": {{ post.title | jsonify }},
       "description": {{ post.description | jsonify }},
       "url": {{ post.url | absolute_url | jsonify }},
       "datePublished": {{ post.date | date_to_xmlschema | jsonify }},
       "dateModified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
+      "audienceIntent": {{ post_audience_intent | jsonify }},
+      "experienceLevelTarget": {{ post.experience_level_target | default: site.data.audience.defaults.experienceLevelTarget | jsonify }},
       "author": {{ post.author | default: site.author | jsonify }},
       "contentType": {{ post.content_type | jsonify }},
       "reviewMethod": {{ post.review_method | jsonify }},

@@ -4,11 +4,11 @@
 Ser a referência mais confiável de dados técnicos, preços e comparativos de bicicletas no mercado brasileiro.
 
 ## Público
-- Ciclistas comprando a primeira bike
-- Ciclistas experientes comparando upgrades
-- Compradores premium buscando a melhor relação custo-benefício
-- Lojistas e fabricantes buscando referência de mercado
-- Profissionais (mecânicos, bike fitters) buscando dados técnicos
+- Núcleo: ciclistas intermediários e avançados, atletas amadores e entusiastas técnicos decidindo performance, manutenção, compra ou upgrade
+- Referência profissional: mecânicos, bike fitters, treinadores, lojistas e especialistas buscando dados rastreáveis
+- Crescimento: ciclistas já ativos em evolução do nível iniciante para o intermediário
+
+Conteúdo para primeira bike é uma porta de entrada excepcional e não deve dominar a proposta editorial. A segmentação canônica está em `docs/AUDIENCE_OPERATING_SYSTEM.md`.
 
 ## Posicionamento
 Plataforma brasileira de dados, comparação, preços e decisão para ciclistas.

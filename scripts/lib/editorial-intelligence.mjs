@@ -90,6 +90,9 @@ function briefFrom(opportunity, articles, config) {
     targetUrl: existing?.url || opportunity.targetUrl || null,
     score: opportunity.score,
     source: opportunity.source,
+    audienceSegment: 'core_technical_cyclists',
+    audienceIntent: opportunity.source === 'search-console' ? 'solve_problem' : 'follow_market_competition',
+    experienceLevelTarget: 'intermediate_advanced',
     evidence: opportunity.evidence,
     evidenceUrl: opportunity.sourceUrl,
     angle: existing
@@ -174,6 +177,7 @@ export function intelligenceMarkdown(report) {
     lines.push(`${index + 1}. **${brief.topic}** — score ${brief.score} · ${brief.action}`);
     lines.push(`   - Evidência: ${brief.evidence} ([fonte](${brief.evidenceUrl}))`);
     lines.push(`   - Direção: ${brief.angle}`);
+    lines.push(`   - Público: ${brief.audienceSegment}; intenção: ${brief.audienceIntent}; nível-alvo: ${brief.experienceLevelTarget}`);
     if (brief.targetUrl) lines.push(`   - Página-alvo: ${brief.targetUrl}`);
   }
   lines.push('', '## Atualizações do acervo', '');

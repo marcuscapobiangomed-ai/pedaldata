@@ -9,6 +9,17 @@
   var maxSessionEvents = 200
   var contextTracked = false
 
+  function audienceIntent() {
+    if (config.audienceIntent) return config.audienceIntent
+    var contentType = String(config.contentType || '').toLowerCase()
+    if (contentType === 'comparativo') return 'compare_products'
+    if (contentType === 'review' || contentType === 'guia-de-compra' || config.pageType === 'product/bike') return 'purchase_consideration'
+    if (['noticia', 'lancamento', 'previa-corrida', 'resumo-corrida'].includes(contentType)) return 'follow_market_competition'
+    if (contentType === 'guia-turistico') return 'plan_ride'
+    if (contentType === 'guia-tecnico') return 'solve_problem'
+    return 'technical_learning'
+  }
+
   function hasConsent() {
     return Boolean(window.TheBikerConsent && window.TheBikerConsent.hasAnalyticsConsent())
   }
@@ -45,8 +56,18 @@
       page_type: config.pageType || 'page',
       content_id: config.contentId || window.location.pathname,
       content_type: config.contentType || config.pageType || 'page',
-      content_category: config.contentCategory || 'sem-categoria'
+      content_category: config.contentCategory || 'sem-categoria',
+      audience_intent: audienceIntent(),
+      experience_level_target: config.experienceLevelTarget || 'intermediate_advanced'
     }
+  }
+
+  function setClarityContext() {
+    if (typeof window.clarity !== 'function') return
+    var context = pageContext()
+    ;['page_type', 'content_type', 'content_category', 'audience_intent', 'experience_level_target'].forEach(function(key) {
+      try { window.clarity('set', key, String(context[key])) } catch {}
+    })
   }
 
   function track(category, action, label, value, meta) {
@@ -180,6 +201,7 @@
   function trackContentContext() {
     if (contextTracked || !hasConsent()) return
     contextTracked = true
+    setClarityContext()
     if (config.pageType === 'post') {
       track('content', 'content_view', config.contentTitle || document.title, null, {
         content_id: config.contentId,
@@ -203,6 +225,7 @@
         if (percent >= threshold && !reached[threshold]) {
           reached[threshold] = true
           track('engagement', 'scroll_depth', String(threshold), threshold, { percent_scrolled: threshold })
+          if (threshold === 75) track('engagement', 'qualified_read', '75_percent', null, { percent_scrolled: threshold })
         }
       })
     }, { passive: true })

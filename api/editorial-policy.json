@@ -1,9 +1,10 @@
 {
-  "schemaVersion": "1.0",
-  "updatedAt": "2026-08-05",
+  "schemaVersion": "1.1",
+  "updatedAt": "2026-08-07",
   "publisher": "TheBiker Blog",
   "language": "pt-BR",
-  "audience": "Ciclistas de média e alta experiência",
+  "audience": "Canal editorial oficial da TheBiker para decisões técnicas, esportivas e de compra de ciclistas exigentes.",
+  "audiencePolicy": "https://marcuscapobiangomed-ai.github.io/thebikerblog/api/audience.json",
   "sourcePriority": [
     "Fabricante oficial",
     "TheBiker Shop"

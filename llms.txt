@@ -13,6 +13,7 @@ Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
 Feed: {{ site.url }}{{ site.baseurl }}/feed.xml
 Catálogo verificável: {{ site.url }}{{ site.baseurl }}/api/products.json
 Política editorial: {{ site.url }}{{ site.baseurl }}/api/editorial-policy.json
+Público-alvo e critérios de mensuração: {{ site.url }}{{ site.baseurl }}/api/audience.json
 Índice editorial estruturado: {{ site.url }}{{ site.baseurl }}/api/content-index.json
 Sobre a equipe e o método: {{ site.url }}{{ site.baseurl }}/sobre/
 
