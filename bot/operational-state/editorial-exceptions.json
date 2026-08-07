@@ -48,6 +48,30 @@
         "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store"
       },
       "reason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Please reduce the length of the messages or completion.\",\"type\":\"invalid_request_error\",\"param\":\"messages\",\"code\":\"context_length_exceeded\"}}\n"
+    },
+    {
+      "recordedAt": "2026-08-07T20:53:49.766Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
+        "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store",
+        "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 603.451 visualizações; 28.051 por dia.",
+        "category": "engenharia",
+        "freshness": "evergreen",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "Expected ',' or ']' after array element in JSON at position 16600 (line 407 column 6)",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-07T20:46:20.911Z"
+      },
+      "replacement": {
+        "id": "youtube-20-to-29-inch-fat-bikes-available-kids-to-adults-electric-fat-bi",
+        "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩"
+      },
+      "reason": "Expected ',' or ']' after array element in JSON at position 16600 (line 407 column 6)"
     }
   ]
 }

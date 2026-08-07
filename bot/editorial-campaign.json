@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "youtube-new-electric-fat-bike-2026-best-electric-fat-bike-in-india-mahav",
-      "title": "New Electric Fat Bike 2026 ⚡🔥 | Best Electric Fat Bike in India | Mahavir Cycle Store",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 603.451 visualizações; 28.051 por dia.",
+      "id": "youtube-20-to-29-inch-fat-bikes-available-kids-to-adults-electric-fat-bi",
+      "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩",
+      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 564.055 visualizações; 42.396 por dia.",
       "category": "engenharia",
       "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-07T20:46:20.911Z",
-      "blockReason": "Expected ',' or ']' after array element in JSON at position 16600 (line 407 column 6)"
+      "lastAttemptAt": "2026-08-07T20:53:50.190Z",
+      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 45; bloqueadores: O artigo final é um guia técnico sobre fat bikes, mas os dados de pesquisa fornecidos são sobre bicicletas convencionais (Oggi Hacker 24, Scott Addict, Scale) e não incluem nenhuma fat bike. O título e o conteúdo do artigo não correspondem aos produtos verificados.; Não há dados na pesquisa que comprovem a existência de fat bikes de 20 a 29 polegadas, nem fat bikes elétricas, no portfólio da TheBiker. O artigo faz afirmações sobre fat bikes sem respaldo nas fontes.; O artigo afirma que a Oggi Hacker 24 é uma fat bike, mas a pesquisa não confirma isso. Além disso, o artigo menciona que não há fat bikes elétricas confirmadas, mas o título "
     },
     {
       "day": 8,
@@ -562,12 +562,6 @@
   ],
   "reserves": [
     {
-      "id": "youtube-20-to-29-inch-fat-bikes-available-kids-to-adults-electric-fat-bi",
-      "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 564.055 visualizações; 42.396 por dia.",
-      "category": "engenharia"
-    },
-    {
       "id": "youtube-what-if-you-had-to-choose-between-bmx-and-mtb",
       "title": "What If You Had to Choose Between BMX and MTB",
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 317.360 visualizações; 13.550 por dia.",
@@ -632,6 +626,12 @@
       "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
       "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
       "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-pressao-pneus-terreno",
+      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
+      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
+      "category": "engenharia"
     }
   ]
 }
