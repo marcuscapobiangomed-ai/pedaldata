@@ -40,12 +40,13 @@ layout: default
         <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
 
         <div class="post-meta">
-          <span class="post-meta-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <a class="post-meta-author" href="{{ '/sobre/' | relative_url }}" itemprop="author" itemscope itemtype="https://schema.org/Organization">
             <span class="author-avatar-sm" aria-hidden="true">
               {{ page.author | default: site.author | truncate: 2, "" | upcase }}
             </span>
             <span itemprop="name">{{ page.author | default: site.author }}</span>
-          </span>
+            <meta itemprop="url" content="{{ '/sobre/' | absolute_url }}">
+          </a>
 
           <span class="post-meta-date">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -99,14 +100,29 @@ layout: default
         {{ content }}
       </div>
 
+      {% if page.sources and page.sources.size > 0 %}
+      <section class="post-content post-sources" aria-labelledby="fontes-do-artigo">
+        <h2 id="fontes-do-artigo">Fontes e referências</h2>
+        <ul>
+          {% for source in page.sources %}
+          <li>
+            {% if source.url %}<a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.name | default: source.url }}</a>{% else %}{{ source.name }}{% endif %}
+            {% if source.type %}<span> — {{ source.type | replace: '-', ' ' }}</span>{% endif %}
+            {% if source.accessed_at %}<span> (consultado em {{ source.accessed_at | date: "%d/%m/%Y" }})</span>{% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
       <!-- Card Autor -->
       <div class="author-card">
         <div class="author-avatar" aria-hidden="true">
           {{ page.author | default: site.author | truncate: 2, "" | upcase }}
         </div>
         <div>
-          <div class="author-name">{{ page.author | default: site.author }}</div>
-          <div class="author-bio">Ciclistas apaixonados que testam, pesquisam e comparam bikes no mercado brasileiro.</div>
+          <a class="author-name" href="{{ '/sobre/' | relative_url }}">{{ page.author | default: site.author }}</a>
+          <div class="author-bio">Equipe editorial do blog oficial da TheBiker. Distingue experiência prática, pesquisa documental e dados ainda não confirmados.</div>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 {% assign p = include.product %}
 {% assign price_lowest = include.price_lowest %}
 {% assign price_highest = include.price_highest %}
+{% capture fallback_description %}{{ p.brand }} {{ p.model }} {{ p.modelYear }}: ficha técnica, componentes, peso declarado e disponibilidade verificada na TheBiker.{% endcapture %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -10,12 +11,14 @@
     "@type": "Brand",
     "name": "{{ p.brand }}"
   },
-  "description": "{{ p.brand }} {{ p.model }} {{ p.modelYear }} — bike de estrada {{ p.category | replace: '-', ' ' }}",
+  "description": {{ p.description | default: fallback_description | strip | jsonify }},
+  {% if p.image %}"image": "{{ p.image | absolute_url }}",{% endif %}
   "category": "{{ p.category | replace: '-', ' ' }}",
   "modelYear": {{ p.modelYear }},
   "material": "{{ p.frame.material }}",
-  "productID": "{{ p.id }}",
-  "sku": "{{ p.id }}",
+  "productID": "{{ p.id | default: p.product_id }}",
+  "sku": "{{ p.id | default: p.product_id }}",
+  "url": "{{ page.url | absolute_url }}",
   {% if price_lowest %}
   "offers": {
     "@type": "AggregateOffer",

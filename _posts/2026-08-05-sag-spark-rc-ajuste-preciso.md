@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: "SAG da Spark RC: como chegar ao ajuste preciso sem mascarar a dinâmica da suspensão"
+title: "SAG da Scott Spark RC: guia de ajuste preciso"
 slug: "sag-spark-rc-ajuste-preciso"
 date: 2026-08-05
 last_modified_at: 2026-08-05
@@ -22,8 +22,8 @@ price_max: 0
 price_currency: "BRL"
 price_checked_at: "2026-08-05"
 category: "guia-tecnico"
-tags: ["ciclismo", "mtb", "suspensão", "scott", "spark-rc", "sag"]
-description: "Guia técnico para ajustar o SAG da Scott Spark RC Expert 2027 com precisão, preservando a dinâmica da suspensão. Passo a passo, erros comuns e dicas para ciclistas avançados."
+tags: ["ciclismo", "mtb", "suspensao", "scott", "spark-rc", "sag"]
+description: "Guia técnico para ajustar o SAG da Scott Spark RC Expert 2027 com precisão, preservar a dinâmica da suspensão e evitar os erros mais comuns."
 image: "/assets/img/posts/sag-spark-rc-ajuste-preciso/hero-1600.webp"
 image_mobile: "/assets/img/posts/sag-spark-rc-ajuste-preciso/hero-800.webp"
 thumbnail: "/assets/img/posts/sag-spark-rc-ajuste-preciso/card-640.webp"

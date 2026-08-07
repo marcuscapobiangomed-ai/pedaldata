@@ -1,0 +1,35 @@
+---
+layout: null
+permalink: /api/content-index.json
+sitemap: false
+---
+{
+  "schemaVersion": "1.0",
+  "generatedAt": {{ site.time | date_to_xmlschema | jsonify }},
+  "publisher": {
+    "name": "TheBiker",
+    "siteName": {{ site.title | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: '/' | jsonify }},
+    "about": {{ '/sobre/' | absolute_url | jsonify }}
+  },
+  "language": {{ site.lang | jsonify }},
+  "editorialPolicy": {{ '/api/editorial-policy.json' | absolute_url | jsonify }},
+  "sitemap": {{ '/sitemap.xml' | absolute_url | jsonify }},
+  "feed": {{ '/feed.xml' | absolute_url | jsonify }},
+  "articles": [
+    {% assign public_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}{% for post in public_posts %}{
+      "title": {{ post.title | jsonify }},
+      "description": {{ post.description | jsonify }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "datePublished": {{ post.date | date_to_xmlschema | jsonify }},
+      "dateModified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
+      "author": {{ post.author | default: site.author | jsonify }},
+      "contentType": {{ post.content_type | jsonify }},
+      "reviewMethod": {{ post.review_method | jsonify }},
+      "testedByTheBiker": {{ post.tested_by_thebikerblog | default: false | jsonify }},
+      "image": {{ post.image | absolute_url | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "sources": {{ post.sources | default: empty | jsonify }}
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}

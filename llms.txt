@@ -1,6 +1,7 @@
 ---
 layout: null
 permalink: /llms.txt
+sitemap: false
 ---
 # TheBiker Blog
 
@@ -12,6 +13,8 @@ Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
 Feed: {{ site.url }}{{ site.baseurl }}/feed.xml
 Catálogo verificável: {{ site.url }}{{ site.baseurl }}/api/products.json
 Política editorial: {{ site.url }}{{ site.baseurl }}/api/editorial-policy.json
+Índice editorial estruturado: {{ site.url }}{{ site.baseurl }}/api/content-index.json
+Sobre a equipe e o método: {{ site.url }}{{ site.baseurl }}/sobre/
 
 ## Como interpretar o conteúdo
 
@@ -26,3 +29,9 @@ Política editorial: {{ site.url }}{{ site.baseurl }}/api/editorial-policy.json
 - Artigos publicados: {{ site.url }}{{ site.baseurl }}/
 - Produtos verificados: {{ site.url }}{{ site.baseurl }}/bikes/
 - Dados estruturados de produtos: {{ site.url }}{{ site.baseurl }}/api/products.json
+
+## Artigos publicados
+
+{% assign public_posts = site.posts | where_exp: "post", "post.published != false" %}{% for post in public_posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | strip_newlines }}
+{% endfor %}

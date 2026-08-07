@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Guia de Manutenção Básica para Bike de Estrada: O que Todo Ciclista Precisa Saber"
+title: "Manutenção Básica da Bike de Estrada: guia do ciclista"
 description: "Guia completo de manutenção básica para bikes de estrada: limpeza, lubrificação, pneus, freios a disco e transmissão. Periodicidade e ferramentas recomendadas."
 date: 2026-07-18
 last_modified_at: 2026-07-19

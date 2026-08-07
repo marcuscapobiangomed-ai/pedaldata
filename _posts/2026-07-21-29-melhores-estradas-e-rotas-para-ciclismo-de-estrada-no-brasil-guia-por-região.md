@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Melhores Estradas e Rotas para Ciclismo de Estrada no Brasil: Guia por Região"
+title: "Melhores Estradas e Rotas de Ciclismo no Brasil"
 description: "Descubra as melhores estradas e rotas para ciclismo de estrada no Brasil, organizadas por região."
 date: 2026-07-21
 last_modified_at: 2026-07-19

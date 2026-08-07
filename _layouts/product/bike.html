@@ -5,10 +5,13 @@ layout: default
 {% assign product_id = page.product_id %}
 {% assign price_lowest = page.price_lowest %}
 {% assign price_highest = page.price_highest %}
+{% assign product_record = site.data.products.bikes[product_id] | default: page %}
+{% assign schema_price_lowest = price_lowest | default: product_record.theBikerPrice %}
+{% assign schema_price_highest = price_highest | default: product_record.theBikerPrice %}
 {% assign geometry = site.data.geometries[product_id] %}
 {% assign catalog = site.data["catalog-public"].bikes %}
 
-{% include schema-product.html product=page price_lowest=price_lowest price_highest=price_highest show_breadcrumb=true %}
+{% include schema-product.html product=product_record price_lowest=schema_price_lowest price_highest=schema_price_highest show_breadcrumb=true %}
 {% include schema-faq.html %}
 
 <section class="product-layout">

@@ -8,6 +8,12 @@ lang: pt-BR
 author: "Equipe TheBiker"
 email: "atendimento@thebiker.com.br"
 
+organization:
+  name: "TheBiker"
+  url: "https://thebikershop.com.br/"
+  same_as:
+    - "https://www.instagram.com/thebikerbrasil"
+
 logo: "/assets/img/brand/the-biker-blog-logo.png"
 
 social:
@@ -41,9 +47,25 @@ defaults:
       image: /assets/img/brand/the-biker-blog-logo.png
 
 exclude:
+  # Operação, governança e evidências ficam no repositório, não no índice público.
+  - admin
+  - audit
   - bot
+  - content
+  - data-room
+  - docs
   - node_modules
+  - output
+  - project
+  - screenshots
+  - screenshots-v2
+  - sql
   - vendor
+  - ARQUIVO.md
+  - PLANO.md
+  - SECURITY.md
+  - design-qa.md
+  - design-qa-navigation-option-2.md
   - Gemfile
   - Gemfile.lock
   - .gitignore

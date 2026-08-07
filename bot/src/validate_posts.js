@@ -277,14 +277,15 @@ function checkDateConsistency(fileName) {
 function checkSources(content, fileName, fm) {
   if (!fm) return;
   const body = content.replace(/^---\n[\s\S]*?\n---\n?/, "");
+  const hasStructuredSources = content.match(/^sources:/m);
 
-  // Verifica se há seção de fontes
-  if (!body.match(/##\s*Fontes/i) && !body.match(/##\s*Refer[eê]ncias/i)) {
+  // Fontes estruturadas são renderizadas de forma visível pelo layout de post.
+  if (!body.match(/##\s*Fontes/i) && !body.match(/##\s*Refer[eê]ncias/i) && !hasStructuredSources) {
     logWarning(fileName, "Seção de fontes ou referências não encontrada no corpo do artigo");
   }
 
   // Verifica se há fontes no frontmatter
-  if (!content.match(/^sources:/m)) {
+  if (!hasStructuredSources) {
     logWarning(fileName, "Campo 'sources' ausente no frontmatter");
   }
 }

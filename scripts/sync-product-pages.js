@@ -20,6 +20,18 @@ function setFrontmatterField(content, field, value) {
   return content.replace(/^(layout:.*)$/m, `$1\n${line}`)
 }
 
+function humanizeCategory(category) {
+  const labels = {
+    'mtb-cross-country': 'mountain bike cross-country',
+    'mtb-trail': 'mountain bike trail',
+    'bike-de-estrada': 'bicicleta de estrada',
+    'road': 'bicicleta de estrada',
+    'gravel': 'bicicleta gravel',
+    'e-bike': 'bicicleta elétrica'
+  }
+  return labels[category] || String(category || 'bicicleta').replaceAll('-', ' ')
+}
+
 let changed = 0
 for (const pagePath of walk(path.join(ROOT, 'bikes'))) {
   const original = fs.readFileSync(pagePath, 'utf8')
@@ -31,7 +43,12 @@ for (const pagePath of walk(path.join(ROOT, 'bikes'))) {
 
   const product = JSON.parse(fs.readFileSync(productPath, 'utf8'))
   let updated = original
-  updated = setFrontmatterField(updated, 'title', `${product.brand} ${product.model} ${product.modelYear}`)
+  const productName = `${product.brand} ${product.model} ${product.modelYear}`
+  const productDescription = `${productName}: ficha técnica, componentes, peso declarado e disponibilidade verificada na TheBiker.`
+  updated = setFrontmatterField(updated, 'title', productName)
+  updated = setFrontmatterField(updated, 'description', productDescription)
+  updated = setFrontmatterField(updated, 'image', product.image)
+  updated = setFrontmatterField(updated, 'image_alt', `${productName} — ${humanizeCategory(product.category)} no catálogo verificado da TheBiker`)
   updated = setFrontmatterField(updated, 'brand', product.brand)
   updated = setFrontmatterField(updated, 'model', product.model)
   updated = setFrontmatterField(updated, 'modelYear', product.modelYear)
