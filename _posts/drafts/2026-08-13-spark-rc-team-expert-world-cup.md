@@ -3,10 +3,10 @@ layout: post
 published: false
 title: "Spark RC Team, Expert e World Cup: três montagens, três decisões técnicas"
 slug: "spark-rc-team-expert-world-cup"
-date: 2026-08-07
+date: 2026-08-13
 last_modified_at: 2026-08-07
 author: "Equipe TheBiker"
-reviewed_by: ""
+reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "comparativo"
 audience_segment: "core_technical_cyclists"
 audience_intent: "compare_products"
@@ -27,24 +27,24 @@ price_checked_at: "2026-08-07"
 category: "comparativos"
 tags: ["ciclismo", "mountain bike", "xc", "scott spark rc", "comparativo"]
 description: "Compare Scott Spark RC Team, Expert e World Cup: quadro, suspensão, transmissão, rodas e preço. Descubra qual montagem atende seu perfil de XC."
-image: "/assets/img/system/covers/comparativo/hero.webp"
-image_mobile: "/assets/img/system/covers/comparativo/hero.webp"
-thumbnail: "/assets/img/system/covers/comparativo/thumb-480.webp"
+image: "/assets/img/posts/spark-rc-team-expert-world-cup/hero-1600.webp"
+image_mobile: "/assets/img/posts/spark-rc-team-expert-world-cup/hero-800.webp"
+thumbnail: "/assets/img/posts/spark-rc-team-expert-world-cup/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "system-fallback"
-image_status: "draft"
-image_alt: "Três bicicletas Scott Spark RC lado a lado: Team, Expert e World Cup"
-image_caption: "Scott Spark RC Team, Expert e World Cup: três montagens para diferentes objetivos no XC"
-image_credit: "TheBiker com geração assistida por IA"
-image_license: "Uso editorial interno TheBiker"
+image_asset_type: "official-product-photo"
+image_status: "approved"
+image_alt: "Bicicleta Scott Spark RC World Cup 2027 em fotografia oficial de TheBiker Shop"
+image_caption: "Bicicleta Scott Spark RC World Cup 2027, em fotografia oficial de TheBiker Shop."
+image_credit: "TheBiker Shop"
+image_license: "Uso editorial no blog oficial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["Scott"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/"
 portfolio_verified_at: "2026-08-07"
-editorial_status: "draft"
-status: "draft"
+editorial_status: "reviewed"
+status: "scheduled"
 sources:
   - name: "The Biker Shop — Bicicleta Scott Spark RC Team 2027"
     type: "store"
