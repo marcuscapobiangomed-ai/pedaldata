@@ -95,6 +95,7 @@
         "thebiker-bicicleta-scott-spark-rc-world-cup-2027-586601ca21"
       ],
       "imageValidatedAt": "2026-08-05T17:10:24.275Z",
+      "publishedAt": "2026-08-07T15:40:11.822Z",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -110,8 +111,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:23:15.916Z"
-      },
-      "publishedAt": "2026-08-07T15:40:11.822Z"
+      }
     },
     {
       "day": 4,
@@ -297,9 +297,9 @@
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "blockReason": "The operation was aborted due to timeout",
-      "attempts": 1,
-      "lastAttemptAt": "2026-08-05T18:24:35.692Z"
+      "attempts": 2,
+      "lastAttemptAt": "2026-08-07T17:51:39.758Z",
+      "blockReason": "Groq grounded research: 400 - {\"error\":{\"message\":\"Parsing failed. The model generated output that could not be parsed. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"output_parse_failed\",\"failed_generation\":\"Scrolling near bottom shows pagination link with \\\"?page=2\\\". Let's open that.\"}}\n"
     },
     {
       "day": 10,

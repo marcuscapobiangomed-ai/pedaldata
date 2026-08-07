@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-07T14:41:44.043Z",
+  "discoveredAt": "2026-08-07T17:51:38.998Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 483,
   "products": [
@@ -751,17 +751,6 @@
       "sku": "00.3018.301.000"
     },
     {
-      "id": "pedal-shimano-m520",
-      "name": "Pedal Shimano MTB M520",
-      "brand": "Shimano",
-      "category": "componentes",
-      "productUrl": "https://thebikershop.com.br/produtos/pedal-shimano-m520/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/pedal-de-bicicleta-shimano-pd-m520-64ef8859d3a8c-5f8d4f87f72d09277517071585422413-480-0.webp"
-      ],
-      "sku": "COMP-423"
-    },
-    {
       "id": "manopla-syncros-foam-preta",
       "name": "Manopla Syncros Foam Preta",
       "brand": "Syncros",
@@ -771,6 +760,17 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2802970001_1697359_png_zoom_3-12c1b8afb7e7bb84c517248753315274-480-0.webp"
       ],
       "sku": null
+    },
+    {
+      "id": "pedal-shimano-m520",
+      "name": "Pedal Shimano MTB M520",
+      "brand": "Shimano",
+      "category": "componentes",
+      "productUrl": "https://thebikershop.com.br/produtos/pedal-shimano-m520/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/pedal-de-bicicleta-shimano-pd-m520-64ef8859d3a8c-5f8d4f87f72d09277517071585422413-480-0.webp"
+      ],
+      "sku": "COMP-423"
     },
     {
       "id": "shifter-twinloc-scott-spark-com-canote-retratil-2022",
