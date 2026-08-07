@@ -25,6 +25,7 @@ const fixtureStart = campaignFixture.items[0].publishDate
 const fixtureNextDay = campaignFixture.items[1].publishDate
 const activeToday = structuredClone(campaignFixture)
 activeToday.items.find((item) => item.publishDate === fixtureStart).status = 'scheduled'
+activeToday.items.find((item) => item.publishDate === fixtureNextDay).status = 'blocked'
 const scheduledFixtureId = activeToday.items.find((item) => item.publishDate === fixtureStart).id
 const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date(`${fixtureStart}T12:00:00-03:00`) })
 assert.equal(renewed.items.length, 30)
