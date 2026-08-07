@@ -28,7 +28,7 @@ const privacyPolicy = read('legal/privacy-policy.md')
 const cookiePolicy = read('legal/cookie-policy.md')
 
 expect(/google_analytics:\s*G-[A-Z0-9]+/i.test(config), 'Measurement ID GA4 ausente')
-expect(/clarity_project_id:\s*""/.test(config), 'Clarity deve iniciar sem ID fictício')
+expect(/clarity_project_id:\s*"[a-z0-9]+"/i.test(config), 'Project ID real do Clarity ausente')
 for (const consentType of ['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage']) {
   expect(new RegExp(`${consentType}:\\s*'denied'`).test(analyticsInclude), `Consentimento padrão não negado: ${consentType}`)
 }
