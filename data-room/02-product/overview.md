@@ -1,4 +1,4 @@
-# Produto — Pedal Data
+# Produto — TheBikerBlog
 
 ## Plataforma atual
 - Site Jekyll estático hospedado em [a definir]

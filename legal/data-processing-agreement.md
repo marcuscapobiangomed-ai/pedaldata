@@ -1,11 +1,11 @@
-# Acordo de Processamento de Dados — Pedal Data
+# Acordo de Processamento de Dados — TheBikerBlog
 
 ## Partes
-Controlador: Pedal Data
+Controlador: TheBikerBlog
 Operador: [nome do processador]
 
 ## Escopo
-Processamento de dados pessoais em nome do Pedal Data conforme a LGPD.
+Processamento de dados pessoais em nome do TheBikerBlog conforme a LGPD.
 
 ## Finalidade
 - Operação da plataforma

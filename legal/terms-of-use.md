@@ -1,10 +1,10 @@
-# Termos de Uso — Pedal Data
+# Termos de Uso — TheBikerBlog
 
 ## 1. Aceitação
-Ao acessar ou usar o Pedal Data, você aceita estes termos.
+Ao acessar ou usar o TheBikerBlog, você aceita estes termos.
 
 ## 2. Serviço
-O Pedal Data é uma plataforma de dados, comparação e preços. Não vendemos produtos nem realizamos transações.
+O TheBikerBlog é uma plataforma de dados, comparação e preços. Não vendemos produtos nem realizamos transações.
 
 ## 3. Contas
 Usuários podem criar conta gratuita. Informações fornecidas devem ser precisas. O usuário é responsável pela confidencialidade de sua senha.
@@ -23,13 +23,13 @@ Usuários podem criar conta gratuita. Informações fornecidas devem ser precisa
 - Uso de bots ou automação sem permissão
 
 ## 6. Precisão dos dados
-Os dados são fornecidos "como estão". O Pedal Data se esforça pela precisão, mas não garante que todas as informações estejam corretas ou atualizadas.
+Os dados são fornecidos "como estão". O TheBikerBlog se esforça pela precisão, mas não garante que todas as informações estejam corretas ou atualizadas.
 
 ## 7. Links de afiliados
 O site contém links de afiliados. Isso não altera o preço para o usuário.
 
 ## 8. Limitação de responsabilidade
-O Pedal Data não se responsabiliza por decisões de compra baseadas em seus dados.
+O TheBikerBlog não se responsabiliza por decisões de compra baseadas em seus dados.
 
 ## 9. Modificações
 Estes termos podem ser alterados. Usuários serão notificados com 30 dias de antecedência.

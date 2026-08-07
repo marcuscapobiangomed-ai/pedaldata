@@ -3,7 +3,7 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('calc-gear-btn')
-    if (!btn || !window.PedalDataCalculators) return
+    if (!btn || !window.TheBikerBlogCalculators) return
     const resultDiv = document.getElementById('calc-gear-result')
     const resultsEl = document.getElementById('gear-results')
     const speedTableEl = document.getElementById('gear-speed-table')
@@ -17,7 +17,7 @@
     btn.addEventListener('click', function() {
       errorEl.hidden = true
       try {
-        const result = window.PedalDataCalculators.calculateGears({
+        const result = window.TheBikerBlogCalculators.calculateGears({
           chainrings: document.getElementById('gear-chainring1').value,
           cassette: document.getElementById('gear-cassette').value,
           wheelDiameter: document.getElementById('gear-wheel').value,
@@ -45,8 +45,8 @@
           <tbody>${rows}</tbody>
         </table></div>`
         resultDiv.focus()
-        if (window.PedalData && typeof window.PedalData.track === 'function') {
-          window.PedalData.track('tool', 'gear_calculator_complete', null, null, { combinations: result.ratios.length })
+        if (window.TheBikerBlog && typeof window.TheBikerBlog.track === 'function') {
+          window.TheBikerBlog.track('tool', 'gear_calculator_complete', null, null, { combinations: result.ratios.length })
         }
       } catch (error) {
         showError(error.message)

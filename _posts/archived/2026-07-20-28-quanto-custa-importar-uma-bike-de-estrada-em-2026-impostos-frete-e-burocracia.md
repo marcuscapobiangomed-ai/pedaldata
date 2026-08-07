@@ -9,7 +9,7 @@ last_modified_at: 2026-07-20
 author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 product_name: ""
 model_year: 2026

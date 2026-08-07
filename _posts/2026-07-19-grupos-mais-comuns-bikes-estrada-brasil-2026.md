@@ -8,7 +8,7 @@ last_modified_at: 2026-07-19
 author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 editorial_status: "draft"
 thumbnail: "/assets/img/posts/grupos-mais-comuns-bikes-estrada/thumb-480.webp"
@@ -20,7 +20,7 @@ reading_time: 5
 sources:
   - name: "Base estruturada The Biker Blog"
     type: "editorial-dataset"
-    url: "https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/"
+    url: "https://marcuscapobiangomed-ai.github.io/thebikerblog/bikes/"
     accessed_at: "2026-07-19"
 ---
 

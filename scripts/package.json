@@ -1,9 +1,9 @@
 {
-  "name": "pedaldata-scripts",
+  "name": "thebikerblog-scripts",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Scripts de automação do Pedal Data",
+  "description": "Scripts de automação do TheBikerBlog",
   "scripts": {
     "check-prices": "node price-checker.js",
     "validate-data": "node ../_data/schemas/validate-all.js"

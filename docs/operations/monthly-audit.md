@@ -1,7 +1,7 @@
 # SOP — Auditoria Mensal
 
 ## Objetivo
-Avaliar a qualidade geral dos dados, processos e operação do Pedal Data.
+Avaliar a qualidade geral dos dados, processos e operação do TheBikerBlog.
 
 ## Gatilho
 Primeiro dia útil de cada mês.

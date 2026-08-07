@@ -1,4 +1,4 @@
-# Modelo Operacional — Pedal Data
+# Modelo Operacional — TheBikerBlog
 
 ## Estrutura
 Operação dividida em 5 áreas:

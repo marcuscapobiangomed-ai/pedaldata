@@ -76,8 +76,8 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   var email = document.getElementById('newsletter-email').value
   var profile = document.getElementById('newsletter-profile').value
 
-  if (typeof PedalData.track === 'function') {
-    PedalData.track('newsletter', 'newsletter_submit', email, null, {
+  if (typeof TheBikerBlog.track === 'function') {
+    TheBikerBlog.track('newsletter', 'newsletter_submit', email, null, {
       name: name,
       email: email,
       profile: profile

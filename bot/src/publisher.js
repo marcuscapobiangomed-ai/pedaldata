@@ -29,7 +29,7 @@ export class GitHubPublisher {
         Authorization: `Bearer ${this.token}`,
         "Content-Type": "application/json",
         Accept: "application/vnd.github.v3+json",
-        "User-Agent": "pedaldata-bot",
+        "User-Agent": "thebikerblog-bot",
       },
     };
     if (body) opts.body = JSON.stringify(body);
@@ -134,7 +134,7 @@ export class GitHubPublisher {
     console.log(`🔀 Criando PR: ${branchName} → ${this.branch}`);
     let prBody = `## ${slug.replace(/-/g, " ")}\n\n### Método\n`;
     prBody += researchData
-      ? `- ${researchData.testedByPedalData ? "[x] Teste presencial" : "[ ] Teste presencial"}\n- ${researchData.reviewMethod === "desk-research" ? "[x]" : "[ ]"} Análise documental\n`
+      ? `- ${researchData.testedByTheBikerBlog ? "[x] Teste presencial" : "[ ] Teste presencial"}\n- ${researchData.reviewMethod === "desk-research" ? "[x]" : "[ ]"} Análise documental\n`
       : "- [ ] Método não informado\n";
 
     // Fontes

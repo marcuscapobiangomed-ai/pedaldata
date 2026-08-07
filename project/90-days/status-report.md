@@ -1,4 +1,4 @@
-# Status Report — Pedal Data 90 Dias
+# Status Report — TheBikerBlog 90 Dias
 
 **Gerado em:** 2026-07-19
 **Progresso geral:** 65%

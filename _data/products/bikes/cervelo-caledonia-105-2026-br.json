@@ -18,6 +18,6 @@
   "declaredWeight": { "valueKg": 9.5, "size": "56", "sourceId": "cervelo-official-global-2026" },
   "maxTireClearanceMm": { "value": 36, "sourceId": "cervelo-official-global-2026" },
   "warranty": { "description": "Garantia Cervélo conforme política do importador", "sourceId": "cervelo-official-global-2026" },
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
 }

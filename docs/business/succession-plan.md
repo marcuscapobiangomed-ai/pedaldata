@@ -1,4 +1,4 @@
-# Plano de Continuidade — Pedal Data
+# Plano de Continuidade — TheBikerBlog
 
 ## Dependências críticas
 | Recurso | Onde está | Acesso alternativo |

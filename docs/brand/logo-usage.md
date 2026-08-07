@@ -1,4 +1,4 @@
-# Uso do Logo — Pedal Data
+# Uso do Logo — TheBikerBlog
 
 ## Regras gerais
 - O logo não deve ser distorcido, rotacionado ou recolocado

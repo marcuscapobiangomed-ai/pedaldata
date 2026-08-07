@@ -1,4 +1,4 @@
-# Checklist de Revisão — Pedal Data
+# Checklist de Revisão — TheBikerBlog
 
 ## Artigo
 

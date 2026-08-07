@@ -23,7 +23,7 @@
   "maxTireClearanceMm": { "value": 38, "sourceId": "scott-addict-manual-2026-pt" },
   "maximumSystemWeightKg": { "value": 120, "sourceId": "thebiker-scott-addict-50-2026" },
   "knowledgeRecord": "_data/product-knowledge/bikes/scott-addict-50-2026-thebiker-br.json",
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-08-04",
   "updatedAt": "2026-08-04",
   "reviewStatus": "verified",

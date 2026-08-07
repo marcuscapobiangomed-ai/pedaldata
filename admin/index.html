@@ -55,7 +55,7 @@ permalink: /admin/
           🧪 Validar: <code style="font-family:var(--font-mono);">node _data/schemas/validate-all.js</code>
         </span>
         <span style="display:inline-block;background:var(--bg);border:1px solid var(--border-card);padding:12px 20px;border-radius:var(--radius);font-size:0.88rem;color:var(--text-muted);">
-          🗑️ Limpar eventos: <code style="font-family:var(--font-mono);" onclick="if(typeof PedalData.clearEvents==='function'){PedalData.clearEvents();alert('Eventos limpos!');location.reload()}" style="cursor:pointer;">clearEvents()</code>
+          🗑️ Limpar eventos: <code style="font-family:var(--font-mono);" onclick="if(typeof TheBikerBlog.clearEvents==='function'){TheBikerBlog.clearEvents();alert('Eventos limpos!');location.reload()}" style="cursor:pointer;">clearEvents()</code>
         </span>
       </div>
     </div>
@@ -65,8 +65,8 @@ permalink: /admin/
 <script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
 <script>
 ;(async function() {
-  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-  const catalog = await PedalData.utils.loadCatalog()
+  const BASE = window.location.pathname.includes('/thebikerblog') ? '/thebikerblog' : ''
+  const catalog = await TheBikerBlog.utils.loadCatalog()
   const sources = {{ site.data.sources.sources | jsonify }}
 
   // Summary
@@ -125,13 +125,13 @@ permalink: /admin/
   // Event Metrics
   function renderEventsMetrics() {
     var metricsDiv = document.getElementById('events-metrics')
-    if (typeof PedalData === 'undefined' || typeof PedalData.getEventSummary !== 'function') {
+    if (typeof TheBikerBlog === 'undefined' || typeof TheBikerBlog.getEventSummary !== 'function') {
       metricsDiv.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);">Sistema de eventos não carregado. Navegue pelo site para gerar eventos.</p>'
       return
     }
 
-    var summary = PedalData.getEventSummary()
-    var recentEvents = PedalData.getEvents({ limit: 20 })
+    var summary = TheBikerBlog.getEventSummary()
+    var recentEvents = TheBikerBlog.getEvents({ limit: 20 })
 
     if (summary.total === 0) {
       metricsDiv.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);">Nenhum evento registrado ainda. Use o site para gerar eventos.</p>'

@@ -8,7 +8,7 @@ date: 2026-07-19
 author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: false
 brand: "Caloi"
 product_name: "Strada 100"

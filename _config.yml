@@ -2,7 +2,7 @@ title: "TheBiker Blog"
 tagline: "Ciclismo vivido, testado e explicado"
 description: "O blog oficial da TheBiker: reviews técnicos, comparativos, lançamentos e cobertura de competições para ciclistas experientes"
 url: "https://marcuscapobiangomed-ai.github.io"
-baseurl: "/pedaldata"
+baseurl: "/thebikerblog"
 lang: pt-BR
 
 author: "Equipe TheBiker"

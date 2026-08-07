@@ -293,9 +293,9 @@ export class AIProvider {
     next.content_type = this._normalizeContentType(next.content_type);
     const requestedHandsOn =
       toText(next.review_method, "").trim() === "hands-on-test" ||
-      toBoolean(next.tested_by_pedaldata, false);
+      toBoolean(next.tested_by_thebikerblog, false);
     next.review_method = requestedHandsOn ? "hands-on-test" : "desk-research";
-    next.tested_by_pedaldata = requestedHandsOn;
+    next.tested_by_thebikerblog = requestedHandsOn;
     next.methodologyNotice = this._sanitizeHtml(next.methodologyNotice || "");
     next.brand = this._sanitizeHtml(next.brand || "");
     next.product_name = this._sanitizeHtml(next.product_name || "");
@@ -406,7 +406,7 @@ export class AIProvider {
       metaDesc: article.description,
       content_type: article.content_type,
       review_method: article.review_method,
-      tested_by_pedaldata: article.tested_by_pedaldata === true,
+      tested_by_thebikerblog: article.tested_by_thebikerblog === true,
       imagePlan: article.imagePlan,
       imageProductionPlan: buildImageProductionPlan(article),
       sources: article.sources || [],

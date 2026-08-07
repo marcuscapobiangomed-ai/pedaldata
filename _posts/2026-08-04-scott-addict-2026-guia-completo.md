@@ -9,7 +9,7 @@ author: "Equipe TheBiker"
 reviewed_by: ""
 content_type: "review"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 brand: "Scott"
 product_name: "Addict 50"

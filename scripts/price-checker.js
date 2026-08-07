@@ -78,7 +78,7 @@ const PRODUCT_URLS = {
 async function fetchPrice(url, scraper) {
   try {
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'PedalData/1.0 (price checker)' }
+      headers: { 'User-Agent': 'TheBikerBlog/1.0 (price checker)' }
     })
     if (!response.ok) return null
     const html = await response.text()

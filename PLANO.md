@@ -3,7 +3,7 @@
 ## ✅ Concluído (19/07/2026)
 
 ### Instrumentação de Eventos
-- [x] Sistema `PedalData.track()` criado em `assets/js/analytics-events.js`
+- [x] Sistema `TheBikerBlog.track()` criado em `assets/js/analytics-events.js`
 - [x] Integração com GA4 (G-DHD86P6XDZ)
 - [x] Eventos de conteúdo: `article_view`, `article_scroll_50`, `article_scroll_90`
 - [x] Eventos de produto: `product_view`, `product_compare_add`, `product_compare_complete`, `store_click`
@@ -17,7 +17,7 @@
 - [x] Config de parceiros em `data/affiliates/affiliates-config.json`
 - [x] Função `getAffiliateUrl()` em `catalog.js` para adicionar tags de afiliado
 - [x] Links afiliados com `data-affiliate="true"` e clique rastreado
-- [x] Parâmetros UTM padronizados (`utm_source=pedaldata`, etc.)
+- [x] Parâmetros UTM padronizados (`utm_source=thebikerblog`, etc.)
 - [x] Tabela de preços com `rel="nofollow sponsored"`
 
 ### Comparador com Rastreamento
@@ -27,8 +27,8 @@
 ## ⏳ Pendente (requer recursos externos)
 
 ### IDs Reais de Afiliados
-- [ ] **Amazon Associates**: substituir `pedaldata08-20` pelo ID real em `affiliates-config.json`
-- [ ] **Mercado Livre**: substituir `pedaldata08-20` pelo ID real
+- [ ] **Amazon Associates**: substituir `thebikerblog08-20` pelo ID real em `affiliates-config.json`
+- [ ] **Mercado Livre**: substituir `thebikerblog08-20` pelo ID real
 - [ ] **Magalu**: configurar parceria e obter parâmetro de afiliado
 - [ ] **Centauro**: configurar parceria
 - [ ] **BikeExpress**: configurar parceria
@@ -69,7 +69,7 @@
 
 ## Direção Editorial — Próximos 90 Dias
 
-Baseado no benchmark de blogs de ciclismo e no estado atual do Pedal Data, a prioridade editorial passa a ser:
+Baseado no benchmark de blogs de ciclismo e no estado atual do TheBikerBlog, a prioridade editorial passa a ser:
 
 - consolidar o blog como referência em ciclismo de estrada + dados + decisão;
 - reduzir dispersão entre notícia solta e conteúdo evergreen;

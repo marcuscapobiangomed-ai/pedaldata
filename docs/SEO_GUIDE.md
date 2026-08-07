@@ -1,4 +1,4 @@
-# Guia de SEO — Pedal Data
+# Guia de SEO — TheBikerBlog
 
 ## Meta description
 

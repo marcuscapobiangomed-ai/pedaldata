@@ -1,4 +1,4 @@
-# Modelo de Receita — Pedal Data
+# Modelo de Receita — TheBikerBlog
 
 ## Fontes de receita
 

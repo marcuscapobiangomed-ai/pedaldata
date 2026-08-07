@@ -9,7 +9,7 @@ const approvedAt = new Date().toISOString().slice(0, 10);
 const targets = [
   {
     file: "_posts/2026-07-16-bem-vindo.md",
-    id: "bem-vindo-pedal-data",
+    id: "bem-vindo-thebikerblog",
     title: "TheBiker: conhecimento técnico para quem leva o ciclismo a sério",
     summary: "Manifesto editorial do blog oficial TheBiker para ciclismo de alta performance.",
     productIds: ["foil-rc-hmx-sl-bicicleta-aero-24v-sram-red-axs"],

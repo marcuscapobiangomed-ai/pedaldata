@@ -96,7 +96,7 @@ Assunto: Panorama do Mercado de Road Bikes — Julho 2026
 
 Olá [nome],
 
-Esta é a primeira edição da newsletter do Pedal Data.
+Esta é a primeira edição da newsletter do TheBikerBlog.
 
 Nesta edição:
 📊 30 road bikes catalogadas no Brasil

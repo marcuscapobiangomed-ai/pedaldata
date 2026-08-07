@@ -2,15 +2,15 @@
   'use strict'
 
   // ============================================================
-  // Favorites Module — Pedal Data
-  // Dependência: auth.js (window.PedalData.auth)
+  // Favorites Module — TheBikerBlog
+  // Dependência: auth.js (window.TheBikerBlog.auth)
   // ============================================================
 
   var favoritesCache = null
 
   // Carrega favoritos do usuário atual
   async function loadFavorites() {
-    var auth = window.PedalData && window.PedalData.auth
+    var auth = window.TheBikerBlog && window.TheBikerBlog.auth
     if (!auth || !auth.isLoggedIn()) return []
     if (favoritesCache) return favoritesCache
     try {
@@ -35,7 +35,7 @@
 
   // Adiciona favorito
   async function addFavorite(productId) {
-    var auth = window.PedalData && window.PedalData.auth
+    var auth = window.TheBikerBlog && window.TheBikerBlog.auth
     if (!auth || !auth.isLoggedIn()) {
       showFavoritesToast('Faça login para salvar favoritos.')
       return false
@@ -48,8 +48,8 @@
       if (!favoritesCache) favoritesCache = []
       favoritesCache.push(productId)
       updateFavoritesUI(productId, true)
-      if (window.PedalData.track) {
-        PedalData.track('engagement', 'favorite_add', productId)
+      if (window.TheBikerBlog.track) {
+        TheBikerBlog.track('engagement', 'favorite_add', productId)
       }
       return true
     } catch (e) {
@@ -60,7 +60,7 @@
 
   // Remove favorito
   async function removeFavorite(productId) {
-    var auth = window.PedalData && window.PedalData.auth
+    var auth = window.TheBikerBlog && window.TheBikerBlog.auth
     if (!auth || !auth.isLoggedIn()) return false
     try {
       var supabase = auth.getSupabase()
@@ -73,8 +73,8 @@
         favoritesCache = favoritesCache.filter(function(id) { return id !== productId })
       }
       updateFavoritesUI(productId, false)
-      if (window.PedalData.track) {
-        PedalData.track('engagement', 'favorite_remove', productId)
+      if (window.TheBikerBlog.track) {
+        TheBikerBlog.track('engagement', 'favorite_remove', productId)
       }
       return true
     } catch (e) {
@@ -117,7 +117,7 @@
     var scriptTags = document.querySelectorAll('script')
     var productId = null
     scriptTags.forEach(function(s) {
-      var match = s.textContent.match(/PedalData\.trackProductView\('([^']+)'/)
+      var match = s.textContent.match(/TheBikerBlog\.trackProductView\('([^']+)'/)
       if (match) productId = match[1]
     })
     if (!productId) return
@@ -130,13 +130,13 @@
     btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Salvar'
 
     btn.addEventListener('click', function() {
-      window.PedalData.favorites.toggleFavorite(productId)
+      window.TheBikerBlog.favorites.toggleFavorite(productId)
     })
 
     productHeader.appendChild(btn)
 
     // Verificar se já é favorito
-    if (window.PedalData.auth && window.PedalData.auth.isLoggedIn()) {
+    if (window.TheBikerBlog.auth && window.TheBikerBlog.auth.isLoggedIn()) {
       loadFavorites().then(function() {
         if (isFavorite(productId)) updateFavoritesUI(productId, true)
       })
@@ -156,8 +156,8 @@
   // API pública
   // ============================================================
 
-  window.PedalData = window.PedalData || {}
-  window.PedalData.favorites = {
+  window.TheBikerBlog = window.TheBikerBlog || {}
+  window.TheBikerBlog.favorites = {
     load: loadFavorites,
     isFavorite: isFavorite,
     add: addFavorite,

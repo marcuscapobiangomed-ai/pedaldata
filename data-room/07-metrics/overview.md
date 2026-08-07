@@ -1,4 +1,4 @@
-# Métricas — Pedal Data
+# Métricas — TheBikerBlog
 
 ## Catálogo
 - Produtos no catálogo: 30 (road bikes e componentes)

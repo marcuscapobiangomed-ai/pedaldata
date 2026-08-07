@@ -12,7 +12,7 @@ const knowledge = new Map(fs.readdirSync(knowledgeDir).filter((name) => name.end
 }))
 const products = catalog.bikes.map((item) => {
   const record = knowledge.get(item.id)
-  return { ...item, pageUrl: `https://marcuscapobiangomed-ai.github.io/pedaldata/bikes/${item.slug}/`, sources: record?.sources || [{ name: 'TheBiker Shop', type: 'store', url: item.storeProductUrl, accessedAt: item.portfolioVerifiedAt }], confirmedFacts: record ? Object.fromEntries(Object.entries(record.facts).filter(([, fact]) => fact.status === 'confirmed')) : {}, dataNotice: 'Preço e disponibilidade são observações datadas; revalidar na loja.' }
+  return { ...item, pageUrl: `https://marcuscapobiangomed-ai.github.io/thebikerblog/bikes/${item.slug}/`, sources: record?.sources || [{ name: 'TheBiker Shop', type: 'store', url: item.storeProductUrl, accessedAt: item.portfolioVerifiedAt }], confirmedFacts: record ? Object.fromEntries(Object.entries(record.facts).filter(([, fact]) => fact.status === 'confirmed')) : {}, dataNotice: 'Preço e disponibilidade são observações datadas; revalidar na loja.' }
 })
 const files = {
   'api/products.json': { schemaVersion: '1.0', generatedAt: catalog.verifiedAt, language: 'pt-BR', publisher: 'TheBiker Blog', total: products.length, products },

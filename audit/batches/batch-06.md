@@ -1,7 +1,7 @@
 # Lote 6 — Final: Tendências, WorldTour, Componentes, Rotas e Lojas
 
 **Data:** 2026-07-19  
-**Responsável:** Equipe Pedal Data  
+**Responsável:** Equipe TheBikerBlog
 **Tipo:** Finalização — 8 artigos processados (3 atualizações, 1 remoção, 4 manutenções)
 
 ## Artigos Processados
@@ -25,7 +25,7 @@
 | `content/research/batch-06/tendencias-aero-vs-leve-2026.json` | Tendência all-rounder |
 | `content/research/batch-06/bicicletarias-especializadas.json` | Lojas de referência no Brasil |
 | `content/research/batch-06/melhores-rotas-ciclismo-brasil.json` | Rotas por região |
-| `content/research/batch-06/bem-vindo-pedal-data.json` | Post institucional |
+| `content/research/batch-06/bem-vindo-thebikerblog.json` | Post institucional |
 
 ## Erros Graves Corrigidos
 

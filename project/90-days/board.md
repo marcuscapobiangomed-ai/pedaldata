@@ -1,4 +1,4 @@
-# Pedal Data — 90 dias
+# TheBikerBlog — 90 dias
 
 Quadro de execução da Fase 8. Nenhuma camada será iniciada antes que a anterior tenha resultado funcional, mensurável e validado.
 
@@ -78,7 +78,7 @@ Tarefa com impedimento identificado.
 
 | ID | Título | Conclusão | Evidência |
 |----|--------|-----------|-----------|
-| S1-09 | Substituir autoria fictícia por "Equipe Pedal Data" | 2026-07-19 | 46 arquivos corrigidos — 0 ocorrências de "Sergio Arantes" |
+| S1-09 | Substituir autoria fictícia por "Equipe TheBikerBlog" | 2026-07-19 | 46 arquivos corrigidos — 0 ocorrências de "Sergio Arantes" |
 | S1-03 | Desativar cron de publicação automática | 2026-07-19 | Cron YAML já com schedule comentado; CRON_ENABLED gate adicionado |
 | S1-04 | Remover token da URL do Git | 2026-07-19 | `git remote -v` limpo; tokens só via header Authorization; SECURITY.md criado |
 | S1-02 | GitHub Actions de validação em PR | 2026-07-19 | pr-validate.yml atualizado sem continue-on-error; authorship/source checks |

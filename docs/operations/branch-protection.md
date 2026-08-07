@@ -1,6 +1,6 @@
 # Proteção da Branch `main`
 
-Este documento descreve as regras de proteção aplicadas à branch `main` do repositório Pedal Data.
+Este documento descreve as regras de proteção aplicadas à branch `main` do repositório TheBikerBlog.
 
 ## Regras aplicadas no GitHub
 
@@ -12,7 +12,7 @@ Este documento descreve as regras de proteção aplicadas à branch `main` do re
 
 ## Como configurar
 
-1. Acesse: https://github.com/marcuscapobiangomed-ai/pedaldata/settings/branches
+1. Acesse: https://github.com/marcuscapobiangomed-ai/thebikerblog/settings/branches
 2. Adicione regra para `main`
 3. Ative as opções acima
 4. Salve

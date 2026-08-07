@@ -67,7 +67,7 @@ date: 2026-07-19
 author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
-tested_by_pedaldata: $($bike.testedByPedaldata.ToString().ToLower())
+tested_by_thebikerblog: $($bike.testedByTheBikerBlog.ToString().ToLower())
 ai_assisted: false
 brand: "$($bike.brand)"
 product_name: "$($bike.model)"

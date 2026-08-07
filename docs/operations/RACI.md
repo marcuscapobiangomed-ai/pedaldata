@@ -1,4 +1,4 @@
-# Matriz de Responsabilidades — Pedal Data
+# Matriz de Responsabilidades — TheBikerBlog
 
 ## Áreas
 

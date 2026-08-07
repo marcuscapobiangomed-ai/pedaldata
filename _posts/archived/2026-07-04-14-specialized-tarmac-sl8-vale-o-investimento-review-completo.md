@@ -9,7 +9,7 @@ last_modified_at: 2026-07-04
 author: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 brand: "Specialized"
 product_name: "Specialized Tarmac SL8"

@@ -10,5 +10,5 @@
   "brakes": { "type": "não confirmado", "brand": "não confirmado", "model": "não confirmado" },
   "wheels": { "brand": "não confirmado", "model": "não confirmado", "material": "não confirmado" },
   "tires": { "brand": "não confirmado", "model": "não confirmado", "tubelessReady": false },
-  "testedByPedalData": false, "createdAt": "2026-08-04", "updatedAt": "2026-08-05", "reviewStatus": "needs-review", "sourceId": "thebiker-scott-addict-rc-20-2026"
+  "testedByTheBikerBlog": false, "createdAt": "2026-08-04", "updatedAt": "2026-08-05", "reviewStatus": "needs-review", "sourceId": "thebiker-scott-addict-rc-20-2026"
 }

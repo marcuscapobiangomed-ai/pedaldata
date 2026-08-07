@@ -18,6 +18,6 @@
   "declaredWeight": { "valueKg": 8.6, "size": "M", "sourceId": "cannondale-official-global-2026" },
   "maxTireClearanceMm": { "value": 30, "sourceId": "cannondale-geometry-2026" },
   "warranty": { "description": "Garantia Cannondale conforme política do distribuidor", "sourceId": "cannondale-official-global-2026" },
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
 }

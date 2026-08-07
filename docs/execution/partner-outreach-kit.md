@@ -23,11 +23,11 @@ Mercado Livre, Amazon
 
 ### E-mail 1 — Lojas multimarcas (frio)
 
-**Assunto:** Parceria de afiliados — Pedal Data
+**Assunto:** Parceria de afiliados — TheBikerBlog
 
 Olá [nome],
 
-Sou responsável pelo Pedal Data, plataforma brasileira que ajuda ciclistas a comparar e escolher bicicletas com dados técnicos e preços reais.
+Sou responsável pelo TheBikerBlog, plataforma brasileira que ajuda ciclistas a comparar e escolher bicicletas com dados técnicos e preços reais.
 
 Já temos [número] páginas de produto que mencionam [loja], com dezenas de artigos ranqueados no Google sobre road bikes. Queremos transformar esse tráfego em vendas para sua loja através de links de afiliado.
 
@@ -45,11 +45,11 @@ Atenciosamente,
 
 ### E-mail 2 — Distribuidores (institucional)
 
-**Assunto:** Dados de mercado — [Marca] no Pedal Data
+**Assunto:** Dados de mercado — [Marca] no TheBikerBlog
 
 Olá [nome],
 
-O Pedal Data é a primeira plataforma brasileira independente de dados, comparação e preços de bicicletas. Atualmente cobrimos [marca] com análises detalhadas de [modelos].
+O TheBikerBlog é a primeira plataforma brasileira independente de dados, comparação e preços de bicicletas. Atualmente cobrimos [marca] com análises detalhadas de [modelos].
 
 Gostaria de propor uma parceria em duas frentes:
 
@@ -67,11 +67,11 @@ Atenciosamente,
 
 ### E-mail 3 — Follow-up (7 dias sem resposta)
 
-**Assunto:** Re: Parceria — Pedal Data
+**Assunto:** Re: Parceria — TheBikerBlog
 
 Olá [nome],
 
-Enviei um e-mail semana passado sobre parceria com o Pedal Data. Apenas reforçando que seus produtos já estão gerando interesse orgânico nas nossas páginas, e podemos direcionar esse tráfego para sua loja sem custo inicial.
+Enviei um e-mail semana passado sobre parceria com o TheBikerBlog. Apenas reforçando que seus produtos já estão gerando interesse orgânico nas nossas páginas, e podemos direcionar esse tráfego para sua loja sem custo inicial.
 
 Se preferir, posso ligar. Me avisa um horário bom.
 
@@ -82,14 +82,14 @@ Abraço,
 
 ## Script de Ligação
 
-"Olá [nome], sou [seu nome] do Pedal Data. Você conhece nosso site? Somos uma plataforma de comparação de bicicletas. Já temos páginas sobre [marca/modelo] que aparecem no Google. Meu contato é simples: queremos incluir links para sua loja nessas páginas. Funciona como afiliado — você só paga se vender. Posso te mandar uma proposta por e-mail?"
+"Olá [nome], sou [seu nome] do TheBikerBlog. Você conhece nosso site? Somos uma plataforma de comparação de bicicletas. Já temos páginas sobre [marca/modelo] que aparecem no Google. Meu contato é simples: queremos incluir links para sua loja nessas páginas. Funciona como afiliado — você só paga se vender. Posso te mandar uma proposta por e-mail?"
 
 ---
 
 ## Materiais de Apoio
 
 Incluir no e-mail ou disponibilizar em link:
-- [ ] Link para o site (pedaldata.com.br)
+- [ ] Link para o site (thebikerblog.com.br)
 - [ ] PDF com exemplo de página de produto
 - [ ] Print de posicionamento no Google (se houver)
 - [ ] Partner agreement template (legal/partner-agreement.md)

@@ -312,7 +312,7 @@ author: "${escapeYaml(existingAuthor)}"
 reviewed_by: ""
 content_type: "${contentType}"
 review_method: "${reviewMethod}"
-tested_by_pedaldata: ${testedByPd}
+tested_by_thebikerblog: ${testedByPd}
 ai_assisted: true
 brand: "${escapeYaml(brand)}"
 product_name: "${escapeYaml(productName)}"

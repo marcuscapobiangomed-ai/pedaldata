@@ -1,9 +1,9 @@
-# Acordo de Parceria — Pedal Data
+# Acordo de Parceria — TheBikerBlog
 
 ## Escopo
-Este acordo define os termos entre Pedal Data e parceiros comerciais.
+Este acordo define os termos entre TheBikerBlog e parceiros comerciais.
 
-## Obrigações do Pedal Data
+## Obrigações do TheBikerBlog
 - Inclusão do parceiro nos canais acordados
 - Direcionamento de leads conforme contrato
 - Relatórios de desempenho periódicos
@@ -16,15 +16,15 @@ Este acordo define os termos entre Pedal Data e parceiros comerciais.
 - Confidencialidade de dados compartilhados
 
 ## Propriedade intelectual
-Cada parte mantém a propriedade de seus ativos. Dados gerados pela parceria são de propriedade do Pedal Data, salvo acordo em contrário.
+Cada parte mantém a propriedade de seus ativos. Dados gerados pela parceria são de propriedade do TheBikerBlog, salvo acordo em contrário.
 
 ## Uso de dados
-- O parceiro autoriza o Pedal Data a exibir dados de produtos e preços
-- O Pedal Data não licencia dados do parceiro a terceiros sem autorização
-- O parceiro não utiliza dados do Pedal Data para competir com a plataforma
+- O parceiro autoriza o TheBikerBlog a exibir dados de produtos e preços
+- O TheBikerBlog não licencia dados do parceiro a terceiros sem autorização
+- O parceiro não utiliza dados do TheBikerBlog para competir com a plataforma
 
 ## Atualização de preços
-O parceiro deve manter preços atualizados. O Pedal Data não se responsabiliza por informações desatualizadas fornecidas pelo parceiro.
+O parceiro deve manter preços atualizados. O TheBikerBlog não se responsabiliza por informações desatualizadas fornecidas pelo parceiro.
 
 ## Leads
 Leads gerados pertencem ao comprador do serviço de leads, com exclusividade pelo período contratado.
@@ -41,7 +41,7 @@ Informações compartilhadas durante a parceria são confidenciais por 2 anos ap
 O uso do nome ou logo da outra parte requer aprovação prévia por escrito.
 
 ## Independência editorial
-Nada neste acordo limita a independência editorial do Pedal Data.
+Nada neste acordo limita a independência editorial do TheBikerBlog.
 
 ## Proteção de dados (LGPD)
 Ambas as partes devem cumprir a LGPD. Dados pessoais de leads não podem ser usados fora do escopo acordado.

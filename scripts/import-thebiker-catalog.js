@@ -88,7 +88,7 @@ for (const [idBase, brand, model, modelYear, category, storeSlug] of products) {
     frame: { material: facts.material }, fork: { material: 'não informado' },
     drivetrain: { brand: 'não informado', groupset: facts.groupset, speeds: facts.speeds, shifting: facts.shifting },
     brakes: { type: facts.brakeType }, wheels: { material: 'não informado' }, tires: {},
-    testedByPedalData: false, createdAt: verifiedAt, updatedAt: verifiedAt, reviewStatus: 'verified',
+    testedByTheBikerBlog: false, createdAt: verifiedAt, updatedAt: verifiedAt, reviewStatus: 'verified',
     sourceId: `thebiker-${idBase}`
   }
   fs.writeFileSync(path.join(productsDir, `${id}.json`), `${JSON.stringify(record, null, 2)}\n`)

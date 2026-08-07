@@ -166,7 +166,7 @@
       "rightsPolicyId": "thebiker-official-editorial-v1",
       "uses": [
         {
-          "postId": "bem-vindo-pedal-data",
+          "postId": "bem-vindo-thebikerblog",
           "position": "hero",
           "usedAt": "2026-08-05T12:00:00.000Z"
         }

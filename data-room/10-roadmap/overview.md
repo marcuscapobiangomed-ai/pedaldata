@@ -1,4 +1,4 @@
-# Roadmap — Pedal Data
+# Roadmap — TheBikerBlog
 
 ## Meses 1–3 (Jul–Set 2026): Consolidação
 - [x] Posicionamento de marca definido

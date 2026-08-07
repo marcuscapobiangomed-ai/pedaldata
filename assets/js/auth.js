@@ -2,7 +2,7 @@
   'use strict'
 
   // ============================================================
-  // Auth Module — Pedal Data
+  // Auth Module — TheBikerBlog
   // Dependência: Supabase JS Client (carregar via CDN no layout)
   // Incluir no footer.html ou default.html:
   //   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
@@ -18,7 +18,7 @@
   // Inicializa Supabase
   function init() {
     if (typeof supabaseClient === 'undefined' && typeof window.supabase === 'undefined') {
-      console.warn('[PedalData Auth] Supabase JS não carregado')
+      console.warn('[TheBikerBlog Auth] Supabase JS não carregado')
       return
     }
     var createClient = window.supabase
@@ -39,7 +39,7 @@
       }
       updateUI()
     } catch (e) {
-      console.warn('[PedalData Auth] Erro ao verificar sessão:', e.message)
+      console.warn('[TheBikerBlog Auth] Erro ao verificar sessão:', e.message)
     }
   }
 
@@ -227,8 +227,8 @@
   // API pública
   // ============================================================
 
-  window.PedalData = window.PedalData || {}
-  window.PedalData.auth = {
+  window.TheBikerBlog = window.TheBikerBlog || {}
+  window.TheBikerBlog.auth = {
     init: init,
     login: login,
     signup: signup,

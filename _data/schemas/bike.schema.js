@@ -18,7 +18,7 @@ export const BIKE_SCHEMA = {
   declaredWeight: { required: false, type: 'object', description: 'Peso declarado (obrigatório ter size)' },
   maxTireClearanceMm: { required: false, type: 'object', description: 'Clearance máximo do pneu' },
   warranty: { required: false, type: 'object', description: 'Informações de garantia' },
-  testedByPedalData: { required: true, type: 'boolean', description: 'Foi testado pelo Pedal Data?' },
+  testedByTheBikerBlog: { required: true, type: 'boolean', description: 'Foi testado pelo TheBikerBlog?' },
   createdAt: { required: true, type: 'string', pattern: /^\d{4}-\d{2}-\d{2}$/, description: 'Data de criação' },
   updatedAt: { required: true, type: 'string', pattern: /^\d{4}-\d{2}-\d{2}$/, description: 'Data da última atualização' },
   reviewStatus: { required: true, type: 'string', values: ['pending', 'verified', 'needs-review'], description: 'Status de revisão' },

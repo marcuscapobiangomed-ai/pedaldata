@@ -1,4 +1,4 @@
-# Tese de Investimento — Pedal Data
+# Tese de Investimento — TheBikerBlog
 
 ## Por que agora
 O ciclismo brasileiro está em crescimento. Produtos estão mais caros (R$ 5k–R$ 95k) e complexos. O consumidor busca informação de qualidade, mas o mercado ainda carece de dados padronizados e comparação independente. Nenhum concorrente oferece dados + comparação + preços brasileiros no mesmo lugar.
@@ -13,7 +13,7 @@ Comprar uma bicicleta de alto ticket no Brasil é uma decisão cara, complexa e 
 - Fragmentação da informação cria oportunidade de consolidação
 - 13 marcas com distribuição oficial, 30+ modelos no mercado
 
-## Por que o Pedal Data
+## Por que o TheBikerBlog
 - Primeira plataforma brasileira independente de dados e comparação
 - 30 produtos catalogados com dados verificados de fontes oficiais
 - 36 artigos publicados, 25 pesquisas de dados realizadas

@@ -1,4 +1,4 @@
-# Acesso de Emergência — Pedal Data
+# Acesso de Emergência — TheBikerBlog
 
 ## Cenários
 - Ausência inesperada do fundador

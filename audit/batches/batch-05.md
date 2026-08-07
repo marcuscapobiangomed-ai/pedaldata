@@ -1,7 +1,7 @@
 # Lote 5 — Guias Perenes (Onde Comprar, Cervélo, Apps, Manutenção, Carbono vs Alumínio, Tamanho)
 
 **Data:** 2026-07-19  
-**Responsável:** Equipe Pedal Data  
+**Responsável:** Equipe TheBikerBlog
 **Tipo:** Atualização de 6 artigos (1 reescrita, 5 atualizações in-place)
 
 ## Artigos Processados

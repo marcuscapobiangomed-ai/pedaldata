@@ -10,7 +10,7 @@ author: "Equipe The Biker Blog"
 reviewed_by: "Equipe The Biker Blog"
 content_type: "review"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 brand: "Cervélo"
 product_name: "Cervélo R5"

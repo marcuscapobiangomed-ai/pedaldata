@@ -1,4 +1,4 @@
-# Empresa — Pedal Data
+# Empresa — TheBikerBlog
 
 ## Visão geral
 Plataforma brasileira de dados, comparação, preços e decisão para ciclistas.
@@ -16,8 +16,8 @@ A definir (MEI, LTDA ou similar). Nenhuma estrutura formal aberta no momento.
 - **Jul 2026:** Fase 7 concluída — consolidação de marca, governança e investment readiness
 
 ## Ativos
-- Marca: Pedal Data (em processo de registro)
-- Domínio: pedaldata.com.br
+- Marca: TheBikerBlog (em processo de registro)
+- Domínio: thebikerblog.com.br
 - Código: plataforma Jekyll (estático, versionado em Git)
 - Dados: 30+ produtos catalogados com especificações e preços
 - Conteúdo: 36 artigos editoriais publicados

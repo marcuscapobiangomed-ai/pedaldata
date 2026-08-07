@@ -1,4 +1,4 @@
-# Estratégia de Expansão — Pedal Data
+# Estratégia de Expansão — TheBikerBlog
 
 ## Três dimensões de expansão
 

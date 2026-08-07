@@ -18,6 +18,6 @@
   "declaredWeight": { "valueKg": 10.5, "size": "M", "sourceId": "caloi-official-2026" },
   "maxTireClearanceMm": { "value": 28, "sourceId": "caloi-official-2026" },
   "warranty": { "description": "Garantia Caloi de 1 ano", "sourceId": "caloi-br-warranty" },
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
 }

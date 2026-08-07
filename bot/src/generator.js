@@ -59,7 +59,7 @@ export function generateMarkdown(article) {
     'reviewed_by: ""',
     `content_type: "${escapeYaml(data.content_type)}"`,
     `review_method: "${escapeYaml(data.review_method)}"`,
-    `tested_by_pedaldata: ${data.tested_by_pedaldata === true}`,
+    `tested_by_thebikerblog: ${data.tested_by_thebikerblog === true}`,
     `ai_assisted: true`,
     `brand: "${escapeYaml(data.brand || "")}"`,
     `product_name: "${escapeYaml(data.product_name || "")}"`,

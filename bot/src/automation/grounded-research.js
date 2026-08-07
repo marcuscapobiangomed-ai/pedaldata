@@ -69,7 +69,7 @@ function internalResearch({ item, internalEvidence, today, contentType, reason }
     title: item.title,
     content_type: contentType,
     review_method: 'desk-research',
-    tested_by_pedaldata: false,
+    tested_by_thebikerblog: false,
     market: 'Brasil',
     generated_at: today,
     status: 'pesquisa_concluida',
@@ -104,7 +104,7 @@ export class GroundedResearcher {
       `Resumo editorial: ${item.summary}`,
       `Data: ${today}`,
       `Conteúdo interno já validado: ${JSON.stringify(compactEvidence(internalEvidence))}`,
-      `Retorne: {"slug":"${item.id}","title":"${item.title}","content_type":"${contentType}","review_method":"desk-research","tested_by_pedaldata":false,"market":"Brasil","generated_at":"${today}","status":"pesquisa_concluida","editorialPriority":"P1","confirmed_facts":{},"limitations":[],"sources":[{"name":"...","type":"manufacturer|store|official-website","url":"https://...","accessed":"${today}"}]}`
+      `Retorne: {"slug":"${item.id}","title":"${item.title}","content_type":"${contentType}","review_method":"desk-research","tested_by_thebikerblog":false,"market":"Brasil","generated_at":"${today}","status":"pesquisa_concluida","editorialPriority":"P1","confirmed_facts":{},"limitations":[],"sources":[{"name":"...","type":"manufacturer|store|official-website","url":"https://...","accessed":"${today}"}]}`
     ].join('\n')
     if (provider !== 'groq') throw new Error(`Provedor de pesquisa não suportado: ${provider}`)
     if (!this.env.GROQ_API_KEY) throw new Error('GROQ_API_KEY é obrigatória para pesquisa atual')
@@ -138,7 +138,7 @@ export class GroundedResearcher {
     research.title = item.title
     research.content_type = contentType
     research.review_method = 'desk-research'
-    research.tested_by_pedaldata = false
+    research.tested_by_thebikerblog = false
     research.market = 'Brasil'
     research.generated_at = today
     research.status = 'pesquisa_concluida'

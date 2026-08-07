@@ -4,7 +4,7 @@
 
 ### Amazon Associados
 1. Acessar https://associados.amazon.com.br
-2. Cadastrar com dados do site (pedaldata.com.br)
+2. Cadastrar com dados do site (thebikerblog.com.br)
 3. Aguardar aprovação (24-72h)
 4. Gerar links para produtos específicos
 
@@ -19,7 +19,7 @@
 Criar `_includes/affiliate-disclosure.html`:
 ```html
 <div class="affiliate-disclosure">
-  <p><em>O Pedal Data pode receber comissão por compras realizadas através dos links deste artigo. Isso não altera o preço para você nem nossa avaliação dos produtos.</em></p>
+  <p><em>O TheBikerBlog pode receber comissão por compras realizadas através dos links deste artigo. Isso não altera o preço para você nem nossa avaliação dos produtos.</em></p>
 </div>
 ```
 
@@ -51,7 +51,7 @@ Adicionar badge nas páginas de produto e comparador.
 ### Parâmetros UTM
 Adicionar a todos os links de afiliados:
 ```
-?utm_source=pedaldata&utm_medium=affiliate&utm_campaign={post-slug}
+?utm_source=thebikerblog&utm_medium=affiliate&utm_campaign={post-slug}
 ```
 
 ### Planilha de acompanhamento

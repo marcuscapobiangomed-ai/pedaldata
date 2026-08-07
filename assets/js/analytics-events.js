@@ -1,11 +1,11 @@
 ;(function() {
   'use strict'
 
-  if (window.PedalData && window.PedalData.track) return
+  if (window.TheBikerBlog && window.TheBikerBlog.track) return
 
-  window.PedalData = window.PedalData || {}
+  window.TheBikerBlog = window.TheBikerBlog || {}
 
-  var EVENT_STORE_KEY = 'pedaldata_events'
+  var EVENT_STORE_KEY = 'thebikerblog_events'
   var MAX_STORED = 500
 
   function getStored() {
@@ -47,16 +47,16 @@
 
     storeEvent(event)
 
-    if (window.PedalData._eventListeners) {
-      window.PedalData._eventListeners.forEach(function(fn) {
+    if (window.TheBikerBlog._eventListeners) {
+      window.TheBikerBlog._eventListeners.forEach(function(fn) {
         try { fn(event) } catch {}
       })
     }
   }
 
   function onTrack(callback) {
-    window.PedalData._eventListeners = window.PedalData._eventListeners || []
-    window.PedalData._eventListeners.push(callback)
+    window.TheBikerBlog._eventListeners = window.TheBikerBlog._eventListeners || []
+    window.TheBikerBlog._eventListeners.push(callback)
   }
 
   function getEvents(options) {
@@ -155,13 +155,13 @@
     initGlobalTracking()
   }
 
-  window.PedalData.track = track
-  window.PedalData.onTrack = onTrack
-  window.PedalData.getEvents = getEvents
-  window.PedalData.getEventSummary = getSummary
-  window.PedalData.clearEvents = clearEvents
-  window.PedalData.trackAffiliateClick = trackAffiliateClick
-  window.PedalData.trackProductView = trackProductView
-  window.PedalData.trackCompareAdd = trackCompareAdd
-  window.PedalData.trackCompareComplete = trackCompareComplete
+  window.TheBikerBlog.track = track
+  window.TheBikerBlog.onTrack = onTrack
+  window.TheBikerBlog.getEvents = getEvents
+  window.TheBikerBlog.getEventSummary = getSummary
+  window.TheBikerBlog.clearEvents = clearEvents
+  window.TheBikerBlog.trackAffiliateClick = trackAffiliateClick
+  window.TheBikerBlog.trackProductView = trackProductView
+  window.TheBikerBlog.trackCompareAdd = trackCompareAdd
+  window.TheBikerBlog.trackCompareComplete = trackCompareComplete
 })()

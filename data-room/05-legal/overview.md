@@ -1,4 +1,4 @@
-# Legal — Pedal Data
+# Legal — TheBikerBlog
 
 ## Documentos
 - Termos de Uso: ✓
@@ -12,10 +12,10 @@
 ## Propriedade intelectual
 - Marca: em processo de registro
 - Domínios: [lista]
-- Código: propriedade do Pedal Data
+- Código: propriedade do TheBikerBlog
 - Dados: proprietários
 
 ## LGPD
-- Encarregado: contato@pedaldata.com.br
+- Encarregado: contato@thebikerblog.com.br
 - Base legal: consentimento, legítimo interesse
 - Direitos dos titulares: garantidos

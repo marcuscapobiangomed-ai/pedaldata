@@ -1,4 +1,4 @@
-$baseUrl = "https://marcuscapobiangomed-ai.github.io/pedaldata"
+$baseUrl = "https://marcuscapobiangomed-ai.github.io/thebikerblog"
 $screenshotDir = "C:\Users\marcu\Downloads\Blog - APRENDA!\medblog-full\screenshots"
 $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 

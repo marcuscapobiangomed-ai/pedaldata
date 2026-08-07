@@ -1,4 +1,4 @@
-# Modelo Financeiro — Pedal Data
+# Modelo Financeiro — TheBikerBlog
 
 ## Receitas
 

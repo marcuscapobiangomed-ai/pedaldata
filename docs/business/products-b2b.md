@@ -1,4 +1,4 @@
-# Produtos B2B — Pedal Data
+# Produtos B2B — TheBikerBlog
 
 ## 1. Painel para lojas (futuro)
 - Gestão de leads recebidos

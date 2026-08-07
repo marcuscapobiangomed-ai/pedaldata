@@ -1,7 +1,7 @@
-# Divulgação de Afiliados — Pedal Data
+# Divulgação de Afiliados — TheBikerBlog
 
 ## Política
-O Pedal Data participa de programas de afiliados. Quando um usuário clica em um link de afiliado e realiza uma compra, podemos receber uma comissão.
+O TheBikerBlog participa de programas de afiliados. Quando um usuário clica em um link de afiliado e realiza uma compra, podemos receber uma comissão.
 
 ## Transparência
 - Links de afiliados são identificados com "Link de afiliado" ou indicação similar
@@ -15,4 +15,4 @@ O Pedal Data participa de programas de afiliados. Quando um usuário clica em um
 - A independência editorial é mantida independentemente de parcerias de afiliados
 
 ## Dúvidas
-Contato: contato@pedaldata.com.br
+Contato: contato@thebikerblog.com.br

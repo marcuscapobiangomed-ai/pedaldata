@@ -1,4 +1,4 @@
-# Política de Privacidade — Pedal Data
+# Política de Privacidade — TheBikerBlog
 
 ## 1. Dados coletados
 - Navegação: páginas visitadas, tempo, origem
@@ -36,7 +36,7 @@ Gerenciamento disponível nas configurações do navegador.
 - Portabilidade
 - Oposição ao tratamento
 
-Solicitações: contato@pedaldata.com.br
+Solicitações: contato@thebikerblog.com.br
 
 ## 6. Retenção
 Dados são mantidos enquanto a conta estiver ativa ou conforme exigência legal.
@@ -45,7 +45,7 @@ Dados são mantidos enquanto a conta estiver ativa ou conforme exigência legal.
 Medidas técnicas e organizacionais para proteção dos dados.
 
 ## 8. LGPD
-Controlador: Pedal Data. Encarregado: contato@pedaldata.com.br
+Controlador: TheBikerBlog. Encarregado: contato@thebikerblog.com.br
 
 ## 9. Alterações
 Alterações serão comunicadas com aviso prévio.

@@ -18,6 +18,6 @@
   "declaredWeight": { "valueKg": 9.3, "size": "54", "sourceId": "specialized-official-global-2026" },
   "maxTireClearanceMm": { "value": 35, "sourceId": "specialized-geometry-2026" },
   "warranty": { "description": "Garantia limitada Specialized", "sourceId": "specialized-br-2026" },
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
 }

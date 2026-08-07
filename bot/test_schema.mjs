@@ -14,7 +14,7 @@ const validArticle = {
   category: "comparativos",
   content_type: "comparativo",
   review_method: "desk-research",
-  tested_by_pedaldata: false,
+  tested_by_thebikerblog: false,
   methodologyNotice:
     "Análise documental baseada em especificações oficiais e pesquisa de mercado. O produto não foi testado presencialmente pela equipe.",
   brand: "Scott",
@@ -77,7 +77,7 @@ const validResearch = {
   topic: "Comparativo endurance vs race",
   contentType: "comparativo",
   reviewMethod: "desk-research",
-  testedByPedalData: false,
+  testedByTheBikerBlog: false,
   market: "Brasil",
   product: {
     brand: "Scott",

@@ -24,7 +24,7 @@ function loadJSON(filePath) {
 
 function validateAll() {
   console.log('\n========================================')
-  console.log('  PEDAL DATA — Validador de Dados v1.0')
+  console.log('  THEBIKERBLOG — Validador de Dados v1.0')
   console.log('========================================\n')
 
   let totalErrors = 0

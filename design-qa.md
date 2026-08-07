@@ -1,7 +1,7 @@
 # Design QA — Imagens dos cards do comparador mobile
 
 - Source visual truth: `screenshots/comparator-card-overlap-source-01.jpg` and `screenshots/comparator-card-overlap-source-02.jpg`
-- Implementation URL: `https://marcuscapobiangomed-ai.github.io/pedaldata/comparar/`
+- Implementation URL: `https://marcuscapobiangomed-ai.github.io/thebikerblog/comparar/`
 - Implementation screenshot: unavailable; no browser surface is connected in this session
 - Source pixels: 591 x 1280 px per iPhone capture
 - Target CSS viewport: approximately 390 px wide mobile viewport

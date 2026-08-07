@@ -27,7 +27,7 @@ export const ProductResearchSchema = z.object({
   topic: z.string().min(3, "topic precisa ter ao menos 3 caracteres"),
   contentType: z.enum(["review", "comparativo", "guia-de-compra", "componentes", "manutencao", "treinamento", "noticias"]),
   reviewMethod: z.enum(["desk-research", "field-review", "editorial"]),
-  testedByPedalData: z.boolean(),
+  testedByTheBikerBlog: z.boolean(),
   market: z.string().default("Brasil"),
   product: z.object({
     brand: z.string().min(1),
@@ -52,7 +52,7 @@ export const EditorialResearchSchema = z.object({
   title: z.string().min(3),
   content_type: z.enum(["review", "comparativo", "guia-de-compra", "guia-tecnico", "guia-turistico", "noticia", "lancamento", "previa-corrida", "resumo-corrida"]),
   review_method: z.enum(["desk-research", "field-review", "editorial"]),
-  tested_by_pedaldata: z.boolean(),
+  tested_by_thebikerblog: z.boolean(),
   market: z.string().min(2),
   generated_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   status: z.enum(["pesquisa_pendente", "pesquisa_concluida"]),

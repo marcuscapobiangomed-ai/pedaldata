@@ -8,7 +8,7 @@ const POSTS_DIR = join(__dirname, '..')
 
 const REQUIRED_FM = [
   'layout', 'title', 'date', 'tags', 'description',
-  'content_type', 'review_method', 'tested_by_pedaldata', 'ai_assisted',
+  'content_type', 'review_method', 'tested_by_thebikerblog', 'ai_assisted',
   'editorial_status',
 ]
 

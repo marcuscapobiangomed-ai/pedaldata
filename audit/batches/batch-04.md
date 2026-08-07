@@ -2,7 +2,7 @@
 
 **Status:** ✅ Concluído
 **Data:** 2026-07-19
-**Responsável:** Equipe Pedal Data
+**Responsável:** Equipe TheBikerBlog
 **Tipo:** Guias de compra e comparativos de componentes (Lote 4)
 
 ---

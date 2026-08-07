@@ -11,5 +11,5 @@
   "wheels": { "brand": "Syncros", "model": "Capital Carbon 1.0S 40 mm", "material": "carbon" },
   "tires": { "brand": "Schwalbe", "model": "PRO ONE TL-Easy", "widthMm": 30, "tubelessReady": true },
   "declaredWeight": { "valueKg": 6.7, "size": "não informado", "sourceId": "thebiker-scott-addict-rc-pro-2026" },
-  "testedByPedalData": false, "createdAt": "2026-08-04", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-scott-addict-rc-pro-2026"
+  "testedByTheBikerBlog": false, "createdAt": "2026-08-04", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-scott-addict-rc-pro-2026"
 }

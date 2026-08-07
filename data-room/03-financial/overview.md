@@ -1,4 +1,4 @@
-# Financeiro — Pedal Data
+# Financeiro — TheBikerBlog
 
 ## Status atual
 Projeto em fase inicial de receita. Sem receita recorrente formalizada.
@@ -7,7 +7,7 @@ Projeto em fase inicial de receita. Sem receita recorrente formalizada.
 Por implementar: afiliados, leads, assinaturas premium, relatórios, API, consultoria.
 
 ## Custos atuais
-- Domínio: pedaldata.com.br
+- Domínio: thebikerblog.com.br
 - Hospedagem: Jekyll (site estático, custo baixo)
 - Ferramentas: [a listar]
 - Tempo de produção: não contabilizado financeiramente

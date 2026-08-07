@@ -18,6 +18,6 @@
   "declaredWeight": { "valueKg": 8.6, "size": "M", "sourceId": "scott-official-global-2026" },
   "maxTireClearanceMm": { "value": 35, "sourceId": "scott-manual-2026" },
   "warranty": { "description": "Conforme política do distribuidor brasileiro", "sourceId": "scott-brazil-warranty" },
-  "testedByPedalData": false,
+  "testedByTheBikerBlog": false,
   "createdAt": "2026-07-19", "updatedAt": "2026-07-19", "reviewStatus": "verified"
 }

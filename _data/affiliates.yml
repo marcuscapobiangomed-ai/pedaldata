@@ -4,47 +4,47 @@
 mercadolivre:
   tagParam: tag_id
   tagValue: "PREENCHER"
-  utmSource: pedaldata.com.br
+  utmSource: thebikerblog.com.br
   utmMedium: affiliate
 
 amazon:
   tagParam: tag
   tagValue: "PREENCHER"
-  utmSource: pedaldata.com.br
+  utmSource: thebikerblog.com.br
   utmMedium: affiliate
 
 allsports:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 berbike:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 soulcycles:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 decathlon:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 specialized:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 cervelo:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 demarchi:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 bikecenter:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral
 
 jauribike:
-  utmSource: pedaldata
+  utmSource: thebikerblog
   utmMedium: referral

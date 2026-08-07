@@ -3,7 +3,7 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('calc-size-btn')
-    if (!btn || !window.PedalDataCalculators) return
+    if (!btn || !window.TheBikerBlogCalculators) return
     const resultDiv = document.getElementById('calc-size-result')
     const recommendationEl = document.getElementById('size-recommendation')
     const errorEl = document.getElementById('size-error')
@@ -23,7 +23,7 @@
           experience: document.getElementById('calc-experience').value,
           goal: document.getElementById('calc-goal').value,
         }
-        const result = window.PedalDataCalculators.estimateRoadSize(input)
+        const result = window.TheBikerBlogCalculators.estimateRoadSize(input)
         recommendationEl.classList.remove('calculator-empty-state')
         recommendationEl.innerHTML = `<div class="size-result-box">
           <div class="size-main"><strong>Faixa inicial de tamanho:</strong> ${result.size}</div>
@@ -34,8 +34,8 @@
           </div>
         </div>`
         resultDiv.focus()
-        if (window.PedalData && typeof window.PedalData.track === 'function') {
-          window.PedalData.track('tool', 'size_calculator_complete', null, null, { size: result.size })
+        if (window.TheBikerBlog && typeof window.TheBikerBlog.track === 'function') {
+          window.TheBikerBlog.track('tool', 'size_calculator_complete', null, null, { size: result.size })
         }
       } catch (error) {
         showError(error.message)

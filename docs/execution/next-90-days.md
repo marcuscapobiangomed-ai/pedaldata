@@ -130,11 +130,11 @@ Template de abordagem para cada perfil:
 
 **Para loja multimarcas (AllSports):**
 ```
-Assunto: Parceria de dados e afiliados — Pedal Data
+Assunto: Parceria de dados e afiliados — TheBikerBlog
 
 Olá [nome],
 
-Sou responsável pelo Pedal Data, plataforma brasileira de comparação 
+Sou responsável pelo TheBikerBlog, plataforma brasileira de comparação
 e dados técnicos de bicicletas. Atualmente cobrimos [marcas] com 
 páginas individuais de produto e comparador lado a lado.
 
@@ -151,7 +151,7 @@ Podemos agendar uma conversa rápida?
 
 Atenciosamente,
 [seu nome]
-Pedal Data
+TheBikerBlog
 ```
 
 **Para distribuidor oficial (Specialized Brasil, Cervélo Brasil):**
@@ -160,7 +160,7 @@ Assunto: Dados de mercado e parceria institucional
 
 Olá [nome],
 
-O Pedal Data é uma plataforma independente de dados e comparação 
+O TheBikerBlog é uma plataforma independente de dados e comparação
 do mercado brasileiro de bicicletas. Atualmente cobrimos [marca] 
 com páginas detalhadas de produto e comparador.
 
@@ -170,7 +170,7 @@ Gostaria de propor:
 3. Possibilidade de relatórios de mercado trimestrais
 
 Sem custo e sem compromisso editorial — mantemos total 
-independência, como documentado em pedaldata.com.br.
+independência, como documentado em thebikerblog.com.br.
 
 Podemos conversar?
 

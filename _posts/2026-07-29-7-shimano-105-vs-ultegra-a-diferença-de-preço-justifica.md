@@ -8,7 +8,7 @@ last_modified_at: 2026-07-29
 author: "Equipe The Biker Blog"
 content_type: "comparativo"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 brand: "Shimano"
 product_name: "Shimano 105 / Ultegra"

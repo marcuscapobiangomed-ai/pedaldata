@@ -68,5 +68,5 @@
     return { cadence, circumferenceMm, ratios, highest: ratios[0], lowest: ratios[ratios.length - 1] }
   }
 
-  root.PedalDataCalculators = { estimateRoadSize, calculateGears, parseTeethList }
+  root.TheBikerBlogCalculators = { estimateRoadSize, calculateGears, parseTeethList }
 })(typeof window !== 'undefined' ? window : globalThis)

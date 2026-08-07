@@ -12,5 +12,5 @@
   "tires": { "brand": "Maxxis", "model": "Rekon Race", "tubelessReady": true },
   "declaredWeight": { "valueKg": 12.5, "approximate": true, "size": "não informado", "sourceId": "manufacturer-bicicleta-scott-spark-rc-world-cup-2027" },
   "knowledgeRecord": "_data/product-knowledge/bikes/bicicleta-scott-spark-rc-world-cup-2027.json",
-  "testedByPedalData": false, "createdAt": "2026-08-05", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027"
+  "testedByTheBikerBlog": false, "createdAt": "2026-08-05", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-bicicleta-scott-spark-rc-world-cup-2027"
 }

@@ -1,4 +1,4 @@
-# Diretrizes de Redes Sociais — Pedal Data
+# Diretrizes de Redes Sociais — TheBikerBlog
 
 ## Canais ativos
 - Instagram — conteúdo visual, comparativos, bastidores

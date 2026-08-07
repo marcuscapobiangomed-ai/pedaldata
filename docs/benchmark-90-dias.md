@@ -1,8 +1,8 @@
-# Plano editorial de 90 dias para o Pedal Data
+# Plano editorial de 90 dias para o TheBikerBlog
 
 ## Objetivo
 
-Transformar o Pedal Data em um blog nichado de decisão para ciclismo de estrada no Brasil, com foco em:
+Transformar o TheBikerBlog em um blog nichado de decisão para ciclismo de estrada no Brasil, com foco em:
 
 - captar tráfego orgânico em páginas evergreen;
 - gerar confiança com comparativos e dados reais;
@@ -13,7 +13,7 @@ Transformar o Pedal Data em um blog nichado de decisão para ciclismo de estrada
 
 O benchmark mostra que blogs fortes não tentam ser “um pouco de tudo”. Eles escolhem um núcleo claro e repetem esse núcleo com consistência.
 
-Para o Pedal Data, o núcleo recomendado é:
+Para o TheBikerBlog, o núcleo recomendado é:
 
 > ciclismo de estrada + dados + comparação + decisão de compra
 
@@ -83,7 +83,7 @@ Séries com nome fixo criam memória de marca e facilitam a produção.
 Sugestão:
 
 - `Dados Reais`: posts com tabelas, comparações e números do mercado brasileiro.
-- `Guia de Compra Pedal Data`: páginas evergreen com foco em decisão.
+- `Guia de Compra TheBikerBlog`: páginas evergreen com foco em decisão.
 - `Review em Foco`: análises de um modelo por vez.
 
 ## Cadência recomendada

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import '../assets/js/calculator-core.js'
 
-const { estimateRoadSize, calculateGears, parseTeethList } = globalThis.PedalDataCalculators
+const { estimateRoadSize, calculateGears, parseTeethList } = globalThis.TheBikerBlogCalculators
 
 const size = estimateRoadSize({
   height: 175,

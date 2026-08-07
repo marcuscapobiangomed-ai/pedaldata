@@ -1,5 +1,5 @@
 {
-  "description": "Registro centralizado de fontes de dados do Pedal Data",
+  "description": "Registro centralizado de fontes de dados do TheBikerBlog",
   "version": "1.0",
   "lastUpdated": "2026-07-19",
   "sources": [
@@ -246,15 +246,15 @@
       "notes": "Política de garantia para bicicletas Scott no Brasil."
     },
     {
-      "id": "pedaldata-verified-2026",
-      "name": "Verificação Pedal Data",
+      "id": "thebikerblog-verified-2026",
+      "name": "Verificação TheBikerBlog",
       "type": "independent-review",
       "url": null,
       "market": "BR",
       "accessedAt": "2026-07-19",
       "archivedUrl": null,
       "reliability": "secondary",
-      "notes": "Verificação independente realizada pela equipe Pedal Data."
+      "notes": "Verificação independente realizada pela equipe TheBikerBlog."
     }
   ]
 }

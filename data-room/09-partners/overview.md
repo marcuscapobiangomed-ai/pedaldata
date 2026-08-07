@@ -1,4 +1,4 @@
-# Parceiros — Pedal Data
+# Parceiros — TheBikerBlog
 
 ## Distribuidores e lojas mapeados
 

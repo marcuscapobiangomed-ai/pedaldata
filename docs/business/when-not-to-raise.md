@@ -1,4 +1,4 @@
-# Quando Não Captar Investimento — Pedal Data
+# Quando Não Captar Investimento — TheBikerBlog
 
 ## Sinais de alerta
 Não captar investimento quando:

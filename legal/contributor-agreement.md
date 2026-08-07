@@ -1,18 +1,18 @@
-# Acordo de Contribuição — Pedal Data
+# Acordo de Contribuição — TheBikerBlog
 
 ## Natureza
-Contribuições ao Pedal Data podem ser editoriais, técnicas ou de dados.
+Contribuições ao TheBikerBlog podem ser editoriais, técnicas ou de dados.
 
 ## Propriedade
-- Conteúdo original do contribuidor licenciado ao Pedal Data para publicação
-- O Pedal Data pode editar o conteúdo para adequação editorial
+- Conteúdo original do contribuidor licenciado ao TheBikerBlog para publicação
+- O TheBikerBlog pode editar o conteúdo para adequação editorial
 - O contribuidor mantém o direito de republicar após 90 dias
 
 ## Remuneração
 A ser definida por contribuição, salvo acordo de voluntariado.
 
 ## Atribuição
-O contribuidor é creditado conforme acordado. O Pedal Data não publica conteúdo sem crédito adequado.
+O contribuidor é creditado conforme acordado. O TheBikerBlog não publica conteúdo sem crédito adequado.
 
 ## Independência editorial
 - O contribuidor não recebe influência de parceiros para escrever

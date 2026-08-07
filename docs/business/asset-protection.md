@@ -1,14 +1,14 @@
-# Proteção de Ativos — Pedal Data
+# Proteção de Ativos — TheBikerBlog
 
 ## Marca
-- [x] Pesquisa de disponibilidade do nome realizada (pedaldata.com.br registrado)
+- [x] Pesquisa de disponibilidade do nome realizada (thebikerblog.com.br registrado)
 - [ ] Registro de marca no INPI protocolado
 - [ ] Proteção de nome e identidade visual formalizada
 - [x] Posicionamento de marca documentado (docs/brand/)
 
 ## Domínios
-- [x] pedaldata.com.br (principal) — registrado
-- [ ] Variações importantes registradas (pedaldata.com, pedaldata.net, etc.)
+- [x] thebikerblog.com.br (principal) — registrado
+- [ ] Variações importantes registradas (thebikerblog.com, thebikerblog.net, etc.)
 - [ ] Renovação automática configurada
 
 ## Código

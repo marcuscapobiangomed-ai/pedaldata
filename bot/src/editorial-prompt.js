@@ -139,7 +139,7 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
     '  "category": "reviews | comparativos | guias-de-compra | guia-tecnico | noticias | lancamentos | corridas | campeonatos | mercado",',
     '  "content_type": "review | comparativo | guia-de-compra | guia-tecnico | noticia | lancamento | previa-corrida | resumo-corrida",',
     '  "review_method": "desk-research | hands-on-test",',
-    '  "tested_by_pedaldata": false,',
+    '  "tested_by_thebikerblog": false,',
     '  "methodologyNotice": "Aviso metodológico curto em português",',
     '  "brand": "Marca promovida e confirmada no portfólio",',
     '  "product_name": "Nome do produto ou tema principal",',

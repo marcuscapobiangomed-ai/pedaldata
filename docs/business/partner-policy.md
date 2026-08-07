@@ -1,4 +1,4 @@
-# Política de Parceiros — Pedal Data
+# Política de Parceiros — TheBikerBlog
 
 ## Princípios
 1. Independência editorial é inegociável

@@ -1,11 +1,11 @@
-# Tecnologia — Pedal Data
+# Tecnologia — TheBikerBlog
 
 ## Stack atual
 - **Plataforma:** Jekyll (gerador de site estático)
 - **Linguagens:** HTML, CSS, JavaScript
 - **Dados:** JSON (catálogo de produtos, geometrias)
 - **Hospedagem:** [a definir]
-- **Domínio:** pedaldata.com.br
+- **Domínio:** thebikerblog.com.br
 - **Versionamento:** Git
 - **Schema.org:** Article, FAQPage, BreadcrumbList, Product
 

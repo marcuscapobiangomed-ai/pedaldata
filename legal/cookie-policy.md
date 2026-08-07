@@ -1,4 +1,4 @@
-# Política de Cookies — Pedal Data
+# Política de Cookies — TheBikerBlog
 
 ## O que são cookies
 Arquivos armazenados no navegador para melhorar a experiência.

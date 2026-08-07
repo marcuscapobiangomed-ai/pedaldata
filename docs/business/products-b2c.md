@@ -1,4 +1,4 @@
-# Produtos B2C — Pedal Data
+# Produtos B2C — TheBikerBlog
 
 ## 1. Plano gratuito (sem conta)
 - Comparador de bicicletas

@@ -20,7 +20,7 @@ function generateGeometry(productId) {
       { size: "L", stack: base + 22, reach: 391, effectiveTopTube: 570, seatTube: 545, headTube: 165, headAngle: 73.0, seatAngle: 73.0, chainstay: 418, wheelbase: 1011 },
       { size: "XL", stack: base + 48, reach: 400, effectiveTopTube: 592, seatTube: 580, headTube: 190, headAngle: 73.0, seatAngle: 72.5, chainstay: 418, wheelbase: 1021 }
     ],
-    sourceId: "pedaldata-verified-2026"
+    sourceId: "thebikerblog-verified-2026"
   }
 }
 

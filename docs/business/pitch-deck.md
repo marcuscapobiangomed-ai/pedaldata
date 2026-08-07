@@ -1,7 +1,7 @@
-# Pitch Deck — Pedal Data
+# Pitch Deck — TheBikerBlog
 
 ## Slide 1 — Capa
-**Pedal Data**
+**TheBikerBlog**
 Dados, comparação, preços e decisão para ciclistas.
 
 ## Slide 2 — Problema

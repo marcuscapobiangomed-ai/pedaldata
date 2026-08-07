@@ -1,7 +1,7 @@
-# Independência Editorial — Pedal Data
+# Independência Editorial — TheBikerBlog
 
 ## Compromisso
-O Pedal Data mantém separação total entre operação comercial e produção editorial.
+O TheBikerBlog mantém separação total entre operação comercial e produção editorial.
 
 ## Regras
 1. Nenhum parceiro, anunciante ou patrocinador revisa conteúdo antes da publicação

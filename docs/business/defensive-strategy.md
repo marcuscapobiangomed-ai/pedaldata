@@ -1,4 +1,4 @@
-# Estratégia Defensiva — Pedal Data
+# Estratégia Defensiva — TheBikerBlog
 
 ## Vantagens acumulativas
 

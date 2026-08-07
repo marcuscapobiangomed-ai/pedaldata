@@ -2,7 +2,7 @@
 
 **Status:** ✅ Concluído
 **Data:** 2026-07-19
-**Responsável:** Equipe Pedal Data
+**Responsável:** Equipe TheBikerBlog
 **Tipo:** Artigos de review e guia técnico (Lote 2)
 
 ---

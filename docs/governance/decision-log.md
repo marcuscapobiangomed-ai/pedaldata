@@ -1,4 +1,4 @@
-# Registro de Decisões — Pedal Data
+# Registro de Decisões — TheBikerBlog
 
 ## Propósito
 Registrar decisões estratégicas, seu contexto e impacto.

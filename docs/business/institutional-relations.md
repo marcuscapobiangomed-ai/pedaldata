@@ -1,4 +1,4 @@
-# Relações Institucionais — Pedal Data
+# Relações Institucionais — TheBikerBlog
 
 ## Públicos estratégicos
 - Marcas e fabricantes

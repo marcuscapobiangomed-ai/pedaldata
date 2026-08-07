@@ -1,4 +1,4 @@
-# Política de Segurança — Pedal Data
+# Política de Segurança — TheBikerBlog
 
 ## Credenciais
 
@@ -29,4 +29,4 @@
 
 ## Reporting
 
-Para reportar vulnerabilidades, abra um incidente em `_data/incidents/` ou entre em contato via contato@pedaldatablog.com.br.
+Para reportar vulnerabilidades, abra um incidente em `_data/incidents/` ou entre em contato via contato@thebikerblogblog.com.br.

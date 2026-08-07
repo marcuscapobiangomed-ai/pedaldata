@@ -48,7 +48,7 @@ Artigos auditados: 5
 **Bloco 3 — Experiência e autoria**
 - Método declarado: desk-research ✓
 - Sem expressões de teste real ✓ (correto para o método)
-- Autor: Equipe Pedal Data (corrigido de fictício)
+- Autor: Equipe TheBikerBlog (corrigido de fictício)
 
 **Bloco 4 — Utilidade**
 - Ajuda a decidir? Parcialmente — lista critérios genéricos

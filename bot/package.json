@@ -1,5 +1,5 @@
 {
-  "name": "pedaldata-bot",
+  "name": "thebikerblog-bot",
   "version": "1.0.0",
   "type": "module",
   "description": "Pipeline editorial TheBiker com Groq, Gemini e DeepSeek",

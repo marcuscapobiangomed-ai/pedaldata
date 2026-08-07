@@ -1,4 +1,4 @@
-# Visão do Produto — Pedal Data
+# Visão do Produto — TheBikerBlog
 
 ## Propósito
 Ser a referência mais confiável de dados técnicos, preços e comparativos de bicicletas no mercado brasileiro.
@@ -40,5 +40,5 @@ Plataforma brasileira de dados, comparação, preços e decisão para ciclistas.
 Road bikes no mercado brasileiro. Expansão futura para gravel, MTB, componentes, acessórios, e-bikes.
 
 ## Arquitetura de marca
-- Pedal Data (principal)
-- Pedal Data Compare, Prices, Fit, Pro, Lab (submarcas com produto real)
+- TheBikerBlog (principal)
+- TheBikerBlog Compare, Prices, Fit, Pro, Lab (submarcas com produto real)

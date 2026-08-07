@@ -1,4 +1,4 @@
-# Princípios Editoriais — Pedal Data
+# Princípios Editoriais — TheBikerBlog
 
 ## Independência editorial
 Nenhum parceiro comercial tem influência sobre:

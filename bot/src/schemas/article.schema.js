@@ -83,7 +83,7 @@ export const ArticleSchema = z.object({
   category: z.enum(ALLOWED_CATEGORIES),
   content_type: z.enum(ALLOWED_CONTENT_TYPES),
   review_method: z.enum(["desk-research", "hands-on-test"]),
-  tested_by_pedaldata: z.boolean().default(false),
+  tested_by_thebikerblog: z.boolean().default(false),
   methodologyNotice: z.string().optional(),
   brand: z.string().default(""),
   product_name: z.string().default(""),

@@ -1,7 +1,7 @@
 ;(function() {
   'use strict'
 
-  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+  const BASE = window.location.pathname.includes('/thebikerblog') ? '/thebikerblog' : ''
   const CATEGORY_LABELS = {
     'road-endurance': 'Estrada endurance',
     'road-race': 'Estrada performance',
@@ -48,7 +48,7 @@
     let visibleLimit = 10
 
     try {
-      catalog = await PedalData.utils.loadCatalog()
+      catalog = await TheBikerBlog.utils.loadCatalog()
       if (!catalog || !Array.isArray(catalog.bikes)) throw new Error('Catálogo inválido')
     } catch (error) {
       console.error(error)
@@ -196,7 +196,7 @@
         selectedIds[target] = id
         activeSlot = Math.min(selectedIds.indexOf(null) >= 0 ? selectedIds.indexOf(null) : target, 2)
         const bike = bikeById(id)
-        if (bike && typeof PedalData.trackCompareAdd === 'function') PedalData.trackCompareAdd(bike.id, bike.brand, bike.model)
+        if (bike && typeof TheBikerBlog.trackCompareAdd === 'function') TheBikerBlog.trackCompareAdd(bike.id, bike.brand, bike.model)
       }
       resultsEl.hidden = true
       renderAll()
@@ -250,7 +250,7 @@
       mobileBarEl.hidden = true
       resultsEl.focus({ preventScroll: true })
       resultsEl.scrollIntoView({ behavior: 'auto', block: 'start' })
-      if (typeof PedalData.trackCompareComplete === 'function') PedalData.trackCompareComplete(selected.map(bike => bike.id))
+      if (typeof TheBikerBlog.trackCompareComplete === 'function') TheBikerBlog.trackCompareComplete(selected.map(bike => bike.id))
     }
 
     function renderAll() {

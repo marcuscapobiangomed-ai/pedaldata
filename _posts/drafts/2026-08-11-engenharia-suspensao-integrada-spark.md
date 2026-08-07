@@ -9,7 +9,7 @@ author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "guia-tecnico"
 review_method: "desk-research"
-tested_by_pedaldata: false
+tested_by_thebikerblog: false
 ai_assisted: true
 brand: "Scott"
 product_name: "Quadro + Suspensão Spark RC World Cup HMX 2026 Flight Attendant"

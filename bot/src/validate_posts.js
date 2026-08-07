@@ -19,7 +19,7 @@ const PORTFOLIO_POLICY_EFFECTIVE_AT = THEBIKER_PORTFOLIO.policy_effective_at;
 
 const REQUIRED_FM = [
   "layout", "title", "date", "tags", "description",
-  "content_type", "review_method", "tested_by_pedaldata", "ai_assisted",
+  "content_type", "review_method", "tested_by_thebikerblog", "ai_assisted",
   "editorial_status",
 ];
 
@@ -138,9 +138,9 @@ function validateFrontmatter(content, fileName) {
     }
   }
 
-  // Verifica se tested_by_pedaldata é booleano
-  if (fm.tested_by_pedaldata && !["true", "false"].includes(fm.tested_by_pedaldata.toLowerCase())) {
-    logWarning(fileName, `tested_by_pedaldata deve ser true ou false, encontrado: "${fm.tested_by_pedaldata}"`);
+  // Verifica se tested_by_thebikerblog é booleano
+  if (fm.tested_by_thebikerblog && !["true", "false"].includes(fm.tested_by_thebikerblog.toLowerCase())) {
+    logWarning(fileName, `tested_by_thebikerblog deve ser true ou false, encontrado: "${fm.tested_by_thebikerblog}"`);
   }
 
   // Verifica preços
@@ -182,7 +182,7 @@ function checkSuspiciousContent(content, fileName, fm) {
   }
 
   // Se for desk-research, verifica frases proibidas de teste real
-  if (fm?.review_method === "desk-research" || fm?.tested_by_pedaldata === "false") {
+  if (fm?.review_method === "desk-research" || fm?.tested_by_thebikerblog === "false") {
     for (const { pattern, reason } of FORBIDDEN_DESK_PHRASES) {
       const match = body.match(pattern);
       if (match) {

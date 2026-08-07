@@ -1,4 +1,4 @@
-# Dashboard de Métricas — Pedal Data
+# Dashboard de Métricas — TheBikerBlog
 
 ## Status atual (Jul 2026)
 

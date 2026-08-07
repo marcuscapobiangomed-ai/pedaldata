@@ -1,4 +1,4 @@
-# Pedal Data — Plano de Execução (Fase 8)
+# TheBikerBlog — Plano de Execução (Fase 8)
 
 ## Estado atual — 19/07/2026
 
@@ -131,8 +131,8 @@ node scripts/generate-pages.js
 2. **Nada sem validação** — CI falha se schemas ou frontmatter estiverem inválidos
 3. **Nenhum token em URL** — todos via header Authorization
 4. **Nenhuma execução automática** — cron desativado
-5. **Nenhum autor fictício** — "Equipe Pedal Data" é o autor padrão
+5. **Nenhum autor fictício** — "Equipe TheBikerBlog" é o autor padrão
 
 ## Contato
 
-Para ajustes no plano, abra issue ou PR em https://github.com/marcuscapobiangomed-ai/pedaldata
+Para ajustes no plano, abra issue ou PR em https://github.com/marcuscapobiangomed-ai/thebikerblog

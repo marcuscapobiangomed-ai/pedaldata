@@ -1,4 +1,4 @@
-# Análise Competitiva — Pedal Data
+# Análise Competitiva — TheBikerBlog
 
 ## Concorrentes mapeados
 

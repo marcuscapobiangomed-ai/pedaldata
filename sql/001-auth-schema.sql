@@ -1,4 +1,4 @@
--- Pedal Data - Supabase Schema
+-- TheBikerBlog - Supabase Schema
 -- Executar no SQL Editor do Supabase
 
 -- 1. Profiles (estende auth.users)

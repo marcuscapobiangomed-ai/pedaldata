@@ -1,7 +1,7 @@
 {
   "commerceEnabled": false,
   "commerceReviewNote": "Ofertas e links de compra estão temporariamente ocultos enquanto preços, variantes e URLs passam por verificação editorial.",
-  "defaultUtmSource": "pedaldata.com.br",
+  "defaultUtmSource": "thebikerblog.com.br",
   "partners": [
     {
       "id": "mercadolivre",
@@ -26,7 +26,7 @@
       "name": "AllSports Store",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.allsports.com.br",
       "logo": "/assets/img/partners/allsports.svg"
     },
@@ -35,7 +35,7 @@
       "name": "Bert Bike Store",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.bertbikestore.com.br",
       "logo": "/assets/img/partners/bertbike.svg"
     },
@@ -44,7 +44,7 @@
       "name": "Soul Cycles",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.soulcycles.com.br",
       "logo": "/assets/img/partners/soulcycles.svg"
     },
@@ -53,7 +53,7 @@
       "name": "Decathlon",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.decathlon.com.br",
       "logo": "/assets/img/partners/decathlon.svg"
     },
@@ -62,7 +62,7 @@
       "name": "Specialized Brasil",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.specialized.com/br/pt",
       "logo": "/assets/img/partners/specialized.svg"
     },
@@ -71,7 +71,7 @@
       "name": "Cervélo Brasil",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.cervelobr.com",
       "logo": "/assets/img/partners/cervelo.svg"
     },
@@ -80,7 +80,7 @@
       "name": "Demarchi Bicicletas",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.demarchibicicletas.com.br",
       "logo": "/assets/img/partners/demarchi.svg"
     },
@@ -89,7 +89,7 @@
       "name": "Bike Center Ribeirão",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.bikecenterribeirao.com.br",
       "logo": "/assets/img/partners/bikecenter.svg"
     },
@@ -98,7 +98,7 @@
       "name": "Jauri Bike",
       "type": "direct",
       "tagParam": "utm_source",
-      "tagValue": "pedaldata",
+      "tagValue": "thebikerblog",
       "baseUrl": "https://www.jauribike.com.br",
       "logo": "/assets/img/partners/jauribike.svg"
     }

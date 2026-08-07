@@ -12,5 +12,5 @@
   "tires": { "brand": "Maxxis", "model": "Aspen", "tubelessReady": true },
   "declaredWeight": { "valueKg": 10.9, "approximate": true, "size": "não informado", "sourceId": "manufacturer-bicicleta-scott-spark-rc-world-cup-20271" },
   "knowledgeRecord": "_data/product-knowledge/bikes/bicicleta-scott-spark-rc-world-cup-20271.json",
-  "testedByPedalData": false, "createdAt": "2026-08-05", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-bicicleta-scott-spark-rc-world-cup-20271"
+  "testedByTheBikerBlog": false, "createdAt": "2026-08-05", "updatedAt": "2026-08-05", "reviewStatus": "verified", "sourceId": "thebiker-bicicleta-scott-spark-rc-world-cup-20271"
 }

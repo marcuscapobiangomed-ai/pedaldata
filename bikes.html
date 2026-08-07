@@ -47,7 +47,7 @@ permalink: /bikes/
 <script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
 <script>
 ;(function() {
-  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
+  const BASE = window.location.pathname.includes('/thebikerblog') ? '/thebikerblog' : ''
 
   document.addEventListener('DOMContentLoaded', async function() {
     const grid = document.getElementById('catalog-grid')
@@ -58,7 +58,7 @@ permalink: /bikes/
 
     let catalog
     try {
-      catalog = await PedalData.utils.loadCatalog()
+      catalog = await TheBikerBlog.utils.loadCatalog()
       if (!catalog || !Array.isArray(catalog.bikes)) throw new Error('Catálogo inválido')
     } catch (error) {
       console.error(error)
@@ -87,7 +87,7 @@ permalink: /bikes/
       statusEl.style.display = 'none'
 
       grid.innerHTML = filtered.map(b => {
-        const price = PedalData.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : ''
+        const price = TheBikerBlog.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : ''
         const catName = (b.category || '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
         const shiftIcon = b.shifting === 'electronic' || b.shifting === 'wireless' ? '⚡' : '🔧'
         return `<a href="${BASE}/bikes/${b.slug}/" class="catalog-card">

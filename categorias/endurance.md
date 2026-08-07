@@ -22,15 +22,15 @@ permalink: /categorias/endurance/
 <script src="{{ site.baseurl }}/assets/js/catalog.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async function() {
-  const BASE = window.location.pathname.includes('/pedaldata') ? '/pedaldata' : ''
-  const catalog = await PedalData.utils.loadCatalog()
+  const BASE = window.location.pathname.includes('/thebikerblog') ? '/thebikerblog' : ''
+  const catalog = await TheBikerBlog.utils.loadCatalog()
   const endurance = catalog.bikes.filter(b => b.category === 'road-endurance').sort((a, b) => (a.priceLowest || Infinity) - (b.priceLowest || Infinity))
 
   let html = '<div class="section-header"><span class="section-title">Bikes Endurance no Catálogo</span></div>'
   html += '<div class="catalog-grid">'
 
   endurance.forEach(b => {
-    const price = PedalData.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : '<div class="catalog-card-price" style="color:var(--text-muted)">Preço em revisão</div>'
+    const price = TheBikerBlog.commerceEnabled && b.priceLowest ? `<div class="catalog-card-price">a partir de R$ ${b.priceLowest.toLocaleString('pt-BR')}</div>` : '<div class="catalog-card-price" style="color:var(--text-muted)">Preço em revisão</div>'
     const specTags = [
       b.frameMaterial === 'carbon' ? 'Carbono' : 'Alumínio',
       b.groupset,
