@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: "Spark RC Team 2027: leitura técnica da plataforma de 120 mm e transmissão AXS"
 slug: "review-spark-rc-team-2027"
 date: 2026-08-07
@@ -40,8 +40,8 @@ promoted_brands: ["Scott"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/produtos/bicicleta-scott-spark-rc-world-cup-2027/"
 portfolio_verified_at: "2026-08-04"
-editorial_status: "reviewed"
-status: "scheduled"
+editorial_status: "published"
+status: "published"
 sources:
   - name: "TheBiker — Bicicleta Scott Spark RC Team 2027"
     type: "store"

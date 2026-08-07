@@ -84,11 +84,11 @@
       "summary": "Review documental de quadro, suspensão, transmissão, rodas, pneus, peso declarado e aplicação competitiva da Spark RC Team.",
       "category": "review",
       "freshness": "revalidate-24h",
-      "status": "scheduled",
+      "status": "published",
       "productIds": [
         "bicicleta-scott-spark-rc-world-cup-2027"
       ],
-      "postPath": "_posts/drafts/2026-08-07-review-spark-rc-team-2027.md",
+      "postPath": "_posts/2026-08-07-review-spark-rc-team-2027.md",
       "imageManifestPath": "assets/img/posts/review-spark-rc-team-2027/image-manifest.json",
       "imageStatus": "approved",
       "imageAssetIds": [
@@ -110,7 +110,8 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T14:23:15.916Z"
-      }
+      },
+      "publishedAt": "2026-08-07T15:40:11.822Z"
     },
     {
       "day": 4,
@@ -361,9 +362,12 @@
         "bicicleta-scott-addict-rc-pro-di2-2026-pre-venda"
       ],
       "postPath": "_posts/drafts/2026-08-17-addict-rc-20-vs-pro.md",
+      "imageManifestPath": "assets/img/posts/addict-rc-20-vs-pro/image-manifest.json",
+      "imageStatus": "approved",
       "imageAssetIds": [
         "manufacturer-bicicleta-scott-addict-rc-pro-di2-2026-pre-venda-3089622e12"
       ],
+      "imageValidatedAt": "2026-08-07T14:42:06.848Z",
       "attempts": 1,
       "lastAttemptAt": "2026-08-07T14:14:33.779Z",
       "aiReview": {
@@ -380,10 +384,7 @@
           "finalRepair": "deepseek"
         },
         "generatedAt": "2026-08-07T14:14:33.779Z"
-      },
-      "imageManifestPath": "assets/img/posts/addict-rc-20-vs-pro/image-manifest.json",
-      "imageStatus": "approved",
-      "imageValidatedAt": "2026-08-07T14:42:06.848Z"
+      }
     },
     {
       "day": 14,
