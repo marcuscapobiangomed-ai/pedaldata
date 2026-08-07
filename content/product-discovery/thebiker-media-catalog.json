@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-06T15:18:40.100Z",
+  "discoveredAt": "2026-08-07T10:04:03.584Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 484,
   "products": [
@@ -4043,6 +4043,17 @@
       "sku": null
     },
     {
+      "id": "sapatilha-mtb-scott-crus-r-boa",
+      "name": "Sapatilha MTB Scott Crus-r BOA",
+      "brand": "Scott",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-mtb-scott-crus-r-boa/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1802250-373b477b56f37bda4917812694895316-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "capacete-abus-gamechanger-branco",
       "name": "Capacete Abus Gamechanger - Branco",
       "brand": "Abus",
@@ -4085,17 +4096,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/bretelle-mauro-ribeiro-carbon-2-01-514c869e4b36d0e7bc15711638773878-480-0.webp"
       ],
       "sku": "VST-153-p"
-    },
-    {
-      "id": "sapatilha-mtb-scott-crus-r-boa",
-      "name": "Sapatilha MTB Scott Crus-r BOA",
-      "brand": "Scott",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-mtb-scott-crus-r-boa/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1802250-373b477b56f37bda4917812694895316-480-0.webp"
-      ],
-      "sku": null
     },
     {
       "id": "combo-2-pares-de-meias-scott",
@@ -5000,6 +5000,17 @@
       "sku": null
     },
     {
+      "id": "camisa-de-ciclismo-scott-pro-2026-laranja",
+      "name": "Camisa de Ciclismo Scott Pró 2026 Laranja",
+      "brand": "Scott",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-scott-pro-2026-laranja/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/tmp_b64_3a70b937-b591-4bfd-833d-326c067e35c2_1062247_1188274-4d7e922a6c1806fec217733241579949-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "camisa-de-ciclismo-scott-pro-2026-creme",
       "name": "Camisa de Ciclismo Scott Pró 2026 Creme",
       "brand": "Scott",
@@ -5249,17 +5260,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/scott-mtb-comp-boa-women-sapatilha-mtb-feminina/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2518381035_2218879_2-556b9e95f4e624097417770395925346-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "camisa-de-ciclismo-scott-pro-2026-laranja",
-      "name": "Camisa de Ciclismo Scott Pró 2026 Laranja",
-      "brand": "Scott",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-scott-pro-2026-laranja/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/tmp_b64_3a70b937-b591-4bfd-833d-326c067e35c2_1062247_1188274-4d7e922a6c1806fec217733241579949-480-0.webp"
       ],
       "sku": null
     },

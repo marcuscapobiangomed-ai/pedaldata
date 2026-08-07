@@ -328,9 +328,9 @@
         "bicicleta-scott-spark-rc-expert-2027"
       ],
       "imageAssetIds": [],
+      "blockReason": "Etapa draft falhou. groq: groq API: 429 - {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199832, Requested 7288. Please try again in 51m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n | deepseek: The operation was aborted due to timeout",
       "attempts": 1,
-      "lastAttemptAt": "2026-08-06T15:18:40.648Z",
-      "blockReason": "Etapa draft falhou. groq: groq API: 429 - {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kj0m4aqqe21tf6c9pkbsvea0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199832, Requested 7288. Please try again in 51m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n | deepseek: The operation was aborted due to timeout"
+      "lastAttemptAt": "2026-08-06T15:18:40.648Z"
     },
     {
       "day": 12,
@@ -340,10 +340,12 @@
       "summary": "Como interpretar valores de torque, preparar interfaces, usar pasta de montagem e reconhecer fatores que alteram a força de fixação.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-07T10:04:04.393Z",
+      "blockReason": "Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada"
     },
     {
       "day": 13,
