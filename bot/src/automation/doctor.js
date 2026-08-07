@@ -11,12 +11,20 @@ const queuePath = path.resolve(root, process.env.AUTOMATION_QUEUE_PATH || "bot/a
 
 const errors = [];
 const warnings = [];
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Sao_Paulo",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
+
 let campaign;
 try {
   campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(path.join(root, "bot/editorial-campaign.json"), "utf8")));
 } catch (error) {
   errors.push(`campanha editorial inválida: ${error.message}`);
 }
+
 let queue;
 try {
   queue = await loadQueue(queuePath, root);
@@ -29,11 +37,25 @@ if (process.env.AUTOMATION_ENABLED === "true") {
     if (!process.env[name]) errors.push(`${name} não configurado`);
   }
 }
+
 if (queue && queue.items.length === 0) warnings.push("fila editorial vazia");
 if (campaign) {
-  const approvedBuffer = campaign.items.filter((item) => ["approved", "scheduled"].includes(item.status)).length;
-  if (approvedBuffer < campaign.minimumApprovedBuffer) warnings.push(`estoque aprovado abaixo do mínimo: ${approvedBuffer}/${campaign.minimumApprovedBuffer}`);
+  const approvedBuffer = campaign.items.filter(
+    (item) => item.publishDate >= today && ["approved", "scheduled"].includes(item.status),
+  ).length;
+  const overdue = campaign.items.filter((item) => item.publishDate < today && item.status === "scheduled");
+  if (approvedBuffer < campaign.minimumApprovedBuffer) {
+    warnings.push(`estoque aprovado futuro abaixo do mínimo: ${approvedBuffer}/${campaign.minimumApprovedBuffer}`);
+  }
+  if (overdue.length > 0) warnings.push(`pautas agendadas vencidas: ${overdue.map((item) => item.id).join(", ")}`);
 }
 
-console.log(JSON.stringify({ ok: errors.length === 0, queueItems: queue?.items.length || 0, campaignItems: campaign?.items.length || 0, errors, warnings }, null, 2));
+console.log(JSON.stringify({
+  ok: errors.length === 0,
+  today,
+  queueItems: queue?.items.length || 0,
+  campaignItems: campaign?.items.length || 0,
+  errors,
+  warnings,
+}, null, 2));
 if (errors.length) process.exitCode = 1;

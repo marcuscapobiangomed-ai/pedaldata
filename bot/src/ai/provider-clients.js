@@ -30,6 +30,8 @@ function usageFromOpenAI(data) {
     inputTokens: data.usage?.prompt_tokens || 0,
     outputTokens: data.usage?.completion_tokens || 0,
     totalTokens: data.usage?.total_tokens || 0,
+    promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens || 0,
+    promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens || 0,
   };
 }
 
@@ -119,7 +121,7 @@ export class ProviderClients {
         provider,
         apiKey: this.env.DEEPSEEK_API_KEY,
         baseUrl: this.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com",
-        model: this.env.DEEPSEEK_MODEL || "deepseek-v4-pro",
+        model: options.model || this.env.DEEPSEEK_MODEL || "deepseek-v4-pro",
         system,
         user,
         options: {

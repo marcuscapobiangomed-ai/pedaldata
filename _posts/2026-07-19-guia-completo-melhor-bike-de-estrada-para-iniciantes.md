@@ -7,6 +7,9 @@ date: 2026-07-19
 last_modified_at: 2026-07-19
 author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
+audience_segment: "committed_progression_cyclists"
+audience_intent: "solve_problem"
+experience_level_target: "mixed_progression"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: true

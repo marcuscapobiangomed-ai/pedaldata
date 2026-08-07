@@ -8,6 +8,9 @@ date: 2026-07-07
 last_modified_at: 2026-07-07
 author: "Equipe The Biker Blog"
 content_type: "noticia"
+audience_segment: "core_technical_cyclists"
+audience_intent: "follow_market_competition"
+experience_level_target: "intermediate_advanced"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: true

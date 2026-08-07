@@ -23,6 +23,18 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+
+      - name: Install validation dependencies
+        run: |
+          npm ci
+          npm ci --prefix bot
+
+      - name: Run publication gates
+        run: npm run validate
 
       - uses: ruby/setup-ruby@v1
         with:

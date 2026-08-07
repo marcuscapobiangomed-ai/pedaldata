@@ -8,6 +8,13 @@ const BOT_ROOT = path.resolve(__dirname, "../..");
 const CACHE_DIR = path.join(BOT_ROOT, ".ai-cache");
 const TELEMETRY_DIR = path.join(BOT_ROOT, ".ai-telemetry");
 const DEFAULT_STATE_DIR = path.join(BOT_ROOT, "operational-state");
+const DEFAULT_MONTHLY_BUDGET_USD = 5;
+const DEFAULT_PREFLIGHT_RESERVE_USD = 0.05;
+
+const DEEPSEEK_RATES_USD_PER_MILLION = {
+  "deepseek-v4-flash": { cacheHitInput: 0.0028, cacheMissInput: 0.14, output: 0.28 },
+  "deepseek-v4-pro": { cacheHitInput: 0.003625, cacheMissInput: 0.435, output: 0.87 },
+};
 
 function stable(value) {
   if (Array.isArray(value)) return value.map(stable);
@@ -15,6 +22,21 @@ function stable(value) {
     return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]));
   }
   return value;
+}
+
+function billingMonth(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+  }).formatToParts(now);
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  return `${year}-${month}`;
+}
+
+function deepSeekRates(model) {
+  return DEEPSEEK_RATES_USD_PER_MILLION[model] || DEEPSEEK_RATES_USD_PER_MILLION["deepseek-v4-pro"];
 }
 
 export function hashPayload(value) {
@@ -52,15 +74,22 @@ export class AIRuntime {
     );
   }
 
-  estimateDeepSeekCost(usage = {}) {
-    const inputRate = Number(this.env.DEEPSEEK_INPUT_USD_PER_MILLION || 0.27);
-    const outputRate = Number(this.env.DEEPSEEK_OUTPUT_USD_PER_MILLION || 1.10);
-    return ((usage.inputTokens || 0) * inputRate + (usage.outputTokens || 0) * outputRate) / 1_000_000;
+  estimateDeepSeekCost(usage = {}, model = this.env.DEEPSEEK_MODEL || "deepseek-v4-pro") {
+    const rates = deepSeekRates(model);
+    const cacheHitTokens = Number(usage.promptCacheHitTokens || 0);
+    const cacheMissTokens = Number(
+      usage.promptCacheMissTokens ?? Math.max(0, Number(usage.inputTokens || 0) - cacheHitTokens),
+    );
+    const outputTokens = Number(usage.outputTokens || 0);
+    const cacheHitRate = Number(this.env.DEEPSEEK_CACHE_HIT_INPUT_USD_PER_MILLION || rates.cacheHitInput);
+    const cacheMissRate = Number(this.env.DEEPSEEK_CACHE_MISS_INPUT_USD_PER_MILLION || rates.cacheMissInput);
+    const outputRate = Number(this.env.DEEPSEEK_OUTPUT_USD_PER_MILLION || rates.output);
+    return (cacheHitTokens * cacheHitRate + cacheMissTokens * cacheMissRate + outputTokens * outputRate) / 1_000_000;
   }
 
   async getBudget() {
-    const limit = Number(this.env.AI_MONTHLY_BUDGET_USD || 1.60);
-    const month = new Date().toISOString().slice(0, 7);
+    const limit = Number(this.env.AI_MONTHLY_BUDGET_USD || DEFAULT_MONTHLY_BUDGET_USD);
+    const month = billingMonth();
     try {
       const state = JSON.parse(await fs.readFile(path.join(this.stateDir, "budget.json"), "utf8"));
       if (state.month === month) return { limit, month, spent: Number(state.spent || 0) };
@@ -70,20 +99,33 @@ export class AIRuntime {
     return { limit, month, spent: 0 };
   }
 
-  async assertDeepSeekBudget() {
+  async assertDeepSeekBudget({ projectedCostUsd } = {}) {
     const budget = await this.getBudget();
-    if (budget.spent >= budget.limit * 0.8) {
+    const reserve = Number(
+      projectedCostUsd ?? this.env.AI_DEEPSEEK_PREFLIGHT_RESERVE_USD ?? DEFAULT_PREFLIGHT_RESERVE_USD,
+    );
+    if (budget.spent + reserve > budget.limit) {
       throw new Error(
-        `DeepSeek bloqueado: 80% do orçamento operacional mensal atingido (US$ ${budget.spent.toFixed(4)} de US$ ${budget.limit.toFixed(2)}).`,
+        `DeepSeek bloqueado: a próxima chamada pode ultrapassar o teto mensal (US$ ${budget.spent.toFixed(4)} de US$ ${budget.limit.toFixed(2)}; reserva US$ ${reserve.toFixed(4)}).`,
       );
     }
-    return budget;
+    return {
+      ...budget,
+      warning: budget.spent >= budget.limit * 0.6,
+      critical: budget.spent >= budget.limit * 0.85,
+      remaining: Math.max(0, budget.limit - budget.spent),
+    };
   }
 
-  async addDeepSeekCost(usage) {
+  async addDeepSeekCost(usage, model = this.env.DEEPSEEK_MODEL || "deepseek-v4-pro") {
     const budget = await this.getBudget();
-    const cost = this.estimateDeepSeekCost(usage);
-    const next = { ...budget, spent: budget.spent + cost, updatedAt: new Date().toISOString() };
+    const cost = this.estimateDeepSeekCost(usage, model);
+    const next = {
+      ...budget,
+      spent: budget.spent + cost,
+      updatedAt: new Date().toISOString(),
+      lastModel: model,
+    };
     await fs.mkdir(this.stateDir, { recursive: true });
     await fs.writeFile(path.join(this.stateDir, "budget.json"), JSON.stringify(next, null, 2) + "\n", "utf8");
     return { cost, budget: next };

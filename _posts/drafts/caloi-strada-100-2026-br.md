@@ -7,6 +7,9 @@ description: "Ficha técnica completa da Caloi Strada 100 2026: especificações
 date: 2026-07-19
 author: "Equipe The Biker Blog"
 content_type: "review"
+audience_segment: "core_technical_cyclists"
+audience_intent: "purchase_consideration"
+experience_level_target: "intermediate_advanced"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: false

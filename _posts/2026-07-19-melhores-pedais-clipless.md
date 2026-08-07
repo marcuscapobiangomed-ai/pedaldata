@@ -8,6 +8,9 @@ last_modified_at: 2026-07-19
 author: "Equipe The Biker Blog"
 reviewed_by: "Equipe The Biker Blog"
 content_type: "guia-de-compra"
+audience_segment: "committed_progression_cyclists"
+audience_intent: "purchase_consideration"
+experience_level_target: "mixed_progression"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: true

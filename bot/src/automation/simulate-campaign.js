@@ -10,15 +10,24 @@ async function exists(file) {
   try { await fs.access(file); return true; } catch { return false; }
 }
 
-export async function simulateCampaign() {
+export async function simulateCampaign({ now = new Date() } = {}) {
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(path.join(root, "bot/editorial-campaign.json"), "utf8")));
   const failures = [];
   const hashes = new Map();
   const ready = campaign.items.filter((item) => ["scheduled", "published"].includes(item.status));
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: campaign.timezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
+  const futureScheduled = ready.filter((item) => item.status === "scheduled" && item.publishDate >= today);
+  const overdueScheduled = ready.filter((item) => item.status === "scheduled" && item.publishDate < today);
 
-  if (ready.filter((item) => item.status === "scheduled").length < campaign.minimumApprovedBuffer) {
+  if (futureScheduled.length < campaign.minimumApprovedBuffer) {
     failures.push(`buffer abaixo do minimo de ${campaign.minimumApprovedBuffer}`);
   }
+  if (overdueScheduled.length > 0) failures.push(`pauta vencida ainda scheduled: ${overdueScheduled.map((item) => item.id).join(", ")}`);
   for (const item of ready) {
     if (!item.postPath || !(await exists(path.join(root, item.postPath)))) failures.push(`${item.id}: post ausente`);
     if (item.imageStatus !== "approved" || !item.imageManifestPath) failures.push(`${item.id}: imagem nao aprovada`);

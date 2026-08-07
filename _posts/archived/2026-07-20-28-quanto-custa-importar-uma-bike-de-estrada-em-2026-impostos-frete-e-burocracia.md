@@ -8,6 +8,9 @@ date: 2026-07-20
 last_modified_at: 2026-07-20
 author: "Equipe The Biker Blog"
 content_type: "guia-tecnico"
+audience_segment: "core_technical_cyclists"
+audience_intent: "solve_problem"
+experience_level_target: "intermediate_advanced"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: true

@@ -28,7 +28,10 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: npm ci
       - run: npm ci
         working-directory: bot
       - name: Validar fila e configuração estrutural
@@ -47,7 +50,10 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: npm ci
       - run: npm ci
         working-directory: bot
       - name: Atualizar catálogo visual oficial da TheBiker
@@ -61,7 +67,9 @@ jobs:
         continue-on-error: true
         if: ${{ github.event_name == 'schedule' || inputs.dry_run == false }}
         env:
-          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '5.00' }}
+          DEEPSEEK_FLASH_MODEL: ${{ vars.DEEPSEEK_FLASH_MODEL || 'deepseek-v4-flash' }}
+          DEEPSEEK_PRO_MODEL: ${{ vars.DEEPSEEK_PRO_MODEL || 'deepseek-v4-pro' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: npm run campaign:audit-buffer
@@ -74,7 +82,9 @@ jobs:
           AUTOMATION_ENABLED: "true"
           AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
           AI_PIPELINE_MODE: three-provider
-          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '5.00' }}
+          DEEPSEEK_FLASH_MODEL: ${{ vars.DEEPSEEK_FLASH_MODEL || 'deepseek-v4-flash' }}
+          DEEPSEEK_PRO_MODEL: ${{ vars.DEEPSEEK_PRO_MODEL || 'deepseek-v4-pro' }}
           AI_HTTP_TIMEOUT_MS: ${{ vars.AI_HTTP_TIMEOUT_MS || '120000' }}
           AI_HTTP_RETRY_ATTEMPTS: ${{ vars.AI_HTTP_RETRY_ATTEMPTS || '2' }}
           DEEPSEEK_MAX_TOKENS: ${{ vars.DEEPSEEK_MAX_TOKENS || '14000' }}
@@ -89,10 +99,7 @@ jobs:
         working-directory: bot
       - name: Validar artefatos produzidos
         if: always()
-        run: |
-          npm run security:secrets
-          npm run check:machine-readable
-          npm run validate:posts
+        run: npm run validate
       - name: Persistir estado, pesquisa e rascunho
         if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == false))
         run: |

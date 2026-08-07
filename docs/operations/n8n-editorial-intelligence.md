@@ -1,4 +1,8 @@
-# n8n — inteligência SEO, YouTube e atualização editorial
+# Inteligência SEO, YouTube e atualização editorial
+
+## Produção e homologação
+
+O workflow `.github/workflows/editorial-intelligence.yml` é o scheduler de produção e não depende de computador ligado. Ele executa o motor compartilhado em `scripts/lib/editorial-intelligence.mjs`, cria ou atualiza a issue operacional e, no ciclo mensal, aciona a renovação da campanha. Os JSONs do n8n continuam como representação visual e ambiente de homologação local da mesma regra de negócio.
 
 ## Resultado esperado
 
@@ -17,8 +21,8 @@ Os JSONs são gerados por `npm run build:n8n` e verificados por `npm run check:n
 
 ## Cadência
 
-- segunda-feira, 06:10 em `America/Sao_Paulo`: janela finalizada de sete dias comparada aos sete dias anteriores;
-- dia 1 de cada mês, 07:10: janela finalizada de 28 dias comparada aos 28 dias anteriores;
+- segunda-feira, 06:17 em `America/Sao_Paulo`: janela finalizada de sete dias comparada aos sete dias anteriores;
+- dia 1 de cada mês, 07:23: janela finalizada de 28 dias comparada aos 28 dias anteriores;
 - atraso de três dias no Search Console para evitar decisões com dados ainda incompletos;
 - uma busca `order=viewCount` por execução e uma leitura de métricas em lote, além do ranking de esportes do Brasil.
 
@@ -26,7 +30,9 @@ O SLO operacional é ter o relatório mensal concluído e a janela renovada até
 
 ## Credenciais necessárias
 
-Crie as credenciais dentro do n8n; nunca edite os JSONs para inserir tokens.
+Na produção, cadastre `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` e `GOOGLE_REFRESH_TOKEN` como secrets do environment `editorial-automation`. `YOUTUBE_API_KEY` é opcional quando o refresh token já possui `youtube.readonly`. Só depois do primeiro teste real defina `INTELLIGENCE_ENABLED=true`.
+
+No n8n local, crie credenciais equivalentes pela interface; nunca edite os JSONs exportados para inserir tokens.
 
 ### Google OAuth2
 
@@ -35,11 +41,11 @@ Habilite Search Console API e YouTube Data API no projeto Google. A conta precis
 - `https://www.googleapis.com/auth/webmasters.readonly`
 - `https://www.googleapis.com/auth/youtube.readonly`
 
-Associe a mesma credencial Google aos cinco nós Google. Se a instância separar credenciais por escopo, use uma para Search Console e outra para YouTube.
+O refresh token de produção precisa conter os dois escopos. No n8n, associe a mesma credencial Google aos cinco nós Google; se a instância separar credenciais por escopo, use uma para Search Console e outra para YouTube.
 
 ### GitHub
 
-Use uma credencial com acesso apenas ao repositório `marcuscapobiangomed-ai/thebikerblog` e permissão de leitura de metadados e escrita de issues. Ela não precisa escrever conteúdo nem Actions: a própria issue mensal dispara o workflow GitHub protegido.
+O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de conteúdo, escrita de issues e dispatch de Actions. No n8n local, use uma credencial limitada ao repositório `marcuscapobiangomed-ai/thebikerblog` e à escrita de issues.
 
 ## Instalação
 

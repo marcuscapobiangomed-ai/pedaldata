@@ -29,7 +29,7 @@ concurrency:
 
 jobs:
   renew:
-    if: ${{ github.event_name == 'workflow_dispatch' || (startsWith(github.event.issue.title, '[INTEL] monthly-') && github.event.issue.author_association == 'OWNER') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'issues' && startsWith(github.event.issue.title, '[INTEL] monthly-') && github.event.issue.author_association == 'OWNER') || (github.event_name == 'issue_comment' && startsWith(github.event.issue.title, '[INTEL] monthly-') && github.event.issue.author_association == 'OWNER' && github.event.comment.author_association == 'OWNER') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: editorial-automation
@@ -41,7 +41,10 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: npm ci
       - run: npm ci
         working-directory: bot
       - name: Obter relatório mensal selecionado
@@ -53,7 +56,10 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}" --jq .body > "${RUNNER_TEMP}/monthly-intelligence.md"
       - name: Renovar janela editorial de 30 dias
         env:
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '5.00' }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_FLASH_MODEL || 'deepseek-v4-flash' }}
+          DEEPSEEK_FLASH_MODEL: ${{ vars.DEEPSEEK_FLASH_MODEL || 'deepseek-v4-flash' }}
           DEEPSEEK_MAX_TOKENS: ${{ vars.DEEPSEEK_MAX_TOKENS || '7000' }}
           GITHUB_TOKEN: ${{ github.token }}
           GITHUB_MODELS_MODEL: ${{ vars.GITHUB_MODELS_MODEL || 'gpt-4o-mini' }}
@@ -69,8 +75,7 @@ jobs:
         run: |
           npm run automation:doctor
           npm run campaign:simulate
-          npm run validate:posts
-          npm run check:machine-readable
+          npm run validate
       - name: Persistir campanha e fila de atualização
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run == false }}
         run: |

@@ -1,0 +1,36 @@
+name: TheBiker — Watchdog editorial diário
+
+on:
+  schedule:
+    # 18:23 em Brasilia, depois das janelas de produção e publicação.
+    - cron: "23 21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: thebiker-editorial-watchdog
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    if: ${{ vars.AUTOMATION_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: |
+          npm ci
+          npm ci --prefix bot
+      - name: Inspect configuration and future buffer
+        run: npm run automation:doctor
+      - name: Require a publishable rolling buffer
+        run: npm run campaign:simulate

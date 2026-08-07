@@ -58,7 +58,7 @@ const result = await pipeline.run({
   priority: "P2",
 });
 
-assert.deepEqual(calls.map((call) => call.provider), ["groq", "groq", "groq"]);
+assert.deepEqual(calls.map((call) => call.provider), ["deepseek", "gemini", "deepseek"]);
 assert.equal(result.metadata.premiumEditUsed, false);
 assert.throws(
   () => assertEditorialPublicationGates({

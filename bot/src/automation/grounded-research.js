@@ -38,7 +38,8 @@ async function fetchGrounded(fetchImpl, url, init, env) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const response = await fetchImpl(url, { ...init, signal: AbortSignal.timeout(timeoutMs) })
-      if (!RETRYABLE_STATUS.has(response.status) || attempt === attempts) return response
+      const parseFailure = response.status === 400 && /output_parse_failed|parsing failed/i.test(await response.clone().text())
+      if ((!RETRYABLE_STATUS.has(response.status) && !parseFailure) || attempt === attempts) return response
       await response.text()
     } catch (error) {
       lastError = error
@@ -49,11 +50,11 @@ async function fetchGrounded(fetchImpl, url, init, env) {
   throw lastError || new Error('Pesquisa oficial sem resposta')
 }
 
-function internalResearch({ item, internalEvidence, today, contentType, reason }) {
+function internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage = false }) {
   const sourceMap = new Map()
   for (const record of internalEvidence) {
     for (const source of record.sources || []) {
-      if (!source.url || !allowedSource(source.url, false)) continue
+      if (!source.url || !allowedSource(source.url, raceCoverage)) continue
       sourceMap.set(source.url, {
         name: source.name,
         type: source.type || 'official-website',
@@ -118,20 +119,37 @@ export class GroundedResearcher {
       }, this.env)
     } catch (error) {
       if (!raceCoverage) {
-        return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq indisponível: ${error.name || error.message}` })
+        return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq indisponível: ${error.name || error.message}`, raceCoverage })
       }
       throw error
     }
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
-      if (!raceCoverage && [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status)) {
-        return internalResearch({ item, internalEvidence, today, contentType, reason: `Groq ${response.status}` })
+      const outputParseFailed = response.status === 400 && /output_parse_failed|parsing failed/i.test(detail)
+      if (!raceCoverage && (outputParseFailed || [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status))) {
+        const reason = outputParseFailed ? 'Groq 400 output_parse_failed' : `Groq ${response.status}`
+        return internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage })
       }
       throw new Error(`Groq grounded research: ${response.status} - ${detail}`)
     }
     const payload = await response.json()
     const text = payload.choices?.[0]?.message?.content
-    const research = extractJson(text)
+    let research
+    try {
+      research = extractJson(text)
+    } catch (error) {
+      if (!raceCoverage) {
+        return internalResearch({
+          item,
+          internalEvidence,
+          today,
+          contentType,
+          reason: `Groq retornou JSON inválido: ${error.message}`,
+          raceCoverage,
+        })
+      }
+      throw error
+    }
     research.sources = (research.sources || []).filter((source) => source.url && allowedSource(source.url, raceCoverage))
     if (research.sources.length === 0) throw new Error('Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada')
     research.slug = item.id

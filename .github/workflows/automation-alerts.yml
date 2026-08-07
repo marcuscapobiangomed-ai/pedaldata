@@ -7,6 +7,9 @@ on:
       - "TheBiker — Publicação diária ao meio-dia"
       - "TheBiker — Auditoria final do buffer"
       - "TheBiker — Reparo editorial do buffer"
+      - "TheBiker — Renovação mensal de 30 dias"
+      - "TheBiker — Inteligência SEO e YouTube"
+      - "TheBiker — Watchdog editorial diário"
       - "Deploy Blog"
     types: [completed]
 

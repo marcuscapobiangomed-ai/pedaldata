@@ -51,7 +51,7 @@ expect(consent.includes('(admin|search|login|conta)'), 'Clarity não exclui pág
 for (const eventName of ['content_view', 'scroll_depth', 'qualified_read', 'view_item', 'comparison_complete', 'store_click']) {
   expect(events.includes(`'${eventName}'`), `Evento obrigatório ausente: ${eventName}`)
 }
-for (const parameter of ['audience_intent', 'experience_level_target']) {
+for (const parameter of ['audience_segment', 'audience_intent', 'experience_level_target']) {
   expect(events.includes(parameter), `Parâmetro de público ausente: ${parameter}`)
   expect(analyticsInclude.includes(parameter.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())), `Configuração Liquid ausente: ${parameter}`)
 }

@@ -50,7 +50,12 @@ export async function repairCampaignBuffer({ env = process.env } = {}) {
         step: "buffer-repair",
         providers: ["deepseek"],
         sourceHash: hashPayload({ research, article: parsed.content, reason: item.blockReason }),
-        options: { jsonMode: false, temperature: 0.1, maxTokens: 12000 },
+        options: {
+          jsonMode: false,
+          temperature: 0.1,
+          maxTokens: 12000,
+          model: env.DEEPSEEK_PRO_MODEL || "deepseek-v4-pro",
+        },
         system: [
           "Voce e o editor tecnico senior do blog oficial da TheBiker.",
           "Reescreva usando apenas a pesquisa fornecida e sem inventar testes, medidas ou disponibilidade.",

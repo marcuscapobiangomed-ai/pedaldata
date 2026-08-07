@@ -23,14 +23,18 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: npm ci
       - run: npm ci
         working-directory: bot
       - name: Reparar e reauditar textos bloqueados
         id: repair
         continue-on-error: true
         env:
-          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '1.60' }}
+          AI_MONTHLY_BUDGET_USD: ${{ vars.AI_MONTHLY_BUDGET_USD || '5.00' }}
+          DEEPSEEK_PRO_MODEL: ${{ vars.DEEPSEEK_PRO_MODEL || 'deepseek-v4-pro' }}
           AI_CACHE_ENABLED: "false"
           AI_HTTP_TIMEOUT_MS: "180000"
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -40,8 +44,7 @@ jobs:
       - name: Validar e persistir resultado
         if: always()
         run: |
-          npm run validate:posts
-          npm run check:claims
+          npm run validate
           git config user.name "thebiker-editorial-bot"
           git config user.email "thebiker-editorial-bot@users.noreply.github.com"
           git add _posts bot/editorial-campaign.json bot/operational-state _data/editorial-calendar.json

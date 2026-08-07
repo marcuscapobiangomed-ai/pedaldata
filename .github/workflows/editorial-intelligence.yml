@@ -1,0 +1,100 @@
+name: TheBiker — Inteligência SEO e YouTube
+
+on:
+  schedule:
+    # Segunda-feira, 06:17 BRT.
+    - cron: "17 9 * * 1"
+    # Dia 1, 07:23 BRT.
+    - cron: "23 10 1 * *"
+  workflow_dispatch:
+    inputs:
+      cadence:
+        description: "Janela de inteligência"
+        required: true
+        default: weekly
+        type: choice
+        options: [weekly, monthly]
+
+permissions:
+  contents: read
+  issues: write
+  actions: write
+
+concurrency:
+  group: thebiker-editorial-intelligence
+  cancel-in-progress: false
+
+jobs:
+  intelligence:
+    if: ${{ vars.INTELLIGENCE_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: editorial-automation
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - name: Select cadence
+        id: cadence
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            cadence="${{ inputs.cadence }}"
+          elif [ "${{ github.event.schedule }}" = "23 10 1 * *" ]; then
+            cadence="monthly"
+          else
+            cadence="weekly"
+          fi
+          echo "value=$cadence" >> "$GITHUB_OUTPUT"
+      - name: Build intelligence report
+        id: report
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'https://marcuscapobiangomed-ai.github.io/thebikerblog/' }}
+          CONTENT_INDEX_URL: ${{ vars.CONTENT_INDEX_URL || 'https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json' }}
+        shell: bash
+        run: |
+          result="$(node scripts/run-editorial-intelligence.mjs --cadence "${{ steps.cadence.outputs.value }}" --output "$RUNNER_TEMP/intelligence")"
+          echo "$result"
+          echo "run_key=$(echo "$result" | jq -r .runKey)" >> "$GITHUB_OUTPUT"
+          echo "markdown_path=$(echo "$result" | jq -r .markdownPath)" >> "$GITHUB_OUTPUT"
+      - name: Create or update operational issue
+        id: issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_KEY: ${{ steps.report.outputs.run_key }}
+          REPORT_PATH: ${{ steps.report.outputs.markdown_path }}
+        shell: bash
+        run: |
+          title="[INTEL] ${RUN_KEY} — SEO, YouTube e atualização editorial"
+          number="$(gh issue list --state all --search "${RUN_KEY} in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --title "$title" --body-file "$REPORT_PATH"
+          else
+            issue_url="$(gh issue create --title "$title" --body-file "$REPORT_PATH")"
+            number="${issue_url##*/}"
+          fi
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: editorial-intelligence-${{ steps.report.outputs.run_key }}
+          path: ${{ runner.temp }}/intelligence/*
+          retention-days: 30
+      - name: Renew rolling campaign
+        if: ${{ steps.cadence.outputs.value == 'monthly' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run renew-monthly-campaign.yml --ref main -f issue_number=${{ steps.issue.outputs.number }} -f dry_run=false
+
+  disabled-notice:
+    if: ${{ vars.INTELLIGENCE_ENABLED != 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Inteligência preparada, mas pausada até configurar OAuth Google e INTELLIGENCE_ENABLED=true."

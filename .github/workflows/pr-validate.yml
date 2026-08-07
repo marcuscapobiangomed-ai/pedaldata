@@ -9,6 +9,10 @@ on:
       - "content/research/**"
       - "assets/img/posts/**"
       - "assets/js/**"
+      - "_includes/**"
+      - "_layouts/**"
+      - "legal/**"
+      - "index.html"
       - "bot/**"
       - ".github/workflows/**"
       - "scripts/**"
@@ -39,7 +43,12 @@ jobs:
         with:
           node-version: 24
           cache: "npm"
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+
+      - name: Install site dependencies
+        run: npm ci
 
       - name: Instalar Dependências
         run: npm ci
@@ -103,6 +112,14 @@ jobs:
 
       - name: Verificar lotes e endpoints para máquinas
         run: npm run check:machine-readable
+
+      - name: Audit technical SEO
+        run: npm run audit:seo
+
+      - name: Validate analytics tracking and n8n exports
+        run: |
+          npm run test:analytics
+          npm run check:n8n
 
       - name: Check for fictional authorship
         run: |

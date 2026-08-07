@@ -1,59 +1,70 @@
 # Automação editorial TheBiker
 
-## O que a automação faz
+## Arquitetura operacional
 
-Às segundas, quartas e sextas, às 08h17 no horário de Brasília, o workflow verifica a fila editorial. Quando habilitado, processa no máximo uma pauta, executa o pipeline Groq → Gemini → DeepSeek e abre um PR com o artigo ainda como rascunho.
+O GitHub Actions é o motor de produção permanente. O n8n local serve para visualização e homologação, mas a continuidade do blog não depende de computador ligado.
 
-O merge continua sendo uma decisão humana. A automação não publica diretamente, não aprova imagens e não rebaixa a qualidade quando uma API falha.
+O workflow `.github/workflows/cron-post.yml` possui três janelas diárias de execução. Cada execução produz no máximo uma pauta e compartilha o grupo de concorrência `thebiker-editorial-write` com auditoria, reparo, renovação e publicação. O workflow `.github/workflows/publish-daily.yml` verifica a publicação às 11h55, 12h00 e 12h10 em `America/Sao_Paulo`; a operação é idempotente.
 
-## Estados operacionais
+O fluxo completo é:
 
-- `disabled`: controle geral desligado.
-- `idle`: nenhuma pauta pronta.
-- `ready`: simulação aprovada; nenhuma API chamada.
-- `waiting-review`: já existe PR aberto para a primeira pauta.
-- `pr-created`: rascunho criado com sucesso.
-- falha do workflow: pesquisa, API, orçamento, validação ou GitHub bloquearam a execução.
+1. recuperar ou substituir pauta bloqueada;
+2. pesquisar fontes permitidas;
+3. construir ficha factual;
+4. gerar e criticar o rascunho;
+5. aplicar edição premium quando necessária;
+6. produzir e validar imagem;
+7. executar `npm run validate` antes de persistir;
+8. agendar somente artigo com nota final mínima 90 e zero bloqueadores;
+9. publicar a pauta aprovada na data local;
+10. executar novamente o gate integral e disparar explicitamente o deploy do novo SHA.
 
-## Cadastro de pauta
+Falha de fonte, modelo, orçamento, schema, imagem, SEO ou build mantém a pauta bloqueada. Popularidade de vídeo é sinal editorial, nunca prova factual.
 
-Edite `bot/automation-queue.json`. Cada item precisa ter:
+## Provedores e orçamento
 
-```json
-{
-  "id": "slug-unico-da-pauta",
-  "topic": "Descrição editorial precisa",
-  "researchPath": "content/research/caminho/ficha.json",
-  "priority": "P1",
-  "notBefore": "2026-08-10T11:00:00.000Z",
-  "enabled": true
-}
-```
+O pipeline usa:
 
-A ficha deve existir, passar pelo schema e estar como `pesquisa_concluida`. O `id` é também a chave de idempotência: se já houver PR aberto em `content/<id>`, nenhuma segunda geração será cobrada.
+- Groq para pesquisa com navegação e como redundância editorial;
+- Gemini como primeira opção gratuita para o rascunho;
+- `deepseek-v4-flash` para planejamento, JSON, ficha factual e auditorias estruturadas;
+- `deepseek-v4-pro` para edição premium, reparo e conteúdo técnico de maior risco.
+
+O teto aprovado é `AI_MONTHLY_BUDGET_USD=5.00`. A telemetria registra modelo, tokens, custo estimado e gasto acumulado. Há alerta lógico a 60%, estado crítico a 85% e bloqueio preventivo quando a próxima chamada puder ultrapassar o teto. O limite nunca é elevado automaticamente.
+
+O estimador considera preços diferentes para V4 Flash e V4 Pro, além de tokens de entrada com e sem cache. Toda chamada DeepSeek, inclusive o planejamento mensal, precisa passar pelo mesmo guard financeiro.
 
 ## Configuração no GitHub
 
-No ambiente protegido `editorial-automation`, cadastre somente os secrets `GROQ_API_KEY`, `GEMINI_API_KEY` e `DEEPSEEK_API_KEY`. As chaves não entram em `_config.yml`, `_data`, JavaScript, arquivos `.env` versionados ou variáveis do site.
+No environment `editorial-automation`, mantenha somente os secrets necessários:
 
-Os workflows usam o `GITHUB_TOKEN` efêmero fornecido pelo GitHub com permissão mínima. Não é necessário armazenar um token pessoal para a campanha de 30 dias.
+- `GROQ_API_KEY`;
+- `GEMINI_API_KEY`;
+- `DEEPSEEK_API_KEY`;
+- credenciais Google de leitura descritas em `docs/operations/n8n-editorial-intelligence.md`.
 
-Defina as variáveis do repositório:
+Variáveis operacionais:
 
-- `AUTOMATION_ENABLED=true` para liberar a execução agendada;
-- `AI_MONTHLY_BUDGET_USD=1.60` ou outro teto aprovado.
+- `AUTOMATION_ENABLED=true`;
+- `AI_MONTHLY_BUDGET_USD=5.00`;
+- `DEEPSEEK_FLASH_MODEL=deepseek-v4-flash`;
+- `DEEPSEEK_PRO_MODEL=deepseek-v4-pro`;
+- `INTELLIGENCE_ENABLED=true` somente depois de validar o OAuth Google.
 
-Antes de habilitar, execute manualmente com `dry_run=true`. Depois, execute uma vez com `dry_run=false` e revise o PR completo, incluindo fontes e plano de imagens.
+As chaves não entram em `_config.yml`, `_data`, JavaScript público, logs ou arquivos `.env` versionados.
 
 ## Recuperação e segurança
 
-- Uma execução nunca processa mais de uma pauta.
-- Execuções concorrentes aguardam, sem cancelar a anterior.
-- Pauta futura respeita `notBefore`.
-- Falha não remove nem altera a pauta.
-- PR existente impede cobrança e conteúdo duplicados.
-- DeepSeek para automaticamente no limite orçamentário configurado.
-- Sem imagem aprovada, o artigo permanece rascunho.
-- `npm run security:secrets` bloqueia credenciais no repositório; `npm run security:public` repete a verificação sobre o site Jekyll efetivamente gerado antes do upload ao Pages.
+- `400 output_parse_failed`, 429, timeout e erros transitórios recebem retry limitado.
+- Se a pauta do dia já foi publicada, uma das janelas redundantes pode recuperar no máximo uma pauta vencida, atualizando a data pública para o dia real da recuperação.
+- Resposta de pesquisa inválida pode usar somente evidência interna pertinente e com fontes permitidas.
+- Sem evidência suficiente, a pauta permanece bloqueada e uma reserva evergreen ocupa o buffer.
+- Reviews e comparativos validados exigem produto rastreável.
+- Concorrentes podem ser contexto técnico, nunca promoção ou CTA.
+- Somente inventário TheBiker verificado recebe link comercial.
+- Os alertas cobrem inteligência, renovação, produção, auditoria, reparo, publicação e deploy.
+- Commits feitos pelo bot não dependem de um evento `push` implícito para publicar: o workflow diário dispara `deploy.yml` explicitamente.
 
-Após o merge do PR editorial, remova manualmente o item concluído da fila. Essa remoção explícita preserva trilha de auditoria e evita que a automação modifique a fila principal fora da revisão.
+## Critério de autonomia
+
+Não declarar operação autônoma apenas porque o código está versionado. A prova exige uma execução semanal, uma renovação mensal, publicações e deployments consecutivos, alertas exercitados e observação com o computador desligado.

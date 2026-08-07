@@ -57,7 +57,9 @@ export class ThreeProviderPipeline {
     const errors = [];
     for (const provider of providers) {
       if (!this.clients.isConfigured(provider)) continue;
-      const modelHint = this.env[`${provider.toUpperCase()}_MODEL`] || "default";
+      const modelHint = provider === "deepseek"
+        ? options.model || this.env.DEEPSEEK_MODEL || "deepseek-v4-pro"
+        : this.env[`${provider.toUpperCase()}_MODEL`] || "default";
       const cacheKey = hashPayload({ step, provider, modelHint, system, user, options, sourceHash });
       const cached = await this.runtime.readCache(cacheKey);
       if (cached) {
@@ -70,7 +72,7 @@ export class ThreeProviderPipeline {
         const result = await this.clients.generate(provider, system, user, options);
         let financial = {};
         if (provider === "deepseek") {
-          const tracked = await this.runtime.addDeepSeekCost(result.usage);
+          const tracked = await this.runtime.addDeepSeekCost(result.usage, result.model);
           financial = { estimatedCostUsd: tracked.cost, budgetSpentUsd: tracked.budget.spent };
         }
         const stored = { ...result, ...financial };
@@ -119,9 +121,14 @@ export class ThreeProviderPipeline {
     const sourceHash = hashPayload(researchData);
     const factSheetResult = await this.callStep({
       step: "fact-sheet",
-      providers: ["groq", "deepseek"],
+      providers: ["deepseek", "groq", "gemini"],
       sourceHash,
-      options: { jsonMode: true, temperature: 0, maxTokens: 2500 },
+      options: {
+        jsonMode: true,
+        temperature: 0,
+        maxTokens: 2500,
+        model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+      },
       system: [
         "Você extrai fatos para o blog oficial da TheBiker.",
         "Use exclusivamente o pacote recebido. Responda somente em JSON.",
@@ -159,19 +166,29 @@ export class ThreeProviderPipeline {
     ].join("\n");
     const draftResult = await this.callStep({
       step: "draft",
-      providers: ["groq", "deepseek"],
+      providers: ["gemini", "deepseek", "groq"],
       sourceHash,
       system: systemPrompt,
       user: enrichedDraftPrompt,
-      options: { jsonMode: true, temperature: 0.2, maxTokens: 3800 },
+      options: {
+        jsonMode: true,
+        temperature: 0.2,
+        maxTokens: 3800,
+        model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+      },
     });
     const draft = extractJson(draftResult.content);
 
     const critiqueResult = await this.callStep({
       step: "critique",
-      providers: ["groq", "deepseek"],
+      providers: ["deepseek", "groq", "gemini"],
       sourceHash,
-      options: { jsonMode: true, temperature: 0, maxTokens: 3000 },
+      options: {
+        jsonMode: true,
+        temperature: 0,
+        maxTokens: 3000,
+        model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+      },
       system: [
         "Você é o auditor adversarial do blog oficial da TheBiker.",
         "Não reescreva o artigo. Responda somente em JSON.",
@@ -217,7 +234,12 @@ export class ThreeProviderPipeline {
         providers: ["deepseek"],
         sourceHash,
         system: systemPrompt,
-        options: { jsonMode: true, temperature: 0.1, maxTokens: 8192 },
+        options: {
+          jsonMode: true,
+          temperature: 0.1,
+          maxTokens: 8192,
+          model: this.env.DEEPSEEK_PRO_MODEL || "deepseek-v4-pro",
+        },
         user: [
           "Edite o rascunho usando exclusivamente a pesquisa e a crítica fornecidas.",
           "Corrija todos os bloqueios. Preserve o schema completo e responda somente em JSON.",
@@ -242,9 +264,14 @@ export class ThreeProviderPipeline {
       });
       const finalAuditResult = await this.callStep({
         step: "final-audit",
-        providers: ["groq", "deepseek"],
+        providers: ["deepseek", "groq"],
         sourceHash,
-        options: { jsonMode: true, temperature: 0, maxTokens: 2200 },
+        options: {
+          jsonMode: true,
+          temperature: 0,
+          maxTokens: 2200,
+          model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+        },
         system: [
           "Você é o gate editorial final do blog oficial da TheBiker.",
           "Audite o texto já editado contra a pesquisa. Não reescreva. Responda somente em JSON.",

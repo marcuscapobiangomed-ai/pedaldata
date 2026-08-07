@@ -40,7 +40,9 @@ console.log(JSON.stringify({
     month: budget.month,
     limitUsd: budget.limit,
     estimatedSpentUsd: budget.spent,
-    automaticStopUsd: budget.limit * 0.8,
+    warningUsd: budget.limit * 0.6,
+    criticalUsd: budget.limit * 0.85,
+    hardStopUsd: budget.limit,
   },
 }));
 

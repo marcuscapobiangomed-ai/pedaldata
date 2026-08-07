@@ -43,7 +43,12 @@ export async function auditCampaignBuffer({ env = process.env, now = new Date() 
       step: "buffer-final-audit",
       providers: ["groq", "deepseek"],
       sourceHash: hashPayload({ research, article: parsed.content }),
-      options: { jsonMode: true, temperature: 0, maxTokens: 1800 },
+      options: {
+        jsonMode: true,
+        temperature: 0,
+        maxTokens: 1800,
+        model: env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+      },
       system: "Voce e o gate editorial final do blog oficial da TheBiker. Audite sem reescrever e responda somente em JSON. Nota abaixo de 90 ou qualquer bloqueador impede publicacao.",
       user: JSON.stringify({
         title: item.title,

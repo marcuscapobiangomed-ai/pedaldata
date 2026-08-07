@@ -8,6 +8,7 @@ import { GroundedResearcher } from "./src/automation/grounded-research.js";
 import { finalizeCampaignItem } from "./src/campaign_finalize.js";
 import { produceCampaignCover } from "./src/images/campaign-cover.js";
 import { selectKnowledgeEvidence } from "./src/campaign_producer.js";
+import { selectScheduledPublication } from "./src/publish_scheduled.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -42,6 +43,15 @@ scheduled.items[0].status = 'scheduled';
 scheduled.items[0].postPath = `_posts/drafts/${scheduled.items[0].publishDate}-sag.md`;
 assert.equal(selectPublicationCandidate(scheduled, scheduled.items[0].publishDate).day, 1);
 assert.equal(publicCampaignSummary(scheduled).items[0].title, scheduled.items[0].title);
+const catchUpCampaign = structuredClone(campaign);
+for (const item of catchUpCampaign.items) item.status = 'planned';
+catchUpCampaign.items[0].status = 'scheduled';
+catchUpCampaign.items[1].status = 'published';
+catchUpCampaign.items[1].publishedAt = '2026-08-05T15:00:00.000Z';
+assert.deepEqual(selectScheduledPublication(catchUpCampaign, catchUpCampaign.items[1].publishDate), {
+  item: catchUpCampaign.items[0],
+  catchUp: true,
+});
 const groundedPayload = {
   candidates: [{ content: { parts: [{ text: JSON.stringify({ confirmed_facts: { material: 'Carbono HMF' }, limitations: [], sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessed: '2026-08-04' }] }) }] }, groundingMetadata: { webSearchQueries: ['site:scott-sports.com teste'] } }]
 };
@@ -58,6 +68,30 @@ const fallbackGrounded = await fallbackResearcher.research({
 });
 assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
 assert.equal(fallbackGrounded.sources.length, 1);
+let parseFailureAttempts = 0;
+const parseFailureResearcher = new GroundedResearcher({
+  GROQ_API_KEY: 'test',
+  AI_HTTP_RETRY_ATTEMPTS: '2',
+}, async () => {
+  parseFailureAttempts += 1;
+  if (parseFailureAttempts === 1) {
+    const detail = JSON.stringify({ error: { code: 'output_parse_failed' } });
+    return {
+      ok: false,
+      status: 400,
+      clone: () => ({ text: async () => detail }),
+      text: async () => detail,
+    };
+  }
+  return { ok: true, status: 200, json: async () => groqPayload };
+});
+const recoveredAfterParseFailure = await parseFailureResearcher.research({
+  item: campaign.items[0],
+  internalEvidence: [],
+  today: '2026-08-05',
+});
+assert.equal(parseFailureAttempts, 2);
+assert.equal(recoveredAfterParseFailure.status, 'pesquisa_concluida');
 let timeoutAttempts = 0;
 const timeoutResearcher = new GroundedResearcher({
   GROQ_API_KEY: 'test',

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { buildEditorialIntelligence, intelligenceMarkdown } from './lib/editorial-intelligence.mjs';
+import { periodsFor } from './run-editorial-intelligence.mjs';
 
 const context = {
   runKey: 'weekly-2026-08-07',
@@ -36,4 +37,10 @@ assert.ok(report.briefs.every((brief) => brief.audienceSegment === 'core_technic
 assert.ok(report.briefs.every((brief) => brief.experienceLevelTarget === 'intermediate_advanced'));
 assert.equal(report.refreshQueue[0].url, 'https://example.com/ajuste/');
 assert.match(intelligenceMarkdown(report), /Gate editorial/);
+assert.deepEqual(periodsFor({ cadence: 'weekly', generatedAt: '2026-08-07T12:00:00.000Z' }), {
+  lookbackDays: 7,
+  dataDelayDays: 3,
+  current: { startDate: '2026-07-29', endDate: '2026-08-04' },
+  previous: { startDate: '2026-07-22', endDate: '2026-07-28' },
+});
 console.log('Motor de inteligência editorial validado com sucesso.');

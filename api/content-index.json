@@ -24,6 +24,7 @@ sitemap: false
       "url": {{ post.url | absolute_url | jsonify }},
       "datePublished": {{ post.date | date_to_xmlschema | jsonify }},
       "dateModified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
+      "audienceSegment": {{ post.audience_segment | default: 'core_technical_cyclists' | jsonify }},
       "audienceIntent": {{ post_audience_intent | jsonify }},
       "experienceLevelTarget": {{ post.experience_level_target | default: site.data.audience.defaults.experienceLevelTarget | jsonify }},
       "author": {{ post.author | default: site.author | jsonify }},

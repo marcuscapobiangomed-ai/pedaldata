@@ -1,12 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { CampaignSchema, selectPublicationCandidate, publicCampaignSummary } from "./automation/campaign.js";
+import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
 import { validateImageManifestV2 } from "./validation/image-manifest-v2.js";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-const campaignPath = path.join(root, "bot/editorial-campaign.json");
-const calendarPath = path.join(root, "_data/editorial-calendar.json");
+const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
 function localDate(now = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -17,22 +15,36 @@ function localDate(now = new Date()) {
   }).format(now);
 }
 
-export async function publishScheduled({ now = new Date(), dryRun = false } = {}) {
-  const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, "utf8")));
-  const date = localDate(now);
+export function selectScheduledPublication(campaign, date) {
   const due = campaign.items.find((candidate) => candidate.publishDate === date) || null;
-
-  if (due?.status === "published") {
-    const publishedPath = path.join(root, "_posts", `${due.publishDate}-${due.id}.md`);
-    await fs.access(publishedPath);
-    return { status: "already-published", date, itemId: due.id, targetPath: publishedPath };
-  }
-  if (due && due.status !== "scheduled") {
+  if (due && !["scheduled", "published"].includes(due.status)) {
     throw new Error(`Publicacao bloqueada: pauta ${due.id} de hoje esta em ${due.status}, nao scheduled`);
   }
+  if (due?.status === "scheduled") return { item: due, catchUp: false };
 
-  const item = selectPublicationCandidate(campaign, date);
+  const catchUpAlreadyPublished = campaign.items.some((candidate) => {
+    if (candidate.status !== "published" || candidate.publishDate >= date || !candidate.publishedAt) return false;
+    return localDate(new Date(candidate.publishedAt)) === date;
+  });
+  if (catchUpAlreadyPublished) return { item: null, catchUp: false, alreadyPublished: true };
+
+  const overdue = campaign.items
+    .filter((candidate) => candidate.status === "scheduled" && candidate.publishDate < date)
+    .sort((left, right) => left.publishDate.localeCompare(right.publishDate))[0] || null;
+  if (overdue) return { item: overdue, catchUp: true };
+  return { item: null, catchUp: false, alreadyPublished: due?.status === "published" };
+}
+
+export async function publishScheduled({ now = new Date(), dryRun = false, root = defaultRoot } = {}) {
+  const campaignPath = path.join(root, "bot/editorial-campaign.json");
+  const calendarPath = path.join(root, "_data/editorial-calendar.json");
+  const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, "utf8")));
+  const date = localDate(now);
+  const selected = selectScheduledPublication(campaign, date);
+  const item = selected.item;
+
   if (!item) {
+    if (selected.alreadyPublished) return { status: "already-published", date };
     const endDate = campaign.items.at(-1)?.publishDate;
     if (date >= campaign.startsOn && date <= endDate) {
       throw new Error(`Publicacao bloqueada: campanha possui lacuna em ${date}`);
@@ -60,9 +72,21 @@ export async function publishScheduled({ now = new Date(), dryRun = false } = {}
   content = content.replace(/^published:\s*false\s*$/m, "published: true");
   content = content.replace(/^editorial_status:\s*.*$/m, 'editorial_status: "published"');
   content = content.replace(/^status:\s*.*$/m, 'status: "published"');
+  if (selected.catchUp) {
+    content = content.replace(/^date:\s*.*$/m, `date: ${date}`);
+    content = content.replace(/^last_modified_at:\s*.*$/m, `last_modified_at: ${date}`);
+  }
   if (!/^published:\s*true\s*$/m.test(content)) throw new Error(`Post ${item.id} nao possui published: false valido`);
-  const targetPath = path.join(root, "_posts", path.basename(sourcePath));
-  if (dryRun) return { status: "ready", date, itemId: item.id, targetPath };
+  const targetName = `${selected.catchUp ? date : item.publishDate}-${item.id}.md`;
+  const targetPath = path.join(root, "_posts", targetName);
+  if (dryRun) return {
+    status: "ready",
+    date,
+    itemId: item.id,
+    scheduledDate: item.publishDate,
+    catchUp: selected.catchUp,
+    targetPath,
+  };
 
   await fs.writeFile(targetPath, content);
   await fs.unlink(sourcePath);
@@ -71,7 +95,14 @@ export async function publishScheduled({ now = new Date(), dryRun = false } = {}
   item.postPath = path.relative(root, targetPath).replace(/\\/g, "/");
   await fs.writeFile(campaignPath, JSON.stringify(campaign, null, 2) + "\n");
   await fs.writeFile(calendarPath, JSON.stringify(publicCampaignSummary(campaign), null, 2) + "\n");
-  return { status: "published", date, itemId: item.id, targetPath };
+  return {
+    status: "published",
+    date,
+    itemId: item.id,
+    scheduledDate: item.publishDate,
+    catchUp: selected.catchUp,
+    targetPath,
+  };
 }
 
 if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {

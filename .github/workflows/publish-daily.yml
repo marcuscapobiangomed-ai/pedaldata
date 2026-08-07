@@ -17,6 +17,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
   group: thebiker-editorial-write
@@ -35,19 +36,23 @@ jobs:
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: bot/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            bot/package-lock.json
+      - run: npm ci
       - run: npm ci
         working-directory: bot
       - name: Publicar somente o conteúdo aprovado para hoje
+        id: publication
         env:
           AUTOMATION_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
-        run: node src/publish_scheduled.js
+        run: |
+          result="$(node src/publish_scheduled.js)"
+          echo "$result"
+          echo "status=$(echo "$result" | jq -r .status)" >> "$GITHUB_OUTPUT"
         working-directory: bot
       - name: Validar conteúdo e calendário
-        run: |
-          npm run security:secrets
-          npm run check:machine-readable
-          npm run validate:posts
+        run: npm run validate
       - name: Registrar publicação
         if: ${{ github.event_name == 'schedule' || !inputs.dry_run }}
         run: |
@@ -61,3 +66,8 @@ jobs:
             sleep $((attempt * 5))
           done
           exit 1
+      - name: Deploy published SHA to GitHub Pages
+        if: ${{ steps.publication.outputs.status == 'published' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

@@ -7,6 +7,9 @@ last_modified_at: 2026-07-19
 author: "Equipe The Biker Blog"
 reviewed_by: "Equipe The Biker Blog"
 content_type: "comparativo"
+audience_segment: "core_technical_cyclists"
+audience_intent: "compare_products"
+experience_level_target: "intermediate_advanced"
 review_method: "desk-research"
 tested_by_thebikerblog: false
 ai_assisted: true

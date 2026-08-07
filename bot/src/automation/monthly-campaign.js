@@ -115,7 +115,13 @@ async function expandWithAi({ missing, report, occupiedTitles, ai }) {
   const response = await ai.generate(
     'Você planeja o blog oficial TheBiker para ciclistas intermediários e avançados. Não promova concorrentes, não invente testes, preços, estoque ou especificações. Retorne somente JSON válido.',
     `Crie exatamente ${missing} pautas editoriais novas e não sobrepostas. Use os sinais abaixo apenas como inteligência, nunca como prova factual. Evite estes títulos já usados: ${JSON.stringify(occupiedTitles)}. Sinais: ${JSON.stringify({ briefs: report.briefs, marketSignals: report.marketSignals?.slice(0, 20) || [] })}. Formato: {"topics":[{"id":"slug","title":"20 a 140 caracteres","summary":"40 a 260 caracteres","category":"manutencao-ajustes|engenharia|review|comparativo|componentes|lancamentos|competicoes","freshness":"evergreen|revalidate-24h|event-driven"}]}`,
-    { jsonMode: true, temperature: 0.2, maxTokens: 7000 },
+    {
+      jsonMode: true,
+      temperature: 0.2,
+      maxTokens: 7000,
+      model: process.env.DEEPSEEK_FLASH_MODEL || 'deepseek-v4-flash',
+      step: 'monthly-campaign-planning',
+    },
   )
   let parsed
   try {

@@ -57,6 +57,7 @@
       content_id: config.contentId || window.location.pathname,
       content_type: config.contentType || config.pageType || 'page',
       content_category: config.contentCategory || 'sem-categoria',
+      audience_segment: config.audienceSegment || 'core_technical_cyclists',
       audience_intent: audienceIntent(),
       experience_level_target: config.experienceLevelTarget || 'intermediate_advanced'
     }
@@ -65,7 +66,7 @@
   function setClarityContext() {
     if (typeof window.clarity !== 'function') return
     var context = pageContext()
-    ;['page_type', 'content_type', 'content_category', 'audience_intent', 'experience_level_target'].forEach(function(key) {
+    ;['page_type', 'content_type', 'content_category', 'audience_segment', 'audience_intent', 'experience_level_target'].forEach(function(key) {
       try { window.clarity('set', key, String(context[key])) } catch {}
     })
   }

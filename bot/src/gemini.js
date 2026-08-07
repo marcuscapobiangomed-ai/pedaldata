@@ -8,6 +8,7 @@ import {
 } from "./editorial-prompt.js";
 import { getTemplate } from "./templates.js";
 import { ThreeProviderPipeline } from "./ai/three-provider-pipeline.js";
+import { AIRuntime } from "./ai/runtime.js";
 import { assertEditorialPublicationGates } from "./validation/editorial-publication-gates.js";
 import { buildImageProductionPlan } from "./image-manifest.js";
 
@@ -105,6 +106,7 @@ export class AIProvider {
     this.geminiKey = process.env.GEMINI_API_KEY;
     this.githubToken = process.env.GITHUB_TOKEN;
     this.pipeline = pipeline || new ThreeProviderPipeline();
+    this.runtime = this.pipeline.runtime || new AIRuntime();
   }
 
   async generate(systemPrompt, userPrompt, options = {}) {
@@ -144,7 +146,7 @@ export class AIProvider {
 
   async _tryDeepSeek(system, user, options = {}) {
     const baseUrl = process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com";
-    const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro";
+    const model = options.model || process.env.DEEPSEEK_MODEL || "deepseek-v4-pro";
     const maxTokens = toNumber(process.env.DEEPSEEK_MAX_TOKENS || options.maxTokens, 8192);
 
     const payload = {
@@ -161,6 +163,9 @@ export class AIProvider {
       payload.response_format = { type: "json_object" };
     }
 
+    await this.runtime.assertDeepSeekBudget();
+    const startedAt = Date.now();
+
     const res = await fetch(`${baseUrl.replace(/\/$/, "")}/chat/completions`, {
       method: "POST",
       headers: {
@@ -176,7 +181,27 @@ export class AIProvider {
     }
 
     const data = await res.json();
-    return data.choices?.[0]?.message?.content || "";
+    const content = data.choices?.[0]?.message?.content || "";
+    if (!content) throw new Error("DeepSeek API: resposta vazia");
+    const usage = {
+      inputTokens: data.usage?.prompt_tokens || 0,
+      outputTokens: data.usage?.completion_tokens || 0,
+      totalTokens: data.usage?.total_tokens || 0,
+      promptCacheHitTokens: data.usage?.prompt_cache_hit_tokens || 0,
+      promptCacheMissTokens: data.usage?.prompt_cache_miss_tokens || 0,
+    };
+    const tracked = await this.runtime.addDeepSeekCost(usage, data.model || model);
+    await this.runtime.record({
+      step: options.step || "direct-generate",
+      provider: "deepseek",
+      model: data.model || model,
+      durationMs: Date.now() - startedAt,
+      usage,
+      estimatedCostUsd: tracked.cost,
+      budgetSpentUsd: tracked.budget.spent,
+      cacheHit: false,
+    });
+    return content;
   }
 
   async _tryGitHubModels(system, user, options = {}) {
@@ -493,7 +518,12 @@ export class AIProvider {
             "Não introduza novas especificações, sensações de teste, marcas ou disponibilidade.",
           ].join("\n"),
           user: repairPrompt,
-          options: { jsonMode: true, temperature: 0.1, maxTokens: 8192 },
+          options: {
+            jsonMode: true,
+            temperature: 0.1,
+            maxTokens: 8192,
+            model: process.env.DEEPSEEK_PRO_MODEL || "deepseek-v4-pro",
+          },
         });
         return {
           ...this._parseStructuredResponse(repaired.content, descricaoCurta),
