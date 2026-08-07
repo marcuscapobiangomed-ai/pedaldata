@@ -21,19 +21,23 @@ const report = {
 const markdown = `<details><summary>Payload</summary>\n\n\`\`\`json\n${JSON.stringify(report)}\n\`\`\`\n</details>`
 assert.equal(parseIntelligenceMarkdown(markdown).runKey, report.runKey)
 
+const fixtureStart = campaignFixture.items[0].publishDate
+const fixtureNextDay = campaignFixture.items[1].publishDate
 const activeToday = structuredClone(campaignFixture)
-activeToday.items.find((item) => item.publishDate === '2026-08-07').status = 'scheduled'
-const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date('2026-08-07T12:00:00.000Z') })
+activeToday.items.find((item) => item.publishDate === fixtureStart).status = 'scheduled'
+const scheduledFixtureId = activeToday.items.find((item) => item.publishDate === fixtureStart).id
+const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date(`${fixtureStart}T12:00:00-03:00`) })
 assert.equal(renewed.items.length, 30)
-assert.equal(renewed.startsOn, '2026-08-07')
+assert.equal(renewed.startsOn, fixtureStart)
 assert.deepEqual(renewed.items.map((item) => item.day), Array.from({ length: 30 }, (_, index) => index + 1))
 assert.equal(new Set(renewed.items.map((item) => item.publishDate)).size, 30)
 assert.equal(renewed.items.some((item) => item.status === 'blocked'), false)
-assert.ok(renewed.items.some((item) => item.id === 'review-spark-rc-team-2027'), 'conteúdo já agendado deve ser preservado')
+assert.ok(renewed.items.some((item) => item.id === scheduledFixtureId), 'conteúdo já agendado deve ser preservado')
 assert.ok(renewed.items.some((item) => item.id === 'seo-topic-1'), 'inteligência nova deve preencher lacunas')
 assert.ok(renewed.reserves.length >= 3)
 
 const publishedToday = structuredClone(campaignFixture)
-const shifted = await buildRollingCampaign({ existing: publishedToday, report, now: new Date('2026-08-07T18:00:00.000Z') })
-assert.equal(shifted.startsOn, '2026-08-08')
+publishedToday.items.find((item) => item.publishDate === fixtureStart).status = 'published'
+const shifted = await buildRollingCampaign({ existing: publishedToday, report, now: new Date(`${fixtureStart}T18:00:00-03:00`) })
+assert.equal(shifted.startsOn, fixtureNextDay)
 console.log('Renovação mensal de 30 dias validada com sucesso.')
