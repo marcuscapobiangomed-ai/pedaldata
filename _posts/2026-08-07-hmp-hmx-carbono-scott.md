@@ -1,10 +1,10 @@
 ---
 layout: post
-published: false
+published: true
 title: "HMF ou HMX: o que realmente muda na engenharia dos quadros Scott"
 slug: "hmf-hmx-carbono-scott"
-date: 2026-08-06
-last_modified_at: 2026-08-05
+date: 2026-08-07
+last_modified_at: 2026-08-07
 author: "Equipe TheBiker"
 reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "guia-tecnico"
@@ -43,8 +43,8 @@ promoted_brands: ["Scott"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/produtos/bicicleta-scott-addict-50-2026-pre-venda-1bxzy/"
 portfolio_verified_at: "2026-08-04"
-editorial_status: "reviewed"
-status: "scheduled"
+editorial_status: "published"
+status: "published"
 sources:
   - name: "Scott — página oficial do modelo Addict 50"
     type: "manufacturer"
