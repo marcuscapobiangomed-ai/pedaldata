@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-07T10:04:03.584Z",
+  "discoveredAt": "2026-08-07T14:14:33.264Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
-  "total": 484,
+  "total": 483,
   "products": [
     {
       "id": "quadro-scott-scale-rc-team-hmf-2026",
@@ -1005,17 +1005,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/458b85d8b41-a52400db4ca91b58c315729836692884-480-0.webp"
       ],
       "sku": "CXSXZ9L38"
-    },
-    {
-      "id": "kit-de-reparo-para-balanca-scott-spark-2012-2016",
-      "name": "Kit de Reparo para Balança Scott Spark 2012 - 2016",
-      "brand": "Scott",
-      "category": "componentes",
-      "productUrl": "https://thebikershop.com.br/produtos/kit-de-reparo-para-balanca-scott-spark-2012-2016/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/d_nq_np_2x_860607-mlb53563930468_022023-f-ceb37b656c72cc1ced17129256412978-480-0.webp"
-      ],
-      "sku": "223301223"
     },
     {
       "id": "capa-protetora-cambio-sram-xx1-axs",
@@ -2217,6 +2206,17 @@
       "sku": "V3740101"
     },
     {
+      "id": "roldana-de-cambio-shimano-xt-m8100",
+      "name": "Roldana de Câmbio Shimano XT M8100",
+      "brand": "Shimano",
+      "category": "componentes",
+      "productUrl": "https://thebikershop.com.br/produtos/roldana-de-cambio-shimano-xt-m8100/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/d_nq_np_2x_821635-mlb41189199029_032020-f1-4a2a0b700c5f5cc7e416146231228149-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "2-caramanholas-elite-fly-tex-550ml-preto",
       "name": "Combo Caramanholas Elite FLY TEX 550ml Preto - 2 unidades",
       "brand": "Elite",
@@ -3111,7 +3111,7 @@
       "id": "oculos-hb-grinder-grad-dark-bluish-gray-gold-chrome",
       "name": "Óculos HB Grinder Grad Dark Bluish Gray Gold Chrome",
       "brand": "HB",
-      "category": "acessorios",
+      "category": "vestuario",
       "productUrl": "https://thebikershop.com.br/produtos/oculos-hb-grinder-grad-dark-bluish-gray-gold-chrome/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/p_10103860838026_2-jpg-15df933ec8b549451017279667056449-480-0.webp"
@@ -4747,17 +4747,6 @@
       "sku": null
     },
     {
-      "id": "camisa-casual-scott-cinza",
-      "name": "Camisa Casual Scott Cinza",
-      "brand": "Scott",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/camisa-casual-scott-cinza/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/4709b5ea40d0459c77fddeffd8a8f64a-a3a7fce47be6e6eacd17301394884853-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
       "id": "sapatilha-mtb-scott-vertec",
       "name": "Sapatilha MTB Scott Vertec",
       "brand": "Scott",
@@ -4809,6 +4798,17 @@
       "productUrl": "https://thebikershop.com.br/produtos/luva-scott-rc-endurance-short-cinza/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2232339-8d28f98cdfd1f1345817816158503903-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
+      "id": "camisa-de-ciclismo-scott-pro-2026-laranja",
+      "name": "Camisa de Ciclismo Scott Pró 2026 Laranja",
+      "brand": "Scott",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-scott-pro-2026-laranja/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/tmp_b64_3a70b937-b591-4bfd-833d-326c067e35c2_1062247_1188274-4d7e922a6c1806fec217733241579949-480-0.webp"
       ],
       "sku": null
     },
@@ -4996,17 +4996,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-feminina-manga-longa-scott-pro-2026-azul-marinho/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/whatsapp-image-2026-04-01-at-10-57-17-2-578f57a9c3a735d99717750643188234-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "camisa-de-ciclismo-scott-pro-2026-laranja",
-      "name": "Camisa de Ciclismo Scott Pró 2026 Laranja",
-      "brand": "Scott",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-scott-pro-2026-laranja/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/tmp_b64_3a70b937-b591-4bfd-833d-326c067e35c2_1062247_1188274-4d7e922a6c1806fec217733241579949-480-0.webp"
       ],
       "sku": null
     },

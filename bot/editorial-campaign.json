@@ -343,9 +343,9 @@
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
+      "blockReason": "Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada",
       "attempts": 1,
-      "lastAttemptAt": "2026-08-07T10:04:04.393Z",
-      "blockReason": "Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada"
+      "lastAttemptAt": "2026-08-07T10:04:04.393Z"
     },
     {
       "day": 13,
@@ -355,10 +355,28 @@
       "summary": "Comparação entre Ultegra e Dura-Ace Di2, rodas, cockpit, pneus, peso declarado e custo observado na TheBiker.",
       "category": "comparativo",
       "freshness": "revalidate-24h",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
+      "postPath": "_posts/drafts/2026-08-17-addict-rc-20-vs-pro.md",
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-07T14:14:33.779Z",
+      "aiReview": {
+        "score": 85,
+        "finalScore": 95,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "deepseek",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalAudit": "deepseek",
+          "finalRepair": "deepseek"
+        },
+        "generatedAt": "2026-08-07T14:14:33.779Z"
+      },
+      "blockReason": "Validação final: Nenhuma imagem real compatível para addict-rc-20-vs-pro"
     },
     {
       "day": 14,
