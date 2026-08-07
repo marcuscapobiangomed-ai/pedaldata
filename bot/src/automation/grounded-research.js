@@ -126,8 +126,13 @@ export class GroundedResearcher {
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
       const outputParseFailed = response.status === 400 && /output_parse_failed|parsing failed/i.test(detail)
-      if (!raceCoverage && (outputParseFailed || [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status))) {
-        const reason = outputParseFailed ? 'Groq 400 output_parse_failed' : `Groq ${response.status}`
+      const contextLengthExceeded = response.status === 400 && /context_length_exceeded|reduce the length of the messages or completion/i.test(detail)
+      if (!raceCoverage && (outputParseFailed || contextLengthExceeded || [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status))) {
+        const reason = outputParseFailed
+          ? 'Groq 400 output_parse_failed'
+          : contextLengthExceeded
+            ? 'Groq 400 context_length_exceeded'
+            : `Groq ${response.status}`
         return internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage })
       }
       throw new Error(`Groq grounded research: ${response.status} - ${detail}`)

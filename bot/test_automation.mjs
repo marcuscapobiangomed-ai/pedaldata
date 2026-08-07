@@ -87,6 +87,20 @@ const fallbackGrounded = await fallbackResearcher.research({
 });
 assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
 assert.equal(fallbackGrounded.sources.length, 1);
+const contextLengthDetail = JSON.stringify({ error: { code: 'context_length_exceeded', message: 'Please reduce the length of the messages or completion.' } });
+const contextLengthResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async () => ({
+  ok: false,
+  status: 400,
+  clone: () => ({ text: async () => contextLengthDetail }),
+  text: async () => contextLengthDetail,
+}));
+const contextLengthFallback = await contextLengthResearcher.research({
+  item: campaign.items[0],
+  internalEvidence: [{ id: 'spark', facts: { suspension: '120 mm' }, sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessedAt: '2026-08-04' }] }],
+  today: '2026-08-05',
+});
+assert.equal(contextLengthFallback.grounding.fallback, 'internal-product-knowledge');
+assert.match(contextLengthFallback.limitations[0], /context_length_exceeded/);
 let parseFailureAttempts = 0;
 const parseFailureResearcher = new GroundedResearcher({
   GROQ_API_KEY: 'test',
