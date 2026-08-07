@@ -43,4 +43,24 @@ assert.deepEqual(periodsFor({ cadence: 'weekly', generatedAt: '2026-08-07T12:00:
   current: { startDate: '2026-07-29', endDate: '2026-08-04' },
   previous: { startDate: '2026-07-22', endDate: '2026-07-28' },
 });
+
+const fallbackTermsReport = buildEditorialIntelligence({
+  context,
+  config: {
+    blockedPromotionBrands: [],
+    portfolioBrands: ['Scott'],
+    maximumBriefs: 8,
+  },
+  videos: [{
+    id: 'fallback',
+    snippet: {
+      title: 'Ajuste de suspensão para mountain bike',
+      description: 'Guia técnico para ciclistas',
+      publishedAt: '2026-08-01T00:00:00Z',
+    },
+    statistics: { viewCount: '12000', likeCount: '500', commentCount: '30' },
+  }],
+});
+assert.equal(fallbackTermsReport.metrics.youtubeVideos, 1);
+assert.equal(fallbackTermsReport.briefs.length, 1);
 console.log('Motor de inteligência editorial validado com sucesso.');

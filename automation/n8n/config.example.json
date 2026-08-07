@@ -5,6 +5,7 @@
   "githubOwner": "marcuscapobiangomed-ai",
   "githubRepository": "thebikerblog",
   "youtubeQuery": "ciclismo|mountain bike|MTB|bike fit|suspensão bike|Scott bike|Shimano bike|SRAM bike",
+  "cyclingTerms": ["ciclismo", "ciclista", "bicicleta", "mountain bike", "MTB", "gravel", "bike fit", "suspensão", "pedal", "downhill", "enduro", "cross country"],
   "portfolioBrands": ["Scott", "Shimano", "SRAM", "Syncros", "Fox", "RockShox"],
   "blockedPromotionBrands": ["Trek", "Specialized", "Cannondale", "Cervélo", "Giant", "BMC", "Pinarello"],
   "minimumImpressions": 5,

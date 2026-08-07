@@ -1,4 +1,18 @@
 const STOPWORDS = new Set(['para', 'como', 'com', 'uma', 'das', 'dos', 'que', 'por', 'thebiker', 'bike', 'bikes', 'ciclismo']);
+const DEFAULT_CYCLING_TERMS = [
+  'ciclismo',
+  'ciclista',
+  'bicicleta',
+  'mountain bike',
+  'mtb',
+  'gravel',
+  'bike fit',
+  'suspensão',
+  'pedal',
+  'downhill',
+  'enduro',
+  'cross country',
+];
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -15,7 +29,10 @@ function rowKey(row) {
 
 function isCyclingVideo(video, config) {
   const haystack = normalizeText(`${video.snippet?.title || video.title} ${video.snippet?.description || ''}`);
-  return (config.cyclingTerms || []).some((term) => haystack.includes(normalizeText(term)));
+  const terms = Array.isArray(config.cyclingTerms) && config.cyclingTerms.length > 0
+    ? config.cyclingTerms
+    : DEFAULT_CYCLING_TERMS;
+  return terms.some((term) => haystack.includes(normalizeText(term)));
 }
 
 function hasBlockedBrand(value, config) {
