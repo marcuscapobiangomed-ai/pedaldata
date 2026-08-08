@@ -27,6 +27,7 @@ price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "mtb", "suspensão integrada", "scott spark rc", "flex pivot", "flight attendant"]
 description: "Entenda como a suspensão integrada com Flex Pivot da Scott Spark RC redefine rigidez, manutenção e centralização de massa, com análise do sistema Flight Attendant e curso de 120 mm."
+direct_answer: "Entenda como a suspensão integrada com Flex Pivot da Scott Spark RC redefine rigidez, manutenção e centralização de massa, com análise do sistema Flight Attendant e curso de 120 mm."
 image: "/assets/img/posts/engenharia-suspensao-integrada-spark/hero-1600.webp"
 image_mobile: "/assets/img/posts/engenharia-suspensao-integrada-spark/hero-800.webp"
 thumbnail: "/assets/img/posts/engenharia-suspensao-integrada-spark/card-640.webp"

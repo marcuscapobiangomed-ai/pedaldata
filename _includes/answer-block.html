@@ -1,0 +1,7 @@
+{% if page.direct_answer %}
+<section class="answer-block" aria-labelledby="resposta-direta">
+  <p class="answer-block__eyebrow">Resposta direta</p>
+  <h2 id="resposta-direta">{{ page.title }}</h2>
+  <p>{{ page.direct_answer }}</p>
+</section>
+{% endif %}

@@ -99,9 +99,16 @@ const SourceSchema = z.object({
   accessed_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "source.accessed_at precisa ser YYYY-MM-DD"),
 });
 
+const FaqItemSchema = z.object({
+  question: z.string().min(20, "A pergunta precisa ter ao menos 20 caracteres").max(180, "Pergunta muito longa"),
+  answer: z.string().min(60, "A resposta precisa ter ao menos 60 caracteres").max(600, "Resposta muito longa"),
+});
+
 export const ArticleSchema = z.object({
   title: z.string().min(10, "Título precisa ter ao menos 10 caracteres").max(120, "Título muito longo"),
   description: z.string().min(100, "Description precisa ter ao menos 100 caracteres").max(200, "Description muito longa"),
+  direct_answer: z.string().min(80, "Resposta direta precisa ter ao menos 80 caracteres").max(420, "Resposta direta muito longa"),
+  faq: z.array(FaqItemSchema).max(5, "Use no máximo cinco perguntas frequentes").default([]),
   slug: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "slug inválido"),
   category: z.enum(ALLOWED_CATEGORIES),
   content_type: z.enum(ALLOWED_CONTENT_TYPES),

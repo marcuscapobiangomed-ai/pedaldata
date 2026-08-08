@@ -27,6 +27,7 @@ price_checked_at: "2026-08-08"
 category: "guia-tecnico"
 tags: ["ciclismo", "manutenção", "chuva", "corrosão", "transmissão", "freios"]
 description: "Guia técnico para inspecionar a bike após pedalar na chuva: transmissão, freios, rolamentos e vedações. Aprenda a evitar corrosão e desgaste."
+direct_answer: "Guia técnico para inspecionar a bike após pedalar na chuva: transmissão, freios, rolamentos e vedações. Aprenda a evitar corrosão e desgaste."
 image: "/assets/img/posts/reserva-inspecao-pos-chuva/hero-1600.webp"
 image_mobile: "/assets/img/posts/reserva-inspecao-pos-chuva/hero-800.webp"
 thumbnail: "/assets/img/posts/reserva-inspecao-pos-chuva/card-640.webp"

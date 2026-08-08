@@ -37,6 +37,11 @@ const robots = read('robots.txt')
 for (const agent of ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Googlebot', 'bingbot']) {
   if (!robots.includes(`User-agent: ${agent}`)) failures.push(`robots.txt: crawler de pesquisa ausente (${agent})`)
 }
+for (const trainingAgent of ['GPTBot', 'ClaudeBot']) {
+  if (!new RegExp(`User-agent: ${trainingAgent}\\s+Disallow: /`, 'm').test(robots)) {
+    failures.push(`robots.txt: crawler de treinamento sem bloqueio explícito (${trainingAgent})`)
+  }
+}
 if (!/Sitemap:\s*\{\{ site\.url \}\}\{\{ site\.baseurl \}\}\/sitemap\.xml/.test(robots)) {
   failures.push('robots.txt: declaração de sitemap ausente ou inesperada')
 }
@@ -45,6 +50,7 @@ const llms = read('llms.txt')
 for (const endpoint of ['/sitemap.xml', '/feed.xml', '/api/content-index.json', '/api/editorial-policy.json']) {
   if (!llms.includes(endpoint)) failures.push(`llms.txt: endpoint ausente (${endpoint})`)
 }
+if (!/for post in public_posts limit:20/.test(llms)) failures.push('llms.txt: lista recente precisa ter limite explícito')
 
 const postFiles = fs.readdirSync(path.join(ROOT, '_posts')).filter((name) => /\.(md|html)$/.test(name))
 let publishedPosts = 0
@@ -53,7 +59,15 @@ for (const name of postFiles) {
   const { data } = frontmatter(file)
   if (data.published === false || data.status === 'draft' || data.editorial_status === 'draft') continue
   publishedPosts++
-  requireFields(file, data, ['title', 'description', 'date', 'last_modified_at', 'author', 'content_type', 'review_method', 'image', 'image_alt'])
+  requireFields(file, data, ['title', 'description', 'direct_answer', 'date', 'last_modified_at', 'author', 'content_type', 'review_method', 'image', 'image_alt'])
+  const directAnswerLength = String(data.direct_answer || '').length
+  if (directAnswerLength < 80 || directAnswerLength > 420) failures.push(`${file}: resposta direta com ${directAnswerLength} caracteres`)
+  if (data.faq !== undefined) {
+    if (!Array.isArray(data.faq) || data.faq.length > 5) failures.push(`${file}: FAQ precisa ser uma lista de até cinco itens`)
+    for (const [index, item] of (Array.isArray(data.faq) ? data.faq : []).entries()) {
+      if (!item?.question || !item?.answer) failures.push(`${file}: FAQ ${index + 1} sem pergunta ou resposta`)
+    }
+  }
   if (String(data.title || '').length > 70) warnings.push(`${file}: título longo (${String(data.title).length} caracteres)`)
   const descriptionLength = String(data.description || '').length
   if (descriptionLength < 90 || descriptionLength > 170) warnings.push(`${file}: descrição com ${descriptionLength} caracteres`)
@@ -81,6 +95,9 @@ for (const page of ['sobre/index.html', 'api/content-index.json']) {
   if (!fs.existsSync(path.join(ROOT, page))) failures.push(`página estrutural ausente (${page})`)
 }
 if (!read('_layouts/post.html').includes('id="fontes-do-artigo"')) failures.push('_layouts/post.html: seção visível de fontes ausente')
+if (!read('_layouts/post.html').includes('{% include answer-block.html %}')) failures.push('_layouts/post.html: resposta direta visível ausente')
+if (!read('_layouts/post.html').includes('{% include article-structured-data.html %}')) failures.push('_layouts/post.html: grafo JSON-LD estático ausente')
+if (read('_layouts/post.html').includes('{% include faq-schema.html %}')) failures.push('_layouts/post.html: FAQ não pode depender de JavaScript no cliente')
 
 console.log(`SEO auditado: ${publishedPosts} artigos e ${publishedProducts} produtos publicados.`)
 for (const warning of warnings) console.warn(`AVISO: ${warning}`)

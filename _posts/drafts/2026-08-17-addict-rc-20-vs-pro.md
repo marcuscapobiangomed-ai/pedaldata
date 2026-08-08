@@ -27,6 +27,7 @@ price_checked_at: "2026-08-07"
 category: "comparativos"
 tags: ["ciclismo", "road", "comparativo", "scott", "addict", "2026"]
 description: "Comparativo técnico entre Scott Addict RC 20 e RC Pro 2026: diferenças em grupos, rodas, cockpit e custo-benefício para ciclistas exigentes."
+direct_answer: "Comparativo técnico entre Scott Addict RC 20 e RC Pro 2026: diferenças em grupos, rodas, cockpit e custo-benefício para ciclistas exigentes."
 image: "/assets/img/posts/addict-rc-20-vs-pro/hero-1600.png"
 image_mobile: "/assets/img/posts/addict-rc-20-vs-pro/hero-800.png"
 thumbnail: "/assets/img/posts/addict-rc-20-vs-pro/card-640.png"

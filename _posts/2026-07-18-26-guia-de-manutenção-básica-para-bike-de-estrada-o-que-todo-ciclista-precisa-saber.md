@@ -2,6 +2,7 @@
 layout: post
 title: "Manutenção Básica da Bike de Estrada: guia do ciclista"
 description: "Guia completo de manutenção básica para bikes de estrada: limpeza, lubrificação, pneus, freios a disco e transmissão. Periodicidade e ferramentas recomendadas."
+direct_answer: "A manutenção básica combina inspeção antes de cada pedal, limpeza sem jato de alta pressão, lubrificação correta da corrente e controle de pneus, freios e transmissão. Ruído persistente, folga, dano ou frenagem irregular exigem avaliação técnica antes de continuar rodando."
 date: 2026-07-18
 last_modified_at: 2026-07-19
 author: "Equipe The Biker Blog"

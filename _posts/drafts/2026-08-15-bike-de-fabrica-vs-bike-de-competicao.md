@@ -27,6 +27,7 @@ price_checked_at: "2026-08-08"
 category: "guias-de-compra"
 tags: ["ciclismo", "performance", "tecnologia"]
 description: "Análise técnica sobre as diferenças entre bicicletas de série e máquinas de competição, focando em geometria, componentes, peso e performance."
+direct_answer: "Análise técnica sobre as diferenças entre bicicletas de série e máquinas de competição, focando em geometria, componentes, peso e performance."
 image: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/hero-1600.webp"
 image_mobile: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/hero-800.webp"
 thumbnail: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/card-640.webp"

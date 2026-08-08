@@ -27,6 +27,7 @@ price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "manutenção", "rolamentos", "diagnóstico", "guia técnico"]
 description: "Guia técnico para diagnosticar folga e contaminação em rolamentos de bicicletas sob carga. Aprenda a identificar ruídos, vibrações e folgas antes que comprometam a performance e a segurança."
+direct_answer: "Guia técnico para diagnosticar folga e contaminação em rolamentos de bicicletas sob carga. Aprenda a identificar ruídos, vibrações e folgas antes que comprometam a performance e a segurança."
 image: "/assets/img/posts/reserva-rolamentos-diagnostico/hero-1600.webp"
 image_mobile: "/assets/img/posts/reserva-rolamentos-diagnostico/hero-800.webp"
 thumbnail: "/assets/img/posts/reserva-rolamentos-diagnostico/card-640.webp"

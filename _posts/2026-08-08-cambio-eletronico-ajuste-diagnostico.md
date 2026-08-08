@@ -27,6 +27,7 @@ price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "cambio-eletronico", "shimano-di2", "ajuste", "diagnostico"]
 description: "Guia técnico para ajustar e diagnosticar o câmbio eletrônico Shimano Di2 sob carga, evitar falhas de troca e preservar o funcionamento do sistema."
+direct_answer: "Falhas do Shimano Di2 sob carga devem ser diagnosticadas em sequência: bateria e conexões, alinhamento da gancheira, fixação e desgaste da transmissão, limites e microajuste. Ajustar eletronicamente sem excluir causas mecânicas tende a mascarar o problema."
 image: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/hero-1600.webp"
 image_mobile: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/hero-800.webp"
 thumbnail: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/card-640.webp"

@@ -91,6 +91,10 @@ Taxas operacionais:
 - intenção comercial = usuários com `store_click` / usuários com `view_item`;
 - uso do comparador = usuários com `comparison_complete` / usuários com `comparison_add`.
 
+### Tráfego de assistentes de IA
+
+O coletor classifica referências conhecidas de ChatGPT, Perplexity, Claude, Gemini, Microsoft Copilot, Meta AI e Poe sem armazenar a pergunta do usuário. As dimensões `traffic_source_type` e `ai_assistant_source` acompanham o evento `ai_referral_visit`. O parâmetro oficial `utm_source=chatgpt.com` também é reconhecido. Referenciadores desconhecidos permanecem como `standard`; nenhuma origem é inferida sem evidência no referrer ou UTM.
+
 ### Públicos comportamentais
 
 1. **Leitores técnicos engajados (28 dias):** usuários que acionaram `qualified_read` ao chegar a 75% do artigo.

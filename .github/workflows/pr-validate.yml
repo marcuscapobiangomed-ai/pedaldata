@@ -144,5 +144,8 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Validate AI discovery artifact
+        run: npm run validate:ai-build
+
       - name: Bloquear credenciais no site gerado
         run: npm run security:public

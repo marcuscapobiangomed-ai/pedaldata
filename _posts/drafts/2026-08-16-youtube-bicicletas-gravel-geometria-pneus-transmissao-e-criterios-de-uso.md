@@ -27,6 +27,7 @@ price_checked_at: "2026-08-08"
 category: "guia-tecnico"
 tags: ["ciclismo", "gravel", "geometria", "transmissao", "manutencao"]
 description: "Domine a geometria, transmissão e pneus das gravel bikes. Guia técnico para ciclistas avançados sobre performance, estabilidade e configuração de equipamentos."
+direct_answer: "Domine a geometria, transmissão e pneus das gravel bikes. Guia técnico para ciclistas avançados sobre performance, estabilidade e configuração de equipamentos."
 image: "/assets/img/posts/youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso/hero-1600.webp"
 image_mobile: "/assets/img/posts/youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso/hero-800.webp"
 thumbnail: "/assets/img/posts/youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso/card-640.webp"

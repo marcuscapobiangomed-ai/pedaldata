@@ -43,6 +43,20 @@ IA pode apoiar pesquisa, estrutura e revisão, mas nunca substituir confirmaçã
 
 Nenhum arquivo especial garante citação por uma IA. A condição durável é permitir rastreamento e publicar respostas originais, claras, estáveis e corroboradas.
 
+### Contratos implantados
+
+- `direct_answer` é obrigatório e aparece como conteúdo visível no início do artigo;
+- FAQ estruturada é opcional e só gera `FAQPage` quando pergunta e resposta também aparecem na página;
+- o JSON-LD editorial é renderizado estaticamente, com organização, site, artigo, breadcrumbs, fontes e FAQ aplicável;
+- `/llms.txt` funciona como mapa curto de prioridades recentes, limitado a 20 artigos;
+- `/api/content-index.json` é o catálogo completo e escalável, com resposta direta, fontes e estado de prontidão para citação;
+- o artefato Jekyll compilado é validado antes do deploy, incluindo JSON, JSON-LD e coerência entre FAQ visível e estruturada;
+- referências conhecidas de ChatGPT, Perplexity, Claude, Gemini, Copilot, Meta AI e Poe são classificadas sem armazenar a consulta do usuário.
+
+### Política de rastreamento
+
+Bots de busca e recuperação usados para descoberta e respostas podem acessar o conteúdo público. Crawlers identificados como coleta para possível treinamento, como `GPTBot` e `ClaudeBot`, ficam bloqueados. `Google-Extended` permanece separado do Google Search e pode ser governado sem alterar a indexação tradicional. A política deve ser reavaliada quando os fornecedores mudarem seus agentes ou finalidades.
+
 ## Cadência editorial
 
 ### Semanal

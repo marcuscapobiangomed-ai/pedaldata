@@ -95,10 +95,14 @@ layout: default
         </p>
       {% endif %}
 
+      {% include answer-block.html %}
+
       <!-- Conteúdo -->
       <div class="post-content" itemprop="articleBody">
         {{ content }}
       </div>
+
+      {% include article-faq.html %}
 
       {% if page.sources and page.sources.size > 0 %}
       <section class="post-content post-sources" aria-labelledby="fontes-do-artigo">
@@ -140,18 +144,4 @@ layout: default
   </div>
 </div>
 
-<!-- Schema: BreadcrumbList -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site.url }}{{ site.baseurl }}/" }{% if post_category %},
-    { "@type": "ListItem", "position": 2, "name": "{{ post_category_label | escape }}", "item": "{{ site.url }}{{ site.baseurl }}/categorias#{{ post_category | slugify }}" },
-    { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}" }{% else %},
-    { "@type": "ListItem", "position": 2, "name": "{{ page.title | escape }}", "item": "{{ site.url }}{{ site.baseurl }}{{ page.url }}" }{% endif %}
-  ]
-}
-</script>
-
-{% include faq-schema.html %}
+{% include article-structured-data.html %}

@@ -14,6 +14,7 @@
 🖼️ Plano de imagens (assets/img/posts/<slug>/image-manifest.json)
         ↓
 ✅ Validação automática (research, claims, images, frontmatter)
+✅ Contrato AEO/GEO com resposta direta, fontes, FAQ visível e JSON-LD estático
         ↓
 🔀 Pull Request (branch content/<slug>)
         ↓

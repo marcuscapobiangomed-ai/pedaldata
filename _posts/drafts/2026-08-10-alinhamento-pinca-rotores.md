@@ -27,6 +27,7 @@ price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "guia-tecnico", "freios", "manutencao"]
 description: "Guia técnico para ciclistas avançados: alinhe pinças, centralize rotores e escolha pastilhas para zerar o atrito sem sacrificar a potência de frenagem em bikes de estrada e MTB."
+direct_answer: "Guia técnico para ciclistas avançados: alinhe pinças, centralize rotores e escolha pastilhas para zerar o atrito sem sacrificar a potência de frenagem em bikes de estrada e MTB."
 image: "/assets/img/posts/alinhamento-pinca-rotores/hero-1600.webp"
 image_mobile: "/assets/img/posts/alinhamento-pinca-rotores/hero-800.webp"
 thumbnail: "/assets/img/posts/alinhamento-pinca-rotores/card-640.webp"

@@ -77,6 +77,14 @@ export function generateMarkdown(article) {
     `category: "${escapeYaml(data.category)}"`,
     `tags: ${yamlList(data.tags)}`,
     `description: "${escapeYaml(data.description)}"`,
+    `direct_answer: "${escapeYaml(data.direct_answer)}"`,
+    ...(data.faq.length > 0 ? [
+      "faq:",
+      ...data.faq.map((item) => [
+        `  - question: "${escapeYaml(item.question)}"`,
+        `    answer: "${escapeYaml(item.answer)}"`,
+      ]).flat(),
+    ] : []),
     `image: "${escapeYaml(image)}"`,
     `image_mobile: "${escapeYaml(isFallbackImage ? (preset.mobile || image) : image)}"`,
     `thumbnail: "${escapeYaml(thumbnail)}"`,

@@ -27,6 +27,7 @@ price_checked_at: "2026-08-04"
 category: "reviews"
 tags: ["scott", "sram"]
 description: "Análise documental da Scott Spark RC Team 2027: quadro HMF, suspensão de 120 mm e transmissão SRAM Eagle AXS, com comparação interna da linha."
+direct_answer: "A Spark RC Team 2027 combina quadro HMF, suspensão de 120 mm e transmissão eletrônica Eagle AXS em uma plataforma de cross-country. Esta é uma análise documental: especificações e posição na linha são verificadas, mas não há alegação de teste de pilotagem."
 image: "/assets/img/posts/review-spark-rc-team-2027/hero-1600.webp"
 image_mobile: "/assets/img/posts/review-spark-rc-team-2027/hero-800.webp"
 thumbnail: "/assets/img/posts/review-spark-rc-team-2027/card-640.webp"

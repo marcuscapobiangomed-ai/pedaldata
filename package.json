@@ -23,6 +23,7 @@
     "automation:doctor": "npm --prefix bot run automation:doctor",
     "automation:run": "npm --prefix bot run automation:run",
     "build:jekyll": "bundle exec jekyll build --baseurl \"\"",
+    "validate:ai-build": "node scripts/validate-built-ai-discovery.mjs",
     "sync:product-pages": "node scripts/sync-product-pages.js",
     "check:product-pages": "node scripts/sync-product-pages.js --check",
     "catalog:public": "node scripts/build-public-catalog.js",

@@ -51,6 +51,13 @@ expect(consent.includes('(admin|search|login|conta)'), 'Clarity não exclui pág
 for (const eventName of ['content_view', 'scroll_depth', 'qualified_read', 'view_item', 'comparison_complete', 'store_click']) {
   expect(events.includes(`'${eventName}'`), `Evento obrigatório ausente: ${eventName}`)
 }
+expect(events.includes("'ai_referral_visit'"), 'Evento de referência por assistente de IA ausente')
+for (const assistant of ['chatgpt', 'perplexity', 'claude', 'gemini', 'microsoft_copilot']) {
+  expect(events.includes(`'${assistant}'`), `Classificação de assistente ausente: ${assistant}`)
+}
+for (const parameter of ['traffic_source_type', 'ai_assistant_source']) {
+  expect(events.includes(parameter), `Parâmetro de aquisição por IA ausente: ${parameter}`)
+}
 for (const parameter of ['audience_segment', 'audience_intent', 'experience_level_target']) {
   expect(events.includes(parameter), `Parâmetro de público ausente: ${parameter}`)
   expect(analyticsInclude.includes(parameter.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())), `Configuração Liquid ausente: ${parameter}`)
