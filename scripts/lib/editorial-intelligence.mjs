@@ -16,6 +16,7 @@ const DEFAULT_CYCLING_TERMS = [
 const MOTORIZED_FALSE_POSITIVES = /\b(dirt bike|motocross|motorcycle|motorbike|motocicleta|surron|sur ron|pit bike|mini bike|quadriciclo|atv|\d{2,4}\s*cc)\b/;
 const NON_TECHNICAL_VIDEO_NOISE = /\b(futebol|football|soccer|scaloni|messi|neymar|stunt|manobra viral|pegadinha|prank|funny|noob|legend|outfit|criança|crianca|kids?|child|dirtbike|motovlog)\b/;
 const BRAZIL_RELEVANCE_TERMS = ['brasil', 'ciclismo', 'ciclista', 'bicicleta', 'mountain bike', 'mtb', 'gravel', 'speed', 'estrada', 'pedal', 'suspensao', 'shimano', 'sram', 'scott'];
+const PORTUGUESE_CONTENT_TERMS = ['como', 'para', 'porque', 'qual', 'guia', 'teste', 'ajuste', 'manutencao', 'bicicleta', 'ciclismo', 'suspensao', 'pneu', 'freio', 'trilha', 'pedal', 'brasil', 'minha', 'depois', 'opiniao', 'primeiras', 'impressoes'];
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -38,7 +39,10 @@ function isCyclingVideo(video, config) {
     : DEFAULT_CYCLING_TERMS;
   const cyclingMatch = terms.some((term) => haystack.includes(normalizeText(term)));
   const brazilMatch = BRAZIL_RELEVANCE_TERMS.some((term) => haystack.includes(normalizeText(term)));
-  return cyclingMatch && brazilMatch;
+  const declaredLanguage = String(video.snippet?.defaultAudioLanguage || video.snippet?.defaultLanguage || '').toLowerCase();
+  const portugueseMatches = PORTUGUESE_CONTENT_TERMS.filter((term) => haystack.includes(term)).length;
+  const portugueseContent = declaredLanguage.startsWith('pt') || portugueseMatches >= 2;
+  return cyclingMatch && brazilMatch && (!config.requirePortugueseYouTube || portugueseContent);
 }
 
 function durationSeconds(value) {

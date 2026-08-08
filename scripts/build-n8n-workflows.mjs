@@ -82,6 +82,7 @@ return [{ json: {
     searchConsoleCountry: 'bra',
     maximumSearchQueries: 1000,
     youtubeMaximumVideos: 20,
+    requirePortugueseYouTube: true,
     youtubeSearches: [
       { id: 'ciclismo-tecnico', regionCode: 'BR', relevanceLanguage: 'pt', query: 'ciclismo técnico bicicleta' },
       { id: 'mountain-bike', regionCode: 'BR', relevanceLanguage: 'pt', query: 'mountain bike MTB Brasil' },

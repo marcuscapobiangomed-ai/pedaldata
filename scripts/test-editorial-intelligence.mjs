@@ -12,6 +12,7 @@ const config = {
   searchConsoleCountry: 'bra',
   maximumSearchQueries: 1000,
   youtubeMaximumVideos: 20,
+  requirePortugueseYouTube: true,
   cyclingTerms: ['ciclismo', 'bicicleta', 'mtb', 'suspensão', 'brasil'],
   blockedPromotionBrands: ['Trek'],
   portfolioBrands: ['Scott', 'Shimano'],
