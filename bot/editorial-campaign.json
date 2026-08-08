@@ -227,7 +227,10 @@
       "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-14-reserva-inspecao-pos-chuva.md",
+      "imageManifestPath": "assets/img/posts/reserva-inspecao-pos-chuva/image-manifest.json",
+      "imageStatus": "approved",
       "imageAssetIds": [],
+      "imageValidatedAt": "2026-08-08T04:15:44.581Z",
       "attempts": 1,
       "lastAttemptAt": "2026-08-08T04:08:25.560Z",
       "aiReview": {
@@ -243,10 +246,7 @@
           "finalAudit": "deepseek"
         },
         "generatedAt": "2026-08-08T04:08:25.560Z"
-      },
-      "imageManifestPath": "assets/img/posts/reserva-inspecao-pos-chuva/image-manifest.json",
-      "imageStatus": "approved",
-      "imageValidatedAt": "2026-08-08T04:15:44.581Z"
+      }
     },
     {
       "day": 8,
@@ -256,10 +256,12 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 54.403 visualizações; 41.954 por dia.",
       "category": "componentes",
       "freshness": "event-driven",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-08T09:41:38.949Z",
+      "blockReason": "Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada"
     },
     {
       "day": 9,
