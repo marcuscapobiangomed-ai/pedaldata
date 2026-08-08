@@ -3,10 +3,10 @@ layout: post
 published: false
 title: "Bike de fábrica vs. bike de competição: o que realmente muda na prática"
 slug: "bike-de-fabrica-vs-bike-de-competicao"
-date: 2026-08-08
+date: 2026-08-15
 last_modified_at: 2026-08-08
 author: "Equipe TheBiker"
-reviewed_by: ""
+reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "comparativo"
 audience_segment: "core_technical_cyclists"
 audience_intent: "compare_products"
@@ -27,24 +27,24 @@ price_checked_at: "2026-08-08"
 category: "guias-de-compra"
 tags: ["ciclismo", "performance", "tecnologia"]
 description: "Análise técnica sobre as diferenças entre bicicletas de série e máquinas de competição, focando em geometria, componentes, peso e performance."
-image: "/assets/img/system/covers/comparativo/hero.webp"
-image_mobile: "/assets/img/system/covers/comparativo/hero.webp"
-thumbnail: "/assets/img/system/covers/comparativo/thumb-480.webp"
+image: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/hero-1600.webp"
+image_mobile: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/hero-800.webp"
+thumbnail: "/assets/img/posts/bike-de-fabrica-vs-bike-de-competicao/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "system-fallback"
-image_status: "draft"
-image_alt: "Comparativo técnico entre bike de fábrica e bike de competição"
-image_caption: "Diferenças estruturais e de componentes definem o uso final da bicicleta."
-image_credit: "TheBiker com geração assistida por IA"
-image_license: "Uso editorial interno TheBiker"
+image_asset_type: "technical-diagram"
+image_status: "approved"
+image_alt: "Capa técnica TheBiker para o artigo Bike de fábrica vs. bike de competição: o que realmente muda na prática"
+image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
+image_credit: "TheBiker"
+image_license: "Propriedade editorial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["TheBiker"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/bikes/"
 portfolio_verified_at: "2026-08-08"
-editorial_status: "draft"
-status: "draft"
+editorial_status: "reviewed"
+status: "scheduled"
 sources:
   - name: "TheBiker Shop – Catálogo de Bikes"
     type: "store"
