@@ -83,10 +83,16 @@ const groundedPayload = {
   candidates: [{ content: { parts: [{ text: JSON.stringify({ confirmed_facts: { material: 'Carbono HMF' }, limitations: [], sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessed: '2026-08-04' }] }) }] }, groundingMetadata: { webSearchQueries: ['site:scott-sports.com teste'] } }]
 };
 const groqPayload = { choices: [{ message: { content: groundedPayload.candidates[0].content.parts[0].text } }] };
-const researcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async () => ({ ok: true, json: async () => groqPayload }));
+let groundedRequest;
+const researcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async (_url, init) => {
+  groundedRequest = JSON.parse(init.body);
+  return { ok: true, json: async () => groqPayload };
+});
 const grounded = await researcher.research({ item: { ...campaign.items[0], freshness: 'revalidate-24h' }, internalEvidence: [], today: '2026-08-04' });
 assert.equal(grounded.status, 'pesquisa_concluida');
 assert.equal(grounded.sources.length, 1);
+assert.equal(groundedRequest.model, 'groq/compound-mini');
+assert.deepEqual(groundedRequest.compound_custom.tools.enabled_tools, ['web_search', 'visit_website']);
 const fallbackResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async () => ({ ok: false, status: 429, text: async () => 'quota' }));
 const fallbackGrounded = await fallbackResearcher.research({
   item: campaign.items[0],

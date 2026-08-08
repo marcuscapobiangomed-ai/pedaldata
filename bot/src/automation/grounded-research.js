@@ -64,7 +64,7 @@ function internalResearch({ item, internalEvidence, today, contentType, reason, 
     }
   }
   const sources = [...sourceMap.values()]
-  if (sources.length === 0) throw new Error('Fallback interno bloqueado: nenhuma fonte oficial permitida')
+  if (sources.length === 0) throw new Error(`Fallback interno bloqueado: nenhuma fonte oficial permitida (${reason})`)
   return validateResearch({
     slug: item.id,
     title: item.title,
@@ -109,13 +109,28 @@ export class GroundedResearcher {
     ].join('\n')
     if (provider !== 'groq') throw new Error(`Provedor de pesquisa não suportado: ${provider}`)
     if (!this.env.GROQ_API_KEY) throw new Error('GROQ_API_KEY é obrigatória para pesquisa atual')
-    const model = this.env.GROQ_RESEARCH_MODEL || this.env.GROQ_MODEL || 'openai/gpt-oss-120b'
+    const model = this.env.GROQ_RESEARCH_MODEL || 'groq/compound-mini'
+    const requestBody = model.startsWith('groq/compound')
+      ? {
+          model,
+          messages: [{ role: 'user', content: prompt }],
+          compound_custom: { tools: { enabled_tools: ['web_search', 'visit_website'] } },
+        }
+      : {
+          model,
+          messages: [{ role: 'user', content: prompt }],
+          tools: [{ type: 'browser_search' }],
+          tool_choice: 'required',
+          reasoning_effort: 'low',
+          temperature: 0,
+          max_completion_tokens: 2500,
+        }
     let response
     try {
       response = await fetchGrounded(this.fetch, `${(this.env.GROQ_BASE_URL || 'https://api.groq.com/openai/v1').replace(/\/$/, '')}/chat/completions`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${this.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], tools: [{ type: 'browser_search' }], temperature: 0, max_tokens: 2500 }),
+        body: JSON.stringify(requestBody),
       }, this.env)
     } catch (error) {
       if (!raceCoverage) {
@@ -170,6 +185,7 @@ export class GroundedResearcher {
       queries: [],
       sourceCount: research.sources.length,
       provider: 'groq-browser-search',
+      model,
     }
     return validateResearch(research)
   }
