@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "reserva-diagnostico-ruidos-bike",
-      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
-      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
-      "category": "manutencao-ajustes",
+      "id": "reserva-pressao-pneus-terreno",
+      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
+      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
+      "category": "engenharia",
       "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T03:43:55.037Z",
-      "blockReason": "Gates editoriais não atendidos: extensão insuficiente: 1462 palavras; mínimo 1600"
+      "lastAttemptAt": "2026-08-08T03:51:47.502Z",
+      "blockReason": "Fallback interno bloqueado: nenhuma fonte oficial permitida (Groq 429)"
     },
     {
       "day": 8,
@@ -558,12 +558,6 @@
   ],
   "reserves": [
     {
-      "id": "reserva-pressao-pneus-terreno",
-      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
-      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
-      "category": "engenharia"
-    },
-    {
       "id": "reserva-inspecao-pos-chuva",
       "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste",
       "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
@@ -579,6 +573,12 @@
       "id": "reserva-limpeza-transmissao-metodo",
       "title": "Limpeza de transmissão: como remover contaminantes sem deslocar o problema",
       "summary": "Sequência de limpeza, inspeção e relubrificação que considera corrente, cassete, coroas, roldanas e compatibilidade química.",
+      "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
       "category": "manutencao-ajustes"
     }
   ]

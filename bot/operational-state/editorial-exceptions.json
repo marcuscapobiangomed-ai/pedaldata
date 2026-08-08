@@ -168,6 +168,30 @@
         "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface"
       },
       "reason": "Fallback interno bloqueado: nenhuma fonte oficial permitida"
+    },
+    {
+      "recordedAt": "2026-08-08T03:51:46.647Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "reserva-diagnostico-ruidos-bike",
+        "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+        "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+        "category": "manutencao-ajustes",
+        "freshness": "evergreen",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "Gates editoriais não atendidos: extensão insuficiente: 1462 palavras; mínimo 1600",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T03:43:55.037Z"
+      },
+      "replacement": {
+        "id": "reserva-pressao-pneus-terreno",
+        "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado"
+      },
+      "reason": "Gates editoriais não atendidos: extensão insuficiente: 1462 palavras; mínimo 1600"
     }
   ]
 }
