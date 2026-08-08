@@ -44,6 +44,7 @@ activeToday.items.find((item) => item.publishDate === fixtureStart).status = 'sc
 activeToday.items.find((item) => item.publishDate === fixtureNextDay).status = 'blocked'
 const scheduledFixtureId = activeToday.items.find((item) => item.publishDate === fixtureStart).id
 const plannedFixtureId = activeToday.items.find((item) => item.publishDate === fixtureNextDay).id
+const staleReserveId = activeToday.reserves[0].id
 const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date(`${fixtureStart}T12:00:00-03:00`), ai })
 assert.equal(renewed.items.length, 30)
 assert.equal(renewed.startsOn, fixtureStart)
@@ -52,6 +53,8 @@ assert.equal(new Set(renewed.items.map((item) => item.publishDate)).size, 30)
 assert.equal(renewed.items.some((item) => item.status === 'blocked'), false)
 assert.ok(renewed.items.some((item) => item.id === scheduledFixtureId), 'conteúdo já agendado deve ser preservado')
 assert.equal(renewed.items.some((item) => item.id === plannedFixtureId), false, 'pauta ainda planejada deve ser substituída pela inteligência atual')
+assert.equal(renewed.items.some((item) => item.id === staleReserveId), false, 'reserva do ciclo anterior não deve contaminar o novo mês')
+assert.equal(renewed.reserves.some((item) => item.id === staleReserveId), false, 'buffer renovado deve vir apenas da inteligência atual')
 assert.ok(renewed.items.some((item) => item.id === 'seo-topic-1'), 'inteligência nova deve preencher lacunas')
 assert.ok(renewed.reserves.length >= 3)
 

@@ -5,6 +5,7 @@ import { CampaignSchema, publicCampaignSummary } from './campaign.js'
 
 const READY_STATUSES = new Set(['researching', 'research-ready', 'drafting', 'validation', 'approved', 'scheduled'])
 const CATEGORY_VALUES = new Set(['manutencao-ajustes', 'engenharia', 'review', 'comparativo', 'componentes', 'lancamentos', 'competicoes'])
+const MONTHLY_PLANNER_REVISION = 2
 
 function normalize(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
@@ -145,7 +146,7 @@ export function parseIntelligenceMarkdown(markdown) {
 }
 
 export function intelligenceSourceDigest(report) {
-  return crypto.createHash('sha256').update(JSON.stringify(report)).digest('hex')
+  return crypto.createHash('sha256').update(JSON.stringify({ plannerRevision: MONTHLY_PLANNER_REVISION, report })).digest('hex')
 }
 
 export async function buildRollingCampaign({ existing, report, now = new Date(), ai } = {}) {
@@ -164,9 +165,7 @@ export async function buildRollingCampaign({ existing, report, now = new Date(),
   }
   const occupiedTitles = [...retained.values()].map((item) => normalize(item.title))
   const fresh = (report.briefs || []).filter((brief) => brief.action === 'new-content').map(candidateFromBrief)
-  const existingPlanned = current.items.filter((item) => item.status === 'planned' && !dates.includes(item.publishDate)).map(candidateFromReserve)
-  const reserves = current.reserves.map(candidateFromReserve)
-  let candidates = uniqueCandidates([...fresh, ...existingPlanned, ...reserves], occupiedTitles)
+  let candidates = uniqueCandidates(fresh, occupiedTitles)
   const openDates = dates.filter((date) => !retained.has(date)).length
   const missingBeforeAi = openDates + 3 - candidates.length
   if (missingBeforeAi > 0) {
@@ -181,7 +180,6 @@ export async function buildRollingCampaign({ existing, report, now = new Date(),
   const usedIds = new Set(items.map((item) => item.id))
   const reservePool = uniqueCandidates([
     ...candidates,
-    ...current.reserves.map(candidateFromReserve),
     ...fresh,
   ], items.map((item) => normalize(item.title))).filter((item) => !usedIds.has(item.id))
   if (reservePool.length < 3) {
