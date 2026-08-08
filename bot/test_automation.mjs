@@ -62,9 +62,9 @@ const conceptualVisualRoot = path.join(root, "conceptual-visual");
 const conceptualVisual = await produceCampaignVisual({
   root: conceptualVisualRoot,
   item: {
-    id: "inspecao-pos-chuva",
-    title: "Inspeção pós-chuva",
-    category: "manutencao-ajustes",
+    id: "bike-de-fabrica-vs-bike-de-competicao",
+    title: "Bike de fábrica vs. bike de competição",
+    category: "comparativo",
     productIds: [],
   },
   approvedAt: "2026-08-08",

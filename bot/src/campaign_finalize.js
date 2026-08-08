@@ -22,8 +22,8 @@ function setField(content, field, value) {
 }
 
 export async function produceCampaignVisual({ root, item, approvedAt }) {
-  const conceptualCategory = ["manutencao-ajustes", "engenharia"].includes(item.category);
-  if (conceptualCategory && (item.productIds || []).length === 0) {
+  const hasExactProduct = (item.productIds || []).length > 0;
+  if (!hasExactProduct) {
     return produceCampaignCover({ root, item, approvedAt });
   }
   return produceOfficialCampaignImage({ root, item, approvedAt });
