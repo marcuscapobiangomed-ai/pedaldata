@@ -144,6 +144,30 @@
         "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial"
       },
       "reason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]"
+    },
+    {
+      "recordedAt": "2026-08-08T03:43:54.462Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "inovacao-componentes-diferenciar-apelo-comercial",
+        "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial",
+        "summary": "Critérios para avaliar se uma novidade técnica traz ganho mensurável ou apenas reposicionamento, com foco em aplicação prática.",
+        "category": "lancamentos",
+        "freshness": "revalidate-24h",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "Fallback interno bloqueado: nenhuma fonte oficial permitida",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T03:40:12.224Z"
+      },
+      "replacement": {
+        "id": "reserva-diagnostico-ruidos-bike",
+        "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface"
+      },
+      "reason": "Fallback interno bloqueado: nenhuma fonte oficial permitida"
     }
   ]
 }

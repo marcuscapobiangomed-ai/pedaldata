@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "inovacao-componentes-diferenciar-apelo-comercial",
-      "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial",
-      "summary": "Critérios para avaliar se uma novidade técnica traz ganho mensurável ou apenas reposicionamento, com foco em aplicação prática.",
-      "category": "lancamentos",
-      "freshness": "revalidate-24h",
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes",
+      "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T03:40:12.224Z",
-      "blockReason": "Fallback interno bloqueado: nenhuma fonte oficial permitida"
+      "lastAttemptAt": "2026-08-08T03:43:55.037Z",
+      "blockReason": "Gates editoriais não atendidos: extensão insuficiente: 1462 palavras; mínimo 1600"
     },
     {
       "day": 8,
@@ -557,12 +557,6 @@
     }
   ],
   "reserves": [
-    {
-      "id": "reserva-diagnostico-ruidos-bike",
-      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
-      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
-      "category": "manutencao-ajustes"
-    },
     {
       "id": "reserva-pressao-pneus-terreno",
       "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
