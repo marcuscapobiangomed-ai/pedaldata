@@ -1,6 +1,25 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import { buildEditorialIntelligence, intelligenceMarkdown, queryCluster, searchIntent } from './lib/editorial-intelligence.mjs';
-import { periodsFor } from './run-editorial-intelligence.mjs';
+import { cachedYoutubePayload, periodsFor } from './run-editorial-intelligence.mjs';
+
+const youtubeCache = await fs.mkdtemp(path.join(os.tmpdir(), 'thebiker-youtube-cache-'));
+let youtubeLoads = 0;
+const firstCachedPayload = await cachedYoutubePayload({
+  cacheDirectory: youtubeCache,
+  key: 'busca-brasil',
+  loader: async () => { youtubeLoads += 1; return { items: [{ id: 'video-1' }] }; },
+});
+const secondCachedPayload = await cachedYoutubePayload({
+  cacheDirectory: youtubeCache,
+  key: 'busca-brasil',
+  loader: async () => { youtubeLoads += 1; return { items: [] }; },
+});
+assert.equal(youtubeLoads, 1);
+assert.deepEqual(secondCachedPayload, firstCachedPayload);
+await fs.rm(youtubeCache, { recursive: true, force: true });
 
 const context = {
   runKey: 'weekly-2026-08-08',

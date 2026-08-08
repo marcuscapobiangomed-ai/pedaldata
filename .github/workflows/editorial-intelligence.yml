@@ -50,6 +50,12 @@ jobs:
             cadence="weekly"
           fi
           echo "value=$cadence" >> "$GITHUB_OUTPUT"
+          echo "cache_key=$cadence-$(date -u +%F)" >> "$GITHUB_OUTPUT"
+      - name: Restore daily YouTube search cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}/youtube-intelligence-cache
+          key: youtube-intelligence-v1-${{ steps.cadence.outputs.cache_key }}
       - name: Build intelligence report
         id: report
         env:
@@ -59,6 +65,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'https://marcuscapobiangomed-ai.github.io/thebikerblog/' }}
           CONTENT_INDEX_URL: ${{ vars.CONTENT_INDEX_URL || 'https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json' }}
+          YOUTUBE_CACHE_DIR: ${{ runner.temp }}/youtube-intelligence-cache
         shell: bash
         run: |
           result="$(node scripts/run-editorial-intelligence.mjs --cadence "${{ steps.cadence.outputs.value }}" --output "$RUNNER_TEMP/intelligence")"

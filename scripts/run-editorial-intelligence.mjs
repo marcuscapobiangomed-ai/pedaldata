@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { buildEditorialIntelligence, intelligenceMarkdown } from './lib/editorial-intelligence.mjs';
 
@@ -110,6 +111,21 @@ async function youtubeGet(endpoint, parameters, authorization) {
   return responseJson(response, `YouTube ${endpoint}`);
 }
 
+export async function cachedYoutubePayload({ cacheDirectory, key, loader }) {
+  if (!cacheDirectory) return loader();
+  const digest = createHash('sha256').update(key).digest('hex');
+  const cachePath = path.join(cacheDirectory, `${digest}.json`);
+  try {
+    return JSON.parse(await fs.readFile(cachePath, 'utf8'));
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+  }
+  const payload = await loader();
+  await fs.mkdir(cacheDirectory, { recursive: true });
+  await fs.writeFile(cachePath, JSON.stringify(payload) + '\n');
+  return payload;
+}
+
 async function youtubeVideos({ env, accessToken, config, periods }) {
   const authorization = youtubeAuthorization(env, accessToken);
   const searchesConfig = Array.isArray(config.youtubeSearches) && config.youtubeSearches.length > 0
@@ -117,17 +133,16 @@ async function youtubeVideos({ env, accessToken, config, periods }) {
     : [{ id: 'ciclismo', regionCode: 'BR', relevanceLanguage: 'pt', query: 'ciclismo bicicleta mountain bike Brasil' }];
   const searches = await Promise.all(searchesConfig.map(async (market) => {
     const query = String(market.query || 'ciclismo bicicleta Brasil');
-    const payload = await youtubeGet('search', {
-      part: 'snippet',
-      type: 'video',
-      order: 'viewCount',
-      maxResults: 50,
-      regionCode: market.regionCode,
-      relevanceLanguage: market.relevanceLanguage,
-      videoCategoryId: 17,
-      publishedAfter: `${periods.current.startDate}T00:00:00Z`,
-      q: query,
-    }, authorization);
+    const parameters = {
+      part: 'snippet', type: 'video', order: 'viewCount', maxResults: 50,
+      regionCode: market.regionCode, relevanceLanguage: market.relevanceLanguage,
+      videoCategoryId: 17, publishedAfter: `${periods.current.startDate}T00:00:00Z`, q: query,
+    };
+    const payload = await cachedYoutubePayload({
+      cacheDirectory: env.YOUTUBE_CACHE_DIR,
+      key: JSON.stringify(parameters),
+      loader: () => youtubeGet('search', parameters, authorization),
+    });
     return { market, items: payload.items || [] };
   }));
   const metadata = new Map();
