@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
 import { produceOfficialCampaignImage } from "./images/official-campaign-image.js";
+import { produceCampaignCover } from "./images/campaign-cover.js";
 import { linkTheBikerProducts, loadTheBikerLinkData } from "./editorial/product-linker.js";
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -20,7 +21,15 @@ function setField(content, field, value) {
   return content.replace(pattern, line);
 }
 
-export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(), imageProducer = produceOfficialCampaignImage } = {}) {
+export async function produceCampaignVisual({ root, item, approvedAt }) {
+  const conceptualCategory = ["manutencao-ajustes", "engenharia"].includes(item.category);
+  if (conceptualCategory && (item.productIds || []).length === 0) {
+    return produceCampaignCover({ root, item, approvedAt });
+  }
+  return produceOfficialCampaignImage({ root, item, approvedAt });
+}
+
+export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(), imageProducer = produceCampaignVisual } = {}) {
   const campaignPath = path.join(root, "bot/editorial-campaign.json");
   const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(campaignPath, "utf8")));
   const item = campaign.items.find((candidate) => candidate.status === "validation") || null;

@@ -11,6 +11,7 @@ import { classifyOfficialImageQuality } from "./src/images/official-campaign-ima
 import { selectKnowledgeEvidence } from "./src/campaign_producer.js";
 import { selectScheduledPublication } from "./src/publish_scheduled.js";
 import { buildRepairPrompt } from "./src/editorial-prompt.js";
+import { produceCampaignVisual } from "./src/campaign_finalize.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -51,6 +52,19 @@ assert.match(buildRepairPrompt({
   template: { label: 'Guia técnico' },
   today: '2026-08-08',
 }), /ao menos 1840 palavras reais/);
+const conceptualVisualRoot = path.join(root, "conceptual-visual");
+const conceptualVisual = await produceCampaignVisual({
+  root: conceptualVisualRoot,
+  item: {
+    id: "inspecao-pos-chuva",
+    title: "Inspeção pós-chuva",
+    category: "manutencao-ajustes",
+    productIds: [],
+  },
+  approvedAt: "2026-08-08",
+});
+assert.equal(conceptualVisual.manifest.assetType, "technical-diagram");
+assert.equal(conceptualVisual.manifest.source.type, "own-production");
 const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';
