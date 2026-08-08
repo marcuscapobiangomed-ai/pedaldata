@@ -7,7 +7,7 @@ const report = {
   runKey: 'monthly-2026-08-07',
   cadence: 'monthly',
   generatedAt: '2026-08-07T10:10:00.000Z',
-  briefs: Array.from({ length: 30 }, (_, index) => `método técnico de ciclismo ${'x'.repeat(index + 4)}`).map((topic, index) => ({
+  briefs: Array.from({ length: 12 }, (_, index) => `método técnico de ciclismo ${'x'.repeat(index + 4)}`).map((topic, index) => ({
     id: `seo-topic-${index + 1}`,
     action: 'new-content',
     topic: `Técnica avançada de ${topic}`,
@@ -16,6 +16,20 @@ const report = {
   })),
   refreshQueue: [{ title: 'Artigo antigo', url: 'https://example.com/antigo/', ageDays: 200 }],
   marketSignals: [],
+}
+const ai = {
+  async generate(_system, prompt) {
+    const missing = Number(prompt.match(/Crie exatamente (\d+) pautas/)?.[1] || 0)
+    return JSON.stringify({
+      topics: Array.from({ length: missing }, (_, index) => ({
+        id: `ai-topic-${index + 1}`,
+        title: `Planejamento técnico complementar ${'z'.repeat(index + 4)}`,
+        summary: `Pauta técnica complementar ${index + 1} com método verificável, fontes primárias e aplicação para ciclistas experientes.`,
+        category: 'engenharia',
+        freshness: 'evergreen',
+      })),
+    })
+  },
 }
 
 const markdown = `<details><summary>Payload</summary>\n\n\`\`\`json\n${JSON.stringify(report)}\n\`\`\`\n</details>`
@@ -30,7 +44,7 @@ activeToday.items.find((item) => item.publishDate === fixtureStart).status = 'sc
 activeToday.items.find((item) => item.publishDate === fixtureNextDay).status = 'blocked'
 const scheduledFixtureId = activeToday.items.find((item) => item.publishDate === fixtureStart).id
 const plannedFixtureId = activeToday.items.find((item) => item.publishDate === fixtureNextDay).id
-const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date(`${fixtureStart}T12:00:00-03:00`) })
+const renewed = await buildRollingCampaign({ existing: activeToday, report, now: new Date(`${fixtureStart}T12:00:00-03:00`), ai })
 assert.equal(renewed.items.length, 30)
 assert.equal(renewed.startsOn, fixtureStart)
 assert.deepEqual(renewed.items.map((item) => item.day), Array.from({ length: 30 }, (_, index) => index + 1))
@@ -43,6 +57,6 @@ assert.ok(renewed.reserves.length >= 3)
 
 const publishedToday = structuredClone(campaignFixture)
 publishedToday.items.find((item) => item.publishDate === fixtureStart).status = 'published'
-const shifted = await buildRollingCampaign({ existing: publishedToday, report, now: new Date(`${fixtureStart}T18:00:00-03:00`) })
+const shifted = await buildRollingCampaign({ existing: publishedToday, report, now: new Date(`${fixtureStart}T18:00:00-03:00`), ai })
 assert.equal(shifted.startsOn, fixtureNextDay)
 console.log('Renovação mensal de 30 dias validada com sucesso.')

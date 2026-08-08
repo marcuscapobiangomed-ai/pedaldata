@@ -167,7 +167,8 @@ export async function buildRollingCampaign({ existing, report, now = new Date(),
   const existingPlanned = current.items.filter((item) => item.status === 'planned' && !dates.includes(item.publishDate)).map(candidateFromReserve)
   const reserves = current.reserves.map(candidateFromReserve)
   let candidates = uniqueCandidates([...fresh, ...existingPlanned, ...reserves], occupiedTitles)
-  const missingBeforeAi = dates.filter((date) => !retained.has(date)).length - candidates.length
+  const openDates = dates.filter((date) => !retained.has(date)).length
+  const missingBeforeAi = openDates + 3 - candidates.length
   if (missingBeforeAi > 0) {
     const aiCandidates = await expandWithAi({ missing: missingBeforeAi, report, occupiedTitles: [...occupiedTitles, ...candidates.map((item) => item.title)], ai })
     candidates = uniqueCandidates([...candidates, ...aiCandidates], occupiedTitles)
