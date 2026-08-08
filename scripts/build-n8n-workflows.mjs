@@ -32,6 +32,7 @@ const ids = {
   mergeBrazilSummaries: '11000000-0000-4000-8000-000000000040', mergeGlobalSummaries: '11000000-0000-4000-8000-000000000041',
   mergeSeoDiagnostics: '11000000-0000-4000-8000-000000000042', mergeSeoAll: '11000000-0000-4000-8000-000000000043',
   mergeExternalTrends: '11000000-0000-4000-8000-000000000044',
+  gscSites: '11000000-0000-4000-8000-000000000045',
 };
 
 function node(id, name, type, typeVersion, position, parameters = {}) {
@@ -91,6 +92,10 @@ return [{ json: {
   },
   config: {
     searchConsoleSiteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/',
+    searchConsoleSites: [
+      { id: 'blog', role: 'editorial', siteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/' },
+      { id: 'shop', role: 'commercial', siteUrl: 'sc-domain:thebikershop.com.br' },
+    ],
     contentIndexUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json',
     githubOwner: 'marcuscapobiangomed-ai',
     githubRepository: 'thebikerblog',
@@ -127,18 +132,34 @@ return [{ json: {
 const reportCode = `${engineSource}
 const values = $input.all().map((item) => item.json);
 const context = values.find((item) => item.kind === 'context');
-const current = values.find((item) => item.kind === 'gsc_current')?.rows || [];
-const previous = values.find((item) => item.kind === 'gsc_previous')?.rows || [];
+const rows = (kind) => values.filter((item) => item.kind === kind).flatMap((item) => item.rows || []);
+const current = rows('gsc_current');
+const previous = rows('gsc_previous');
 const videos = values.find((item) => item.kind === 'youtube')?.videos || [];
 const articles = values.find((item) => item.kind === 'content_index')?.articles || [];
-const summary = (kind) => values.find((item) => item.kind === kind)?.summary || { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+const summaries = (kind) => values.filter((item) => item.kind === kind);
+const combinedSummary = (kind) => {
+  const items = summaries(kind).map((item) => item.summary || {});
+  const impressions = items.reduce((sum, item) => sum + Number(item.impressions || 0), 0);
+  const clicks = items.reduce((sum, item) => sum + Number(item.clicks || 0), 0);
+  const weightedPosition = items.reduce((sum, item) => sum + Number(item.position || 0) * Number(item.impressions || 0), 0);
+  return { clicks, impressions, ctr: impressions ? clicks / impressions : 0, position: impressions ? weightedPosition / impressions : 0 };
+};
+const propertyDiagnostics = {};
+for (const item of values.filter((value) => value.propertyId && value.summary)) {
+  const property = propertyDiagnostics[item.propertyId] ||= { role: item.propertyRole, current: {}, previous: {} };
+  const period = item.kind.endsWith('_current') ? 'current' : 'previous';
+  const scope = item.kind.includes('_brazil_') ? 'brazil' : 'global';
+  property[period][scope] = item.summary;
+}
 const trends = values.find((item) => item.kind === 'google_trends') || { items: [], status: 'unavailable', error: 'n8n_feed_unavailable' };
 if (!context) throw new Error('Contexto da execução ausente');
 const report = buildEditorialIntelligence({
   context, config: context.config, gscCurrent: current, gscPrevious: previous, videos, articles,
   searchConsoleDiagnostics: {
-    current: { brazil: summary('gsc_brazil_summary_current'), global: summary('gsc_global_summary_current') },
-    previous: { brazil: summary('gsc_brazil_summary_previous'), global: summary('gsc_global_summary_previous') },
+    current: { brazil: combinedSummary('gsc_brazil_summary_current'), global: combinedSummary('gsc_global_summary_current') },
+    previous: { brazil: combinedSummary('gsc_brazil_summary_previous'), global: combinedSummary('gsc_global_summary_previous') },
+    properties: propertyDiagnostics,
   },
   googleTrends: trends.items || [],
   googleTrendsStatus: { status: trends.status || 'available', error: trends.error || null },
@@ -171,18 +192,19 @@ const mainNodes = [
   codeNode(ids.weeklyMode, 'Modo semanal', [-860, -180], weeklyModeCode),
   codeNode(ids.monthlyMode, 'Modo mensal', [-860, 20], monthlyModeCode),
   codeNode(ids.context, 'Contexto e configuração', [-620, -80], contextCode),
-  httpNode(ids.gscCurrent, 'Search Console atual', [-360, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  httpNode(ids.gscPrevious, 'Search Console anterior', [-360, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagCurrent, 'Marcar Search Console atual', [-100, -500], "return [{ json: { kind: 'gsc_current', rows: $input.first().json.rows || [] } }];"),
-  codeNode(ids.tagPrevious, 'Marcar Search Console anterior', [-100, -340], "return [{ json: { kind: 'gsc_previous', rows: $input.first().json.rows || [] } }];"),
+  codeNode(ids.gscSites, 'Expandir propriedades Search Console', [-500, -520], "const context=$input.first().json; return (context.config.searchConsoleSites||[{id:'blog',role:'editorial',siteUrl:context.config.searchConsoleSiteUrl}]).map((site)=>({json:{...context,config:{...context.config,searchConsoleSiteUrl:site.siteUrl},site}}));"),
+  httpNode(ids.gscCurrent, 'Search Console atual', [-260, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.site.siteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  httpNode(ids.gscPrevious, 'Search Console anterior', [-260, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.site.siteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  codeNode(ids.tagCurrent, 'Marcar Search Console atual', [-20, -500], "const site=$('Expandir propriedades Search Console').item.json.site; const rows=($input.first().json.rows||[]).map((row)=>({...row,_propertyId:site.id,_propertyRole:site.role})); return [{json:{kind:'gsc_current',propertyId:site.id,propertyRole:site.role,rows}}];"),
+  codeNode(ids.tagPrevious, 'Marcar Search Console anterior', [-20, -340], "const site=$('Expandir propriedades Search Console').item.json.site; const rows=($input.first().json.rows||[]).map((row)=>({...row,_propertyId:site.id,_propertyRole:site.role})); return [{json:{kind:'gsc_previous',propertyId:site.id,propertyRole:site.role,rows}}];"),
   httpNode(ids.gscBrazilSummaryCurrent, 'Search Console resumo Brasil atual', [-360, -680], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagBrazilSummaryCurrent, 'Marcar resumo Brasil atual', [-100, -680], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_brazil_summary_current',summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagBrazilSummaryCurrent, 'Marcar resumo Brasil atual', [-100, -680], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_brazil_summary_current',propertyId:site.id,propertyRole:site.role,summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscBrazilSummaryPrevious, 'Search Console resumo Brasil anterior', [-360, -600], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagBrazilSummaryPrevious, 'Marcar resumo Brasil anterior', [-100, -600], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_brazil_summary_previous',summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagBrazilSummaryPrevious, 'Marcar resumo Brasil anterior', [-100, -600], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_brazil_summary_previous',propertyId:site.id,propertyRole:site.role,summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscGlobalSummaryCurrent, 'Search Console resumo global atual', [-360, -840], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagGlobalSummaryCurrent, 'Marcar resumo global atual', [-100, -840], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_global_summary_current',summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagGlobalSummaryCurrent, 'Marcar resumo global atual', [-100, -840], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_global_summary_current',propertyId:site.id,propertyRole:site.role,summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscGlobalSummaryPrevious, 'Search Console resumo global anterior', [-360, -760], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagGlobalSummaryPrevious, 'Marcar resumo global anterior', [-100, -760], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_global_summary_previous',summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagGlobalSummaryPrevious, 'Marcar resumo global anterior', [-100, -760], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_global_summary_previous',propertyId:site.id,propertyRole:site.role,summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.content, 'Índice público do blog', [-360, -150], { method: 'GET', url: '={{ $json.config.contentIndexUrl }}' }),
   codeNode(ids.tagContent, 'Marcar índice do blog', [-100, -150], "const data=$input.first().json; return [{ json: { kind: 'content_index', articles: data.articles || [] } }];"),
   httpNode(ids.googleTrends, 'Google Trends RSS Brasil', [-360, -40], { method: 'GET', url: '={{ $json.config.googleTrendsRssUrl }}', options: { response: { response: { responseFormat: 'text' } } } }),
@@ -220,12 +242,15 @@ const mainConnections = {};
 connect(mainConnections, 'Agenda semanal', 'Modo semanal'); connect(mainConnections, 'Agenda mensal', 'Modo mensal');
 connect(mainConnections, 'Modo semanal', 'Contexto e configuração'); connect(mainConnections, 'Modo mensal', 'Contexto e configuração');
 for (const destination of [
-  'Search Console atual', 'Search Console anterior',
-  'Search Console resumo Brasil atual', 'Search Console resumo Brasil anterior',
-  'Search Console resumo global atual', 'Search Console resumo global anterior',
   'Índice público do blog', 'Google Trends RSS Brasil',
   'Expandir buscas do YouTube Brasil', 'YouTube populares em esportes',
 ]) connect(mainConnections, 'Contexto e configuração', destination);
+connect(mainConnections, 'Contexto e configuração', 'Expandir propriedades Search Console');
+for (const destination of [
+  'Search Console atual', 'Search Console anterior',
+  'Search Console resumo Brasil atual', 'Search Console resumo Brasil anterior',
+  'Search Console resumo global atual', 'Search Console resumo global anterior',
+]) connect(mainConnections, 'Expandir propriedades Search Console', destination);
 connect(mainConnections, 'Search Console atual', 'Marcar Search Console atual'); connect(mainConnections, 'Search Console anterior', 'Marcar Search Console anterior');
 connect(mainConnections, 'Marcar Search Console atual', 'Unir períodos SEO', 0, 0); connect(mainConnections, 'Marcar Search Console anterior', 'Unir períodos SEO', 0, 1);
 connect(mainConnections, 'Search Console resumo Brasil atual', 'Marcar resumo Brasil atual'); connect(mainConnections, 'Search Console resumo Brasil anterior', 'Marcar resumo Brasil anterior');

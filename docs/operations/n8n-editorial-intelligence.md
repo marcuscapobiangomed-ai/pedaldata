@@ -8,7 +8,9 @@ O workflow `.github/workflows/editorial-intelligence.yml` é o scheduler de prod
 
 O pacote transforma sinais semanais e mensais em uma fila priorizada de pautas e atualizações. Ele consulta Search Console, o feed RSS oficial de pesquisas em alta do Google Trends Brasil, vídeos mais vistos relacionados a ciclismo, o ranking `mostPopular` de esportes no Brasil e o índice público do blog. Depois compara demanda, desempenho e cobertura existente, cria briefings rastreáveis e registra o relatório em uma issue do GitHub.
 
-O diagnóstico do Search Console faz leituras separadas do total global, do total agregado do Brasil e das consultas detalhadas brasileiras. Isso diferencia ausência global de impressões, ausência de tráfego brasileiro e impressões brasileiras cujas consultas não ficaram visíveis por baixo volume ou privacidade. Somente as consultas detalhadas brasileiras entram no ranking e nas pautas SEO.
+O diagnóstico do Search Console consulta separadamente o blog e `sc-domain:thebikershop.com.br`, além de fazer leituras do total global, do total agregado do Brasil e das consultas detalhadas brasileiras. Isso diferencia ausência global de impressões, ausência de tráfego brasileiro e impressões brasileiras cujas consultas não ficaram visíveis por baixo volume ou privacidade. Somente as consultas detalhadas brasileiras entram no ranking e nas pautas SEO.
+
+Os dados das duas propriedades permanecem identificados como `blog`/`editorial` e `shop`/`commercial`. O relatório apresenta rankings individuais e uma camada cruzada para consultas visíveis nos dois domínios. Essa sobreposição é uma oportunidade de ligação editorial-comercial; só deve ser classificada como canibalização depois de análise da intenção e das páginas envolvidas.
 
 O Google Trends RSS é um radar complementar de aceleração jornalística. O fluxo filtra as tendências gerais por termos técnicos do nicho e aceita uma janela com zero sinais elegíveis. O feed não representa volume absoluto, não substitui o Search Console e não autoriza alegações de “palavra-chave mais pesquisada”. A API completa do Google Trends permanece opcional porque exige acesso separado ao programa alfa do Google.
 
@@ -56,12 +58,13 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 1. Importe primeiro `thebiker-intelligence-errors.json` e mantenha desativado.
 2. Importe `thebiker-seo-youtube-intelligence.json` e mantenha desativado.
 3. No nó `Contexto e configuração`, confirme a propriedade do Search Console, URL pública, repositório, termos de ciclismo e portfólio permitido.
-4. Se o domínio próprio estiver ativo no Search Console, troque `searchConsoleSiteUrl` pelo valor exato da propriedade (`sc-domain:...` ou URL-prefix).
-5. Vincule as credenciais Google e GitHub aos nós indicados.
-6. Nas configurações do fluxo principal, selecione `TheBiker — Erros da inteligência editorial` como error workflow.
-7. Execute manualmente e confira os contadores de consultas GSC Brasil, impressões agregadas Brasil/global, tendências gerais/elegíveis, vídeos, artigos e briefings.
-8. Confirme que a issue contém evidência e URL para cada pauta, payload estruturado e gate editorial.
-9. Ative o tratador de erros e, por último, o fluxo principal.
+4. Confirme em `searchConsoleSites` os valores exatos das duas propriedades: a URL-prefix do blog e `sc-domain:thebikershop.com.br` para a loja.
+5. Garanta que a mesma credencial Google tenha acesso de leitura às duas propriedades; se uma delas não estiver acessível, a execução falha fechada.
+6. Vincule as credenciais Google e GitHub aos nós indicados.
+7. Nas configurações do fluxo principal, selecione `TheBiker — Erros da inteligência editorial` como error workflow.
+8. Execute manualmente e confira os contadores de propriedades GSC, consultas Brasil, impressões agregadas Brasil/global, oportunidades cruzadas, tendências, vídeos, artigos e briefings.
+9. Confirme que a issue contém evidência e URL para cada pauta, payload estruturado e gate editorial.
+10. Ative o tratador de erros e, por último, o fluxo principal.
 
 ## Como a inteligência vira pauta
 

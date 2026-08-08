@@ -260,21 +260,59 @@ export async function runEditorialIntelligence({
   const maximumSearchQueries = Number(config.maximumSearchQueries || 1000);
   const searchConsoleCountry = config.searchConsoleCountry || 'bra';
   const accessToken = await googleAccessToken(env);
-  const siteUrl = env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl;
+  const configuredSites = config.searchConsoleSites || [{ id: 'blog', role: 'editorial', siteUrl: config.searchConsoleSiteUrl }];
+  const searchConsoleSites = configuredSites.map((site) => ({
+    ...site,
+    siteUrl: site.id === 'blog'
+      ? (env.SEARCH_CONSOLE_BLOG_SITE_URL || env.SEARCH_CONSOLE_SITE_URL || site.siteUrl)
+      : site.id === 'shop'
+        ? (env.SEARCH_CONSOLE_SHOP_SITE_URL || site.siteUrl)
+        : site.siteUrl,
+  }));
   const trendsPromise = googleTrendsBrazil({ env })
     .then((items) => ({ status: 'available', items, error: null }))
     .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 240) }));
-  const [gscCurrent, gscPrevious, videos, contentIndex, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious, trends] = await Promise.all([
-    searchConsoleRows({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-    searchConsoleRows({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+  const siteResultsPromise = Promise.all(searchConsoleSites.map(async (site) => {
+    const [currentRows, previousRows, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious] = await Promise.all([
+      searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+      searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry }),
+      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry }),
+      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current }),
+      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous }),
+    ]);
+    const tag = (row) => ({ ...row, _propertyId: site.id, _propertyRole: site.role });
+    return { site, currentRows: currentRows.map(tag), previousRows: previousRows.map(tag), brazilCurrent, brazilPrevious, globalCurrent, globalPrevious };
+  }));
+  const [siteResults, videos, contentIndex, trends] = await Promise.all([
+    siteResultsPromise,
     youtubeVideos({ env, accessToken, config, periods }),
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.current }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous }),
     trendsPromise,
   ]);
+  const gscCurrent = siteResults.flatMap((result) => result.currentRows);
+  const gscPrevious = siteResults.flatMap((result) => result.previousRows);
+  const propertyDiagnostics = Object.fromEntries(siteResults.map((result) => [result.site.id, {
+    siteUrl: result.site.siteUrl,
+    role: result.site.role,
+    current: { brazil: result.brazilCurrent, global: result.globalCurrent, detailedBrazilRows: result.currentRows.length },
+    previous: { brazil: result.brazilPrevious, global: result.globalPrevious, detailedBrazilRows: result.previousRows.length },
+  }]));
+  const sumSummary = (period, scope) => {
+    const total = siteResults.reduce((aggregate, result) => {
+    const summary = result[`${scope}${period === 'current' ? 'Current' : 'Previous'}`];
+      aggregate.clicks += summary.clicks;
+      aggregate.impressions += summary.impressions;
+      aggregate.weightedPosition += summary.position * summary.impressions;
+      return aggregate;
+    }, { clicks: 0, impressions: 0, weightedPosition: 0 });
+    return {
+      clicks: total.clicks,
+      impressions: total.impressions,
+      ctr: total.impressions ? total.clicks / total.impressions : 0,
+      position: total.impressions ? total.weightedPosition / total.impressions : 0,
+    };
+  };
   const report = buildEditorialIntelligence({
     context,
     config,
@@ -283,8 +321,9 @@ export async function runEditorialIntelligence({
     videos,
     articles: contentIndex.articles || [],
     searchConsoleDiagnostics: {
-      current: { brazil: brazilCurrent, global: globalCurrent },
-      previous: { brazil: brazilPrevious, global: globalPrevious },
+      current: { brazil: sumSummary('current', 'brazil'), global: sumSummary('current', 'global') },
+      previous: { brazil: sumSummary('previous', 'brazil'), global: sumSummary('previous', 'global') },
+      properties: propertyDiagnostics,
     },
     googleTrends: trends.items,
     googleTrendsStatus: { status: trends.status, error: trends.error },
@@ -297,9 +336,9 @@ export async function runEditorialIntelligence({
   await fs.writeFile(jsonPath, JSON.stringify(report, null, 2) + '\n');
   await fs.writeFile(markdownPath, intelligenceMarkdown(report) + '\n');
   const csvCell = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`;
-  const csvHeader = ['rank', 'consulta', 'cluster', 'intencao', 'cliques', 'impressoes', 'ctr', 'posicao', 'variacao', 'dispositivos', 'paginas', 'canibalizacao', 'score'];
+  const csvHeader = ['rank', 'consulta', 'cluster', 'intencao', 'propriedades', 'cliques', 'impressoes', 'ctr', 'posicao', 'variacao', 'dispositivos', 'paginas', 'canibalizacao', 'score'];
   const csvRows = (report.brazilRankings?.seoMeasured || []).map((item) => [
-    item.rank, item.term, item.cluster, item.intent, item.clicks, item.impressions, item.ctr, item.position, item.delta,
+    item.rank, item.term, item.cluster, item.intent, item.propertyIds.join('|'), item.clicks, item.impressions, item.ctr, item.position, item.delta,
     item.devices.join('|'), item.targetUrls.join('|'), item.cannibalizationRisk, item.opportunityScore,
   ]);
   await fs.writeFile(queriesCsvPath, [csvHeader, ...csvRows].map((row) => row.map(csvCell).join(',')).join('\n') + '\n');

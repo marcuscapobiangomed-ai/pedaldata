@@ -57,6 +57,8 @@ const brazilQueries = Array.from({ length: 1105 }, (_, index) => ({
   impressions: 20 + index,
   ctr: 0.03,
   position: 5 + (index % 15),
+  _propertyId: 'blog',
+  _propertyRole: 'editorial',
 }));
 const previousQueries = brazilQueries.map((row) => ({
   ...row,
@@ -67,6 +69,16 @@ const previousQueries = brazilQueries.map((row) => ({
 brazilQueries.push({ keys: ['consulta fora do brasil', 'https://example.com/fora/', 'usa', 'DESKTOP'], clicks: 100, impressions: 99999, ctr: 0.2, position: 1 });
 brazilQueries.push({ keys: ['ajuste suspensão canibalizado', 'https://example.com/a/', 'bra', 'MOBILE'], clicks: 2, impressions: 200, ctr: 0.01, position: 8 });
 brazilQueries.push({ keys: ['ajuste suspensão canibalizado', 'https://example.com/b/', 'bra', 'DESKTOP'], clicks: 1, impressions: 100, ctr: 0.01, position: 10 });
+brazilQueries.push({
+  keys: ['como ajustar suspensão mtb brasil 1', 'https://thebikershop.com.br/suspensoes/', 'bra', 'MOBILE'],
+  clicks: 5, impressions: 5000, ctr: 0.001, position: 6,
+  _propertyId: 'shop', _propertyRole: 'commercial',
+});
+previousQueries.push({
+  keys: ['como ajustar suspensão mtb brasil 1', 'https://thebikershop.com.br/suspensoes/', 'bra', 'MOBILE'],
+  clicks: 2, impressions: 2500, ctr: 0.0008, position: 8,
+  _propertyId: 'shop', _propertyRole: 'commercial',
+});
 
 const videos = [
   ...Array.from({ length: 25 }, (_, index) => ({
@@ -103,10 +115,11 @@ const report = buildEditorialIntelligence({
   articles: [{ title: 'Ajuste de suspensão MTB', tags: ['suspensão'], url: 'https://example.com/ajuste/', dateModified: '2026-01-01T00:00:00Z' }],
 });
 
-assert.equal(report.schemaVersion, 4);
+assert.equal(report.schemaVersion, 5);
 assert.equal(report.scope.label.includes('Brasil'), true);
 assert.equal(report.brazilRankings.youtubeDiscovery.length, 20);
-assert.equal(report.brazilRankings.seoMeasured.length, 1000);
+assert.ok(report.brazilRankings.seoMeasured.length > 1000);
+assert.equal(report.brazilRankings.seoByProperty.blog.length, 1000);
 assert.ok(report.brazilRankings.seoMeasured.every((item) => item.source === 'search-console'));
 assert.ok(report.brazilRankings.seoMeasured.every((item) => item.countries.every((country) => country === 'bra')));
 assert.ok(report.brazilRankings.youtubeDiscovery.every((item) => !['motorized', 'celebrity'].some((id) => item.sourceUrl.endsWith(id))));
@@ -117,6 +130,9 @@ assert.equal(report.governance.brazilClaimRequiresCountryFilter, true);
 assert.equal(report.metrics.youtubeSearchesConfigured, 12);
 assert.equal(report.metrics.googleTrendsSourceItems, 2);
 assert.equal(report.metrics.googleTrendsNicheSignals, 1);
+assert.deepEqual(Object.keys(report.brazilRankings.seoByProperty), ['blog', 'shop']);
+assert.equal(report.crossDomainOpportunities.length, 1);
+assert.deepEqual(report.crossDomainOpportunities[0].propertyIds, ['blog', 'shop']);
 assert.equal(report.brazilRankings.googleTrendsDiscovery[0].signalTitle, 'bicicleta gravel brasil');
 assert.equal(report.searchConsoleDiagnostics.interpretation, 'brazil_query_rows_available');
 assert.equal(report.governance.googleTrendsDoesNotFillMeasuredSeo, true);
@@ -124,10 +140,11 @@ assert.ok(report.queryClusters.some((cluster) => cluster.cluster === 'suspensao'
 assert.equal(queryCluster('qual pressão do pneu tubeless'), 'pneus-tubeless');
 assert.equal(searchIntent('onde comprar bicicleta gravel'), 'commercial');
 assert.match(intelligenceMarkdown(report), /20 sinais de YouTube Brasil/);
-assert.match(intelligenceMarkdown(report), /até \*\*1\.000 consultas\*\*/);
+assert.match(intelligenceMarkdown(report), /até \*\*1\.000 consultas por propriedade\*\*/);
 assert.match(intelligenceMarkdown(report), /Payload compacto para o planejador mensal/);
 assert.match(intelligenceMarkdown(report), /Diagnóstico do Search Console/);
 assert.match(intelligenceMarkdown(report), /Google Trends Brasil/);
+assert.match(intelligenceMarkdown(report), /Oportunidades cruzadas/);
 assert.ok(
   intelligenceMarkdown(report).length < 65_000,
   `GitHub issue body exceeded safe size: ${intelligenceMarkdown(report).length}`,
