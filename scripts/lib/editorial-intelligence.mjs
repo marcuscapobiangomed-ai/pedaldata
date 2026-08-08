@@ -17,6 +17,7 @@ const MOTORIZED_FALSE_POSITIVES = /\b(dirt bike|motocross|motorcycle|motorbike|m
 const NON_TECHNICAL_VIDEO_NOISE = /\b(futebol|football|soccer|scaloni|messi|neymar|stunt|manobra viral|pegadinha|prank|funny|noob|legend|outfit|criança|crianca|kids?|child|dirtbike|motovlog)\b/;
 const BRAZIL_RELEVANCE_TERMS = ['brasil', 'ciclismo', 'ciclista', 'bicicleta', 'mountain bike', 'mtb', 'gravel', 'speed', 'estrada', 'pedal', 'suspensao', 'shimano', 'sram', 'scott'];
 const PORTUGUESE_CONTENT_TERMS = ['como', 'para', 'porque', 'qual', 'guia', 'teste', 'ajuste', 'manutencao', 'bicicleta', 'ciclismo', 'suspensao', 'pneu', 'freio', 'trilha', 'pedal', 'brasil', 'minha', 'depois', 'opiniao', 'primeiras', 'impressoes'];
+const FOREIGN_TITLE_MARKERS = /\b(the|these|what|why|never|ride|illegal|going|kill|works|great|eigentlich|warum|deutsche|meisterschaft|entrena|demasiado|fuerte|mejora|soporte|reparar|bicicletas|neumatt)\b/;
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -40,8 +41,9 @@ function isCyclingVideo(video, config) {
   const cyclingMatch = terms.some((term) => haystack.includes(normalizeText(term)));
   const brazilMatch = BRAZIL_RELEVANCE_TERMS.some((term) => haystack.includes(normalizeText(term)));
   const declaredLanguage = String(video.snippet?.defaultAudioLanguage || video.snippet?.defaultLanguage || '').toLowerCase();
-  const portugueseMatches = PORTUGUESE_CONTENT_TERMS.filter((term) => haystack.includes(term)).length;
-  const portugueseContent = declaredLanguage.startsWith('pt') || portugueseMatches >= 2;
+  const title = normalizeText(video.snippet?.title || video.title);
+  const portugueseMatches = PORTUGUESE_CONTENT_TERMS.filter((term) => title.includes(term)).length;
+  const portugueseContent = declaredLanguage.startsWith('pt') || (portugueseMatches >= 2 && !FOREIGN_TITLE_MARKERS.test(title));
   return cyclingMatch && brazilMatch && (!config.requirePortugueseYouTube || portugueseContent);
 }
 

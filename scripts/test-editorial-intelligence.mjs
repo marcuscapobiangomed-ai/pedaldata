@@ -49,6 +49,7 @@ const videos = [
   })),
   { id: 'motorized', snippet: { title: 'SurRon MTB dirt bike Brasil', description: 'motocross', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '9000000' } },
   { id: 'celebrity', snippet: { title: 'Neymar no futebol e bicicleta Brasil', description: 'viral funny', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '8000000' } },
+  { id: 'foreign', snippet: { title: 'What cycling training is actually doing', description: 'Como ajustar bicicleta Brasil', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '8500000' } },
   { id: 'competitor', snippet: { title: 'Trek lançamento MTB Brasil', description: 'ciclismo', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '7000000' }, contentDetails: { duration: 'PT10M' }, _intelligence: { markets: ['BR'], languages: ['pt'], searches: ['mountain-bike'] } },
 ];
 
@@ -68,6 +69,7 @@ assert.equal(report.brazilRankings.seoMeasured.length, 1000);
 assert.ok(report.brazilRankings.seoMeasured.every((item) => item.source === 'search-console'));
 assert.ok(report.brazilRankings.seoMeasured.every((item) => item.countries.every((country) => country === 'bra')));
 assert.ok(report.brazilRankings.youtubeDiscovery.every((item) => !['motorized', 'celebrity'].some((id) => item.sourceUrl.endsWith(id))));
+assert.ok(report.brazilRankings.youtubeDiscovery.every((item) => !item.sourceUrl.endsWith('foreign')));
 assert.ok(report.briefs.every((brief) => !/^Trek lançamento/.test(brief.topic)));
 assert.equal(report.governance.youtubeDoesNotFillMeasuredSeo, true);
 assert.equal(report.governance.brazilClaimRequiresCountryFilter, true);
