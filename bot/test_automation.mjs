@@ -102,7 +102,7 @@ assert.equal(grounded.status, 'pesquisa_concluida');
 assert.equal(grounded.sources.length, 1);
 assert.equal(groundedRequest.model, 'groq/compound-mini');
 assert.deepEqual(groundedRequest.compound_custom.tools.enabled_tools, ['web_search', 'visit_website']);
-const fallbackResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async () => ({ ok: false, status: 429, text: async () => 'quota' }));
+const fallbackResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test', AI_HTTP_RETRY_ATTEMPTS: '1' }, async () => ({ ok: false, status: 429, text: async () => 'quota' }));
 const fallbackGrounded = await fallbackResearcher.research({
   item: campaign.items[0],
   internalEvidence: [{ id: 'spark', facts: { suspension: '120 mm' }, sources: [{ name: 'Scott', type: 'manufacturer', url: 'https://www.scott-sports.com/global/en/product/test', accessedAt: '2026-08-04' }] }],
@@ -110,6 +110,18 @@ const fallbackGrounded = await fallbackResearcher.research({
 });
 assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
 assert.equal(fallbackGrounded.sources.length, 1);
+const curatedFallback = await fallbackResearcher.research({
+  item: {
+    id: 'reserva-inspecao-pos-chuva',
+    title: 'Inspeção da bicicleta após pedalar na chuva',
+    summary: 'Procedimento técnico pós-pedal molhado.',
+    category: 'manutencao-ajustes',
+  },
+  internalEvidence: [],
+  today: '2026-08-05',
+});
+assert.equal(curatedFallback.grounding.fallback, 'curated-official-knowledge');
+assert.ok(curatedFallback.sources.length >= 2);
 let resilientResearchCalls = 0;
 const resilientResearcher = new GroundedResearcher({
   GROQ_API_KEY: 'test',

@@ -3,6 +3,40 @@ import { validateResearch } from '../schemas/research.schema.js'
 const PRODUCT_DOMAINS = ['thebikershop.com.br', 'scott-sports.com', 'syncros.com', 'bike.shimano.com', 'si.shimano.com', 'sram.com', 'rockshox.com', 'ridefox.com', 'maxxis.com', 'oggi.com.br']
 const SPORT_DOMAINS = ['uci.org', 'olympics.com']
 
+const CURATED_TOPIC_EVIDENCE = [
+  {
+    pattern: /press[aã]o|pneu|terreno|gravel|asfalto/i,
+    id: 'official-tire-pressure-guidance',
+    facts: {
+      factors: 'A pressão deve considerar modalidade, piso seco ou molhado, peso total, largura e construção do pneu e características do aro.',
+      startingPoint: 'Recomendações calculadas são ponto de partida e devem ser refinadas dentro dos limites do fabricante.',
+      roughTerrain: 'Pisos irregulares e condições molhadas podem favorecer pressão menor para ampliar contato, controle e conforto, sem permitir impacto do pneu no aro ou instabilidade em curvas.',
+      frontRear: 'A distribuição de carga normalmente justifica avaliar pressões diferentes nos pneus dianteiro e traseiro.',
+    },
+    sources: [
+      { name: 'Shimano — What Tire Pressure is Right for You?', type: 'manufacturer', url: 'https://bike.shimano.com/en-NA/stories/article/what-tire-pressure-is-right-for-you.html' },
+      { name: 'SRAM/Zipp — How To Calculate Tire Pressure', type: 'manufacturer', url: 'https://www.sram.com/en/zipp/learn/how-to-calculate-tire-pressure' },
+      { name: 'SRAM/Zipp — Know Your Tire Pressure', type: 'manufacturer', url: 'https://www.sram.com/en/zipp/campaigns/know-your-tire-pressure' },
+    ],
+  },
+  {
+    pattern: /chuva|molhad|lama|p[oó]s[- ]?pedal|inspe[cç][aã]o/i,
+    id: 'official-wet-ride-maintenance-guidance',
+    facts: {
+      drivetrainCleaning: 'Após uso em condições adversas, a transmissão deve ser limpa com produto biodegradável não ácido, enxaguada, seca e a corrente deve ser lubrificada com o excesso removido.',
+      pressureWashing: 'Jatos de alta pressão devem ser evitados para proteger componentes, vedações e rolamentos.',
+      brakeInspection: 'Antes de pedalar, confirme funcionamento dos freios, ausência de vazamento, integridade do rotor, espessura das pastilhas e ausência de ruídos anormais.',
+      wetBraking: 'Em piso molhado, a distância de frenagem aumenta; reduza a velocidade e acione os freios mais cedo e de forma suave.',
+      escalation: 'Danos, vazamentos, ruídos anormais ou funcionamento irregular exigem avaliação da loja ou de mecânico qualificado.',
+    },
+    sources: [
+      { name: 'SRAM — AXS Bike Care and Maintenance', type: 'manufacturer', url: 'https://www.sram.com/en/learn/axs-bike-care-and-maintenance' },
+      { name: 'SRAM — Apex Maintenance', type: 'manufacturer', url: 'https://www.sram.com/en/learn/apex-d1-welcome-guide/maintenance' },
+      { name: 'Shimano — Hydraulic Disc Brake User Manual', type: 'manufacturer', url: 'https://si.shimano.com/en/pdfs/um/04L0A/UM-04L0A-000-00-ENG.pdf' },
+    ],
+  },
+]
+
 function extractJson(text) {
   const clean = String(text || '').replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/i, '').trim()
   try { return JSON.parse(clean) } catch {
@@ -25,6 +59,17 @@ function compactEvidence(records) {
     facts: Object.fromEntries(Object.entries(record.facts || {}).slice(0, 5)),
     sources: (record.sources || []).slice(0, 2).map((source) => ({ name: source.name, url: source.url })),
   }))
+}
+
+function curatedEvidence(item, today) {
+  const subject = `${item.id || ''} ${item.title || ''} ${item.summary || ''}`
+  return CURATED_TOPIC_EVIDENCE
+    .filter((entry) => entry.pattern.test(subject))
+    .map((entry) => ({
+      id: entry.id,
+      facts: entry.facts,
+      sources: entry.sources.map((source) => ({ ...source, accessedAt: today })),
+    }))
 }
 
 const RETRYABLE_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504])
@@ -83,8 +128,10 @@ async function fetchGeminiGrounded(fetchImpl, prompt, env) {
 }
 
 function internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage = false }) {
+  const curated = curatedEvidence(item, today)
+  const evidence = [...internalEvidence, ...curated]
   const sourceMap = new Map()
-  for (const record of internalEvidence) {
+  for (const record of evidence) {
     for (const source of record.sources || []) {
       if (!source.url || !allowedSource(source.url, raceCoverage)) continue
       sourceMap.set(source.url, {
@@ -107,10 +154,10 @@ function internalResearch({ item, internalEvidence, today, contentType, reason, 
     generated_at: today,
     status: 'pesquisa_concluida',
     editorialPriority: 'P1',
-    confirmed_facts: Object.fromEntries(internalEvidence.map((record) => [record.id, record.facts || {}])),
+    confirmed_facts: Object.fromEntries(evidence.map((record) => [record.id, record.facts || {}])),
     limitations: [`Pesquisa web indisponível nesta execução (${reason}); conteúdo limitado à base interna com fontes oficiais.`],
     sources,
-    grounding: { queries: [], sourceCount: sources.length, fallback: 'internal-product-knowledge' },
+    grounding: { queries: [], sourceCount: sources.length, fallback: curated.length > 0 ? 'curated-official-knowledge' : 'internal-product-knowledge' },
   })
 }
 
