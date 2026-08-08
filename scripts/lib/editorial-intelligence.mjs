@@ -13,6 +13,7 @@ const DEFAULT_CYCLING_TERMS = [
   'enduro',
   'cross country',
 ];
+const MOTORIZED_FALSE_POSITIVES = /\b(dirt bike|motocross|motorcycle|motorbike|motocicleta|surron|sur ron|pit bike|mini bike|quadriciclo|atv|\d{2,4}\s*cc)\b/;
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -29,10 +30,28 @@ function rowKey(row) {
 
 function isCyclingVideo(video, config) {
   const haystack = normalizeText(`${video.snippet?.title || video.title} ${video.snippet?.description || ''}`);
+  if (MOTORIZED_FALSE_POSITIVES.test(haystack)) return false;
   const terms = Array.isArray(config.cyclingTerms) && config.cyclingTerms.length > 0
     ? config.cyclingTerms
     : DEFAULT_CYCLING_TERMS;
   return terms.some((term) => haystack.includes(normalizeText(term)));
+}
+
+export function technicalTopicFromVideo(value) {
+  const text = normalizeText(value);
+  if (/fat bike|pneu largo|wide tire/.test(text)) return 'Fat bikes: largura de pneus, pressão, tração e limites de uso';
+  if (/suspens|fork|garfo|shock|amortec|sag|downhill/.test(text)) return 'Suspensão de mountain bike: ajuste, diagnóstico e limites de aplicação';
+  if (/bike fit|posicao|position|reach|stack|cockpit|selim/.test(text)) return 'Bike fit e posição: critérios técnicos para ajuste e distribuição de carga';
+  if (/gravel/.test(text)) return 'Bicicletas gravel: geometria, pneus, transmissão e critérios de uso';
+  if (/electric|e bike|ebike|eletrica/.test(text)) return 'Bicicletas elétricas: arquitetura, autonomia, limites e critérios técnicos';
+  if (/freio|brake|rotor|pastilha/.test(text)) return 'Freios de bicicleta: diagnóstico, ajuste e controle térmico';
+  if (/pneu|tire|tubeless|pressao/.test(text)) return 'Pneus de bicicleta: pressão, carcaça, aderência e resistência ao rolamento';
+  if (/cambio|transmiss|cassete|corrente|chain|shift|grupo/.test(text)) return 'Transmissão da bicicleta: ajuste, desgaste e diagnóstico sob carga';
+  if (/roda|wheel|aro|hub|cubo/.test(text)) return 'Rodas de bicicleta: rigidez, massa, largura e compatibilidade';
+  if (/bmx/.test(text)) return 'BMX e mountain bike: diferenças de geometria, componentes e aplicação';
+  if (/crianca|kid|child|family/.test(text)) return 'Ciclismo com crianças: ergonomia, segurança e progressão técnica';
+  if (/limpeza|clean|oil|lubr|manutenc|maintenance/.test(text)) return 'Manutenção preventiva da bicicleta: método, frequência e pontos críticos';
+  return 'Tendências técnicas do ciclismo: como separar evidência, aplicação e apelo de mercado';
 }
 
 function hasBlockedBrand(value, config) {
@@ -50,13 +69,15 @@ function videoOpportunity(video, context, config) {
   const viewsPerDay = views / ageDays;
   return {
     source: 'youtube',
-    topic: title,
+    topic: technicalTopicFromVideo(title),
+    signalTitle: title,
     sourceUrl: `https://www.youtube.com/watch?v=${video.id}`,
     score: Math.round(Math.log10(viewsPerDay + 1) * 24 + Math.min(20, ((likes + comments * 2) / Math.max(1, views)) * 1000)),
     evidence: `${views.toLocaleString('pt-BR')} visualizações; ${Math.round(viewsPerDay).toLocaleString('pt-BR')} por dia`,
     views,
     viewsPerDay: Math.round(viewsPerDay),
-    directPromotionAllowed: !hasBlockedBrand(title, config),
+    directPromotionAllowed: false,
+    blockedBrandDetected: hasBlockedBrand(title, config),
   };
 }
 
@@ -99,7 +120,7 @@ function covered(topic, articles) {
 function briefFrom(opportunity, articles, config) {
   const existing = covered(opportunity.topic, articles);
   const action = existing ? 'refresh' : 'new-content';
-  const safeTopic = opportunity.directPromotionAllowed ? opportunity.topic : `Tendência técnica da categoria identificada a partir do sinal: ${opportunity.topic}`;
+  const safeTopic = opportunity.topic;
   return {
     id: normalizeText(`${opportunity.source}-${safeTopic}`).replace(/ /g, '-').slice(0, 72),
     action,
@@ -112,6 +133,7 @@ function briefFrom(opportunity, articles, config) {
     experienceLevelTarget: 'intermediate_advanced',
     evidence: opportunity.evidence,
     evidenceUrl: opportunity.sourceUrl,
+    signalTitle: opportunity.signalTitle || null,
     angle: existing
       ? 'Atualizar a resposta existente, acrescentar evidência nova e reforçar links internos.'
       : 'Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados.',
@@ -177,6 +199,7 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
       exceptionReviewRequired: true,
       competitorPromotionBlocked: true,
       staleCommercialDataFailClosed: true,
+      youtubeIsIntelligenceOnly: true,
     },
   };
 }

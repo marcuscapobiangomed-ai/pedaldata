@@ -24,6 +24,8 @@ const report = buildEditorialIntelligence({
   videos: [
     { id: 'safe', snippet: { title: 'Como ajustar suspensão MTB', description: 'ciclismo', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '90000', likeCount: '5000', commentCount: '300' } },
     { id: 'blocked', snippet: { title: 'Trek lançamento de ciclismo', description: 'bike', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '1000000' } },
+    { id: 'motorized', snippet: { title: 'I built a mini SurRon MTB dirt bike', description: 'bike motocross', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '2000000' } },
+    { id: 'commercial', snippet: { title: 'Best Electric Fat Bikes Available in India', description: 'ciclismo mountain bike', publishedAt: '2026-08-01T00:00:00Z' }, statistics: { viewCount: '800000' } },
   ],
   articles: [{ title: 'Ajuste de suspensão MTB', tags: ['suspensão'], url: 'https://example.com/ajuste/', dateModified: '2026-01-01T00:00:00Z' }],
 });
@@ -33,6 +35,11 @@ assert.equal(report.governance.requiresHumanApproval, false);
 assert.equal(report.governance.exceptionReviewRequired, true);
 assert.ok(report.briefs.some((brief) => brief.action === 'refresh'));
 assert.ok(report.briefs.every((brief) => !/^Trek lançamento/.test(brief.topic)));
+assert.ok(report.marketSignals.every((signal) => signal.sourceUrl !== 'https://www.youtube.com/watch?v=motorized'));
+const commercialSignal = report.marketSignals.find((signal) => signal.sourceUrl === 'https://www.youtube.com/watch?v=commercial');
+assert.equal(commercialSignal.topic, 'Fat bikes: largura de pneus, pressão, tração e limites de uso');
+assert.doesNotMatch(commercialSignal.topic, /available|best|india/i);
+assert.ok(report.briefs.some((brief) => /^Suspensão de mountain bike:/.test(brief.topic)));
 assert.ok(report.briefs.every((brief) => brief.audienceSegment === 'core_technical_cyclists'));
 assert.ok(report.briefs.every((brief) => brief.experienceLevelTarget === 'intermediate_advanced'));
 assert.equal(report.refreshQueue[0].url, 'https://example.com/ajuste/');
@@ -63,4 +70,5 @@ const fallbackTermsReport = buildEditorialIntelligence({
 });
 assert.equal(fallbackTermsReport.metrics.youtubeVideos, 1);
 assert.equal(fallbackTermsReport.briefs.length, 1);
+assert.equal(fallbackTermsReport.governance.youtubeIsIntelligenceOnly, true);
 console.log('Motor de inteligência editorial validado com sucesso.');

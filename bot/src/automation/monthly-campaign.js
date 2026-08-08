@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import crypto from 'node:crypto'
 import { CampaignSchema, publicCampaignSummary } from './campaign.js'
 
 const READY_STATUSES = new Set(['researching', 'research-ready', 'drafting', 'validation', 'approved', 'scheduled'])
@@ -143,6 +144,10 @@ export function parseIntelligenceMarkdown(markdown) {
   return report
 }
 
+export function intelligenceSourceDigest(report) {
+  return crypto.createHash('sha256').update(JSON.stringify(report)).digest('hex')
+}
+
 export async function buildRollingCampaign({ existing, report, now = new Date(), ai } = {}) {
   const current = CampaignSchema.parse(existing)
   if (report.cadence !== 'monthly') throw new Error('Somente relatórios mensais podem renovar a campanha')
@@ -154,7 +159,7 @@ export async function buildRollingCampaign({ existing, report, now = new Date(),
   const retained = new Map()
   for (const date of dates) {
     const item = byDate.get(date)
-    if (!item || item.status === 'blocked' || item.status === 'replaced' || item.status === 'published') continue
+    if (!item || !READY_STATUSES.has(item.status)) continue
     retained.set(date, structuredClone(item))
   }
   const occupiedTitles = [...retained.values()].map((item) => normalize(item.title))
@@ -204,7 +209,8 @@ export async function renewCampaignFiles({ root, report, now = new Date(), ai, d
   const statePath = path.join(root, 'bot/operational-state/monthly-renewal.json')
   const existing = JSON.parse(await fs.readFile(campaignPath, 'utf8'))
   const previousState = await fs.readFile(statePath, 'utf8').then(JSON.parse).catch((error) => error?.code === 'ENOENT' ? null : Promise.reject(error))
-  if (previousState?.lastRunKey === report.runKey) return { status: 'unchanged', runKey: report.runKey, campaignId: previousState.campaignId }
+  const sourceDigest = intelligenceSourceDigest(report)
+  if (previousState?.lastRunKey === report.runKey && previousState?.sourceDigest === sourceDigest) return { status: 'unchanged', runKey: report.runKey, campaignId: previousState.campaignId }
   const campaign = await buildRollingCampaign({ existing, report, now, ai })
   if (dryRun) return { status: 'dry-run', runKey: report.runKey, campaign }
   const archiveDirectory = path.join(root, 'bot/operational-state/campaign-archive')
@@ -214,6 +220,6 @@ export async function renewCampaignFiles({ root, report, now = new Date(), ai, d
   await fs.writeFile(path.join(root, '_data/editorial-calendar.json'), JSON.stringify(publicCampaignSummary(campaign), null, 2) + '\n')
   await fs.writeFile(path.join(root, '_data/editorial-refresh-queue.json'), JSON.stringify({ schemaVersion: 1, runKey: report.runKey, generatedAt: report.generatedAt, items: report.refreshQueue || [] }, null, 2) + '\n')
   await fs.mkdir(path.dirname(statePath), { recursive: true })
-  await fs.writeFile(statePath, JSON.stringify({ schemaVersion: 1, lastRunKey: report.runKey, campaignId: campaign.id, renewedAt: now.toISOString() }, null, 2) + '\n')
+  await fs.writeFile(statePath, JSON.stringify({ schemaVersion: 2, lastRunKey: report.runKey, sourceDigest, campaignId: campaign.id, renewedAt: now.toISOString() }, null, 2) + '\n')
   return { status: 'renewed', runKey: report.runKey, campaignId: campaign.id, startsOn: campaign.startsOn, retained: campaign.items.filter((item) => READY_STATUSES.has(item.status)).length, planned: campaign.items.filter((item) => item.status === 'planned').length }
 }
