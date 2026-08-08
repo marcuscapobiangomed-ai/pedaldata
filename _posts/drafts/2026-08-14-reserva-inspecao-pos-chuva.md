@@ -3,10 +3,10 @@ layout: post
 published: false
 title: "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste"
 slug: "reserva-inspecao-pos-chuva"
-date: 2026-08-08
+date: 2026-08-14
 last_modified_at: 2026-08-08
 author: "Equipe TheBiker"
-reviewed_by: ""
+reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "guia-tecnico"
 audience_segment: "core_technical_cyclists"
 audience_intent: "technical_learning"
@@ -27,24 +27,24 @@ price_checked_at: "2026-08-08"
 category: "guia-tecnico"
 tags: ["ciclismo", "manutenção", "chuva", "corrosão", "transmissão", "freios"]
 description: "Guia técnico para inspecionar a bike após pedalar na chuva: transmissão, freios, rolamentos e vedações. Aprenda a evitar corrosão e desgaste."
-image: "/assets/img/system/covers/guia/hero.webp"
-image_mobile: "/assets/img/system/covers/guia/hero.webp"
-thumbnail: "/assets/img/system/covers/guia/thumb-480.webp"
+image: "/assets/img/posts/reserva-inspecao-pos-chuva/hero-1600.webp"
+image_mobile: "/assets/img/posts/reserva-inspecao-pos-chuva/hero-800.webp"
+thumbnail: "/assets/img/posts/reserva-inspecao-pos-chuva/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "system-fallback"
-image_status: "draft"
-image_alt: "Bicicleta de estrada com detalhes de transmissão e freios após pedal na chuva"
-image_caption: "Inspeção pós-chuva: pontos críticos de contaminação e corrosão"
-image_credit: "TheBiker com geração assistida por IA"
-image_license: "Uso editorial interno TheBiker"
+image_asset_type: "technical-diagram"
+image_status: "approved"
+image_alt: "Capa técnica TheBiker para o artigo Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste"
+image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
+image_credit: "TheBiker"
+image_license: "Propriedade editorial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["SRAM"]
 context_only_brands: []
 portfolio_evidence_url: "https://www.thebiker.com.br/pecas-e-componentes/transmissao/"
 portfolio_verified_at: "2026-08-08"
-editorial_status: "draft"
-status: "draft"
+editorial_status: "reviewed"
+status: "scheduled"
 sources:
   - name: "SRAM — AXS Bike Care and Maintenance"
     type: "manufacturer"

@@ -224,7 +224,7 @@
       "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-14-reserva-inspecao-pos-chuva.md",
       "imageAssetIds": [],
@@ -244,7 +244,9 @@
         },
         "generatedAt": "2026-08-08T04:08:25.560Z"
       },
-      "blockReason": "Validação final: Galeria oficial sem imagem inédita válida: Imagem duplicada: thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc | Download da imagem: HTTP 403 | Imagem duplicada: thebiker-kit-de-rolamentos-direcao-scott-foil-510894cafc"
+      "imageManifestPath": "assets/img/posts/reserva-inspecao-pos-chuva/image-manifest.json",
+      "imageStatus": "approved",
+      "imageValidatedAt": "2026-08-08T04:15:44.581Z"
     },
     {
       "day": 8,
