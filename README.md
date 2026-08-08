@@ -1,6 +1,6 @@
-# 🚴 TheBiker Blog
+# 🚴 TheBiker Insights
 
-**Blog oficial da TheBiker para ciclistas experientes: reviews técnicos, comparativos, lançamentos e cobertura de competições.**
+**Canal editorial oficial da TheBiker para ciclistas experientes: análises técnicas, comparativos, lançamentos e cobertura de competições.**
 
 ## Pipeline editorial
 

@@ -114,5 +114,5 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(port, host, () => {
-  process.stdout.write(`The Biker Blog preview running at http://${host}:${port}\n`);
+  process.stdout.write(`TheBiker Insights preview running at http://${host}:${port}\n`);
 });

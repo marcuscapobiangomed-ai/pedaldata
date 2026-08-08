@@ -1,8 +1,8 @@
-title: "TheBiker Blog"
+title: "TheBiker Insights"
 tagline: "Ciclismo vivido, testado e explicado"
-description: "O blog oficial da TheBiker: reviews técnicos, comparativos, lançamentos e cobertura de competições para ciclistas experientes"
-url: "https://marcuscapobiangomed-ai.github.io"
-baseurl: "/thebikerblog"
+description: "O canal editorial oficial da TheBiker: análises técnicas, comparativos, lançamentos e cobertura de competições para ciclistas experientes"
+url: "https://insights.thebikershop.com.br"
+baseurl: ""
 lang: pt-BR
 
 author: "Equipe TheBiker"
@@ -14,10 +14,10 @@ organization:
   same_as:
     - "https://www.instagram.com/thebikerbrasil"
 
-logo: "/assets/img/brand/the-biker-blog-logo.png"
+logo: "/assets/img/logo.svg"
 
 social:
-  name: TheBiker Blog
+  name: TheBiker Insights
   links:
     - https://www.instagram.com/thebikerbrasil
 
@@ -46,7 +46,7 @@ defaults:
       path: "_posts"
       type: posts
     values:
-      image: /assets/img/brand/the-biker-blog-logo.png
+      image: /assets/img/logo.svg
 
 exclude:
   # Operação, governança e evidências ficam no repositório, não no índice público.

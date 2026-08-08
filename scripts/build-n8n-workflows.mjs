@@ -93,12 +93,12 @@ return [{ json: {
     previous: { startDate: date(previousStart), endDate: date(previousEnd) },
   },
   config: {
-    searchConsoleSiteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/',
+    searchConsoleSiteUrl: 'https://insights.thebikershop.com.br/',
     searchConsoleSites: [
-      { id: 'blog', role: 'editorial', accessMode: 'required', siteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/' },
+      { id: 'blog', role: 'editorial', accessMode: 'required', siteUrl: 'https://insights.thebikershop.com.br/' },
       { id: 'shop', role: 'commercial', accessMode: 'optional', siteUrl: 'sc-domain:thebikershop.com.br', publicUrl: 'https://thebikershop.com.br/' },
     ],
-    contentIndexUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json',
+    contentIndexUrl: 'https://insights.thebikershop.com.br/api/content-index.json',
     githubOwner: 'marcuscapobiangomed-ai',
     githubRepository: 'thebikerblog',
     market: 'BR',
