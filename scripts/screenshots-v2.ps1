@@ -1,6 +1,6 @@
 param(
-    [string]$BaseUrl = "https://marcuscapobiangomed-ai.github.io/thebikerblog",
-    [string]$SitemapUrl = "https://marcuscapobiangomed-ai.github.io/thebikerblog/sitemap.xml",
+    [string]$BaseUrl = "https://insights.thebikershop.com.br",
+    [string]$SitemapUrl = "https://insights.thebikershop.com.br/sitemap.xml",
     [string]$OutputDir = "C:\Users\marcu\Downloads\Blog - APRENDA!\medblog-full\screenshots-v2",
     [int]$Width = 1440,
     [int]$Height = 900

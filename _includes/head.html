@@ -11,13 +11,13 @@
 
 <link rel="preload" href="{{ site.baseurl }}/assets/css/style.css?v=9" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=9"></noscript>
-<link rel="icon" href="{{ site.baseurl }}{{ site.logo }}" type="image/png">
+<link rel="icon" href="{{ site.baseurl }}{{ site.logo }}" type="image/svg+xml">
 <link rel="preload" href="{{ site.baseurl }}{{ site.logo }}" as="image">
 
 {% seo %}
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
-<link rel="alternate" type="text/plain" title="TheBiker Blog para assistentes de IA" href="{{ '/llms.txt' | relative_url }}">
-<link rel="alternate" type="application/json" title="Índice editorial TheBiker Blog" href="{{ '/api/content-index.json' | relative_url }}">
+<link rel="alternate" type="text/plain" title="TheBiker Insights para assistentes de IA" href="{{ '/llms.txt' | relative_url }}">
+<link rel="alternate" type="application/json" title="Índice editorial TheBiker Insights" href="{{ '/api/content-index.json' | relative_url }}">
 
 {% if page.tags %}
   {% for tag in page.tags %}

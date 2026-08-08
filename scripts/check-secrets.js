@@ -7,6 +7,7 @@ const root = process.cwd();
 const publicOnly = process.argv.includes("--public");
 const start = path.join(root, "_site");
 const excludedDirectories = new Set([".git", ".bundle", ".jekyll-cache", "node_modules", "vendor"]);
+const excludedSourcePrefixes = ["_site/"];
 const excludedFiles = new Set([path.resolve(root, "scripts/check-secrets.js")]);
 const textExtensions = new Set([".css", ".csv", ".html", ".js", ".json", ".liquid", ".md", ".mjs", ".txt", ".xml", ".yaml", ".yml", ""]);
 
@@ -39,6 +40,7 @@ const repositoryFiles = publicOnly
     .toString("utf8")
     .split("\0")
     .filter(Boolean)
+    .filter((file) => !excludedSourcePrefixes.some((prefix) => file.replaceAll("\\", "/").startsWith(prefix)))
     .map((file) => path.join(root, file))
     .filter((file) => !excludedFiles.has(path.resolve(file)) && fs.existsSync(file) && fs.statSync(file).isFile());
 
