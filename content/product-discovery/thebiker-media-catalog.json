@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-08T15:35:32.807Z",
+  "discoveredAt": "2026-08-08T17:34:01.739Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 481,
   "products": [
@@ -3963,6 +3963,17 @@
       "sku": null
     },
     {
+      "id": "sapatilha-triathlon-shimano-tr501",
+      "name": "Sapatilha Triathlon Shimano TR501",
+      "brand": "Shimano",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-triathlon-shimano-tr501/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sh-tr501_c165_1_750_750-5ff1ff143de765e7e117434556595911-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "bretelle-free-force-performance",
       "name": "Bretelle Free Force Performance",
       "brand": "Free Force",
@@ -3983,17 +3994,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/619v1978159663m67kte_prvw_17100861-5617df268e49ea1c2f16560051209414-480-0.webp"
       ],
       "sku": "2813470001007"
-    },
-    {
-      "id": "sapatilha-triathlon-shimano-tr501",
-      "name": "Sapatilha Triathlon Shimano TR501",
-      "brand": "Shimano",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-triathlon-shimano-tr501/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/sh-tr501_c165_1_750_750-5ff1ff143de765e7e117434556595911-480-0.webp"
-      ],
-      "sku": null
     },
     {
       "id": "espuma-interna-capacete-scott-arx",
