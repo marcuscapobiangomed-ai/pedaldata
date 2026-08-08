@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca"
 slug: "cambio-eletronico-ajuste-diagnostico"
 date: 2026-08-08
@@ -43,8 +43,8 @@ promoted_brands: ["Shimano"]
 context_only_brands: []
 portfolio_evidence_url: "https://www.thebiker.com.br/categoria/cambio-eletronico"
 portfolio_verified_at: "2026-08-05"
-editorial_status: "reviewed"
-status: "scheduled"
+editorial_status: "published"
+status: "published"
 sources:
   - name: "Shimano Di2 Rear Derailleur Dealer's Manual (PDF)"
     type: "manufacturer"

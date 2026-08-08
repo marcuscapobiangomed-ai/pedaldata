@@ -14,11 +14,11 @@
       "summary": "Procedimento para avaliar alinhamento, indexação, bateria, corrente, cassete e comportamento das transmissões Di2 e AXS em uso real.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "scheduled",
+      "status": "published",
       "productIds": [
         "bateria-sram-axs"
       ],
-      "postPath": "_posts/drafts/2026-08-08-cambio-eletronico-ajuste-diagnostico.md",
+      "postPath": "_posts/2026-08-08-cambio-eletronico-ajuste-diagnostico.md",
       "imageManifestPath": "assets/img/posts/cambio-eletronico-ajuste-diagnostico/image-manifest.json",
       "imageStatus": "approved",
       "imageAssetIds": [
@@ -39,7 +39,8 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T13:26:00.968Z"
-      }
+      },
+      "publishedAt": "2026-08-08T15:33:02.861Z"
     },
     {
       "day": 2,
@@ -292,9 +293,9 @@
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
+      "blockReason": "Etapa final-repair falhou. deepseek: The operation was aborted due to timeout",
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T15:10:50.120Z",
-      "blockReason": "Etapa final-repair falhou. deepseek: The operation was aborted due to timeout"
+      "lastAttemptAt": "2026-08-08T15:10:50.120Z"
     },
     {
       "day": 10,
