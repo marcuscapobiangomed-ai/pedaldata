@@ -18,6 +18,7 @@ const NON_TECHNICAL_VIDEO_NOISE = /\b(futebol|football|soccer|scaloni|messi|neym
 const BRAZIL_RELEVANCE_TERMS = ['brasil', 'ciclismo', 'ciclista', 'bicicleta', 'mountain bike', 'mtb', 'gravel', 'speed', 'estrada', 'pedal', 'suspensao', 'shimano', 'sram', 'scott'];
 const PORTUGUESE_CONTENT_TERMS = ['como', 'para', 'porque', 'qual', 'guia', 'teste', 'ajuste', 'manutencao', 'bicicleta', 'ciclismo', 'suspensao', 'pneu', 'freio', 'trilha', 'pedal', 'brasil', 'minha', 'depois', 'opiniao', 'primeiras', 'impressoes'];
 const FOREIGN_TITLE_MARKERS = /\b(the|these|what|why|never|ride|illegal|going|kill|works|great|eigentlich|warum|deutsche|meisterschaft|entrena|demasiado|fuerte|mejora|soporte|reparar|bicicletas|neumatt)\b/;
+const FOREIGN_RAW_TITLE_MARKERS = /\b(guía|frenar|frenos|sin frenos)\b/i;
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -43,7 +44,9 @@ function isCyclingVideo(video, config) {
   const declaredLanguage = String(video.snippet?.defaultAudioLanguage || video.snippet?.defaultLanguage || '').toLowerCase();
   const title = normalizeText(video.snippet?.title || video.title);
   const portugueseMatches = PORTUGUESE_CONTENT_TERMS.filter((term) => title.includes(term)).length;
-  const portugueseContent = declaredLanguage.startsWith('pt') || (portugueseMatches >= 2 && !FOREIGN_TITLE_MARKERS.test(title));
+  const rawTitle = String(video.snippet?.title || video.title || '');
+  const foreignTitle = FOREIGN_TITLE_MARKERS.test(title) || FOREIGN_RAW_TITLE_MARKERS.test(rawTitle);
+  const portugueseContent = !foreignTitle && (declaredLanguage.startsWith('pt') || portugueseMatches >= 2);
   return cyclingMatch && brazilMatch && (!config.requirePortugueseYouTube || portugueseContent);
 }
 
