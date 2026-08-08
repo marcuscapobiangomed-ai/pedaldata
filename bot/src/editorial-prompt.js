@@ -196,6 +196,17 @@ export function buildUserPrompt({ topic, researchData, contentType, template, to
 }
 
 export function buildRepairPrompt({ topic, rawText, validationError, contentType, template, today }) {
+  const minimumWords = {
+    review: 1800,
+    comparativo: 2000,
+    "guia-de-compra": 1800,
+    "guia-tecnico": 1600,
+    noticia: 900,
+    lancamento: 1200,
+    "previa-corrida": 1400,
+    "resumo-corrida": 1500,
+  }[contentType] || 900;
+  const repairTargetWords = Math.ceil(minimumWords * 1.15);
   return [
     "Você vai corrigir a resposta JSON de um artigo do blog oficial da TheBiker.",
     "A resposta anterior está inválida. Corrija e devolva apenas JSON válido.",
@@ -212,6 +223,8 @@ export function buildRepairPrompt({ topic, rawText, validationError, contentType
     rawText,
     "",
     "Regras:",
+    `- entregue ao menos ${repairTargetWords} palavras reais no corpo para superar com margem o gate de ${minimumWords};`,
+    "- para ampliar, aprofunde método, critérios de decisão e limitações já sustentados; não repita parágrafos nem crie fatos;",
     "- mantenha apenas informações verificáveis;",
     "- preserve o máximo possível do conteúdo útil já fornecido;",
     "- corrija campos faltantes ou inválidos;",

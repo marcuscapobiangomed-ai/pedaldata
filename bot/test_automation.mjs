@@ -10,6 +10,7 @@ import { produceCampaignCover } from "./src/images/campaign-cover.js";
 import { classifyOfficialImageQuality } from "./src/images/official-campaign-image.js";
 import { selectKnowledgeEvidence } from "./src/campaign_producer.js";
 import { selectScheduledPublication } from "./src/publish_scheduled.js";
+import { buildRepairPrompt } from "./src/editorial-prompt.js";
 
 const root = await fs.mkdtemp(path.join(os.tmpdir(), "thebiker-queue-"));
 await fs.mkdir(path.join(root, "content/research"), { recursive: true });
@@ -42,6 +43,14 @@ const unrelated = selectKnowledgeEvidence([
   productIds: [],
 });
 assert.deepEqual(unrelated.records, []);
+assert.match(buildRepairPrompt({
+  topic: 'Diagnóstico técnico',
+  rawText: '{}',
+  validationError: 'extensão insuficiente: 1462 palavras; mínimo 1600',
+  contentType: 'guia-tecnico',
+  template: { label: 'Guia técnico' },
+  today: '2026-08-08',
+}), /ao menos 1840 palavras reais/);
 const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';
