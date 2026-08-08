@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "cambio-eletronico-diagnostico-sincronia",
-      "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner",
-      "summary": "Abordagem para identificar problemas de sincronia em grupos eletrônicos usando observação de movimento, ruído e resposta da alavanca.",
-      "category": "manutencao-ajustes",
-      "freshness": "evergreen",
+      "id": "garfo-rigido-vs-suspensao-distribuicao-carga",
+      "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga",
+      "summary": "Análise das diferenças de transferência de peso e comportamento em frenagem entre garfo rígido e com suspensão, para escolha consciente.",
+      "category": "comparativo",
+      "freshness": "revalidate-24h",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T03:30:59.807Z",
-      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: Procedimentos de reset e diagnóstico não foram validados com manual específico do modelo; baseiam-se em conhecimento geral.; Guia não foi testado na prática; metodologia é desk-research, o que limita a confiabilidade das instruções."
+      "lastAttemptAt": "2026-08-08T03:35:31.231Z",
+      "blockReason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]"
     },
     {
       "day": 8,
@@ -558,12 +558,6 @@
   ],
   "reserves": [
     {
-      "id": "garfo-rigido-vs-suspensao-distribuicao-carga",
-      "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga",
-      "summary": "Análise das diferenças de transferência de peso e comportamento em frenagem entre garfo rígido e com suspensão, para escolha consciente.",
-      "category": "comparativo"
-    },
-    {
       "id": "inovacao-componentes-diferenciar-apelo-comercial",
       "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial",
       "summary": "Critérios para avaliar se uma novidade técnica traz ganho mensurável ou apenas reposicionamento, com foco em aplicação prática.",
@@ -586,6 +580,12 @@
       "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste",
       "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
       "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-cabos-mangueiras-roteamento",
+      "title": "Cabos e mangueiras: roteamento, atrito e sinais de montagem que pedem correção",
+      "summary": "Leitura técnica de curvas, fixações, contato com o quadro e interferências que alteram comando, ruído e durabilidade.",
+      "category": "componentes"
     }
   ]
 }

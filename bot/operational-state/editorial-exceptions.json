@@ -96,6 +96,30 @@
         "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner"
       },
       "reason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo afirma que a Scott Scale 940 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a ficha técnica menciona 'tubeless ready' para os pneus e aros, mas a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Scale 980 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict 50 é compatível com pneus de até 38 mm, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict RC 20 é compatível com pneus de até 34 mm, mas a pesquisa não confirma isso "
+    },
+    {
+      "recordedAt": "2026-08-08T03:35:30.668Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "cambio-eletronico-diagnostico-sincronia",
+        "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner",
+        "summary": "Abordagem para identificar problemas de sincronia em grupos eletrônicos usando observação de movimento, ruído e resposta da alavanca.",
+        "category": "manutencao-ajustes",
+        "freshness": "evergreen",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: Procedimentos de reset e diagnóstico não foram validados com manual específico do modelo; baseiam-se em conhecimento geral.; Guia não foi testado na prática; metodologia é desk-research, o que limita a confiabilidade das instruções.",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T03:30:59.807Z"
+      },
+      "replacement": {
+        "id": "garfo-rigido-vs-suspensao-distribuicao-carga",
+        "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga"
+      },
+      "reason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: Procedimentos de reset e diagnóstico não foram validados com manual específico do modelo; baseiam-se em conhecimento geral.; Guia não foi testado na prática; metodologia é desk-research, o que limita a confiabilidade das instruções."
     }
   ]
 }
