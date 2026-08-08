@@ -76,7 +76,7 @@ async function searchConsoleRows({ accessToken, siteUrl, period }) {
     body: JSON.stringify({
       startDate: period.startDate,
       endDate: period.endDate,
-      dimensions: ['query', 'page'],
+      dimensions: ['query', 'page', 'country'],
       type: 'web',
       aggregationType: 'auto',
       rowLimit: 25000,
@@ -103,25 +103,51 @@ async function youtubeGet(endpoint, parameters, authorization) {
 
 async function youtubeVideos({ env, accessToken, config, periods }) {
   const authorization = youtubeAuthorization(env, accessToken);
-  const query = String(config.youtubeQuery || 'ciclismo mountain bike MTB').replaceAll('|', ' OR ');
-  const search = await youtubeGet('search', {
-    part: 'snippet',
-    type: 'video',
-    order: 'viewCount',
-    maxResults: 50,
-    regionCode: 'BR',
-    relevanceLanguage: 'pt',
-    publishedAfter: `${periods.current.startDate}T00:00:00Z`,
-    q: query,
-  }, authorization);
-  const ids = [...new Set((search.items || []).map((item) => item.id?.videoId).filter(Boolean))];
+  const markets = Array.isArray(config.youtubeMarkets) && config.youtubeMarkets.length > 0
+    ? config.youtubeMarkets
+    : [{ regionCode: 'BR', relevanceLanguage: 'pt', query: config.youtubeQuery || 'ciclismo mountain bike MTB' }];
+  const searches = await Promise.all(markets.map(async (market) => {
+    const query = String(market.query || config.youtubeQuery || 'cycling mountain bike MTB').replaceAll('|', ' OR ');
+    const payload = await youtubeGet('search', {
+      part: 'snippet',
+      type: 'video',
+      order: 'viewCount',
+      maxResults: 50,
+      regionCode: market.regionCode,
+      relevanceLanguage: market.relevanceLanguage,
+      videoCategoryId: 17,
+      publishedAfter: `${periods.current.startDate}T00:00:00Z`,
+      q: query,
+    }, authorization);
+    return { market, items: payload.items || [] };
+  }));
+  const metadata = new Map();
+  for (const { market, items } of searches) {
+    for (const item of items) {
+      const id = item.id?.videoId;
+      if (!id) continue;
+      const captured = metadata.get(id) || { markets: new Set(), languages: new Set() };
+      captured.markets.add(market.regionCode);
+      captured.languages.add(market.relevanceLanguage);
+      metadata.set(id, captured);
+    }
+  }
+  const ids = [...metadata.keys()];
   if (ids.length === 0) throw new Error('YouTube não retornou vídeos para a janela analisada');
-  const details = await youtubeGet('videos', {
+  const batches = [];
+  for (let index = 0; index < ids.length; index += 50) batches.push(ids.slice(index, index + 50));
+  const details = await Promise.all(batches.map((batch) => youtubeGet('videos', {
     part: 'snippet,statistics,contentDetails',
-    id: ids.join(','),
+    id: batch.join(','),
     maxResults: 50,
-  }, authorization);
-  return details.items || [];
+  }, authorization)));
+  return details.flatMap((payload) => payload.items || []).map((video) => ({
+    ...video,
+    _intelligence: {
+      markets: [...(metadata.get(video.id)?.markets || [])],
+      languages: [...(metadata.get(video.id)?.languages || [])],
+    },
+  }));
 }
 
 export async function runEditorialIntelligence({

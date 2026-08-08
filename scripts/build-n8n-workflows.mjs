@@ -23,6 +23,7 @@ const ids = {
   mergeContext: '11000000-0000-4000-8000-000000000023', engine: '11000000-0000-4000-8000-000000000024',
   findIssue: '11000000-0000-4000-8000-000000000025', isNew: '11000000-0000-4000-8000-000000000026',
   createIssue: '11000000-0000-4000-8000-000000000027', commentIssue: '11000000-0000-4000-8000-000000000028',
+  youtubeMarkets: '11000000-0000-4000-8000-000000000029',
 };
 
 function node(id, name, type, typeVersion, position, parameters = {}) {
@@ -78,6 +79,18 @@ return [{ json: {
     githubOwner: 'marcuscapobiangomed-ai',
     githubRepository: 'thebikerblog',
     youtubeQuery: 'ciclismo|mountain bike|MTB|bike fit|suspensão bike|Scott bike|Shimano bike|SRAM bike',
+    youtubeMarkets: [
+      { regionCode: 'BR', relevanceLanguage: 'pt', query: 'ciclismo|mountain bike|MTB|bike fit|suspensão bike' },
+      { regionCode: 'US', relevanceLanguage: 'en', query: 'cycling|mountain bike|MTB|bike fit|bike suspension' },
+      { regionCode: 'MX', relevanceLanguage: 'es', query: 'ciclismo|bicicleta de montaña|MTB|ajuste bicicleta' },
+      { regionCode: 'GB', relevanceLanguage: 'en', query: 'cycling|mountain bike|gravel bike|bike maintenance' },
+      { regionCode: 'ES', relevanceLanguage: 'es', query: 'ciclismo|bicicleta de montaña|gravel|mantenimiento bicicleta' },
+      { regionCode: 'FR', relevanceLanguage: 'fr', query: 'cyclisme|VTT|vélo gravel|entretien vélo' },
+      { regionCode: 'DE', relevanceLanguage: 'de', query: 'Radsport|Mountainbike|Gravelbike|Fahrrad Wartung' },
+      { regionCode: 'IN', relevanceLanguage: 'en', query: 'cycling|mountain bike|MTB|bicycle maintenance' },
+      { regionCode: 'JP', relevanceLanguage: 'ja', query: 'サイクリング|マウンテンバイク|MTB|自転車 メンテナンス' },
+      { regionCode: 'AU', relevanceLanguage: 'en', query: 'cycling|mountain bike|gravel bike|bike maintenance' },
+    ],
     cyclingTerms: ['ciclismo', 'mountain bike', 'mtb', 'bike fit', 'suspensão', 'transmissão', 'shimano', 'sram', 'scott', 'syncros', 'pneu', 'roda'],
     portfolioBrands: ['Scott', 'Shimano', 'SRAM', 'Syncros', 'Fox', 'RockShox'],
     blockedPromotionBrands: ['Trek', 'Specialized', 'Cannondale', 'Cervélo', 'Giant', 'BMC', 'Pinarello'],
@@ -98,7 +111,7 @@ if (!context) throw new Error('Contexto da execução ausente');
 const report = buildEditorialIntelligence({ context, config: context.config, gscCurrent: current, gscPrevious: previous, videos, articles });
 return [{ json: {
   ...report,
-  title: '[INTEL] ' + report.runKey + ' — SEO, YouTube e atualização editorial',
+  title: '[INTEL] ' + report.runKey + ' — Top 10 global SEO e YouTube',
   body: intelligenceMarkdown(report),
   issueQuery: 'repo:' + context.config.githubOwner + '/' + context.config.githubRepository + ' in:title "[INTEL] ' + report.runKey + '"',
   githubOwner: context.config.githubOwner,
@@ -111,24 +124,25 @@ const mainNodes = [
   codeNode(ids.weeklyMode, 'Modo semanal', [-860, -180], weeklyModeCode),
   codeNode(ids.monthlyMode, 'Modo mensal', [-860, 20], monthlyModeCode),
   codeNode(ids.context, 'Contexto e configuração', [-620, -80], contextCode),
-  httpNode(ids.gscCurrent, 'Search Console atual', [-360, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page'], type: 'web', aggregationType: 'auto', rowLimit: 25000, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  httpNode(ids.gscPrevious, 'Search Console anterior', [-360, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page'], type: 'web', aggregationType: 'auto', rowLimit: 25000, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  httpNode(ids.gscCurrent, 'Search Console atual', [-360, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page','country'], type: 'web', aggregationType: 'auto', rowLimit: 25000, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  httpNode(ids.gscPrevious, 'Search Console anterior', [-360, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page','country'], type: 'web', aggregationType: 'auto', rowLimit: 25000, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
   codeNode(ids.tagCurrent, 'Marcar Search Console atual', [-100, -500], "return [{ json: { kind: 'gsc_current', rows: $input.first().json.rows || [] } }];"),
   codeNode(ids.tagPrevious, 'Marcar Search Console anterior', [-100, -340], "return [{ json: { kind: 'gsc_previous', rows: $input.first().json.rows || [] } }];"),
   httpNode(ids.content, 'Índice público do blog', [-360, -150], { method: 'GET', url: '={{ $json.config.contentIndexUrl }}' }),
   codeNode(ids.tagContent, 'Marcar índice do blog', [-100, -150], "const data=$input.first().json; return [{ json: { kind: 'content_index', articles: data.articles || [] } }];"),
-  httpNode(ids.youtubeSearch, 'YouTube busca por visualizações', [-360, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/search', sendQuery: true, queryParameters: { parameters: [
+  codeNode(ids.youtubeMarkets, 'Expandir mercados do YouTube', [-380, 80], "const context=$input.first().json; return (context.config.youtubeMarkets||[]).map((market)=>({json:{...context,market}}));"),
+  httpNode(ids.youtubeSearch, 'YouTube busca por visualizações', [-140, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/search', sendQuery: true, queryParameters: { parameters: [
     { name: 'part', value: 'snippet' }, { name: 'type', value: 'video' }, { name: 'order', value: 'viewCount' }, { name: 'maxResults', value: '50' },
-    { name: 'regionCode', value: 'BR' }, { name: 'relevanceLanguage', value: 'pt' }, { name: 'videoCategoryId', value: '17' },
-    { name: 'publishedAfter', value: "={{ $json.periods.current.startDate + 'T00:00:00Z' }}" }, { name: 'q', value: '={{ $json.config.youtubeQuery }}' },
+    { name: 'regionCode', value: '={{ $json.market.regionCode }}' }, { name: 'relevanceLanguage', value: '={{ $json.market.relevanceLanguage }}' }, { name: 'videoCategoryId', value: '17' },
+    { name: 'publishedAfter', value: "={{ $json.periods.current.startDate + 'T00:00:00Z' }}" }, { name: 'q', value: '={{ $json.market.query }}' },
   ] } }, 'googleOAuth2Api'),
-  codeNode(ids.youtubeIds, 'Consolidar IDs do YouTube', [-100, 80], "const ids=($input.first().json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); if(!ids.length) throw new Error('YouTube não retornou vídeos para a janela'); return [{json:{ids:[...new Set(ids)].slice(0,50)}}];"),
+  node(ids.youtubeIds, 'Consolidar IDs do YouTube', 'n8n-nodes-base.code', 2, [100, 80], { mode: 'runOnceForEachItem', jsCode: "const ids=($json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); if(!ids.length) throw new Error('YouTube não retornou vídeos para a janela'); const market=$('Expandir mercados do YouTube').item.json.market; return {json:{ids:[...new Set(ids)].slice(0,50),market}};" }),
   httpNode(ids.youtubeDetails, 'YouTube métricas dos vídeos', [150, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'id', value: '={{ $json.ids.join(",") }}' }] } }, 'googleOAuth2Api'),
-  codeNode(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', [400, 80], "return [{json:{kind:'youtube_part',videos:$input.first().json.items||[]}}];"),
+  node(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', 'n8n-nodes-base.code', 2, [400, 80], { mode: 'runOnceForEachItem', jsCode: "const market=$('Consolidar IDs do YouTube').item.json.market; const videos=($json.items||[]).map((video)=>({...video,_intelligence:{markets:[market.regionCode],languages:[market.relevanceLanguage]}})); return {json:{kind:'youtube_part',videos}};" }),
   httpNode(ids.youtubePopular, 'YouTube populares em esportes', [-360, 260], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'chart', value: 'mostPopular' }, { name: 'regionCode', value: 'BR' }, { name: 'videoCategoryId', value: '17' }, { name: 'maxResults', value: '50' }] } }, 'googleOAuth2Api'),
-  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "return [{json:{kind:'youtube_part',videos:$input.first().json.items||[]}}];"),
+  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "const videos=($input.first().json.items||[]).map((video)=>({...video,_intelligence:{markets:['BR'],languages:['pt']}})); return [{json:{kind:'youtube_part',videos}}];"),
   node(ids.mergeYoutube, 'Unir sinais do YouTube', 'n8n-nodes-base.merge', 3.2, [640, 160], { mode: 'append' }),
-  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); for(const item of $input.all()) for(const video of item.json.videos||[]) map.set(video.id,video); return [{json:{kind:'youtube',videos:[...map.values()]}}];"),
+  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); for(const item of $input.all()) for(const video of item.json.videos||[]){const previous=map.get(video.id); if(!previous){map.set(video.id,video);continue;} previous._intelligence={markets:[...new Set([...(previous._intelligence?.markets||[]),...(video._intelligence?.markets||[])])],languages:[...new Set([...(previous._intelligence?.languages||[]),...(video._intelligence?.languages||[])])]};} return [{json:{kind:'youtube',videos:[...map.values()]}}];"),
   node(ids.mergeSeo, 'Unir períodos SEO', 'n8n-nodes-base.merge', 3.2, [160, -420], { mode: 'append' }),
   node(ids.mergeExternal, 'Unir conteúdo e YouTube', 'n8n-nodes-base.merge', 3.2, [1080, -20], { mode: 'append' }),
   node(ids.mergeSignals, 'Unir todos os sinais', 'n8n-nodes-base.merge', 3.2, [1300, -260], { mode: 'append' }),
@@ -143,11 +157,11 @@ const mainNodes = [
 const mainConnections = {};
 connect(mainConnections, 'Agenda semanal', 'Modo semanal'); connect(mainConnections, 'Agenda mensal', 'Modo mensal');
 connect(mainConnections, 'Modo semanal', 'Contexto e configuração'); connect(mainConnections, 'Modo mensal', 'Contexto e configuração');
-for (const destination of ['Search Console atual', 'Search Console anterior', 'Índice público do blog', 'YouTube busca por visualizações', 'YouTube populares em esportes']) connect(mainConnections, 'Contexto e configuração', destination);
+for (const destination of ['Search Console atual', 'Search Console anterior', 'Índice público do blog', 'Expandir mercados do YouTube', 'YouTube populares em esportes']) connect(mainConnections, 'Contexto e configuração', destination);
 connect(mainConnections, 'Search Console atual', 'Marcar Search Console atual'); connect(mainConnections, 'Search Console anterior', 'Marcar Search Console anterior');
 connect(mainConnections, 'Marcar Search Console atual', 'Unir períodos SEO', 0, 0); connect(mainConnections, 'Marcar Search Console anterior', 'Unir períodos SEO', 0, 1);
 connect(mainConnections, 'Índice público do blog', 'Marcar índice do blog');
-connect(mainConnections, 'YouTube busca por visualizações', 'Consolidar IDs do YouTube'); connect(mainConnections, 'Consolidar IDs do YouTube', 'YouTube métricas dos vídeos'); connect(mainConnections, 'YouTube métricas dos vídeos', 'Marcar vídeos pesquisados');
+connect(mainConnections, 'Expandir mercados do YouTube', 'YouTube busca por visualizações'); connect(mainConnections, 'YouTube busca por visualizações', 'Consolidar IDs do YouTube'); connect(mainConnections, 'Consolidar IDs do YouTube', 'YouTube métricas dos vídeos'); connect(mainConnections, 'YouTube métricas dos vídeos', 'Marcar vídeos pesquisados');
 connect(mainConnections, 'YouTube populares em esportes', 'Marcar vídeos populares'); connect(mainConnections, 'Marcar vídeos pesquisados', 'Unir sinais do YouTube', 0, 0); connect(mainConnections, 'Marcar vídeos populares', 'Unir sinais do YouTube', 0, 1); connect(mainConnections, 'Unir sinais do YouTube', 'Deduplicar YouTube');
 connect(mainConnections, 'Marcar índice do blog', 'Unir conteúdo e YouTube', 0, 0); connect(mainConnections, 'Deduplicar YouTube', 'Unir conteúdo e YouTube', 0, 1);
 connect(mainConnections, 'Unir períodos SEO', 'Unir todos os sinais', 0, 0); connect(mainConnections, 'Unir conteúdo e YouTube', 'Unir todos os sinais', 0, 1);

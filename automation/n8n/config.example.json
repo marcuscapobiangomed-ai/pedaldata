@@ -5,6 +5,18 @@
   "githubOwner": "marcuscapobiangomed-ai",
   "githubRepository": "thebikerblog",
   "youtubeQuery": "ciclismo|mountain bike|MTB|bike fit|suspensão bike|Scott bike|Shimano bike|SRAM bike",
+  "youtubeMarkets": [
+    { "regionCode": "BR", "relevanceLanguage": "pt", "query": "ciclismo|mountain bike|MTB|bike fit|suspensão bike" },
+    { "regionCode": "US", "relevanceLanguage": "en", "query": "cycling|mountain bike|MTB|bike fit|bike suspension" },
+    { "regionCode": "MX", "relevanceLanguage": "es", "query": "ciclismo|bicicleta de montaña|MTB|ajuste bicicleta" },
+    { "regionCode": "GB", "relevanceLanguage": "en", "query": "cycling|mountain bike|gravel bike|bike maintenance" },
+    { "regionCode": "ES", "relevanceLanguage": "es", "query": "ciclismo|bicicleta de montaña|gravel|mantenimiento bicicleta" },
+    { "regionCode": "FR", "relevanceLanguage": "fr", "query": "cyclisme|VTT|vélo gravel|entretien vélo" },
+    { "regionCode": "DE", "relevanceLanguage": "de", "query": "Radsport|Mountainbike|Gravelbike|Fahrrad Wartung" },
+    { "regionCode": "IN", "relevanceLanguage": "en", "query": "cycling|mountain bike|MTB|bicycle maintenance" },
+    { "regionCode": "JP", "relevanceLanguage": "ja", "query": "サイクリング|マウンテンバイク|MTB|自転車 メンテナンス" },
+    { "regionCode": "AU", "relevanceLanguage": "en", "query": "cycling|mountain bike|gravel bike|bike maintenance" }
+  ],
   "cyclingTerms": ["ciclismo", "ciclista", "bicicleta", "mountain bike", "MTB", "gravel", "bike fit", "suspensão", "pedal", "downhill", "enduro", "cross country"],
   "portfolioBrands": ["Scott", "Shimano", "SRAM", "Syncros", "Fox", "RockShox"],
   "blockedPromotionBrands": ["Trek", "Specialized", "Cannondale", "Cervélo", "Giant", "BMC", "Pinarello"],

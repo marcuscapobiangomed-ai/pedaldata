@@ -16,9 +16,15 @@ const report = {
   })),
   refreshQueue: [{ title: 'Artigo antigo', url: 'https://example.com/antigo/', ageDays: 200 }],
   marketSignals: [],
+  globalRankings: {
+    youtube: [{ rank: 1, signalTitle: 'Global MTB signal', topic: 'Suspensão MTB', score: 98 }],
+    seo: [{ rank: 1, term: 'ajuste suspensão mtb', opportunityScore: 92 }],
+  },
 }
+let plannerPrompt = ''
 const ai = {
   async generate(_system, prompt) {
+    plannerPrompt = prompt
     const missing = Number(prompt.match(/Crie exatamente (\d+) pautas/)?.[1] || 0)
     return JSON.stringify({
       topics: Array.from({ length: missing }, (_, index) => ({
@@ -57,6 +63,8 @@ assert.equal(renewed.items.some((item) => item.id === staleReserveId), false, 'r
 assert.equal(renewed.reserves.some((item) => item.id === staleReserveId), false, 'buffer renovado deve vir apenas da inteligência atual')
 assert.ok(renewed.items.some((item) => item.id === 'seo-topic-1'), 'inteligência nova deve preencher lacunas')
 assert.ok(renewed.reserves.length >= 3)
+assert.match(plannerPrompt, /globalRankings/)
+assert.match(plannerPrompt, /ajuste suspensão mtb/)
 
 const publishedToday = structuredClone(campaignFixture)
 publishedToday.items.find((item) => item.publishDate === fixtureStart).status = 'published'
