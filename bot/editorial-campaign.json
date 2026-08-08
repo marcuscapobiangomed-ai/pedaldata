@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "reserva-pressao-pneus-terreno",
-      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
-      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
-      "category": "engenharia",
+      "id": "reserva-inspecao-pos-chuva",
+      "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste",
+      "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
+      "category": "manutencao-ajustes",
       "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 2,
-      "lastAttemptAt": "2026-08-08T03:56:54.969Z",
-      "blockReason": "Fallback interno bloqueado: nenhuma fonte oficial permitida (Groq 429; Gemini grounded research: 404 - {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use a newer model for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n)"
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-08T03:59:15.179Z",
+      "blockReason": "Fallback interno bloqueado: nenhuma fonte oficial permitida (Groq 429; Gemini grounded research: 429 - {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \",\n    \"stat)"
     },
     {
       "day": 8,
@@ -558,12 +558,6 @@
   ],
   "reserves": [
     {
-      "id": "reserva-inspecao-pos-chuva",
-      "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste",
-      "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
-      "category": "manutencao-ajustes"
-    },
-    {
       "id": "reserva-cabos-mangueiras-roteamento",
       "title": "Cabos e mangueiras: roteamento, atrito e sinais de montagem que pedem correção",
       "summary": "Leitura técnica de curvas, fixações, contato com o quadro e interferências que alteram comando, ruído e durabilidade.",
@@ -580,6 +574,12 @@
       "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
       "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
       "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-pressao-pneus-terreno",
+      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
+      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
+      "category": "engenharia"
     }
   ]
 }
