@@ -120,6 +120,30 @@
         "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga"
       },
       "reason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: Procedimentos de reset e diagnóstico não foram validados com manual específico do modelo; baseiam-se em conhecimento geral.; Guia não foi testado na prática; metodologia é desk-research, o que limita a confiabilidade das instruções."
+    },
+    {
+      "recordedAt": "2026-08-08T03:40:11.680Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "garfo-rigido-vs-suspensao-distribuicao-carga",
+        "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga",
+        "summary": "Análise das diferenças de transferência de peso e comportamento em frenagem entre garfo rígido e com suspensão, para escolha consciente.",
+        "category": "comparativo",
+        "freshness": "revalidate-24h",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T03:35:31.231Z"
+      },
+      "replacement": {
+        "id": "inovacao-componentes-diferenciar-apelo-comercial",
+        "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial"
+      },
+      "reason": "STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: [object Object]"
     }
   ]
 }
