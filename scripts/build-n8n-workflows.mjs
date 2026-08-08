@@ -32,6 +32,9 @@ const ids = {
   mergeBrazilSummaries: '11000000-0000-4000-8000-000000000040', mergeGlobalSummaries: '11000000-0000-4000-8000-000000000041',
   mergeSeoDiagnostics: '11000000-0000-4000-8000-000000000042', mergeSeoAll: '11000000-0000-4000-8000-000000000043',
   mergeExternalTrends: '11000000-0000-4000-8000-000000000044',
+  gscSites: '11000000-0000-4000-8000-000000000045',
+  shopPageSpeed: '11000000-0000-4000-8000-000000000046', tagShopPageSpeed: '11000000-0000-4000-8000-000000000047',
+  mergePublicShopSeo: '11000000-0000-4000-8000-000000000048',
 };
 
 function node(id, name, type, typeVersion, position, parameters = {}) {
@@ -56,7 +59,7 @@ function httpNode(id, name, position, parameters, credentialType) {
       ...customOptions,
       response: {
         ...customOptions.response,
-        response: { neverError: false, responseFormat: 'json', ...(customOptions.response?.response || {}) },
+        response: { neverError: name.startsWith('Search Console') || name.startsWith('YouTube'), responseFormat: 'json', ...(customOptions.response?.response || {}) },
       },
     },
   });
@@ -91,6 +94,10 @@ return [{ json: {
   },
   config: {
     searchConsoleSiteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/',
+    searchConsoleSites: [
+      { id: 'blog', role: 'editorial', accessMode: 'required', siteUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/' },
+      { id: 'shop', role: 'commercial', accessMode: 'optional', siteUrl: 'sc-domain:thebikershop.com.br', publicUrl: 'https://thebikershop.com.br/' },
+    ],
     contentIndexUrl: 'https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json',
     githubOwner: 'marcuscapobiangomed-ai',
     githubRepository: 'thebikerblog',
@@ -127,21 +134,49 @@ return [{ json: {
 const reportCode = `${engineSource}
 const values = $input.all().map((item) => item.json);
 const context = values.find((item) => item.kind === 'context');
-const current = values.find((item) => item.kind === 'gsc_current')?.rows || [];
-const previous = values.find((item) => item.kind === 'gsc_previous')?.rows || [];
-const videos = values.find((item) => item.kind === 'youtube')?.videos || [];
+const rows = (kind) => values.filter((item) => item.kind === kind).flatMap((item) => item.rows || []);
+const current = rows('gsc_current');
+const previous = rows('gsc_previous');
+const youtube = values.find((item) => item.kind === 'youtube') || { videos: [], error: null };
+const videos = youtube.videos || [];
 const articles = values.find((item) => item.kind === 'content_index')?.articles || [];
-const summary = (kind) => values.find((item) => item.kind === kind)?.summary || { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+const summaries = (kind) => values.filter((item) => item.kind === kind);
+const combinedSummary = (kind) => {
+  const items = summaries(kind).map((item) => item.summary || {});
+  const impressions = items.reduce((sum, item) => sum + Number(item.impressions || 0), 0);
+  const clicks = items.reduce((sum, item) => sum + Number(item.clicks || 0), 0);
+  const weightedPosition = items.reduce((sum, item) => sum + Number(item.position || 0) * Number(item.impressions || 0), 0);
+  return { clicks, impressions, ctr: impressions ? clicks / impressions : 0, position: impressions ? weightedPosition / impressions : 0 };
+};
+const propertyDiagnostics = {};
+for (const item of values.filter((value) => value.propertyId && value.summary)) {
+  const property = propertyDiagnostics[item.propertyId] ||= { role: item.propertyRole, current: {}, previous: {} };
+  const period = item.kind.endsWith('_current') ? 'current' : 'previous';
+  const scope = item.kind.includes('_brazil_') ? 'brazil' : 'global';
+  property[period][scope] = item.summary;
+}
+for (const item of values.filter((value) => value.propertyId && value.kind === 'gsc_current')) {
+  const property = propertyDiagnostics[item.propertyId] ||= { role: item.propertyRole, current: {}, previous: {} };
+  property.accessMode = item.accessMode || 'required';
+  property.status = item.error ? 'not_authorized' : 'available';
+  property.error = item.error || null;
+}
 const trends = values.find((item) => item.kind === 'google_trends') || { items: [], status: 'unavailable', error: 'n8n_feed_unavailable' };
+const publicShopSeo = values.find((item) => item.kind === 'public_shop_seo') || { status: 'unavailable', signal: null, error: 'n8n_pagespeed_unavailable' };
 if (!context) throw new Error('Contexto da execução ausente');
+const requiredPropertyFailure = values.find((item) => item.propertyId && item.accessMode !== 'optional' && item.error);
+if (requiredPropertyFailure) throw new Error('Search Console obrigatório indisponível para ' + requiredPropertyFailure.propertyId + ': ' + requiredPropertyFailure.error);
 const report = buildEditorialIntelligence({
   context, config: context.config, gscCurrent: current, gscPrevious: previous, videos, articles,
   searchConsoleDiagnostics: {
-    current: { brazil: summary('gsc_brazil_summary_current'), global: summary('gsc_global_summary_current') },
-    previous: { brazil: summary('gsc_brazil_summary_previous'), global: summary('gsc_global_summary_previous') },
+    current: { brazil: combinedSummary('gsc_brazil_summary_current'), global: combinedSummary('gsc_global_summary_current') },
+    previous: { brazil: combinedSummary('gsc_brazil_summary_previous'), global: combinedSummary('gsc_global_summary_previous') },
+    properties: propertyDiagnostics,
   },
   googleTrends: trends.items || [],
   googleTrendsStatus: { status: trends.status || 'available', error: trends.error || null },
+  publicShopSeo,
+  youtubeStatus: { status: youtube.error ? 'unavailable' : 'available', error: youtube.error || null },
 });
 return [{ json: {
   ...report,
@@ -171,35 +206,42 @@ const mainNodes = [
   codeNode(ids.weeklyMode, 'Modo semanal', [-860, -180], weeklyModeCode),
   codeNode(ids.monthlyMode, 'Modo mensal', [-860, 20], monthlyModeCode),
   codeNode(ids.context, 'Contexto e configuração', [-620, -80], contextCode),
-  httpNode(ids.gscCurrent, 'Search Console atual', [-360, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  httpNode(ids.gscPrevious, 'Search Console anterior', [-360, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagCurrent, 'Marcar Search Console atual', [-100, -500], "return [{ json: { kind: 'gsc_current', rows: $input.first().json.rows || [] } }];"),
-  codeNode(ids.tagPrevious, 'Marcar Search Console anterior', [-100, -340], "return [{ json: { kind: 'gsc_previous', rows: $input.first().json.rows || [] } }];"),
+  codeNode(ids.gscSites, 'Expandir propriedades Search Console', [-500, -520], "const context=$input.first().json; return (context.config.searchConsoleSites||[{id:'blog',role:'editorial',siteUrl:context.config.searchConsoleSiteUrl}]).map((site)=>({json:{...context,config:{...context.config,searchConsoleSiteUrl:site.siteUrl},site}}));"),
+  httpNode(ids.gscCurrent, 'Search Console atual', [-260, -500], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.site.siteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  httpNode(ids.gscPrevious, 'Search Console anterior', [-260, -340], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.site.siteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensions: ['query','page','country','device'], dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: $json.config.maximumSearchQueries, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
+  codeNode(ids.tagCurrent, 'Marcar Search Console atual', [-20, -500], "const site=$('Expandir propriedades Search Console').item.json.site; const data=$input.first().json; const rows=(data.rows||[]).map((row)=>({...row,_propertyId:site.id,_propertyRole:site.role})); return [{json:{kind:'gsc_current',propertyId:site.id,propertyRole:site.role,accessMode:site.accessMode||'required',error:data.error?.message||null,rows}}];"),
+  codeNode(ids.tagPrevious, 'Marcar Search Console anterior', [-20, -340], "const site=$('Expandir propriedades Search Console').item.json.site; const data=$input.first().json; const rows=(data.rows||[]).map((row)=>({...row,_propertyId:site.id,_propertyRole:site.role})); return [{json:{kind:'gsc_previous',propertyId:site.id,propertyRole:site.role,accessMode:site.accessMode||'required',error:data.error?.message||null,rows}}];"),
   httpNode(ids.gscBrazilSummaryCurrent, 'Search Console resumo Brasil atual', [-360, -680], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagBrazilSummaryCurrent, 'Marcar resumo Brasil atual', [-100, -680], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_brazil_summary_current',summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagBrazilSummaryCurrent, 'Marcar resumo Brasil atual', [-100, -680], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_brazil_summary_current',propertyId:site.id,propertyRole:site.role,summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscBrazilSummaryPrevious, 'Search Console resumo Brasil anterior', [-360, -600], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: $json.config.searchConsoleCountry }] }], type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagBrazilSummaryPrevious, 'Marcar resumo Brasil anterior', [-100, -600], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_brazil_summary_previous',summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagBrazilSummaryPrevious, 'Marcar resumo Brasil anterior', [-100, -600], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_brazil_summary_previous',propertyId:site.id,propertyRole:site.role,summary:{scope:'bra',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscGlobalSummaryCurrent, 'Search Console resumo global atual', [-360, -840], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.current.startDate, endDate: $json.periods.current.endDate, type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagGlobalSummaryCurrent, 'Marcar resumo global atual', [-100, -840], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_global_summary_current',summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagGlobalSummaryCurrent, 'Marcar resumo global atual', [-100, -840], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_global_summary_current',propertyId:site.id,propertyRole:site.role,summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.gscGlobalSummaryPrevious, 'Search Console resumo global anterior', [-360, -760], { method: 'POST', url: "={{ 'https://www.googleapis.com/webmasters/v3/sites/' + encodeURIComponent($json.config.searchConsoleSiteUrl) + '/searchAnalytics/query' }}", sendBody: true, contentType: 'raw', rawContentType: 'application/json', body: "={{ JSON.stringify({ startDate: $json.periods.previous.startDate, endDate: $json.periods.previous.endDate, type: 'web', aggregationType: 'auto', rowLimit: 1, dataState: 'final' }) }}" }, 'googleOAuth2Api'),
-  codeNode(ids.tagGlobalSummaryPrevious, 'Marcar resumo global anterior', [-100, -760], "const row=$input.first().json.rows?.[0]||{}; return [{json:{kind:'gsc_global_summary_previous',summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
+  codeNode(ids.tagGlobalSummaryPrevious, 'Marcar resumo global anterior', [-100, -760], "const row=$input.first().json.rows?.[0]||{}; const site=$('Expandir propriedades Search Console').item.json.site; return [{json:{kind:'gsc_global_summary_previous',propertyId:site.id,propertyRole:site.role,summary:{scope:'global',clicks:Number(row.clicks||0),impressions:Number(row.impressions||0),ctr:Number(row.ctr||0),position:Number(row.position||0)}}}];"),
   httpNode(ids.content, 'Índice público do blog', [-360, -150], { method: 'GET', url: '={{ $json.config.contentIndexUrl }}' }),
   codeNode(ids.tagContent, 'Marcar índice do blog', [-100, -150], "const data=$input.first().json; return [{ json: { kind: 'content_index', articles: data.articles || [] } }];"),
   httpNode(ids.googleTrends, 'Google Trends RSS Brasil', [-360, -40], { method: 'GET', url: '={{ $json.config.googleTrendsRssUrl }}', options: { response: { response: { responseFormat: 'text' } } } }),
   codeNode(ids.tagGoogleTrends, 'Marcar Google Trends Brasil', [-100, -40], tagTrendsCode),
+  httpNode(ids.shopPageSpeed, 'PageSpeed público da TheBikerShop', [-360, 20], { method: 'GET', url: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed', sendQuery: true, queryParameters: { parameters: [
+    { name: 'url', value: '={{ $json.config.searchConsoleSites.find((site) => site.id === "shop").publicUrl }}' },
+    { name: 'strategy', value: 'mobile' },
+    { name: 'category', value: 'performance' }, { name: 'category', value: 'seo' }, { name: 'category', value: 'accessibility' },
+  ] }, options: { response: { response: { neverError: true } } } }),
+  codeNode(ids.tagShopPageSpeed, 'Marcar SEO público da loja', [-100, 20], "const data=$input.first().json; const categories=data.lighthouseResult?.categories||{}; const scores=Object.fromEntries(Object.entries(categories).map(([id,category])=>[id,Math.round(Number(category.score||0)*100)])); const pageSpeed={status:data.error?'unavailable':'available',error:data.error?.message||null,signal:data.error?null:{source:'pagespeed-insights',evidenceClass:'public_measurement',targetUrl:data.id||'https://thebikershop.com.br/',strategy:'mobile',scores}}; return [{json:{kind:'public_shop_seo',status:pageSpeed.status,siteAudit:null,pageSpeed}}];"),
   codeNode(ids.youtubeMarkets, 'Expandir buscas do YouTube Brasil', [-380, 80], "const context=$input.first().json; return (context.config.youtubeSearches||[]).map((market)=>({json:{...context,market}}));"),
   httpNode(ids.youtubeSearch, 'YouTube busca por visualizações', [-140, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/search', sendQuery: true, queryParameters: { parameters: [
     { name: 'part', value: 'snippet' }, { name: 'type', value: 'video' }, { name: 'order', value: 'viewCount' }, { name: 'maxResults', value: '50' },
     { name: 'regionCode', value: '={{ $json.market.regionCode }}' }, { name: 'relevanceLanguage', value: '={{ $json.market.relevanceLanguage }}' }, { name: 'videoCategoryId', value: '17' },
     { name: 'publishedAfter', value: "={{ $json.periods.current.startDate + 'T00:00:00Z' }}" }, { name: 'q', value: '={{ $json.market.query }}' },
   ] } }, 'googleOAuth2Api'),
-  node(ids.youtubeIds, 'Consolidar IDs do YouTube', 'n8n-nodes-base.code', 2, [100, 80], { mode: 'runOnceForEachItem', jsCode: "const ids=($json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); if(!ids.length) throw new Error('YouTube não retornou vídeos para a janela'); const market=$('Expandir buscas do YouTube Brasil').item.json.market; return {json:{ids:[...new Set(ids)].slice(0,50),market}};" }),
+  node(ids.youtubeIds, 'Consolidar IDs do YouTube', 'n8n-nodes-base.code', 2, [100, 80], { mode: 'runOnceForEachItem', jsCode: "const ids=($json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); const market=$('Expandir buscas do YouTube Brasil').item.json.market; return {json:{ids:[...new Set(ids)].slice(0,50),market,error:$json.error?.message||null}};" }),
   httpNode(ids.youtubeDetails, 'YouTube métricas dos vídeos', [150, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'id', value: '={{ $json.ids.join(",") }}' }] } }, 'googleOAuth2Api'),
-  node(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', 'n8n-nodes-base.code', 2, [400, 80], { mode: 'runOnceForEachItem', jsCode: "const market=$('Consolidar IDs do YouTube').item.json.market; const videos=($json.items||[]).map((video)=>({...video,_intelligence:{markets:[market.regionCode],languages:[market.relevanceLanguage],searches:[market.id||market.query]}})); return {json:{kind:'youtube_part',videos}};" }),
+  node(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', 'n8n-nodes-base.code', 2, [400, 80], { mode: 'runOnceForEachItem', jsCode: "const upstream=$('Consolidar IDs do YouTube').item.json; const market=upstream.market; const videos=($json.items||[]).map((video)=>({...video,_intelligence:{markets:[market.regionCode],languages:[market.relevanceLanguage],searches:[market.id||market.query]}})); return {json:{kind:'youtube_part',error:upstream.error||$json.error?.message||null,videos}};" }),
   httpNode(ids.youtubePopular, 'YouTube populares em esportes', [-360, 260], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'chart', value: 'mostPopular' }, { name: 'regionCode', value: 'BR' }, { name: 'videoCategoryId', value: '17' }, { name: 'maxResults', value: '50' }] } }, 'googleOAuth2Api'),
-  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "const videos=($input.first().json.items||[]).map((video)=>({...video,_intelligence:{markets:['BR'],languages:['pt'],searches:['populares-esportes-br']}})); return [{json:{kind:'youtube_part',videos}}];"),
+  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "const data=$input.first().json; const videos=(data.items||[]).map((video)=>({...video,_intelligence:{markets:['BR'],languages:['pt'],searches:['populares-esportes-br']}})); return [{json:{kind:'youtube_part',error:data.error?.message||null,videos}}];"),
   node(ids.mergeYoutube, 'Unir sinais do YouTube', 'n8n-nodes-base.merge', 3.2, [640, 160], { mode: 'append' }),
-  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); for(const item of $input.all()) for(const video of item.json.videos||[]){const previous=map.get(video.id); if(!previous){map.set(video.id,video);continue;} previous._intelligence={markets:[...new Set([...(previous._intelligence?.markets||[]),...(video._intelligence?.markets||[])])],languages:[...new Set([...(previous._intelligence?.languages||[]),...(video._intelligence?.languages||[])])],searches:[...new Set([...(previous._intelligence?.searches||[]),...(video._intelligence?.searches||[])])]};} return [{json:{kind:'youtube',videos:[...map.values()]}}];"),
+  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); const errors=[]; for(const item of $input.all()){if(item.json.error)errors.push(item.json.error); for(const video of item.json.videos||[]){const previous=map.get(video.id); if(!previous){map.set(video.id,video);continue;} previous._intelligence={markets:[...new Set([...(previous._intelligence?.markets||[]),...(video._intelligence?.markets||[])])],languages:[...new Set([...(previous._intelligence?.languages||[]),...(video._intelligence?.languages||[])])],searches:[...new Set([...(previous._intelligence?.searches||[]),...(video._intelligence?.searches||[])])]};}} return [{json:{kind:'youtube',error:errors[0]||null,videos:[...map.values()]}}];"),
   node(ids.mergeSeo, 'Unir períodos SEO', 'n8n-nodes-base.merge', 3.2, [160, -420], { mode: 'append' }),
   node(ids.mergeBrazilSummaries, 'Unir resumos Brasil', 'n8n-nodes-base.merge', 3.2, [160, -650], { mode: 'append' }),
   node(ids.mergeGlobalSummaries, 'Unir resumos globais', 'n8n-nodes-base.merge', 3.2, [160, -800], { mode: 'append' }),
@@ -208,6 +250,7 @@ const mainNodes = [
   node(ids.mergeExternal, 'Unir conteúdo e YouTube', 'n8n-nodes-base.merge', 3.2, [1080, -20], { mode: 'append' }),
   node(ids.mergeExternalTrends, 'Anexar Google Trends', 'n8n-nodes-base.merge', 3.2, [1200, 20], { mode: 'append' }),
   node(ids.mergeSignals, 'Unir todos os sinais', 'n8n-nodes-base.merge', 3.2, [1300, -260], { mode: 'append' }),
+  node(ids.mergePublicShopSeo, 'Anexar SEO público da loja', 'n8n-nodes-base.merge', 3.2, [1410, -220], { mode: 'append' }),
   node(ids.mergeContext, 'Anexar contexto', 'n8n-nodes-base.merge', 3.2, [1510, -160], { mode: 'append' }),
   codeNode(ids.engine, 'Gerar relatório e pautas', [1730, -160], reportCode),
   httpNode(ids.findIssue, 'Localizar relatório existente', [1960, -160], { method: 'GET', url: 'https://api.github.com/search/issues', sendQuery: true, queryParameters: { parameters: [{ name: 'q', value: '={{ $json.issueQuery }}' }] }, sendHeaders: true, headerParameters: { parameters: [{ name: 'Accept', value: 'application/vnd.github+json' }, { name: 'X-GitHub-Api-Version', value: '2022-11-28' }] } }, 'githubApi'),
@@ -220,12 +263,16 @@ const mainConnections = {};
 connect(mainConnections, 'Agenda semanal', 'Modo semanal'); connect(mainConnections, 'Agenda mensal', 'Modo mensal');
 connect(mainConnections, 'Modo semanal', 'Contexto e configuração'); connect(mainConnections, 'Modo mensal', 'Contexto e configuração');
 for (const destination of [
+  'Índice público do blog', 'Google Trends RSS Brasil',
+  'PageSpeed público da TheBikerShop',
+  'Expandir buscas do YouTube Brasil', 'YouTube populares em esportes',
+]) connect(mainConnections, 'Contexto e configuração', destination);
+connect(mainConnections, 'Contexto e configuração', 'Expandir propriedades Search Console');
+for (const destination of [
   'Search Console atual', 'Search Console anterior',
   'Search Console resumo Brasil atual', 'Search Console resumo Brasil anterior',
   'Search Console resumo global atual', 'Search Console resumo global anterior',
-  'Índice público do blog', 'Google Trends RSS Brasil',
-  'Expandir buscas do YouTube Brasil', 'YouTube populares em esportes',
-]) connect(mainConnections, 'Contexto e configuração', destination);
+]) connect(mainConnections, 'Expandir propriedades Search Console', destination);
 connect(mainConnections, 'Search Console atual', 'Marcar Search Console atual'); connect(mainConnections, 'Search Console anterior', 'Marcar Search Console anterior');
 connect(mainConnections, 'Marcar Search Console atual', 'Unir períodos SEO', 0, 0); connect(mainConnections, 'Marcar Search Console anterior', 'Unir períodos SEO', 0, 1);
 connect(mainConnections, 'Search Console resumo Brasil atual', 'Marcar resumo Brasil atual'); connect(mainConnections, 'Search Console resumo Brasil anterior', 'Marcar resumo Brasil anterior');
@@ -236,12 +283,14 @@ connect(mainConnections, 'Unir resumos Brasil', 'Unir diagnóstico SEO', 0, 0); 
 connect(mainConnections, 'Unir períodos SEO', 'Anexar diagnóstico SEO', 0, 0); connect(mainConnections, 'Unir diagnóstico SEO', 'Anexar diagnóstico SEO', 0, 1);
 connect(mainConnections, 'Índice público do blog', 'Marcar índice do blog');
 connect(mainConnections, 'Google Trends RSS Brasil', 'Marcar Google Trends Brasil');
+connect(mainConnections, 'PageSpeed público da TheBikerShop', 'Marcar SEO público da loja');
 connect(mainConnections, 'Expandir buscas do YouTube Brasil', 'YouTube busca por visualizações'); connect(mainConnections, 'YouTube busca por visualizações', 'Consolidar IDs do YouTube'); connect(mainConnections, 'Consolidar IDs do YouTube', 'YouTube métricas dos vídeos'); connect(mainConnections, 'YouTube métricas dos vídeos', 'Marcar vídeos pesquisados');
 connect(mainConnections, 'YouTube populares em esportes', 'Marcar vídeos populares'); connect(mainConnections, 'Marcar vídeos pesquisados', 'Unir sinais do YouTube', 0, 0); connect(mainConnections, 'Marcar vídeos populares', 'Unir sinais do YouTube', 0, 1); connect(mainConnections, 'Unir sinais do YouTube', 'Deduplicar YouTube');
 connect(mainConnections, 'Marcar índice do blog', 'Unir conteúdo e YouTube', 0, 0); connect(mainConnections, 'Deduplicar YouTube', 'Unir conteúdo e YouTube', 0, 1);
 connect(mainConnections, 'Unir conteúdo e YouTube', 'Anexar Google Trends', 0, 0); connect(mainConnections, 'Marcar Google Trends Brasil', 'Anexar Google Trends', 0, 1);
 connect(mainConnections, 'Anexar diagnóstico SEO', 'Unir todos os sinais', 0, 0); connect(mainConnections, 'Anexar Google Trends', 'Unir todos os sinais', 0, 1);
-connect(mainConnections, 'Unir todos os sinais', 'Anexar contexto', 0, 0); connect(mainConnections, 'Contexto e configuração', 'Anexar contexto', 0, 1); connect(mainConnections, 'Anexar contexto', 'Gerar relatório e pautas');
+connect(mainConnections, 'Unir todos os sinais', 'Anexar SEO público da loja', 0, 0); connect(mainConnections, 'Marcar SEO público da loja', 'Anexar SEO público da loja', 0, 1);
+connect(mainConnections, 'Anexar SEO público da loja', 'Anexar contexto', 0, 0); connect(mainConnections, 'Contexto e configuração', 'Anexar contexto', 0, 1); connect(mainConnections, 'Anexar contexto', 'Gerar relatório e pautas');
 connect(mainConnections, 'Gerar relatório e pautas', 'Localizar relatório existente'); connect(mainConnections, 'Localizar relatório existente', 'Relatório ainda não existe?'); connect(mainConnections, 'Relatório ainda não existe?', 'Criar relatório no GitHub', 0); connect(mainConnections, 'Relatório ainda não existe?', 'Atualizar relatório existente', 1);
 
 const mainWorkflow = {

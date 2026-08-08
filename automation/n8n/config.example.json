@@ -1,6 +1,21 @@
 {
   "timezone": "America/Sao_Paulo",
   "searchConsoleSiteUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/",
+  "searchConsoleSites": [
+    {
+      "id": "blog",
+      "role": "editorial",
+      "accessMode": "required",
+      "siteUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/"
+    },
+    {
+      "id": "shop",
+      "role": "commercial",
+      "accessMode": "optional",
+      "siteUrl": "sc-domain:thebikershop.com.br",
+      "publicUrl": "https://thebikershop.com.br/"
+    }
+  ],
   "contentIndexUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json",
   "githubOwner": "marcuscapobiangomed-ai",
   "githubRepository": "thebikerblog",

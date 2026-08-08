@@ -33,9 +33,11 @@ const main = JSON.parse(await fs.readFile(path.join(directory, 'thebiker-seo-you
 const types = new Set(main.nodes.map((node) => node.type));
 assert.ok(types.has('n8n-nodes-base.scheduleTrigger'));
 assert.ok(main.nodes.some((node) => node.name === 'Search Console atual'));
+assert.ok(main.nodes.some((node) => node.name === 'Expandir propriedades Search Console'));
 assert.ok(main.nodes.some((node) => node.name === 'Search Console resumo Brasil atual'));
 assert.ok(main.nodes.some((node) => node.name === 'Search Console resumo global atual'));
 assert.ok(main.nodes.some((node) => node.name === 'Google Trends RSS Brasil'));
+assert.ok(main.nodes.some((node) => node.name === 'PageSpeed público da TheBikerShop'));
 assert.ok(main.nodes.some((node) => node.name === 'YouTube busca por visualizações'));
 assert.ok(main.nodes.some((node) => node.name === 'YouTube populares em esportes'));
 assert.ok(main.nodes.some((node) => node.name === 'Gerar relatório e pautas'));
@@ -43,6 +45,9 @@ assert.match(JSON.stringify(main), /autoPublish/);
 assert.match(JSON.stringify(main), /autoScheduleAfterGates/);
 assert.match(JSON.stringify(main), /competitorPromotionBlocked/);
 assert.match(JSON.stringify(main), /googleTrendsDoesNotFillMeasuredSeo/);
+assert.match(JSON.stringify(main), /sc-domain:thebikershop\.com\.br/);
+assert.match(JSON.stringify(main), /crossDomainOpportunities/);
+assert.match(JSON.stringify(main), /public_measurement/);
 
 const errors = JSON.parse(await fs.readFile(path.join(directory, 'thebiker-intelligence-errors.json'), 'utf8'));
 assert.ok(errors.nodes.some((node) => node.type === 'n8n-nodes-base.errorTrigger'));

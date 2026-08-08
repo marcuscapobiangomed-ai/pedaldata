@@ -159,6 +159,52 @@ async function googleTrendsBrazil({ env }) {
   return parseGoogleTrendsRss(await response.text());
 }
 
+async function publicPageSpeedSignal(targetUrl) {
+  const endpoint = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
+  endpoint.searchParams.set('url', targetUrl);
+  endpoint.searchParams.set('strategy', 'mobile');
+  for (const category of ['performance', 'seo', 'accessibility']) endpoint.searchParams.append('category', category);
+  const response = await fetch(endpoint, { signal: AbortSignal.timeout(45000) });
+  const payload = await responseJson(response, 'PageSpeed público da loja');
+  const categories = payload.lighthouseResult?.categories || {};
+  return {
+    source: 'pagespeed-insights',
+    evidenceClass: 'public_measurement',
+    targetUrl,
+    fetchedAt: payload.analysisUTCTimestamp || new Date().toISOString(),
+    strategy: 'mobile',
+    scores: Object.fromEntries(Object.entries(categories).map(([id, category]) => [id, Math.round(Number(category.score || 0) * 100)])),
+  };
+}
+
+async function publicSiteAudit(targetUrl) {
+  const rootUrl = new URL(targetUrl);
+  const [page, robots, sitemap] = await Promise.all([
+    fetch(rootUrl, { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+    fetch(new URL('/robots.txt', rootUrl), { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+    fetch(new URL('/sitemap.xml', rootUrl), { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+  ]);
+  const html = await page.text();
+  const match = (pattern) => pattern.test(html);
+  return {
+    source: 'public-site-audit',
+    evidenceClass: 'public_measurement',
+    targetUrl: page.url || targetUrl,
+    fetchedAt: new Date().toISOString(),
+    httpStatus: page.status,
+    robotsStatus: robots.status,
+    sitemapStatus: sitemap.status,
+    checks: {
+      title: match(/<title[^>]*>\s*[^<]+<\/title>/i),
+      metaDescription: match(/<meta[^>]+name=["']description["'][^>]+content=["'][^"']+["']/i) || match(/<meta[^>]+content=["'][^"']+["'][^>]+name=["']description["']/i),
+      canonical: match(/<link[^>]+rel=["']canonical["'][^>]+href=/i) || match(/<link[^>]+href=[^>]+rel=["']canonical["']/i),
+      h1: match(/<h1\b[^>]*>[\s\S]*?<\/h1>/i),
+      structuredData: match(/<script[^>]+type=["']application\/ld\+json["']/i),
+      noindex: match(/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i),
+    },
+  };
+}
+
 function youtubeAuthorization(env, accessToken) {
   if (env.YOUTUBE_API_KEY) return { key: env.YOUTUBE_API_KEY };
   return { accessToken };
@@ -260,36 +306,100 @@ export async function runEditorialIntelligence({
   const maximumSearchQueries = Number(config.maximumSearchQueries || 1000);
   const searchConsoleCountry = config.searchConsoleCountry || 'bra';
   const accessToken = await googleAccessToken(env);
-  const siteUrl = env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl;
+  const configuredSites = config.searchConsoleSites || [{ id: 'blog', role: 'editorial', siteUrl: config.searchConsoleSiteUrl }];
+  const searchConsoleSites = configuredSites.map((site) => ({
+    ...site,
+    siteUrl: site.id === 'blog'
+      ? (env.SEARCH_CONSOLE_BLOG_SITE_URL || env.SEARCH_CONSOLE_SITE_URL || site.siteUrl)
+      : site.id === 'shop'
+        ? (env.SEARCH_CONSOLE_SHOP_SITE_URL || site.siteUrl)
+        : site.siteUrl,
+  }));
   const trendsPromise = googleTrendsBrazil({ env })
     .then((items) => ({ status: 'available', items, error: null }))
     .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 240) }));
-  const [gscCurrent, gscPrevious, videos, contentIndex, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious, trends] = await Promise.all([
-    searchConsoleRows({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-    searchConsoleRows({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-    youtubeVideos({ env, accessToken, config, periods }),
+  const shop = searchConsoleSites.find((site) => site.id === 'shop');
+  const publicShopSeoPromise = shop?.publicUrl
+    ? Promise.all([
+      publicSiteAudit(shop.publicUrl)
+        .then((signal) => ({ status: 'available', signal, error: null }))
+        .catch((error) => ({ status: 'unavailable', signal: null, error: String(error?.message || error).slice(0, 240) })),
+      publicPageSpeedSignal(shop.publicUrl)
+        .then((signal) => ({ status: 'available', signal, error: null }))
+        .catch((error) => ({ status: 'unavailable', signal: null, error: String(error?.message || error).slice(0, 240) })),
+    ]).then(([siteAudit, pageSpeed]) => ({ status: siteAudit.status, siteAudit, pageSpeed }))
+    : Promise.resolve({ status: 'not_configured', siteAudit: null, pageSpeed: null });
+  const youtubePromise = youtubeVideos({ env, accessToken, config, periods })
+    .then((items) => ({ status: 'available', items, error: null }))
+    .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 500) }));
+  const siteResultsPromise = Promise.all(searchConsoleSites.map(async (site) => {
+    try {
+      const [currentRows, previousRows, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious] = await Promise.all([
+        searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+        searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous }),
+      ]);
+      const tag = (row) => ({ ...row, _propertyId: site.id, _propertyRole: site.role });
+      return { site, status: 'available', error: null, currentRows: currentRows.map(tag), previousRows: previousRows.map(tag), brazilCurrent, brazilPrevious, globalCurrent, globalPrevious };
+    } catch (error) {
+      if (site.accessMode !== 'optional') throw error;
+      const empty = { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+      return { site, status: 'not_authorized', error: String(error?.message || error).slice(0, 500), currentRows: [], previousRows: [], brazilCurrent: empty, brazilPrevious: empty, globalCurrent: empty, globalPrevious: empty };
+    }
+  }));
+  const [siteResults, youtube, contentIndex, trends, publicShopSeo] = await Promise.all([
+    siteResultsPromise,
+    youtubePromise,
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.current }),
-    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous }),
     trendsPromise,
+    publicShopSeoPromise,
   ]);
+  const gscCurrent = siteResults.flatMap((result) => result.currentRows);
+  const gscPrevious = siteResults.flatMap((result) => result.previousRows);
+  const propertyDiagnostics = Object.fromEntries(siteResults.map((result) => [result.site.id, {
+    siteUrl: result.site.siteUrl,
+    role: result.site.role,
+    accessMode: result.site.accessMode || 'required',
+    status: result.status,
+    error: result.error,
+    current: { brazil: result.brazilCurrent, global: result.globalCurrent, detailedBrazilRows: result.currentRows.length },
+    previous: { brazil: result.brazilPrevious, global: result.globalPrevious, detailedBrazilRows: result.previousRows.length },
+  }]));
+  const sumSummary = (period, scope) => {
+    const total = siteResults.reduce((aggregate, result) => {
+    const summary = result[`${scope}${period === 'current' ? 'Current' : 'Previous'}`];
+      aggregate.clicks += summary.clicks;
+      aggregate.impressions += summary.impressions;
+      aggregate.weightedPosition += summary.position * summary.impressions;
+      return aggregate;
+    }, { clicks: 0, impressions: 0, weightedPosition: 0 });
+    return {
+      clicks: total.clicks,
+      impressions: total.impressions,
+      ctr: total.impressions ? total.clicks / total.impressions : 0,
+      position: total.impressions ? total.weightedPosition / total.impressions : 0,
+    };
+  };
   const report = buildEditorialIntelligence({
     context,
     config,
     gscCurrent,
     gscPrevious,
-    videos,
+    videos: youtube.items,
     articles: contentIndex.articles || [],
     searchConsoleDiagnostics: {
-      current: { brazil: brazilCurrent, global: globalCurrent },
-      previous: { brazil: brazilPrevious, global: globalPrevious },
+      current: { brazil: sumSummary('current', 'brazil'), global: sumSummary('current', 'global') },
+      previous: { brazil: sumSummary('previous', 'brazil'), global: sumSummary('previous', 'global') },
+      properties: propertyDiagnostics,
     },
     googleTrends: trends.items,
     googleTrendsStatus: { status: trends.status, error: trends.error },
+    publicShopSeo,
+    youtubeStatus: { status: youtube.status, error: youtube.error },
   });
-  if (report.briefs.length === 0) throw new Error('Inteligência sem pautas válidas; execução interrompida em modo fail-closed');
   await fs.mkdir(outputDirectory, { recursive: true });
   const jsonPath = path.join(outputDirectory, `${report.runKey}.json`);
   const markdownPath = path.join(outputDirectory, `${report.runKey}.md`);
@@ -297,9 +407,9 @@ export async function runEditorialIntelligence({
   await fs.writeFile(jsonPath, JSON.stringify(report, null, 2) + '\n');
   await fs.writeFile(markdownPath, intelligenceMarkdown(report) + '\n');
   const csvCell = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`;
-  const csvHeader = ['rank', 'consulta', 'cluster', 'intencao', 'cliques', 'impressoes', 'ctr', 'posicao', 'variacao', 'dispositivos', 'paginas', 'canibalizacao', 'score'];
+  const csvHeader = ['rank', 'consulta', 'cluster', 'intencao', 'propriedades', 'cliques', 'impressoes', 'ctr', 'posicao', 'variacao', 'dispositivos', 'paginas', 'canibalizacao', 'score'];
   const csvRows = (report.brazilRankings?.seoMeasured || []).map((item) => [
-    item.rank, item.term, item.cluster, item.intent, item.clicks, item.impressions, item.ctr, item.position, item.delta,
+    item.rank, item.term, item.cluster, item.intent, item.propertyIds.join('|'), item.clicks, item.impressions, item.ctr, item.position, item.delta,
     item.devices.join('|'), item.targetUrls.join('|'), item.cannibalizationRisk, item.opportunityScore,
   ]);
   await fs.writeFile(queriesCsvPath, [csvHeader, ...csvRows].map((row) => row.map(csvCell).join(',')).join('\n') + '\n');

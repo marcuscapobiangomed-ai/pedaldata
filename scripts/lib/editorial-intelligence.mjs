@@ -30,7 +30,7 @@ function number(value) {
 }
 
 function rowKey(row) {
-  return (row.keys || []).join('|');
+  return `${row._propertyId || 'blog'}|${(row.keys || []).join('|')}`;
 }
 
 function isCyclingVideo(video, config) {
@@ -208,6 +208,8 @@ function gscOpportunity(row, previousMap) {
     ctr,
     delta,
     directPromotionAllowed: true,
+    propertyId: row._propertyId || 'blog',
+    propertyRole: row._propertyRole || 'editorial',
   };
 }
 
@@ -229,6 +231,9 @@ function buildSeoRanking(searchSignals, limit = 1000) {
       cluster: signal.cluster,
       intent: signal.intent,
       opportunityScore: 0,
+      propertyIds: new Set(),
+      propertyRoles: new Set(),
+      propertyUrls: new Map(),
     };
     group.clicks += signal.clicks;
     group.impressions += signal.impressions;
@@ -237,6 +242,13 @@ function buildSeoRanking(searchSignals, limit = 1000) {
     if (signal.country && signal.country !== 'not-segmented') group.countries.add(signal.country);
     if (signal.device && signal.device !== 'not-segmented') group.devices.add(signal.device);
     if (signal.targetUrl) group.targetUrls.add(signal.targetUrl);
+    group.propertyIds.add(signal.propertyId);
+    group.propertyRoles.add(signal.propertyRole);
+    if (signal.targetUrl) {
+      const urls = group.propertyUrls.get(signal.propertyId) || new Set();
+      urls.add(signal.targetUrl);
+      group.propertyUrls.set(signal.propertyId, urls);
+    }
     group.opportunityScore = Math.max(group.opportunityScore, signal.score);
     groups.set(key, group);
   }
@@ -261,7 +273,10 @@ function buildSeoRanking(searchSignals, limit = 1000) {
       countries,
       devices: [...group.devices].sort(),
       targetUrls: [...group.targetUrls].sort(),
-      cannibalizationRisk: group.targetUrls.size > 1,
+      propertyIds: [...group.propertyIds].sort(),
+      propertyRoles: [...group.propertyRoles].sort(),
+      cannibalizationRisk: [...group.propertyUrls.values()].some((urls) => urls.size > 1),
+      crossDomainOverlap: group.propertyIds.size > 1,
       opportunityScore: Math.round(group.opportunityScore + Math.min(10, countries.length * 2)),
       recommendedUse: position >= 4 && position <= 20 ? 'Otimizar conteúdo existente e reforçar links internos.' : 'Usar como termo principal ou secundário em pauta tecnicamente aderente.',
     };
@@ -319,6 +334,8 @@ export function buildEditorialIntelligence({
   searchConsoleDiagnostics = {},
   googleTrends = [],
   googleTrendsStatus = { status: 'not_requested', error: null },
+  publicShopSeo = { status: 'not_requested', signal: null, error: null },
+  youtubeStatus = { status: 'available', error: null },
 }) {
   const previousMap = new Map(gscPrevious.map((row) => [rowKey(row), row]));
   const brazilCountry = config.searchConsoleCountry || 'bra';
@@ -336,7 +353,31 @@ export function buildEditorialIntelligence({
     .map((item) => trendOpportunity(item, context, config))
     .sort((left, right) => right.score - left.score);
   const topTrends = trendSignals.slice(0, config.trendsMaximumSignals || 20).map((item, index) => ({ rank: index + 1, ...item }));
-  const topSeo = buildSeoRanking(searchSignals, config.maximumSearchQueries || 1000);
+  const propertyIds = [...new Set([
+    ...(config.searchConsoleSites || []).map((site) => site.id),
+    ...searchSignals.map((signal) => signal.propertyId),
+  ])].sort();
+  const topSeo = buildSeoRanking(searchSignals, (config.maximumSearchQueries || 1000) * Math.max(1, propertyIds.length));
+  const seoByProperty = Object.fromEntries(propertyIds.map((propertyId) => [
+    propertyId,
+    buildSeoRanking(searchSignals.filter((signal) => signal.propertyId === propertyId), config.maximumSearchQueries || 1000),
+  ]));
+  const crossDomainOpportunities = topSeo
+    .filter((item) => item.propertyIds.length > 1)
+    .map((item, index) => ({
+      rank: index + 1,
+      term: item.term,
+      cluster: item.cluster,
+      intent: item.intent,
+      propertyIds: item.propertyIds,
+      impressions: item.impressions,
+      clicks: item.clicks,
+      targetUrls: item.targetUrls,
+      opportunityScore: item.opportunityScore,
+      recommendedAction: item.intent === 'commercial' || item.intent === 'evaluation' || item.intent === 'comparison'
+        ? 'Conectar o conteúdo editorial à categoria ou ao produto verificado da loja.'
+        : 'Preservar a resposta principal no blog e usar a loja como destino comercial contextual.',
+    }));
   const seoCandidates = topSeo.slice(0, 100).map((item) => ({
     source: 'search-console', topic: item.term, targetUrl: item.targetUrls[0] || null, sourceUrl: item.targetUrls[0] || null,
     score: item.opportunityScore, evidence: `${item.impressions} impressões no Brasil; posição ${item.position.toFixed(1)}; CTR ${(item.ctr * 100).toFixed(1)}%`, directPromotionAllowed: true,
@@ -378,7 +419,7 @@ export function buildEditorialIntelligence({
   }, new Map()).values()].map((item) => ({ ...item, pages: [...item.pages].sort() }))
     .sort((left, right) => right.impressions - left.impressions || right.queries - left.queries);
   return {
-    schemaVersion: 4,
+    schemaVersion: 5,
     runKey: context.runKey,
     cadence: context.cadence,
     generatedAt: context.generatedAt,
@@ -393,7 +434,7 @@ export function buildEditorialIntelligence({
         exactBrazilViewsTop20: false,
       },
       seo: {
-        method: 'até 1.000 consultas disponibilizadas pelo Google Search Console, filtradas para o país Brasil e agrupadas por termo, página e dispositivo; vídeos nunca preenchem lacunas de SEO medido',
+        method: 'até 1.000 consultas por propriedade disponibilizadas pelo Google Search Console, filtradas para o país Brasil e agrupadas por termo, página e dispositivo; vídeos nunca preenchem lacunas de SEO medido',
         countriesObserved,
         maximumQueries: config.maximumSearchQueries || 1000,
         measuredOnly: true,
@@ -409,20 +450,25 @@ export function buildEditorialIntelligence({
     metrics: {
       gscRows: gscCurrent.length,
       youtubeVideos: videos.length,
+      youtubeStatus: youtubeStatus.status,
       publishedArticles: articles.length,
       briefs: briefs.length,
       refreshCandidates: refreshQueue.length,
       youtubeSearchesConfigured: requestedSearches.length,
       seoCountriesObserved: countriesObserved.length,
       seoMeasuredQueries: topSeo.length,
+      searchConsoleProperties: propertyIds.length,
+      crossDomainOpportunities: crossDomainOpportunities.length,
       seoClusters: clusters.length,
       cannibalizationRisks: topSeo.filter((item) => item.cannibalizationRisk).length,
       googleTrendsSourceItems: googleTrends.length,
       googleTrendsNicheSignals: topTrends.length,
+      publicShopSeoAvailable: publicShopSeo.siteAudit?.status === 'available' || publicShopSeo.pageSpeed?.status === 'available',
       gscBrazilAggregateImpressions: number(searchConsoleDiagnostics.current?.brazil?.impressions),
       gscGlobalAggregateImpressions: number(searchConsoleDiagnostics.current?.global?.impressions),
     },
     searchConsoleDiagnostics: {
+      properties: searchConsoleDiagnostics.properties || {},
       current: {
         brazil: searchConsoleDiagnostics.current?.brazil || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
         global: searchConsoleDiagnostics.current?.global || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
@@ -444,14 +490,19 @@ export function buildEditorialIntelligence({
     brazilRankings: {
       youtubeDiscovery: topYoutube,
       seoMeasured: topSeo,
+      seoByProperty,
       googleTrendsDiscovery: topTrends,
     },
+    crossDomainOpportunities,
+    publicShopSeo,
+    youtubeStatus,
     queryClusters: clusters,
     briefs,
     refreshQueue,
     discoverySignals: videoSignals.slice(0, 50),
     googleTrendsStatus,
     governance: {
+      planningStatus: briefs.length > 0 ? 'actionable' : 'insufficient_signals',
       autoPublish: false,
       autoScheduleAfterGates: context.cadence === 'monthly',
       requiresHumanApproval: false,
@@ -491,7 +542,7 @@ export function intelligenceMarkdown(report) {
       seoMeasured: topSeo.slice(0, 20).map((item) => ({
         rank: item.rank, term: item.term, source: item.source, cluster: item.cluster, intent: item.intent,
         impressions: item.impressions, ctr: item.ctr, position: item.position, delta: item.delta,
-        targetUrls: item.targetUrls, opportunityScore: item.opportunityScore,
+        targetUrls: item.targetUrls, propertyIds: item.propertyIds, opportunityScore: item.opportunityScore,
       })),
       googleTrendsDiscovery: topTrends.slice(0, 20).map((item) => ({
         rank: item.rank, source: item.source, topic: item.topic, signalTitle: item.signalTitle,
@@ -505,6 +556,8 @@ export function intelligenceMarkdown(report) {
     })),
     briefs: report.briefs,
     refreshQueue: report.refreshQueue,
+    crossDomainOpportunities: report.crossDomainOpportunities,
+    publicShopSeo: report.publicShopSeo,
     discoverySignals: [],
   };
   const lines = [
@@ -558,7 +611,7 @@ export function intelligenceMarkdown(report) {
     '',
     '## Consultas SEO Brasil medidas no Search Console',
     '',
-    `O payload e o CSV anexados contêm até **1.000 consultas**. Para manter esta issue legível, a tabela abaixo mostra as primeiras ${Math.min(50, topSeo.length)} por prioridade.`,
+    `O payload e o CSV anexados contêm até **1.000 consultas por propriedade**. Para manter esta issue legível, a tabela abaixo mostra as primeiras ${Math.min(50, topSeo.length)} por prioridade.`,
     '',
     '| # | Consulta | Cluster | Intenção | Impressões | CTR | Posição | Variação | Dispositivos | Páginas | Canibalização | Score | Próxima ação |',
     '|---:|---|---|---|---:|---:|---:|---:|---|---:|---|---:|---|',
@@ -566,6 +619,36 @@ export function intelligenceMarkdown(report) {
   if (topSeo.length === 0) lines.push('| — | Dados SEO medidos ainda insuficientes | — | — | — | — | — | — | — | — | — | — | Aguardar impressões reais; não preencher com proxies |');
   for (const item of topSeo.slice(0, 50)) {
     lines.push(`| ${item.rank} | ${md(item.term)} | ${item.cluster} | ${item.intent} | ${Math.round(item.impressions).toLocaleString('pt-BR')} | ${percent(item.ctr)} | ${item.position.toFixed(1)} | ${percent(item.delta)} | ${md(item.devices.join(', ') || 'não segmentado')} | ${item.targetUrls.length} | ${item.cannibalizationRisk ? 'sim' : 'não'} | ${item.opportunityScore} | ${md(item.recommendedUse)} |`);
+  }
+  lines.push('', '## Oportunidades cruzadas — Blog + TheBikerShop', '');
+  if ((report.crossDomainOpportunities || []).length === 0) {
+    lines.push('- Nenhuma consulta visível apareceu nos dois domínios nesta janela.');
+  } else {
+    lines.push('| # | Consulta | Intenção | Propriedades | Impressões | Ação |', '|---:|---|---|---|---:|---|');
+    for (const item of report.crossDomainOpportunities.slice(0, 30)) {
+      lines.push(`| ${item.rank} | ${md(item.term)} | ${item.intent} | ${md(item.propertyIds.join(' + '))} | ${Math.round(item.impressions).toLocaleString('pt-BR')} | ${md(item.recommendedAction)} |`);
+    }
+  }
+  const siteAudit = report.publicShopSeo?.siteAudit;
+  const pageSpeed = report.publicShopSeo?.pageSpeed;
+  const publicScores = pageSpeed?.signal?.scores || {};
+  lines.push('', '## Diagnóstico público gratuito da TheBikerShop', '');
+  if (siteAudit?.status === 'available') {
+    const checks = siteAudit.signal.checks || {};
+    lines.push(
+      `Fonte: auditoria pública direta em ${siteAudit.signal.targetUrl}. Estes dados medem disponibilidade e fundamentos técnicos, não consultas, cliques ou posição no Google.`,
+      '',
+      '| Evidência | HTTP | robots.txt | sitemap.xml | Title | Description | Canonical | H1 | Dados estruturados | Noindex |',
+      '|---|---:|---:|---:|---|---|---|---|---|---|',
+      `| public_measurement | ${number(siteAudit.signal.httpStatus)} | ${number(siteAudit.signal.robotsStatus)} | ${number(siteAudit.signal.sitemapStatus)} | ${checks.title ? 'sim' : 'não'} | ${checks.metaDescription ? 'sim' : 'não'} | ${checks.canonical ? 'sim' : 'não'} | ${checks.h1 ? 'sim' : 'não'} | ${checks.structuredData ? 'sim' : 'não'} | ${checks.noindex ? 'sim' : 'não'} |`,
+    );
+  } else {
+    lines.push(`- Auditoria pública indisponível: ${md(siteAudit?.error || report.publicShopSeo?.status || 'não informado')}.`);
+  }
+  if (pageSpeed?.status === 'available') {
+    lines.push('', `PageSpeed mobile complementar: performance ${number(publicScores.performance)}, SEO técnico ${number(publicScores.seo)}, acessibilidade ${number(publicScores.accessibility)}.`);
+  } else {
+    lines.push('', `PageSpeed complementar indisponível nesta execução: ${md(pageSpeed?.error || pageSpeed?.status || 'não informado')}.`);
   }
   lines.push('', '## Pautas e atualizações que saem do ranking', '');
   for (const [index, brief] of report.briefs.entries()) {
@@ -596,10 +679,11 @@ export function intelligenceMarkdown(report) {
     '',
     '## Limitações e governança',
     '',
-    '- O Search Console mede somente a demanda que já encontrou o TheBiker e pode omitir consultas raras por privacidade; o CSV contém até 1.000 linhas disponibilizadas, não o universo integral das buscas brasileiras.',
+    '- O Search Console mede somente a demanda que já encontrou o TheBiker e pode omitir consultas raras por privacidade; o CSV contém até 1.000 linhas disponibilizadas por propriedade, não o universo integral das buscas brasileiras.',
     '- O agregado Brasil versus global serve apenas para diagnóstico de cobertura; consultas globais nunca entram no ranking editorial brasileiro.',
     '- O Google Trends RSS mostra pesquisas gerais em aceleração e pode não conter ciclismo em uma janela; ele nunca preenche a seção de SEO medido nem representa volume absoluto.',
     '- A região BR e as consultas em português tornam o YouTube um radar brasileiro, mas a API pública fornece visualizações globais de cada vídeo, não visualizações exclusivamente brasileiras.',
+    `- Estado do YouTube nesta execução: ${md(report.youtubeStatus?.status || 'não informado')}; indisponibilidade de quota não preenche nem invalida o SEO medido do blog.`,
     '- YouTube é descoberta editorial e nunca preenche a seção SEO medida.',
     '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.',
     '- Exceções ficam bloqueadas para revisão; conteúdo aprovado pelos gates pode ser agendado sem intervenção no Codex.',
