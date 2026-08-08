@@ -219,17 +219,17 @@
     {
       "day": 7,
       "publishDate": "2026-08-14",
-      "id": "youtube-tendencias-tecnicas-do-ciclismo-como-separar-evidencia-aplicacao",
-      "title": "Tendências técnicas do ciclismo: como separar evidência, aplicação e apelo de mercado",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.044.445 visualizações; 1.225.583 por dia.",
-      "category": "lancamentos",
-      "freshness": "event-driven",
+      "id": "cambio-eletronico-diagnostico-sincronia",
+      "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner",
+      "summary": "Abordagem para identificar problemas de sincronia em grupos eletrônicos usando observação de movimento, ruído e resposta da alavanca.",
+      "category": "manutencao-ajustes",
+      "freshness": "evergreen",
       "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T03:24:20.312Z",
-      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo afirma que a Scott Scale 940 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a ficha técnica menciona 'tubeless ready' para os pneus e aros, mas a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Scale 980 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict 50 é compatível com pneus de até 38 mm, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict RC 20 é compatível com pneus de até 34 mm, mas a pesquisa não confirma isso "
+      "lastAttemptAt": "2026-08-08T03:30:59.807Z",
+      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: Procedimentos de reset e diagnóstico não foram validados com manual específico do modelo; baseiam-se em conhecimento geral.; Guia não foi testado na prática; metodologia é desk-research, o que limita a confiabilidade das instruções."
     },
     {
       "day": 8,
@@ -558,12 +558,6 @@
   ],
   "reserves": [
     {
-      "id": "cambio-eletronico-diagnostico-sincronia",
-      "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner",
-      "summary": "Abordagem para identificar problemas de sincronia em grupos eletrônicos usando observação de movimento, ruído e resposta da alavanca.",
-      "category": "manutencao-ajustes"
-    },
-    {
       "id": "garfo-rigido-vs-suspensao-distribuicao-carga",
       "title": "Garfo rígido vs suspensão: como avaliar a distribuição de carga",
       "summary": "Análise das diferenças de transferência de peso e comportamento em frenagem entre garfo rígido e com suspensão, para escolha consciente.",
@@ -574,6 +568,24 @@
       "title": "Inovação em componentes: como diferenciar mudança real de apelo comercial",
       "summary": "Critérios para avaliar se uma novidade técnica traz ganho mensurável ou apenas reposicionamento, com foco em aplicação prática.",
       "category": "lancamentos"
+    },
+    {
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-pressao-pneus-terreno",
+      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
+      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
+      "category": "engenharia"
+    },
+    {
+      "id": "reserva-inspecao-pos-chuva",
+      "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste",
+      "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
+      "category": "manutencao-ajustes"
     }
   ]
 }

@@ -72,6 +72,30 @@
         "title": "20 to 29 Inch 🤯 Fat Bikes Available | Kids to Adults | Electric Fat Bikes Also!🤩"
       },
       "reason": "Expected ',' or ']' after array element in JSON at position 16600 (line 407 column 6)"
+    },
+    {
+      "recordedAt": "2026-08-08T03:30:59.284Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 7,
+        "publishDate": "2026-08-14",
+        "id": "youtube-tendencias-tecnicas-do-ciclismo-como-separar-evidencia-aplicacao",
+        "title": "Tendências técnicas do ciclismo: como separar evidência, aplicação e apelo de mercado",
+        "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.044.445 visualizações; 1.225.583 por dia.",
+        "category": "lancamentos",
+        "freshness": "event-driven",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo afirma que a Scott Scale 940 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a ficha técnica menciona 'tubeless ready' para os pneus e aros, mas a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Scale 980 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict 50 é compatível com pneus de até 38 mm, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict RC 20 é compatível com pneus de até 34 mm, mas a pesquisa não confirma isso ",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T03:24:20.312Z"
+      },
+      "replacement": {
+        "id": "cambio-eletronico-diagnostico-sincronia",
+        "title": "Câmbio eletrônico: como diagnosticar falhas de sincronia sem scanner"
+      },
+      "reason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo afirma que a Scott Scale 940 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a ficha técnica menciona 'tubeless ready' para os pneus e aros, mas a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Scale 980 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict 50 é compatível com pneus de até 38 mm, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict RC 20 é compatível com pneus de até 34 mm, mas a pesquisa não confirma isso "
     }
   ]
 }
