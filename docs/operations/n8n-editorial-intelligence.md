@@ -18,6 +18,8 @@ O Google Trends RSS é um radar complementar de aceleração jornalística. O fl
 
 O n8n não publica artigos diretamente. A issue semanal alimenta a inteligência; a issue mensal aciona a renovação automática da janela editorial de 30 dias. O pipeline existente pesquisa fontes, produz o rascunho, valida imagem e texto e só agenda conteúdo aprovado. Essa separação impede que popularidade de vídeo seja tratada como prova factual.
 
+Uma janela sem pauta elegível ainda gera relatório com `planningStatus: insufficient_signals`. Esse estado é diagnóstico, não aprovação: `autoPublish` permanece falso e nenhuma pauta ou campanha é inventada para preencher a lacuna.
+
 ## Arquivos importáveis
 
 - `automation/n8n/workflows/thebiker-seo-youtube-intelligence.json`: coleta, normalização, score, deduplicação e relatório.

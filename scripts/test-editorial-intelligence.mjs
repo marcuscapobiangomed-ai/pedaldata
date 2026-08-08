@@ -165,6 +165,9 @@ assert.equal(emptySeo.brazilRankings.seoMeasured.length, 0);
 assert.equal(emptySeo.brazilRankings.youtubeDiscovery.length, 2);
 assert.match(intelligenceMarkdown(emptySeo), /Dados SEO medidos ainda insuficientes/);
 assert.equal(emptySeo.searchConsoleDiagnostics.interpretation, 'no_finalized_global_impressions');
+assert.equal(emptySeo.governance.planningStatus, 'actionable');
+const noSignals = buildEditorialIntelligence({ context, config });
+assert.equal(noSignals.governance.planningStatus, 'insufficient_signals');
 
 assert.deepEqual(periodsFor({ cadence: 'weekly', generatedAt: '2026-08-07T12:00:00.000Z' }), {
   lookbackDays: 7,

@@ -502,6 +502,7 @@ export function buildEditorialIntelligence({
     discoverySignals: videoSignals.slice(0, 50),
     googleTrendsStatus,
     governance: {
+      planningStatus: briefs.length > 0 ? 'actionable' : 'insufficient_signals',
       autoPublish: false,
       autoScheduleAfterGates: context.cadence === 'monthly',
       requiresHumanApproval: false,

@@ -400,7 +400,6 @@ export async function runEditorialIntelligence({
     publicShopSeo,
     youtubeStatus: { status: youtube.status, error: youtube.error },
   });
-  if (report.briefs.length === 0) throw new Error('Inteligência sem pautas válidas; execução interrompida em modo fail-closed');
   await fs.mkdir(outputDirectory, { recursive: true });
   const jsonPath = path.join(outputDirectory, `${report.runKey}.json`);
   const markdownPath = path.join(outputDirectory, `${report.runKey}.md`);
