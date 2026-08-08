@@ -27,6 +27,7 @@ price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "mtb", "suspensao", "scott", "spark-rc", "sag"]
 description: "Guia técnico para ajustar o SAG da Scott Spark RC Expert 2027 com precisão, preservar a dinâmica da suspensão e evitar os erros mais comuns."
+direct_answer: "O SAG da Spark RC deve ser medido com o ciclista equipado, suspensão aberta e anel de curso zerado; a pressão é ajustada em pequenos passos até a medida-alvo do manual. Depois, retorno e compressão são refinados separadamente, com registro de cada alteração."
 image: "/assets/img/posts/sag-spark-rc-ajuste-preciso/hero-1600.webp"
 image_mobile: "/assets/img/posts/sag-spark-rc-ajuste-preciso/hero-800.webp"
 thumbnail: "/assets/img/posts/sag-spark-rc-ajuste-preciso/card-640.webp"

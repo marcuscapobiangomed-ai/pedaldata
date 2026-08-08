@@ -27,6 +27,7 @@ price_checked_at: "2026-08-04"
 category: "guia-tecnico"
 tags: ["ciclismo", "tecnologia", "quadros", "carbono", "scott"]
 description: "Entenda as diferenças entre os carbonos HMF e HMX da Scott, como eles afetam peso, geometria e versatilidade, e qual escolher para seu perfil de ciclista."
+direct_answer: "HMF e HMX identificam construções de carbono da Scott, mas a sigla isolada não determina conforto, rigidez ou desempenho. A decisão correta compara o quadro completo, geometria, montagem, limites declarados, peso verificável e adequação ao uso do ciclista."
 image: "/assets/img/posts/hmp-hmx-carbono-scott/hero-1600.webp"
 image_mobile: "/assets/img/posts/hmp-hmx-carbono-scott/hero-800.webp"
 thumbnail: "/assets/img/posts/hmp-hmx-carbono-scott/card-640.webp"

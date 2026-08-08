@@ -313,6 +313,7 @@ export class AIProvider {
 
     next.title = this._sanitizeHtml(next.title);
     next.description = truncateAtWordBoundary(this._sanitizeHtml(next.description), 200);
+    next.direct_answer = truncateAtWordBoundary(this._sanitizeHtml(next.direct_answer), 420);
     next.slug = this._sanitizeHtml(next.slug);
     next.category = this._normalizeCategory(next.category);
     next.content_type = this._normalizeContentType(next.content_type);
@@ -361,6 +362,11 @@ export class AIProvider {
       type: this._sanitizeHtml(source.type || "manufacturer"),
       url: this._sanitizeHtml(source.url || ""),
       accessed_at: this._sanitizeHtml(source.accessed_at || ""),
+    }));
+
+    next.faq = normalizeList(next.faq).slice(0, 5).map((item) => ({
+      question: truncateAtWordBoundary(this._sanitizeHtml(item.question || ""), 180),
+      answer: truncateAtWordBoundary(this._sanitizeHtml(item.answer || ""), 600),
     }));
 
     next.sections = normalizeList(next.sections).map((section) => ({

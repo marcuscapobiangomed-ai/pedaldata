@@ -45,6 +45,11 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
     const parsed = matter(content);
     if (parsed.data.published !== false) throw new Error("Rascunho precisa permanecer com published: false");
     if (!Array.isArray(parsed.data.sources) || parsed.data.sources.length === 0) throw new Error("Post sem fontes editoriais");
+    const directAnswer = String(parsed.data.direct_answer || "").trim();
+    if (directAnswer.length < 80 || directAnswer.length > 420) throw new Error("Post sem resposta direta válida entre 80 e 420 caracteres");
+    if (parsed.data.faq !== undefined && (!Array.isArray(parsed.data.faq) || parsed.data.faq.length > 5)) {
+      throw new Error("FAQ precisa ser uma lista de até cinco perguntas visíveis");
+    }
     if ((parsed.content.match(/^##\s+/gm) || []).length < 5) throw new Error("Post com menos de cinco seções");
     if (item.aiReview?.finalScore !== null && item.aiReview?.finalScore !== undefined && item.aiReview.finalScore < 90) {
       throw new Error(`Nota editorial final insuficiente: ${item.aiReview.finalScore}`);

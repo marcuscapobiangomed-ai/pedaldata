@@ -1,0 +1,11 @@
+{% if page.faq and page.faq.size > 0 %}
+<section class="post-content post-faq" aria-labelledby="perguntas-frequentes">
+  <h2 id="perguntas-frequentes">Perguntas frequentes</h2>
+  {% for item in page.faq %}
+  <details>
+    <summary>{{ item.question }}</summary>
+    <p>{{ item.answer }}</p>
+  </details>
+  {% endfor %}
+</section>
+{% endif %}

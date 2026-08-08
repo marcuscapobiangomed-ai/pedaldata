@@ -27,6 +27,7 @@ price_checked_at: "2026-08-08"
 category: "guia-tecnico"
 tags: ["ciclismo", "bike-fit", "biomecanica", "performance"]
 description: "Domine os critérios técnicos de bike fit: ajuste de selim, reach, drop e Q-factor para otimizar sua performance e eficiência biomecânica no ciclismo."
+direct_answer: "Domine os critérios técnicos de bike fit: ajuste de selim, reach, drop e Q-factor para otimizar sua performance e eficiência biomecânica no ciclismo."
 image: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/hero-1600.webp"
 image_mobile: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/hero-800.webp"
 thumbnail: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/card-640.webp"

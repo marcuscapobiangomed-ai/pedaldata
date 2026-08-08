@@ -24,6 +24,21 @@
     return Boolean(window.TheBikerConsent && window.TheBikerConsent.hasAnalyticsConsent())
   }
 
+  function aiAssistantSource() {
+    var candidates = []
+    try { candidates.push(new URLSearchParams(window.location.search).get('utm_source') || '') } catch {}
+    try { candidates.push(new URL(document.referrer).hostname) } catch {}
+    var value = candidates.join(' ').toLowerCase()
+    if (/chatgpt|openai/.test(value)) return 'chatgpt'
+    if (/perplexity/.test(value)) return 'perplexity'
+    if (/claude|anthropic/.test(value)) return 'claude'
+    if (/gemini|bard\.google/.test(value)) return 'gemini'
+    if (/copilot\.microsoft/.test(value)) return 'microsoft_copilot'
+    if (/meta\.ai/.test(value)) return 'meta_ai'
+    if (/poe\.com/.test(value)) return 'poe'
+    return 'none'
+  }
+
   function safeKey(key) {
     return String(key)
       .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
@@ -51,6 +66,7 @@
   }
 
   function pageContext() {
+    var assistantSource = aiAssistantSource()
     return {
       page_path: window.location.pathname,
       page_type: config.pageType || 'page',
@@ -59,14 +75,16 @@
       content_category: config.contentCategory || 'sem-categoria',
       audience_segment: config.audienceSegment || 'core_technical_cyclists',
       audience_intent: audienceIntent(),
-      experience_level_target: config.experienceLevelTarget || 'intermediate_advanced'
+      experience_level_target: config.experienceLevelTarget || 'intermediate_advanced',
+      traffic_source_type: assistantSource === 'none' ? 'standard' : 'ai_assistant',
+      ai_assistant_source: assistantSource
     }
   }
 
   function setClarityContext() {
     if (typeof window.clarity !== 'function') return
     var context = pageContext()
-    ;['page_type', 'content_type', 'content_category', 'audience_segment', 'audience_intent', 'experience_level_target'].forEach(function(key) {
+    ;['page_type', 'content_type', 'content_category', 'audience_segment', 'audience_intent', 'experience_level_target', 'traffic_source_type', 'ai_assistant_source'].forEach(function(key) {
       try { window.clarity('set', key, String(context[key])) } catch {}
     })
   }
@@ -212,6 +230,10 @@
     } else if (config.pageType === 'product/bike') {
       trackProductView(config.contentId, config.productBrand, config.productModel)
     }
+    var assistantSource = aiAssistantSource()
+    if (assistantSource !== 'none') {
+      track('acquisition', 'ai_referral_visit', assistantSource, null, { ai_assistant_source: assistantSource })
+    }
   }
 
   function initScrollTracking() {
@@ -263,6 +285,7 @@
   window.TheBikerBlog.trackProductView = trackProductView
   window.TheBikerBlog.trackCompareAdd = trackCompareAdd
   window.TheBikerBlog.trackCompareComplete = trackCompareComplete
+  window.TheBikerBlog.getAiAssistantSource = aiAssistantSource
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initGlobalTracking)
   else initGlobalTracking()

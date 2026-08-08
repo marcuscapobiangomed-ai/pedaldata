@@ -3,8 +3,9 @@ layout: null
 permalink: /api/content-index.json
 sitemap: false
 ---
+{% assign public_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "2.0",
   "generatedAt": {{ site.time | date_to_xmlschema | jsonify }},
   "publisher": {
     "name": "TheBiker",
@@ -17,11 +18,14 @@ sitemap: false
   "audiencePolicy": {{ '/api/audience.json' | absolute_url | jsonify }},
   "sitemap": {{ '/sitemap.xml' | absolute_url | jsonify }},
   "feed": {{ '/feed.xml' | absolute_url | jsonify }},
+  "totalArticles": {{ public_posts.size }},
   "articles": [
-    {% assign public_posts = site.posts | where_exp: "post", "post.status != 'draft'" %}{% for post in public_posts %}{% assign post_audience_intent = post.audience_intent %}{% unless post_audience_intent %}{% case post.content_type %}{% when 'comparativo' %}{% assign post_audience_intent = 'compare_products' %}{% when 'review', 'guia-de-compra' %}{% assign post_audience_intent = 'purchase_consideration' %}{% when 'noticia', 'lancamento', 'previa-corrida', 'resumo-corrida' %}{% assign post_audience_intent = 'follow_market_competition' %}{% when 'guia-turistico' %}{% assign post_audience_intent = 'plan_ride' %}{% when 'guia-tecnico' %}{% assign post_audience_intent = 'solve_problem' %}{% else %}{% assign post_audience_intent = site.data.audience.defaults.audienceIntent %}{% endcase %}{% endunless %}{
+    {% for post in public_posts %}{% assign post_audience_intent = post.audience_intent %}{% unless post_audience_intent %}{% case post.content_type %}{% when 'comparativo' %}{% assign post_audience_intent = 'compare_products' %}{% when 'review', 'guia-de-compra' %}{% assign post_audience_intent = 'purchase_consideration' %}{% when 'noticia', 'lancamento', 'previa-corrida', 'resumo-corrida' %}{% assign post_audience_intent = 'follow_market_competition' %}{% when 'guia-turistico' %}{% assign post_audience_intent = 'plan_ride' %}{% when 'guia-tecnico' %}{% assign post_audience_intent = 'solve_problem' %}{% else %}{% assign post_audience_intent = site.data.audience.defaults.audienceIntent %}{% endcase %}{% endunless %}{
       "title": {{ post.title | jsonify }},
       "description": {{ post.description | jsonify }},
+      "directAnswer": {{ post.direct_answer | default: post.description | jsonify }},
       "url": {{ post.url | absolute_url | jsonify }},
+      "canonicalUrl": {{ post.url | absolute_url | jsonify }},
       "datePublished": {{ post.date | date_to_xmlschema | jsonify }},
       "dateModified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
       "audienceSegment": {{ post.audience_segment | default: 'core_technical_cyclists' | jsonify }},
@@ -34,6 +38,8 @@ sitemap: false
       "image": {{ post.image | absolute_url | jsonify }},
       "tags": {{ post.tags | jsonify }},
       "sources": {{ post.sources | default: empty | jsonify }}
+      ,"faq": {{ post.faq | default: empty | jsonify }}
+      ,"citationReady": {% if post.direct_answer and post.sources and post.sources.size > 0 %}true{% else %}false{% endif %}
     }{% unless forloop.last %},{% endunless %}{% endfor %}
   ]
 }

@@ -2631,3 +2631,28 @@ button.comparison-slot { width: 100%; font: inherit; cursor: pointer; }
   .privacy-banner { right: 10px; bottom: 10px; left: 10px; padding: 17px; }
   .privacy-banner__actions { flex-direction: column-reverse; }
 }
+
+/* Respostas extraíveis para busca e assistentes, sempre visíveis ao leitor. */
+.answer-block {
+  margin: 28px 0 34px;
+  padding: 24px 26px;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-card);
+}
+.answer-block__eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.answer-block h2 { margin: 0 0 10px; font-size: clamp(1.25rem, 2.2vw, 1.65rem); }
+.answer-block p:last-child { margin: 0; line-height: 1.68; }
+.post-faq details { padding: 14px 0; border-bottom: 1px solid var(--border-card); }
+.post-faq summary { font-weight: 700; cursor: pointer; }
+.post-faq details p { margin: 10px 0 0; }
+
+@media (max-width: 620px) {
+  .answer-block { padding: 20px; }
+}

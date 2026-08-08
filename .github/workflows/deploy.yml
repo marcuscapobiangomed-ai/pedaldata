@@ -51,6 +51,9 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Validate AI discovery artifact
+        run: npm run validate:ai-build
+
       - name: Security gate for public artifact
         run: npm run security:public
 

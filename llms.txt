@@ -31,8 +31,10 @@ Sobre a equipe e o método: {{ site.url }}{{ site.baseurl }}/sobre/
 - Produtos verificados: {{ site.url }}{{ site.baseurl }}/bikes/
 - Dados estruturados de produtos: {{ site.url }}{{ site.baseurl }}/api/products.json
 
-## Artigos publicados
+## Artigos recentes prioritários
 
-{% assign public_posts = site.posts | where_exp: "post", "post.published != false" %}{% for post in public_posts %}
+Esta lista é deliberadamente limitada para permanecer pequena. O índice editorial estruturado acima contém o acervo público completo.
+
+{% assign public_posts = site.posts | where_exp: "post", "post.published != false" %}{% for post in public_posts limit:20 %}
 - [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.description | strip_newlines }}
 {% endfor %}

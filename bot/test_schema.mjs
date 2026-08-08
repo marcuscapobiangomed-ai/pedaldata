@@ -10,6 +10,14 @@ const validArticle = {
   title: "Comparativo de bikes endurance e race em 2026",
   description:
     "Uma análise editorial de mais de cem caracteres sobre diferenças de geometria, peso, custo e perfil de uso entre bikes endurance e race.",
+  direct_answer:
+    "Bikes endurance priorizam estabilidade e tolerância em percursos longos; bikes race usam uma posição mais agressiva e respostas mais rápidas para ritmo competitivo.",
+  faq: [
+    {
+      question: "Qual é a diferença principal entre uma bike endurance e uma race?",
+      answer: "A diferença central está na posição, estabilidade e resposta da geometria, que devem ser avaliadas junto do terreno e do objetivo do ciclista.",
+    },
+  ],
   slug: "comparativo-bikes-endurance-race-2026",
   category: "comparativos",
   content_type: "comparativo",
@@ -114,6 +122,8 @@ assert.match(generatedMarkdown, /editorial_scope: "portfolio"/);
 assert.match(generatedMarkdown, /published: false/);
 assert.match(generatedMarkdown, /promoted_brands: \["Scott"\]/);
 assert.match(generatedMarkdown, /portfolio_evidence_url: "https:\/\/www\.thebiker\.com\.br\/bikes\/estrada\/"/);
+assert.match(generatedMarkdown, /direct_answer:/);
+assert.match(generatedMarkdown, /faq:/);
 assert.match(generatedMarkdown, /## De onde vêm os dados desta análise/);
 assert.throws(
   () => validateArticle({
