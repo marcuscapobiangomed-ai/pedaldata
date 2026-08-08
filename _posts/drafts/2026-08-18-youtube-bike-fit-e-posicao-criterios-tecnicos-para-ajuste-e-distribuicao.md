@@ -3,10 +3,10 @@ layout: post
 published: false
 title: "Bike fit e posição: critérios técnicos para ajuste e distribuição de carga"
 slug: "youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao"
-date: 2026-08-08
+date: 2026-08-18
 last_modified_at: 2026-08-08
 author: "Equipe TheBiker"
-reviewed_by: ""
+reviewed_by: "TheBiker AI Editorial Gate"
 content_type: "guia-tecnico"
 audience_segment: "core_technical_cyclists"
 audience_intent: "technical_learning"
@@ -27,24 +27,24 @@ price_checked_at: "2026-08-08"
 category: "guia-tecnico"
 tags: ["ciclismo", "bike-fit", "biomecanica", "performance"]
 description: "Domine os critérios técnicos de bike fit: ajuste de selim, reach, drop e Q-factor para otimizar sua performance e eficiência biomecânica no ciclismo."
-image: "/assets/img/system/covers/guia/hero.webp"
-image_mobile: "/assets/img/system/covers/guia/hero.webp"
-thumbnail: "/assets/img/system/covers/guia/thumb-480.webp"
+image: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/hero-1600.webp"
+image_mobile: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/hero-800.webp"
+thumbnail: "/assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/card-640.webp"
 image_manifest_version: 2
-image_asset_type: "system-fallback"
-image_status: "draft"
-image_alt: "Ciclista em posição aerodinâmica ajustada em estúdio"
-image_caption: "Ajuste preciso de cockpit e selim para máxima eficiência."
-image_credit: "TheBiker com geração assistida por IA"
-image_license: "Uso editorial interno TheBiker"
+image_asset_type: "technical-diagram"
+image_status: "approved"
+image_alt: "Capa técnica TheBiker para o artigo Bike fit e posição: critérios técnicos para ajuste e distribuição de carga"
+image_caption: "Capa técnica produzida para o conteúdo editorial TheBiker."
+image_credit: "TheBiker"
+image_license: "Propriedade editorial TheBiker"
 affiliate_links: false
 editorial_scope: "portfolio"
 promoted_brands: ["TheBiker"]
 context_only_brands: []
 portfolio_evidence_url: "https://thebikershop.com.br/componentes/"
 portfolio_verified_at: "2026-08-08"
-editorial_status: "draft"
-status: "draft"
+editorial_status: "reviewed"
+status: "scheduled"
 sources:
   - name: "Shimano Fit Guide"
     type: "manufacturer"
@@ -83,7 +83,7 @@ A distribuição de carga é um aspecto avançado do bike fit, essencial para a 
 
 ## Erros comuns e como evitá-los
 
-O erro mais frequente no bike fit é a tentativa de replicar posições de atletas profissionais sem considerar as diferenças anatômicas e de flexibilidade. Ajustar o selim alto demais, na tentativa de 'esticar' a perna, frequentemente resulta em dor na parte posterior do joelho e instabilidade pélvica. Da mesma forma, um alcance excessivo, baseado em um reach de quadro inadequado, gera tensão excessiva nos ombros e pescoço. Outro erro comum é ignorar o ângulo do tubo do selim, que deve variar entre 73° e 75° para estrada. Ignorar essas diretrizes técnicas pode levar a lesões por esforço repetitivo. A chave para evitar esses problemas é a medição sistemática e a realização de ajustes incrementais, nunca alterando múltiplos parâmetros simultaneamente, o que impossibilita identificar a origem de um eventual desconforto. Além disso, muitos ciclistas negligenciam a importância do calçado e das palmilhas. Um suporte inadequado do arco plantar pode causar desalinhamentos que se propagam para joelhos e quadris. A TheBiker recomenda que, antes de qualquer ajuste, o ciclista verifique o desgaste dos tacos e a integridade das sapatilhas. Outro erro é não considerar a variação da posição ao longo do tempo: a fadiga altera a postura, e um fit que parece perfeito nos primeiros 30 minutos pode se tornar desconfortável após duas horas. Por isso, testes de longa duração são essenciais para validar o ajuste.
+O erro mais frequente no bike fit é a tentativa de replicar posições de atletas profissionais sem considerar as diferenças anatômicas e de flexibilidade. Ajustar o selim alto demais, na tentativa de 'esticar' a perna, frequentemente resulta em dor na parte posterior do joelho e instabilidade pélvica. Da mesma forma, um alcance excessivo, baseado em um reach de quadro inadequado, gera tensão excessiva nos ombros e pescoço. Outro erro comum é ignorar o ângulo do tubo do selim, que deve variar entre 73° e 75° para estrada. Ignorar essas diretrizes técnicas pode levar a lesões por esforço repetitivo. A chave para evitar esses problemas é a medição sistemática e a realização de ajustes incrementais, nunca alterando múltiplos parâmetros simultaneamente, o que impossibilita identificar a origem de um eventual desconforto. Além disso, muitos ciclistas negligenciam a importância do calçado e das palmilhas. Um suporte inadequado do arco plantar pode causar desalinhamentos que se propagam para joelhos e quadris. A TheBiker recomenda que, antes de qualquer ajuste, o ciclista verifique o desgaste dos tacos e a integridade das sapatilhas. Outro erro é não considerar a variação da posição ao longo do tempo: a fadiga altera a postura, e um fit que parece adequado nos primeiros 30 minutos pode se tornar desconfortável após duas horas. Por isso, testes de longa duração são essenciais para validar o ajuste.
 
 ## Quando procurar ajuda profissional
 

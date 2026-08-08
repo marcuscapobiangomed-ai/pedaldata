@@ -322,7 +322,7 @@ for (const [name, content] of outputs) {
   const target = path.join(targetDirectory, name);
   if (check) {
     const existing = await fs.readFile(target, 'utf8').catch(() => '');
-    if (existing !== content) throw new Error(`Workflow n8n desatualizado: ${path.relative(root, target)}`);
+    if (existing.replace(/\r\n/g, '\n') !== content) throw new Error(`Workflow n8n desatualizado: ${path.relative(root, target)}`);
   } else await fs.writeFile(target, content);
 }
 console.log(`${outputs.size} workflows n8n ${check ? 'verificados' : 'gerados'}.`);

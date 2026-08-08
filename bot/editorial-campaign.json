@@ -360,7 +360,7 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 5.047 visualizações globais do vídeo; 2.517 por dia; encontrado em 1 busca(s) configurada(s) para o Brasil.",
       "category": "manutencao-ajustes",
       "freshness": "event-driven",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [],
       "postPath": "_posts/drafts/2026-08-18-youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao.md",
       "imageAssetIds": [],
@@ -381,7 +381,9 @@
         },
         "generatedAt": "2026-08-08T17:34:02.509Z"
       },
-      "blockReason": "Validação final: Gate Markdown reprovado: linguagem publicitária proibida: perfeito"
+      "imageManifestPath": "assets/img/posts/youtube-bike-fit-e-posicao-criterios-tecnicos-para-ajuste-e-distribuicao/image-manifest.json",
+      "imageStatus": "approved",
+      "imageValidatedAt": "2026-08-08T17:45:09.217Z"
     },
     {
       "day": 12,
