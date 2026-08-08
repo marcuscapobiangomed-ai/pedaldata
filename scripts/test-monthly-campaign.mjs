@@ -15,10 +15,11 @@ const report = {
     source: index % 2 ? 'youtube' : 'search-console',
   })),
   refreshQueue: [{ title: 'Artigo antigo', url: 'https://example.com/antigo/', ageDays: 200 }],
-  marketSignals: [],
-  globalRankings: {
-    youtube: [{ rank: 1, signalTitle: 'Global MTB signal', topic: 'Suspensão MTB', score: 98 }],
-    seo: [{ rank: 1, term: 'ajuste suspensão mtb', opportunityScore: 92 }],
+  discoverySignals: [],
+  queryClusters: [{ cluster: 'suspensao', queries: 1, impressions: 120 }],
+  brazilRankings: {
+    youtubeDiscovery: [{ rank: 1, signalTitle: 'Sinal MTB Brasil', topic: 'Suspensão MTB', score: 98 }],
+    seoMeasured: [{ rank: 1, term: 'ajuste suspensão mtb', opportunityScore: 92 }],
   },
 }
 let plannerPrompt = ''
@@ -63,7 +64,7 @@ assert.equal(renewed.items.some((item) => item.id === staleReserveId), false, 'r
 assert.equal(renewed.reserves.some((item) => item.id === staleReserveId), false, 'buffer renovado deve vir apenas da inteligência atual')
 assert.ok(renewed.items.some((item) => item.id === 'seo-topic-1'), 'inteligência nova deve preencher lacunas')
 assert.ok(renewed.reserves.length >= 3)
-assert.match(plannerPrompt, /globalRankings/)
+assert.match(plannerPrompt, /brazilRankings/)
 assert.match(plannerPrompt, /ajuste suspensão mtb/)
 
 const publishedToday = structuredClone(campaignFixture)

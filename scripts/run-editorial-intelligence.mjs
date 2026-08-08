@@ -65,25 +65,34 @@ async function googleAccessToken(env) {
   return payload.access_token;
 }
 
-async function searchConsoleRows({ accessToken, siteUrl, period }) {
+async function searchConsoleRows({ accessToken, siteUrl, period, country = 'bra', maximumRows = 1000 }) {
   const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      startDate: period.startDate,
-      endDate: period.endDate,
-      dimensions: ['query', 'page', 'country'],
-      type: 'web',
-      aggregationType: 'auto',
-      rowLimit: 25000,
-      dataState: 'final',
-    }),
-  });
-  return (await responseJson(response, 'Search Console')).rows || [];
+  const rows = [];
+  const pageSize = Math.min(250, maximumRows);
+  while (rows.length < maximumRows) {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        startDate: period.startDate,
+        endDate: period.endDate,
+        dimensions: ['query', 'page', 'country', 'device'],
+        dimensionFilterGroups: [{ filters: [{ dimension: 'country', operator: 'equals', expression: country }] }],
+        type: 'web',
+        aggregationType: 'auto',
+        rowLimit: pageSize,
+        startRow: rows.length,
+        dataState: 'final',
+      }),
+    });
+    const page = (await responseJson(response, 'Search Console')).rows || [];
+    rows.push(...page);
+    if (page.length < pageSize) break;
+  }
+  return rows.slice(0, maximumRows);
 }
 
 function youtubeAuthorization(env, accessToken) {
@@ -103,11 +112,11 @@ async function youtubeGet(endpoint, parameters, authorization) {
 
 async function youtubeVideos({ env, accessToken, config, periods }) {
   const authorization = youtubeAuthorization(env, accessToken);
-  const markets = Array.isArray(config.youtubeMarkets) && config.youtubeMarkets.length > 0
-    ? config.youtubeMarkets
-    : [{ regionCode: 'BR', relevanceLanguage: 'pt', query: config.youtubeQuery || 'ciclismo mountain bike MTB' }];
-  const searches = await Promise.all(markets.map(async (market) => {
-    const query = String(market.query || config.youtubeQuery || 'cycling mountain bike MTB').replaceAll('|', ' OR ');
+  const searchesConfig = Array.isArray(config.youtubeSearches) && config.youtubeSearches.length > 0
+    ? config.youtubeSearches
+    : [{ id: 'ciclismo', regionCode: 'BR', relevanceLanguage: 'pt', query: 'ciclismo bicicleta mountain bike Brasil' }];
+  const searches = await Promise.all(searchesConfig.map(async (market) => {
+    const query = String(market.query || 'ciclismo bicicleta Brasil');
     const payload = await youtubeGet('search', {
       part: 'snippet',
       type: 'video',
@@ -126,9 +135,10 @@ async function youtubeVideos({ env, accessToken, config, periods }) {
     for (const item of items) {
       const id = item.id?.videoId;
       if (!id) continue;
-      const captured = metadata.get(id) || { markets: new Set(), languages: new Set() };
+      const captured = metadata.get(id) || { markets: new Set(), languages: new Set(), searches: new Set() };
       captured.markets.add(market.regionCode);
       captured.languages.add(market.relevanceLanguage);
+      captured.searches.add(market.id || market.query);
       metadata.set(id, captured);
     }
   }
@@ -146,6 +156,7 @@ async function youtubeVideos({ env, accessToken, config, periods }) {
     _intelligence: {
       markets: [...(metadata.get(video.id)?.markets || [])],
       languages: [...(metadata.get(video.id)?.languages || [])],
+      searches: [...(metadata.get(video.id)?.searches || [])],
     },
   }));
 }
@@ -168,10 +179,12 @@ export async function runEditorialIntelligence({
   };
   config.maximumBriefs = cadence === 'monthly' ? config.monthlyMaximumBriefs : config.weeklyMaximumBriefs;
   config.refreshAfterDays = cadence === 'monthly' ? config.monthlyRefreshAfterDays : 150;
+  const maximumSearchQueries = Number(config.maximumSearchQueries || 1000);
+  const searchConsoleCountry = config.searchConsoleCountry || 'bra';
   const accessToken = await googleAccessToken(env);
   const [gscCurrent, gscPrevious, videos, contentIndex] = await Promise.all([
-    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.current }),
-    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.previous }),
+    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
     youtubeVideos({ env, accessToken, config, periods }),
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
   ]);
@@ -187,14 +200,22 @@ export async function runEditorialIntelligence({
   await fs.mkdir(outputDirectory, { recursive: true });
   const jsonPath = path.join(outputDirectory, `${report.runKey}.json`);
   const markdownPath = path.join(outputDirectory, `${report.runKey}.md`);
+  const queriesCsvPath = path.join(outputDirectory, `${report.runKey}-consultas-brasil.csv`);
   await fs.writeFile(jsonPath, JSON.stringify(report, null, 2) + '\n');
   await fs.writeFile(markdownPath, intelligenceMarkdown(report) + '\n');
-  return { report, jsonPath, markdownPath };
+  const csvCell = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`;
+  const csvHeader = ['rank', 'consulta', 'cluster', 'intencao', 'cliques', 'impressoes', 'ctr', 'posicao', 'variacao', 'dispositivos', 'paginas', 'canibalizacao', 'score'];
+  const csvRows = (report.brazilRankings?.seoMeasured || []).map((item) => [
+    item.rank, item.term, item.cluster, item.intent, item.clicks, item.impressions, item.ctr, item.position, item.delta,
+    item.devices.join('|'), item.targetUrls.join('|'), item.cannibalizationRisk, item.opportunityScore,
+  ]);
+  await fs.writeFile(queriesCsvPath, [csvHeader, ...csvRows].map((row) => row.map(csvCell).join(',')).join('\n') + '\n');
+  return { report, jsonPath, markdownPath, queriesCsvPath };
 }
 
 if (path.resolve(process.argv[1] || '') === fileURLToPath(import.meta.url)) {
   runEditorialIntelligence()
-    .then(({ report, jsonPath, markdownPath }) => console.log(JSON.stringify({ runKey: report.runKey, jsonPath, markdownPath })))
+    .then(({ report, jsonPath, markdownPath, queriesCsvPath }) => console.log(JSON.stringify({ runKey: report.runKey, jsonPath, markdownPath, queriesCsvPath })))
     .catch((error) => {
       console.error(error.stack || error.message);
       process.exitCode = 1;

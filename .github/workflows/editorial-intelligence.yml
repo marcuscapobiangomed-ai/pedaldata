@@ -73,7 +73,7 @@ jobs:
           REPORT_PATH: ${{ steps.report.outputs.markdown_path }}
         shell: bash
         run: |
-          title="[INTEL] ${RUN_KEY} — Top 10 global SEO e YouTube"
+          title="[INTEL-BR] ${RUN_KEY} — Top 1.000 consultas e Top 20 YouTube Brasil"
           number="$(gh issue list --state all --search "${RUN_KEY} in:title" --json number --jq '.[0].number // empty')"
           if [ -n "$number" ]; then
             gh issue edit "$number" --title "$title" --body-file "$REPORT_PATH"

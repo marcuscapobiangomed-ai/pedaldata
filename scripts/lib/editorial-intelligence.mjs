@@ -14,7 +14,8 @@ const DEFAULT_CYCLING_TERMS = [
   'cross country',
 ];
 const MOTORIZED_FALSE_POSITIVES = /\b(dirt bike|motocross|motorcycle|motorbike|motocicleta|surron|sur ron|pit bike|mini bike|quadriciclo|atv|\d{2,4}\s*cc)\b/;
-const VIDEO_SEO_NOISE = new Set(['best', 'new', 'review', 'official', 'video', 'shorts', 'available', 'india', 'world', 'bike', 'bikes', 'bicycle', 'cycling', 'mtb']);
+const NON_TECHNICAL_VIDEO_NOISE = /\b(futebol|football|soccer|scaloni|messi|neymar|stunt|manobra viral|pegadinha|prank|funny|noob|legend|outfit|criança|crianca|kids?|child|dirtbike|motovlog)\b/;
+const BRAZIL_RELEVANCE_TERMS = ['brasil', 'ciclismo', 'ciclista', 'bicicleta', 'mountain bike', 'mtb', 'gravel', 'speed', 'estrada', 'pedal', 'suspensao', 'shimano', 'sram', 'scott'];
 
 export function normalizeText(value) {
   return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -31,11 +32,19 @@ function rowKey(row) {
 
 function isCyclingVideo(video, config) {
   const haystack = normalizeText(`${video.snippet?.title || video.title} ${video.snippet?.description || ''}`);
-  if (MOTORIZED_FALSE_POSITIVES.test(haystack)) return false;
+  if (MOTORIZED_FALSE_POSITIVES.test(haystack) || NON_TECHNICAL_VIDEO_NOISE.test(haystack)) return false;
   const terms = Array.isArray(config.cyclingTerms) && config.cyclingTerms.length > 0
     ? config.cyclingTerms
     : DEFAULT_CYCLING_TERMS;
-  return terms.some((term) => haystack.includes(normalizeText(term)));
+  const cyclingMatch = terms.some((term) => haystack.includes(normalizeText(term)));
+  const brazilMatch = BRAZIL_RELEVANCE_TERMS.some((term) => haystack.includes(normalizeText(term)));
+  return cyclingMatch && brazilMatch;
+}
+
+function durationSeconds(value) {
+  const match = String(value || '').match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
+  if (!match) return null;
+  return Number(match[1] || 0) * 3600 + Number(match[2] || 0) * 60 + Number(match[3] || 0);
 }
 
 export function technicalTopicFromVideo(value) {
@@ -70,6 +79,11 @@ function videoOpportunity(video, context, config) {
   const viewsPerDay = views / ageDays;
   const capturedMarkets = [...new Set(video._intelligence?.markets || [])].sort();
   const capturedLanguages = [...new Set(video._intelligence?.languages || [])].sort();
+  const capturedSearches = [...new Set(video._intelligence?.searches || [])].sort();
+  const seconds = durationSeconds(video.contentDetails?.duration);
+  const format = seconds !== null && seconds <= 60 ? 'short' : 'long-form';
+  const technicalDepthBonus = format === 'long-form' ? 8 : 0;
+  const recurrenceBonus = Math.min(18, capturedSearches.length * 3);
   return {
     source: 'youtube',
     topic: technicalTopicFromVideo(title),
@@ -77,23 +91,58 @@ function videoOpportunity(video, context, config) {
     channelTitle: video.snippet?.channelTitle || null,
     publishedAt,
     sourceUrl: `https://www.youtube.com/watch?v=${video.id}`,
-    score: Math.round(Math.log10(viewsPerDay + 1) * 24 + Math.min(20, ((likes + comments * 2) / Math.max(1, views)) * 1000) + Math.min(10, capturedMarkets.length * 2)),
-    evidence: `${views.toLocaleString('pt-BR')} visualizações; ${Math.round(viewsPerDay).toLocaleString('pt-BR')} por dia; captado em ${capturedMarkets.length || 1} mercado(s)`,
+    score: Math.round(Math.log10(viewsPerDay + 1) * 24 + Math.min(20, ((likes + comments * 2) / Math.max(1, views)) * 1000) + recurrenceBonus + technicalDepthBonus),
+    evidence: `${views.toLocaleString('pt-BR')} visualizações globais do vídeo; ${Math.round(viewsPerDay).toLocaleString('pt-BR')} por dia; encontrado em ${capturedSearches.length || 1} busca(s) configurada(s) para o Brasil`,
     views,
     likes,
     comments,
     viewsPerDay: Math.round(viewsPerDay),
+    durationSeconds: seconds,
+    format,
     capturedMarkets,
     capturedLanguages,
+    capturedSearches,
     directPromotionAllowed: false,
     blockedBrandDetected: hasBlockedBrand(title, config),
   };
+}
+
+export function searchIntent(value) {
+  const text = normalizeText(value);
+  if (/\b(comprar|preco|precos|valor|onde comprar|loja|promocao)\b/.test(text)) return 'commercial';
+  if (/\b(melhor|melhores|versus|\bvs\b|comparativo|diferenca)\b/.test(text)) return 'comparison';
+  if (/\b(como|ajustar|regular|consertar|manutencao|limpar|trocar|resolver)\b/.test(text)) return 'how-to';
+  if (/\b(review|analise|vale a pena|opinioes)\b/.test(text)) return 'evaluation';
+  return 'informational';
+}
+
+export function queryCluster(value) {
+  const text = normalizeText(value);
+  const clusters = [
+    ['suspensao', /suspens|amortec|\bsag\b|garfo/],
+    ['pneus-tubeless', /pneu|tubeless|pressao|calibr/],
+    ['transmissao', /cambio|transmiss|corrente|cassete|pedivela|grupo|di2/],
+    ['freios', /freio|rotor|pastilha|sangria/],
+    ['rodas', /roda|aro|cubo|rolamento/],
+    ['bike-fit', /bike fit|posicao|selim|reach|stack|tamanho/],
+    ['mountain-bike', /mountain bike|\bmtb\b|cross country|downhill|enduro/],
+    ['bike-estrada', /speed|estrada|road bike|aero|endurance/],
+    ['gravel', /gravel/],
+    ['eletricas', /eletrica|e bike|ebike/],
+    ['manutencao', /manutenc|limpeza|lubrifica|oficina|ajuste/],
+    ['treinamento', /treino|potencia|cadencia|performance|ftp/],
+    ['equipamentos', /capacete|pedal|sapatilha|roupa|acessorio|sensor/],
+    ['compra-bicicleta', /comprar|preco|valor|melhor bike|bicicleta nova|bicicleta usada/],
+    ['competicoes', /competicao|corrida|prova|worldtour|olimpi|campeonato/],
+  ];
+  return clusters.find(([, pattern]) => pattern.test(text))?.[0] || 'ciclismo-geral';
 }
 
 function gscOpportunity(row, previousMap) {
   const query = row.keys?.[0] || '';
   const page = row.keys?.[1] || '';
   const country = row.keys?.[2] || 'not-segmented';
+  const device = row.keys?.[3] || 'not-segmented';
   const previous = previousMap.get(rowKey(row));
   const clicks = number(row.clicks);
   const impressions = number(row.impressions);
@@ -110,6 +159,9 @@ function gscOpportunity(row, previousMap) {
     targetUrl: page,
     sourceUrl: page,
     country,
+    device,
+    cluster: queryCluster(query),
+    intent: searchIntent(query),
     score,
     evidence: `${Math.round(impressions)} impressões; posição ${position.toFixed(1)}; CTR ${(ctr * 100).toFixed(1)}%; variação ${(delta * 100).toFixed(0)}%`,
     clicks,
@@ -122,13 +174,7 @@ function gscOpportunity(row, previousMap) {
   };
 }
 
-function seoPhraseFromVideo(signal, config) {
-  const blocked = new Set((config.blockedPromotionBrands || []).flatMap((brand) => normalizeText(brand).split(' ')));
-  const words = normalizeText(signal.signalTitle).split(' ').filter((word) => word.length >= 3 && !VIDEO_SEO_NOISE.has(word) && !blocked.has(word) && !/^\d+$/.test(word));
-  return words.slice(0, 8).join(' ') || normalizeText(signal.topic);
-}
-
-function buildSeoRanking(searchSignals, videoSignals, config, limit = 10) {
+function buildSeoRanking(searchSignals, limit = 1000) {
   const groups = new Map();
   for (const signal of searchSignals) {
     const key = normalizeText(signal.query);
@@ -141,7 +187,10 @@ function buildSeoRanking(searchSignals, videoSignals, config, limit = 10) {
       priorImpressions: 0,
       weightedPosition: 0,
       countries: new Set(),
+      devices: new Set(),
       targetUrls: new Set(),
+      cluster: signal.cluster,
+      intent: signal.intent,
       opportunityScore: 0,
     };
     group.clicks += signal.clicks;
@@ -149,6 +198,7 @@ function buildSeoRanking(searchSignals, videoSignals, config, limit = 10) {
     group.priorImpressions += signal.priorImpressions;
     group.weightedPosition += signal.position * Math.max(1, signal.impressions);
     if (signal.country && signal.country !== 'not-segmented') group.countries.add(signal.country);
+    if (signal.device && signal.device !== 'not-segmented') group.devices.add(signal.device);
     if (signal.targetUrl) group.targetUrls.add(signal.targetUrl);
     group.opportunityScore = Math.max(group.opportunityScore, signal.score);
     groups.set(key, group);
@@ -163,40 +213,22 @@ function buildSeoRanking(searchSignals, videoSignals, config, limit = 10) {
     return {
       term: group.term,
       source: group.source,
-      scope: 'demanda global observada no site',
+      scope: 'demanda brasileira medida no Search Console do TheBiker',
+      cluster: group.cluster,
+      intent: group.intent,
       clicks: group.clicks,
       impressions: group.impressions,
       ctr,
       position,
       delta,
       countries,
+      devices: [...group.devices].sort(),
       targetUrls: [...group.targetUrls].sort(),
+      cannibalizationRisk: group.targetUrls.size > 1,
       opportunityScore: Math.round(group.opportunityScore + Math.min(10, countries.length * 2)),
       recommendedUse: position >= 4 && position <= 20 ? 'Otimizar conteúdo existente e reforçar links internos.' : 'Usar como termo principal ou secundário em pauta tecnicamente aderente.',
     };
   }).sort((left, right) => right.opportunityScore - left.opportunityScore || right.impressions - left.impressions);
-  const seen = new Set(ranked.map((item) => normalizeText(item.term)));
-  for (const signal of videoSignals) {
-    if (ranked.length >= limit) break;
-    const term = seoPhraseFromVideo(signal, config);
-    if (!term || seen.has(normalizeText(term))) continue;
-    seen.add(normalizeText(term));
-    ranked.push({
-      term,
-      source: 'youtube-global-derived',
-      scope: 'proxy de intenção global derivado do YouTube',
-      clicks: null,
-      impressions: null,
-      ctr: null,
-      position: null,
-      delta: null,
-      countries: signal.capturedMarkets,
-      targetUrls: [],
-      evidenceUrl: signal.sourceUrl,
-      opportunityScore: signal.score,
-      recommendedUse: 'Validar a intenção e usar como pauta ou termo semântico; não tratar como volume de busca do Google.',
-    });
-  }
   return ranked.slice(0, limit).map((item, index) => ({ rank: index + 1, ...item }));
 }
 
@@ -242,17 +274,24 @@ function briefFrom(opportunity, articles, config) {
 
 export function buildEditorialIntelligence({ context, config, gscCurrent = [], gscPrevious = [], videos = [], articles = [] }) {
   const previousMap = new Map(gscPrevious.map((row) => [rowKey(row), row]));
+  const brazilCountry = config.searchConsoleCountry || 'bra';
   const searchSignals = gscCurrent
+    .filter((row) => !row.keys?.[2] || row.keys[2] === brazilCountry)
     .filter((row) => number(row.impressions) >= (config.minimumImpressions || 5))
     .map((row) => gscOpportunity(row, previousMap));
   const videoSignals = videos
     .filter((video) => isCyclingVideo(video, config))
     .map((video) => videoOpportunity(video, context, config))
     .sort((left, right) => right.score - left.score || right.viewsPerDay - left.viewsPerDay || right.views - left.views);
-  const topYoutube = videoSignals.slice(0, 10).map((item, index) => ({ rank: index + 1, ...item }));
-  const topSeo = buildSeoRanking(searchSignals, videoSignals, config, 10);
-  const directCandidates = [...searchSignals, ...videoSignals]
+  const topYoutube = videoSignals.slice(0, config.youtubeMaximumVideos || 20).map((item, index) => ({ rank: index + 1, ...item }));
+  const topSeo = buildSeoRanking(searchSignals, config.maximumSearchQueries || 1000);
+  const seoCandidates = topSeo.slice(0, 100).map((item) => ({
+    source: 'search-console', topic: item.term, targetUrl: item.targetUrls[0] || null, sourceUrl: item.targetUrls[0] || null,
+    score: item.opportunityScore, evidence: `${item.impressions} impressões no Brasil; posição ${item.position.toFixed(1)}; CTR ${(item.ctr * 100).toFixed(1)}%`, directPromotionAllowed: true,
+  }));
+  const directCandidates = [...seoCandidates, ...videoSignals]
     .filter((item) => item.directPromotionAllowed || item.source === 'youtube')
+    .filter((item) => !item.blockedBrandDetected)
     .sort((left, right) => right.score - left.score);
   const seen = new Set();
   const briefs = [];
@@ -272,27 +311,40 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
   }).filter((item) => item.ageDays >= (config.refreshAfterDays || 90) || item.searchOpportunity > 0)
     .sort((left, right) => right.searchOpportunity - left.searchOpportunity || right.ageDays - left.ageDays)
     .slice(0, 15);
-  const requestedMarkets = (config.youtubeMarkets || []).map((market) => market.regionCode);
+  const requestedSearches = (config.youtubeSearches || []).map((search) => search.id || search.query);
   const capturedMarkets = [...new Set(videoSignals.flatMap((signal) => signal.capturedMarkets))].sort();
   const countriesObserved = [...new Set(searchSignals.map((signal) => signal.country).filter((country) => country && country !== 'not-segmented'))].sort();
+  const clusters = [...topSeo.reduce((map, item) => {
+    const current = map.get(item.cluster) || { cluster: item.cluster, queries: 0, clicks: 0, impressions: 0, pages: new Set(), cannibalizationRisks: 0 };
+    current.queries += 1;
+    current.clicks += item.clicks;
+    current.impressions += item.impressions;
+    item.targetUrls.forEach((url) => current.pages.add(url));
+    if (item.cannibalizationRisk) current.cannibalizationRisks += 1;
+    map.set(item.cluster, current);
+    return map;
+  }, new Map()).values()].map((item) => ({ ...item, pages: [...item.pages].sort() }))
+    .sort((left, right) => right.impressions - left.impressions || right.queries - left.queries);
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     runKey: context.runKey,
     cadence: context.cadence,
     generatedAt: context.generatedAt,
     periods: context.periods,
     scope: {
-      label: 'inteligência global multirregional do nicho de ciclismo',
+      label: 'inteligência editorial do nicho de ciclismo com foco exclusivo no Brasil',
       youtube: {
-        method: 'amostra multirregional da YouTube Data API ordenada por visualizações e reclassificada por velocidade, engajamento e recorrência entre mercados',
-        marketsRequested: requestedMarkets,
+        method: 'amostra de descoberta da YouTube Data API obtida com região BR, idioma português e consultas técnicas brasileiras; as visualizações fornecidas são globais por vídeo',
+        market: 'BR',
+        searchesRequested: requestedSearches,
         marketsCaptured: capturedMarkets,
-        exactWorldwideTop10: false,
+        exactBrazilViewsTop20: false,
       },
       seo: {
-        method: 'consultas do Google Search que exibiram páginas do TheBiker; quando insuficientes, padrões de intenção multirregionais do YouTube entram como proxy explicitamente identificado',
+        method: 'até 1.000 consultas disponibilizadas pelo Google Search Console, filtradas para o país Brasil e agrupadas por termo, página e dispositivo; vídeos nunca preenchem lacunas de SEO medido',
         countriesObserved,
-        exactWorldwideSearchVolume: false,
+        maximumQueries: config.maximumSearchQueries || 1000,
+        measuredOnly: true,
       },
     },
     metrics: {
@@ -301,16 +353,20 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
       publishedArticles: articles.length,
       briefs: briefs.length,
       refreshCandidates: refreshQueue.length,
-      youtubeMarketsCaptured: capturedMarkets.length,
+      youtubeSearchesConfigured: requestedSearches.length,
       seoCountriesObserved: countriesObserved.length,
+      seoMeasuredQueries: topSeo.length,
+      seoClusters: clusters.length,
+      cannibalizationRisks: topSeo.filter((item) => item.cannibalizationRisk).length,
     },
-    globalRankings: {
-      youtube: topYoutube,
-      seo: topSeo,
+    brazilRankings: {
+      youtubeDiscovery: topYoutube,
+      seoMeasured: topSeo,
     },
+    queryClusters: clusters,
     briefs,
     refreshQueue,
-    marketSignals: videoSignals.slice(0, 20),
+    discoverySignals: videoSignals.slice(0, 50),
     governance: {
       autoPublish: false,
       autoScheduleAfterGates: context.cadence === 'monthly',
@@ -319,7 +375,8 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
       competitorPromotionBlocked: true,
       staleCommercialDataFailClosed: true,
       youtubeIsIntelligenceOnly: true,
-      worldwideClaimRequiresMeasuredCoverage: true,
+      youtubeDoesNotFillMeasuredSeo: true,
+      brazilClaimRequiresCountryFilter: true,
     },
   };
 }
@@ -333,46 +390,60 @@ function percent(value) {
 }
 
 export function intelligenceMarkdown(report) {
-  const topYoutube = report.globalRankings?.youtube || [];
-  const topSeo = report.globalRankings?.seo || [];
+  const topYoutube = report.brazilRankings?.youtubeDiscovery || [];
+  const topSeo = report.brazilRankings?.seoMeasured || [];
+  const planningPayload = {
+    schemaVersion: report.schemaVersion,
+    runKey: report.runKey,
+    cadence: report.cadence,
+    generatedAt: report.generatedAt,
+    brazilRankings: {
+      youtubeDiscovery: topYoutube.slice(0, 20),
+      seoMeasured: topSeo.slice(0, 20),
+    },
+    queryClusters: report.queryClusters.map(({ pages, ...cluster }) => ({
+      ...cluster,
+      pageCount: pages.length,
+      examplePages: pages.slice(0, 3),
+    })),
+    briefs: report.briefs,
+    refreshQueue: report.refreshQueue,
+    discoverySignals: [],
+  };
   const lines = [
-    `# Relatório global de inteligência editorial — ${report.runKey}`,
+    `# Relatório Brasil de inteligência editorial — ${report.runKey}`,
     '',
     '## Executive Summary',
     '',
-    `- **A inteligência desta janela é acionável, não uma promessa de liderança automática.** Foram classificados ${topYoutube.length} sinais de vídeo e ${topSeo.length} oportunidades SEO para orientar pauta, atualização e links internos.`,
-    `- **A cobertura é mundial por amostragem auditável.** O YouTube foi observado em ${report.metrics.youtubeMarketsCaptured} mercados e o Search Console registrou demanda em ${report.metrics.seoCountriesObserved} países; o relatório não chama essa amostra de ranking absoluto da internet.`,
+    `- **A inteligência desta janela é acionável, não uma promessa de liderança automática.** Foram classificados ${topYoutube.length} sinais de vídeo obtidos no YouTube Brasil e ${topSeo.length} consultas SEO brasileiras medidas para orientar pauta, atualização e links internos.`,
+    `- **SEO medido e descoberta editorial permanecem separados.** Se o Search Console não entregar consultas, a seção SEO fica vazia; vídeos nunca são apresentados como palavras-chave do Google.`,
     `- **O relatório entra no planejamento.** ${report.briefs.length} pautas foram derivadas dos sinais e ${report.refreshQueue.length} páginas entraram na fila de atualização.`,
     '',
     `Cadência: **${report.cadence}** · gerado em ${report.generatedAt}`,
     '',
-    '## Os 10 sinais de YouTube com maior prioridade',
+    '## Os 20 sinais de YouTube Brasil com maior prioridade',
     '',
-    '| # | Vídeo | Canal | Views | Views/dia | Mercados | Score | Aplicação editorial |',
-    '|---:|---|---|---:|---:|---|---:|---|',
+    '| # | Vídeo | Canal | Views globais | Views/dia | Buscas BR | Formato | Score | Aplicação editorial |',
+    '|---:|---|---|---:|---:|---:|---|---:|---|',
   ];
-  if (topYoutube.length === 0) lines.push('| — | Nenhum sinal elegível | — | — | — | — | — | Execução sem cobertura suficiente |');
+  if (topYoutube.length === 0) lines.push('| — | Nenhum sinal elegível | — | — | — | — | — | — | Execução sem cobertura suficiente |');
   for (const item of topYoutube) {
-    lines.push(`| ${item.rank} | [${md(item.signalTitle)}](${item.sourceUrl}) | ${md(item.channelTitle || 'Não informado')} | ${item.views.toLocaleString('pt-BR')} | ${item.viewsPerDay.toLocaleString('pt-BR')} | ${md(item.capturedMarkets.join(', ') || 'não segmentado')} | ${item.score} | ${md(item.topic)} |`);
+    lines.push(`| ${item.rank} | [${md(item.signalTitle)}](${item.sourceUrl}) | ${md(item.channelTitle || 'Não informado')} | ${item.views.toLocaleString('pt-BR')} | ${item.viewsPerDay.toLocaleString('pt-BR')} | ${item.capturedSearches.length || 1} | ${item.format} | ${item.score} | ${md(item.topic)} |`);
   }
   lines.push(
     '',
     '**Uso recomendado:** transformar os padrões recorrentes em explicações técnicas originais; vídeos e marcas de terceiros servem como inteligência, nunca como prova factual ou CTA.',
     '',
-    '## As 10 oportunidades SEO mais fortes da demanda observada',
+    '## Consultas SEO Brasil medidas no Search Console',
     '',
-    '| # | Termo ou intenção | Fonte | Impressões | CTR | Posição | Variação | Países | Score | Próxima ação |',
-    '|---:|---|---|---:|---:|---:|---:|---|---:|---|',
+    `O payload e o CSV anexados contêm até **1.000 consultas**. Para manter esta issue legível, a tabela abaixo mostra as primeiras ${Math.min(50, topSeo.length)} por prioridade.`,
+    '',
+    '| # | Consulta | Cluster | Intenção | Impressões | CTR | Posição | Variação | Dispositivos | Páginas | Canibalização | Score | Próxima ação |',
+    '|---:|---|---|---|---:|---:|---:|---:|---|---:|---|---:|---|',
   );
-  if (topSeo.length === 0) lines.push('| — | Nenhuma consulta acima do limiar | — | — | — | — | — | — | — | Ampliar janela ou aguardar demanda mensurável |');
-  for (const item of topSeo) {
-    const source = item.source === 'search-console' ? 'Google Search Console' : 'Proxy global do YouTube';
-    const impressions = item.impressions == null ? '—' : Math.round(item.impressions).toLocaleString('pt-BR');
-    const ctr = item.ctr == null ? '—' : percent(item.ctr);
-    const position = item.position == null ? '—' : item.position.toFixed(1);
-    const delta = item.delta == null ? '—' : percent(item.delta);
-    const term = item.evidenceUrl ? `[${md(item.term)}](${item.evidenceUrl})` : md(item.term);
-    lines.push(`| ${item.rank} | ${term} | ${source} | ${impressions} | ${ctr} | ${position} | ${delta} | ${md(item.countries.join(', ') || 'não segmentado')} | ${item.opportunityScore} | ${md(item.recommendedUse)} |`);
+  if (topSeo.length === 0) lines.push('| — | Dados SEO medidos ainda insuficientes | — | — | — | — | — | — | — | — | — | — | Aguardar impressões reais; não preencher com proxies |');
+  for (const item of topSeo.slice(0, 50)) {
+    lines.push(`| ${item.rank} | ${md(item.term)} | ${item.cluster} | ${item.intent} | ${Math.round(item.impressions).toLocaleString('pt-BR')} | ${percent(item.ctr)} | ${item.position.toFixed(1)} | ${percent(item.delta)} | ${md(item.devices.join(', ') || 'não segmentado')} | ${item.targetUrls.length} | ${item.cannibalizationRisk ? 'sim' : 'não'} | ${item.opportunityScore} | ${md(item.recommendedUse)} |`);
   }
   lines.push('', '## Pautas e atualizações que saem do ranking', '');
   for (const [index, brief] of report.briefs.entries()) {
@@ -397,22 +468,24 @@ export function intelligenceMarkdown(report) {
     '',
     '## Questões para a próxima janela',
     '',
-    '- Quais temas aparecem em mais mercados e continuam crescendo na janela seguinte?',
+    '- Quais clusters brasileiros continuam crescendo na janela seguinte?',
     '- Quais consultas avançaram em impressões, mas perderam CTR ou ficaram entre as posições 4 e 20?',
     '- Quais pautas geradas realmente aumentaram tráfego qualificado, engajamento e descoberta do acervo?',
     '',
     '## Limitações e governança',
     '',
-    '- “Global” significa amostra multirregional captada pelas APIs configuradas; não significa leitura integral de todas as buscas ou de todo o YouTube.',
-    '- O Search Console mede a demanda que já encontrou o TheBiker, não o volume total de busca de toda a internet. Itens preenchidos pelo YouTube são proxies de intenção, não consultas nem volumes do Google. A API oficial do Google Trends permanece opcional enquanto estiver em acesso alfa.',
+    '- O Search Console mede somente a demanda que já encontrou o TheBiker e pode omitir consultas raras por privacidade; o CSV contém até 1.000 linhas disponibilizadas, não o universo integral das buscas brasileiras.',
+    '- A região BR e as consultas em português tornam o YouTube um radar brasileiro, mas a API pública fornece visualizações globais de cada vídeo, não visualizações exclusivamente brasileiras.',
+    '- YouTube é descoberta editorial e nunca preenche a seção SEO medida.',
     '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.',
     '- Exceções ficam bloqueadas para revisão; conteúdo aprovado pelos gates pode ser agendado sem intervenção no Codex.',
     '- Marcas concorrentes podem servir apenas como sinal de mercado; não viram promoção nem CTA.',
+    '- O payload JSON completo e o CSV das consultas ficam anexados como artefatos da execução por 30 dias.',
     '',
-    '<details><summary>Payload estruturado</summary>',
+    '<details><summary>Payload compacto para o planejador mensal</summary>',
     '',
     '```json',
-    JSON.stringify(report, null, 2),
+    JSON.stringify(planningPayload, null, 2),
     '```',
     '',
     '</details>',
