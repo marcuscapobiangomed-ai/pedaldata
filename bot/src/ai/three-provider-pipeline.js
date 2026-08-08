@@ -15,6 +15,25 @@ function extractJson(text) {
   }
 }
 
+export function applyPortfolioEvidence(article, researchData) {
+  if (!article || typeof article !== 'object') return article
+  const evidenceUrl = String(researchData?.portfolio_evidence_url || '').trim()
+  const verifiedAt = String(researchData?.portfolio_verified_at || '').trim()
+  if (!/^https?:\/\/(?:www\.)?(?:thebiker\.com\.br|thebikershop\.com\.br)\//i.test(evidenceUrl)) return article
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(verifiedAt)) return article
+  article.portfolio_evidence_url = evidenceUrl
+  article.portfolio_verified_at = verifiedAt
+  if (article.editorial_scope !== 'race-coverage') article.editorial_scope = 'portfolio'
+  if (!Array.isArray(article.promoted_brands) || article.promoted_brands.length === 0) article.promoted_brands = ['TheBiker']
+  return article
+}
+
+function applyPortfolioEvidenceToResult(result, researchData) {
+  const article = applyPortfolioEvidence(extractJson(result.content), researchData)
+  result.content = JSON.stringify(article)
+  return article
+}
+
 function hasResearchEvidence(researchData) {
   if (!researchData || typeof researchData !== "object") return false;
   const sources = researchData.sources;
@@ -202,7 +221,7 @@ export class ThreeProviderPipeline {
         model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
       },
     });
-    const draft = extractJson(draftResult.content);
+    const draft = applyPortfolioEvidenceToResult(draftResult, researchData);
 
     const critiqueResult = await this.callStep({
       step: "critique",
@@ -287,6 +306,7 @@ export class ThreeProviderPipeline {
           JSON.stringify(critique, null, 2),
         ].join("\n"),
       });
+      applyPortfolioEvidenceToResult(finalResult, researchData);
       const finalAuditResult = await this.callStep({
         step: "final-audit",
         providers: ["deepseek", "groq"],
@@ -364,6 +384,7 @@ export class ThreeProviderPipeline {
           JSON.stringify(extractJson(finalResult.content), null, 2),
         ].join("\n"),
       });
+      applyPortfolioEvidenceToResult(remediationResult, researchData);
       const remediationAuditResult = await this.callStep({
         step: "remediation-audit",
         providers: ["deepseek", "groq"],

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
-import { ThreeProviderPipeline } from "./src/ai/three-provider-pipeline.js";
+import { ThreeProviderPipeline, applyPortfolioEvidence } from "./src/ai/three-provider-pipeline.js";
 import { assertEditorialPublicationGates } from "./src/validation/editorial-publication-gates.js";
 
 const calls = [];
@@ -48,6 +48,13 @@ const runtime = {
 };
 
 const pipeline = new ThreeProviderPipeline({ clients, runtime, env: {} });
+const portfolioArticle = applyPortfolioEvidence({ promoted_brands: [] }, {
+  portfolio_evidence_url: 'https://thebikershop.com.br/componentes/',
+  portfolio_verified_at: '2026-08-08',
+});
+assert.equal(portfolioArticle.portfolio_evidence_url, 'https://thebikershop.com.br/componentes/');
+assert.equal(portfolioArticle.portfolio_verified_at, '2026-08-08');
+assert.deepEqual(portfolioArticle.promoted_brands, ['TheBiker']);
 const result = await pipeline.run({
   topic: "Notícia técnica",
   researchData: { sources: [{ name: "Fonte", url: "https://example.com" }] },

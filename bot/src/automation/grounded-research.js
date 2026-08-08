@@ -2,6 +2,15 @@ import { validateResearch } from '../schemas/research.schema.js'
 
 const PRODUCT_DOMAINS = ['thebikershop.com.br', 'scott-sports.com', 'syncros.com', 'bike.shimano.com', 'si.shimano.com', 'sram.com', 'rockshox.com', 'ridefox.com', 'maxxis.com', 'oggi.com.br']
 const SPORT_DOMAINS = ['uci.org', 'olympics.com']
+const PORTFOLIO_CATEGORY_URLS = {
+  'manutencao-ajustes': 'https://thebikershop.com.br/componentes/',
+  componentes: 'https://thebikershop.com.br/componentes/',
+  engenharia: 'https://thebikershop.com.br/bikes/',
+  review: 'https://thebikershop.com.br/bikes/',
+  comparativo: 'https://thebikershop.com.br/bikes/',
+  lancamentos: 'https://thebikershop.com.br/bikes/',
+  competicoes: 'https://www.thebiker.com.br/',
+}
 
 const CURATED_TOPIC_EVIDENCE = [
   {
@@ -70,6 +79,14 @@ function curatedEvidence(item, today) {
       facts: entry.facts,
       sources: entry.sources.map((source) => ({ ...source, accessedAt: today })),
     }))
+}
+
+export function portfolioEvidenceFor(item, today) {
+  return {
+    portfolio_evidence_url: PORTFOLIO_CATEGORY_URLS[item.category] || 'https://www.thebiker.com.br/',
+    portfolio_verified_at: today,
+    portfolio_evidence_scope: item.category === 'competicoes' ? 'race-coverage' : 'portfolio-category',
+  }
 }
 
 const RETRYABLE_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504])
@@ -158,6 +175,7 @@ function internalResearch({ item, internalEvidence, today, contentType, reason, 
     limitations: [`Pesquisa web indisponível nesta execução (${reason}); conteúdo limitado à base interna com fontes oficiais.`],
     sources,
     grounding: { queries: [], sourceCount: sources.length, fallback: curated.length > 0 ? 'curated-official-knowledge' : 'internal-product-knowledge' },
+    ...portfolioEvidenceFor(item, today),
   })
 }
 
@@ -183,6 +201,7 @@ export class GroundedResearcher {
       `Título: ${item.title}`,
       `Resumo editorial: ${item.summary}`,
       `Data: ${today}`,
+      `Evidência de portfólio TheBiker obrigatória: ${JSON.stringify(portfolioEvidenceFor(item, today))}`,
       `Conteúdo interno já validado: ${JSON.stringify(compactEvidence(internalEvidence))}`,
       `Retorne: {"slug":"${item.id}","title":"${item.title}","content_type":"${contentType}","review_method":"desk-research","tested_by_thebikerblog":false,"market":"Brasil","generated_at":"${today}","status":"pesquisa_concluida","editorialPriority":"P1","confirmed_facts":{},"limitations":[],"sources":[{"name":"...","type":"manufacturer|store|official-website","url":"https://...","accessed":"${today}"}]}`
     ].join('\n')
@@ -286,6 +305,7 @@ export class GroundedResearcher {
     research.generated_at = today
     research.status = 'pesquisa_concluida'
     research.editorialPriority = 'P1'
+    Object.assign(research, portfolioEvidenceFor(item, today))
     research.grounding = {
       queries: groundingQueries,
       sourceCount: research.sources.length,

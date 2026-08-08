@@ -114,6 +114,8 @@ const researcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async (_url,
 const grounded = await researcher.research({ item: { ...campaign.items[0], freshness: 'revalidate-24h' }, internalEvidence: [], today: '2026-08-04' });
 assert.equal(grounded.status, 'pesquisa_concluida');
 assert.equal(grounded.sources.length, 1);
+assert.equal(grounded.portfolio_evidence_url, 'https://thebikershop.com.br/componentes/');
+assert.equal(grounded.portfolio_verified_at, '2026-08-04');
 assert.equal(groundedRequest.model, 'groq/compound-mini');
 assert.deepEqual(groundedRequest.compound_custom.tools.enabled_tools, ['web_search', 'visit_website']);
 const fallbackResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test', AI_HTTP_RETRY_ATTEMPTS: '1' }, async () => ({ ok: false, status: 429, text: async () => 'quota' }));
