@@ -224,12 +224,10 @@
       "summary": "Rotina técnica depois de treinos molhados, priorizando rolamentos, transmissão, freios, suspensão e interfaces do quadro.",
       "category": "manutencao-ajustes",
       "freshness": "evergreen",
-      "status": "blocked",
+      "status": "planned",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 2,
-      "lastAttemptAt": "2026-08-08T04:03:08.315Z",
-      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: nota abaixo do mínimo"
+      "attempts": 0
     },
     {
       "day": 8,
