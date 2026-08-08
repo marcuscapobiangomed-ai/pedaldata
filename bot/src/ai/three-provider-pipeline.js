@@ -343,6 +343,7 @@ export class ThreeProviderPipeline {
         user: [
           "Faça uma correção final estritamente baseada nas evidências. Preserve o schema completo e responda somente em JSON.",
           "Remova integralmente cada alegação proibida e cada afirmação apontada pelos bloqueadores; não as reformule como fato, inferência ou recomendação.",
+          "Corrija também todos os avisos e deficiências implícitas na nota da auditoria final, priorizando precisão, utilidade técnica, clareza e decisões sustentadas.",
           "Substitua o espaço removido por explicação de método, critérios de decisão e limitações que não exijam novos fatos.",
           `Mantenha pelo menos ${generationTargetWords} palavras reais, sem repetição, fatos novos ou conteúdo genérico.`,
           "Não crie especificações, compatibilidades, categorias de uso, testes, preço, estoque ou disponibilidade.",
@@ -352,6 +353,9 @@ export class ThreeProviderPipeline {
           "",
           "BLOQUEADORES DO GATE FINAL:",
           JSON.stringify(finalBlockers, null, 2),
+          "",
+          "AUDITORIA FINAL COMPLETA:",
+          JSON.stringify(finalAudit, null, 2),
           "",
           "PESQUISA:",
           JSON.stringify(researchData, null, 2),

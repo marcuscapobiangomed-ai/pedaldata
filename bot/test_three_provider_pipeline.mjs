@@ -98,10 +98,12 @@ assert.equal(recoveredJson.provider, "deepseek");
 assert.deepEqual(JSON.parse(recoveredJson.content), { sections: [] });
 
 let remediationCalls = 0;
+let remediationPrompt = "";
 const remediationClients = {
   isConfigured: () => true,
-  async generate(provider) {
+  async generate(provider, _system, user) {
     remediationCalls += 1;
+    if (remediationCalls === 6) remediationPrompt = user;
     const responses = [
       { facts: [], gaps: [], conflicts: [{ field: "compatibilidade", issue: "fonte ausente" }], forbiddenClaims: ["compatibilidade não confirmada"], technicalAngles: [] },
       { title: "Rascunho", sections: [] },
@@ -129,5 +131,7 @@ assert.equal(remediated.metadata.premiumEditUsed, true);
 assert.equal(remediated.metadata.remediationEditUsed, true);
 assert.equal(remediated.metadata.finalScore, 96);
 assert.match(remediated.content, /Versão corrigida/);
+assert.match(remediationPrompt, /AUDITORIA FINAL COMPLETA/);
+assert.match(remediationPrompt, /"score": 85/);
 
 console.log("Pipeline de três provedores validado com sucesso.");
