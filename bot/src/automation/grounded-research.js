@@ -58,7 +58,7 @@ async function fetchGrounded(fetchImpl, url, init, env) {
 }
 
 async function fetchGeminiGrounded(fetchImpl, prompt, env) {
-  const model = env.GEMINI_RESEARCH_MODEL || env.GEMINI_MODEL || 'gemini-2.5-flash-lite'
+  const model = env.GEMINI_RESEARCH_MODEL || env.GEMINI_MODEL || 'gemini-3.5-flash-lite'
   const response = await fetchGrounded(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
     method: 'POST',
     headers: { 'x-goog-api-key': env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
