@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-08T09:41:38.187Z",
+  "discoveredAt": "2026-08-08T13:42:21.348Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
-  "total": 483,
+  "total": 481,
   "products": [
     {
       "id": "quadro-scott-scale-rc-team-hmf-2026",
@@ -472,28 +472,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/foil-rc-hmx-sl-bicicleta-aero-24v-sram-red-axs/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/55a0756a-eb06-11f0-9677-5e507c77730f-657ccfaf19d99bda8b17794468695494-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "bicicleta-scott-addict-gravel-40-2025",
-      "name": "Bicicleta Scott Addict Gravel 40 2025 - Pré Venda",
-      "brand": "Scott",
-      "category": "bikes",
-      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-40-2025/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/738854b0-efc8-11ef-8fdc-8a991cc13d80-cf4276de23dd56703b17751356247755-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm",
-      "name": "Bicicleta Scott Addict Gravel 20 2026 - Pré Venda",
-      "brand": "Scott",
-      "category": "bikes",
-      "productUrl": "https://thebikershop.com.br/produtos/bicicleta-scott-addict-gravel-20-2026-pre-venda-146tm/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/fe536b64-10b2-11f1-b21a-e2fc72f504e7-fbb0fbb1d34ef7f96817751352021142-480-0.webp"
       ],
       "sku": null
     },
@@ -3017,6 +2995,17 @@
       "sku": null
     },
     {
+      "id": "suporte-de-caramanhola-syncros-tailor-3-0-black",
+      "name": "Suporte de Caramanhola Syncros Tailor 3.0 - Black",
+      "brand": "Syncros",
+      "category": "acessorios",
+      "productUrl": "https://thebikershop.com.br/produtos/suporte-de-caramanhola-syncros-tailor-3-0-black/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2803020001_1697353_png_zoom_1-876196ae1c05564d0617797407519666-480-0.webp"
+      ],
+      "sku": "280302"
+    },
+    {
       "id": "selante-stans-notubes-1-litro",
       "name": "Selante Stan&#039;s Notubes 1 Litro",
       "brand": "Stans Notubes",
@@ -3081,6 +3070,17 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/0346ff76-4260-11f1-9c1e-76a016dcf775-5629175feeec3ad7b417787946228009-480-0.webp"
       ],
       "sku": null
+    },
+    {
+      "id": "garrafa-scott-em-aluminio-750ml-black",
+      "name": "Garrafa Scott em Aluminio 750ml",
+      "brand": "Scott",
+      "category": "acessorios",
+      "productUrl": "https://thebikershop.com.br/produtos/garrafa-scott-em-aluminio-750ml-black/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/garrafa_scott_bottle_750ml_preto_33579_1_d78f7811c0a19b2d6ab6cdac53387199-ac460cf0267bf454d617714516303471-480-0.webp"
+      ],
+      "sku": "286889"
     },
     {
       "id": "mochila-scott-gear-40",
@@ -3730,28 +3730,6 @@
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/2929116512-png-aa73278afba9e1150417368881494484-480-0.webp"
       ],
       "sku": "292911651222"
-    },
-    {
-      "id": "mochila-thule-landmark-40l-darkest-blue",
-      "name": "Mochila Thule Landmark 40L Darkest Blue",
-      "brand": "Thule",
-      "category": "acessorios",
-      "productUrl": "https://thebikershop.com.br/produtos/mochila-thule-landmark-40l-darkest-blue/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1511340-2af42eaa387416820317352212613104-480-0.webp"
-      ],
-      "sku": "3205309"
-    },
-    {
-      "id": "garrafa-termica-elite-nano-fly-500ml-cinza-claro",
-      "name": "Garrafa Térmica Elite Nano Fly 500ml - Cinza Claro",
-      "brand": "Elite",
-      "category": "acessorios",
-      "productUrl": "https://thebikershop.com.br/produtos/garrafa-termica-elite-nano-fly-500ml-cinza-claro/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/1010733-1-84d14b000ff9e8b2b517340344182189-480-0.webp"
-      ],
-      "sku": null
     },
     {
       "id": "espuma-interna-capacete-giro-agilis",
@@ -4832,6 +4810,17 @@
       "sku": null
     },
     {
+      "id": "bretelle-scott-rc-pro-preto-e-branco",
+      "name": "Bretelle Scott RC Pró - Preto e Branco",
+      "brand": "Scott",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/bretelle-scott-rc-pro-preto-e-branco/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/d8929eeea3-43ea93e2a70193044317628778795331-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "bretelle-scott-rc-pro-preto-e-amarelo-arg79",
       "name": "Bretelle Scott RC Pró - Preto e Amarelo",
       "brand": "Scott",
@@ -5026,17 +5015,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/camisa-de-ciclismo-scott-vultro-team-amarela/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/tmp_b64_7c4e5224-e5f3-4090-9050-7929b0cb9503_1062247_1188274-ea6309f0db93e311ae17724568679454-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "bretelle-scott-rc-pro-preto-e-branco",
-      "name": "Bretelle Scott RC Pró - Preto e Branco",
-      "brand": "Scott",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/bretelle-scott-rc-pro-preto-e-branco/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/d8929eeea3-43ea93e2a70193044317628778795331-480-0.webp"
       ],
       "sku": null
     },

@@ -256,10 +256,12 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.241.694 visualizações; 1.196.945 por dia; captado em 1 mercado(s).",
       "category": "lancamentos",
       "freshness": "event-driven",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-08T13:42:22.093Z",
+      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo não inclui URL oficial do produto ou categoria na TheBiker, impedindo a confirmação do portfólio."
     },
     {
       "day": 9,
