@@ -102,6 +102,11 @@ const report = buildEditorialIntelligence({
   videos,
   googleTrends: parsedTrends,
   googleTrendsStatus: { status: 'available', error: null },
+  publicShopSeo: {
+    status: 'available',
+    siteAudit: { status: 'available', error: null, signal: { source: 'public-site-audit', evidenceClass: 'public_measurement', targetUrl: 'https://thebikershop.com.br/', httpStatus: 200, robotsStatus: 200, sitemapStatus: 200, checks: { title: true, metaDescription: true, canonical: true, h1: true, structuredData: true, noindex: false } } },
+    pageSpeed: { status: 'available', error: null, signal: { source: 'pagespeed-insights', evidenceClass: 'public_measurement', targetUrl: 'https://thebikershop.com.br/', scores: { performance: 72, seo: 96, accessibility: 88 } } },
+  },
   searchConsoleDiagnostics: {
     current: {
       brazil: { clicks: 4, impressions: 140, ctr: 4 / 140, position: 8.4 },
@@ -130,6 +135,7 @@ assert.equal(report.governance.brazilClaimRequiresCountryFilter, true);
 assert.equal(report.metrics.youtubeSearchesConfigured, 12);
 assert.equal(report.metrics.googleTrendsSourceItems, 2);
 assert.equal(report.metrics.googleTrendsNicheSignals, 1);
+assert.equal(report.metrics.publicShopSeoAvailable, true);
 assert.deepEqual(Object.keys(report.brazilRankings.seoByProperty), ['blog', 'shop']);
 assert.equal(report.crossDomainOpportunities.length, 1);
 assert.deepEqual(report.crossDomainOpportunities[0].propertyIds, ['blog', 'shop']);
@@ -145,6 +151,8 @@ assert.match(intelligenceMarkdown(report), /Payload compacto para o planejador m
 assert.match(intelligenceMarkdown(report), /Diagnóstico do Search Console/);
 assert.match(intelligenceMarkdown(report), /Google Trends Brasil/);
 assert.match(intelligenceMarkdown(report), /Oportunidades cruzadas/);
+assert.match(intelligenceMarkdown(report), /Diagnóstico público gratuito da TheBikerShop/);
+assert.match(intelligenceMarkdown(report), /public_measurement/);
 assert.ok(
   intelligenceMarkdown(report).length < 65_000,
   `GitHub issue body exceeded safe size: ${intelligenceMarkdown(report).length}`,

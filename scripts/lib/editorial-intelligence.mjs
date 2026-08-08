@@ -334,6 +334,7 @@ export function buildEditorialIntelligence({
   searchConsoleDiagnostics = {},
   googleTrends = [],
   googleTrendsStatus = { status: 'not_requested', error: null },
+  publicShopSeo = { status: 'not_requested', signal: null, error: null },
 }) {
   const previousMap = new Map(gscPrevious.map((row) => [rowKey(row), row]));
   const brazilCountry = config.searchConsoleCountry || 'bra';
@@ -460,6 +461,7 @@ export function buildEditorialIntelligence({
       cannibalizationRisks: topSeo.filter((item) => item.cannibalizationRisk).length,
       googleTrendsSourceItems: googleTrends.length,
       googleTrendsNicheSignals: topTrends.length,
+      publicShopSeoAvailable: publicShopSeo.siteAudit?.status === 'available' || publicShopSeo.pageSpeed?.status === 'available',
       gscBrazilAggregateImpressions: number(searchConsoleDiagnostics.current?.brazil?.impressions),
       gscGlobalAggregateImpressions: number(searchConsoleDiagnostics.current?.global?.impressions),
     },
@@ -490,6 +492,7 @@ export function buildEditorialIntelligence({
       googleTrendsDiscovery: topTrends,
     },
     crossDomainOpportunities,
+    publicShopSeo,
     queryClusters: clusters,
     briefs,
     refreshQueue,
@@ -550,6 +553,7 @@ export function intelligenceMarkdown(report) {
     briefs: report.briefs,
     refreshQueue: report.refreshQueue,
     crossDomainOpportunities: report.crossDomainOpportunities,
+    publicShopSeo: report.publicShopSeo,
     discoverySignals: [],
   };
   const lines = [
@@ -620,6 +624,27 @@ export function intelligenceMarkdown(report) {
     for (const item of report.crossDomainOpportunities.slice(0, 30)) {
       lines.push(`| ${item.rank} | ${md(item.term)} | ${item.intent} | ${md(item.propertyIds.join(' + '))} | ${Math.round(item.impressions).toLocaleString('pt-BR')} | ${md(item.recommendedAction)} |`);
     }
+  }
+  const siteAudit = report.publicShopSeo?.siteAudit;
+  const pageSpeed = report.publicShopSeo?.pageSpeed;
+  const publicScores = pageSpeed?.signal?.scores || {};
+  lines.push('', '## Diagnóstico público gratuito da TheBikerShop', '');
+  if (siteAudit?.status === 'available') {
+    const checks = siteAudit.signal.checks || {};
+    lines.push(
+      `Fonte: auditoria pública direta em ${siteAudit.signal.targetUrl}. Estes dados medem disponibilidade e fundamentos técnicos, não consultas, cliques ou posição no Google.`,
+      '',
+      '| Evidência | HTTP | robots.txt | sitemap.xml | Title | Description | Canonical | H1 | Dados estruturados | Noindex |',
+      '|---|---:|---:|---:|---|---|---|---|---|---|',
+      `| public_measurement | ${number(siteAudit.signal.httpStatus)} | ${number(siteAudit.signal.robotsStatus)} | ${number(siteAudit.signal.sitemapStatus)} | ${checks.title ? 'sim' : 'não'} | ${checks.metaDescription ? 'sim' : 'não'} | ${checks.canonical ? 'sim' : 'não'} | ${checks.h1 ? 'sim' : 'não'} | ${checks.structuredData ? 'sim' : 'não'} | ${checks.noindex ? 'sim' : 'não'} |`,
+    );
+  } else {
+    lines.push(`- Auditoria pública indisponível: ${md(siteAudit?.error || report.publicShopSeo?.status || 'não informado')}.`);
+  }
+  if (pageSpeed?.status === 'available') {
+    lines.push('', `PageSpeed mobile complementar: performance ${number(publicScores.performance)}, SEO técnico ${number(publicScores.seo)}, acessibilidade ${number(publicScores.accessibility)}.`);
+  } else {
+    lines.push('', `PageSpeed complementar indisponível nesta execução: ${md(pageSpeed?.error || pageSpeed?.status || 'não informado')}.`);
   }
   lines.push('', '## Pautas e atualizações que saem do ranking', '');
   for (const [index, brief] of report.briefs.entries()) {

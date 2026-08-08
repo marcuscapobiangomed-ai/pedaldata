@@ -12,6 +12,8 @@ O diagnóstico do Search Console consulta separadamente o blog e `sc-domain:theb
 
 Os dados das duas propriedades permanecem identificados como `blog`/`editorial` e `shop`/`commercial`. O relatório apresenta rankings individuais e uma camada cruzada para consultas visíveis nos dois domínios. Essa sobreposição é uma oportunidade de ligação editorial-comercial; só deve ser classificada como canibalização depois de análise da intenção e das páginas envolvidas.
 
+O acesso ao Search Console do blog é obrigatório e continua fail-closed. O acesso à propriedade da loja é opcional porque pertence a terceiro: um `403` fica registrado como `not_authorized`, não derruba o relatório do blog e não é convertido em consulta estimada. Nesse cenário, a loja recebe um diagnóstico público gratuito do PageSpeed Insights, rotulado como `public_measurement`, limitado a performance, SEO técnico e acessibilidade mobile.
+
 O Google Trends RSS é um radar complementar de aceleração jornalística. O fluxo filtra as tendências gerais por termos técnicos do nicho e aceita uma janela com zero sinais elegíveis. O feed não representa volume absoluto, não substitui o Search Console e não autoriza alegações de “palavra-chave mais pesquisada”. A API completa do Google Trends permanece opcional porque exige acesso separado ao programa alfa do Google.
 
 O n8n não publica artigos diretamente. A issue semanal alimenta a inteligência; a issue mensal aciona a renovação automática da janela editorial de 30 dias. O pipeline existente pesquisa fontes, produz o rascunho, valida imagem e texto e só agenda conteúdo aprovado. Essa separação impede que popularidade de vídeo seja tratada como prova factual.
@@ -59,7 +61,7 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 2. Importe `thebiker-seo-youtube-intelligence.json` e mantenha desativado.
 3. No nó `Contexto e configuração`, confirme a propriedade do Search Console, URL pública, repositório, termos de ciclismo e portfólio permitido.
 4. Confirme em `searchConsoleSites` os valores exatos das duas propriedades: a URL-prefix do blog e `sc-domain:thebikershop.com.br` para a loja.
-5. Garanta que a mesma credencial Google tenha acesso de leitura às duas propriedades; se uma delas não estiver acessível, a execução falha fechada.
+5. Garanta que a credencial Google tenha acesso ao blog. O acesso à loja melhora o relatório, mas é opcional; sem autorização, o workflow mantém apenas as evidências públicas gratuitas da loja.
 6. Vincule as credenciais Google e GitHub aos nós indicados.
 7. Nas configurações do fluxo principal, selecione `TheBiker — Erros da inteligência editorial` como error workflow.
 8. Execute manualmente e confira os contadores de propriedades GSC, consultas Brasil, impressões agregadas Brasil/global, oportunidades cruzadas, tendências, vídeos, artigos e briefings.
@@ -95,6 +97,8 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 - quota do YouTube: reduzir frequência ou consulta; não fazer loops de `search.list` por palavra.
 - resposta vazia: manter o relatório com zero sinal e investigar configuração, sem inventar tendência.
 - feed Trends indisponível: registrar a indisponibilidade e continuar com Search Console e YouTube; Trends é fonte complementar.
+- Search Console da loja com 403: registrar `not_authorized`, manter o blog e executar PageSpeed público; nunca apresentar a estimativa como consulta real.
+- PageSpeed indisponível ou limitado por quota: registrar a falha e continuar; a fonte é complementar e não substitui Search Console.
 - 429/timeout: usar retry limitado do n8n e tratar a execução como falha se todas as tentativas acabarem.
 - erro GitHub: o relatório permanece nos dados da execução; repetir depois de corrigir a credencial.
 - qualquer falha: nenhum post é aprovado; o incidente fica disponível para revisão e uma pauta bloqueada pode ser substituída por reserva na renovação seguinte.

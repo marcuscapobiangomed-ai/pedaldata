@@ -159,6 +159,52 @@ async function googleTrendsBrazil({ env }) {
   return parseGoogleTrendsRss(await response.text());
 }
 
+async function publicPageSpeedSignal(targetUrl) {
+  const endpoint = new URL('https://www.googleapis.com/pagespeedonline/v5/runPagespeed');
+  endpoint.searchParams.set('url', targetUrl);
+  endpoint.searchParams.set('strategy', 'mobile');
+  for (const category of ['performance', 'seo', 'accessibility']) endpoint.searchParams.append('category', category);
+  const response = await fetch(endpoint, { signal: AbortSignal.timeout(45000) });
+  const payload = await responseJson(response, 'PageSpeed público da loja');
+  const categories = payload.lighthouseResult?.categories || {};
+  return {
+    source: 'pagespeed-insights',
+    evidenceClass: 'public_measurement',
+    targetUrl,
+    fetchedAt: payload.analysisUTCTimestamp || new Date().toISOString(),
+    strategy: 'mobile',
+    scores: Object.fromEntries(Object.entries(categories).map(([id, category]) => [id, Math.round(Number(category.score || 0) * 100)])),
+  };
+}
+
+async function publicSiteAudit(targetUrl) {
+  const rootUrl = new URL(targetUrl);
+  const [page, robots, sitemap] = await Promise.all([
+    fetch(rootUrl, { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+    fetch(new URL('/robots.txt', rootUrl), { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+    fetch(new URL('/sitemap.xml', rootUrl), { redirect: 'follow', signal: AbortSignal.timeout(20000) }),
+  ]);
+  const html = await page.text();
+  const match = (pattern) => pattern.test(html);
+  return {
+    source: 'public-site-audit',
+    evidenceClass: 'public_measurement',
+    targetUrl: page.url || targetUrl,
+    fetchedAt: new Date().toISOString(),
+    httpStatus: page.status,
+    robotsStatus: robots.status,
+    sitemapStatus: sitemap.status,
+    checks: {
+      title: match(/<title[^>]*>\s*[^<]+<\/title>/i),
+      metaDescription: match(/<meta[^>]+name=["']description["'][^>]+content=["'][^"']+["']/i) || match(/<meta[^>]+content=["'][^"']+["'][^>]+name=["']description["']/i),
+      canonical: match(/<link[^>]+rel=["']canonical["'][^>]+href=/i) || match(/<link[^>]+href=[^>]+rel=["']canonical["']/i),
+      h1: match(/<h1\b[^>]*>[\s\S]*?<\/h1>/i),
+      structuredData: match(/<script[^>]+type=["']application\/ld\+json["']/i),
+      noindex: match(/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i),
+    },
+  };
+}
+
 function youtubeAuthorization(env, accessToken) {
   if (env.YOUTUBE_API_KEY) return { key: env.YOUTUBE_API_KEY };
   return { accessToken };
@@ -272,29 +318,50 @@ export async function runEditorialIntelligence({
   const trendsPromise = googleTrendsBrazil({ env })
     .then((items) => ({ status: 'available', items, error: null }))
     .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 240) }));
+  const shop = searchConsoleSites.find((site) => site.id === 'shop');
+  const publicShopSeoPromise = shop?.publicUrl
+    ? Promise.all([
+      publicSiteAudit(shop.publicUrl)
+        .then((signal) => ({ status: 'available', signal, error: null }))
+        .catch((error) => ({ status: 'unavailable', signal: null, error: String(error?.message || error).slice(0, 240) })),
+      publicPageSpeedSignal(shop.publicUrl)
+        .then((signal) => ({ status: 'available', signal, error: null }))
+        .catch((error) => ({ status: 'unavailable', signal: null, error: String(error?.message || error).slice(0, 240) })),
+    ]).then(([siteAudit, pageSpeed]) => ({ status: siteAudit.status, siteAudit, pageSpeed }))
+    : Promise.resolve({ status: 'not_configured', siteAudit: null, pageSpeed: null });
   const siteResultsPromise = Promise.all(searchConsoleSites.map(async (site) => {
-    const [currentRows, previousRows, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious] = await Promise.all([
-      searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-      searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry }),
-      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry }),
-      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current }),
-      searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous }),
-    ]);
-    const tag = (row) => ({ ...row, _propertyId: site.id, _propertyRole: site.role });
-    return { site, currentRows: currentRows.map(tag), previousRows: previousRows.map(tag), brazilCurrent, brazilPrevious, globalCurrent, globalPrevious };
+    try {
+      const [currentRows, previousRows, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious] = await Promise.all([
+        searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+        searchConsoleRows({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current, country: searchConsoleCountry }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous, country: searchConsoleCountry }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.current }),
+        searchConsoleSummary({ accessToken, siteUrl: site.siteUrl, period: periods.previous }),
+      ]);
+      const tag = (row) => ({ ...row, _propertyId: site.id, _propertyRole: site.role });
+      return { site, status: 'available', error: null, currentRows: currentRows.map(tag), previousRows: previousRows.map(tag), brazilCurrent, brazilPrevious, globalCurrent, globalPrevious };
+    } catch (error) {
+      if (site.accessMode !== 'optional') throw error;
+      const empty = { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+      return { site, status: 'not_authorized', error: String(error?.message || error).slice(0, 500), currentRows: [], previousRows: [], brazilCurrent: empty, brazilPrevious: empty, globalCurrent: empty, globalPrevious: empty };
+    }
   }));
-  const [siteResults, videos, contentIndex, trends] = await Promise.all([
+  const [siteResults, videos, contentIndex, trends, publicShopSeo] = await Promise.all([
     siteResultsPromise,
     youtubeVideos({ env, accessToken, config, periods }),
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
     trendsPromise,
+    publicShopSeoPromise,
   ]);
   const gscCurrent = siteResults.flatMap((result) => result.currentRows);
   const gscPrevious = siteResults.flatMap((result) => result.previousRows);
   const propertyDiagnostics = Object.fromEntries(siteResults.map((result) => [result.site.id, {
     siteUrl: result.site.siteUrl,
     role: result.site.role,
+    accessMode: result.site.accessMode || 'required',
+    status: result.status,
+    error: result.error,
     current: { brazil: result.brazilCurrent, global: result.globalCurrent, detailedBrazilRows: result.currentRows.length },
     previous: { brazil: result.brazilPrevious, global: result.globalPrevious, detailedBrazilRows: result.previousRows.length },
   }]));
@@ -327,6 +394,7 @@ export async function runEditorialIntelligence({
     },
     googleTrends: trends.items,
     googleTrendsStatus: { status: trends.status, error: trends.error },
+    publicShopSeo,
   });
   if (report.briefs.length === 0) throw new Error('Inteligência sem pautas válidas; execução interrompida em modo fail-closed');
   await fs.mkdir(outputDirectory, { recursive: true });

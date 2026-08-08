@@ -5,12 +5,15 @@
     {
       "id": "blog",
       "role": "editorial",
+      "accessMode": "required",
       "siteUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/"
     },
     {
       "id": "shop",
       "role": "commercial",
-      "siteUrl": "sc-domain:thebikershop.com.br"
+      "accessMode": "optional",
+      "siteUrl": "sc-domain:thebikershop.com.br",
+      "publicUrl": "https://thebikershop.com.br/"
     }
   ],
   "contentIndexUrl": "https://marcuscapobiangomed-ai.github.io/thebikerblog/api/content-index.json",
