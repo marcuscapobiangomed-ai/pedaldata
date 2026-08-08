@@ -224,10 +224,12 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.044.445 visualizações; 1.225.583 por dia.",
       "category": "lancamentos",
       "freshness": "event-driven",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-08T03:24:20.312Z",
+      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo afirma que a Scott Scale 940 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a ficha técnica menciona 'tubeless ready' para os pneus e aros, mas a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Scale 980 é tubeless ready, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict 50 é compatível com pneus de até 38 mm, mas a pesquisa não confirma isso oficialmente; a alegação está na lista de forbiddenClaims.; O artigo afirma que a Scott Addict RC 20 é compatível com pneus de até 34 mm, mas a pesquisa não confirma isso "
     },
     {
       "day": 8,
