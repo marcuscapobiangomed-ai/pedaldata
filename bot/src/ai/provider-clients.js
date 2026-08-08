@@ -66,8 +66,8 @@ async function openAICompatibleRequest({
     },
     body: JSON.stringify(payload),
   }, {
-    attempts: numberFrom(process.env.AI_HTTP_RETRY_ATTEMPTS, 3),
-    timeoutMs: numberFrom(process.env.AI_HTTP_TIMEOUT_MS, 90000),
+    attempts: numberFrom(options.attempts, numberFrom(process.env.AI_HTTP_RETRY_ATTEMPTS, 3)),
+    timeoutMs: numberFrom(options.timeoutMs, numberFrom(process.env.AI_HTTP_TIMEOUT_MS, 90000)),
   });
 
   if (!response.ok) {

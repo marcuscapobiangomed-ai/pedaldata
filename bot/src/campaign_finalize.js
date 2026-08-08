@@ -6,6 +6,7 @@ import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js"
 import { produceOfficialCampaignImage } from "./images/official-campaign-image.js";
 import { produceCampaignCover } from "./images/campaign-cover.js";
 import { linkTheBikerProducts, loadTheBikerLinkData } from "./editorial/product-linker.js";
+import { assertMarkdownPublicationGates } from "./validation/markdown-publication-gates.js";
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -49,6 +50,7 @@ export async function finalizeCampaignItem({ root = defaultRoot, now = new Date(
       throw new Error(`Nota editorial final insuficiente: ${item.aiReview.finalScore}`);
     }
     if ((item.aiReview?.finalBlockers || 0) > 0) throw new Error("Auditoria editorial final ainda possui bloqueadores");
+    assertMarkdownPublicationGates(content);
     const cover = await imageProducer({ root, item, approvedAt });
     content = setField(content, "date", item.publishDate);
     content = setField(content, "last_modified_at", approvedAt);

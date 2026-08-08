@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { CampaignSchema, publicCampaignSummary } from "./automation/campaign.js";
 import { validateImageManifestV2 } from "./validation/image-manifest-v2.js";
+import { assertMarkdownPublicationGates } from "./validation/markdown-publication-gates.js";
 
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 
@@ -77,6 +78,7 @@ export async function publishScheduled({ now = new Date(), dryRun = false, root 
     content = content.replace(/^last_modified_at:\s*.*$/m, `last_modified_at: ${date}`);
   }
   if (!/^published:\s*true\s*$/m.test(content)) throw new Error(`Post ${item.id} nao possui published: false valido`);
+  assertMarkdownPublicationGates(content);
   const targetName = `${selected.catchUp ? date : item.publishDate}-${item.id}.md`;
   const targetPath = path.join(root, "_posts", targetName);
   if (dryRun) return {

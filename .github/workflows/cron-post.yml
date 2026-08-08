@@ -92,6 +92,8 @@ jobs:
           DEEPSEEK_PRO_MODEL: ${{ vars.DEEPSEEK_PRO_MODEL || 'deepseek-v4-pro' }}
           AI_HTTP_TIMEOUT_MS: ${{ vars.AI_HTTP_TIMEOUT_MS || '120000' }}
           AI_HTTP_RETRY_ATTEMPTS: ${{ vars.AI_HTTP_RETRY_ATTEMPTS || '2' }}
+          AI_FINAL_REPAIR_ATTEMPTS: ${{ vars.AI_FINAL_REPAIR_ATTEMPTS || '2' }}
+          AI_FINAL_REPAIR_TIMEOUT_MS: ${{ vars.AI_FINAL_REPAIR_TIMEOUT_MS || '75000' }}
           DEEPSEEK_MAX_TOKENS: ${{ vars.DEEPSEEK_MAX_TOKENS || '14000' }}
           RESEARCH_PROVIDER: ${{ vars.RESEARCH_PROVIDER || 'groq' }}
           GEMINI_RESEARCH_MODEL: ${{ vars.GEMINI_RESEARCH_MODEL || 'gemini-3.6-flash' }}

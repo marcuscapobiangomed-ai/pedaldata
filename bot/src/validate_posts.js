@@ -255,7 +255,7 @@ function checkPriceConsistency(content, fileName, fm) {
   }
 }
 
-function checkDateConsistency(fileName) {
+function checkDateConsistency(fileName, content) {
   const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
   if (!dateMatch) {
     logWarning(fileName, "Nome do arquivo não segue padrão YYYY-MM-DD-title.md");
@@ -263,7 +263,6 @@ function checkDateConsistency(fileName) {
   }
 
   const fileDate = dateMatch[1];
-  const content = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf-8");
   const fm = parseFrontmatter(content);
 
   if (fm?.date) {
@@ -356,7 +355,7 @@ function main() {
     checkSuspiciousContent(content, file, fm);
     checkImages(content, file);
     checkPriceConsistency(content, file, fm);
-    checkDateConsistency(file);
+    checkDateConsistency(file, content);
     checkSources(content, file, fm);
     checkAlternatives(content, file, fm);
     checkForWhom(content, file, fm);

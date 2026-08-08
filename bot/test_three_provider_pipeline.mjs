@@ -104,6 +104,33 @@ assert.equal(malformedCalls, 2);
 assert.equal(recoveredJson.provider, "deepseek");
 assert.deepEqual(JSON.parse(recoveredJson.content), { sections: [] });
 
+const fallbackProviders = [];
+const timeoutFallbackPipeline = new ThreeProviderPipeline({
+  runtime,
+  env: {},
+  clients: {
+    isConfigured: () => true,
+    async generate(provider, _system, _user, options) {
+      fallbackProviders.push({ provider, attempts: options.attempts, timeoutMs: options.timeoutMs });
+      if (provider === "deepseek") throw new Error("The operation was aborted due to timeout");
+      return { provider, model: "test", content: "{}", usage: {}, durationMs: 1 };
+    },
+  },
+});
+const fallbackRepair = await timeoutFallbackPipeline.callStep({
+  step: "final-repair",
+  providers: ["deepseek", "gemini", "groq"],
+  system: "Sistema",
+  user: "Repare",
+  options: { jsonMode: true, attempts: 2, timeoutMs: 75000 },
+  sourceHash: "fallback",
+});
+assert.equal(fallbackRepair.provider, "gemini");
+assert.deepEqual(fallbackProviders, [
+  { provider: "deepseek", attempts: 2, timeoutMs: 75000 },
+  { provider: "gemini", attempts: 2, timeoutMs: 75000 },
+]);
+
 let remediationCalls = 0;
 let remediationPrompt = "";
 const remediationClients = {

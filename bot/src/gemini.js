@@ -352,7 +352,7 @@ export class AIProvider {
     next.portfolio_verified_at = this._sanitizeHtml(next.portfolio_verified_at || "").trim();
 
     next.tags = normalizeList(next.tags)
-      .map((tag) => this._sanitizeHtml(tag).toLowerCase().trim())
+      .map((tag) => this._sanitizeHtml(tag).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""))
       .filter(Boolean);
     if (!next.tags.includes("ciclismo")) next.tags.unshift("ciclismo");
 
@@ -509,7 +509,7 @@ export class AIProvider {
         });
         const repaired = await this.pipeline.callStep({
           step: "final-repair",
-          providers: ["deepseek"],
+          providers: ["deepseek", "gemini", "groq"],
           sourceHash: pipelineMetadata?.sourceHash,
           system: [
             AIProvider.systemPrompt(),
@@ -523,6 +523,8 @@ export class AIProvider {
             temperature: 0.1,
             maxTokens: 8192,
             model: process.env.DEEPSEEK_PRO_MODEL || "deepseek-v4-pro",
+            attempts: Number(process.env.AI_FINAL_REPAIR_ATTEMPTS || 2),
+            timeoutMs: Number(process.env.AI_FINAL_REPAIR_TIMEOUT_MS || 75000),
           },
         });
         return {

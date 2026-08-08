@@ -54,11 +54,11 @@ export const ALLOWED_EXPERIENCE_LEVELS = [
 ];
 
 export const ALLOWED_TAGS = [
-  "scott", "specialized", "trek", "cervélo", "cannondale",
+  "scott", "specialized", "trek", "cervelo", "cannondale",
   "road-bike", "endurance", "aero",
   "carbono", "aluminio",
   "shimano", "sram", "campagnolo",
-  "iniciantes", "avançado",
+  "iniciantes", "avancado",
   "custo-beneficio",
 ];
 
@@ -127,7 +127,7 @@ export const ArticleSchema = z.object({
   context_only_brands: z.array(z.string().min(1)).default([]),
   portfolio_evidence_url: z.string().url("Use uma URL válida de produto ou categoria da TheBiker"),
   portfolio_verified_at: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  tags: z.array(z.string()).min(1).max(6),
+  tags: z.array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "tag precisa usar formato canônico sem acentos")).min(1).max(6),
   sections: z.array(SectionSchema).min(2, "Mínimo de 2 seções"),
   imagePlan: z.array(ImagePlanSchema).min(1, "Pelo menos uma imagem obrigatória"),
   claimsRequiringReview: z.array(z.string()).default([]),
