@@ -256,12 +256,12 @@
       "summary": "Muitas diferenças vêm de ajustes, pneus e posição, não do quadro. Aprenda a identificar o que importa para o seu tipo de pedal.",
       "category": "comparativo",
       "freshness": "revalidate-24h",
-      "status": "validation",
+      "status": "blocked",
       "productIds": [],
+      "postPath": "_posts/drafts/2026-08-15-bike-de-fabrica-vs-bike-de-competicao.md",
       "imageAssetIds": [],
       "attempts": 1,
       "lastAttemptAt": "2026-08-08T13:47:43.047Z",
-      "postPath": "_posts/drafts/2026-08-15-bike-de-fabrica-vs-bike-de-competicao.md",
       "aiReview": {
         "score": 72,
         "finalScore": 95,
@@ -276,7 +276,8 @@
           "finalRepair": "deepseek"
         },
         "generatedAt": "2026-08-08T13:47:43.047Z"
-      }
+      },
+      "blockReason": "Validação final: Nenhuma imagem real compatível para bike-de-fabrica-vs-bike-de-competicao"
     },
     {
       "day": 9,
