@@ -251,17 +251,32 @@
     {
       "day": 8,
       "publishDate": "2026-08-15",
-      "id": "youtube-tendencias-tecnicas-do-ciclismo-como-separar-evidencia-aplicacao",
-      "title": "Tendências técnicas do ciclismo: como separar evidência, aplicação e apelo de mercado",
-      "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.241.694 visualizações; 1.196.945 por dia; captado em 1 mercado(s).",
-      "category": "lancamentos",
-      "freshness": "event-driven",
-      "status": "blocked",
+      "id": "bike-de-fabrica-vs-bike-de-competicao",
+      "title": "Bike de fábrica vs. bike de competição: o que realmente muda na prática",
+      "summary": "Muitas diferenças vêm de ajustes, pneus e posição, não do quadro. Aprenda a identificar o que importa para o seu tipo de pedal.",
+      "category": "comparativo",
+      "freshness": "revalidate-24h",
+      "status": "validation",
       "productIds": [],
       "imageAssetIds": [],
       "attempts": 1,
-      "lastAttemptAt": "2026-08-08T13:42:22.093Z",
-      "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo não inclui URL oficial do produto ou categoria na TheBiker, impedindo a confirmação do portfólio."
+      "lastAttemptAt": "2026-08-08T13:47:43.047Z",
+      "postPath": "_posts/drafts/2026-08-15-bike-de-fabrica-vs-bike-de-competicao.md",
+      "aiReview": {
+        "score": 72,
+        "finalScore": 95,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "gemini",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalAudit": "deepseek",
+          "finalRepair": "deepseek"
+        },
+        "generatedAt": "2026-08-08T13:47:43.047Z"
+      }
     },
     {
       "day": 9,
@@ -577,12 +592,6 @@
   ],
   "reserves": [
     {
-      "id": "bike-de-fabrica-vs-bike-de-competicao",
-      "title": "Bike de fábrica vs. bike de competição: o que realmente muda na prática",
-      "summary": "Muitas diferenças vêm de ajustes, pneus e posição, não do quadro. Aprenda a identificar o que importa para o seu tipo de pedal.",
-      "category": "comparativo"
-    },
-    {
       "id": "manutencao-de-bicicleta-eletrica",
       "title": "Manutenção de bicicleta elétrica: componentes exclusivos, cuidados com bateria e diagnóstico",
       "summary": "Motor, bateria e sensores exigem procedimentos diferentes. Um roteiro de inspeção e manutenção para quem quer evitar falhas inesperadas.",
@@ -593,6 +602,24 @@
       "title": "Vazamento lento de pressão: como localizar furos, válvula e montagem sem trocar o pneu à toa",
       "summary": "Pressão baixa recorrente tem causas específicas. Um método de inspeção para distinguir furo, válvula e problema de montagem.",
       "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-diagnostico-ruidos-bike",
+      "title": "Diagnóstico de ruídos na bicicleta: método por carga, frequência e interface",
+      "summary": "Protocolo técnico para isolar ruídos de transmissão, cockpit, rodas e quadro sem substituir componentes por tentativa e erro.",
+      "category": "manutencao-ajustes"
+    },
+    {
+      "id": "reserva-pressao-pneus-terreno",
+      "title": "Pressão de pneus por terreno: como testar sem transformar sensação em dado",
+      "summary": "Método de campo para ajustar pressão, registrar comportamento e separar aderência, suporte lateral, impacto e resistência ao rolamento.",
+      "category": "engenharia"
+    },
+    {
+      "id": "reserva-cabos-mangueiras-roteamento",
+      "title": "Cabos e mangueiras: roteamento, atrito e sinais de montagem que pedem correção",
+      "summary": "Leitura técnica de curvas, fixações, contato com o quadro e interferências que alteram comando, ruído e durabilidade.",
+      "category": "componentes"
     }
   ]
 }

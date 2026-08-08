@@ -216,6 +216,30 @@
         "title": "Inspeção pós-chuva: os pontos que concentram contaminação, corrosão e desgaste"
       },
       "reason": "Fallback interno bloqueado: nenhuma fonte oficial permitida (Groq 429; Gemini grounded research: 404 - {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use a newer model for the latest features and improvements.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n)"
+    },
+    {
+      "recordedAt": "2026-08-08T13:47:42.503Z",
+      "campaignId": "thebiker-rolling-2026-08-08",
+      "replacedItem": {
+        "day": 8,
+        "publishDate": "2026-08-15",
+        "id": "youtube-tendencias-tecnicas-do-ciclismo-como-separar-evidencia-aplicacao",
+        "title": "Tendências técnicas do ciclismo: como separar evidência, aplicação e apelo de mercado",
+        "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 14.241.694 visualizações; 1.196.945 por dia; captado em 1 mercado(s).",
+        "category": "lancamentos",
+        "freshness": "event-driven",
+        "status": "blocked",
+        "productIds": [],
+        "imageAssetIds": [],
+        "blockReason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo não inclui URL oficial do produto ou categoria na TheBiker, impedindo a confirmação do portfólio.",
+        "attempts": 1,
+        "lastAttemptAt": "2026-08-08T13:42:22.093Z"
+      },
+      "replacement": {
+        "id": "bike-de-fabrica-vs-bike-de-competicao",
+        "title": "Bike de fábrica vs. bike de competição: o que realmente muda na prática"
+      },
+      "reason": "STATUS: REVISÃO FINAL REPROVADA\nNota 85; bloqueadores: O artigo não inclui URL oficial do produto ou categoria na TheBiker, impedindo a confirmação do portfólio."
     }
   ]
 }
