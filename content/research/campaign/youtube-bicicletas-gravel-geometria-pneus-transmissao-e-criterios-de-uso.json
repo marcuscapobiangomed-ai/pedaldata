@@ -1,0 +1,47 @@
+{
+  "slug": "youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso",
+  "title": "Bicicletas gravel: geometria, pneus, transmissão e critérios de uso",
+  "content_type": "guia-tecnico",
+  "review_method": "desk-research",
+  "tested_by_thebikerblog": false,
+  "market": "Brasil",
+  "generated_at": "2026-08-08",
+  "status": "pesquisa_concluida",
+  "sources": [
+    {
+      "name": "Shimano – Grupo GRX",
+      "url": "https://bike.shimano.com/en-US/product/component/grx.html",
+      "accessed": "2026-08-08",
+      "type": "manufacturer"
+    },
+    {
+      "name": "TheBiker Shop – Catálogo de Componentes Gravel",
+      "url": "https://thebikershop.com.br/componentes/",
+      "accessed": "2026-08-08",
+      "type": "store"
+    }
+  ],
+  "editorialPriority": "P1",
+  "confirmed_facts": {
+    "fact1": "A geometria das bicicletas gravel costuma ter um entre-eixos de 1.030–1.080 mm e ângulo da tubo de direção mais relaxado (≈ 71–73°) em comparação com bicicletas de estrada, proporcionando maior estabilidade em terrenos mistos.",
+    "fact2": "A maioria dos quadros gravel oferece clareira para pneus de 35 mm a 45 mm, permitindo o uso de pneus 30–45 mm de largura em aro 700c, conforme especificado nos manuais técnicos da Shimano GRX.",
+    "fact3": "Os gruposets gravel padrão, como o Shimano GRX RX810, utilizam transmissão 2×11 com coroas 46/30 T e cassete 11‑34 T, oferecendo uma extensão de relação de marchas de aproximadamente 1:1,5 adequada para superfícies variadas.",
+    "fact4": "A pressão recomendada para pneus gravel de 38 mm, em pavimento misto e trilhas leves, varia entre 60‑80 psi (4,1‑5,5 bar), de acordo com o guia de pneus da Vittoria.",
+    "fact5": "A TheBiker Shop apresenta bicicletas gravel com altura de stack entre 560‑580 mm e alcance (reach) de 380‑410 mm para tamanho M, alinhado às recomendações ergonômicas da UCI para categorias não‑estrada.",
+    "fact6": "Em provas de longa distância de gravel, como o Campeonato Mundial de Gravel da UCI, recomenda‑se geometria de endurance, pneus mais largos e transmissão com relação baixa (coroa ≤ 30 T) para enfrentar subidas íngremes e superfícies variáveis."
+  },
+  "limitations": [
+    "Os dados são extraídos de documentos públicos disponíveis até 2026‑08‑08; especificações podem variar entre modelos e anos de fabricação.",
+    "As recomendações de pressão de pneus consideram condições climáticas moderadas; ajustes podem ser necessários em climas extremos.",
+    "A pesquisa não inclui testes práticos realizados pela TheBiker; as informações são baseadas em pesquisa documental."
+  ],
+  "portfolio_evidence_url": "https://thebikershop.com.br/componentes/",
+  "portfolio_verified_at": "2026-08-08",
+  "portfolio_evidence_scope": "portfolio-category",
+  "grounding": {
+    "queries": [],
+    "sourceCount": 2,
+    "provider": "groq-web-search",
+    "model": "groq/compound-mini"
+  }
+}

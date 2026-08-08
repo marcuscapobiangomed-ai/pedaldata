@@ -289,10 +289,12 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 54.278 visualizações globais do vídeo; 2.578 por dia; encontrado em 1 busca(s) configurada(s) para o Brasil.",
       "category": "componentes",
       "freshness": "event-driven",
-      "status": "planned",
+      "status": "blocked",
       "productIds": [],
       "imageAssetIds": [],
-      "attempts": 0
+      "attempts": 1,
+      "lastAttemptAt": "2026-08-08T15:10:50.120Z",
+      "blockReason": "Etapa final-repair falhou. deepseek: The operation was aborted due to timeout"
     },
     {
       "day": 10,

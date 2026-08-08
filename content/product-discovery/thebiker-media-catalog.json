@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "https://thebikershop.com.br/",
-  "discoveredAt": "2026-08-08T14:00:16.047Z",
+  "discoveredAt": "2026-08-08T15:10:49.335Z",
   "rightsPolicyId": "thebiker-official-editorial-v1",
   "total": 481,
   "products": [
@@ -4392,6 +4392,17 @@
       "sku": null
     },
     {
+      "id": "reparo-de-sapatilha-scott-rc-boa-ip1",
+      "name": "Reparo de Sapatilha Scott RC - Boa IP1",
+      "brand": "Boa",
+      "category": "vestuario",
+      "productUrl": "https://thebikershop.com.br/produtos/reparo-de-sapatilha-scott-rc-boa-ip1/",
+      "images": [
+        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/fdf2e042-d8db-11ea-977d-0242ac1200081-c8a0ad0b0d7c65ed9816129017850370-480-0.webp"
+      ],
+      "sku": null
+    },
+    {
       "id": "capacete-scott-centric-preto",
       "name": "Capacete Scott Centric",
       "brand": "Scott",
@@ -5290,17 +5301,6 @@
       "productUrl": "https://thebikershop.com.br/produtos/capacete-abus-airbreaker-branco-puro/",
       "images": [
         "https://acdn-us.mitiendanube.com/stores/001/062/247/products/a8bb44f6-f448-11ef-a330-8eedd104f833-e57fb00eb98d2791b117407525183996-480-0.webp"
-      ],
-      "sku": null
-    },
-    {
-      "id": "sapatilha-fizik-x5-terra-atlas-verde-militar",
-      "name": "Sapatilha MTB Fizik X5 Terra Atlas Verde Militar",
-      "brand": "Fizik",
-      "category": "vestuario",
-      "productUrl": "https://thebikershop.com.br/produtos/sapatilha-fizik-x5-terra-atlas-verde-militar/",
-      "images": [
-        "https://acdn-us.mitiendanube.com/stores/001/062/247/products/a91dc1d8-bdd8-11ed-91cf-92062a34e454-57a25b3787fdbed7e417176216267872-480-0.webp"
       ],
       "sku": null
     }
