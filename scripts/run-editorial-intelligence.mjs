@@ -96,6 +96,69 @@ async function searchConsoleRows({ accessToken, siteUrl, period, country = 'bra'
   return rows.slice(0, maximumRows);
 }
 
+async function searchConsoleSummary({ accessToken, siteUrl, period, country = null }) {
+  const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
+  const body = {
+    startDate: period.startDate,
+    endDate: period.endDate,
+    type: 'web',
+    aggregationType: 'auto',
+    rowLimit: 1,
+    dataState: 'final',
+  };
+  if (country) {
+    body.dimensionFilterGroups = [{ filters: [{ dimension: 'country', operator: 'equals', expression: country }] }];
+  }
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const payload = await responseJson(response, `Search Console resumo ${country || 'global'}`);
+  const row = payload.rows?.[0] || {};
+  return {
+    scope: country || 'global',
+    clicks: Number(row.clicks || 0),
+    impressions: Number(row.impressions || 0),
+    ctr: Number(row.ctr || 0),
+    position: Number(row.position || 0),
+  };
+}
+
+function decodeXml(value) {
+  return String(value || '')
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&#(x?[0-9a-f]+);/gi, (_, code) => String.fromCodePoint(parseInt(code.replace(/^x/i, ''), /^x/i.test(code) ? 16 : 10)))
+    .replaceAll('&amp;', '&')
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>')
+    .replaceAll('&quot;', '"')
+    .replaceAll('&apos;', "'");
+}
+
+export function parseGoogleTrendsRss(xml) {
+  return [...String(xml || '').matchAll(/<item>([\s\S]*?)<\/item>/gi)].map((match) => {
+    const item = match[1];
+    const field = (name) => decodeXml(item.match(new RegExp(`<${name}>([\\s\\S]*?)<\\/${name}>`, 'i'))?.[1] || '').trim();
+    return {
+      title: field('title'),
+      approximateTraffic: field('ht:approx_traffic'),
+      publishedAt: field('pubDate'),
+      sourceUrl: field('link') || 'https://trends.google.com/trending?geo=BR',
+    };
+  }).filter((item) => item.title);
+}
+
+async function googleTrendsBrazil({ env }) {
+  const url = env.GOOGLE_TRENDS_RSS_URL || 'https://trends.google.com/trending/rss?geo=BR';
+  const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+  if (!response.ok) throw new Error(`Google Trends RSS: HTTP ${response.status}`);
+  return parseGoogleTrendsRss(await response.text());
+}
+
 function youtubeAuthorization(env, accessToken) {
   if (env.YOUTUBE_API_KEY) return { key: env.YOUTUBE_API_KEY };
   return { accessToken };
@@ -197,11 +260,20 @@ export async function runEditorialIntelligence({
   const maximumSearchQueries = Number(config.maximumSearchQueries || 1000);
   const searchConsoleCountry = config.searchConsoleCountry || 'bra';
   const accessToken = await googleAccessToken(env);
-  const [gscCurrent, gscPrevious, videos, contentIndex] = await Promise.all([
-    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
-    searchConsoleRows({ accessToken, siteUrl: env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+  const siteUrl = env.SEARCH_CONSOLE_SITE_URL || config.searchConsoleSiteUrl;
+  const trendsPromise = googleTrendsBrazil({ env })
+    .then((items) => ({ status: 'available', items, error: null }))
+    .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 240) }));
+  const [gscCurrent, gscPrevious, videos, contentIndex, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious, trends] = await Promise.all([
+    searchConsoleRows({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
+    searchConsoleRows({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry, maximumRows: maximumSearchQueries }),
     youtubeVideos({ env, accessToken, config, periods }),
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
+    searchConsoleSummary({ accessToken, siteUrl, period: periods.current, country: searchConsoleCountry }),
+    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous, country: searchConsoleCountry }),
+    searchConsoleSummary({ accessToken, siteUrl, period: periods.current }),
+    searchConsoleSummary({ accessToken, siteUrl, period: periods.previous }),
+    trendsPromise,
   ]);
   const report = buildEditorialIntelligence({
     context,
@@ -210,6 +282,12 @@ export async function runEditorialIntelligence({
     gscPrevious,
     videos,
     articles: contentIndex.articles || [],
+    searchConsoleDiagnostics: {
+      current: { brazil: brazilCurrent, global: globalCurrent },
+      previous: { brazil: brazilPrevious, global: globalPrevious },
+    },
+    googleTrends: trends.items,
+    googleTrendsStatus: { status: trends.status, error: trends.error },
   });
   if (report.briefs.length === 0) throw new Error('Inteligência sem pautas válidas; execução interrompida em modo fail-closed');
   await fs.mkdir(outputDirectory, { recursive: true });

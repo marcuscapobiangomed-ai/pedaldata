@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { buildEditorialIntelligence, intelligenceMarkdown, queryCluster, searchIntent } from './lib/editorial-intelligence.mjs';
-import { cachedYoutubePayload, periodsFor } from './run-editorial-intelligence.mjs';
+import { cachedYoutubePayload, parseGoogleTrendsRss, periodsFor } from './run-editorial-intelligence.mjs';
 
 const youtubeCache = await fs.mkdtemp(path.join(os.tmpdir(), 'thebiker-youtube-cache-'));
 let youtubeLoads = 0;
@@ -21,6 +21,15 @@ assert.equal(youtubeLoads, 1);
 assert.deepEqual(secondCachedPayload, firstCachedPayload);
 await fs.rm(youtubeCache, { recursive: true, force: true });
 
+const trendsRss = `<?xml version="1.0"?><rss xmlns:ht="https://trends.google.com/trending/rss"><channel>
+  <item><title>bicicleta gravel brasil</title><ht:approx_traffic>2,000+</ht:approx_traffic><pubDate>Sat, 8 Aug 2026 08:40:00 -0700</pubDate><link>https://trends.google.com/trending/rss?geo=BR&amp;hl=pt-BR</link></item>
+  <item><title>assunto geral</title><ht:approx_traffic>20,000+</ht:approx_traffic><pubDate>Sat, 8 Aug 2026 08:40:00 -0700</pubDate></item>
+</channel></rss>`;
+const parsedTrends = parseGoogleTrendsRss(trendsRss);
+assert.equal(parsedTrends.length, 2);
+assert.equal(parsedTrends[0].title, 'bicicleta gravel brasil');
+assert.equal(parsedTrends[0].sourceUrl.includes('&hl=pt-BR'), true);
+
 const context = {
   runKey: 'weekly-2026-08-08',
   cadence: 'weekly',
@@ -30,6 +39,7 @@ const context = {
 const config = {
   searchConsoleCountry: 'bra',
   maximumSearchQueries: 1000,
+  trendsMaximumSignals: 20,
   youtubeMaximumVideos: 20,
   requirePortugueseYouTube: true,
   cyclingTerms: ['ciclismo', 'bicicleta', 'mtb', 'suspensão', 'brasil'],
@@ -78,10 +88,22 @@ const report = buildEditorialIntelligence({
   gscCurrent: brazilQueries,
   gscPrevious: previousQueries,
   videos,
+  googleTrends: parsedTrends,
+  googleTrendsStatus: { status: 'available', error: null },
+  searchConsoleDiagnostics: {
+    current: {
+      brazil: { clicks: 4, impressions: 140, ctr: 4 / 140, position: 8.4 },
+      global: { clicks: 6, impressions: 220, ctr: 6 / 220, position: 9.1 },
+    },
+    previous: {
+      brazil: { clicks: 2, impressions: 70, ctr: 2 / 70, position: 10.4 },
+      global: { clicks: 3, impressions: 110, ctr: 3 / 110, position: 11.1 },
+    },
+  },
   articles: [{ title: 'Ajuste de suspensão MTB', tags: ['suspensão'], url: 'https://example.com/ajuste/', dateModified: '2026-01-01T00:00:00Z' }],
 });
 
-assert.equal(report.schemaVersion, 3);
+assert.equal(report.schemaVersion, 4);
 assert.equal(report.scope.label.includes('Brasil'), true);
 assert.equal(report.brazilRankings.youtubeDiscovery.length, 20);
 assert.equal(report.brazilRankings.seoMeasured.length, 1000);
@@ -93,12 +115,19 @@ assert.ok(report.briefs.every((brief) => !/^Trek lançamento/.test(brief.topic))
 assert.equal(report.governance.youtubeDoesNotFillMeasuredSeo, true);
 assert.equal(report.governance.brazilClaimRequiresCountryFilter, true);
 assert.equal(report.metrics.youtubeSearchesConfigured, 12);
+assert.equal(report.metrics.googleTrendsSourceItems, 2);
+assert.equal(report.metrics.googleTrendsNicheSignals, 1);
+assert.equal(report.brazilRankings.googleTrendsDiscovery[0].signalTitle, 'bicicleta gravel brasil');
+assert.equal(report.searchConsoleDiagnostics.interpretation, 'brazil_query_rows_available');
+assert.equal(report.governance.googleTrendsDoesNotFillMeasuredSeo, true);
 assert.ok(report.queryClusters.some((cluster) => cluster.cluster === 'suspensao'));
 assert.equal(queryCluster('qual pressão do pneu tubeless'), 'pneus-tubeless');
 assert.equal(searchIntent('onde comprar bicicleta gravel'), 'commercial');
 assert.match(intelligenceMarkdown(report), /20 sinais de YouTube Brasil/);
 assert.match(intelligenceMarkdown(report), /até \*\*1\.000 consultas\*\*/);
 assert.match(intelligenceMarkdown(report), /Payload compacto para o planejador mensal/);
+assert.match(intelligenceMarkdown(report), /Diagnóstico do Search Console/);
+assert.match(intelligenceMarkdown(report), /Google Trends Brasil/);
 assert.ok(
   intelligenceMarkdown(report).length < 65_000,
   `GitHub issue body exceeded safe size: ${intelligenceMarkdown(report).length}`,
@@ -108,6 +137,7 @@ const emptySeo = buildEditorialIntelligence({ context, config, videos: videos.sl
 assert.equal(emptySeo.brazilRankings.seoMeasured.length, 0);
 assert.equal(emptySeo.brazilRankings.youtubeDiscovery.length, 2);
 assert.match(intelligenceMarkdown(emptySeo), /Dados SEO medidos ainda insuficientes/);
+assert.equal(emptySeo.searchConsoleDiagnostics.interpretation, 'no_finalized_global_impressions');
 
 assert.deepEqual(periodsFor({ cadence: 'weekly', generatedAt: '2026-08-07T12:00:00.000Z' }), {
   lookbackDays: 7,

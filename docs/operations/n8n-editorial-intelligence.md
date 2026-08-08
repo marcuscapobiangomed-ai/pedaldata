@@ -6,7 +6,11 @@ O workflow `.github/workflows/editorial-intelligence.yml` é o scheduler de prod
 
 ## Resultado esperado
 
-O pacote transforma sinais semanais e mensais em uma fila priorizada de pautas e atualizações. Ele consulta Search Console, vídeos mais vistos relacionados a ciclismo, o ranking `mostPopular` de esportes no Brasil e o índice público do blog. Depois compara demanda, desempenho e cobertura existente, cria briefings rastreáveis e registra o relatório em uma issue do GitHub.
+O pacote transforma sinais semanais e mensais em uma fila priorizada de pautas e atualizações. Ele consulta Search Console, o feed RSS oficial de pesquisas em alta do Google Trends Brasil, vídeos mais vistos relacionados a ciclismo, o ranking `mostPopular` de esportes no Brasil e o índice público do blog. Depois compara demanda, desempenho e cobertura existente, cria briefings rastreáveis e registra o relatório em uma issue do GitHub.
+
+O diagnóstico do Search Console faz leituras separadas do total global, do total agregado do Brasil e das consultas detalhadas brasileiras. Isso diferencia ausência global de impressões, ausência de tráfego brasileiro e impressões brasileiras cujas consultas não ficaram visíveis por baixo volume ou privacidade. Somente as consultas detalhadas brasileiras entram no ranking e nas pautas SEO.
+
+O Google Trends RSS é um radar complementar de aceleração jornalística. O fluxo filtra as tendências gerais por termos técnicos do nicho e aceita uma janela com zero sinais elegíveis. O feed não representa volume absoluto, não substitui o Search Console e não autoriza alegações de “palavra-chave mais pesquisada”. A API completa do Google Trends permanece opcional porque exige acesso separado ao programa alfa do Google.
 
 O n8n não publica artigos diretamente. A issue semanal alimenta a inteligência; a issue mensal aciona a renovação automática da janela editorial de 30 dias. O pipeline existente pesquisa fontes, produz o rascunho, valida imagem e texto e só agenda conteúdo aprovado. Essa separação impede que popularidade de vídeo seja tratada como prova factual.
 
@@ -24,7 +28,7 @@ Os JSONs são gerados por `npm run build:n8n` e verificados por `npm run check:n
 - segunda-feira, 06:17 em `America/Sao_Paulo`: janela finalizada de sete dias comparada aos sete dias anteriores;
 - dia 1 de cada mês, 07:23: janela finalizada de 28 dias comparada aos 28 dias anteriores;
 - atraso de três dias no Search Console para evitar decisões com dados ainda incompletos;
-- uma busca `order=viewCount` por execução e uma leitura de métricas em lote, além do ranking de esportes do Brasil.
+- consultas detalhadas e agregadas do Search Console, uma leitura do feed Trends Brasil, buscas `order=viewCount` com cache diário e métricas do YouTube em lote.
 
 O SLO operacional é ter o relatório mensal concluído e a janela renovada até o dia 3. Falha gera incidente e não aprova publicação.
 
@@ -55,22 +59,23 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 4. Se o domínio próprio estiver ativo no Search Console, troque `searchConsoleSiteUrl` pelo valor exato da propriedade (`sc-domain:...` ou URL-prefix).
 5. Vincule as credenciais Google e GitHub aos nós indicados.
 6. Nas configurações do fluxo principal, selecione `TheBiker — Erros da inteligência editorial` como error workflow.
-7. Execute manualmente e confira os quatro contadores: linhas GSC, vídeos, artigos e briefings.
+7. Execute manualmente e confira os contadores de consultas GSC Brasil, impressões agregadas Brasil/global, tendências gerais/elegíveis, vídeos, artigos e briefings.
 8. Confirme que a issue contém evidência e URL para cada pauta, payload estruturado e gate editorial.
 9. Ative o tratador de erros e, por último, o fluxo principal.
 
 ## Como a inteligência vira pauta
 
-1. Consultas do Search Console com ao menos cinco impressões recebem score por demanda, variação, CTR e posição. A faixa 4–20 recebe prioridade de otimização.
-2. O YouTube entra por vídeos recentes ordenados por visualizações e por `mostPopular` em esportes/BR. O score considera visualizações por dia e engajamento.
-3. Apenas vídeos relacionados aos termos técnicos configurados permanecem.
-4. O título e as tags do índice público indicam se a resposta já existe. Nesse caso, a ação é `refresh`; caso contrário, `new-content`.
-5. Sinal que cita concorrente pode informar tendência de categoria, mas o briefing não autoriza promoção, link ou CTA para concorrente.
-6. Cada briefing registra evidência, URL, ângulo, página-alvo, score e gates de publicação.
-7. A issue semanal permanece como relatório. A issue mensal é reconhecida por `[INTEL] monthly-` e renova automaticamente a campanha rolante.
-8. O renovador preserva itens futuros já em produção ou agendados, remove dias publicados, substitui bloqueios e completa exatamente 30 datas consecutivas.
-9. Briefings `refresh` não viram artigos duplicados: são gravados em `_data/editorial-refresh-queue.json` para o fluxo de atualização do acervo.
-10. A geração final continua no pipeline GitHub/IA protegido; revisão humana passa a ser exigida somente para exceções bloqueadas.
+1. Consultas brasileiras detalhadas do Search Console com ao menos cinco impressões recebem score por demanda, variação, CTR e posição. A faixa 4–20 recebe prioridade de otimização; agregados globais servem somente para diagnóstico.
+2. Tendências gerais do Google Trends Brasil só entram quando correspondem ao vocabulário técnico do nicho. Elas recebem rótulo de descoberta e nunca são apresentadas como volume SEO absoluto.
+3. O YouTube entra por vídeos recentes ordenados por visualizações e por `mostPopular` em esportes/BR. O score considera visualizações por dia e engajamento.
+4. Apenas vídeos relacionados aos termos técnicos configurados permanecem.
+5. O título e as tags do índice público indicam se a resposta já existe. Nesse caso, a ação é `refresh`; caso contrário, `new-content`.
+6. Sinal que cita concorrente pode informar tendência de categoria, mas o briefing não autoriza promoção, link ou CTA para concorrente.
+7. Cada briefing registra evidência, URL, ângulo, página-alvo, score e gates de publicação.
+8. A issue semanal permanece como relatório. A issue mensal é reconhecida por `[INTEL] monthly-` e renova automaticamente a campanha rolante.
+9. O renovador preserva itens futuros já em produção ou agendados, remove dias publicados, substitui bloqueios e completa exatamente 30 datas consecutivas.
+10. Briefings `refresh` não viram artigos duplicados: são gravados em `_data/editorial-refresh-queue.json` para o fluxo de atualização do acervo.
+11. A geração final continua no pipeline GitHub/IA protegido; revisão humana passa a ser exigida somente para exceções bloqueadas.
 
 ## Revisão mensal obrigatória
 
@@ -86,6 +91,7 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 - 401/403 Google: renovar OAuth e confirmar acesso à propriedade/API.
 - quota do YouTube: reduzir frequência ou consulta; não fazer loops de `search.list` por palavra.
 - resposta vazia: manter o relatório com zero sinal e investigar configuração, sem inventar tendência.
+- feed Trends indisponível: registrar a indisponibilidade e continuar com Search Console e YouTube; Trends é fonte complementar.
 - 429/timeout: usar retry limitado do n8n e tratar a execução como falha se todas as tentativas acabarem.
 - erro GitHub: o relatório permanece nos dados da execução; repetir depois de corrigir a credencial.
 - qualquer falha: nenhum post é aprovado; o incidente fica disponível para revisão e uma pauta bloqueada pode ser substituída por reserva na renovação seguinte.

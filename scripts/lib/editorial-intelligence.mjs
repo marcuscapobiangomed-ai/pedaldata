@@ -116,6 +116,34 @@ function videoOpportunity(video, context, config) {
   };
 }
 
+function isCyclingTrend(item, config) {
+  const text = normalizeText(item.title);
+  if (!text || MOTORIZED_FALSE_POSITIVES.test(text) || NON_TECHNICAL_VIDEO_NOISE.test(text)) return false;
+  const terms = [
+    ...(Array.isArray(config.cyclingTerms) ? config.cyclingTerms : DEFAULT_CYCLING_TERMS),
+    ...(Array.isArray(config.portfolioBrands) ? config.portfolioBrands : []),
+  ];
+  return terms.some((term) => text.includes(normalizeText(term)));
+}
+
+function trendOpportunity(item, context, config) {
+  const traffic = number(String(item.approximateTraffic || '').replace(/[^0-9]/g, ''));
+  const publishedAt = item.publishedAt || context.generatedAt;
+  const ageHours = Math.max(1, (new Date(context.generatedAt) - new Date(publishedAt)) / 3600000);
+  return {
+    source: 'google-trends-rss',
+    topic: technicalTopicFromVideo(item.title),
+    signalTitle: item.title,
+    publishedAt,
+    sourceUrl: item.sourceUrl || 'https://trends.google.com/trending?geo=BR',
+    score: Math.round(Math.log10(traffic + 1) * 24 + Math.max(0, 18 - ageHours / 6)),
+    evidence: `consulta em alta no Google Trends Brasil; tráfego aproximado informado pelo feed: ${item.approximateTraffic || 'não informado'}`,
+    approximateTraffic: item.approximateTraffic || null,
+    directPromotionAllowed: true,
+    blockedBrandDetected: hasBlockedBrand(item.title, config),
+  };
+}
+
 export function searchIntent(value) {
   const text = normalizeText(value);
   if (/\b(comprar|preco|precos|valor|onde comprar|loja|promocao)\b/.test(text)) return 'commercial';
@@ -281,7 +309,17 @@ function briefFrom(opportunity, articles, config) {
   };
 }
 
-export function buildEditorialIntelligence({ context, config, gscCurrent = [], gscPrevious = [], videos = [], articles = [] }) {
+export function buildEditorialIntelligence({
+  context,
+  config,
+  gscCurrent = [],
+  gscPrevious = [],
+  videos = [],
+  articles = [],
+  searchConsoleDiagnostics = {},
+  googleTrends = [],
+  googleTrendsStatus = { status: 'not_requested', error: null },
+}) {
   const previousMap = new Map(gscPrevious.map((row) => [rowKey(row), row]));
   const brazilCountry = config.searchConsoleCountry || 'bra';
   const searchSignals = gscCurrent
@@ -293,12 +331,17 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
     .map((video) => videoOpportunity(video, context, config))
     .sort((left, right) => right.score - left.score || right.viewsPerDay - left.viewsPerDay || right.views - left.views);
   const topYoutube = videoSignals.slice(0, config.youtubeMaximumVideos || 20).map((item, index) => ({ rank: index + 1, ...item }));
+  const trendSignals = googleTrends
+    .filter((item) => isCyclingTrend(item, config))
+    .map((item) => trendOpportunity(item, context, config))
+    .sort((left, right) => right.score - left.score);
+  const topTrends = trendSignals.slice(0, config.trendsMaximumSignals || 20).map((item, index) => ({ rank: index + 1, ...item }));
   const topSeo = buildSeoRanking(searchSignals, config.maximumSearchQueries || 1000);
   const seoCandidates = topSeo.slice(0, 100).map((item) => ({
     source: 'search-console', topic: item.term, targetUrl: item.targetUrls[0] || null, sourceUrl: item.targetUrls[0] || null,
     score: item.opportunityScore, evidence: `${item.impressions} impressões no Brasil; posição ${item.position.toFixed(1)}; CTR ${(item.ctr * 100).toFixed(1)}%`, directPromotionAllowed: true,
   }));
-  const directCandidates = [...seoCandidates, ...videoSignals]
+  const directCandidates = [...seoCandidates, ...trendSignals, ...videoSignals]
     .filter((item) => item.directPromotionAllowed || item.source === 'youtube')
     .filter((item) => !item.blockedBrandDetected)
     .sort((left, right) => right.score - left.score);
@@ -335,7 +378,7 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
   }, new Map()).values()].map((item) => ({ ...item, pages: [...item.pages].sort() }))
     .sort((left, right) => right.impressions - left.impressions || right.queries - left.queries);
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     runKey: context.runKey,
     cadence: context.cadence,
     generatedAt: context.generatedAt,
@@ -355,6 +398,13 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
         maximumQueries: config.maximumSearchQueries || 1000,
         measuredOnly: true,
       },
+      googleTrends: {
+        method: 'feed RSS oficial de pesquisas em alta no Brasil, filtrado por aderência ao nicho; sinal de descoberta jornalística, sem equivalência a volume absoluto ou consulta medida do TheBiker',
+        market: 'BR',
+        status: googleTrendsStatus.status,
+        sourceItems: googleTrends.length,
+        nicheSignals: topTrends.length,
+      },
     },
     metrics: {
       gscRows: gscCurrent.length,
@@ -367,15 +417,40 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
       seoMeasuredQueries: topSeo.length,
       seoClusters: clusters.length,
       cannibalizationRisks: topSeo.filter((item) => item.cannibalizationRisk).length,
+      googleTrendsSourceItems: googleTrends.length,
+      googleTrendsNicheSignals: topTrends.length,
+      gscBrazilAggregateImpressions: number(searchConsoleDiagnostics.current?.brazil?.impressions),
+      gscGlobalAggregateImpressions: number(searchConsoleDiagnostics.current?.global?.impressions),
+    },
+    searchConsoleDiagnostics: {
+      current: {
+        brazil: searchConsoleDiagnostics.current?.brazil || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+        global: searchConsoleDiagnostics.current?.global || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+        detailedBrazilRows: gscCurrent.length,
+      },
+      previous: {
+        brazil: searchConsoleDiagnostics.previous?.brazil || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+        global: searchConsoleDiagnostics.previous?.global || { clicks: 0, impressions: 0, ctr: 0, position: 0 },
+        detailedBrazilRows: gscPrevious.length,
+      },
+      interpretation: number(searchConsoleDiagnostics.current?.global?.impressions) === 0
+        ? 'no_finalized_global_impressions'
+        : number(searchConsoleDiagnostics.current?.brazil?.impressions) === 0
+          ? 'global_impressions_without_brazil_impressions'
+          : gscCurrent.length === 0
+            ? 'brazil_impressions_without_visible_query_rows'
+            : 'brazil_query_rows_available',
     },
     brazilRankings: {
       youtubeDiscovery: topYoutube,
       seoMeasured: topSeo,
+      googleTrendsDiscovery: topTrends,
     },
     queryClusters: clusters,
     briefs,
     refreshQueue,
     discoverySignals: videoSignals.slice(0, 50),
+    googleTrendsStatus,
     governance: {
       autoPublish: false,
       autoScheduleAfterGates: context.cadence === 'monthly',
@@ -386,6 +461,7 @@ export function buildEditorialIntelligence({ context, config, gscCurrent = [], g
       youtubeIsIntelligenceOnly: true,
       youtubeDoesNotFillMeasuredSeo: true,
       brazilClaimRequiresCountryFilter: true,
+      googleTrendsDoesNotFillMeasuredSeo: true,
     },
   };
 }
@@ -401,14 +477,26 @@ function percent(value) {
 export function intelligenceMarkdown(report) {
   const topYoutube = report.brazilRankings?.youtubeDiscovery || [];
   const topSeo = report.brazilRankings?.seoMeasured || [];
+  const topTrends = report.brazilRankings?.googleTrendsDiscovery || [];
   const planningPayload = {
     schemaVersion: report.schemaVersion,
     runKey: report.runKey,
     cadence: report.cadence,
     generatedAt: report.generatedAt,
     brazilRankings: {
-      youtubeDiscovery: topYoutube.slice(0, 20),
-      seoMeasured: topSeo.slice(0, 20),
+      youtubeDiscovery: topYoutube.slice(0, 20).map((item) => ({
+        rank: item.rank, source: item.source, topic: item.topic, signalTitle: item.signalTitle,
+        sourceUrl: item.sourceUrl, score: item.score, evidence: item.evidence,
+      })),
+      seoMeasured: topSeo.slice(0, 20).map((item) => ({
+        rank: item.rank, term: item.term, source: item.source, cluster: item.cluster, intent: item.intent,
+        impressions: item.impressions, ctr: item.ctr, position: item.position, delta: item.delta,
+        targetUrls: item.targetUrls, opportunityScore: item.opportunityScore,
+      })),
+      googleTrendsDiscovery: topTrends.slice(0, 20).map((item) => ({
+        rank: item.rank, source: item.source, topic: item.topic, signalTitle: item.signalTitle,
+        sourceUrl: item.sourceUrl, score: item.score, evidence: item.evidence,
+      })),
     },
     queryClusters: report.queryClusters.map(({ pages, ...cluster }) => ({
       ...cluster,
@@ -439,9 +527,34 @@ export function intelligenceMarkdown(report) {
   for (const item of topYoutube) {
     lines.push(`| ${item.rank} | [${md(item.signalTitle)}](${item.sourceUrl}) | ${md(item.channelTitle || 'Não informado')} | ${item.views.toLocaleString('pt-BR')} | ${item.viewsPerDay.toLocaleString('pt-BR')} | ${item.capturedSearches.length || 1} | ${item.format} | ${item.score} | ${md(item.topic)} |`);
   }
+  const currentDiagnostic = report.searchConsoleDiagnostics?.current || {};
+  const brazilSummary = currentDiagnostic.brazil || {};
+  const globalSummary = currentDiagnostic.global || {};
   lines.push(
     '',
     '**Uso recomendado:** transformar os padrões recorrentes em explicações técnicas originais; vídeos e marcas de terceiros servem como inteligência, nunca como prova factual ou CTA.',
+    '',
+    '## Google Trends Brasil — sinais do nicho',
+    '',
+    `O feed oficial retornou ${report.metrics.googleTrendsSourceItems || 0} tendência(s) geral(is); ${topTrends.length} passaram pelo filtro técnico de ciclismo. Estes sinais indicam aceleração recente, não volume absoluto de busca.`,
+    '',
+    '| # | Tendência | Tráfego aproximado | Score | Aplicação editorial |',
+    '|---:|---|---:|---:|---|',
+  );
+  if (topTrends.length === 0) lines.push('| — | Nenhuma tendência geral aderente ao nicho nesta janela | — | — | Manter Search Console e YouTube como fontes primárias |');
+  for (const item of topTrends) {
+    lines.push(`| ${item.rank} | [${md(item.signalTitle)}](${item.sourceUrl}) | ${md(item.approximateTraffic || 'não informado')} | ${item.score} | ${md(item.topic)} |`);
+  }
+  lines.push(
+    '',
+    '## Diagnóstico do Search Console',
+    '',
+    `Janela atual: **${report.periods?.current?.startDate || 'não informado'} a ${report.periods?.current?.endDate || 'não informado'}**. O agregado global registrou **${Math.round(number(globalSummary.impressions)).toLocaleString('pt-BR')} impressões** e o agregado Brasil registrou **${Math.round(number(brazilSummary.impressions)).toLocaleString('pt-BR')} impressões**; ${currentDiagnostic.detailedBrazilRows || 0} linha(s) detalhada(s) de consulta brasileira ficaram visíveis.`,
+    '',
+    '| Escopo | Cliques | Impressões | CTR | Posição média |',
+    '|---|---:|---:|---:|---:|',
+    `| Brasil agregado | ${Math.round(number(brazilSummary.clicks))} | ${Math.round(number(brazilSummary.impressions))} | ${percent(brazilSummary.ctr)} | ${number(brazilSummary.position).toFixed(1)} |`,
+    `| Global agregado | ${Math.round(number(globalSummary.clicks))} | ${Math.round(number(globalSummary.impressions))} | ${percent(globalSummary.ctr)} | ${number(globalSummary.position).toFixed(1)} |`,
     '',
     '## Consultas SEO Brasil medidas no Search Console',
     '',
@@ -484,6 +597,8 @@ export function intelligenceMarkdown(report) {
     '## Limitações e governança',
     '',
     '- O Search Console mede somente a demanda que já encontrou o TheBiker e pode omitir consultas raras por privacidade; o CSV contém até 1.000 linhas disponibilizadas, não o universo integral das buscas brasileiras.',
+    '- O agregado Brasil versus global serve apenas para diagnóstico de cobertura; consultas globais nunca entram no ranking editorial brasileiro.',
+    '- O Google Trends RSS mostra pesquisas gerais em aceleração e pode não conter ciclismo em uma janela; ele nunca preenche a seção de SEO medido nem representa volume absoluto.',
     '- A região BR e as consultas em português tornam o YouTube um radar brasileiro, mas a API pública fornece visualizações globais de cada vídeo, não visualizações exclusivamente brasileiras.',
     '- YouTube é descoberta editorial e nunca preenche a seção SEO medida.',
     '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.',

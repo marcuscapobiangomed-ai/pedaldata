@@ -19,6 +19,12 @@ for (const file of files) {
     assert.ok(names.has(source), `${file}: origem de conexão inexistente: ${source}`);
     for (const branch of outputs.main || []) for (const target of branch || []) assert.ok(names.has(target.node), `${file}: destino inexistente: ${target.node}`);
   }
+  for (const codeNode of workflow.nodes.filter((node) => node.type === 'n8n-nodes-base.code')) {
+    assert.doesNotThrow(
+      () => new Function(codeNode.parameters?.jsCode || ''),
+      `${file}: JavaScript inválido no nó ${codeNode.name}`,
+    );
+  }
   assert.doesNotMatch(raw, /AIza[0-9A-Za-z_-]{20,}|gh[pousr]_[0-9A-Za-z]{20,}|Bearer\s+[0-9A-Za-z._-]{20,}/, `${file}: possível credencial embutida`);
   assert.doesNotMatch(raw, new RegExp(['pedal', 'data'].join(''), 'i'), `${file}: identidade legada encontrada`);
 }
@@ -27,12 +33,16 @@ const main = JSON.parse(await fs.readFile(path.join(directory, 'thebiker-seo-you
 const types = new Set(main.nodes.map((node) => node.type));
 assert.ok(types.has('n8n-nodes-base.scheduleTrigger'));
 assert.ok(main.nodes.some((node) => node.name === 'Search Console atual'));
+assert.ok(main.nodes.some((node) => node.name === 'Search Console resumo Brasil atual'));
+assert.ok(main.nodes.some((node) => node.name === 'Search Console resumo global atual'));
+assert.ok(main.nodes.some((node) => node.name === 'Google Trends RSS Brasil'));
 assert.ok(main.nodes.some((node) => node.name === 'YouTube busca por visualizações'));
 assert.ok(main.nodes.some((node) => node.name === 'YouTube populares em esportes'));
 assert.ok(main.nodes.some((node) => node.name === 'Gerar relatório e pautas'));
 assert.match(JSON.stringify(main), /autoPublish/);
 assert.match(JSON.stringify(main), /autoScheduleAfterGates/);
 assert.match(JSON.stringify(main), /competitorPromotionBlocked/);
+assert.match(JSON.stringify(main), /googleTrendsDoesNotFillMeasuredSeo/);
 
 const errors = JSON.parse(await fs.readFile(path.join(directory, 'thebiker-intelligence-errors.json'), 'utf8'));
 assert.ok(errors.nodes.some((node) => node.type === 'n8n-nodes-base.errorTrigger'));
