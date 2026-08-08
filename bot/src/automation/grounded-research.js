@@ -40,14 +40,46 @@ async function fetchGrounded(fetchImpl, url, init, env) {
       const response = await fetchImpl(url, { ...init, signal: AbortSignal.timeout(timeoutMs) })
       const parseFailure = response.status === 400 && /output_parse_failed|parsing failed/i.test(await response.clone().text())
       if ((!RETRYABLE_STATUS.has(response.status) && !parseFailure) || attempt === attempts) return response
+      const retryAfter = Number(response.headers?.get?.('retry-after'))
       await response.text()
+      const retryDelay = Number.isFinite(retryAfter)
+        ? Math.min(retryAfter * 1000, 30000)
+        : response.status === 429
+          ? Math.max(0, Number(env.GROQ_RETRY_AFTER_DEFAULT_MS || 5000))
+          : 750 * (2 ** (attempt - 1))
+      await wait(retryDelay)
     } catch (error) {
       lastError = error
       if (attempt === attempts) throw error
+      await wait(750 * (2 ** (attempt - 1)))
     }
-    await wait(750 * (2 ** (attempt - 1)))
   }
   throw lastError || new Error('Pesquisa oficial sem resposta')
+}
+
+async function fetchGeminiGrounded(fetchImpl, prompt, env) {
+  const model = env.GEMINI_RESEARCH_MODEL || env.GEMINI_MODEL || 'gemini-2.5-flash-lite'
+  const response = await fetchGrounded(fetchImpl, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+    method: 'POST',
+    headers: { 'x-goog-api-key': env.GEMINI_API_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      tools: [{ google_search: {} }],
+      generationConfig: { temperature: 0, maxOutputTokens: 2500 },
+    }),
+  }, env)
+  if (!response.ok) {
+    const detail = (await response.text()).slice(0, 300)
+    throw new Error(`Gemini grounded research: ${response.status} - ${detail}`)
+  }
+  const payload = await response.json()
+  const candidate = payload.candidates?.[0]
+  const text = (candidate?.content?.parts || []).map((part) => part.text || '').join('\n')
+  return {
+    research: extractJson(text),
+    model,
+    queries: candidate?.groundingMetadata?.webSearchQueries || [],
+  }
 }
 
 function internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage = false }) {
@@ -138,37 +170,63 @@ export class GroundedResearcher {
       }
       throw error
     }
+    let research
+    let groundingProvider = 'groq-web-search'
+    let groundingModel = model
+    let groundingQueries = []
     if (!response.ok) {
       const detail = (await response.text()).slice(0, 700)
       const outputParseFailed = response.status === 400 && /output_parse_failed|parsing failed/i.test(detail)
       const contextLengthExceeded = response.status === 400 && /context_length_exceeded|reduce the length of the messages or completion/i.test(detail)
-      if (!raceCoverage && (outputParseFailed || contextLengthExceeded || [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status))) {
+      const retryableResearchFailure = outputParseFailed || contextLengthExceeded || [403, 404, 408, 409, 425, 429, 500, 502, 503, 504].includes(response.status)
+      if (retryableResearchFailure && this.env.GEMINI_API_KEY) {
+        try {
+          const gemini = await fetchGeminiGrounded(this.fetch, prompt, this.env)
+          research = gemini.research
+          groundingProvider = 'gemini-google-search'
+          groundingModel = gemini.model
+          groundingQueries = gemini.queries
+        } catch (geminiError) {
+          if (!raceCoverage) {
+            return internalResearch({
+              item,
+              internalEvidence,
+              today,
+              contentType,
+              reason: `Groq ${response.status}; ${geminiError.message}`,
+              raceCoverage,
+            })
+          }
+          throw geminiError
+        }
+      } else if (!raceCoverage && retryableResearchFailure) {
         const reason = outputParseFailed
           ? 'Groq 400 output_parse_failed'
           : contextLengthExceeded
             ? 'Groq 400 context_length_exceeded'
             : `Groq ${response.status}`
         return internalResearch({ item, internalEvidence, today, contentType, reason, raceCoverage })
+      } else {
+        throw new Error(`Groq grounded research: ${response.status} - ${detail}`)
       }
-      throw new Error(`Groq grounded research: ${response.status} - ${detail}`)
-    }
-    const payload = await response.json()
-    const text = payload.choices?.[0]?.message?.content
-    let research
-    try {
-      research = extractJson(text)
-    } catch (error) {
-      if (!raceCoverage) {
-        return internalResearch({
-          item,
-          internalEvidence,
-          today,
-          contentType,
-          reason: `Groq retornou JSON inválido: ${error.message}`,
-          raceCoverage,
-        })
+    } else {
+      const payload = await response.json()
+      const text = payload.choices?.[0]?.message?.content
+      try {
+        research = extractJson(text)
+      } catch (error) {
+        if (!raceCoverage) {
+          return internalResearch({
+            item,
+            internalEvidence,
+            today,
+            contentType,
+            reason: `Groq retornou JSON inválido: ${error.message}`,
+            raceCoverage,
+          })
+        }
+        throw error
       }
-      throw error
     }
     research.sources = (research.sources || []).filter((source) => source.url && allowedSource(source.url, raceCoverage))
     if (research.sources.length === 0) throw new Error('Pesquisa bloqueada: nenhuma fonte oficial permitida foi retornada')
@@ -182,10 +240,10 @@ export class GroundedResearcher {
     research.status = 'pesquisa_concluida'
     research.editorialPriority = 'P1'
     research.grounding = {
-      queries: [],
+      queries: groundingQueries,
       sourceCount: research.sources.length,
-      provider: 'groq-browser-search',
-      model,
+      provider: groundingProvider,
+      model: groundingModel,
     }
     return validateResearch(research)
   }

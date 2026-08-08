@@ -110,6 +110,31 @@ const fallbackGrounded = await fallbackResearcher.research({
 });
 assert.equal(fallbackGrounded.grounding.fallback, 'internal-product-knowledge');
 assert.equal(fallbackGrounded.sources.length, 1);
+let resilientResearchCalls = 0;
+const resilientResearcher = new GroundedResearcher({
+  GROQ_API_KEY: 'test',
+  GEMINI_API_KEY: 'test-gemini',
+  AI_HTTP_RETRY_ATTEMPTS: '1',
+}, async (_url, init) => {
+  resilientResearchCalls += 1;
+  if (init.headers.Authorization) return { ok: false, status: 429, text: async () => 'rate limited' };
+  const request = JSON.parse(init.body);
+  assert.deepEqual(request.tools, [{ google_search: {} }]);
+  return {
+    ok: true,
+    status: 200,
+    json: async () => ({
+      candidates: [{
+        content: { parts: [{ text: groundedPayload.candidates[0].content.parts[0].text }] },
+        groundingMetadata: { webSearchQueries: ['site:scott-sports.com pressão pneus'] },
+      }],
+    }),
+  };
+});
+const resilientGrounded = await resilientResearcher.research({ item: campaign.items[0], internalEvidence: [], today: '2026-08-05' });
+assert.equal(resilientResearchCalls, 2);
+assert.equal(resilientGrounded.grounding.provider, 'gemini-google-search');
+assert.deepEqual(resilientGrounded.grounding.queries, ['site:scott-sports.com pressão pneus']);
 const contextLengthDetail = JSON.stringify({ error: { code: 'context_length_exceeded', message: 'Please reduce the length of the messages or completion.' } });
 const contextLengthResearcher = new GroundedResearcher({ GROQ_API_KEY: 'test' }, async () => ({
   ok: false,
