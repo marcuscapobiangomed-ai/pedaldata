@@ -20,7 +20,7 @@ for (const article of index.articles) {
   if (String(article.directAnswer || "").length < 80) fail(`resposta direta curta: ${article.title}`);
   if (!Array.isArray(article.sources) || !article.sources.length) fail(`artigo sem fontes: ${article.title}`);
 
-  const urlPath = new URL(article.canonicalUrl).pathname;
+  const urlPath = decodeURIComponent(new URL(article.canonicalUrl).pathname);
   const relativeUrl = publisherPath && urlPath.startsWith(`${publisherPath}/`)
     ? urlPath.slice(publisherPath.length)
     : urlPath;
