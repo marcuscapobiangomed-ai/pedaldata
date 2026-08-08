@@ -26,6 +26,12 @@ assert.equal(selectReadyItem(queue, new Date("2026-08-04T12:00:00Z")).id, "ready
 assert.equal(selectReadyItem({ items: [] }), null);
 const campaign = CampaignSchema.parse(JSON.parse(await fs.readFile(new URL('./editorial-campaign.json', import.meta.url), 'utf8')));
 assert.equal(campaign.items.length, 30);
+const conceptualComparison = structuredClone(campaign);
+conceptualComparison.items[0] = { ...conceptualComparison.items[0], category: 'comparativo', status: 'validation', productIds: [] };
+assert.doesNotThrow(() => CampaignSchema.parse(conceptualComparison));
+const reviewWithoutProduct = structuredClone(campaign);
+reviewWithoutProduct.items[0] = { ...reviewWithoutProduct.items[0], category: 'review', status: 'validation', productIds: [] };
+assert.throws(() => CampaignSchema.parse(reviewWithoutProduct), /review validado exige ao menos um produto rastreável/);
 const inferred = selectKnowledgeEvidence([
   { id: 'addict-rc-20', model: 'Addict RC 20' },
   { id: 'addict-rc-pro', model: 'Addict RC Pro' },

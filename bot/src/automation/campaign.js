@@ -48,8 +48,8 @@ export const CampaignSchema = z.object({
     expected.setDate(expected.getDate() + index)
     const expectedDate = new Intl.DateTimeFormat('en-CA', { timeZone: campaign.timezone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(expected)
     if (item.publishDate !== expectedDate) context.addIssue({ code: 'custom', path: ['items', index, 'publishDate'], message: `data esperada: ${expectedDate}` })
-    if (["review", "comparativo"].includes(item.category) && ["validation", "approved", "scheduled", "published"].includes(item.status) && item.productIds.length === 0) {
-      context.addIssue({ code: 'custom', path: ['items', index, 'productIds'], message: 'review/comparativo validado exige ao menos um produto rastreável' })
+    if (item.category === "review" && ["validation", "approved", "scheduled", "published"].includes(item.status) && item.productIds.length === 0) {
+      context.addIssue({ code: 'custom', path: ['items', index, 'productIds'], message: 'review validado exige ao menos um produto rastreável' })
     }
   }
 })
