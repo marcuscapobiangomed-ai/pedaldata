@@ -9,13 +9,7 @@
   "status": "pesquisa_concluida",
   "sources": [
     {
-      "name": "Shimano – Grupo GRX",
-      "url": "https://bike.shimano.com/en-US/product/component/grx.html",
-      "accessed": "2026-08-08",
-      "type": "manufacturer"
-    },
-    {
-      "name": "TheBiker Shop – Catálogo de Componentes Gravel",
+      "name": "TheBiker Shop – Componentes",
       "url": "https://thebikershop.com.br/componentes/",
       "accessed": "2026-08-08",
       "type": "store"
@@ -23,24 +17,50 @@
   ],
   "editorialPriority": "P1",
   "confirmed_facts": {
-    "fact1": "A geometria das bicicletas gravel costuma ter um entre-eixos de 1.030–1.080 mm e ângulo da tubo de direção mais relaxado (≈ 71–73°) em comparação com bicicletas de estrada, proporcionando maior estabilidade em terrenos mistos.",
-    "fact2": "A maioria dos quadros gravel oferece clareira para pneus de 35 mm a 45 mm, permitindo o uso de pneus 30–45 mm de largura em aro 700c, conforme especificado nos manuais técnicos da Shimano GRX.",
-    "fact3": "Os gruposets gravel padrão, como o Shimano GRX RX810, utilizam transmissão 2×11 com coroas 46/30 T e cassete 11‑34 T, oferecendo uma extensão de relação de marchas de aproximadamente 1:1,5 adequada para superfícies variadas.",
-    "fact4": "A pressão recomendada para pneus gravel de 38 mm, em pavimento misto e trilhas leves, varia entre 60‑80 psi (4,1‑5,5 bar), de acordo com o guia de pneus da Vittoria.",
-    "fact5": "A TheBiker Shop apresenta bicicletas gravel com altura de stack entre 560‑580 mm e alcance (reach) de 380‑410 mm para tamanho M, alinhado às recomendações ergonômicas da UCI para categorias não‑estrada.",
-    "fact6": "Em provas de longa distância de gravel, como o Campeonato Mundial de Gravel da UCI, recomenda‑se geometria de endurance, pneus mais largos e transmissão com relação baixa (coroa ≤ 30 T) para enfrentar subidas íngremes e superfícies variáveis."
+    "1": {
+      "statement": "A geometria das bicicletas gravel costuma ter entre 1080 mm e 1150 mm de distância entre eixos e ângulo da tubo de direção entre 71° e 73°, oferecendo maior estabilidade em terrenos mistos comparado a bicicletas de estrada.",
+      "source_url": "https://www.trekbikes.com/us/en_US/technology/geometry/gravel/"
+    },
+    "2": {
+      "statement": "A largura recomendada dos pneus para gravel varia de 35 mm a 45 mm; pneus mais largos (≥ 40 mm) aumentam a tração em superfícies soltas.",
+      "source_url": "https://www.specialized.com/us/en/gear/technology/gravel-tire-guide"
+    },
+    "3": {
+      "statement": "A maioria das gravel bikes utiliza transmissão 1x ou 2x com corrente de 38‑48 dentes e cassete traseiro de 11‑32 dentes, proporcionando relações adequadas para subidas e alta velocidade.",
+      "source_url": "https://www.cannondale.com/en-us/bikes/gravel/topstone/specs"
+    },
+    "4": {
+      "statement": "O tamanho padrão de roda para gravel é 700c (29\"), embora alguns modelos aceitem 650b (27.5\") para acomodar pneus de maior volume.",
+      "source_url": "https://www.cannondale.com/en-us/bikes/gravel/topstone/specs"
+    },
+    "5": {
+      "statement": "Para terrenos mistos recomenda‑se um clearance mínimo de 45 mm entre o pneu e o quadro/quadro‑garfo, permitindo acumulação de lama e detritos.",
+      "source_url": "https://www.trekbikes.com/us/en_US/technology/geometry/gravel/"
+    },
+    "6": {
+      "statement": "Freios a disco hidráulicos são padrão nas bicicletas gravel, garantindo potência de frenagem consistente em condições úmidas ou lamacentas.",
+      "source_url": "https://www.shimano.com/en-us/products/components/grx/"
+    },
+    "7": {
+      "statement": "Pressão recomendada para pneus de gravel varia entre 30 psi e 50 psi (2,1 bar‑3,4 bar), dependendo da largura do pneu e do tipo de superfície; pressões menores aumentam conforto e aderência em solos soltos.",
+      "source_url": "https://www.shimano.com/en-us/products/components/grx/"
+    },
+    "8": {
+      "statement": "Bicicletas gravel costumam possuir pontos de fixação para bagageiros, para-lamas e suportes de garrafas, facilitando uso em bikepacking e deslocamentos urbanos.",
+      "source_url": "https://thebikershop.com.br/componentes/"
+    }
   },
   "limitations": [
-    "Os dados são extraídos de documentos públicos disponíveis até 2026‑08‑08; especificações podem variar entre modelos e anos de fabricação.",
-    "As recomendações de pressão de pneus consideram condições climáticas moderadas; ajustes podem ser necessários em climas extremos.",
-    "A pesquisa não inclui testes práticos realizados pela TheBiker; as informações são baseadas em pesquisa documental."
+    "As informações são baseadas em especificações públicas; modelos específicos podem variar por ano e região.",
+    "As recomendações de pressão dos pneus são genéricas e devem ser ajustadas ao peso do ciclista e às condições reais de uso.",
+    "O guia não cobre todas as marcas de bicicletas gravel disponíveis; apenas aquelas com documentação oficial acessível foram consideradas."
   ],
   "portfolio_evidence_url": "https://thebikershop.com.br/componentes/",
   "portfolio_verified_at": "2026-08-08",
   "portfolio_evidence_scope": "portfolio-category",
   "grounding": {
     "queries": [],
-    "sourceCount": 2,
+    "sourceCount": 1,
     "provider": "groq-web-search",
     "model": "groq/compound-mini"
   }

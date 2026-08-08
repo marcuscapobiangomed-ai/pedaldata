@@ -25,6 +25,7 @@
         "thebiker-bateria-sram-axs-5cbb772e8f"
       ],
       "imageValidatedAt": "2026-08-05T17:12:11.509Z",
+      "publishedAt": "2026-08-08T15:33:02.861Z",
       "attempts": 0,
       "aiReview": {
         "score": 0,
@@ -39,8 +40,7 @@
           "bufferFinalAudit": "deepseek"
         },
         "generatedAt": "2026-08-05T13:26:00.968Z"
-      },
-      "publishedAt": "2026-08-08T15:33:02.861Z"
+      }
     },
     {
       "day": 2,
@@ -290,12 +290,29 @@
       "summary": "Criar resposta técnica original para ciclista intermediário ou avançado, com método e limitações declarados. Sinal observado: 54.278 visualizações globais do vídeo; 2.578 por dia; encontrado em 1 busca(s) configurada(s) para o Brasil.",
       "category": "componentes",
       "freshness": "event-driven",
-      "status": "blocked",
+      "status": "scheduled",
       "productIds": [],
+      "postPath": "_posts/drafts/2026-08-16-youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso.md",
       "imageAssetIds": [],
-      "blockReason": "Etapa final-repair falhou. deepseek: The operation was aborted due to timeout",
-      "attempts": 1,
-      "lastAttemptAt": "2026-08-08T15:10:50.120Z"
+      "attempts": 2,
+      "lastAttemptAt": "2026-08-08T15:35:33.560Z",
+      "aiReview": {
+        "score": 72,
+        "finalScore": 95,
+        "finalBlockers": 0,
+        "premiumEditUsed": true,
+        "providers": {
+          "factSheet": "deepseek",
+          "draft": "gemini",
+          "critique": "deepseek",
+          "final": "deepseek",
+          "finalAudit": "deepseek"
+        },
+        "generatedAt": "2026-08-08T15:35:33.560Z"
+      },
+      "imageManifestPath": "assets/img/posts/youtube-bicicletas-gravel-geometria-pneus-transmissao-e-criterios-de-uso/image-manifest.json",
+      "imageStatus": "approved",
+      "imageValidatedAt": "2026-08-08T15:37:52.440Z"
     },
     {
       "day": 10,
