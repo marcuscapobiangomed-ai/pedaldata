@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: "Câmbio eletrônico sob carga: ajuste fino, diagnóstico e erros que comprometem a troca"
+title: "Câmbio eletrônico sob carga: ajuste e diagnóstico do Shimano Di2"
 slug: "cambio-eletronico-ajuste-diagnostico"
 date: 2026-08-08
 last_modified_at: 2026-08-05
@@ -26,7 +26,7 @@ price_currency: "BRL"
 price_checked_at: "2026-08-05"
 category: "guia-tecnico"
 tags: ["ciclismo", "cambio-eletronico", "shimano-di2", "ajuste", "diagnostico"]
-description: "Guia técnico para ajuste fino e diagnóstico do câmbio eletrônico Shimano Di2 sob carga. Aprenda a evitar erros que comprometem a troca e mantenha seu sistema em perfeito funcionamento."
+description: "Guia técnico para ajustar e diagnosticar o câmbio eletrônico Shimano Di2 sob carga, evitar falhas de troca e preservar o funcionamento do sistema."
 image: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/hero-1600.webp"
 image_mobile: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/hero-800.webp"
 thumbnail: "/assets/img/posts/cambio-eletronico-ajuste-diagnostico/card-640.webp"
