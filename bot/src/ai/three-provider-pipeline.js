@@ -42,6 +42,21 @@ function minimumWordsFor(contentType) {
   }[contentType] || 900;
 }
 
+function verifiedSourceConflicts(value) {
+  return (Array.isArray(value) ? value : []).filter((conflict) => {
+    if (typeof conflict === "string") return conflict.trim().length > 0;
+    if (!conflict || typeof conflict !== "object") return false;
+    const sources = Array.isArray(conflict.sources)
+      ? conflict.sources
+      : [conflict.sourceA, conflict.sourceB, conflict.source1, conflict.source2].filter(Boolean);
+    const values = Array.isArray(conflict.values)
+      ? conflict.values
+      : [conflict.valueA, conflict.valueB, conflict.value1, conflict.value2].filter((item) => item !== undefined && item !== null);
+    return new Set(sources.map((item) => JSON.stringify(item))).size >= 2 &&
+      new Set(values.map((item) => JSON.stringify(item))).size >= 2;
+  });
+}
+
 export class ThreeProviderPipeline {
   constructor({
     clients = new ProviderClients(),
@@ -161,8 +176,9 @@ export class ThreeProviderPipeline {
       }),
     });
     const factSheet = extractJson(factSheetResult.content);
-    if ((factSheet.conflicts || []).length > 0 && this.env.AI_ALLOW_SOURCE_CONFLICTS !== "true") {
-      throw new Error(`STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: ${factSheet.conflicts.join("; ")}`);
+    factSheet.conflicts = verifiedSourceConflicts(factSheet.conflicts);
+    if (factSheet.conflicts.length > 0 && this.env.AI_ALLOW_SOURCE_CONFLICTS !== "true") {
+      throw new Error(`STATUS: PESQUISA INSUFICIENTE\nConflitos nas fontes: ${factSheet.conflicts.map((item) => typeof item === "string" ? item : JSON.stringify(item)).join("; ")}`);
     }
 
     const enrichedDraftPrompt = [

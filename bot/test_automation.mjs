@@ -34,6 +34,14 @@ const inferred = selectKnowledgeEvidence([
   productIds: [],
 });
 assert.deepEqual(inferred.inferredProductIds, ['addict-rc-20', 'addict-rc-pro']);
+const unrelated = selectKnowledgeEvidence([
+  { id: 'spark-rc', model: 'Spark RC' },
+], {
+  title: 'Pressão de pneus por terreno',
+  summary: 'Método de campo sem modelo específico.',
+  productIds: [],
+});
+assert.deepEqual(unrelated.records, []);
 const campaignWithHistory = structuredClone(campaign);
 for (const item of campaignWithHistory.items) item.status = 'blocked';
 campaignWithHistory.items[3].status = 'planned';

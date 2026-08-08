@@ -103,7 +103,7 @@ const remediationClients = {
   async generate(provider) {
     remediationCalls += 1;
     const responses = [
-      { facts: [], gaps: [], conflicts: [], forbiddenClaims: ["compatibilidade não confirmada"], technicalAngles: [] },
+      { facts: [], gaps: [], conflicts: [{ field: "compatibilidade", issue: "fonte ausente" }], forbiddenClaims: ["compatibilidade não confirmada"], technicalAngles: [] },
       { title: "Rascunho", sections: [] },
       { score: 80, blockers: [{ type: "unsupported", detail: "fato não confirmado" }], warnings: [] },
       { title: "Edição premium", sections: [] },

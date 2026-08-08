@@ -21,9 +21,8 @@ export function selectKnowledgeEvidence(records, item) {
     return model.length >= 5 && (text.includes(model) || (distinctiveSuffix.length >= 5 && text.includes(distinctiveSuffix)))
   })
   const selected = explicit.length > 0 ? explicit : mentioned
-  const fallback = selected.length > 0 ? selected : records
   return {
-    records: fallback.slice(0, 6),
+    records: selected.slice(0, 6),
     inferredProductIds: explicit.length === 0 ? mentioned.map((record) => record.id) : [],
   }
 }
