@@ -335,6 +335,7 @@ export function buildEditorialIntelligence({
   googleTrends = [],
   googleTrendsStatus = { status: 'not_requested', error: null },
   publicShopSeo = { status: 'not_requested', signal: null, error: null },
+  youtubeStatus = { status: 'available', error: null },
 }) {
   const previousMap = new Map(gscPrevious.map((row) => [rowKey(row), row]));
   const brazilCountry = config.searchConsoleCountry || 'bra';
@@ -449,6 +450,7 @@ export function buildEditorialIntelligence({
     metrics: {
       gscRows: gscCurrent.length,
       youtubeVideos: videos.length,
+      youtubeStatus: youtubeStatus.status,
       publishedArticles: articles.length,
       briefs: briefs.length,
       refreshCandidates: refreshQueue.length,
@@ -493,6 +495,7 @@ export function buildEditorialIntelligence({
     },
     crossDomainOpportunities,
     publicShopSeo,
+    youtubeStatus,
     queryClusters: clusters,
     briefs,
     refreshQueue,
@@ -679,6 +682,7 @@ export function intelligenceMarkdown(report) {
     '- O agregado Brasil versus global serve apenas para diagnóstico de cobertura; consultas globais nunca entram no ranking editorial brasileiro.',
     '- O Google Trends RSS mostra pesquisas gerais em aceleração e pode não conter ciclismo em uma janela; ele nunca preenche a seção de SEO medido nem representa volume absoluto.',
     '- A região BR e as consultas em português tornam o YouTube um radar brasileiro, mas a API pública fornece visualizações globais de cada vídeo, não visualizações exclusivamente brasileiras.',
+    `- Estado do YouTube nesta execução: ${md(report.youtubeStatus?.status || 'não informado')}; indisponibilidade de quota não preenche nem invalida o SEO medido do blog.`,
     '- YouTube é descoberta editorial e nunca preenche a seção SEO medida.',
     '- Fontes, método, produto, imagem, preço e estoque precisam passar pelos gates do repositório.',
     '- Exceções ficam bloqueadas para revisão; conteúdo aprovado pelos gates pode ser agendado sem intervenção no Codex.',

@@ -329,6 +329,9 @@ export async function runEditorialIntelligence({
         .catch((error) => ({ status: 'unavailable', signal: null, error: String(error?.message || error).slice(0, 240) })),
     ]).then(([siteAudit, pageSpeed]) => ({ status: siteAudit.status, siteAudit, pageSpeed }))
     : Promise.resolve({ status: 'not_configured', siteAudit: null, pageSpeed: null });
+  const youtubePromise = youtubeVideos({ env, accessToken, config, periods })
+    .then((items) => ({ status: 'available', items, error: null }))
+    .catch((error) => ({ status: 'unavailable', items: [], error: String(error?.message || error).slice(0, 500) }));
   const siteResultsPromise = Promise.all(searchConsoleSites.map(async (site) => {
     try {
       const [currentRows, previousRows, brazilCurrent, brazilPrevious, globalCurrent, globalPrevious] = await Promise.all([
@@ -347,9 +350,9 @@ export async function runEditorialIntelligence({
       return { site, status: 'not_authorized', error: String(error?.message || error).slice(0, 500), currentRows: [], previousRows: [], brazilCurrent: empty, brazilPrevious: empty, globalCurrent: empty, globalPrevious: empty };
     }
   }));
-  const [siteResults, videos, contentIndex, trends, publicShopSeo] = await Promise.all([
+  const [siteResults, youtube, contentIndex, trends, publicShopSeo] = await Promise.all([
     siteResultsPromise,
-    youtubeVideos({ env, accessToken, config, periods }),
+    youtubePromise,
     fetch(env.CONTENT_INDEX_URL || config.contentIndexUrl).then((response) => responseJson(response, 'Índice público do blog')),
     trendsPromise,
     publicShopSeoPromise,
@@ -385,7 +388,7 @@ export async function runEditorialIntelligence({
     config,
     gscCurrent,
     gscPrevious,
-    videos,
+    videos: youtube.items,
     articles: contentIndex.articles || [],
     searchConsoleDiagnostics: {
       current: { brazil: sumSummary('current', 'brazil'), global: sumSummary('current', 'global') },
@@ -395,6 +398,7 @@ export async function runEditorialIntelligence({
     googleTrends: trends.items,
     googleTrendsStatus: { status: trends.status, error: trends.error },
     publicShopSeo,
+    youtubeStatus: { status: youtube.status, error: youtube.error },
   });
   if (report.briefs.length === 0) throw new Error('Inteligência sem pautas válidas; execução interrompida em modo fail-closed');
   await fs.mkdir(outputDirectory, { recursive: true });

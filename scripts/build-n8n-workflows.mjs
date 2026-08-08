@@ -59,7 +59,7 @@ function httpNode(id, name, position, parameters, credentialType) {
       ...customOptions,
       response: {
         ...customOptions.response,
-        response: { neverError: name.startsWith('Search Console'), responseFormat: 'json', ...(customOptions.response?.response || {}) },
+        response: { neverError: name.startsWith('Search Console') || name.startsWith('YouTube'), responseFormat: 'json', ...(customOptions.response?.response || {}) },
       },
     },
   });
@@ -137,7 +137,8 @@ const context = values.find((item) => item.kind === 'context');
 const rows = (kind) => values.filter((item) => item.kind === kind).flatMap((item) => item.rows || []);
 const current = rows('gsc_current');
 const previous = rows('gsc_previous');
-const videos = values.find((item) => item.kind === 'youtube')?.videos || [];
+const youtube = values.find((item) => item.kind === 'youtube') || { videos: [], error: null };
+const videos = youtube.videos || [];
 const articles = values.find((item) => item.kind === 'content_index')?.articles || [];
 const summaries = (kind) => values.filter((item) => item.kind === kind);
 const combinedSummary = (kind) => {
@@ -175,6 +176,7 @@ const report = buildEditorialIntelligence({
   googleTrends: trends.items || [],
   googleTrendsStatus: { status: trends.status || 'available', error: trends.error || null },
   publicShopSeo,
+  youtubeStatus: { status: youtube.error ? 'unavailable' : 'available', error: youtube.error || null },
 });
 return [{ json: {
   ...report,
@@ -233,13 +235,13 @@ const mainNodes = [
     { name: 'regionCode', value: '={{ $json.market.regionCode }}' }, { name: 'relevanceLanguage', value: '={{ $json.market.relevanceLanguage }}' }, { name: 'videoCategoryId', value: '17' },
     { name: 'publishedAfter', value: "={{ $json.periods.current.startDate + 'T00:00:00Z' }}" }, { name: 'q', value: '={{ $json.market.query }}' },
   ] } }, 'googleOAuth2Api'),
-  node(ids.youtubeIds, 'Consolidar IDs do YouTube', 'n8n-nodes-base.code', 2, [100, 80], { mode: 'runOnceForEachItem', jsCode: "const ids=($json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); if(!ids.length) throw new Error('YouTube não retornou vídeos para a janela'); const market=$('Expandir buscas do YouTube Brasil').item.json.market; return {json:{ids:[...new Set(ids)].slice(0,50),market}};" }),
+  node(ids.youtubeIds, 'Consolidar IDs do YouTube', 'n8n-nodes-base.code', 2, [100, 80], { mode: 'runOnceForEachItem', jsCode: "const ids=($json.items||[]).map((item)=>item.id?.videoId).filter(Boolean); const market=$('Expandir buscas do YouTube Brasil').item.json.market; return {json:{ids:[...new Set(ids)].slice(0,50),market,error:$json.error?.message||null}};" }),
   httpNode(ids.youtubeDetails, 'YouTube métricas dos vídeos', [150, 80], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'id', value: '={{ $json.ids.join(",") }}' }] } }, 'googleOAuth2Api'),
-  node(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', 'n8n-nodes-base.code', 2, [400, 80], { mode: 'runOnceForEachItem', jsCode: "const market=$('Consolidar IDs do YouTube').item.json.market; const videos=($json.items||[]).map((video)=>({...video,_intelligence:{markets:[market.regionCode],languages:[market.relevanceLanguage],searches:[market.id||market.query]}})); return {json:{kind:'youtube_part',videos}};" }),
+  node(ids.tagYoutubeDetails, 'Marcar vídeos pesquisados', 'n8n-nodes-base.code', 2, [400, 80], { mode: 'runOnceForEachItem', jsCode: "const upstream=$('Consolidar IDs do YouTube').item.json; const market=upstream.market; const videos=($json.items||[]).map((video)=>({...video,_intelligence:{markets:[market.regionCode],languages:[market.relevanceLanguage],searches:[market.id||market.query]}})); return {json:{kind:'youtube_part',error:upstream.error||$json.error?.message||null,videos}};" }),
   httpNode(ids.youtubePopular, 'YouTube populares em esportes', [-360, 260], { method: 'GET', url: 'https://www.googleapis.com/youtube/v3/videos', sendQuery: true, queryParameters: { parameters: [{ name: 'part', value: 'snippet,statistics,contentDetails' }, { name: 'chart', value: 'mostPopular' }, { name: 'regionCode', value: 'BR' }, { name: 'videoCategoryId', value: '17' }, { name: 'maxResults', value: '50' }] } }, 'googleOAuth2Api'),
-  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "const videos=($input.first().json.items||[]).map((video)=>({...video,_intelligence:{markets:['BR'],languages:['pt'],searches:['populares-esportes-br']}})); return [{json:{kind:'youtube_part',videos}}];"),
+  codeNode(ids.tagYoutubePopular, 'Marcar vídeos populares', [-100, 260], "const data=$input.first().json; const videos=(data.items||[]).map((video)=>({...video,_intelligence:{markets:['BR'],languages:['pt'],searches:['populares-esportes-br']}})); return [{json:{kind:'youtube_part',error:data.error?.message||null,videos}}];"),
   node(ids.mergeYoutube, 'Unir sinais do YouTube', 'n8n-nodes-base.merge', 3.2, [640, 160], { mode: 'append' }),
-  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); for(const item of $input.all()) for(const video of item.json.videos||[]){const previous=map.get(video.id); if(!previous){map.set(video.id,video);continue;} previous._intelligence={markets:[...new Set([...(previous._intelligence?.markets||[]),...(video._intelligence?.markets||[])])],languages:[...new Set([...(previous._intelligence?.languages||[]),...(video._intelligence?.languages||[])])],searches:[...new Set([...(previous._intelligence?.searches||[]),...(video._intelligence?.searches||[])])]};} return [{json:{kind:'youtube',videos:[...map.values()]}}];"),
+  codeNode(ids.normalizeYoutube, 'Deduplicar YouTube', [860, 160], "const map=new Map(); const errors=[]; for(const item of $input.all()){if(item.json.error)errors.push(item.json.error); for(const video of item.json.videos||[]){const previous=map.get(video.id); if(!previous){map.set(video.id,video);continue;} previous._intelligence={markets:[...new Set([...(previous._intelligence?.markets||[]),...(video._intelligence?.markets||[])])],languages:[...new Set([...(previous._intelligence?.languages||[]),...(video._intelligence?.languages||[])])],searches:[...new Set([...(previous._intelligence?.searches||[]),...(video._intelligence?.searches||[])])]};}} return [{json:{kind:'youtube',error:errors[0]||null,videos:[...map.values()]}}];"),
   node(ids.mergeSeo, 'Unir períodos SEO', 'n8n-nodes-base.merge', 3.2, [160, -420], { mode: 'append' }),
   node(ids.mergeBrazilSummaries, 'Unir resumos Brasil', 'n8n-nodes-base.merge', 3.2, [160, -650], { mode: 'append' }),
   node(ids.mergeGlobalSummaries, 'Unir resumos globais', 'n8n-nodes-base.merge', 3.2, [160, -800], { mode: 'append' }),

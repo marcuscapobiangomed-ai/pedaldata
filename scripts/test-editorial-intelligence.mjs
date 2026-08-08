@@ -107,6 +107,7 @@ const report = buildEditorialIntelligence({
     siteAudit: { status: 'available', error: null, signal: { source: 'public-site-audit', evidenceClass: 'public_measurement', targetUrl: 'https://thebikershop.com.br/', httpStatus: 200, robotsStatus: 200, sitemapStatus: 200, checks: { title: true, metaDescription: true, canonical: true, h1: true, structuredData: true, noindex: false } } },
     pageSpeed: { status: 'available', error: null, signal: { source: 'pagespeed-insights', evidenceClass: 'public_measurement', targetUrl: 'https://thebikershop.com.br/', scores: { performance: 72, seo: 96, accessibility: 88 } } },
   },
+  youtubeStatus: { status: 'available', error: null },
   searchConsoleDiagnostics: {
     current: {
       brazil: { clicks: 4, impressions: 140, ctr: 4 / 140, position: 8.4 },
@@ -133,6 +134,7 @@ assert.ok(report.briefs.every((brief) => !/^Trek lançamento/.test(brief.topic))
 assert.equal(report.governance.youtubeDoesNotFillMeasuredSeo, true);
 assert.equal(report.governance.brazilClaimRequiresCountryFilter, true);
 assert.equal(report.metrics.youtubeSearchesConfigured, 12);
+assert.equal(report.youtubeStatus.status, 'available');
 assert.equal(report.metrics.googleTrendsSourceItems, 2);
 assert.equal(report.metrics.googleTrendsNicheSignals, 1);
 assert.equal(report.metrics.publicShopSeoAvailable, true);

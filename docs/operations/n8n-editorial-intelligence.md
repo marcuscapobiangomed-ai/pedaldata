@@ -94,12 +94,12 @@ O workflow de produção utiliza apenas o `GITHUB_TOKEN` efêmero com leitura de
 ## Falhas e recuperação
 
 - 401/403 Google: renovar OAuth e confirmar acesso à propriedade/API.
-- quota do YouTube: reduzir frequência ou consulta; não fazer loops de `search.list` por palavra.
+- quota do YouTube: registrar `unavailable`, usar os sinais medidos restantes e reduzir frequência ou consultas; YouTube é complementar e nunca preenche SEO medido.
 - resposta vazia: manter o relatório com zero sinal e investigar configuração, sem inventar tendência.
 - feed Trends indisponível: registrar a indisponibilidade e continuar com Search Console e YouTube; Trends é fonte complementar.
 - Search Console da loja com 403: registrar `not_authorized`, manter o blog e executar PageSpeed público; nunca apresentar a estimativa como consulta real.
 - PageSpeed indisponível ou limitado por quota: registrar a falha e continuar; a fonte é complementar e não substitui Search Console.
-- 429/timeout: usar retry limitado do n8n e tratar a execução como falha se todas as tentativas acabarem.
+- 429/timeout em fonte complementar: registrar indisponibilidade e continuar. Em Search Console obrigatório do blog, manter falha fechada.
 - erro GitHub: o relatório permanece nos dados da execução; repetir depois de corrigir a credencial.
 - qualquer falha: nenhum post é aprovado; o incidente fica disponível para revisão e uma pauta bloqueada pode ser substituída por reserva na renovação seguinte.
 - timeout, 429 ou falha transitória: `campaign:recover` libera uma tentativa adicional; na reincidência, ou em erro permanente, preserva a exceção no ledger e ocupa a mesma data com uma pauta-reserva.
