@@ -60,6 +60,7 @@ const result = await pipeline.run({
 
 assert.deepEqual(calls.map((call) => call.provider), ["deepseek", "gemini", "deepseek"]);
 assert.equal(result.metadata.premiumEditUsed, false);
+assert.equal(result.metadata.remediationEditUsed, false);
 assert.throws(
   () => assertEditorialPublicationGates({
     content_type: "noticia",
@@ -95,5 +96,38 @@ const recoveredJson = await malformedPipeline.callStep({
 assert.equal(malformedCalls, 2);
 assert.equal(recoveredJson.provider, "deepseek");
 assert.deepEqual(JSON.parse(recoveredJson.content), { sections: [] });
+
+let remediationCalls = 0;
+const remediationClients = {
+  isConfigured: () => true,
+  async generate(provider) {
+    remediationCalls += 1;
+    const responses = [
+      { facts: [], gaps: [], conflicts: [], forbiddenClaims: ["compatibilidade não confirmada"], technicalAngles: [] },
+      { title: "Rascunho", sections: [] },
+      { score: 80, blockers: [{ type: "unsupported", detail: "fato não confirmado" }], warnings: [] },
+      { title: "Edição premium", sections: [] },
+      { score: 85, blockers: [{ type: "forbidden", detail: "compatibilidade não confirmada" }], warnings: [] },
+      { title: "Versão corrigida", sections: [] },
+      { score: 96, blockers: [], warnings: [] },
+    ];
+    return { provider, model: "test", content: JSON.stringify(responses[remediationCalls - 1]), usage: {}, durationMs: 1 };
+  },
+};
+const remediationPipeline = new ThreeProviderPipeline({ clients: remediationClients, runtime, env: {} });
+const remediated = await remediationPipeline.run({
+  topic: "Tema técnico",
+  researchData: { sources: [{ name: "Fonte", url: "https://example.com" }] },
+  contentType: "noticia",
+  template: { structure: ["Método"] },
+  systemPrompt: "Sistema",
+  draftPrompt: "Rascunho",
+  priority: "P2",
+});
+assert.equal(remediationCalls, 7);
+assert.equal(remediated.metadata.premiumEditUsed, true);
+assert.equal(remediated.metadata.remediationEditUsed, true);
+assert.equal(remediated.metadata.finalScore, 96);
+assert.match(remediated.content, /Versão corrigida/);
 
 console.log("Pipeline de três provedores validado com sucesso.");

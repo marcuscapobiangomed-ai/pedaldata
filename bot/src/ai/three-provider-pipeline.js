@@ -306,9 +306,84 @@ export class ThreeProviderPipeline {
       finalResult.finalAuditProvider = finalAuditResult.provider;
     }
 
-    const finalScore = Number(finalAudit.score || 0);
-    const finalBlockers = Array.isArray(finalAudit.blockers) ? finalAudit.blockers : [];
-    if (finalScore < Number(this.env.AI_FINAL_SCORE_THRESHOLD || 90) || finalBlockers.length > 0) {
+    const finalThreshold = Number(this.env.AI_FINAL_SCORE_THRESHOLD || 90);
+    let finalScore = Number(finalAudit.score || 0);
+    let finalBlockers = Array.isArray(finalAudit.blockers) ? finalAudit.blockers : [];
+    let remediationEditUsed = false;
+    if (premiumConfigured && (finalScore < finalThreshold || finalBlockers.length > 0)) {
+      const minimumWords = minimumWordsFor(contentType);
+      const generationTargetWords = Math.ceil(minimumWords * 1.2);
+      const remediationResult = await this.callStep({
+        step: "remediation-edit",
+        providers: ["deepseek", "gemini"],
+        sourceHash,
+        system: systemPrompt,
+        options: {
+          jsonMode: true,
+          temperature: 0,
+          maxTokens: 8192,
+          model: this.env.DEEPSEEK_PRO_MODEL || "deepseek-v4-pro",
+        },
+        user: [
+          "Faça uma correção final estritamente baseada nas evidências. Preserve o schema completo e responda somente em JSON.",
+          "Remova integralmente cada alegação proibida e cada afirmação apontada pelos bloqueadores; não as reformule como fato, inferência ou recomendação.",
+          "Substitua o espaço removido por explicação de método, critérios de decisão e limitações que não exijam novos fatos.",
+          `Mantenha pelo menos ${generationTargetWords} palavras reais, sem repetição, fatos novos ou conteúdo genérico.`,
+          "Não crie especificações, compatibilidades, categorias de uso, testes, preço, estoque ou disponibilidade.",
+          "",
+          "ALEGAÇÕES PROIBIDAS DA FICHA:",
+          JSON.stringify(factSheet.forbiddenClaims || [], null, 2),
+          "",
+          "BLOQUEADORES DO GATE FINAL:",
+          JSON.stringify(finalBlockers, null, 2),
+          "",
+          "PESQUISA:",
+          JSON.stringify(researchData, null, 2),
+          "",
+          "ARTIGO A CORRIGIR:",
+          JSON.stringify(extractJson(finalResult.content), null, 2),
+        ].join("\n"),
+      });
+      const remediationAuditResult = await this.callStep({
+        step: "remediation-audit",
+        providers: ["deepseek", "groq"],
+        sourceHash,
+        options: {
+          jsonMode: true,
+          temperature: 0,
+          maxTokens: 2200,
+          model: this.env.DEEPSEEK_FLASH_MODEL || "deepseek-v4-flash",
+        },
+        system: [
+          "Você é o gate editorial final do blog oficial da TheBiker.",
+          "Audite a versão corrigida contra a pesquisa e a lista de alegações proibidas. Não reescreva. Responda somente em JSON.",
+          "Nota abaixo de 90 ou qualquer bloqueador impede agendamento.",
+        ].join("\n"),
+        user: JSON.stringify({
+          topic,
+          researchData,
+          factSheet,
+          previousBlockers: finalBlockers,
+          finalArticle: extractJson(remediationResult.content),
+          checks: [
+            "reaparecimento de qualquer alegação proibida",
+            "alegações sem fonte",
+            "promoção de concorrentes",
+            "produto, versão ou medida incompatível",
+            "teste prático não realizado",
+            "texto genérico ou repetitivo",
+          ],
+          output: { score: "calcule um inteiro de 0 a 100", blockers: [{ type: "...", detail: "..." }], warnings: [] },
+        }),
+      });
+      finalResult = remediationResult;
+      finalResult.finalAuditProvider = remediationAuditResult.provider;
+      finalAudit = extractJson(remediationAuditResult.content);
+      finalScore = Number(finalAudit.score || 0);
+      finalBlockers = Array.isArray(finalAudit.blockers) ? finalAudit.blockers : [];
+      remediationEditUsed = true;
+    }
+    if (finalScore < finalThreshold || finalBlockers.length > 0) {
       throw new Error(`STATUS: REVISÃO FINAL REPROVADA\nNota ${finalScore}; bloqueadores: ${finalBlockers.map((item) => item.detail || item.type).join("; ") || "nota abaixo do mínimo"}`);
     }
 
@@ -322,6 +397,7 @@ export class ThreeProviderPipeline {
         finalScore,
         finalBlockers: finalBlockers.length,
         premiumEditUsed: requiresPremium && premiumConfigured,
+        remediationEditUsed,
         premiumEditPending: requiresPremium && !premiumConfigured,
         providers: {
           factSheet: factSheetResult.provider,
